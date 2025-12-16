@@ -1,170 +1,175 @@
-Machine Manpower Control
-====================================
+Controllo di forza del robot
+=======================================
 
-.. toctree:: 
+.. toctree::
     :maxdepth: 5
 
-Force Sensor Configuration
-++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-     /**
-     * @brief Configuring force sensors
-     * @param [in] company Force Sensor Manufacturer, 17 - Quintessence Technologies
-     * @param [in] device device number, not used, default is 0
-     * @param [in] softvesion software version number, not used, the default is 0
-     * @param [in] bus device hangs on the end of the bus position, do not use, the default is 0
-     * @return Error code
-     */
-     int FT_SetConfig(int company, int device, int softvesion, int bus); 
-
-Get the force transducer configuration 
-++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-     /** 
-     * @brief Get force sensor configuration 
-     * @param [out] deviceID force sensor number 
-     * @param [out] company Force Sensor Manufacturer,, Force Sensor Manufacturer, 17-Kunwei Technology, 19-Aerospace 11th Academy, 20-ATI Sensors, 21-Zhongke MiDot, 22-Weihang Minxin
-     * @param [out] device device number, Kunwei (0-KWR75B), Aisino Eleven (0-MCS6A-200-4), ATI (0-AXIA80 -M8), Zhongke MiDot (0-MST2010), Weihang Minxin (0-WHC6L-YB-10A) 
-     * @param [out] softvesion software version number, not used, the default is 0 
-     * @return Error code 
-     */ 
-     int FT_GetConfig(ref int deviceID, ref int company, ref int device, ref int softvesion); 
-
-Force sensor activation
-++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-     /**
-     * @brief Force sensor activation
-     * @param [in] act 0-reset, 1-activate
-     * @return Error code.
-     */
-     int FT_Activate(byte act). 
-
-Force Transducer Zeroing
-++++++++++++++++++++++++++++++++++++++++++
+Configurazione sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Force sensor zeroing
-    * @param [in] act 0-remove zero, 1-zero correction
-    * @return Error code
+    * @brief  Configura sensore di forza
+    * @param  [in] company  Produttore sensore di forza, 17-Kunwei Technology
+    * @param  [in] device  Numero dispositivo, attualmente non utilizzato, default 0
+    * @param  [in] softvesion  Numero versione software, attualmente non utilizzato, default 0
+    * @param  [in] bus  Posizione bus terminale dove è collegato il dispositivo, attualmente non utilizzato, default 0
+    * @return  Codice di errore
     */
-    int FT_SetZero(byte act). 
+    int FT_SetConfig(int company, int device, int softvesion, int bus);
 
-Set the force transducer reference coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni la configurazione del sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the force sensor reference coordinate system.
-    * @param [in] ref 0-tool coordinate system, 1-base coordinate system
-    * @return Error code.
+    * @brief Ottieni la configurazione del sensore di forza
+    * @param [out] deviceID Numero sensore di forza
+    * @param [out] company Produttore sensore di forza, 17-Kunwei Technology, 19-CASC 11th Academy, 20-Sensore ATI, 21-Zhongke Midian, 22-Weihang Minxin
+    * @param [out] device  Numero dispositivo, Kunwei(0-KWR75B), CASC 11th Academy(0-MCS6A-200-4), ATI (0-AXIA80 -M8), Zhongke Midian(0-MST2010), Weihang Minxin(0-WHC6L-YB-10A)
+    * @param [out] softvesion Numero versione software, attualmente non utilizzato, default 0
+    * @return Codice di errore
     */
-    int FT_SetRCS(byte type). 
+    int FT_GetConfig(ref int deviceID, ref int company, ref int device, ref int softvesion);
 
-Set the force transducer lower load weight
-++++++++++++++++++++++++++++++++++++++++++
+Attivazione sensore di forza
++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the load weight under the force sensor.
-    * @param [in] weight load weight kg
-    * @return Error code.
+    * @brief  Attivazione sensore di forza
+    * @param  [in] act  0-Ripristina, 1-Attiva
+    * @return  Codice di errore
+    */
+    int FT_Activate(byte act);
+
+Azzeramento sensore di forza
++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Azzeramento sensore di forza
+    * @param  [in] act  0-Rimuovi offset zero, 1-Correggi offset zero
+    * @return  Codice di errore
+    */
+    int FT_SetZero(byte act);
+
+Imposta il sistema di coordinate di riferimento del sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Imposta il sistema di coordinate di riferimento del sensore di forza
+    * @param  [in] ref  0-Sistema di coordinate utensile, 1-Sistema di coordinate base
+    * @return  Codice di errore
+    */
+    int FT_SetRCS(byte type);
+
+Imposta il peso del carico sotto il sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Imposta il peso del carico sotto il sensore di forza
+    * @param  [in] weight Peso del carico kg
+    * @return  Codice di errore
     */
     int SetForceSensorPayLoad(double weight);
 
-Set the force sensor payload center of mass
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta il centro di massa del carico sotto il sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Setting the center of mass of a load under a force sensor.
-    * @param [in] x load center of mass x mm 
-    * @param [in] y load center of mass y mm
-    * @param [in] z load center of mass z mm
-    * @return Error code
+    * @brief  Imposta il centro di massa del carico sotto il sensore di forza
+    * @param  [in] x Centro di massa carico x mm
+    * @param  [in] y Centro di massa carico y mm
+    * @param  [in] z Centro di massa carico z mm
+    * @return  Codice di errore
     */
     int SetForceSensorPayLoadCog(double x, double y, double z);
 
-Get the force sensor pay load weight
-++++++++++++++++++++++++++++++++++++++++++
+Ottieni il peso del carico sotto il sensore di forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the load weight under the force sensor.
-    * @param [in] weight load weight kg
-    * @return Error code.
+    * @brief  Ottieni il peso del carico sotto il sensore di forza
+    * @param  [in] weight Peso del carico kg
+    * @return  Codice di errore
     */
-    int GetForceSensorPayLoad(ref double weight).
+    int GetForceSensorPayLoad(ref double weight);
 
-Get force sensor payload center of mass
-++++++++++++++++++++++++++++++++++++++++++
+Ottieni il centro di massa del carico sotto il sensore di forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the center of mass of the load under the force transducer.
-    * @param [out] x load center of mass x mm 
-    * @param [out] y load center of mass y mm
-    * @param [out] z load center of mass z mm
-    * @return Error code
+    * @brief  Ottieni il centro di massa del carico sotto il sensore di forza
+    * @param  [out] x Centro di massa carico x mm
+    * @param  [out] y Centro di massa carico y mm
+    * @param  [out] z Centro di massa carico z mm
+    * @return  Codice di errore
     */
     int GetForceSensorPayLoadCog(ref double x, ref double y, ref double z);
 
-Automatic zeroing of the force sensor.
-++++++++++++++++++++++++++++++++++++++++++
+Azzeramento automatico sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Force sensor auto-zero
-    * @param [out] weight Sensor mass kg 
-    * @param [out] pos sensor center of mass mm
-    * @return Error code
+    * @brief  Azzeramento automatico sensore di forza
+    * @param  [out] weight Massa sensore kg
+    * @param  [out] pos Centro di massa sensore mm
+    * @return  Codice di errore
     */
     int ForceSensorAutoComputeLoad(ref double weight, ref DescTran pos);
 
-Get force/torque data in reference coordinate system.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni i dati forza/coppia nel sistema di coordinate di riferimento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get force/torque data in reference coordinate system.
-    * @param [out] ft force/torque, fx,fy,fz,tx,ty,tz
-    * @return Error code
-    */    
-    int FT_GetForceTorqueRCS(byte flag, ref ForceTorque ft); 
+    * @brief  Ottieni i dati forza/coppia nel sistema di coordinate di riferimento
+    * @param  [out] ft  Forza/Coppia, fx,fy,fz,tx,ty,tz
+    * @return  Codice di errore
+    */
+    int FT_GetForceTorqueRCS(byte flag, ref ForceTorque ft);
 
-Get force sensor raw force/torque data
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni i dati forza/coppia originali del sensore di forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get force sensor raw force/torque data.
-    * @param [out] ft force/torque, fx,fy,fz,tx,ty,tz
-    * @return Error code.
-    */    
-    int FT_GetForceTorqueOrigin(byte flag, ref ForceTorque ft); 
+    * @brief  Ottieni i dati forza/coppia originali del sensore di forza
+    * @param  [out] ft  Forza/Coppia, fx,fy,fz,tx,ty,tz
+    * @return  Codice di errore
+    */
+    int FT_GetForceTorqueOrigin(byte flag, ref ForceTorque ft);
 
-Force Transducer Configuration and Auto-Zero Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la configurazione e l'azzeramento automatico del sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     private void button54_Click(object sender, EventArgs e)
+    private void button54_Click(object sender, EventArgs e)
     {
         int company = 24;
         int device = 0;
@@ -214,61 +219,61 @@ Force Transducer Configuration and Auto-Zero Code Example
 
     }
 
-Load Weight Recognition Record
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registra identificazione peso carico
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Load weight recognition record.
-    * @param [in] id Sensor coordinate system number in the range [1~14].
-    * @return Error code.
+    * @brief  Registra identificazione peso carico
+    * @param  [in] id  Numero sistema di coordinate sensore, intervallo[1~14]
+    * @return  Codice di errore
     */
-    int FT_PdIdenRecord(int id).
+    int FT_PdIdenRecord(int id);
 
-Load weight recognition calculation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcola identificazione peso carico
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Load Weight Recognition Calculation
-    * @param [out] weight Weight of load in kg.
-    * @return Error code
-    */    
-    int FT_PdIdenCompute(ref double weight).
-
-Load center of mass identification record
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief Load center-of-mass identification record.
-    * @param [in] id Sensor coordinate system number, range [1~14].
-    * @param [in] index point number, range [1~3].
-    * @return Error code
+    * @brief  Calcola identificazione peso carico
+    * @param  [out] weight  Peso carico, unità kg
+    * @return  Codice di errore
     */
-    int FT_PdCogIdenRecord(int id, int index). 
+    int FT_PdIdenCompute(ref double weight);
 
-Load center of mass identification calculation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registra identificazione centro di massa carico
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Load center of mass identification calculation.
-    * @param [out] cog load center of mass in mm.
-    * @return Error code.
-    */    
+    * @brief  Registra identificazione centro di massa carico
+    * @param  [in] id  Numero sistema di coordinate sensore, intervallo[1~14]
+    * @param  [in] index Numero punto, intervallo[1~3]
+    * @return  Codice di errore
+    */
+    int FT_PdCogIdenRecord(int id, int index);
+
+Calcola identificazione centro di massa carico
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Calcola identificazione centro di massa carico
+    * @param  [out] cog  Centro di massa carico, unità mm
+    * @return  Codice di errore
+    */
     int FT_PdCogIdenCompute(ref DescTran cog);
 
-Force Transducer Load Recognition Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per l'identificazione del carico del sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     private void btnFTPdCog_Click(object sender, EventArgs e)
+    private void btnFTPdCog_Click(object sender, EventArgs e)
     {
         int company = 24, device = 0, softversion = 0, bus = 1;
 
@@ -322,30 +327,30 @@ Force Transducer Load Recognition Code Example
         Console.WriteLine($"cog: {cog.x}, {cog.y}, {cog.z}");
     }
 
-Collision Guard
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Guardia collisione
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief collision guarding
-    * @param [in] flag 0- turn off collision guarding, 1- turn on collision guarding
-    * @param [in] sensor_id Force sensor number.
-    * @param [in] select Whether to detect collision in six degrees of freedom, 0-no detection, 1-detection.
-    * @param [in] ft collision force/torque, fx,fy,fz,tx,ty,tz
-    * @param [in] max_threshold max_threshold
-    * @param [in] min_threshold min_threshold
-    * @note Force/torque detection range: (ft-min_threshold, ft+max_threshold)
-    * @return Error code
-    */    
-    int FT_Guard(int flag, int sensor_id, int[] select, ForceTorque ft, double[] max_threshold, double[] min_threshold); 
+    * @brief  Guardia collisione
+    * @param  [in] flag 0-Disabilita guardia collisione, 1-Abilità guardia collisione
+    * @param  [in] sensor_id Numero sensore di forza
+    * @param  [in] select  Seleziona quali sei gradi di libertà controllare per collisione, 0-Non controllare, 1-Controlla
+    * @param  [in] ft  Forza/coppia collisione, fx,fy,fz,tx,ty,tz
+    * @param  [in] max_threshold Soglia massima
+    * @param  [in] min_threshold Soglia minima
+    * @note   Intervallo di rilevamento forza/coppia: (ft-min_threshold, ft+max_threshold)
+    * @return  Codice di errore
+    */
+    int FT_Guard(int flag, int sensor_id, int[] select, ForceTorque ft, double[] max_threshold, double[] min_threshold);
 
-Collision Guard Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la guardia collisione
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     private void btnFTGuard_Click(object sender, EventArgs e)
+    private void btnFTGuard_Click(object sender, EventArgs e)
     {
         int company = 24, device = 0, softversion = 0, bus = 1;
 
@@ -382,38 +387,35 @@ Collision Guard Code Example
         robot.FT_Guard(0, sensor_id, select, ft, max_threshold, min_threshold);
     }
 
-Constant force control
-+++++++++++++++++++++++++++++++++++++++++++++
+Controllo forza costante
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
-    
+
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Constant force control
-    * @param  [in] flag 0- turn off constant force control, 1- turn on constant force control
-    * @param  [in] sensor_id Force sensor number
-    * @param  [in] select  Select the six degrees of freedom whether to detect collision, 0- no detection, 1- detection
-    * @param  [in] ft  Impact force/torque，fx,fy,fz,tx,ty,tz
-    * @param  [in] ft_pid Force pid parameter, torque pid parameter
-    * @param  [in] adj_sign Adaptive start-stop control, 0- off, 1- on
-    * @param  [in] ILC_sign ILC start stop control, 0- stop, 1- training, 2- operation
-    * @param  [in] max_dis Adjustment distance, unit: mm
-    * @param  [in] max_ang Adjustment Angle, unit: deg
-    * @param  [in] M Quality parameters
-    * @param  [in] B Damping parameter
-    * @param  [in] polishRadio Polish radius, unit: mm
-    * @param  [in] filter_Sign Filter on indicator 0- off; 1- On, off by default
-    * @param  [in] posAdapt_sign The posture conforms to the opening mark 0-off. 1- On, off by default
-    * @param  [in] isNoBlock Block flag, 0- block; 1- Non-blocking
-    * @return  Error code
+    * @brief  Controllo forza costante
+    * @param  [in] flag 0-Disabilita controllo forza costante, 1-Abilità controllo forza costante
+    * @param  [in] sensor_id Numero sensore di forza
+    * @param  [in] select  Seleziona quali sei gradi di libertà controllare, 0-Non controllare, 1-Controlla
+    * @param  [in] ft  Forza/coppia target, fx,fy,fz,tx,ty,tz
+    * @param  [in] ft_pid Parametri PID forza, parametri PID coppia
+    * @param  [in] adj_sign Controllo avvio/arresto adattativo, 0-Disabilita, 1-Abilita
+    * @param  [in] ILC_sign Controllo avvio/arresto ILC, 0-Arresta, 1-Addestra, 2-Operazione reale
+    * @param  [in] max_dis Massima distanza di regolazione, unità mm
+    * @param  [in] max_ang Massimo angolo di regolazione, unità deg
+    * @param  [in] filter_Sign Flag abilitazione filtro 0-Disabilitato; 1-Abilitato, default disabilitato
+    * @param  [in] posAdapt_sign Flag abilitazione adattamento postura 0-Disabilitato; 1-Abilitato, default disabilitato
+    * @param  [in] isNoBlock Flag bloccante, 0-Bloccante; 1-Non bloccante
+    * @return  Codice di errore
     */
     public int FT_Control(int flag, int sensor_id, int[] select, ForceTorque ft, double[] ft_pid, int adj_sign, int ILC_sign, double max_dis, double max_ang, int filter_Sign = 0, int posAdapt_sign = 0, int isNoBlock = 0);
 
-Constant force control with damping code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il controllo forza costante con smorzamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
-    
+
 .. code-block:: c#
     :linenos:
 
@@ -459,36 +461,36 @@ Constant force control with damping code example
         robot.CloseRPC();
     }
 
-Flex control on
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvia controllo compliance
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Smooth control on
-    * @param [in] p Position adjustment coefficient or softening coefficient.
-    * @param [in] force Soft opening force threshold in N
-    * @return Error Code
-    */    
+    * @brief  Avvia controllo compliance
+    * @param  [in] p Coefficiente di regolazione posizione o coefficiente compliance
+    * @param  [in] force Soglia forza per attivare compliance, unità N
+    * @return  Codice di errore
+    */
     int FT_ComplianceStart(float p, float force);
 
-Flex control off
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arresta controllo compliance
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Soft control off
-    * @return Error code
-    */    
-    int FT_ComplianceStop(); 
+    * @brief  Arresta controllo compliance
+    * @return  Codice di errore
+    */
+    int FT_ComplianceStop();
 
-Sample Flex Control Code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il controllo compliance
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     private void btnComplience_Click(object sender, EventArgs e)
+    private void btnComplience_Click(object sender, EventArgs e)
     {
         int company = 24, device = 0, softversion = 0, bus = 1;
         robot.FT_SetConfig(company, device, softversion, bus);
@@ -541,66 +543,69 @@ Sample Flex Control Code
         robot.FT_Control(flag, (byte)sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang);
     }
 
-Load recognition initialization
-++++++++++++++++++++++++++++++++++++++++++++
+Inizializza identificazione carico
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C#SDK-v1.0.4
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Load recognition initialization.
-    * @return Error code
+    * @brief Inizializza identificazione carico
+    * @return Codice di errore
     */
     int LoadIdentifyDynFilterInit();
 
-Load identification variable initialization
-+++++++++++++++++++++++++++++++++++++++++++++
+Inizializza variabili identificazione carico
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C#SDK-v1.0.4
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Initialization of load recognition variables.
-    * @return Error code
+    * @brief Inizializza variabili identificazione carico
+    * @return Codice di errore
     */
     int LoadIdentifyDynVarInit();
 
-Load Identification Main Program
-+++++++++++++++++++++++++++++++++++++++++++++
+Programma principale identificazione carico
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C#SDK-v1.0.4
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Load recognition main program.
-    * @param [in] joint_torque Joint torque.
-    * @param [in] joint_pos Joint position.
-    * @param [in] t Sampling period.
-    * @return Error code
+    * @brief Programma principale identificazione carico
+    * @param [in] joint_torque Coppia giunto
+    * @param [in] joint_pos Posizione giunto
+    * @param [in] t Periodo campionamento
+    * @return Codice di errore
     */
     int LoadIdentifyMain(double[] joint_torque, double[] joint_pos, double t);
 
-Get the load identification result
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottieni risultato identificazione carico
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-v1.0.4
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get load recognition results
-    * @param [in] gain Gravity term coefficient double[6], centrifugal term coefficient double[6].
-    * @param [out] weight load weight
-    * @param [out] cog load center of mass
-    * @return error code
+    * @brief Ottieni risultato identificazione carico
+    * @param [in] gain  Coefficiente termine gravità double[6], coefficiente termine centrifugo double[6]
+    * @param [out] weight Peso carico
+    * @param [out] cog Centro di massa carico
+    * @return Codice di errore
     */
     int LoadIdentifyGetResult(double[] gain, ref double weight, ref DescTran cog);
 
-Robot Load Identification Code Example
-+++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per l'identificazione del carico del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -639,61 +644,61 @@ Robot Load Identification Code Example
         Console.WriteLine("LoadIdentifyGetResult retval is: {0}; weight is {1} cog is {2} {3} {4}", retval, weight, load_pos.x, load_pos.y, load_pos.z);
     }
 
-Force sensor assisted drag
-+++++++++++++++++++++++++++++++++++++++++++++
+Trascinamento assistito da sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
-    
+
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Force sensor assisted drag
-    * @param [in] status control status, 0-off; 1-on
-    * @param [in] asaptiveFlag Adaptive on flag, 0-off; 1-on
-    * @param [in] interfereDragFlag Interference area drag flag, 0-off; 1-on
-    * @param [in] ingularityConstraintsFlag singularity strategy, 0-avoidance; 1-crossing
-    * @param [in] forceCollisionFlag Robot collision detection flag during auxiliary drag; 0-off; 1-on
-    * @param [in] M inertia coefficient
-    * @param [in] B Damping coefficient
-    * @param [in] K stiffness coefficient
-    * @param [in] F Drag six-dimensional force threshold
-    * @param [in] Fmax Maximum drag force limit Nm
-    * @param [in] Vmax Maximum joint speed limit °/s
-    * @return Error code
+    * @brief  Trascinamento assistito da sensore di forza
+    * @param  [in] status Stato controllo, 0-Disabilita; 1-Abilita
+    * @param  [in] asaptiveFlag Flag abilitazione adattamento, 0-Disabilita; 1-Abilita
+    * @param  [in] interfereDragFlag Flag trascinamento area di interferenza, 0-Disabilita; 1-Abilita
+    * @param  [in] ingularityConstraintsFlag Strategia punto singolare, 0-Evita; 1-Attraversa
+    * @param  [in] forceCollisionFlag Flag rilevamento collisione robot durante trascinamento assistito; 0-Disabilita; 1-Abilita
+    * @param  [in] M Coefficiente inerzia
+    * @param  [in] B Coefficiente smorzamento
+    * @param  [in] K Coefficiente rigidità
+    * @param  [in] F Soglia forza sei dimensioni per trascinamento
+    * @param  [in] Fmax Limite massimo forza trascinamento Nm
+    * @param  [in] Vmax Limite massimo velocità giunto °/s
+    * @return  Codice di errore
     */
-    int EndForceDragControl(int status, int asaptiveFlag, int interfereDragFlag,int ingularityConstraintsFlag,int forceCollisionFlag, double[] M , double[] B, double[] K, double[] F, double Fmax, double Vmax);
-    
-Get the state of the force sensor drag switch
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    int EndForceDragControl(int status, int asaptiveFlag, int interfereDragFlag,int ingularityConstraintsFlag,int forceCollisionFlag, double[] M, double[] B, double[] K, double[] F, double Fmax, double Vmax);
+
+Ottieni lo stato dell'interruttore di trascinamento del sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get force sensor drag switch state.
-    * @param [out] dragState force sensor assist drag control state, 0-off; 1-on
-    * @param [out] sixDimensionalDragState sixDimensionalForceAssistedDragState, 0-off; 1-on
-    * @return ErrorCode
+    * @brief  Ottieni lo stato dell'interruttore di trascinamento del sensore di forza
+    * @param  [out] dragState Stato controllo trascinamento assistito da sensore di forza, 0-Disabilita; 1-Abilita
+    * @param  [out] sixDimensionalDragState Stato controllo trascinamento assistito a sei dimensioni, 0-Disabilita; 1-Abilita
+    * @return  Codice di errore
     */
     int GetForceAndTorqueDragState(ref int dragState, ref int sixDimensionalDragState);
 
-The force sensor is automatically turned on after the error is cleared
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione automatica sensore di forza dopo cancellazione errore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief The force sensor is automatically turned on after an error is cleared.
-    * @param [in] status Control status, 0-off, 1-on.
-    * @return Error code
+    * @brief  Attivazione automatica sensore di forza dopo cancellazione errore
+    * @param  [in] status Stato controllo, 0-Disabilita; 1-Abilita
+    * @return  Codice di errore
     */
     int SetForceSensorDragAutoFlag(int status);
 
-Force Sensor Assisted Drag Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il trascinamento assistito da sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     private void button61_Click(object sender, EventArgs e)
+    private void button61_Click(object sender, EventArgs e)
     {
         robot.SetForceSensorDragAutoFlag(1);
         double[] M = { 15.0, 15.0, 15.0, 0.5, 0.5, 0.1 };
@@ -712,30 +717,31 @@ Force Sensor Assisted Drag Code Example
         robot.EndForceDragControl(0, 0, 0, 0, M, B, K, F, 50, 100);
     }
 
-Setting up the six-dimensional force and joint impedance hybrid drag switch and parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta interruttore e parametri per trascinamento ibrido a sei dimensioni e impedenza giunto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Setting up a six-dimensional force and joint impedance hybrid drag switch and parameters.
-    * @param [in] status Control status, 0-off, 1-on.
-    * @param [in] impedanceFlag impedance on flag, 0-off; 1-on
-    * @param [in] lamdeDain drag gain
-    * @param [in] KGain Stiffness Gain
-    * @param [in] BGain damping gain
-    * @param [in] dragMaxTcpVel Drag End Max Linear Velocity Limit
-    * @param [in] dragMaxTcpOriVel Maximum angular velocity limit at drag end
-    * @return Error code
+    * @brief  Imposta interruttore e parametri per trascinamento ibrido a sei dimensioni e impedenza giunto
+    * @param  [in] status Stato controllo, 0-Disabilita; 1-Abilita
+    * @param  [in] impedanceFlag Flag abilitazione impedenza, 0-Disabilita; 1-Abilita
+    * @param  [in] lamdeDain Guadagno trascinamento
+    * @param  [in] KGain Guadagno rigidità
+    * @param  [in] BGain Guadagno smorzamento
+    * @param  [in] dragMaxTcpVel Limite massimo velocità lineare TCP durante trascinamento
+    * @param  [in] dragMaxTcpOriVel Limite massimo velocità angolare TCP durante trascinamento
+    * @return  Codice di errore
     */
-    int ForceAndJointImpedanceStartStop(int status, impedanceFlag, double[] lamdeDain, double[] KGain, double[] BGain, double dragMaxTcpVel, double dragMaxTcpOriVel);
+    int ForceAndJointImpedanceStartStop(int status, int impedanceFlag, double[] lamdeDain, double[] KGain, double[] BGain, double dragMaxTcpVel, double dragMaxTcpOriVel);
 
-Force Sensor Assisted Drag Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il trascinamento assistito da sensore di forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     private void button62_Click(object sender, EventArgs e)
+    private void button62_Click(object sender, EventArgs e)
     {
         robot.DragTeachSwitch(1);
         double[] lambdaGain = { 3.0, 2.0, 2.0, 2.0, 2.0, 3.0 };
@@ -743,26 +749,13 @@ Force Sensor Assisted Drag Code Example
         double[] bGain = { 150, 150, 150, 5.0, 5.0, 1.0 };
         int rtn = robot.ForceAndJointImpedanceStartStop(1, 0, lambdaGain, kGain, bGain, 1000, 180);
         Console.WriteLine($"ForceAndJointImpedanceStartStop rtn is {rtn}");
-        Thread.Sleep(5000); 
+        Thread.Sleep(5000);
         robot.DragTeachSwitch(0);
         rtn = robot.ForceAndJointImpedanceStartStop(0, 0, lambdaGain, kGain, bGain, 1000, 180);
         Console.WriteLine($"ForceAndJointImpedanceStartStop rtn is {rtn}");
     }
 
-Setting up the Wire Seek Expansion IO Port
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief Setting up a wire-seeking extended IO port.
-    * @param searchDoneDINum Successful DO port (0-127) for wire seek.
-    * @param searchStartDONum The start/stop control DO port (0-127).
-    * @return Error Code
-    */
-    int SetWireSearchExtDIONum(int searchDoneDINum, int searchStartDONum);
-
-Impedance Control Start/Stop
+Controllo avvio/arresto impedenza
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -770,22 +763,22 @@ Impedance Control Start/Stop
     :linenos:
 
     /**
-    * @brief Impedance Control Start/Stop
-    * @param [in] status 0: disable; 1-enable
-    * @param [in] workSpace 0-joint space; 1-Cartesian space
-    * @param [in] forceThreshold Trigger force threshold (N)
-    * @param [in] m Mass parameter
-    * @param [in] b Damping parameter
-    * @param [in] k Stiffness parameter
-    * @param [in] maxV Max linear velocity (mm/s)
-    * @param [in] maxVA Max linear acceleration (mm/s2)
-    * @param [in] maxW Max angular velocity (°/s)
-    * @param [in] maxWA Max angular acceleration (°/s2)
-    * @return Error code
+    * @brief Controllo avvio/arresto impedenza
+    * @param [in] status 0: Disabilita; 1-Abilità
+    * @param [in] workSpace 0-Spazio giunto; 1-Spazio cartesiano
+    * @param [in] forceThreshold Soglia forza di attivazione (N)
+    * @param [in] m Parametro massa
+    * @param [in] b Parametro smorzamento
+    * @param [in] k Parametro rigidità
+    * @param [in] maxV Massima velocità lineare (mm/s)
+    * @param [in] maxVA Massima accelerazione lineare (mm/s2)
+    * @param [in] maxW Massima velocità angolare (°/s)
+    * @param [in] maxWA Massima accelerazione angolare (°/s2)
+    * @return Codice di errore
     */
     public int ImpedanceControlStartStop(int status, int workSpace, double[] forceThreshold, double[] m, double[] b, double[] k, double maxV, double maxVA, double maxW, double maxWA)
 
-Robot Impedance Control Start/Stop Code Example
+Esempio di codice per il controllo avvio/arresto impedenza del robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -793,7 +786,7 @@ Robot Impedance Control Start/Stop Code Example
     :linenos:
 
     public void TestImpedanceControl()
-    { 
+    {
         int[] ctrl = new int[20];
         int state;
         int pressValue;
@@ -803,10 +796,10 @@ Robot Impedance Control Start/Stop Code Example
         JointPos j2 = new JointPos(93.674, -80.062, 82.947, -92.199, -90.967, 26.559);
         DescPose desc_pos1 = new DescPose(136.552, -149.799, 449.532, 179.817, -1.172, 157.123);
         DescPose desc_pos2 = new DescPose(136.540, -561.048, 449.542, 179.819, -1.172, 157.122);
-    
+
         DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
         ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
-    
+
         int tool = 0;
         int user = 0;
         float vel = 100.0f;
@@ -814,9 +807,9 @@ Robot Impedance Control Start/Stop Code Example
         float ovl = 100.0f;
         float blendT = -1.0f;
         float blendR = -1.0f;
-    
+
         byte flag = 0;
-    
+
         byte search = 0;
         robot.SetSpeed(20);
         int company = 17;
@@ -828,7 +821,7 @@ Robot Impedance Control Start/Stop Code Example
         robot.FT_GetConfig(ref company, ref device, ref softversion, ref bus);
         Console.WriteLine($"FT config:{company},{device},{softversion},{bus}");
         Thread.Sleep(1000);
-    
+
         robot.FT_Activate(0);
         Thread.Sleep(1000);
         robot.FT_Activate(1);
@@ -838,7 +831,7 @@ Robot Impedance Control Start/Stop Code Example
         Thread.Sleep(1000);
         robot.FT_SetZero(1);
         Thread.Sleep(1000);
-    
+
         double[] forceThreshold = new double[] { 30, 30, 30, 5, 5, 5 };
         double[] m = new double[] { 0.1, 0.1, 0.1, 0.02, 0.02, 0.02 };
         double[] b = new double[] { 1, 1, 1, 0.08, 0.08, 0.08 };

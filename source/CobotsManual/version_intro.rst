@@ -1,691 +1,679 @@
-Version V3.9.0
------------------
+Versione V3.9.0  
+-----------------  
+
+Data: 2025-11-27  
 
-Date: 2025-11-27
+- **Applicazione della testa di levigatura DFC con controllo di forza Dajuru**:  
+  Percorso: Impostazioni iniziali → Periferiche → Levigatura → Testa di levigatura DFC con controllo di forza Dajuru.  
+  
+  Descrizione: La parte software della periferica intelligente DFC per il controllo di forza nella levigatura è stata adeguatamente adattata e testata, soddisfacendo pienamente i requisiti di integrazione del sistema di levigatura DFC.  
+
+- **Calibrazione dei parametri del sensore di coppia articolare sull’intero robot**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Blocco trascinamento → Trascinamento completo con sensore di coppia articolare.  
+  
+  Descrizione: Eseguendo una traiettoria predefinita, vengono calibrati i parametri chiave del sensore di coppia articolare: sensibilità, linearità, errore di isteresi e ripetibilità.  
+
+- **Nuova funzione di insegnamento tramite trascinamento guidato dal sensore di coppia articolare per evitare sovraoscillazioni**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Blocco trascinamento → Trascinamento completo con sensore di coppia articolare.  
+  
+  Descrizione: Mitiga il fenomeno di sovraoscillazione nel loop di corrente durante il trascinamento; una volta attivata, questa funzione consente un’operazione di posizionamento manuale precisa e intuitiva.  
 
-- **DARU DFC Force Control Polishing Head Application**:
-    Path: Initial Setup -> Peripherals -> Polishing -> DARU DFC Force Control Polishing Head.
+- **Funzione di saldatura su linee di intersezione (curve di intersezione)**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione "Linea di intersezione".  
+  
+  Descrizione: Registrando 6 punti di insegnamento rispettivamente sulle sezioni trasversali del tubo principale e del tubo di raccordo, e inserendo parametri quali direzione di movimento, velocità, accelerazione e valore di offset, il robot genera automaticamente la traiettoria della linea di intersezione tra due tubi circolari ed esegue la saldatura.  
 
-    Description: The software component for the DFC intelligent flexible polishing force control peripheral has been adapted and tested, meeting the adaptation requirements of the DFC polishing system.
+- **Estensione della funzione “Attesa ingresso analogico Modbus” con aggiunta della condizione “uguale a”**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzioni Modbus.  
+  
+  Descrizione: È stata aggiunta la possibilità di impostare una condizione di attesa basata sull’uguaglianza del valore di ingresso analogico proveniente da una stazione Modbus remota.  
 
-- **Parameter Calibration of Joint Torque Sensor on the Complete Machine**:
-    Path: Auxiliary Applications -> Tool Applications -> Drag Lock -> Joint Torque Sensor Whole Machine Drag.
+- **Aggiornamento istantaneo dei punti di insegnamento e nuova funzione di esecuzione singola LIN**:  
+  Percorso: Programma di insegnamento → Punti di insegnamento → Gestione punti.  
+  
+  Descrizione: Dall’interfaccia di gestione dei punti, è possibile aggiornare immediatamente la posa attuale del robot nel punto corrispondente utilizzando la barra di controllo fisica; è inoltre possibile scegliere se sincronizzare automaticamente tale aggiornamento con i programmi di insegnamento associati. È stata inoltre introdotta l’esecuzione singola di istruzioni LIN.  
 
-    Description: Run a predetermined trajectory to complete parameter calibration for the joint torque sensor's sensitivity, linearity, hysteresis error, and repeatability accuracy.
+- **Ottimizzazione della funzione di registrazione punti in modalità tabella posizioni**:  
+  Percorso: Programma di insegnamento → Punti di insegnamento → Gestione punti.  
+  
+  Descrizione: In modalità tabella posizioni, la riregistrazione di un punto aggiorna automaticamente anche il relativo programma Lua. Sono stati risolti problemi occasionali riscontrati in precedenza: sovraspeed nel modo di riduzione PTP e arresto anomalo dopo il raggiungimento del punto finale nel modo di regolazione velocità LIN.  
 
-- **New Joint Torque Sensor-Based Guided Drag Teaching Function to Avoid Overshoot**:
-    Path: Auxiliary Applications -> Tool Applications -> Drag Lock -> Joint Torque Sensor Whole Machine Drag.
+- **File di configurazione ``user``**:  
+  Descrizione: Migliorata la gestione degli errori di caricamento del file di configurazione ``user``: sono state aggiunte funzionalità di riavvio automatico del file di backup e di ripristino (rollback) del backup in caso di errore.  
 
-    Description: Mitigates drag overshoot phenomena in the current loop. After enabling this function, drag-to-point operations can be performed conveniently.
+- **Versione dell’interfaccia web**:  
+  Descrizione: L’interfaccia web è stata aggiornata alla versione 2.0, con miglioramenti significativi nell’usabilità, nell’aspetto grafico e nella fluidità delle operazioni.  
 
-- **Intersecting Line Welding Function**:
-    Path: Teach Program -> Program Programming -> Intersecting Line Instruction.
+- **Nuovi modelli robotici V6.5**:  
+  Descrizione: Grazie a ottimizzazioni hardware (es. riduttori) e algoritmi avanzati, è stata ridotta la vibrazione del robot e migliorata la precisione di tracciamento della traiettoria. Sono stati introdotti i nuovi modelli: FR3, FR5, FR10, FR16 e FR20.  
 
-    Description: Record 6 taught points on the cross-sections of the main pipe and branch pipe respectively, input parameters such as motion direction, speed, acceleration, and offset values. The robot can then generate the intersecting line trajectory formed by the intersection of the two circular pipes and perform welding.
+- **Configurazione aggiuntiva per il modello robotico FR5C**:  
+  Descrizione: La versione LA del software include ora il supporto nativo per la configurazione del modello robotico FR5C.  
 
-- **Modbus Wait for Analog Input Setting Adds Equal Judgment Function**:
-    Path: Teach Program -> Program Programming -> Modbus Instruction.
+Versione V3.8.7  
+-----------------  
 
-    Description: Added equal judgment for the slave station wait for analog input wait status.
+Data: 2025-10-21  
 
-- **Teach Point One-Click Update & LIN Single Point Execution Function**:
-    Path: Teach Program -> Teach Points -> Teach Management.
+- **Funzione di rilevamento collisione per guide lineari a cremagliera**:  
+  Percorso: Impostazioni iniziali → Base → Articolazioni → Livello di collisione → Rilevamento collisione per guide lineari a cremagliera.  
+  
+  Descrizione: Consente l’arresto d’emergenza del robot qualora si verifichi una collisione durante il movimento della guida lineare, migliorando notevolmente la sicurezza operativa.  
 
-    Description: On the teach point interface, update the current robot pose to the corresponding point via the robot body operation bar, with the option to sync the teach program. Added LIN single point execution method.
+- **Nuova funzione di impostazione della velocità fisica reale per la traiettoria elicoidale N-Spiral**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione "Elica N-Spiral".  
+  
+  Descrizione: Garantisce che la velocità lineare effettiva dell’estremità strumentale sia costante e coincida esattamente con il valore impostato nella fase uniforme della traiettoria.  
 
-- **Optimized Point Recording Function in Point Table Mode**:
-    Path: Teach Program -> Teach Points -> Teach Management.
+- **Ripristino automatico opzionale dopo arresto di sicurezza**:  
+  Percorso: Impostazioni iniziali → Sicurezza → Arresto di emergenza.  
+  
+  Descrizione: È stata aggiunta una nuova configurazione per la strategia di riabilitazione post-reset dell’arresto di emergenza, conforme alla categoria 1b secondo la norma EN ISO 13850.  
 
-    Description: Re-recording points in point table mode can synchronously update the Lua program. Optimized to resolve occasional overspeed in PTP reduction mode and occasional motion stop after arrival in LIN speed adjustment mode.
+- **Taratura a carico del sensore di forza/torsione e parametri di ammettenza per l’adattamento di orientamento**:  
+  Percorso: Impostazioni iniziali → Base → Carico; Programma di insegnamento → Programmazione → Istruzione "F/T Control".  
+  
+  Descrizione: Sono stati resi disponibili nuovi parametri di ammettenza per consentire l’adattamento dinamico dell’orientamento dello strumento in risposta alle forze esterne.  
 
-- **User Configuration File**:
-    Description: Optimized handling of robot user configuration file loading failures. Added automatic restart backup configuration file and rollback backup configuration file functions.
+- **Nuova funzione di tracciamento laser in tempo reale su archi e cerchi completi**:  
+  Descrizione: Il sistema è in grado di eseguire il tracciamento laser in tempo reale su archi circolari e cerchi completi, con variazione continua dell’orientamento durante il movimento, permettendo così la scansione e la riproduzione fedele di tali geometrie.  
 
-- **Web Interface Version**:
-    Description: Web interface version updated to 2.0, featuring updated and optimized software operation interface.
+- **Funzione box comandi (button box)**:  
+  Descrizione: Ottimizzazione della funzione di reset dell’indirizzo IP nella versione 1.0 del box comandi.  
 
-- **New V6.5 Robot Models**:
-    Description: Through hardware (such as reducers) and algorithm optimizations, robot vibration is reduced and trajectory accuracy is improved. Added FR3, FR5, FR10, FR16, FR20 robot models.
+Versione V3.8.6  
+-----------------  
 
-- **New FR5C Robot Model Configuration**:
-    Description: The LA version software adds FR5C robot model configuration functionality.
+Data: 2025-09-19  
 
-Version V3.8.7
------------------
+- **Nuova funzione di controllo impedenza del robot**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione "F/T".  
+  
+  Descrizione: Rileva in tempo reale le forze esterne applicate: al superamento di una soglia predefinita, il robot si adatta attivamente deviando dalla traiettoria programmata; al ritorno sotto la soglia, riprende la traiettoria originale, migliorando l’interazione uomo-robot.  
 
-Date: 2025-10-21
+- **Nuova funzione di verifica del momento torcente prima del trascinamento**:  
+  Percorso: Impostazioni iniziali → Base → Livello di collisione.  
+  
+  Descrizione: Prima di entrare nella modalità di trascinamento, viene calcolata la differenza tra comando e feedback di coppia per ciascuna articolazione. Se tale differenza supera una soglia critica (causata da errata configurazione del carico o del montaggio), il trascinamento viene bloccato, prevenendo potenziali perdite di controllo.  
 
-- **Linear Rack Guideway Robot Collision Detection Function**:
-    Path: Initial Setup -> Basic -> Joints -> Collision Level -> Linear Rack Guideway Robot Collision Detection.
+- **Nuova funzione di saldatura oscillante personalizzabile**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione "Weave".  
+  
+  Descrizione: L’utente può definire liberamente la forma, la frequenza, l’ampiezza e la legge di variazione dell’oscillazione per realizzare saldature personalizzate.  
 
-    Description: Enables the guideway to perform an emergency stop upon collision during movement, thereby enhancing operational safety.
+- **ModbusTCP**:  
+  Percorso: Programma di insegnamento → Programmazione → ModbusTCP.  
+  
+  Descrizione: Migliorata la gestione del timeout del master ModbusTCP, garantendo maggiore affidabilità nelle comunicazioni prolungate.  
 
-- **New Actual Physical Speed Setting Function for New Helix**:
-    Path: Teach Program -> Program Programming -> New Helix N-Spiral Command.
+- **Ventose pneumatiche**:  
+  Percorso: Impostazioni iniziali → Periferiche → Ventose a matrice.  
+  
+  Descrizione: Ottimizzata la compatibilità dell’interfaccia web con le ventose pneumatiche a matrice.  
 
-    Description: Ensures the constant velocity segment of the robot end-effector's linear speed matches the set value.
+- **Gestione degli errori di localizzazione del filo di saldatura**:  
+  Descrizione: Migliorata la segnalazione degli errori relativi alla ricerca del filo di saldatura nell’app WebAPP, con possibilità di azzeramento manuale dell’allarme.  
 
-- **Safety Stop Recovery Optional Auto Enable Function**:
-    Path: Initial Setup -> Safety -> Emergency Stop.
+- **Funzione IO configurabile**:  
+  Descrizione: Aggiunta la possibilità di configurare gli ingressi (CI0–CI4) e le uscite (CO0–CO4) per i modelli FR3C e FR3MT.  
 
-    Description: Added configuration for enable strategy after Category 1b emergency stop reset.
+Versione V3.8.5  
+-----------------  
 
-- **Force Sensor Loaded Zeroing and Open Posture Compliance Admittance Parameters**:
-    Path: Initial Setup -> Basic -> Load, Teach Program -> Program Programming -> F/T Control Command.
+Data: 2025-08-19  
 
-    Description: Added open posture compliance admittance parameters.
+- **Debug della rete Socket**:  
+  Percorso: Programma di insegnamento → Programmazione → Debug rete Socket.  
+  
+  Descrizione: Consente di creare, configurare e rimuovere fino a 4 connessioni Socket. Attraverso moduli istruzione è possibile generare programmi di insegnamento per aprire/chiudere connessioni, inviare e ricevere dati.  
 
-- **New Laser Tracking Function for Arcs and Full Circles**:
+- **Funzione di conversione da G-code CAD a traiettoria robotica**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Conversione G-code.  
+  
+  Descrizione: I file G-code generati da software CAM (es. SolidWorks, Fusion 360) contenenti linee, archi, cerchi e curve spline possono essere importati direttamente nell’interfaccia web per la generazione automatica della traiettoria robotica.  
 
-    Description: Enables real-time laser tracking functionality for arcs and full circles, with posture following changes during motion, allowing laser scanning reproduction for arcs and full circles.
+- **Aggiunta della velocità fisica reale alle istruzioni di movimento (lineare, arco, cerchio)**:  
+  Percorso: Programma di insegnamento → Programmazione; Impostazioni iniziali → Periferiche → Manico di saldatura.  
+  
+  Descrizione: Ora è possibile specificare direttamente la velocità fisica effettiva con cui verrà eseguita l’istruzione di movimento.  
 
-- **Button Box Function**:
+- **Ottimizzazione della funzione di regolazione della velocità PTP**:  
+  Descrizione: Garantisce una transizione fluida tra diverse velocità, riducendo le fluttuazioni improvvise nei punti di collegamento tra istruzioni.  
 
-    Description: Optimized the Button Box Version 1.0 reset IP function.
+- **Configurazione modelli robotici**:  
+  Descrizione: Aggiunta la configurazione per il modello robotico FR30L.  
 
-Version V3.8.6
------------------
+- **Adattamento del cabinet di controllo**:  
+  Descrizione: Nuovo supporto per la scheda ETMP03E (protocollo EtherCAT).  
 
-Date: 2025-09-19
+Versione V3.8.4.1  
+-----------------  
 
-- **New Robot Impedance Control Function**:
-    Path: Teach Program -> Program Programming -> F/T Command.
+Data: 2025-07-30  
 
-    Description: Through real-time detection of external forces, the robot actively complies with the external force and deviates from the motion trajectory when the set threshold is reached. It returns to the motion trajectory when the external force drops below the threshold, enabling better human-robot interaction.
+- **Adattamento del cabinet di controllo al modulo di trasparenza Ethernet e al controllo di ventose/morsetti**:  
+  Percorso: Impostazioni iniziali → Periferiche → Ventose a matrice.  
+  
+  Descrizione: Consente il controllo di fino a 20 ventose a matrice tramite modulo Ethernet-to-RS485, sia attraverso l’interfaccia web che tramite protocollo aperto.  
 
-- **New Torque Detection Function Before Dragging**:
-    Path: Initial Setup -> Basic -> Collision Level.
+- **Pianificazione anticipata della traiettoria (anticipazione a velocità costante)**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Aggiunta un’opzione di attivazione/disenabilitazione per il movimento anticipato a velocità costante.  
 
-    Description: Before entering drag mode, the difference between the torque command and feedback for each joint is calculated. If the load or installation method is incorrectly configured, causing the difference to exceed the threshold, entry into drag mode is prevented to avoid robot失控.
+- **Ottimizzazione della funzione “modalità slave” del cabinet di controllo**:  
+  Percorso: Impostazioni iniziali → Periferiche → Comunicazione schede / Modalità remota.  
+  
+  Descrizione: Nuovo supporto per la scheda ETMP03E di Jiyuan (protocollo EtherCAT).  
 
-- **New Custom Oscillation Welding Function**:
-    Path: Teach Program -> Program Programming -> Weave Command.
+- **Funzione di acquisizione della posizione di ricerca laser**:  
+  Percorso: Impostazioni iniziali → Periferiche → Sensore laser a linea.  
+  
+  Descrizione: Dopo un’esecuzione riuscita della ricerca del giunto saldato mediante laser, è possibile recuperare la posizione memorizzata nella variabile ``seamPos`` tramite SDK o comandi TCP.  
 
-    Description: Users can design their own oscillation welding patterns to execute oscillation welding.
+- **Aumento delle velocità massime per FR5 e FR10**:  
+  Descrizione: Velocità lineare massima di FR5 aumentata da 1,0 m/s a 1,7 m/s; quella di FR10 da 1,5 m/s a 2,0 m/s.  
 
-- **ModbusTCP**:
-    Path: Teach Program -> Program Programming -> ModbusTCP.
+- **Configurazione modelli robotici**:  
+  Descrizione: Aggiunta la configurazione per il modello robotico FR5-WML (braccio allungato).  
 
-    Description: Optimized the ModbusTCP master station timeout detection function.
+- **Ottimizzazione dell’aggiornamento software**:  
+  Descrizione: Riduzione dei tempi di aggiornamento; compatibilità completa con downgrade da qualsiasi versione successiva a una qualsiasi versione compresa tra 3.7.6 e 3.8.4.  
 
-- **Pneumatic Suction Cup**:
-    Path: Initial Setup -> Peripherals -> Array Suction Cup.
+- **Ottimizzazione del ripristino delle impostazioni di fabbrica**:  
+  Descrizione: Il ripristino conserva il modello robotico, i parametri di rigidità, le impostazioni della dinamica e la versione del box comandi.  
 
-    Description: Optimized the web page adaptation function for pneumatic suction cups.
+Versione V3.8.4  
+-----------------  
 
-- **Wire Feeding Search Position Fault Error**:
+Data: 2025-07-18  
 
-    Description: Optimized WebAPP wire feeding search position fault error reporting, which can be reset.
+- **Implementazione della funzione di transizione morbida (blending) per assi esterni**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Garantisce movimenti continui e senza scosse tra istruzioni che coinvolgono assi esterni, migliorando efficienza e qualità del movimento.  
 
-- **Configurable IO Function**:
+- **Ottimizzazione della funzione “modalità slave” del cabinet di controllo**:  
+  Percorso: Impostazioni iniziali → Periferiche → Comunicazione schede / Modalità remota.  
+  
+  Descrizione: Aggiunta la possibilità di configurare l’indirizzo IP delle schede, di inviare istruzioni LUA dall’interfaccia e di abilitare l’avvio automatico del protocollo slave in modalità remota.  
 
-    Description: Added configurable IO function for FR3C-FR3MT. Configurable inputs are CI0-CI4, and configurable outputs are CO0-CO4.
+- **Adattamento della scheda N2L QX (EtherCAT)**:  
+  Descrizione: Scheda di comunicazione industriale in tempo reale Faao, formato miniPCIe, compatibile con il protocollo EtherCAT.  
 
-Version V3.8.5
------------------
+- **Movimento JOG del robot**:  
+  Descrizione: Aggiunta l’uscita di stato CO durante il movimento JOG.  
 
-Date: 2025-08-19
+Versione V3.8.3  
+-----------------  
 
-- **Socket Network Debugging**:
-    Path: Teach Program -> Program Programming -> Socket Network Debugging.
+Data: 2025-06-27  
 
-    Description: Allows adding, configuring, and deleting socket connection configurations, supporting up to 4 socket connections. Command modules can generate teach programming for opening connections, closing connections, sending data, and receiving data.
+- **Funzione “modalità slave” per cabinet di controllo**:  
+  Percorso: Impostazioni iniziali → Periferiche → Comunicazione schede.  
+  
+  Descrizione: Nuovo modulo di configurazione per la comunicazione con schede di espansione nazionali, supportando protocolli EIP, CC-Link e Profinet per l’interfacciamento con il robot in modalità slave.  
 
-- **CAD to G-code to Robot Trajectory Planning Function**:
-    Path: Auxiliary Applications -> Tool Applications -> G-code Conversion.
+- **Rilevamento collisione con sensore di forza in modalità manuale**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Blocco trascinamento → Blocco assistito da sensore di forza.  
+  
+  Descrizione: Quando la funzione di trascinamento assistito da sensore di forza è attiva, il rilevamento collisione rimane attivo anche in modalità manuale, proteggendo efficacemente l’estremità strumentale.  
 
-    Description: Generate G-code files for machining trajectories like lines, arcs, circles, and splines in CAM software such as Solidworks and FUSION360, then import the G-code files into the Web端.
+- **Pianificazione della traiettoria con profilo di velocità “a T” + funzione blending**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Garantisce transizioni fluide tra istruzioni di movimento consecutive, incrementando produttività e qualità del movimento.  
 
-- **Added Actual Physical Speed Function for Linear, Arc, and Full Circle Motion Commands**:
-    Path: Teach Program -> Program Programming, Initial Setup -> Peripherals -> Welding Handle.
+- **Ottimizzazione dell’interfaccia di interrogazione dello stato in WebApp**:  
+  Percorso: Informazioni di stato → Interrogazione stato.  
+  
+  Descrizione: Parametri visualizzabili ridotti a 6; durata massima della forma d’onda: 30 secondi; aggiunta visualizzazione dati in tabella con copia negli appunti; possibilità di rinominare le etichette dei grafici.  
 
-    Description: Allows direct definition of the actual running physical speed for the current motion command.
+- **Ottimizzazione della forza di trascinamento per tutta la serie FR**:  
+  Percorso: Impostazioni iniziali → Base → Articolazioni → Compensazione attrito → Compensazione forza di trascinamento.  
+  
+  Descrizione: Introduce una compensazione attiva del momento torcente durante il trascinamento, rendendo l’operazione più agevole e naturale.  
 
-- **Optimized PTP Speed Adjustment Function**:
+- **Ottimizzazione della memorizzazione dei log di sistema**:  
+  Descrizione: Risolto un bug che causava anomalie nei file di log; impostazione predefinita di conservazione dei log: 7 giorni.  
 
-    Description: Ensures a smooth speed adjustment process and reduces speed fluctuations at the衔接 points of speed adjustments.
+Versione V3.8.2  
+-----------------  
 
-- **Robot Model Configuration**:
+Data: 2025-05-29  
 
-    Description: Added FR30L robot model configuration option.
+- **Adattamento del manico di saldatura tramite protocollo Lua aperto sull’estremità**:  
+  Percorso: Impostazioni iniziali → Periferiche → Manico di saldatura.  
+  
+  Descrizione: Supporto completo per il manico di saldatura SmartTool tramite protocollo aperto; tutti i parametri sono completamente configurabili.  
 
-- **Control Box Adaptation**:
+- **Estensione del protocollo aperto per periferiche del controller con protocollo per saldatrici**:  
+  Percorso: Impostazioni iniziali → Periferiche → Saldataci.  
+  
+  Descrizione: Possibilità di controllare la saldatrice tramite protocollo ModbusTCP utilizzando il protocollo aperto del controller.  
 
-    Description: Added control box adaptation for ETMP03E board (EtherCAT protocol).
+- **Nuova funzione di pausa per i programmi Lua**:  
+  Percorso: Programma di insegnamento → Programmazione.  
+  
+  Descrizione: Durante l’esecuzione di un programma di insegnamento, è possibile mettere in pausa l’esecuzione su qualsiasi riga — inclusi comandi di attesa e di comunicazione — senza che il tempo di attesa venga consumato.  
 
-Version V3.8.4.1
------------------
+- **Funzione di modellazione della velocità “a T” + blending**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Attivando la modalità “a T”, la curva di velocità diventa più fluida. Il blending supportato comprende: PTP–PTP, LIN–LIN, ARC–ARC, LIN–ARC, ARC–LIN.  
 
-Date: 2025-07-30
+- **Funzione FIR con parametri adattivi + ripresa dopo pausa**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi; Impostazioni iniziali → Sicurezza → Configurazione movimento.  
+  
+  Descrizione: Aggiunta l’opzione di abilitazione globale FIR e di attivazione automatica dei parametri adattivi; quando attivata, le istruzioni standard PTP/LIN/ARC vengono convertite automaticamente in traiettorie pianificate con FIR (senza supporto per raggi di blending).  
 
-- **Control Box Adaptation for Ethernet Pass-Through Module and Suction Cup/Gripper Control Function**:
-    Path: Initial Setup -> Peripherals -> Array Suction Cup.
+- **Ottimizzazione di Modbus RTU**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi; Programma di insegnamento → Programmazione → Impostazioni Modbus RTU.  
+  
+  Descrizione: Configurazione completa di master ModbusRTU via WebApp (baud rate, tipo di parità, indirizzo stazione); monitoraggio in tempo reale dei registri ModbusRTU.  
 
-    Description: Enables control of array suction cups (up to 20) via an Ethernet to 485 pass-through module, based on the page and peripheral open protocol.
+- **Protezione con limiti software articolari**:  
+  Percorso: Impostazioni iniziali → Articolazioni → Limiti software.  
+  
+  Descrizione: In modalità trascinamento, quando un’articolazione si avvicina al limite software impostato, viene applicata una forza di smorzamento; una volta rilasciata la forza esterna, l’articolazione ritorna autonomamente entro il limite.  
 
-- **Robot Look-ahead Trajectory Planning (Constant Velocity Look-ahead)**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
+- **Funzione di inclinazione laterale durante l’oscillazione**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Permette di definire un angolo di oscillazione personalizzato intorno all’asse Rx del sistema di coordinate di oscillazione.  
 
-    Description: Added a constant velocity switch option. When enabled, the robot performs look-ahead motion at constant velocity.
+- **Funzione di saldatura con parametri progressivi**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Consente la variazione graduale della velocità di avanzamento, della corrente e della tensione durante la saldatura.  
 
-- **Optimized Control Box Slave Mode Function**:
-    Path: Initial Setup -> Peripherals -> Board Communication, Remote Mode.
+- **Funzione di inseguimento dell’arco elettrico basata su segnale analogico**:  
+  Percorso: Impostazioni iniziali → Base → Impostazioni I/O → AI.  
+  
+  Descrizione: Collegamento diretto tra ingressi/uscite analogici e digitali del cabinet di controllo e quelli della saldatrice per realizzare un sistema di inseguimento dell’arco basato sulla retroazione analogica di corrente.  
 
-    Description: Added control box adaptation for Ji Yuan ETMP03E board (EtherCAT protocol).
+- **Sistema di plugin FRCap + pacchetto plugin per pallettizzazione**:  
+  Descrizione: Integrazione completa del sistema di plugin FRCap per piattaforma QX x86 e del pacchetto plugin per pallettizzazione. FRCap consente interazioni con il controller tramite API ufficiali oppure lo sviluppo di logiche personalizzate da parte dell’utente.  
 
-- **Laser Search Position Point Acquisition Function**:
-    Path: Initial Setup -> Peripherals -> Line Laser Sensor.
+- **Modelli e tipologie robotiche**:  
+  Descrizione: Aggiunto il modello FR3-C e la sua configurazione.  
 
-    Description: After successful laser seam search, the position data stored in "seamPos" can be obtained using SDK or TCP protocol commands.
+Versione V3.8.1  
+-----------------  
 
-- **FR5 and FR10 Speed Opening Function**:
+Data: 2025-04-14  
 
-    Description: Increased FR5 linear speed from 1.0m/s to 1.7m/s; increased FR10 linear speed from 1.5m/s to 2.0m/s.
+- **Ottimizzazione della funzione di velocità “a T”**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi; Impostazioni iniziali → Modulo base.  
+  
+  Descrizione: Aggiunta la modalità di ottimizzazione della velocità a forma di trapezio, con riduzione dello *jerk* nelle fasi di partenza e arresto e aumento dell’accelerazione in fase iniziale. Ideale per applicazioni sensibili a collisioni o con vibrazioni residue marcate.  
 
-- **Robot Model Configuration**:
+- **Ottimizzazione della funzione di inseguimento nastro trasportatore**:  
+  Percorso: Applicazioni ausiliarie → Pacchetti tecnologici → Inseguimento nastro trasportatore.  
+  
+  Descrizione: Nella modalità di inseguimento, è stata aggiunta la funzione di “ispezione in movimento”: non è necessario insegnare il movimento nel sistema di coordinate del pezzo; è possibile impostare un ritardo di attivazione personalizzato in termini di distanza.  
 
-    Description: Added FR5L long-reach robot model configuration option.
+- **Funzione di richiamo impedenza nella zona di interferenza**:  
+  Percorso: Impostazioni iniziali → Sicurezza → Zone di interferenza.  
+  
+  Descrizione: In modalità di trascinamento assistito da sensore di forza, l’ingresso in una zona di interferenza attiva una risposta impedenza per rallentare o deviare il movimento.  
 
-- **Optimized Software Upgrade**:
+- **Adattamento del manico di saldatura**:  
+  Descrizione: Nuovo supporto per il manico di saldatura: installato sull’estremità robotica, permette di scrivere programmi di saldatura e di controllare avvio/arresto, commutazione manuale/automatico e trascinamento.  
 
-    Description: Shortened upgrade time, compatible with downgrading from high versions to any lower version (3.7.6-3.8.4).
+- **Visualizzazione degli anelli di limitazione articolare nell’interfaccia Web**:  
+  Descrizione: Abilitando questa funzione, viene mostrato in tempo reale il posizionamento di ciascuna articolazione rispetto ai suoi limiti fisici.  
 
-- **Optimized Factory Reset**:
+- **Nuove funzioni SDK**:  
+  Descrizione: SDK arricchito con funzioni per il download dei log del controller, di tutte le fonti dati e dei pacchetti di backup.  
 
-    Description: Factory reset preserves robot model, stiffness, dynamics settings, button box version, etc.
+- **Registrazione delle informazioni articolari prima/dopo una collisione**:  
+  Descrizione: Viene registrata la posizione, la velocità, l’accelerazione e il momento torcente di ogni articolazione immediatamente prima e dopo una collisione, facilitando l’analisi post-evento.  
 
-Version V3.8.4
------------------
+Versione V3.8.0  
+-----------------  
 
-Date: 2025-07-18
+Data: 2025-03-03  
 
-- **Implementation of Extension Axis Blending Smoothing Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
+- **Funzione di inseguimento dell’arco elettrico con offset e ampiezza oscillante progressive**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: L’ampiezza di oscillazione può variare gradualmente lungo un segmento di saldatura, passando in modo continuo dal valore iniziale a quello finale; il centro di saldatura può essere spostato attivamente rispetto al centro del giunto.  
 
-    Description: Achieves smooth motion between extension axis commands, improving work efficiency.
+- **Funzione di impostazione dinamica della soglia di rilevamento collisione**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: È possibile modificare in tempo reale la soglia di rilevamento collisione, scegliendo tra soglia di coppia articolare o soglia di forza/torsione nel sistema di coordinate TCP. Al verificarsi di una collisione, i dati di velocità, accelerazione e coppia vengono registrati nei log.  
 
-- **Optimized Control Box Slave Mode Function**:
-    Path: Initial Setup -> Peripherals -> Board Communication, Remote Mode.
+- **Metodo di pianificazione anticipata della traiettoria in tempo reale**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Realizza una transizione fluida tra punti di traiettoria multipli, con regolazione automatica della velocità in base alla curvatura del percorso.  
 
-    Description: Added board IP configuration, interface LUA command issuance, and added self-start function for the controller slave protocol in remote mode.
+- **Curve di carico per tutta la serie FR**:  
+  Descrizione: Aggiornate le curve di carico per tutti i modelli della serie FR.  
 
-- **Control Box N2L Board QX Adaptation (EtherCAT)**:
-    Description: FaRo Industrial real-time bus communication board, miniPCIe board, supporting EtherCAT protocol communication.
+- **Ottimizzazione della logica di commutazione della velocità in modalità ridotta**:  
+  Descrizione: Risolto un problema per cui, in modalità ridotta, la velocità poteva scendere improvvisamente molto al di sotto del valore impostato.  
 
-- **Robot JOG Motion**:
-    Description: Added robot JOG motion CO status output function.
+- **Ottimizzazione dei punti di insegnamento**:  
+  Descrizione: Aggiunti messaggi informativi contestuali per migliorare la chiarezza e l’usabilità.  
 
-Version V3.8.3
------------------
+- **Pacchetto CNC basato su FOCAS**:  
+  Descrizione: Aggiunto il supporto per il pacchetto CNC basato sul protocollo FOCAS.  
 
-Date: 2025-06-27
+- **Adattamento delle istruzioni slave a schede hardware**:  
+  Descrizione: Supporto per le schede EnTalk miniPCIe (Profinet, Ethernet/IP, CC-Link IEF Basic) e CIFX 9OE-RE/F/PNS miniPCIe (Profinet, Ethernet/IP, EtherCAT, CC-Link IEF Basic).  
 
-- **Control Box Slave Mode Function**:
-    Path: Initial Setup -> Peripherals -> Board Communication.
+- **Funzione di timestamp nei checkpoint**:  
+  Descrizione: Per le istruzioni servo J, vengono restituiti timestamp dettagliati: numero istruzione, istanti di invio, accodamento, uscita dalla coda ed esecuzione.  
 
-    Description: Added board communication module configuration in the robot peripherals interface, enabling interaction with the robot slave station via EIP, CClink, PN protocols based on domestic expansion boards.
+- **Adattamento del sensore laser al protocollo aperto per periferiche del controller**:  
+  Descrizione: Aggiunto il supporto per la comunicazione con sensori laser tramite il protocollo aperto per periferiche.  
 
-- **Added Collision Detection Function for Force Sensor Assisted Dragging in Manual Mode**:
-    Path: Auxiliary Applications -> Tool Applications -> Drag Lock -> Force Sensor Assisted Lock.
+Versione V3.7.8  
+-----------------  
 
-    Description: When the force sensor assisted dragging function is enabled and the robot is in manual mode, the collision detection function is also triggered to avoid damage to the end equipment.
+Data: 2025-01-20  
 
-- **Added T-shaped Velocity Profile Trajectory Planning + Blending Smoothing Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
+- **Funzione di inseguimento puntuale senza trasformazione dati laser + asse esterno**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi; Impostazioni iniziali → Periferiche → Sensore laser a linea.  
+  
+  Descrizione: Specificatamente progettata per il tracciamento puntuale in tempo reale su posizionatori rotanti: gli scarti di posizione rilevati dal laser vengono compensati direttamente sull’estremità strumentale del robot, anche durante il movimento dell’asse esterno.  
 
-    Description: Achieves smooth motion between various motion commands, improving work efficiency.
+- **Nuove funzioni e ottimizzazioni per la configurazione CI**:  
+  Percorso: Impostazioni iniziali → Base → Impostazioni I/O → DI; Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione:  
+  1. Gli ingressi CI possono ora essere configurati per commutare tra modalità manuale/automatica in base a livello alto/basso.  
+  2. Quando un programma Lua viene avviato tramite un ingresso CI configurato, viene eseguito il programma *correntemente aperto* nell’interfaccia WebApp, non l’ultimo salvato.  
 
-- **WebApp Status Query Interface Function Optimization**:
-    Path: Status Information -> Status Query.
+- **Ottimizzazione della funzione di interrogazione dello stato in WebApp**:  
+  Percorso: Informazioni di stato → Interrogazione stato.  
+  
+  Descrizione: Sostituita la richiesta periodica (polling) con una trasmissione attiva tramite WebSocket, riducendo significativamente il carico CPU.  
 
-    Description: Optimized status query parameters to 6, maximum waveform time to 30s, added data view display with copy capability, and added rename icon function.
+- **Configurabilità dello stato iniziale degli uscite DO del cabinet di controllo**:  
+  Percorso: Impostazioni iniziali → Base → Impostazioni I/O → DO.  
+  
+  Descrizione: Aggiunta l’opzione “Stato DO all’accensione”: prima dell’abilitazione del robot, gli uscite DO possono essere impostate a livello alto o basso in base alle esigenze applicative.  
 
-- **FR Full Series Robot Drag Force Optimization**:
-    Path: Initial Setup -> Basic -> Joint -> Friction Compensation -> Drag Force Compensation.
+- **Metodo di pianificazione anticipata della traiettoria in tempo reale**:  
+  Percorso: Programma di insegnamento → Programmazione / Programmazione grafica / Diagramma a nodi.  
+  
+  Descrizione: Introdotta la nuova istruzione ``TrajectoryLA``.  
 
-    Description: Makes dragging more energy-saving by providing compensation torque during the dragging process.
+- **Strategie post-collisione basate su sensore di forza**:  
+  Percorso: Impostazioni iniziali → Articolazioni → Livello di collisione.  
+  
+  Descrizione: Nella modalità di rimbalzo post-collisione è stata aggiunta la possibilità di impostare una “velocità di sicurezza”.  
 
-- **Web System Log Storage Function Optimization**:
-    Description: Fixed system log file abnormality issues, set default log retention days to 7 days.
+- **Sollevamento automatico post-collisione basato su sensore di forza**:  
+  Descrizione: Dopo una collisione rilevata tramite sensore di forza, il robot solleva automaticamente l’estremità strumentale, con velocità massima regolabile.  
 
-Version V3.8.2
------------------
+- **Curve di carico per tutta la serie FR**:  
+  Descrizione: Aggiornate le curve di carico per tutti i modelli della serie FR.  
 
-Date: 2025-05-29
+Versione V3.7.7  
+-----------------  
 
-- **End Lua Open Protocol Adaptation for Welding Handle Function**:
-    Path: Initial Setup -> Peripherals -> Welding Handle.
+Data: 2024-12-30  
 
-    Description: Enables adaptation of the smarttool welding handle using the open protocol, with support for configuring all parameters.
+- **Monitoraggio in tempo reale dello stato del morsetto**:  
+  Percorso: Impostazioni iniziali → Periferiche → Morsetto → Monitoraggio stato.  
+  
+  Descrizione: Visualizzazione in tempo reale di velocità, coppia e posizione del morsetto.  
 
-- **Controller Peripheral Open Protocol Adds Welding Machine Open Protocol**:
-    Path: Initial Setup -> Peripherals -> Welding Machine.
+- **Acquisizione dati di guasto del controller**:  
+  Percorso: Impostazioni sistema → Impostazioni generali → Dati di guasto.  
+  
+  Descrizione: In caso di collisione, errore di punto o altro guasto, il controller registra automaticamente i dati di posizione e velocità del robot nei 15 secondi precedenti e successivi all’evento. I dati possono essere esportati in formato CSV da WebApp per analisi approfondita.  
 
-    Description: Enables communication with the welding machine for control via the controller peripheral open protocol (ModbusTCP).
+- **Evitamento e attraversamento di punti singolari con trascinamento assistito da sensore di forza**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Blocco trascinamento → Blocco assistito da sensore di forza.  
+  
+  Descrizione:  
+  1. Con strategia “evitamento”: all’avvicinarsi di un punto singolare, viene generata una forza virtuale che respinge il movimento.  
+  2. Con strategia “attraversamento”: il sistema passa temporaneamente in modalità trascinamento puro per superare il punto singolare, quindi ritorna al trascinamento assistito.  
+
+- **Adattamento della vecchia libreria dinamica per installazioni libere a 360° e importazione backup con verifica dinamica**:  
+  Percorso: Impostazioni iniziali → Base → Installazione; Applicazioni ausiliarie → Strumenti → Backup dati.  
+  
+  Descrizione: Durante l’importazione di un pacchetto di backup, vengono verificati tipo di robot, modalità di installazione, angolo di installazione e tipo di configurazione dinamica; se non coerenti, l’importazione viene bloccata con avviso.  
 
-- **Added LUA Program Pause Function**:
-    Path: Teach Program -> Program Programming.
+- **Attraversamento di punti singolari in modalità automatica**:  
+  Percorso: Programma di insegnamento → Periferiche → Istruzioni LIN/ARC.  
+  
+  Descrizione: Aggiunta la configurazione “Attraversamento punto singolare” come protezione di movimento.  
 
-    Description: During teach program execution, pause can be clicked on any line, including wait-type instructions and communication-type instructions, without occupying timeout time when paused.
+- **Aggiornamento automatico del programma Lua dopo registrazione di un punto tramite pulsante sull’estremità**:  
+  Percorso: Programma di insegnamento → Programmazione → Punti di insegnamento.  
+  
+  Descrizione: Registrando un punto tramite pulsante sull’estremità strumentale, il relativo programma Lua viene aggiornato automaticamente.  
 
-- **Added T-shaped Velocity Profiling + Blending Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
+- **Ottimizzazione dell’interfaccia di interrogazione dello stato**:  
+  Percorso: Informazioni di stato → Interrogazione stato.  
+  
+  Descrizione: Miglioramenti UI/UX dell’interfaccia di interrogazione.  
 
-    Description: After enabling the T-shaped velocity profiling switch, the velocity curve becomes smooth. Currently supports blending types (PTP-PTP, LIN-LIN, ARC-ARC, LIN-ARC, ARC-LIN).
+- **Ottimizzazione delle interfacce WebApp e teach pendant**:  
+  Descrizione: Aggiunto il supporto per le lingue russo e cinese tradizionale.  
 
-- **FIR Adaptive Parameter Function + FIR Pause/Resume Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming, Initial Setup -> Safety -> Motion Configuration.
+- **Ottimizzazione dell’interfaccia WebApp**:  
+  Descrizione: Angolo in basso a sinistra dell’interfaccia WebApp mostra ora la versione software e il modello robotico.  
 
-    Description: Added global FIR enable and adaptive parameter switch to the FIR function. When enabled, running ordinary PTP/LIN/ARC instructions automatically converts them to FIR planning (cannot use blend radius).
+- **Funzione di inseguimento laser con asse esterno**:  
+  Descrizione:  
+  1. Movimento sincrono tra robot e asse esterno: il sensore laser opera nel sistema di coordinate dell’asse esterno.  
+  2. Movimento asincrono: il sensore laser può operare nel sistema di coordinate base del robot o in quello dell’asse esterno.  
 
-- **Modbus RTU Function Optimization**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming, Teach Program -> Program Programming -> Modbus RTU Settings.
+- **Trascinamento del punto strumentale basato su sensore di forza**:  
+  Descrizione: Nell’interfaccia web, configurando il sistema di coordinate FT come sistema personalizzato e abilitando il trascinamento assistito, il robot si muove lungo il sistema di coordinate strumentale definito.  
 
-    Description: Allows configuring ModbusRTU master station, baud rate, parity mode, station number, etc., in WebApp. Enables monitoring of real-time ModbusRTU register values.
+- **Funzione CNDE del robot**:  
+  Descrizione: Il client può utilizzare CNDE (comunicazione UDP) per ottenere lo stato del robot e inviare comandi di controllo. Il periodo di aggiornamento dello stato è configurabile (1–200 ms); sia i dati di stato che i dati di comando possono essere personalizzati.  
 
-- **Joint Soft Limit Protection Function**:
-    Path: Initial Setup -> Joint -> Soft Limits.
+Versione V3.7.6  
+-----------------  
 
-    Description: In drag mode, when a joint approaches the soft limit set in the interface, damping force is applied. After removing the external torque, the joint can return within the soft limit.
+Data: 2024-11-18  
 
-- **Robot Oscillation Roll Angle Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
+- **Ottimizzazione del layout della pagina “Impostazioni iniziali”**:  
+  Percorso: Impostazioni iniziali.  
+  
+  Descrizione: Ottimizzati i layout delle pagine di configurazione strumenti, carico e di alcuni icone funzionali.  
 
-    Description: Supports the robot end tool customizing the oscillation angle around the Rx direction of the oscillation coordinate system during oscillation motion.
+- **Ottimizzazione dell’interfaccia di configurazione assi esterni in WebApp**:  
+  Percorso: Impostazioni iniziali → Periferiche → Assi esterni.  
+  
+  Descrizione: Miglioramenti del layout e dell’interazione per la configurazione degli assi esterni.  
 
-- **Process Parameter Gradual Change Welding Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
+- **Ottimizzazione della funzione log di sistema**:  
+  Percorso: Informazioni di stato → Log di sistema.  
+  
+  Descrizione: Aggiunta la visualizzazione a pagine e la categorizzazione dettagliata dei tipi di operazione registrata.  
 
-    Description: Enables gradual change of travel speed, current, and voltage during the welding process.
+- **Funzione di levigatura a forza costante in direzione XY**:  
+  Percorso: Programma di insegnamento → Programmazione → Set di controllo forza → Istruzione ``F/T_Control``.  
+  
+  Descrizione: Aggiunto il parametro “raggio della mola”, permettendo movimenti rettilinei o curvi mantenendo costantemente il contatto con la superficie del pezzo.  
 
-- **Analog Arc Tracking Function**:
-    Path: Initial Setup -> Basic -> I/O Settings -> AI.
+- **Funzione di acquisizione punti tramite laser**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Generazione punti di intersezione.  
+  
+  Descrizione: Le funzioni di ricerca del punto di intersezione tramite 3 o 4 punti sono ora accessibili anche tramite istruzioni script Lua.  
 
-    Description: Directly uses control box DI, DO, AI, AO to connect with the welding machine IO ports, achieving arc tracking based on analog current feedback.
+- **Configurazione “carrello a due gradi di libertà” per asse esterno**:  
+  Percorso: Impostazioni iniziali → Periferiche → Assi esterni.  
+  
+  Descrizione: Nuova soluzione per carrelli a 2 DOF: comunicazione robot–PLC via UDP; controllo del carrello da parte della PLC tramite EtherCAT.  
 
-- **FRCap Plugin System + Palletizing Plugin Package Function**:
+- **Metodo di taratura TCP basato su piastra piana**:  
+  Percorso: Impostazioni iniziali → Sistemi di coordinate → Coordinate strumento.  
+  
+  Descrizione: Aggiunto il metodo di taratura “piastra piana” per il sistema di coordinate strumento.  
 
-    Description: Adapted FRCap plugin system and palletizing plugin package for QX x86 version. FRCap can interact with the robot controller through provided official interfaces, or customers can write custom interface commands and processing logic based on actual needs for personalized development.
+- **Funzione di programma in background**:  
+  Percorso: Programma di insegnamento → Programmazione.  
+  
+  Descrizione: I programmi in background possono ora accedere correttamente a tutti i dati I/O: I/O di sistema, Modbus e I/O estesi.  
 
-- **Robot Model and Configuration**:
+- **Funzione di evitamento automatico di punti singolari nella traiettoria**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzioni LIN/ARC.  
+  
+  Descrizione: Aggiunta la configurazione “Evitamento punto singolare” come protezione di movimento.  
 
-    Description: Added FR3-C robot model and configuration.
+- **Adattamento per morsetto rotante**:  
+  Percorso: Impostazioni iniziali → Periferiche → Morsetto.  
+  
+  Descrizione: Aggiunti codici funzione specifici per morsetti rotanti.  
 
-Version V3.8.1
------------------
+- **Istruzioni slave con protocollo personalizzato**:  
+  Percorso: Modalità remota.  
+  
+  Descrizione: Aggiunta la configurazione “Protocollo slave del controller”.  
 
-Date: 2025-04-14
+- **Funzione di ricerca del filo di saldatura tramite UDP**:  
+  Descrizione: Il robot può controllare avvio/arresto della ricerca del filo e ricevere il segnale di completamento tramite I/O esteso UDP.  
 
-- **T-shaped Velocity Function Optimization**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming, Initial Setup -> Basic Module.
+- **Ottimizzazione della funzione di backup**:  
+  Descrizione: Supporto per l’importazione di pacchetti di backup da versioni precedenti (QX 3.6.1 e successive).  
 
-    Description: Added trapezoidal velocity optimization mode in motion configuration, optimizing jerk during start/stop phases and increasing acceleration during the acceleration phase. Mainly applied to working conditions prone to collision reports during start/stop, and conditions with significant residual vibration during start/stop.
+- **Ottimizzazione del ripristino delle impostazioni di fabbrica**:  
+  Descrizione: Aggiunta la verifica file per aumentare la stabilità e l’affidabilità del ripristino.  
 
-- **Conveyor Tracking Function Optimization**:
-    Path: Auxiliary Applications -> Process Package -> Conveyor Tracking.
+- **Ottimizzazione della funzione di aggiornamento**:  
+  Descrizione: Le versioni QX 3.6.9 e successive possono essere aggiornate direttamente a QX 3.7.6, mantenendo tutti i dati utente.  
 
-    Description: Added tracking inspection motion function in conveyor tracking motion mode, eliminating the need for motion teaching in the workpiece coordinate system, allowing custom trigger delay distance.
+- **Funzione di downgrade dell’interfaccia WebApp**:  
+  Descrizione: WebApp supporta il downgrade a qualsiasi versione da QX 3.6.9 in poi, conservando i dati utente.  
+
+Versione V3.7.5  
+-----------------  
 
-- **Added Impedance Callback Function for Axis Interference Zone**:
-    Path: Initial Setup -> Safety -> Interference Zone.
+Data: 2024-09-30  
 
-    Description: Under force sensor assisted dragging, entering the interference zone can have an impedance callback effect.
+- **Regolazione della velocità angolare di transizione per l’orientamento in curva**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione LIN.  
+  
+  Descrizione: Aggiunta la configurazione “Velocità angolare di transizione regolabile” come protezione di movimento.  
 
-- **Welding Handle Adaptation Function**:
-    Description: Added welding handle adaptation: A welding handle installed on the robot end can be used for welding program writing and controlling robot start, stop program, manual/auto switching, dragging, etc.
+- **Funzione di saldatura multistrato e multimandata con inseguimento dell’arco**:  
+  Percorso: Applicazioni ausiliarie → Pacchetti tecnologici → Libreria esperti saldatura → Saldatura multistrato/multimandata.  
+  
+  Descrizione: Aggiunte la funzione “Oscillazione primo strato” e l’integrazione con l’inseguimento dell’arco.  
 
-- **WEB Interface Added Joint Limit Ring Display**:
-    Description: Enabling the limit ring display function allows real-time display of the joint position.
-
-- **SDK New Functions**:
-    Description: SDK added functions for downloading controller logs, all data sources, and data backup packages.
-
-- **Collision Pre/Post Joint Information Recording Function**:
-    Description: Records joint position, velocity, acceleration, and torque information before and after a collision, facilitating direct analysis of the cause of collisions at the customer site.
-
-Version V3.8.0
------------------
-
-Date: 2025-03-03
-
-- **Offset and Amplitude Monotonic Gradual Change Arc Tracking Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
-
-    Description: The oscillation width among oscillation parameters can gradually change during a welding motion, transitioning from the segment start amplitude parameter to the segment end amplitude parameter. The welding center can actively offset from the seam center.
-
-- **Custom Collision Detection Torque Threshold Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
-
-    Description: Allows setting the collision detection torque threshold during operation. The joint torque threshold or TCP side torque threshold can be selected as needed. After a collision, joint speed, acceleration, torque, and other information are printed to the log file.
-
-- **Real-time Look-ahead Trajectory Planning Method Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
-
-    Description: Achieves smooth connection of multiple trajectory points through fitting, with running speed adaptively adjusted according to path curvature.
-
-- **FR Full Series Model Load Curve Drawing**:
-    Description: Updated load curve charts for the FR full series models.
-
-- **Reduced Mode Speed Switching Logic Optimization**:
-    Description: Optimized and resolved the issue where occasionally the speed was far lower than the reduced mode speed when the reduced mode was triggered.
-
-- **Teach Point Optimization**:
-    Description: Optimized the prompt information added to teach points.
-
-- **CNC Function Package Function Based on FOCAS**:
-    Description: Added CNC function based on FOCAS.
-
-- **Slave Command Adaptation Board**:
-    Description: Slave command adaptation for EnTalk miniPCIe board (Profinet protocol, Ethernet/IP protocol, CC-Link IEF Basic protocol), adaptation for CIFX 9OE-RE/F/PNS miniPCIe board (Profinet protocol, Ethernet/IP protocol, Ethercat protocol, CC-Link IEF Basic protocol).
-
-- **Checkpoint Timestamp Feedback Function**:
-    Description: Servo J motion can receive timestamp results, including command number and issue, enqueue, dequeue, execution timestamps.
-
-- **Laser Sensor Adaptation Controller Peripheral Open Protocol**:
-    Description: Added laser peripheral open protocol communication function.
-
-Version V3.7.8
------------------
-
-Date: 2025-01-20
-
-- **Extension Axis Plus Laser Data No Transformation Fixed Point Tracking Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming, Initial Setup -> Peripherals -> Line Laser Sensor.
-
-    Description: Mainly for real-time fixed-point tracking of positioners, compensating the workpiece deviation recorded by the laser at the robot tool end when the extension axis is moving.
-
-- **Robot CI Configuration Addition and Optimization Function**:
-    Path: Initial Setup -> Basic -> I/O Settings -> DI, Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
-
-    Description: 1. Configurable CI input added the function of switching robot manual/auto mode via high/low level. Configure the CI port as "Manual/Auto Switch (High/Low Level)". When the input signal of this port is valid, the robot automatically switches to auto mode; when invalid, it switches to manual mode. 2. After opening a LUA program in WebApp, starting the LUA program via configurable CI automatically runs the currently opened LUA program, not the last saved program.
-
-- **WebApp Status Query Function Optimization**:
-    Path: Status Information -> Status Query.
-
-    Description: Changed the front-end and back-end data interaction method from front-end polling request to WebSocket active data sending, reducing CPU usage.
-
-- **Control Box Firmware DO Power-on High/Low Level Configurable Function**:
-    Path: Initial Setup -> Basic -> I/O Settings -> DO.
-
-    Description: Added "Control Box DO Output During Power-on" configuration. Before the robot is enabled, the control box DO can be configured to the required high/low level state according to specific usage scenarios.
-
-- **Real-time Look-ahead Trajectory Planning Method Function**:
-    Path: Teach Program -> Program Programming, Graphical Programming, Node Diagram Programming.
-
-    Description: Added "TrajectoryLA" instruction.
-
-- **Strategy Function After Collision Based on Force Sensor**:
-    Path: Initial Setup -> Joint -> Collision Level.
-
-    Description: Added "Safe Speed" parameter to the collision rebound mode.
-
-- **Automatic Lifting Function After Force Sensor Collision**:
-    Description: Implemented automatic lifting function of the robot after collision detection based on the force sensor, with the ability to limit the speed during the lifting process.
-
-- **FR Full Series Model Load Curve Drawing**:
-    Description: Updated load curve charts for the FR full series models.
-
-Version V3.7.7
------------------
-
-Date: 2024-12-30
-
-- **Gripper Status Data Real-time Monitoring Function**:
-    Path: Initial Setup -> Peripherals -> Gripper -> Status Monitoring.
-
-    Description: Displays real-time gripper status information such as running speed, torque, and position.
-
-- **Controller Fault Data Collection Function**:
-    Path: System Settings -> General Settings -> Fault Data.
-
-    Description: When collisions, command point errors, or other faults occur during robot operation, the controller automatically records the robot's status information (position, speed, etc.) for 15 seconds before and after the fault. WebApp can export fault information in .csv format to help troubleshoot and analyze the cause of the fault.
-
-- **Singularity Avoidance and Traversal Function Based on Force Sensor Assisted Dragging**:
-    Path: Auxiliary Applications -> Tool Applications -> Drag Lock -> Force Sensor Assisted Lock.
-
-    Description: 1. In the force sensor assisted dragging interface, when the strategy is set to avoidance, a virtual force is generated when dragging the robot close to a singularity. 2. When the strategy is set to traversal, it switches to drag mode when approaching a singularity, and switches back to force sensor assisted dragging when moving away from the singularity.
-
-- **Old Dynamics Adaptation for 360° Free Installation and Backup Package Import Adaptation Dynamics Function**:
-    Path: Initial Setup -> Basic -> Installation, Auxiliary Applications -> Tool Applications -> Data Backup.
-
-    Description: Added verification of robot type, installation method, installation angle, and dynamics configuration type during backup package import. If these parameters are inconsistent, import is prohibited with a prompt.
-
-- **Singularity Traversal Function in Auto Mode**:
-    Path: Teach Program -> Peripherals -> LIN/ARC Command.
-
-    Description: Added "Singularity Traversal" motion protection configuration.
-
-- **Function to Automatically Update Corresponding Point LUA Program After Recording Point with End Button**:
-    Path: Teach Program -> Program Programming -> Teach Point.
-
-    Description: Added function to automatically update the corresponding point LUA program after recording a point with the end button.
-
-- **Status Query Interface Optimization**:
-    Path: Status Information -> Status Query.
-
-    Description: Optimized the UI and interaction of the status query interface.
-
-- **WebApp, Teach Pendant Interface Optimization**:
-    Description: WebApp and teach pendant added Russian and Traditional Chinese display interfaces.
-
-- **WebApp Display Interface Optimization Function**:
-    Description: Added software version and robot model display in the lower left corner of the WebApp interface.
-
-- **Extension Axis Plus Laser Tracking Function**:
-    Description: 1. Robot and external axis move synchronously, the laser achieves synchronous tracking in the external axis coordinate system. 2. Robot and external axis move asynchronously, the laser can track in the robot base coordinate system or the external axis coordinate system.
-
-- **Tool Point Dragging Function Based on Force Sensor**:
-    Description: In the web interface, set the FT reference coordinate system to a custom coordinate system. After enabling force sensor assisted dragging, the robot moves along the set tool coordinate system.
-
-- **Robot CNDE Function**:
-    Description: Clients can use CNDE to obtain robot status feedback and send control data to the robot (UDP communication). The status feedback cycle is configurable (1-200ms). The content of robot status feedback data and client input control data can be freely configured.
-
-Version V3.7.6
------------------
-
-Date: 2024-11-18
-
-- **Initial Setup Page Layout Optimization**:
-    Path: Initial Setup.
-
-    Description: Optimized the tool setting interface, load configuration interface, and display of some function icons.
-
-- **WebApp Peripheral Extension Axis Configuration Function Interaction Optimization**:
-    Path: Initial Setup -> Peripherals -> Extension Axis.
-
-    Description: Optimized the layout and interaction of the extension axis interface.
-
-- **System Log Function Optimization**:
-    Path: Status Information -> System Log.
-
-    Description: Added log pagination display and detailed log operation category distinction.
-
-- **XY Direction Horizontal Constant Force Grinding Function**:
-    Path: Teach Program -> Program Programming -> Force Control Set -> F/T_Control Command.
-
-    Description: Added "Grinding Disc Radius" parameter, allowing repeated linear/curved motion along the workpiece surface.
-
-- **Laser Point Acquisition Motion Function**:
-    Path: Auxiliary Applications -> Tool Applications -> Intersection Point Generation.
-
-    Description: Added the use of LUA script instructions for the three-point and four-point search to find intersection point coordinate function.
-
-- **External Axis Configuration - Two-DOF Cart Function**:
-    Path: Initial Setup -> Peripherals -> Extension Axis.
-
-    Description: Added "Two-DOF Cart" extension axis solution. The robot communicates with the PLC via UDP, and then the PLC controls the two-DOF cart via EtherCat.
-
-- **TCP Calibration Method Function Based on Flat Plate Tool**:
-    Path: Initial Setup -> Coordinate System -> Tool Coordinate.
-
-    Description: Added "Flat Plate Tool Calibration" coordinate system calibration method.
-
-- **Robot Background Program Function**:
-    Path: Teach Program -> Program Programming.
-
-    Description: Background programs can normally obtain I/O interface data, including system I/O, modbus, and extended I/O.
-
-- **Robot Trajectory Automatic Singularity Avoidance Function**:
-    Path: Teach Program -> Program Programming -> Linear Lin/Arc Arc Command.
-
-    Description: Added "Singularity Avoidance" motion protection configuration.
-
-- **Rotary Gripper End Adaptation Function**:
-    Path: Initial Setup -> Peripherals -> Gripper.
-
-    Description: Added related function code configuration for rotary grippers.
-
-- **Custom Protocol Slave Command**:
-    Path: Remote Mode.
-
-    Description: Added "Controller Slave Protocol" configuration.
-
-- **UDP Communication Wire Feeding Search Position Function**:
-
-    Description: The robot can control wire feeding search start/stop and obtain the wire feeding search success signal via UDP extended IO.
-
-- **Backup Package Function Optimization**:
-
-    Description: Supports import and use of old version data packages (QX 3.6.1 and later version data packages).
-
-- **Factory Reset Function Optimization**: Added file verification, increased system factory reset stability.
-
-    Description: Added file verification, increased system factory reset stability.
-
-- **Upgrade Function Optimization**:
-
-    Description: QX3.6.9 and later versions can be directly upgraded to QX3.7.6, retaining current version user data after upgrade.
-
-- **Page Downgrade Function**:
-
-    Description: WebApp page supports downgrade, can be downgraded to any version after QX3.6.9, retaining current version user data after downgrade.
-
-Version V3.7.5
------------------
-
-Date: 2024-09-30
-
-- **Wrap Angle Pose Transition Angular Speed Adjustable Function**:
-    Path: Teach Program -> Program Programming -> Linear Lin Command.
-
-    Description: Added "Transition Point Angular Speed Adjustable" motion protection configuration.
-
-- **Arc Tracking Multi-layer Multi-pass Welding Function**:
-    Path: Auxiliary Applications -> Process Package -> Welding Expert Library -> Multi-layer Multi-pass Welding.
-
-    Description: Added "First Layer Welding Oscillation Function" and "Arc Tracking Function" configurations.
-
-- **485 Extension Axis Configuration Function**:
-    Path: Initial Setup -> Peripherals -> Extension Axis.
-
-    Description: Added "Acceleration and Emergency Stop" configuration.
-
-- **Robot Tool TCP Automatic Calibration Function (Self-made Fiber Optic Sensor Fixture)**:
-    Path: Initial Setup -> Basic -> Tool Coordinate.
-
-    Description: Added "Photoelectric Automatic Calibration" coordinate system calibration.
-
-- **Teach Pendant Multi-language Setting Function**:
-    Path: Login Page.
-
-    Description: Added "Language Switch" configuration.
-
-Version V3.7.4
------------------
-
-Date: 2024-08-09
-
-- **Software Function Based on Lua End Open Protocol Adaptation (Gripper Part)**:
-    Path: Initial Setup -> Peripherals -> Gripper.
-
-    Description: Added "End Protocol Enable" configuration.
-
-- **Oblique Zigzag Oscillation Function**:
-    Path: Teach Program -> Program Programming -> Oscillation Weave Command.
-
-    Description: Added "Oscillation Direction Azimuth Angle" parameter configuration.
-
-- **Robot Welding Process Package Optimization Function**:
-    Path: Initial Setup -> Peripherals -> Welding Machine -> Welding Machine Configuration.
-
-    Description: Added "Welding Process Parameters" configuration.
-
-- **Lin Command Joint Overspeed Handling Function**:
-    Path: Teach Program -> Program Programming -> Linear Lin Command.
-
-    Description: Added "Joint Overspeed Protection" motion protection configuration.
-
-Version V3.7.3
------------------
-
-Date: 2024-06-28
-
-- **Modbus Slave Control Robot Function**:
-    Path: Teach Program -> Program Programming -> ModbusTCP.
-
-    Description: Added "Slave Controller" configuration.
-
-- **Emergency Stop Type Function**:
-    Path: Initial Setup -> Safety -> Emergency Stop.
-
-    Description: Added "Category 1a, Category 2a, Category 2" stop types to the stop type.
-
-Version V3.7.2
------------------
-
-Date: 2024-06-07
-
-- **Configuration Function Based on Lua End Open Protocol**:
-    Path: Initial Setup -> Peripherals -> End Tool -> Open Protocol.
-
-    Description: Added "Open Protocol" configuration.
-
-- **Motion AO Control Command Function**:
-    Path: Teach Program -> Program Programming.
-
-    Description: Added "Motion AO Command".
-
-- **Six-Axis Force and Joint Impedance Hybrid Dragging Function**:
-    Path: Auxiliary Applications -> Tool Applications -> Drag Lock.
-
-    Description: Added "Six-Axis Force and Joint Impedance Hybrid Dragging".
-
-- **Post-Collision Response Strategy Function**:
-    Path: Initial Setup -> Basic -> Joint -> Collision Level.
-
-    Description: Added "Collision Strategy" configuration.
-
-- **Robot First Activation Function**:
-    Path: Login Settings.
-
-    Description: Added robot first activation verification function.
-
-Version V3.7.1
------------------
-
-Date: 2024-05-10
-
-- **Web Interface Lock Function**:
-    Path: System Settings -> Custom Information.
-
-    Description: Added "Web Interface Lock Screen" configuration.
-
-- **Search Position Three-Point and Four-Point Intersection Coordinate Function**:
-    Path: Auxiliary Applications -> Tool Applications -> Intersection Point Generation.
-
-    Description: Added "Search Position Three-Point and Four-Point Intersection Coordinate Function".
-
-- **Segment Welding Motion Posture Optimization Function**:
-    Path: Teach Program -> Program Programming -> Segment Welding Segment Command.
-
-    Description: Added "Segment Welding Mode" configuration.
-
-- **Virtual Wall Function Based on Force Sensor**:
-    Path: Initial Setup -> Peripherals -> Force Sensor, Auxiliary Applications -> Tool Applications -> Drag Lock.
-
-    Description: Added "Force Sensor" related configuration parameters to the end peripheral configuration. Added "Inertia Coefficient" configuration to force sensor assisted lock.
-
-- **SmartTool + Force Sensor Combination New Functions**:
-    Path: Initial Setup -> Peripherals -> Welding Handle.
-
-    Description: Added key function configuration.
+- **Configurazione asse esterno RS485**:  
+  Percorso: Impostazioni iniziali → Periferiche → Assi esterni.  
+  
+  Descrizione: Aggiunte le configurazioni per accelerazione e arresto d’emergenza.  
+
+- **Taratura automatica TCP dello strumento con dispositivo di taratura ottica fai-da-te**:  
+  Percorso: Impostazioni iniziali → Base → Coordinate strumento.  
+  
+  Descrizione: Aggiunto il metodo di taratura “rilevamento ottico automatico”.  
+
+- **Funzione di selezione lingua sul teach pendant**:  
+  Percorso: Pagina di accesso.  
+  
+  Descrizione: Aggiunta la possibilità di cambiare lingua dall’interfaccia di login.  
+
+Versione V3.7.4  
+-----------------  
+
+Data: 2024-08-09  
+
+- **Funzione software basata su protocollo Lua aperto sull’estremità (per morsetti)**:  
+  Percorso: Impostazioni iniziali → Periferiche → Morsetto.  
+  
+  Descrizione: Aggiunta la configurazione “Abilita protocollo estremità”.  
+
+- **Funzione di oscillazione a denti obliqui**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione Weave.  
+  
+  Descrizione: Aggiunto il parametro “angolo di direzione di oscillazione”.  
+
+- **Ottimizzazione del pacchetto tecnologico saldatura**:  
+  Percorso: Impostazioni iniziali → Periferiche → Saldataci → Configurazione saldatrice.  
+  
+  Descrizione: Aggiunta la configurazione “Parametri tecnologici di saldatura”.  
+
+- **Gestione dell’iper-velocità articolare nell’istruzione LIN**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione LIN.  
+  
+  Descrizione: Aggiunta la protezione “Limitazione iper-velocità articolare”.  
+
+Versione V3.7.3  
+-----------------  
+
+Data: 2024-06-28  
+
+- **Controllo del robot tramite Modbus slave**:  
+  Percorso: Programma di insegnamento → Programmazione → ModbusTCP.  
+  
+  Descrizione: Aggiunta la configurazione “Controller slave”.  
+
+- **Tipologie di arresto di emergenza**:  
+  Percorso: Impostazioni iniziali → Sicurezza → Arresto di emergenza.  
+  
+  Descrizione: Aggiunte le categorie di arresto: 1a, 2a e 2 (secondo EN ISO 13850).  
+
+Versione V3.7.2  
+-----------------  
+
+Data: 2024-06-07  
+
+- **Configurazione del protocollo Lua aperto sull’estremità**:  
+  Percorso: Impostazioni iniziali → Periferiche → Strumento estremità → Protocollo aperto.  
+  
+  Descrizione: Aggiunta la configurazione “Protocollo aperto”.  
+
+- **Istruzione di controllo AO in movimento**:  
+  Percorso: Programma di insegnamento → Programmazione.  
+  
+  Descrizione: Aggiunta l’istruzione “AO in movimento”.  
+
+- **Trascinamento ibrido: forza 6D + impedenza articolare**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Blocco trascinamento.  
+  
+  Descrizione: Aggiunta la modalità “Trascinamento ibrido forza 6D + impedenza articolare”.  
+
+- **Strategie di risposta post-collisione**:  
+  Percorso: Impostazioni iniziali → Base → Articolazioni → Livello di collisione.  
+  
+  Descrizione: Aggiunta la configurazione “Strategia di collisione”.  
+
+- **Funzione di attivazione iniziale del robot**:  
+  Percorso: Impostazioni di accesso.  
+  
+  Descrizione: Aggiunta la verifica di attivazione obbligatoria alla prima accensione.  
+
+Versione V3.7.1  
+-----------------  
+
+Data: 2024-05-10  
+
+- **Funzione di blocco dell’interfaccia web**:  
+  Percorso: Impostazioni sistema → Informazioni personalizzate.  
+  
+  Descrizione: Aggiunta la configurazione “Blocco schermo interfaccia web”.  
+
+- **Funzione di calcolo del punto di intersezione da 3 o 4 punti di ricerca**:  
+  Percorso: Applicazioni ausiliarie → Strumenti → Generazione punti di intersezione.  
+  
+  Descrizione: Aggiunta la funzione “Calcolo punto di intersezione da 3 o 4 punti di ricerca”.  
+
+- **Ottimizzazione dell’orientamento nella saldatura a segmenti**:  
+  Percorso: Programma di insegnamento → Programmazione → Istruzione Segment.  
+  
+  Descrizione: Aggiunta la configurazione “Modalità saldatura a segmenti”.  
+
+- **Funzione di “parete virtuale” basata su sensore di forza**:  
+  Percorso: Impostazioni iniziali → Periferiche → Sensore di forza; Applicazioni ausiliarie → Strumenti → Blocco trascinamento.  
+  
+  Descrizione: Aggiunti parametri di configurazione specifici per il sensore di forza e coefficiente di inerzia nel blocco trascinamento assistito.  
+
+- **Nuove funzioni per la combinazione SmartTool + sensore di forza**:  
+  Percorso: Impostazioni iniziali → Periferiche → Manico di saldatura.  
+  
+  Descrizione: Aggiunta la configurazione dei tasti funzione.  

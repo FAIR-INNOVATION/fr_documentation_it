@@ -1,182 +1,182 @@
-Robot peripherals
-========================
+Periferiche del Robot
+=====================
 
 .. toctree:: 
     :maxdepth: 5
 
-Configure gripper
-+++++++++++++++++++++++++++++++++++++++++
+Configurare la pinza
+++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Configure gripper
-    * @param  [in] config .company  Gripper manufacturer, 1-Robotiq, 2-Huiling, 3-Tianji, 4-Dahuan, 5-Zhixing
-    * @param  [in] config .device  Device number, Robotiq(0-2F-85 series), Huiling(0-NK series,1-Z-EFG-100), Tianji(0-TEG-110), Dahuan(0-PGI-140), Zhixing(0-CTPM2F20)
-    * @param  [in] config .softvesion  Software version, not currently used, default 0
-    * @param  [in] config .bus  Device bus position at end, not currently used, default 0
-    * @return  Error code
+    * @brief  Configurare la pinza
+    * @param  [in] config .company  produttore della pinza, 1-Robotiq, 2-Huiling, 3-Tianji, 4-Dahuan, 5-Zhixing
+    * @param  [in] config .device  numero dispositivo, Robotiq(0-serie 2F-85), Huiling(0-serie NK,1-Z-EFG-100), Tianji(0-TEG-110), Dahuan(0-PGI-140), Zhixing(0-CTPM2F20)
+    * @param  [in] config .softvesion  numero versione software, non utilizzato attualmente, default 0
+    * @param  [in] config .bus posizione bus terminale del dispositivo, non utilizzato attualmente, default 0
+    * @return  Codice errore
     */
     int SetGripperConfig(DeviceConfig config);
 
-Get gripper configuration
-+++++++++++++++++++++++++++++++++++++++++
+Ottenere la configurazione della pinza
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get gripper configuration
-    * @param  [out] config .company  Gripper manufacturer, 1-Robotiq, 2-Huiling, 3-Tianji, 4-Dahuan, 5-Zhixing
-    * @param  [out] config .device  Device number, Robotiq(0-2F-85 series), Huiling(0-NK series,1-Z-EFG-100), Tianji(0-TEG-110), Dahuan(0-PGI-140), Zhixing(0-CTPM2F20)
-    * @param  [out] config .softvesion  Software version, not currently used, default 0
-    * @param  [out] config .bus  Device bus position at end, not currently used, default 0
-    * @return  Error code
+    * @brief  Ottenere la configurazione della pinza
+    * @param  [out] config .company  produttore della pinza, 1-Robotiq, 2-Huiling, 3-Tianji, 4-Dahuan, 5-Zhixing
+    * @param  [out] config .device  numero dispositivo, Robotiq(0-serie 2F-85), Huiling(0-serie NK,1-Z-EFG-100), Tianji(0-TEG-110), Dahuan(0-PGI-140), Zhixing(0-CTPM2F20)
+    * @param  [out] config .softvesion  numero versione software, non utilizzato attualmente, default 0
+    * @param  [out] config .bus posizione bus terminale del dispositivo, non utilizzato attualmente, default 0
+    * @return  Codice errore
     */
     int GetGripperConfig(DeviceConfig config);
 
-Activate gripper
+Attivare la pinza
++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Attivare la pinza
+    * @param  [in] index  numero pinza
+    * @param  [in] act  0-reset, 1-attiva
+    * @return  Codice errore
+    */
+    int ActGripper(int index, int act); 
+
+Controllare la pinza
+++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Controllare la pinza
+    * @param  [in] index  numero pinza
+    * @param  [in] pos  percentuale posizione, range [0~100]
+    * @param  [in] vel  percentuale velocità, range [0~100]
+    * @param  [in] force  percentuale coppia, range [0~100]
+    * @param  [in] max_time  tempo attesa massimo, range [0~30000], unità ms
+    * @param  [in] block  0-bloccante, 1-non bloccante
+    * @param  [in] type tipo pinza, 0-pinza parallela; 1-pinza rotante
+    * @param  [in] rotNum numero giri rotazione
+    * @param  [in] rotVel percentuale velocità rotazione [0-100]
+    * @param  [in] rotTorque percentuale coppia rotazione [0-100]
+    * @return Codice errore
+    */
+    int MoveGripper(int index, int pos, int vel, int force, int max_time, int block, int type, double rotNum, int rotVel, int rotTorque); 
+
+Ottenere lo stato di movimento della pinza
++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Ottenere lo stato di movimento della pinza
+    * @return List[0]: codice errore; List[1] : fault  0-nessun errore, 1-errore presente; List[2]: staus  0-movimento non completato, 1-movimento completato
+    */
+    List<Integer> GetGripperMotionDone(); 
+
+Ottenere lo stato di attivazione della pinza
++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Ottenere lo stato di attivazione della pinza
+    * @return  List[0]: codice errore; List[1] : fault  0-nessun errore, 1-errore presente; List[2]: status  bit0~bit15 corrispondono numeri pinza 0~15, bit=0 non attivato, bit=1 attivato
+    */
+    List<Number> GetGripperActivateStatus()
+
+Ottenere la posizione della pinza
+++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Ottenere la posizione della pinza
+    * @return  List[0]: codice errore; List[1] : fault  0-nessun errore, 1-errore presente; List[2]: position  percentuale posizione, range 0~100%
+    */
+    List<Number> GetGripperCurPosition()
+
+Ottenere la velocità della pinza
++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Ottenere la velocità della pinza
+    * @return  List[0]: codice errore; List[1] : fault  0-nessun errore, 1-errore presente; List[2]: speed  percentuale velocità, range 0~100%
+    */
+    List<Number> GetGripperCurSpeed()
+
+Ottenere la corrente della pinza
++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Ottenere la corrente della pinza
+    * @return  List[0]: codice errore; List[1] : fault  0-nessun errore, 1-errore presente; List[2]: current  percentuale corrente, range 0~100%
+    */
+    List<Number> GetGripperCurCurrent()
+
+Ottenere la tensione della pinza
 ++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Activate gripper
-    * @param  [in] index  Gripper number
-    * @param  [in] act  0-reset, 1-activate
-    * @return  Error code
-    */
-    int ActGripper(int index, int act); 
-
-Control gripper
-+++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Control gripper
-    * @param  [in] index  Gripper number
-    * @param  [in] pos  Position percentage, range [0~100]
-    * @param  [in] vel  Speed percentage, range [0~100]
-    * @param  [in] force  Torque percentage, range [0~100]
-    * @param  [in] max_time  Maximum wait time, range [0~30000], unit ms
-    * @param  [in] block  0-blocking, 1-non-blocking
-    * @param  [in] type Gripper type, 0-parallel gripper; 1-rotary gripper
-    * @param  [in] rotNum Rotation turns
-    * @param  [in] rotVel Rotation speed percentage [0-100]
-    * @param  [in] rotTorque Rotation torque percentage [0-100]
-    * @return Error code
-    */
-    int MoveGripper(int index, int pos, int vel, int force, int max_time, int block, int type, double rotNum, int rotVel, int rotTorque); 
-
-Get gripper motion status
-+++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Get gripper motion status
-    * @return List[0]:Error code; List[1] : fault  0-no error, 1-error; List[2]: staus  0-motion not completed, 1-motion completed
-    */
-    List<Integer> GetGripperMotionDone(); 
-
-Get gripper activation status
-+++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Get gripper activation status
-    * @return  List[0]:Error code; List[1] : fault  0-no error, 1-error; List[2]: status  bit0~bit15 correspond to gripper numbers 0~15, bit=0 not activated, bit=1 activated
-    */
-    List<Number> GetGripperActivateStatus()
-
-Get gripper position
-+++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Get gripper position
-    * @return  List[0]:Error code; List[1] : fault  0-no error, 1-error; List[2]: position  Position percentage, range 0~100%
-    */
-    List<Number> GetGripperCurPosition()
-
-Get gripper speed
-+++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Get gripper speed
-    * @return  List[0]:Error code; List[1] : fault  0-no error, 1-error; List[2]: speed  Speed percentage, range 0~100%
-    */
-    List<Number> GetGripperCurSpeed()
-
-Get gripper current
-+++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Get gripper current
-    * @return  List[0]:Error code; List[1] : fault  0-no error, 1-error; List[2]: current  Current percentage, range 0~100%
-    */
-    List<Number> GetGripperCurCurrent()
-
-Get gripper voltage
-+++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Get gripper voltage
-    * @return List[0]:Error code; List[1] : fault  0-no error, 1-error; List[2]:voltage  Voltage, unit 0.1V
+    * @brief  Ottenere la tensione della pinza
+    * @return List[0]: codice errore; List[1] : fault  0-nessun errore, 1-errore presente; List[2]:voltage  tensione, unità 0.1V
     */
     List<Number> GetGripperVoltage()
 
-Get gripper temperature
-+++++++++++++++++++++++++++++++++++++++++
+Ottenere la temperatura della pinza
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get gripper temperature
-    * @return List[0]:Error code; List[1] : fault  0-no error, 1-error; List[2]:temp  Temperature, unit ℃
+    * @brief  Ottenere la temperatura della pinza
+    * @return List[0]: codice errore; List[1] : fault  0-nessun errore, 1-errore presente; List[2]:temp  temperatura, unità ℃
     */
     List<Number> GetGripperTemp()
 
-Calculate pre-grasp point - vision
-+++++++++++++++++++++++++++++++++++++++++
+Calcolare punto di pre-presa - visione
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Calculate pre-grasp point - vision 
-    * @param [in] desc_pos  Grasp point cartesian pose
-    * @param [in] zlength   z-axis offset
-    * @param [in] zangle    Rotation offset around z-axis
-    * @param [out] pre_pos  Pre-grasp point
-    * @return Error code 
+    * @brief Calcolare punto di pre-presa - visione 
+    * @param [in] desc_pos  posa cartesiana punto presa
+    * @param [in] zlength   offset asse z
+    * @param [in] zangle    offset rotazione asse z
+    * @param [out] pre_pos  punto ottenuto
+    * @return Codice errore 
     */ 
     int ComputePrePick(DescPose desc_pos, double zlength, double zangle, DescPose pre_pos);
 
-Calculate retreat point - vision
-+++++++++++++++++++++++++++++++++++++++++
+Calcolare punto di ritiro - visione
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Calculate retreat point - vision 
-    * @param [in] desc_pos  Grasp point cartesian pose
-    * @param [in] zlength   z-axis offset 
-    * @param [in] zangle    Rotation offset around z-axis
-    * @param [out] post_poss Retreat point
-    * @return Error code 
+    * @brief Calcolare punto di ritiro - visione 
+    * @param [in] desc_pos  posa cartesiana punto presa
+    * @param [in] zlength   offset asse z 
+    * @param [in] zangle    offset rotazione asse z
+    * @param [out] post_poss punto ritiro
+    * @return Codice errore 
     */ 
     int ComputePostPick(DescPose desc_pos, double zlength, double zangle, DescPose post_pos);
 
-Robot gripper operation code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice operazione pinza robot
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -240,41 +240,41 @@ Robot gripper operation code example
         return 0;
     }
 
-Get rotary gripper rotation turns
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere numero giri pinza rotante
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get rotary gripper rotation turns
-    * @return List[0]:Error code List[1]: 0-no error, 1-error List[2]:Rotation turns
+    * @brief  Ottenere numero giri pinza rotante
+    * @return List[0]: codice errore List[1]: 0-nessun errore, 1-errore presente List[2]: numero giri rotazione
     */
     List<Number> GetGripperRotNum(); 
 
-Get rotary gripper rotation speed percentage
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere percentuale velocità rotazione pinza rotante
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get rotary gripper rotation speed percentage
-    * @return List[0]:Error code List[1]: 0-no error, 1-error List[2]:Rotation speed percentage
+    * @brief  Ottenere percentuale velocità rotazione pinza rotante
+    * @return List[0]: codice errore List[1]: 0-nessun errore, 1-errore presente List[2]: percentuale velocità rotazione
     */
     List<Number> GetGripperRotSpeed(); 
 
-Get rotary gripper rotation torque percentage
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere percentuale coppia rotazione pinza rotante
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get rotary gripper rotation torque percentage
-    * @return List[0]:Error code List[1]: 0-no error, 1-error List[2]:Rotation torque percentage
+    * @brief  Ottenere percentuale coppia rotazione pinza rotante
+    * @return List[0]: codice errore List[1]: 0-nessun errore, 1-errore presente List[2]: percentuale coppia rotazione
     */
     List<Number> GetGripperRotTorque(); 
 
-Code example for getting rotary gripper status
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice stato pinza rotante
+++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -293,191 +293,191 @@ Code example for getting rotary gripper status
         return 0;
     }
 
-Conveyor start/stop
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvio, arresto nastro trasportatore
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Conveyor start/stop
-    * @param  [in] status Status, 1-start, 0-stop
-    * @return  Error code
+    * @brief  Avvio, arresto nastro trasportatore
+    * @param  [in] status stato, 1-avvia, 0-arresta
+    * @return  Codice errore
     */
     int ConveyorStartEnd(int status);
 
-Record IO detection point
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrare punto rilevamento IO
+++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Record IO detection point
-    * @return  Error code
+    * @brief  Registrare punto rilevamento IO
+    * @return  Codice errore
     */
     int ConveyorPointIORecord();
 
-Record point A
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrare punto A
+++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Record point A
-    * @return  Error code
+    * @brief  Registrare punto A
+    * @return  Codice errore
     */
     int ConveyorPointARecord(); 
 
-Record reference point
-+++++++++++++++++++++++++++++++++++++++++
+Registrare punto di riferimento
+++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Record reference point
-    * @return  Error code
+    * @brief  Registrare punto di riferimento
+    * @return  Codice errore
     */
     int ConveyorRefPointRecord();
 
-Record point B
-+++++++++++++++++++++++++++++++++++++++++
+Registrare punto B
+++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Record point B
-    * @return Error code
+    * @brief  Registrare punto B
+    * @return Codice errore
     */
     int ConveyorPointBRecord(); 
 
-Conveyor workpiece IO detection
-+++++++++++++++++++++++++++++++++++++++++
+Rilevamento IO pezzo nastro trasportatore
+++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Conveyor workpiece IO detection
-    * @param [in] max_t Maximum detection time, unit ms
-    * @return Error code 
+    * @brief Rilevamento IO pezzo nastro trasportatore
+    * @param [in] max_t tempo rilevamento massimo, unità ms
+    * @return Codice errore 
     */ 
     int ConveyorIODetect(int max_t);
 
-Get object current position
-+++++++++++++++++++++++++++++++++++++++++
+Ottenere posizione attuale oggetto
++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get object current position
-    * @param [in] mode 1-tracking grasp, 2-tracking motion, 3-TPD tracking
-    * @return Error code 
+    * @brief Ottenere posizione attuale oggetto
+    * @param [in] mode 1-tracciamento presa, 2-tracciamento movimento, 3-tracciamento TPD
+    * @return Codice errore 
     */ 
     int ConveyorGetTrackData(int mode);
 
-Conveyor tracking start
-+++++++++++++++++++++++++++++++++++++++++
+Avvio tracciamento nastro trasportatore
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Conveyor tracking start
-    * @param [in] status Status, 1-start, 0-stop
-    * @return Error code 
+    * @brief Avvio tracciamento nastro trasportatore
+    * @param [in] status stato, 1-avvia, 0-arresta
+    * @return Codice errore 
     */ 
     int ConveyorTrackStart(int status);
 
-Conveyor tracking stop
-+++++++++++++++++++++++++++++++++++++++++
+Arresto tracciamento nastro trasportatore
+++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Conveyor tracking stop
-    * @return Error code 
+    * @brief Arresto tracciamento nastro trasportatore
+    * @return Codice errore 
     */ 
     int ConveyorTrackEnd();
 
-Conveyor parameter configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione parametri nastro trasportatore
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.4-3.8.1
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Conveyor parameter configuration
-    * @param [in] encChannel Encoder channel 1~2
-    * @param [in] resolution Pulses per encoder revolution
-    * @param [in] lead Conveyor travel distance per encoder revolution
-    * @param [in] wpAxis Workpiece coordinate system number For tracking motion function, set to 0 for tracking grasp and TPD tracking
-    * @param [in] vision Whether vision is configured  0 no  1 yes
-    * @param [in] speedRadio Speed ratio  For conveyor tracking grasp option (1-100)  Default 1 for other options
-    * @param [in] followType Tracking motion type, 0-tracking motion; 1-chasing inspection motion
-    * @param [in] startDis Required for chasing grasp, tracking start distance, -1: auto calculate (automatically chase after workpiece reaches below robot), unit mm, default 0
-    * @param [in] endDis Required for chasing grasp, tracking end distance, unit mm, default 100
-    * @return Error code
+    * @brief  Configurazione parametri nastro trasportatore
+    * @param [in] encChannel canale encoder 1~2
+    * @param [in] resolution impulsi per giro encoder
+    * @param [in] lead distanza percorrenza nastro per giro encoder
+    * @param [in] wpAxis numero sistema coordinato pezzo per funzione tracciamento movimento, tracciamento presa/TPD impostare 0
+    * @param [in] vision se dotato visione 0 no 1 si
+    * @param [in] speedRadio rapporto velocità per opzione tracciamento presa (1-100) altre opzioni default 1
+    * @param [in] followType tipo movimento tracciamento, 0-tracciamento movimento; 1-movimento inseguimento ispezione
+    * @param [in] startDis necessario per presa inseguimento ispezione, distanza inizio tracciamento, -1: calcolo automatico (inseguimento automatico dopo arrivo pezzo sotto robot), unità mm, default 0
+    * @param [in] endDis necessario per presa inseguimento ispezione, distanza fine tracciamento, unità mm, default 100
+    * @return Codice errore
     */
     int ConveyorSetParam(int encChannel, int resolution, double lead, int wpAxis, int vision, double speedRadio, int followType, int startDis, int endDis); 
 
-Set conveyor grasp point compensation
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare compensazione punto presa nastro trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set conveyor grasp point compensation
-    * @param [in] cmp Compensation position double[3]{x, y, z}
-    * @return Error code 
+    * @brief Impostare compensazione punto presa nastro trasportatore
+    * @param [in] cmp posizione compensazione double[3]{x, y, z}
+    * @return Codice errore 
     */ 
     int ConveyorCatchPointComp(Object[] cmp);
 
-Conveyor linear motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento lineare nastro trasportatore
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Linear motion
-    * @param [in] name Motion point description
-    * @param [in] tool Tool coordinate number, range [0~14]
-    * @param [in] wobj Workpiece coordinate number, range [0~14]
-    * @param [in] vel Speed percentage, range [0~100]
-    * @param [in] acc Acceleration percentage, range [0~100], not currently available
-    * @param [in] ovl Speed scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @return Error code 
+    * @brief Movimento lineare
+    * @param [in] name descrizione punto movimento
+    * @param [in] tool numero coordinata utensile, range [0~14]
+    * @param [in] wobj numero coordinata pezzo, range [0~14]
+    * @param [in] vel percentuale velocità, range [0~100]
+    * @param [in] acc percentuale accelerazione, range [0~100], non aperto attualmente
+    * @param [in] ovl fattore scala velocità, range [0~100]
+    * @param [in] blendR [-1.0]-movimento a posizione (bloccante), [0~1000.0]-raggio smooth (non bloccante), unità mm
+    * @return Codice errore 
     */ 
     int ConveyorTrackMoveL(String name, int tool, int wobj, double vel, double acc, double ovl, double blendR);   
 
-Conveyor communication input detection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rilevamento input comunicazione nastro trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Conveyor communication input detection
-    * @param [in] timeout Wait timeout time ms
-    * @return Error code
+    * @brief Rilevamento input comunicazione nastro trasportatore
+    * @param [in] timeout tempo attesa timeout ms
+    * @return Codice errore
     */
     int ConveyorComDetect(int timeout);
 
-Conveyor communication input detection trigger
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Trigger rilevamento input comunicazione nastro trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Conveyor communication input detection trigger
-    * @param [in] timeout Wait timeout time ms
-    * @return Error code
+    * @brief Trigger rilevamento input comunicazione nastro trasportatore
+    * @param [in] timeout tempo attesa timeout ms
+    * @return Codice errore
     */
     int ConveyorComDetectTrigger();
 
-Robot conveyor operation example program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio programma operazione nastro trasportatore robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -534,66 +534,66 @@ Robot conveyor operation example program
         return 0;
     }
 
-End sensor configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione sensore terminale
+++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief End sensor configuration
-    * @param [in] config idCompany Manufacturer, 18-JUNKONG; 25-HUIDE
-    * @param [in] config idDevice Type, 0-JUNKONG/RYR6T.V1.0
-    * @param [in] config idSoftware Software version, 0-J1.0/HuiDe1.0(not currently available)
-    * @param [in] config idBus Mount position, 1-end port 1; 2-end port 2...8-end port 8(not currently available)
-    * @return Error code
+    * @brief Configurazione sensore terminale
+    * @param [in] config idCompany produttore, 18-JUNKONG; 25-HUIDE
+    * @param [in] config idDevice tipo, 0-JUNKONG/RYR6T.V1.0
+    * @param [in] config idSoftware versione software, 0-J1.0/HuiDe1.0 (non aperto attualmente)
+    * @param [in] config idBus posizione montaggio, 1-porta terminale 1; 2-porta terminale 2...8-porta terminale 8 (non aperto attualmente)
+    * @return Codice errore
     */
     int AxleSensorConfig(DeviceConfig config);
 
-Get end sensor configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere configurazione sensore terminale
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get end sensor configuration
-    * @param [out] config idCompany Manufacturer, 18-JUNKONG; 25-HUIDE
-    * @param [out] config idDevice Type, 0-JUNKONG/RYR6T.V1.0
-    * @return Error code
+    * @brief Ottenere configurazione sensore terminale
+    * @param [out] config idCompany produttore, 18-JUNKONG; 25-HUIDE
+    * @param [out] config idDevice tipo, 0-JUNKONG/RYR6T.V1.0
+    * @return Codice errore
     */
     int AxleSensorConfigGet(DeviceConfig config);
 
-End sensor activation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione sensore terminale
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief End sensor activation
-    * @param [in] actFlag 0-reset; 1-activate
-    * @return Error code
+    * @brief Attivazione sensore terminale
+    * @param [in] actFlag 0-reset; 1-attiva
+    * @return Codice errore
     */
     int AxleSensorActivate(int actFlag);
 
-End sensor register write
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura registro sensore terminale
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief End sensor register write
-    * @param [in] devAddr  Device address number 0-255
-    * @param [in] regHAddr Register address high 8 bits
-    * @param [in] regLAddr Register address low 8 bits
-    * @param [in] regNum  Register count 0-255
-    * @param [in] data1 Write register value 1
-    * @param [in] data2 Write register value 2
-    * @param [in] isNoBlock 0-blocking; 1-non-blocking
-    * @return Error code
+    * @brief Scrittura registro sensore terminale
+    * @param [in] devAddr  numero indirizzo dispositivo 0-255
+    * @param [in] regHAddr indirizzo registro 8 bit alti
+    * @param [in] regLAddr indirizzo registro 8 bit bassi
+    * @param [in] regNum  numero registri 0-255
+    * @param [in] data1 valore registro scritto 1
+    * @param [in] data2 valore registro scritto 2
+    * @param [in] isNoBlock 0-bloccante; 1-non bloccante
+    * @return Codice errore
     */
     int AxleSensorRegWrite(int devAddr, int regHAddr, int regLAddr, int regNum, int data1, int data2, int isNoBlock);
 
-End sensor code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice sensore terminale
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -613,31 +613,31 @@ End sensor code example
         return 0;
     }
 
-Get robot peripheral protocol
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere protocollo periferiche robot
+++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get robot peripheral protocol
-    * @return List[0]:Error code; List[1] : int protocol Robot peripheral protocol number 4096-extension axis control card; 4097-ModbusSlave; 4098-ModbusMaster 
+    * @brief Ottenere protocollo periferiche robot
+    * @return List[0]: codice errore; List[1] : int protocol numero protocollo periferiche robot 4096-scheda controllo asse estensione; 4097-ModbusSlave; 4098-ModbusMaster 
     */
     List<Integer> GetExDevProtocol();
 
-Set robot peripheral protocol
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare protocollo periferiche robot
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set robot peripheral protocol
-    * @param [in] protocol Robot peripheral protocol number 4096-extension axis control card; 4097-ModbusSlave; 4098-ModbusMaster
-    * @return Error code 
+    * @brief Impostare protocollo periferiche robot
+    * @param [in] protocol numero protocollo periferiche robot 4096-scheda controllo asse estensione; 4097-ModbusSlave; 4098-ModbusMaster
+    * @return Codice errore 
     */
     int SetExDevProtocol(int protocol);
 
-Set robot peripheral protocol example program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio programma impostazione protocollo periferiche robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -651,185 +651,185 @@ Set robot peripheral protocol example program
         return 0;
     }
 
-Get end communication parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere parametri comunicazione terminale
++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get end communication parameters
-    * @param [out] param End communication parameters
-    * @return Error code 
+    * @brief Ottenere parametri comunicazione terminale
+    * @param [out] param parametri comunicazione terminale
+    * @return Codice errore 
     */
     int GetAxleCommunicationParam(AxleComParam param)
 
-Set end communication parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare parametri comunicazione terminale
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set end communication parameters
-    * @param [in] param End communication parameters
-    * @return Error code 
+    * @brief Impostare parametri comunicazione terminale
+    * @param [in] param parametri comunicazione terminale
+    * @return Codice errore 
     */
     int SetAxleCommunicationParam(AxleComParam param)
 
-Set end file transfer type
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare tipo trasferimento file terminale
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set end file transfer type
-    * @param [in] type 1-MCU upgrade file; 2-LUA file
-    * @return  Error code
+    * @brief Impostare tipo trasferimento file terminale
+    * @param [in] type 1-file aggiornamento MCU; 2-file LUA
+    * @return  Codice errore
     */
     public int SetAxleFileType(int type)
 
-Set enable end LUA execution
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare abilitazione esecuzione LUA terminale
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set enable end LUA execution
-    * @param [in] enable 0-disable; 1-enable
-    * @return  Error code
+    * @brief Impostare abilitazione esecuzione LUA terminale
+    * @param [in] enable 0-non abilitare; 1-abilitare
+    * @return  Codice errore
     */
     public int SetAxleLuaEnable(int enable)
 
-End LUA file error recovery
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ripristino errore anomalo file LUA terminale
++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief End LUA file error recovery
-    * @param [in] status 0-no recovery; 1-recover
-    * @return  Error code
+    * @brief Ripristino errore anomalo file LUA terminale
+    * @param [in] status 0-non ripristinare; 1-ripristinare
+    * @return  Codice errore
     */
     public int SetRecoverAxleLuaErr(int status)
 
-Get end LUA execution enable status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere stato abilitazione esecuzione LUA terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get end LUA execution enable status
-    * @param [out] status[0]: 0-disabled; 1-enabled
-    * @return  Error code
+    * @brief Ottenere stato abilitazione esecuzione LUA terminale
+    * @param [out] status[0]: 0-non abilitato; 1-abilitato
+    * @return  Codice errore
     */
     int GetAxleLuaEnableStatus(int[] status)
 
-Set end LUA end device enable type
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare tipo dispositivo terminale abilitato LUA terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set end LUA end device enable type
-    * @param forceSensorEnable Force sensor enable status, 0-disable; 1-enable
-    * @param gripperEnable Gripper enable status, 0-disable; 1-enable
-    * @param IOEnable IO device enable status, 0-disable; 1-enable
-    * @return  Error code
+    * @brief Impostare tipo dispositivo terminale abilitato LUA terminale
+    * @param forceSensorEnable stato abilitazione sensore forza, 0-non abilitare; 1-abilitare
+    * @param gripperEnable stato abilitazione pinza, 0-non abilitare; 1-abilitare
+    * @param IOEnable stato abilitazione dispositivo IO, 0-non abilitare; 1-abilitare
+    * @return  Codice errore
     */
     public int SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable)
 
-Get end LUA end device enable type
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere tipo dispositivo terminale abilitato LUA terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Get end LUA end device enable type
-     * @param enable enable[0]:forceSensorEnable Force sensor enable status, 0-disable; 1-enable
-     * @param enable enable[1]:gripperEnable Gripper enable status, 0-disable; 1-enable
-     * @param enable enable[2]:IOEnable IO device enable status, 0-disable; 1-enable
-     * @return  Error code
+     * @brief Ottenere tipo dispositivo terminale abilitato LUA terminale
+     * @param enable enable[0]:forceSensorEnable stato abilitazione sensore forza, 0-non abilitare; 1-abilitare
+     * @param enable enable[1]:gripperEnable stato abilitazione pinza, 0-non abilitare; 1-abilitare
+     * @param enable enable[2]:IOEnable stato abilitazione dispositivo IO, 0-non abilitare; 1-abilitare
+     * @return  Codice errore
      */
     public int GetAxleLuaEnableDeviceType(int[] enable)
 
-Get currently configured end devices
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere dispositivo terminale configurato attualmente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Get currently configured end devices
-     * @param forceSensorEnable Force sensor enable device number 0-disabled; 1-enabled
-     * @param gripperEnable Gripper enable device number, 0-disabled; 1-enabled
-     * @param IODeviceEnable IO device enable device number, 0-disabled; 1-enabled
-     * @return  Error code
+     * @brief Ottenere dispositivo terminale configurato attualmente
+     * @param forceSensorEnable numero dispositivo abilitazione sensore forza 0-non abilitato; 1-abilitato
+     * @param gripperEnable numero dispositivo abilitazione pinza, 0-non abilitato; 1-abilitato
+     * @param IODeviceEnable numero dispositivo abilitazione IO, 0-non abilitato; 1-abilitato
+     * @return  Codice errore
      */
     public int GetAxleLuaEnableDevice(int[] forceSensorEnable, int[] gripperEnable, int[] IODeviceEnable)
 
-Set enable gripper action control function
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare abilitazione funzione controllo azione pinza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Set enable gripper action control function
-     * @param id Gripper device number
-     * @param func func[0]-gripper enable; func[1]-gripper initialization; 2-position set; 3-speed set; 4-torque set; 6-read gripper status; 7-read initialization status; 8-read error code; 9-read position; 10-read speed; 11-read torque
-     * @return  Error code
+     * @brief Impostare abilitazione funzione controllo azione pinza
+     * @param id numero dispositivo pinza
+     * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
+     * @return  Codice errore
      */
     public int SetAxleLuaGripperFunc(int id, int[] func)
 
-Get enable gripper action control function
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere abilitazione funzione controllo azione pinza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Get enable gripper action control function
-     * @param id Gripper device number
-     * @param func func[0]-gripper enable; func[1]-gripper initialization; 2-position set; 3-speed set; 4-torque set; 6-read gripper status; 7-read initialization status; 8-read error code; 9-read position; 10-read speed; 11-read torque
-     * @return  Error code
+     * @brief Ottenere abilitazione funzione controllo azione pinza
+     * @param id numero dispositivo pinza
+     * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
+     * @return  Codice errore
      */
     public int GetAxleLuaGripperFunc(int id, int[] func)
 
-Robot Ethercat slave file write
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura file slave Ethercat robot
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Robot Ethercat slave file write
-     * @param type Slave file type, 1-upgrade slave file; 2-upgrade slave configuration file
-     * @param slaveID Slave number
-     * @param fileName Upload file name
-     * @return  Error code
+     * @brief Scrittura file slave Ethercat robot
+     * @param type tipo file slave, 1-file aggiornamento slave; 2-file configurazione slave
+     * @param slaveID numero slave
+     * @param fileName nome file upload
+     * @return  Codice errore
      */
     public int SlaveFileWrite(int type, int slaveID, String fileName)
 
-Upload end Lua open protocol file
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Upload file protocollo aperto LUA terminale
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Upload end Lua open protocol file
-     * @param filePath Local lua file path name ".../AXLE_LUA_End_DaHuan.lua"
-     * @return Error code
+     * @brief Upload file protocollo aperto LUA terminale
+     * @param filePath percorso file lua locale ".../AXLE_LUA_End_DaHuan.lua"
+     * @return Codice errore
      */
     public int AxleLuaUpload(String filePath)
 
-Robot Ethercat slave enter boot mode
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ingresso modalità boot slave Ethercat robot
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Robot Ethercat slave enter boot mode
-     * @return  Error code
+     * @brief Ingresso modalità boot slave Ethercat robot
+     * @return  Codice errore
      */
     public int SetSysServoBootMode()
 
-Robot end LUA file operation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio codice operazione file LUA terminale robot
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -891,35 +891,35 @@ Robot end LUA file operation code example
 
     }
 
-Get SmartTool button status
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere stato pulsante SmartTool
++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get SmartTool button status
-    * @param [out] state SmartTool handle button status;(bit0:0-communication normal; 1-communication lost; bit1-undo operation; bit2-clear program; bit3-A key; bit4-B key; bit5-C key; bit6-D key; bit7-E key; bit8-IO key; bit9-manual/auto; bit10-start)
-    * @return Error code
+    * @brief Ottenere stato pulsante SmartTool
+    * @param [out] state stato pulsante manopola SmartTool;(bit0:0-comunicazione normale; 1-comunicazione persa; bit1-annulla operazione; bit2-cancella programma; bit3-tasto A; bit4-tasto B; bit5-tasto C; bit6-tasto D; bit7-tasto E; bit8-tasto IO; bit9-manuale/automatico; bit10-inizia)
+    * @return Codice errore
     */
     int GetSmarttoolBtnState(int[] state)
 
-SmartTool button code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio codice pulsante SmartTool
++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public static void main(String[] args) 
     {
         Robot robot = new Robot();
-        robot.SetReconnectParam(true, 100, 500);//Set reconnection times and interval
+        robot.SetReconnectParam(true, 100, 500);//imposta tentativi riconnessione, intervallo
         robot.LoggerInit(FrLogType.DIRECT, FrLogLevel.INFO, "D://log", 10, 10);
         int rtn = robot.RPC("192.168.58.2");
         if (rtn == 0) {
-            System.out.println("rpc connection success");
+            System.out.println("connessione rpc successo");
         } else {
-            System.out.println("rpc connection fail");
+            System.out.println("connessione rpc fallita");
             return;
         }
 
@@ -934,142 +934,141 @@ SmartTool button code example
         }
     }
 
-Upload Open Protocol Lua File
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Upload file LUA protocollo aperto
+++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Upload Open Protocol Lua File
-    * @param  filePath Local open protocol lua file path name
-    * @return Error code
+    * @brief Upload file LUA protocollo aperto
+    * @param  filePath percorso file lua protocollo aperto locale
+    * @return Codice errore
     */
     public int OpenLuaUpload(String filePath)
 
-
-Get Slave Board Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere parametri scheda slave
+++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get Slave Board Parameters
+    * @brief  Ottenere parametri scheda slave
     * @param  type  0-Ethercat, 1-CClink, 3-Ethercat, 4-EIP
-    * @param  version  Protocol version
-    * @param  connState  0-Disconnected 1-Connected
-    * @return  Error code
+    * @param  version  versione protocollo
+    * @param  connState  0-non connesso 1-connesso
+    * @return  Codice errore
     */
     public int GetFieldBusConfig(int[] type, int[] version, int[] connState)
 
-Write Slave DO
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrivere DO slave
++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Write Slave DO
-    * @param   DOIndex  DO number
-    * @param   wirteNum  Number to write
-    * @param   status Value to write, max 8
-    * @return  Error code
+    * @brief  Scrivere DO slave
+    * @param   DOIndex  numero DO
+    * @param   wirteNum  quantità scritta
+    * @param   status valore scritto, massimo 8
+    * @return  Codice errore
     */
     public int FieldBusSlaveWriteDO(int DOIndex, int wirteNum, int[] status)
 
-Write Slave AO
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrivere AO slave
++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Write Slave AO
-    * @param  AOIndex  AO number
-    * @param  wirteNum  Number to write
-    * @param  status Value to write, max 8
-    * @return  Error code
+    * @brief  Scrivere AO slave
+    * @param  AOIndex  numero AO
+    * @param  wirteNum  quantità scritta
+    * @param  status valore scritto, massimo 8
+    * @return  Codice errore
     */
     public int FieldBusSlaveWriteAO(int AOIndex, int wirteNum, int[] status)
 
-Read Slave DI
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Leggere DI slave
+++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Read Slave DI
-    * @param  DOIndex  DI number
-    * @param  readNum  Number to read
-    * @param  status Read value, max 8
-    * @return  Error code
+    * @brief  Leggere DI slave
+    * @param  DOIndex  numero DI
+    * @param  readNum  quantità letta
+    * @param  status valore letto, massimo 8
+    * @return  Codice errore
     */
     public int FieldBusSlaveReadDI(int DOIndex, int readNum, int[] status)
 
-Read Slave AI
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Leggere AI slave
+++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Read Slave AI
-    * @param  AIIndex  AI number
-    * @param  readNum  Number to read
-    * @param  status Read value, max 8
-    * @return  Error code
+    * @brief  Leggere AI slave
+    * @param  AIIndex  numero AI
+    * @param  readNum  quantità letta
+    * @param  status valore letto, massimo 8
+    * @return  Codice errore
     */
     public int FieldBusSlaveReadAI(int AIIndex, int readNum, double[] status)
 
-Wait for Extended DI Input
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere input DI estensione
++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Wait for Extended DI Input
-    * @param  DIIndex DI number
-    * @param  status 0-Low level; 1-High level
-    * @param  waitMs Max waiting time (ms)
-    * @return Error code
+    * @brief Attendere input DI estensione
+    * @param  DIIndex numero DI
+    * @param  status 0-basso; 1-alto
+    * @param  waitMs tempo attesa massimo (ms)
+    * @return Codice errore
     */
     public int FieldBusSlaveWaitDI(int DIIndex, int status, int waitMs)
 
-Wait for Extended AI Input
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere input AI estensione
++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Wait for Extended AI Input
-    * @param  AIIndex AI number
-    * @param  waitType 0-Greater than; 1-Less than
-    * @param  value AI value
-    * @param  waitMs Max waiting time (ms)
-    * @return Error code
+    * @brief Attendere input AI estensione
+    * @param  AIIndex numero AI
+    * @param  waitType 0-maggiore; 1-minore
+    * @param  valore AI
+    * @param  waitMs tempo attesa massimo (ms)
+    * @return Codice errore
     */
     public int FieldBusSlaveWaitAI(int AIIndex, int waitType, double value, int waitMs)
 
-Slave Mode Related Interface Command Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio codice comandi interfaccia modalità slave
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public static void testFieldBusBoard(Robot robot)
     {
-        //Upload and load open protocol file
+        //Upload e caricamento file protocollo aperto
         robot.OpenLuaUpload("D://zUP/1111/CtrlDev_field.lua");
         robot.Sleep(2000);
         robot.SetCtrlOpenLUAName(3, "CtrlDev_field.lua");
@@ -1079,22 +1078,22 @@ Slave Mode Related Interface Command Code Example
         int[] type=new int[1];
         int[] version=new int[1];
         int[] connState=new int[1];
-        //Get protocol type, software version, and PLC connection status of the slave board
+        //Ottenere tipo protocollo, versione software, stato connessione PLC scheda slave
         robot.GetFieldBusConfig(type, version, connState);
         System.out.println("type is: "+type[0]+", version is : "+version[0]+", connState is : "+connState[0]);
-        //Write DO0 = 1, DO1 = 0, DO2 = 1
+        //Scrivere DO0 = 1, DO1 = 0, DO2 = 1
         int[] ctrl =new int[8];
         ctrl[0] = 1;
         ctrl[1] = 0;
         ctrl[2] = 1;
         robot.FieldBusSlaveWriteDO(0, 3, ctrl);
-        //Write AO2 = 0x1000
+        //Scrivere AO2 = 0x1000
         int[] ctrlAO =new int[8];
         ctrlAO[0] = 0x1000;
         robot.FieldBusSlaveWriteAO(2, 1, ctrlAO);
         int[] DI=new int[4];
         double[] AI=new double[3];
-        //Loop monitor DI0~DI3 AI0~AI2
+        //Monitoraggio ciclico DI0~DI3 AI0~AI2
         for (int i = 0; i < 100; i++)
         {
             robot.FieldBusSlaveReadDI(0, 4, DI);
@@ -1103,84 +1102,84 @@ Slave Mode Related Interface Command Code Example
             System.out.println("AI0 is: "+AI[0]+ ",AI1 is: "+AI[1]+",AI2 is: "+AI[2]);
             robot.Sleep(10);
         }
-        //Wait for DI0 to be 1, wait time 100ms, and print result
+        //Attendere se DI0 è 1, tempo attesa 100ms, e stampare risultato
         int ret = robot.FieldBusSlaveWaitDI(0, 1, 100);
         System.out.println("FieldBusSlaveWaitDI result is: "+ ret);
-        //Wait for AI0 to be greater than 400, wait time 100ms, and print result
+        //Attendere se AI0 è maggiore di 400, tempo attesa 100ms, e stampare risultato
         ret = robot.FieldBusSlaveWaitAI(0,0,400.00,100);
         System.out.println("FieldBusSlaveWaitAI result is: "+ ret);
         robot.CloseRPC();
     }
 
-Control Array Sucker
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare ventosa a matrice
+++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Control Array Sucker
-    * @param  slaveID Slave ID
-    * @param  len Length
-    * @param  ctrlValue Control value 1-Suction at max vacuum; 2-Suction at set vacuum; 3-Stop suction
-    * @return Error code
+    * @brief Controllare ventosa a matrice
+    * @param  slaveID numero slave
+    * @param  len lunghezza
+    * @param  ctrlValue valore controllo 1-aspirazione massima aspirazione 2-aspirazione soglia impostata 3-arresto aspirazione
+    * @return Codice errore
     */
     public int SetSuckerCtrl(int slaveID, int len, int[] ctrlValue)
 
-Get Array Sucker Status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere stato ventosa a matrice
++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get Array Sucker Status
-    * @param  slaveID Slave ID
-    * @param  state Adsorption state 0-Release object; 1-Workpiece detected and adsorbed successfully; 2-No object adsorbed; 3-Object detached
-    * @param  pressValue Current vacuum degree Unit kpa
-    * @param  error Sucker current error code
-    * @return Error code
+    * @brief Ottenere stato ventosa a matrice
+    * @param  slaveID numero slave
+    * @param  state stato aspirazione 0-rilascio oggetto 1-rilevato pezzo aspirazione riuscita 2-nessun oggetto aspirato 3-oggetto staccato
+    * @param  pressValue vuoto corrente unità kpa
+    * @param  error codice errore corrente ventosa
+    * @return Codice errore
     */
     public int GetSuckerState(int slaveID, int[] state, int[] pressValue, int[] error)
 
-Wait for Sucker Status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere stato ventosa
++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Wait for Sucker Status
-    * @param  slaveID Slave ID
-    * @param  state Adsorption state 0-Release object; 1-Workpiece detected and adsorbed successfully; 2-No object adsorbed; 3-Object detached
-    * @param  ms Max waiting time
-    * @return Error code
+    * @brief Attendere stato ventosa
+    * @param  slaveID numero slave
+    * @param  state stato aspirazione 0-rilascio oggetto 1-rilevato pezzo aspirazione riuscita 2-nessun oggetto aspirato 3-oggetto staccato
+    * @param  ms tempo attesa massimo
+    * @return Codice errore
     */
     public int WaitSuckerState(int slaveID, int state, int ms)
 
-Array Sucker Control Command Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio codice comandi controllo ventosa a matrice
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public static void testSucker(Robot robot)
     {
-        //Upload and load open protocol file
-        robot.OpenLuaUpload("C：//project/peripheralSDK/CtrlDev_sucker.lua");
+        //Upload e caricamento file protocollo aperto
+        robot.OpenLuaUpload("C：//项目/外设SDK/CtrlDev_sucker.lua");
         robot.Sleep(2000);
         robot.UnloadCtrlOpenLUA(1);
         robot.LoadCtrlOpenLUA(1);
         robot.Sleep(1000);
-        //Control sucker in broadcast mode, adsorb with maximum capacity
+        //Controllo ventosa modalità broadcast, aspirazione massima capacità
         int[] ctrl = {1};
         robot.SetSuckerCtrl(0, 1, ctrl);
         int[] state=new int[1];
         int[] pressVlaue=new int[1];
         int[] error=new int[1];
-        //Loop monitor status of sucker 1 and sucker 12
+        //Monitoraggio ciclico stato ventosa 1 e ventosa 12
         for (int i = 0; i < 100; i++)
         {
             robot.GetSuckerState(1, state,pressVlaue, error);
@@ -1189,437 +1188,437 @@ Array Sucker Control Command Code Example
             System.out.println("sucker12 state is :"+state[0]+", pressVlaue is:"+pressVlaue[0]+",error num is:"+error[0]);
             robot.Sleep(100);
         }
-        //Wait for sucker 1 to be in adsorbed state, wait time 100ms
+        //Attendere se ventosa 1 è in stato oggetto aspirato, tempo attesa 100ms
         int ret = robot.WaitSuckerState(1, 1, 100);
         System.out.println("WaitSuckerState result is:"+ ret);
-        //Unicast mode to turn off sucker 1 and 12
+        //Modalità unicast spegnimento ventosa 1 e 12
         ctrl[0] = 3;
         robot.SetSuckerCtrl(1, 1, ctrl);
         robot.SetSuckerCtrl(12, 1, ctrl);
         robot.CloseRPC();
     }
 
-Laser Peripheral On/Off Function
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Funzione accensione/spegnimento periferica laser
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
+.. code-block:: Java
+    :linenos:
+
+    /**
+     * @brief Funzione accensione/spegnimento periferica laser
+     * @param [in] OnOff 0-spegni 1-accendi
+     * @param [in] weldId ID cordone saldatura default 0
+     * @return Codice errore
+     */
+    public int LaserTrackingLaserOnOff(int OnOff, int weldId)
+
+Funzione inizio/fine tracciamento laser
+++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: Java SDK-v1.0.9-3.8.6
+
+.. code-block:: Java
+    :linenos:
+    
+    /**
+     * @brief Funzione inizio/fine tracciamento laser
+     * @param [in] OnOff 0-fine 1-inizio
+     * @param [in] coordId numero sistema coordinato utensile periferica laser
+     * @return Codice errore
+     */
+    public int LaserTrackingTrackOnOff(int OnOff, int coordId)
+
+Ricerca posizione laser - direzione fissa inversa
+++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: Java SDK-v1.0.9-3.8.6
+
+.. code-block:: Java
+    :linenos:
+
+    /**
+     * @brief Ricerca posizione laser - direzione fissa inversa
+     * @param [in] direction 0-x+ 1-x- 2-y+ 3-y- 4-z+ 5-z-
+     * @param [in] vel velocità unità %
+     * @param [in] distance distanza ricerca massima unità mm
+     * @param [in] timeout timeout ricerca unità ms
+     * @param [in] posSensorNum numero coordinata utensile calibrata laser
+     * @return Codice errore
+     */
+    public int LaserTrackingSearchStart_xyz(int direction, int vel, int distance, int timeout, int posSensorNum)
+
+Ricerca posizione laser - direzione arbitraria
++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: Java SDK-v1.0.9-3.8.6
+
+.. code-block:: Java
+    :linenos:
+
+    /**
+     * @brief Ricerca posizione laser - direzione arbitraria
+     * @param [in] directionPoint coordinate xyz punto input ricerca
+     * @param [in] vel velocità unità %
+     * @param [in] distance distanza ricerca massima unità mm
+     * @param [in] timeout timeout ricerca unità ms
+     * @param [in] posSensorNum numero coordinata utensile calibrata laser
+     * @return Codice errore
+     */
+    public int LaserTrackingSearchStart_point(DescTran directionPoint, int vel, int distance, int timeout, int posSensorNum)
+
+Fine ricerca posizione laser
++++++++++++++++++++++++++++++
+.. versionadded:: Java SDK-v1.0.9-3.8.6
+
+.. code-block:: Java
    :linenos:
 
    /**
-    * @brief Laser peripheral on/off function
-    * @param [in] OnOff 0-off 1-on
-    * @param [in] weldId Weld seam ID, default is 0
-    * @return Error code
+    * @brief  Fine ricerca posizione laser
+    * @return Codice errore
     */
-   public int LaserTrackingLaserOnOff(int OnOff, int weldId)
+    public int LaserTrackingSearchStop()
 
-Laser Tracking Start/Stop Function
+Configurazione IP laser
++++++++++++++++++++++++
+.. versionadded:: Java SDK-v1.0.9-3.8.6
+
+.. code-block:: Java
+   :linenos:
+
+    /**
+     * @brief Configurazione IP laser
+     * @param [in] ip indirizzo IP periferica laser
+     * @param [in] porta numero porta periferica laser
+     * @return Codice errore
+     */
+    public int LaserTrackingSensorConfig(String ip, int port)
+
+Configurazione periodo campionamento periferica laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser tracking start/stop function
-    * @param [in] OnOff 0-stop 1-start
-    * @param [in] coordId Laser peripheral tool coordinate system number
-    * @return Error code
-    */
-   public int LaserTrackingTrackOnOff(int OnOff, int coordId)
+    /**
+     * @brief Configurazione periodo campionamento periferica laser
+     * @param [in] period periodo campionamento periferica laser unità ms
+     * @return Codice errore
+     */
+    public int LaserTrackingSensorSamplePeriod(int period)
 
-Laser Positioning - Fixed Direction
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Caricamento driver periferica laser
+++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser positioning - fixed direction
-    * @param [in] direction 0-x+ 1-x- 2-y+ 3-y- 4-z+ 5-z-
-    * @param [in] vel Speed in %
-    * @param [in] distance Maximum positioning distance in mm
-    * @param [in] timeout Positioning timeout in ms
-    * @param [in] posSensorNum Laser calibrated tool coordinate number
-    * @return Error code
-    */
-   public int LaserTrackingSearchStart_xyz(int direction, int vel, int distance, int timeout, int posSensorNum)
+    /**
+     * @brief Caricamento driver periferica laser
+     * @param [in] type tipo protocollo driver periferica laser 101-Ruiniu 102-Chuangxiang 103-Quanshi 104-Tongzhou 105-Aotai
+     * @return Codice errore
+     */
+    public int LoadPosSensorDriver(int type)
 
-Laser Positioning - Arbitrary Direction
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scaricamento driver periferica laser
++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser positioning - arbitrary direction
-    * @param [in] directionPoint XYZ coordinates of the positioning input point
-    * @param [in] vel Speed in %
-    * @param [in] distance Maximum positioning distance in mm
-    * @param [in] timeout Positioning timeout in ms
-    * @param [in] posSensorNum Laser calibrated tool coordinate number
-    * @return Error code
-    */
-   public int LaserTrackingSearchStart_point(DescTran directionPoint, int vel, int distance, int timeout, int posSensorNum)
+    /**
+     * @brief Scaricamento driver periferica laser
+     * @return Codice errore
+     */
+    public int UnLoadPosSensorDriver()
 
-Laser Positioning Stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione traiettoria cordone saldatura laser
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser positioning stop
-    * @return Error code
-    */
-   public int LaserTrackingSearchStop()
+    /**
+     * @brief Registrazione traiettoria cordone saldatura laser
+     * @param [in] status 0-arresta registrazione 1-tracciamento tempo reale 2-inizia registrazione
+     * @param [in] delayTime tempo ritardo unità ms
+     * @return Codice errore
+     */
+    public int LaserSensorRecord1(int status, int delayTime)
 
-Laser IP Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Riproduzione traiettoria cordone saldatura laser
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser IP configuration
-    * @param [in] ip IP address of the laser peripheral
-    * @param [in] port Port number of the laser peripheral
-    * @return Error code
-    */
-   public int LaserTrackingSensorConfig(String ip, int port)
+    /**
+     * @brief Riproduzione traiettoria cordone saldatura laser
+     * @param [in] delayTime tempo ritardo unità ms
+     * @param [in] speed velocità unità %
+     * @return Codice errore
+     */
+    public int LaserSensorReplay(int delayTime, double speed)
 
-Laser Peripheral Sampling Period Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Riproduzione tracciamento laser
+++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser peripheral sampling period configuration
-    * @param [in] period Laser peripheral sampling period in ms
-    * @return Error code
-    */
-   public int LaserTrackingSensorSamplePeriod(int period)
+    /**
+     * @brief Riproduzione tracciamento laser
+     * @return Codice errore
+     */
+    public int MoveLTR()
 
-Laser Peripheral Driver Loading
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Riproduzione traiettoria cordone saldatura laser
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser peripheral driver loading
-    * @param [in] type Laser peripheral driver protocol type 101-Ruiniu 102-Chuangxiang 103-Quanshi 104-Tongzhou 105-Aotai
-    * @return Error code
-    */
-   public int LoadPosSensorDriver(int type)
+    /**
+     * @brief Riproduzione traiettoria cordone saldatura laser
+     * @param [in] delayMode modalità 0-tempo ritardo 1-distanza ritardo
+     * @param [in] delayTime tempo ritardo unità ms
+     * @param [in] delayDisExAxisNum numero asse estensione
+     * @param [in] delayDis distanza ritardo unità mm
+     * @param [in] sensitivePara coefficiente sensibilità compensazione
+     * @param [in] speed velocità unità %
+     * @return Codice errore
+     */
+    public int LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum, double delayDis, double sensitivePara, double speed)
 
-Laser Peripheral Driver Unloading
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento punto inizio registrazione cordone laser
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser peripheral driver unloading
-    * @return Error code
-    */
-   public int UnLoadPosSensorDriver()
+    /**
+     * @brief Movimento punto inizio registrazione cordone laser
+     * @param [in] moveType 0-PTP 1-LIN
+     * @param [in] ovl velocità unità %
+     * @return Codice errore
+     */
+    public int MoveToLaserRecordStart(int moveType, double ovl)
 
-Laser Weld Seam Trajectory Recording
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento punto fine registrazione cordone laser
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser weld seam trajectory recording
-    * @param [in] status 0-stop recording 1-real-time tracking 2-start recording
-    * @param [in] delayTime Delay time in ms
-    * @return Error code
-    */
-   public int LaserSensorRecord1(int status, int delayTime)
+    /**
+     * @brief Movimento punto fine registrazione cordone laser
+     * @param [in] moveType 0-PTP 1-LIN
+     * @param [in] ovl velocità unità %
+     * @return Codice errore
+     */
+    public int MoveToLaserRecordEnd(int moveType, double ovl)
 
-Laser Weld Seam Trajectory Replay
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento punto ricerca sensore laser
+++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser weld seam trajectory replay
-    * @param [in] delayTime Delay time in ms
-    * @param [in] speed Speed in %
-    * @return Error code
-    */
-   public int LaserSensorReplay(int delayTime, double speed)
+    /**
+     * @brief Movimento punto ricerca sensore laser
+     * @param [in] moveFlag tipo movimento: 0-PTP; 1-LIN
+     * @param [in] ovl fattore scala velocità, 0-100
+     * @param [in] dataFlag selezione dati cache cordone: 0-esegui dati pianificazione; 1-esegui dati registrazione
+     * @param [in] plateType tipo lamiera: 0-lamiera ondulata; 1-cartone ondulato; 2-pannello recinzione; 3-fusto olio; 4-acciaio ondulato
+     * @param [in] trackOffectType tipo offset sensore laser: 0-nessun offset; 1-offset sistema base; 2-offset sistema utensile; 3-offset dati originali sensore laser
+     * @param [in] offset valore offset
+     * @return Codice errore
+     */
+    public int MoveToLaserSeamPos(int moveFlag, double ovl, int dataFlag, int plateType, int trackOffectType, DescPose offset)
 
-Laser Tracking Replay
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere informazioni coordinate punto ricerca sensore laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
-.. code-block:: java
-   :linenos:
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Laser tracking replay
-    * @return Error code
-    */
-   public int MoveLTR()
+    /**
+     * @brief Ottenere informazioni coordinate punto ricerca sensore laser
+     * @param [in] trackOffectType tipo offset sensore laser: 0-nessun offset; 1-offset sistema base; 2-offset sistema utensile; 3-offset dati originali sensore laser
+     * @param [in] offset valore offset
+     * @param [out] jPos posizione giunti [°]
+     * @param [out] descPos posizione cartesiana [mm]
+     * @param [out] tool sistema coordinato utensile
+     * @param [out] user sistema coordinato pezzo
+     * @param [out] exaxis posizione asse estensione [mm]
+     * @return Codice errore
+     */
+    public int GetLaserSeamPos(int trackOffectType, DescPose offset, JointPos jPos, DescPose descPos, int[] tool, int[] user, ExaxisPos exaxis)
 
-Laser Weld Seam Trajectory Recording and Replay
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+Esempio codice configurazione parametri sensore periferica laser e debug
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
 
-.. code-block:: java
-   :linenos:
+    public static void testLaserConfig(Robot robot)
+    {
+        robot.LaserTrackingSensorConfig("192.168.58.20", 5020);
 
-   /**
-    * @brief Laser weld seam trajectory recording and replay
-    * @param [in] delayMode Mode 0-delay time 1-delay distance
-    * @param [in] delayTime Delay time in ms
-    * @param [in] delayDisExAxisNum Extended axis number
-    * @param [in] delayDis Delay distance in mm
-    * @param [in] sensitivePara Compensation sensitivity coefficient
-    * @param [in] speed Speed in %
-    * @return Error code
-    */
-   public int LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum, double delayDis, double sensitivePara, double speed)
+        robot.LaserTrackingSensorSamplePeriod(20);
 
-Move to Laser Record Start Point
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+        robot.LoadPosSensorDriver(101);
+        robot.LaserTrackingLaserOnOff(0,0);
 
-.. code-block:: java
-   :linenos:
+        robot.Sleep(3000);
 
-   /**
-    * @brief Move to laser record start point
-    * @param [in] moveType 0-PTP 1-LIN
-    * @param [in] ovl Speed in %
-    * @return Error code
-    */
-   public int MoveToLaserRecordStart(int moveType, double ovl)
+        robot.LaserTrackingLaserOnOff(1, 0);
 
-Move to Laser Record End Point
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+        robot.CloseRPC();
+    }
 
-.. code-block:: java
-   :linenos:
+Esempio codice scansione traiettoria laser e riproduzione traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
 
-   /**
-    * @brief Move to laser record end point
-    * @param [in] moveType 0-PTP 1-LIN
-    * @param [in] ovl Speed in %
-    * @return Error code
-    */
-   public int MoveToLaserRecordEnd(int moveType, double ovl)
+    public static void testLaserRecordAndReplay(Robot robot)
+    {
+        //Upload e caricamento file protocollo aperto
+        robot.OpenLuaUpload("D://zUP/CtrlDev_laser_ruiniu-0117.lua");
+        robot.Sleep(2000);
+        robot.SetCtrlOpenLUAName(0, "CtrlDev_laser_ruiniu-0117.lua");
+        robot.UnloadCtrlOpenLUA(0);
+        robot.LoadCtrlOpenLUA(0);
+        robot.Sleep(8000);
 
-Move to Laser Sensor Positioning Point
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+        for (int i=0;i<10;++i){
+            JointPos startjointPos=new JointPos(56.205, -117.951, 141.872, -118.149, -94.217, -122.176);
+            DescPose startdescPose=new DescPose(-97.552, -282.855, 26.675, 174.182, -1.338, -91.707);
+            ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
+            DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
+            robot.MoveL(startjointPos, startdescPose, 1, 0, 100, 100, 100, -1, 0,exaxisPos, 0, 0, offdese, 0,1, 1);
 
-.. code-block:: java
-   :linenos:
+            robot.LaserSensorRecord1(2, 10);
 
-   /**
-    * @brief Move to laser sensor positioning point
-    * @param [in] moveFlag Motion type: 0-PTP; 1-LIN
-    * @param [in] ovl Speed scaling factor, 0-100
-    * @param [in] dataFlag Weld seam cache data selection: 0-execute planning data; 1-execute recorded data
-    * @param [in] plateType Plate type: 0-corrugated plate; 1-corrugated cardboard; 2-fence plate; 3-oil drum; 4-corrugated shell steel
-    * @param [in] trackOffectType Laser sensor offset type: 0-no offset; 1-base coordinate system offset; 2-tool coordinate system offset; 3-laser sensor raw data offset
-    * @param [in] offset Offset value
-    * @return Error code
-    */
-   public int MoveToLaserSeamPos(int moveFlag, double ovl, int dataFlag, int plateType, int trackOffectType, DescPose offset)
+            JointPos endjointPos=new JointPos(68.809, -87.100, 121.120, -127.233, -95.038, -109.555);
+            DescPose enddescPose=new DescPose(-103.555, -464.234, 13.076, 174.179, -1.344, -91.709);
+            robot.MoveL(endjointPos, enddescPose, 1, 0, 50, 100, 100, -1,0, exaxisPos, 0, 0, offdese, 0,1, 1);
 
-Get Laser Sensor Positioning Point Coordinate Information
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+            robot.LaserSensorRecord1(0, 10);
 
-.. code-block:: java
-   :linenos:
+            robot.MoveToLaserRecordStart(1, 30);
 
-   /**
-    * @brief Get laser sensor positioning point coordinate information
-    * @param [in] trackOffectType Laser sensor offset type: 0-no offset; 1-base coordinate system offset; 2-tool coordinate system offset; 3-laser sensor raw data offset
-    * @param [in] offset Offset value
-    * @param [out] jPos Joint position [°]
-    * @param [out] descPos Cartesian position [mm]
-    * @param [out] tool Tool coordinate system
-    * @param [out] user Workpiece coordinate system
-    * @param [out] exaxis Extended axis position [mm]
-    * @return Error code
-    */
-   public int GetLaserSeamPos(int trackOffectType, DescPose offset, JointPos jPos, DescPose descPos, int[] tool, int[] user, ExaxisPos exaxis)
+            robot.LaserSensorReplay(10, 100);
 
-Laser Peripheral Sensor Parameter Configuration and Debugging Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: java
-   :linenos:
+            robot.MoveLTR();
 
-   public static void testLaserConfig(Robot robot)
-   {
-       robot.LaserTrackingSensorConfig("192.168.58.20", 5020);
+            robot.LaserSensorRecord1(0, 10);
+        }
 
-       robot.LaserTrackingSensorSamplePeriod(20);
+        robot.CloseRPC();
+    }
 
-       robot.LoadPosSensorDriver(101);
-       robot.LaserTrackingLaserOnOff(0,0);
+Esempio codice ricerca posizione laser e tracciamento tempo reale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
 
-       robot.Sleep(3000);
+    public static void testLasertrack(Robot robot)
+    {
+        //Upload e caricamento file protocollo aperto
+        robot.OpenLuaUpload("D://zUP/CtrlDev_laser_ruiniu-0117.lua");
+        robot.Sleep(2000);
+        robot.SetCtrlOpenLUAName(0, "CtrlDev_laser_ruiniu-0117.lua");
+        robot.UnloadCtrlOpenLUA(0);
+        robot.LoadCtrlOpenLUA(0);
+        robot.Sleep(8000);
+        for(int i=0;i<10;++i){
+            JointPos startjointPos=new JointPos(56.205, -117.951, 141.872, -118.149, -94.217, -122.176);
+            DescPose startdescPose=new DescPose(-97.552, -282.855, 26.675, 174.182, -1.338, -91.707);
+            ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
+            DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
+            DescTran directionPoint=new DescTran();
+            robot.MoveL(startjointPos, startdescPose, 1, 0, 100, 100, 100, -1, 0,exaxisPos, 0, 0, offdese, 0,1, 1);
 
-       robot.LaserTrackingLaserOnOff(1, 0);
+            robot.LaserTrackingSearchStart_xyz(3, 100, 300, 1000, 3);
+            robot.LaserTrackingSearchStop();
 
-       robot.CloseRPC();
-   }
+            //robot.GetRobotTeachingPoint(name, data);
+            robot.MoveToLaserSeamPos(1, 30, 0, 0, 0, offdese);
+            //printf("%f, %f, %f,%f, %f, %f,%f, %f, %f,%f, %f, %f\n", data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11]);
 
-Laser Trajectory Scanning and Trajectory Replay Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: java
-   :linenos:
+            robot.LaserTrackingTrackOnOff(1, 3);
+            //robot.LaserTrackingTrackOn(3);
+            JointPos endjointPos=new JointPos(68.809,-87.100,121.120,-127.233,-95.038,-109.555);
+            DescPose enddescPose=new DescPose(-103.555,-464.234,13.076,174.179,-1.344,-91.709);
+            robot.MoveL(endjointPos, enddescPose, 1, 0, 20, 100, 100, -1, 0,exaxisPos, 0, 0, offdese, 0,1, 1);
 
-   public static void testLaserRecordAndReplay(Robot robot)
-   {
-       // Upload and load open protocol file
-       robot.OpenLuaUpload("D://zUP/CtrlDev_laser_ruiniu-0117.lua");
-       robot.Sleep(2000);
-       robot.SetCtrlOpenLUAName(0, "CtrlDev_laser_ruiniu-0117.lua");
-       robot.UnloadCtrlOpenLUA(0);
-       robot.LoadCtrlOpenLUA(0);
-       robot.Sleep(8000);
+            robot.LaserTrackingTrackOnOff(0, 3);
+            System.out.println("Attualmente è la "+(i+1)+"° volta");
+        }
+        robot.CloseRPC();
+    }
 
-       for (int i=0;i<10;++i){
-           JointPos startjointPos=new JointPos(56.205, -117.951, 141.872, -118.149, -94.217, -122.176);
-           DescPose startdescPose=new DescPose(-97.552, -282.855, 26.675, 174.182, -1.338, -91.707);
-           ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
-           DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
-           robot.MoveL(startjointPos, startdescPose, 1, 0, 100, 100, 100, -1, 0,exaxisPos, 0, 0, offdese, 0,1, 1);
+Esempio codice tracciamento laser sincronizzato asse estensione e robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
 
-           robot.LaserSensorRecord1(2, 10);
+    public static void testLasertrackandExitAxis(Robot robot)
+    {
+        ExaxisPos startexaxisPos =new ExaxisPos( 0,0,0,0 );
+        ExaxisPos seamexaxisPos = new ExaxisPos(-10,0,0,0 );
+        ExaxisPos endexaxisPos = new ExaxisPos(-30, 0, 0, 0);
+        DescPose offdese = new DescPose(0, 0, 0, 0, 0, 0 );
+        JointPos seamjointPos=new JointPos(0, 0, 0, 0, 0, 0);
+        DescPose seamdescPose=new DescPose(0, 0, 0, 0, 0, 0);
 
-           JointPos endjointPos=new JointPos(68.809, -87.100, 121.120, -127.233, -95.038, -109.555);
-           DescPose enddescPose=new DescPose(-103.555, -464.234, 13.076, 174.179, -1.344, -91.709);
-           robot.MoveL(endjointPos, enddescPose, 1, 0, 50, 100, 100, -1,0, exaxisPos, 0, 0, offdese, 0,1, 1);
+        for(int i =0;i<10;++i) {
+            //Movimento punto inizio ricerca
+            JointPos startjointPos = new JointPos(58.337, -119.628, 146.037, -116.358, -92.224, -117.654);
+            DescPose startdescPose = new DescPose(-53.375, -255.363, 0.919, 178.054, 1.077, -94.026);
+            robot.ExtAxisSyncMoveJ(startjointPos, startdescPose, 1, 0, 100, 100, 100, startexaxisPos, -1, 0, offdese);
 
-           robot.LaserSensorRecord1(0, 10);
+            System.out.println("11111");
+            //Inizio ricerca lungo direzione -y
+            int ret = robot.LaserTrackingSearchStart_xyz(3, 100, 300, 1000, 2);
+            robot.LaserTrackingSearchStop();
+            System.out.println("2222");
+            int[] tool = new int[1];
+            int[] user = new int[1];
+            robot.GetLaserSeamPos(0, offdese, seamjointPos, seamdescPose, tool, user, startexaxisPos);
+            System.out.println(seamjointPos.J1 + ", " + seamjointPos.J2 + ", " +
+                    seamjointPos.J3 + ", " + seamjointPos.J4 + ", " +
+                    seamjointPos.J5 + ", " + seamjointPos.J6 + ", " +
+                    seamdescPose.tran.x + ", " + seamdescPose.tran.y + ", " +
+                    seamdescPose.tran.z + ", " + seamdescPose.rpy.rx + ", " +
+                    seamdescPose.rpy.ry + ", " + seamdescPose.rpy.rz);
+            //Se ricerca riuscita
+            if (ret == 0) {
+                //Movimento sincronizzato robot e asse estensione punto ricerca
+                robot.ExtAxisSyncMoveJ(seamjointPos, seamdescPose, 1, 0, 100, 100, 100, seamexaxisPos, -1, 0, offdese);
 
-           robot.MoveToLaserRecordStart(1, 30);
-
-           robot.LaserSensorReplay(10, 100);
-
-           robot.MoveLTR();
-
-           robot.LaserSensorRecord1(0, 10);
-       }
-
-       robot.CloseRPC();
-   }
-
-Laser Positioning and Real-time Tracking Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: java
-   :linenos:
-
-   public static void testLasertrack(Robot robot)
-   {
-       // Upload and load open protocol file
-       robot.OpenLuaUpload("D://zUP/CtrlDev_laser_ruiniu-0117.lua");
-       robot.Sleep(2000);
-       robot.SetCtrlOpenLUAName(0, "CtrlDev_laser_ruiniu-0117.lua");
-       robot.UnloadCtrlOpenLUA(0);
-       robot.LoadCtrlOpenLUA(0);
-       robot.Sleep(8000);
-       for(int i=0;i<10;++i){
-           JointPos startjointPos=new JointPos(56.205, -117.951, 141.872, -118.149, -94.217, -122.176);
-           DescPose startdescPose=new DescPose(-97.552, -282.855, 26.675, 174.182, -1.338, -91.707);
-           ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
-           DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
-           DescTran directionPoint=new DescTran();
-           robot.MoveL(startjointPos, startdescPose, 1, 0, 100, 100, 100, -1, 0,exaxisPos, 0, 0, offdese, 0,1, 1);
-
-           robot.LaserTrackingSearchStart_xyz(3, 100, 300, 1000, 3);
-           robot.LaserTrackingSearchStop();
-
-           //robot.GetRobotTeachingPoint(name, data);
-           robot.MoveToLaserSeamPos(1, 30, 0, 0, 0, offdese);
-           //printf("%f, %f, %f,%f, %f, %f,%f, %f, %f,%f, %f, %f\n", data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11]);
-
-           robot.LaserTrackingTrackOnOff(1, 3);
-           //robot.LaserTrackingTrackOn(3);
-           JointPos endjointPos=new JointPos(68.809,-87.100,121.120,-127.233,-95.038,-109.555);
-           DescPose enddescPose=new DescPose(-103.555,-464.234,13.076,174.179,-1.344,-91.709);
-           robot.MoveL(endjointPos, enddescPose, 1, 0, 20, 100, 100, -1, 0,exaxisPos, 0, 0, offdese, 0,1, 1);
-
-           robot.LaserTrackingTrackOnOff(0, 3);
-           System.out.println("Current iteration: "+(i+1));
-       }
-       robot.CloseRPC();
-   }
-
-Extended Axis and Robot Synchronized Laser Tracking Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: java
-   :linenos:
-
-   public static void testLasertrackandExitAxis(Robot robot)
-   {
-       ExaxisPos startexaxisPos =new ExaxisPos( 0,0,0,0 );
-       ExaxisPos seamexaxisPos = new ExaxisPos(-10,0,0,0 );
-       ExaxisPos endexaxisPos = new ExaxisPos(-30, 0, 0, 0);
-       DescPose offdese = new DescPose(0, 0, 0, 0, 0, 0 );
-       JointPos seamjointPos=new JointPos(0, 0, 0, 0, 0, 0);
-       DescPose seamdescPose=new DescPose(0, 0, 0, 0, 0, 0);
-
-       for(int i =0;i<10;++i) {
-           // Move to the starting point for positioning
-           JointPos startjointPos = new JointPos(58.337, -119.628, 146.037, -116.358, -92.224, -117.654);
-           DescPose startdescPose = new DescPose(-53.375, -255.363, 0.919, 178.054, 1.077, -94.026);
-           robot.ExtAxisSyncMoveJ(startjointPos, startdescPose, 1, 0, 100, 100, 100, startexaxisPos, -1, 0, offdese);
-
-           System.out.println("11111");
-           // Start positioning along -y direction
-           int ret = robot.LaserTrackingSearchStart_xyz(3, 100, 300, 1000, 2);
-           robot.LaserTrackingSearchStop();
-           System.out.println("2222");
-           int[] tool = new int[1];
-           int[] user = new int[1];
-           robot.GetLaserSeamPos(0, offdese, seamjointPos, seamdescPose, tool, user, startexaxisPos);
-           System.out.println(seamjointPos.J1 + ", " + seamjointPos.J2 + ", " +
-                   seamjointPos.J3 + ", " + seamjointPos.J4 + ", " +
-                   seamjointPos.J5 + ", " + seamjointPos.J6 + ", " +
-                   seamdescPose.tran.x + ", " + seamdescPose.tran.y + ", " +
-                   seamdescPose.tran.z + ", " + seamdescPose.rpy.rx + ", " +
-                   seamdescPose.rpy.ry + ", " + seamdescPose.rpy.rz);
-           // If positioning is successful
-           if (ret == 0) {
-               // Robot and extended axis synchronously move to the positioning point
-               robot.ExtAxisSyncMoveJ(seamjointPos, seamdescPose, 1, 0, 100, 100, 100, seamexaxisPos, -1, 0, offdese);
-
-               // Start laser tracking along the positioning point and synchronously move with extended axis
-               System.out.println("3333");
-               robot.LaserTrackingTrackOnOff(1, 2);
-               JointPos endjointPos = new JointPos(70.580, -90.918, 126.593, -125.154, -92.162, -105.403);
-               DescPose enddescPose = new DescPose(-53.375, -419.020, 0.920, 178.054, 1.076, -94.026);
-               robot.ExtAxisSyncMoveL(endjointPos, enddescPose, 1, 0, 20, 100, 100, -1, endexaxisPos, 0, offdese);
-               ;
-               // Stop tracking
-               robot.LaserTrackingTrackOnOff(0, 2);
-               System.out.println("44444");
-           }
-           System.out.println("Current run count: "+i);
-       }
-       robot.CloseRPC();
-   }
+                //Inizio tracciamento laser punto ricerca con movimento sincronizzato asse estensione
+                System.out.println("3333");
+                robot.LaserTrackingTrackOnOff(1, 2);
+                JointPos endjointPos = new JointPos(70.580, -90.918, 126.593, -125.154, -92.162, -105.403);
+                DescPose enddescPose = new DescPose(-53.375, -419.020, 0.920, 178.054, 1.076, -94.026);
+                robot.ExtAxisSyncMoveL(endjointPos, enddescPose, 1, 0, 20, 100, 100, -1, endexaxisPos, 0, offdese);
+                ;
+                //Arresto tracciamento
+                robot.LaserTrackingTrackOnOff(0, 2);
+                System.out.println("44444");
+            }
+            System.out.println("Numero esecuzioni corrente:"+i);
+        }
+        robot.CloseRPC();
+    }

@@ -1,76 +1,75 @@
-Create wizard
+Creazione Guidata
 =========================
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 6
 
-"Creation Wizard" is a tool in FRCap-Tools, through which you can easily and quickly initialize an FRCap project by entering a small number of parameters.
+"Creazione Guidata" è uno strumento in FRCap-Tools. Attraverso questo strumento, è possibile inizializzare rapidamente e facilmente un progetto FRCap inserendo pochi parametri.
 
-Parameter configuration
---------------------------------
+Configurazione Parametri
+-------------------------------
 
-Creating FRCap mainly requires two types of parameters, basic information of FRCap and configurations at all levels. They will be explained separately below.
+La creazione di un FRCap richiede principalmente due tipi di parametri: le informazioni di base del FRCap e le configurazioni a vari livelli. Questi verranno spiegati separatamente di seguito.
 
-Basic information
-+++++++++++++++++++++
+Informazioni Base
++++++++++++++++++++++++++++
 
-The basic information includes "plug-in name", "plug-in author" and "plug-in description".
+Le informazioni di base includono "Nome Plugin", "Autore Plugin" e "Descrizione Plugin".
 
-Plugin name:
+Nome Plugin:
 
-- Required fields;
-- There are no restrictions on input characters and character length, and no spaces are allowed;
-- It is recommended that the name should not exceed 7 CKJ characters (Chinese, Japanese, Korean, etc.) or 10 all uppercase Latin letters or 14 all lowercase Latin letters (English, French, etc.).
-- Recommended examples:
+- Campo obbligatorio;
+- Nessuna restrizione su caratteri o lunghezza di input, non sono ammessi spazi;
+- Si consiglia che il nome non superi i 7 caratteri CJK (Cinese, Giapponese, Coreano, ecc.) o 10 lettere latine maiuscole o 14 lettere latine minuscole (Inglese, Francese, ecc.);
+- Esempi consigliati:
 
-  - Palletizer;
-  - Polishing process software;
-  - Device Config;
+  - Palletizer Palletizer;
+  - Software Processo Smerigliatura;
+  - Configurazione Dispositivo;
   - HELLO FRCAP.
 
-Plugin author:
+Autore Plugin:
 
-- Required fields;
-- There are no restrictions on input characters and character length. For example, you can enter your personal name, company name, etc.;
-- Recommended examples:
+- Campo obbligatorio;
+- Nessuna restrizione su caratteri o lunghezza di input, ad esempio è possibile inserire il proprio nome personale, nome dell'azienda, ecc.;
+- Esempi consigliati:
 
   - Zhang San
   - Franklin Peter
-  - FAIR Innovation (Suzhou) Robot Systems Co., Ltd.
+  - Fairino Innovation (Suzhou) Robot Systems Co., Ltd.
 
-Plugin description:
+Descrizione Plugin:
 
-- Optional fields;
-- There are no restrictions on input characters or character length, just briefly describe your plug-in.
+- Campo opzionale;
+- Nessuna restrizione su caratteri o lunghezza di input, basta descrivere brevemente il proprio plugin.
 
-Advanced configuration
--------------------------
+Configurazione Avanzata
+------------------------------------
 
-Plug-in type:
+Tipo Plugin:
 
-- Required fields;
-- The type options are "Configuration" and "Application" respectively.
-- "Configuration" is recommended for FRCap that implements relatively simple configuration and control operations such as setting parameters and button operations. After importing, use it in "Auxiliary Application" -> "FRCap" in WebApp.
-- "Application" recommends FRCap that implements complex process scenarios, such as palletizing scenarios, welding processes and other industry applications. After importing, use it directly under "Auxiliary Applications" in WebApp.
+- Campo obbligatorio;
+- Le opzioni di tipo sono "Configurazione" e "Applicazione".
+- "Configurazione" è consigliato per FRCap che implementano configurazioni relativamente semplici come impostazione di parametri, operazioni con pulsanti, ecc. Dopo l'importazione, sarà utilizzabile in "Applicazioni Ausiliarie" -> "FRCap" nel WebApp.
+- "Applicazione" è consigliato per FRCap che implementano scenari di processo complessi, come applicazioni di settore per pallettizzazione, saldatura, ecc. Dopo l'importazione, sarà utilizzabile direttamente sotto "Applicazioni Ausiliarie" nel WebApp.
 
-Plug-in icon:
+Icona Plugin:
 
-- Optional fields;
-- You can upload the company logo or any icon you want to use for the icon. Please pay attention to the copyright. Our company is not responsible for any copyright issues caused by any reason;
-- If you do not upload an icon, the company's "FAIRINO" Logo icon will be used by default in the exported FRCap project. You can replace and modify it in the public folder under the project folder. This icon is for initialization purposes only. Please do not use the "FAIRINO" Logo directly in any commercial scenarios.
-
+- Campo opzionale;
+- È possibile caricare il logo dell'azienda o qualsiasi icona si desideri utilizzare. Prestare attenzione alle questioni di copyright; questa società non si assume alcuna responsabilità per problemi di copyright derivanti da qualsiasi causa;
+- Se non si carica un'icona, nel progetto FRCap esportato verrà utilizzata per impostazione predefinita l'icona del logo "FAIRINO". È possibile sostituirla/modificarla nella cartella "public" del progetto. Questa icona è solo per scopi illustrativi iniziali; non utilizzare direttamente il logo "FAIRINO" in alcuno scenario commerciale.
 
 Download
 -------------
-After all the above parameters are configured and the FRCap is successfully created, you will be redirected to the download page. You need to confirm that the name is correct before you can download the created FRCap project to your local computer for subsequent development work and construction.
+Dopo aver completato tutte le configurazioni dei parametri sopra descritte e dopo la creazione riuscita del FRCap, si verrà reindirizzati alla pagina di download. È necessario confermare che il nome sia corretto per scaricare il progetto FRCap creato sul proprio computer locale per lo sviluppo successivo e l'utilizzo in fase di build.
 
-The downloaded plug-in is in ".tar.gz" compressed format.
+Il plugin scaricato è in formato compresso ".tar.gz".
 
-On Windows systems we recommend using 7-Zip software to decompress.
+Su sistemi Windows consigliamo di utilizzare il software 7-Zip per l'estrazione.
 
-On Linux systems, you can use the following command in the terminal to decompress:
+Su sistemi Linux è possibile estrarre utilizzando il seguente comando nel terminale.
 
 .. code-block:: c++
    :linenos:
 
-    tar -zxvf frcap_{FRCapName}.tar.gz
+    tar -zxvf frcap_{NomeFRCap}.tar.gz

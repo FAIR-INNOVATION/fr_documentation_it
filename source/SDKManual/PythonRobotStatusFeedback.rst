@@ -1,178 +1,177 @@
-Data structure description
-==============================================================================
+Descrizione Strutture Dati
+==========================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Controller status feedback data packet
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pacchetto Dati Feedback Stato Controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. versionadded:: python SDK-v2.1.7
     
 .. csv-table:: 
     :header-rows: 1
-    :name: Controller status feedback data packet
+    :name: Pacchetto Dati Feedback Stato Controller
     :widths: 20 30
 
-    "Variable", "Meaning"
-    "program_state", "program_running_state, 1-stop; 2-run; 3-pause"
-    "robot_state", "robot_motion_state, 1-stop; 2-run; 3-pause; 4-drag"
-    "main_code", "main_fault_code"
-    "sub_code", sub_code"
-    "robot_mode", "robot_mode, 0-automatic mode; 1-manual mode"
-    "jt_cur_pos[i]", "Current position of joint, in deg, i:0~5"
-    "tl_cur_pos[i]", "Tool current position in deg&mm,i:0~5"
-    "flange_cur_pos[i]", "The end flange is in its current position, in degrees and millimeters. i: 0~5"
-    "actual_qd[i]", "Robot's current joint velocity in deg/s^2,i:0~5"
-    "actual_qdd[i]", "Current joint acceleration of the robot, in mm/s, i:0~5"
-    "target_TCP_CmpSpeed[i]", "Robot TCP synthesis command speed in mm/s & deg/s,i:0~1"
-    "target_TCP_Speed[i]", "Robot TCP command speed in mm/s & deg/s,i:0~5"
-    "actual_TCP_CmpSpeed[i]", "Robot TCP synthesized actual speed in mm/s & deg/s, i:0~1"
-    "actual_TCP_Speed[i]", "Robot TCP actual speed in mm/s & deg/s,i:0~5"
-    "jt_cur_tor[i]", "Current torque, unit N-m ,i:0~5"
-    "tool", "Applied tool coordinate system number"
-    "user", "Applied workpiece coordinate system number"
-    "cl_dgt_output_h", "Control Box Digital IO Output 15-8"
-    "cl_dgt_output_l", "Control Box Digital IO Output 7-0"
-    "tl_dgt_output_l", "Tool Digital IO Output 7-0, only bit0-bit1 valid"
-    "dgt_input_h", "Control Box Digital IO Input 15-8"
-    "cl_dgt_input_l", "Control Box Digital IO Input 7-0"
-    "tl_dgt_input_l", "Tool digital IO input 7-0, only bit0-bit1 valid"
-    "cl_analog_input[i]", "Control box analog input,i:0~2"
-    "tl_anglog_input", "tool_analog_input"
-    "ft_sensor_raw_data", "torque sensor raw data, unit N&Nm, i:0~5"
-    "ft_sensor_data", "torque sensor data, unit N&Nm, i:0~5"
-    "ft_sensor_active", "torque sensor active status, 0-reset, 1-active"
-    "EmergencyStop", "Emergency stop sign, 0 - emergency stop not pressed, 1 - emergency stop pressed"
-    "motion_done", "motion_in_place signal,1-in place, 0-not in place"
-    "gripper_motiondone", "Gripper motion done signal,1-done, 0-not done "
-    "mc_queue_len", "motion command queue length"
-    "collisionState", "Collision detection, 1-collision, 0-no collision "
-    "trajectory_pnum", "trajectory point number"
-    "safety_stop0_state", "safety stop signal SI0"
-    "safety_stop1_state", "safety stop signal SI1"
-    "gripper_fault_id", "error_claw_number"
-    "gripper_fault", "gripper_fault"
-    "gripper_active", "gripper_jaw_activity_status, 0-unactivated, 1-activated"
-    "gripper_position", "Gripper position (percentage)"
-    "gripper_speed", "Gripper speed (percentage)"
-    "gripper_current", "gripper_current (percentage)"
-    "gripper_tmp", "Gripper temperature in °C"
-    "gripper_voltage", "gripper_voltage in V"
-    "auxState.servoId", "485 extended axis, servo drive ID number, i:0~3"
-    "auxState.servoErrCode", "485 Extended Axis, Servo Drive Error Code, i:0~3"
-    "auxState.servoState", "485 Extended Axis, Servo Drive State, i:0~3"
-    "auxState.servoPos", "485 extended axis, servo current position, i:0~3"
-    "auxState.servoVel", "485 extended axis, servo current speed, i:0~3"
-    "auxState.servoTorque", "485 Extended axis, servo current torque, i:0~3"
-    "extAxisStatus[i].pos", "UDP Extension Axis, Position, i:0~3"
-    "extAxisStatus[i].vel", "UDP Extended Axis,velocity,i:0~3"
-    "extAxisStatus[i].errorCode", "UDP Extended Axis, Error Code, i:0~3"
-    "extAxisStatus[i].ready", "UDP extension axis, servo ready, i:0~3"
-    "extAxisStatus[i].inPos", "UDP Extended Axis, servo in place, i:0~3"
-    "extAxisStatus[i].alarm", "UDP Extended Axis, Servo Alarm, i:0~3"
-    "extAxisStatus[i].flerr", "UDP Extended Axis, Follow Error, i:0~3"
-    "extAxisStatus[i].nlimit", "UDP extension axis, to negative limit, i:0~3"
-    "extAxisStatus[i].pLimit", "UDP extension axis, to positive limit, i:0~3"
-    "extAxisStatus[i].mdbsOffLine", "UDP Extension Axis, Drive 485 Bus Offline"
-    "extAxisStatus[i].mdbsTimeout", "UDP Extension Axis, Control Card and Control Box 485 Communication Timeout"
-    "extAxisStatus[i].homingStatus", "UDP extension axis, back to zero status"
-    "extDIState", "Extended Digital Input State"
-    "extDOState", "Extended Digital Output State"
-    "extAIState", "Extended Analog Input State"
-    "extAOState", "Extended Analog Output State"
-    "rbtEnableState", "robotEnableState"
-    "jointDriverTorque", "Joint Driver Current Torque"
-    "jointDriverTemperature", "Joint Driver Current Temperature"
-    "year", "year"
-    "mouth", "moon"
-    "day", "day"
-    "hour", "hours"
-    "minute", "minutes"
-    "second", "seconds"
-    "millisecond", "milliseconds"
-    "softwareUpgradeState", "Robot Software Upgrade State"
-    "endLuaErrCode", "endLUARunningStatus"
-    "cl_analog_output[i]","Control box analog output,i:0~1"
-    "tl_analog_output","Tool analog output"
-    "gripperRotNum","Rotation gripper current rotation number"
-    "gripperRotSpeed","Rotation gripper current rotation speed percentage"
-    "gripperRotTorque","Rotation gripper current rotation torque percentage"
-    "weldingBreakOffState","Welding interruption state"
-    "jt_tgt_tor","Joint command torque"
-    "smartToolState","The status of the SmartTool handle buttons"
-    "wideVoltageCtrlBoxTemp","Wide voltage control box temperature"
-    "wideVoltageCtrlBoxFanCurrent","Wide voltage control box fan current(ma)"
-    "toolCoord[i]","Tool coordinate system,i:0~5"
-    "wobjCoord[i]","Workpiece coordinate system,i:0~5"
-    "extoolCoord[i]","External tool coordinate system,i:0~5"
-    "exAxisCoord[i]","Extended axis coordinate system,i:0~5"
-    "load","Quality of load"
-    "loadCog[i]","Center of mass of load,i:0~2"
-    "lastServoTarget[i]","The last ServoJ target position in the queue,i:0 to 5"
-    "servoJCmdNum","ServoJ instruction count"
+    "Variabile","Significato"
+    "program_state","Stato esecuzione programma，1-Fermo; 2-In esecuzione; 3-In pausa"
+    "robot_state","Stato movimento robot，1-Fermo; 2-In esecuzione; 3-In pausa; 4-Trascinamento"
+    "main_code","Codice errore principale"
+    "sub_code",	"Codice errore secondario"
+    "robot_mode","Modalità robot，0-Modalità automatica; 1-Modalità manuale"
+    "jt_cur_pos[i]","Posizione corrente giunto, unità deg,i:0~5"
+    "tl_cur_pos[i]","Posa corrente utensile, unità deg&mm,i:0~5"
+    "flange_cur_pos[i]","Posa corrente flangia terminale, unità deg&mm,i:0~5"
+    "actual_qd[i]","Velocità corrente giunti robot, unità deg/s^2,i:0~5"
+    "actual_qdd[i]","Accelerazione corrente giunti robot, unità mm/s,i:0~5"
+    "target_TCP_CmpSpeed[i]","Velocità sintetica comando TCP robot, unità mm/s&deg/s,i:0~1"
+    "target_TCP_Speed[i]","Velocità comando TCP robot, unità mm/s&deg/s,i:0~5"
+    "actual_TCP_CmpSpeed[i]","Velocità sintetica effettiva TCP robot, unità mm/s&deg/s,i:0~1"
+    "actual_TCP_Speed[i]","Velocità effettiva TCP robot, unità mm/s&deg/s,i:0~5"
+    "jt_cur_tor[i]","Coppia corrente, unità N·m ,i:0~5"
+    "tool","Numero sistema coordinate utensile applicato"
+    "user","Numero sistema coordinate pezzo applicato"
+    "cl_dgt_output_h","Uscita IO digitale pannello controllo 15-8"
+    "cl_dgt_output_l","Uscita IO digitale pannello controllo 7-0"
+    "tl_dgt_output_l","Uscita IO digitale utensile 7-0，solo bit0-bit1 validi"
+    "dgt_input_h","Ingresso IO digitale pannello controllo 15-8"
+    "cl_dgt_input_l","Ingresso IO digitale pannello controllo 7-0"
+    "tl_dgt_input_l","Ingresso IO digitale utensile 7-0，solo bit0-bit1 validi"
+    "cl_analog_input[i]","Ingresso analogico pannello controllo,i:0~2"
+    "tl_anglog_input","Ingresso analogico utensile"
+    "ft_sensor_raw_data","Dati grezzi sensore forza/coppia, unità N&Nm,i:0~5"
+    "ft_sensor_data","Dati sensore forza/coppia, unità N&Nm,i:0~5"
+    "ft_sensor_active","Stato attivazione sensore forza/coppia，0-Ripristino，1-Attivato"
+    "EmergencyStop","Segnale arresto emergenza,0-Arresto emergenza non premuto,1-Arresto emergenza premuto"
+    "motion_done","Segnale movimento a posizione,1-A posizione，0-Non a posizione"
+    "gripper_motiondone","Segnale completamento movimento pinza,1-Completato，0-Non completato "
+    "mc_queue_len","Lunghezza coda comandi movimento"
+    "collisionState","Rilevamento collisione,1-Collisione，0-Nessuna collisione "
+    "trajectory_pnum","Numero punto traiettoria"
+    "safety_stop0_state","Segnale arresto sicurezza SI0"
+    "safety_stop1_state","Segnale arresto sicurezza SI1"
+    "gripper_fault_id","Numero pinza errore"
+    "gripper_fault","Guasto pinza"
+    "gripper_active","Stato attivazione pinza，0-Non attivato，1-Attivato"
+    "gripper_position","Posizione pinza (percentuale)"
+    "gripper_speed","Velocità pinza (percentuale)"
+    "gripper_current","Corrente pinza (percentuale)"
+    "gripper_tmp","Temperatura pinza, unità ℃"
+    "gripper_voltage","Tensione pinza, unità V"
+    "auxState.servoId","Asse espansione 485, Numero ID driver servomotore,i:0~3"
+    "auxState.servoErrCode","Asse espansione 485, Codice errore driver servomotore,i:0~3"
+    "auxState.servoState","Asse espansione 485, Stato driver servomotore,i:0~3"
+    "auxState.servoPos","Asse espansione 485, Posizione corrente servomotore,i:0~3"
+    "auxState.servoVel","Asse espansione 485, Velocità corrente servomotore,i:0~3"
+    "auxState.servoTorque","Asse espansione 485, Coppia corrente servomotore,i:0~3"
+    "extAxisStatus[i].pos","Asse espansione UDP, Posizione,i:0~3"
+    "extAxisStatus[i].vel","Asse espansione UDP, Velocità,i:0~3"
+    "extAxisStatus[i].errorCode","Asse espansione UDP, Codice errore,i:0~3"
+    "extAxisStatus[i].ready","Asse espansione UDP, Servomotore pronto,i:0~3"
+    "extAxisStatus[i].inPos","Asse espansione UDP, Servomotore a posizione,i:0~3"
+    "extAxisStatus[i].alarm","Asse espansione UDP, Allarme servomotore,i:0~3"
+    "extAxisStatus[i].flerr","Asse espansione UDP, Errore inseguimento,i:0~3"
+    "extAxisStatus[i].nlimit","Asse espansione UDP, A limite negativo,i:0~3"
+    "extAxisStatus[i].pLimit","Asse espansione UDP, A limite positivo,i:0~3"
+    "extAxisStatus[i].mdbsOffLine","Asse espansione UDP, Bus 485 driver disconnesso"
+    "extAxisStatus[i].mdbsTimeout","Asse espansione UDP, Timeout comunicazione 485 scheda controllo-pannello controllo"
+    "extAxisStatus[i].homingStatus","Asse espansione UDP, Stato home"
+    "extDIState","Stato ingressi digitali espansione"
+    "extDOState","Stato uscite digitali espansione"
+    "extAIState","Stato ingressi analogici espansione"
+    "extAOState","Stato uscite analogiche espansione"
+    "rbtEnableState","Stato abilitazione robot"
+    "jointDriverTorque","Coppia corrente driver giunti"
+    "jointDriverTemperature","Temperatura corrente driver giunti"
+    "year","Anno"
+    "mouth","Mese"
+    "day","Giorno"
+    "hour","Ora"
+    "minute","Minuto"
+    "second","Secondo"
+    "millisecond","Millisecondo"
+    "softwareUpgradeState","Stato aggiornamento software robot"
+    "endLuaErrCode","Stato esecuzione LUA terminale"
+    "cl_analog_output[i]","Uscita analogica pannello controllo,i:0~1"
+    "tl_analog_output","Uscita analogica utensile"
+    "gripperRotNum","Numero rotazioni corrente pinza rotante"
+    "gripperRotSpeed","Velocità rotazione percentuale corrente pinza rotante"
+    "gripperRotTorque","Coppia rotazione percentuale corrente pinza rotante"
+    "weldingBreakOffState","Stato interruzione saldatura"
+    "jt_tgt_tor","Coppia comando giunti"
+    "smartToolState","Stato pulsante manopola SmartTool"
+    "wideVoltageCtrlBoxTemp","Temperatura pannello controllo a tensione ampia"
+    "wideVoltageCtrlBoxFanCurrent","Corrente ventilatore pannello controllo a tensione ampia (ma)"
+    "toolCoord[i]","Sistema coordinate utensile,i:0~5"
+    "wobjCoord[i]","Sistema coordinate pezzo,i:0~5"
+    "extoolCoord[i]","Sistema coordinate utensile esterno,i:0~5"
+    "exAxisCoord[i]","Sistema coordinate asse espansione,i:0~5"
+    "load","Massa carico"
+    "loadCog[i]","Baricentro carico,i:0~2"
+    "lastServoTarget[i]","Ultima posizione obiettivo ServoJ in coda,i:0~5"
+    "servoJCmdNum","Conteggio comandi ServoJ"
 
-Status of the servo controller
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. versionadded:: python SDK-v2.1.3
-    
-.. csv-table:: 
-    :header-rows: 1
-    :name: Status of the servo controller
-    :widths: 20 30
-
-    "Variable", "Meaning"
-    "servoId","Servo driver ID number"
-    "servoErrCode","Servo driver fault code"
-    "servoState","Status of the servo driver"
-    "servoPos","Current position of the servo"
-    "servoVel","Current speed of the servo"
-    "servoTorque","Current torque of the servo"
-
-Extended axis status
+Stato Controller Servo
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. versionadded:: python SDK-v2.1.3
     
 .. csv-table:: 
     :header-rows: 1
-    :name: Extended axis status
+    :name: Stato Controller Servo
     :widths: 20 30
 
-    "Variable", "Meaning"
-    "pos","Extended axis position"
-    "vel","Extended axis speed"
-    "errorCode","Extended shaft fault code"
-    "ready","The servo is ready"
-    "inPos","Servo in place"
-    "alarm","Servo alarm"
-    "flerr","Following error"
-    "nlimit","To the negative limit"
-    "pLimit","To the positive limit position"
-    "mdbsOffLine","The 485 bus of the driver is disconnected"
-    "mdbsTimeout","The 485 communication between the control card and the control box has timed out"
-    "homingStatus","The expansion axis returns to the zero state"
+    "Variabile","Significato"
+    "servoId","Numero ID driver servomotore"
+    "servoErrCode","Codice errore driver servomotore"
+    "servoState","Stato driver servomotore"
+    "servoPos","Posizione corrente servomotore"
+    "servoVel","Velocità corrente servomotore"
+    "servoTorque","Coppia corrente servomotore"
 
-Welding interruption state
+Stato Asse di Espansione
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. versionadded:: python SDK-v2.1.3
+    
+.. csv-table:: 
+    :header-rows: 1
+    :name: Stato Asse di Espansione
+    :widths: 20 30
+
+    "Variabile","Significato"
+    "pos","Posizione asse di espansione"
+    "vel","Velocità asse di espansione"
+    "errorCode","Codice errore asse di espansione"
+    "ready","Servomotore pronto"
+    "inPos","Servomotore a posizione"
+    "alarm","Allarme servomotore"
+    "flerr","Errore inseguimento"
+    "nlimit","A limite negativo"
+    "pLimit","A limite positivo"
+    "mdbsOffLine","Bus 485 driver disconnesso"
+    "mdbsTimeout","Timeout comunicazione 485 scheda controllo-pannello controllo"
+    "homingStatus","Stato home asse di espansione"
+
+Stato Interruzione Saldatura
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. versionadded:: python SDK-v2.1.3
     
 .. csv-table:: 
     :header-rows: 1
-    :name: Welding interruption state
+    :name: Stato Interruzione Saldatura
     :widths: 20 30
 
-    "Variable", "Meaning"
-    "breakOffState","Welding interruption state"
-    "weldArcState","Welding arc interruption state"
+    "Variabile","Significato"
+    "breakOffState","Stato interruzione saldatura"
+    "weldArcState","Stato interruzione arco saldatura"
 
-    
-code example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Esempio di Codice
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     print("program_state:", robot.robot_state_pkg.program_state)
     print("robot_state:", robot.robot_state_pkg.robot_state)
@@ -362,4 +361,4 @@ code example
     print("lastServoTarget3:", robot.robot_state_pkg.lastServoTarget[3])
     print("lastServoTarget4:", robot.robot_state_pkg.lastServoTarget[4])
     print("lastServoTarget5:", robot.robot_state_pkg.lastServoTarget[5])
-    print("servoJCmdNum:", robot.robot_state_pkg.servoJCmdNum)
+    print("servoJCmdNum:", robot.robot_state_pkg.servoJCcmdNum)

@@ -1,21 +1,21 @@
 Python
-========
+============
 
-This manual is the secondary development interface document of Python.
+Questo documento fornisce le specifiche per lo sviluppo secondario (SDK) nella versione Python.
 
 .. important::
 
-    Robot parameter unit description: The robot position unit is millimeter (mm), and the attitude unit is degree (°).
+    Nota sulle unità di misura dei parametri del robot: Le posizioni sono espresse in millimetri (mm) e gli orientamenti in gradi (°).
 
 .. important:: 
 
-    1)	In code examples that are not specifically stated, the robot has been powered on and enabled by default;
-    2)	All code examples in the documentation default to no interference within the robot's workspace;
-    3)	Please use the data of the on-site robot in the actual use test.
+    1)  Negli esempi di codice, salvo indicazione contraria, si presume che il robot sia normalmente acceso e abilitato;
+    2)  Tutti gli esempi di codice nel documento presuppongono che non ci siano collisioni nello spazio di lavoro del robot;
+    3)  Per i test pratici, si prega di utilizzare i dati del robot effettivo in loco.
 
 .. note:: 
     
-    The current document applies to SDK-v2.0.0 version and is backward compatible with v1.x version.
+    La presente documentazione si applica alla versione SDK-v2.0.0 ed è retrocompatibile con le versioni v1.x.
 
 
 .. toctree:: 

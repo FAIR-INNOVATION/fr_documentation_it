@@ -1,291 +1,291 @@
-Robot Status Check
-=========================
+Query Stato Robot
+========================
 
 .. toctree:: 
     :maxdepth: 5
 
-Get current joint position (angle).
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Posizione Articolare Corrente (Gradi)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get current joint position (angle).
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] jPos Six joint positions in deg.
-    * @return Error code.
-    */
-    int GetActualJointPosDegree(byte flag, ref JointPos jPos); 
+    /**
+    * @brief  Ottenere Posizione Articolare Corrente (Gradi)
+    * @param  [in] flag 0-bloccante, 1-non bloccante
+    * @param  [out] jPos Sei posizioni articolari, unità deg
+    * @return   Codice errore
+    */
+    int GetActualJointPosDegree(byte flag, ref JointPos jPos); 
 
-Get current joint position in degrees of arc.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Posizione Articolare Corrente (Radianti)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get current joint position in radians.
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] jPos six joint positions in rad
-    * @return Error code
-    */    
-    int GetActualJointPosRadian(byte flag, ref JointPos jPos);
+    /**
+    * @brief  Ottenere Posizione Articolare Corrente (Radianti)
+    * @param  [in] flag 0-bloccante, 1-non bloccante
+    * @param  [out] jPos Sei posizioni articolari, unità rad
+    * @return   Codice errore
+    */   
+    int GetActualJointPosRadian(byte flag, ref JointPos jPos);
 
-Get the joint feedback velocity
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Velocità Feedback Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get joint feedback speed -deg/s 
-    * @param [in] flag 0-blocking, 1-non-blocking 
-    * @param [out] speed Six joint speeds. 
-    * @return Error code. 
-    */
-    int GetActualJointSpeedsDegree(byte flag, ref double[] speed);
+    /** 
+    * @brief Ottenere Velocità Feedback Articolare-deg/s 
+    * @param [in] flag 0-bloccante, 1-non bloccante 
+    * @param [out] speed Sei velocità articolari 
+    * @return Codice errore 
+    */
+    int GetActualJointSpeedsDegree(byte flag, ref double[] speed);
 
-Get joint feedback acceleration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Accelerazione Feedback Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get the joint feedback acceleration -deg/s^2 
-    * @param [in] flag 0-blocking, 1-non-blocking 
-    * @param [out] acc Six joint accelerations. 
-    * @return Error code. 
-    */
-    int GetActualJointAccDegree(byte flag, ref double[] acc); 
+    /** 
+    * @brief Ottenere Accelerazione Feedback Articolare-deg/s^2 
+    * @param [in] flag 0-bloccante, 1-non bloccante 
+    * @param [out] acc Sei accelerazioni articolari 
+    * @return Codice errore 
+    */
+    int GetActualJointAccDegree(byte flag, ref double[] acc); 
 
-Get TCP command velocity - joint velocity
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Velocità Comando TCP - Velocità Totale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get TCP command speed-combining speed. 
-    * @param [in] flag 0-blocking, 1-non-blocking 
-    * @param [out] tcp_speed linear_speed 
-    * @param [out] ori_speed Attitude Speed 
-    * @return error code 
-    */
-    int GetTargetTCPCompositeSpeed(byte flag, ref double tcp_speed, ref double ori_speed); 
+    /** 
+    * @brief Ottenere Velocità Comando TCP - Velocità Totale 
+    * @param [in] flag 0-bloccante, 1-non bloccante 
+    * @param [out] tcp_speed Velocità lineare 
+    * @param [out] ori_speed Velocità orientamento 
+    * @return Codice errore 
+    */
+    int GetTargetTCPCompositeSpeed(byte flag, ref double tcp_speed, ref double ori_speed); 
 
-Get TCP feedback speed-composite speed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Velocità Feedback TCP - Velocità Totale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
-    
-    /** 
-    * @brief Get TCP feedback speed-combination speed.
-    * @param [in] flag 0-blocking, 1-non-blocking 
-    * @param [out] tcp_speed linear_speed 
-    * @param [out] ori_speed Attitude Speed 
-    * @return error code 
-    */
-    int GetActualTCPCompositeSpeed(byte flag, ref double tcp_speed, ref double ori_speed);
+    
+    /** 
+    * @brief Ottenere Velocità Feedback TCP - Velocità Totale
+    * @param [in] flag 0-bloccante, 1-non bloccante 
+    * @param [out] tcp_speed Velocità lineare 
+    * @param [out] ori_speed Velocità orientamento 
+    * @return Codice errore 
+    */
+    int GetActualTCPCompositeSpeed(byte flag, ref double tcp_speed, ref double ori_speed);
 
-Get TCP command speed-composite speed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /** 
-    * @brief Get TCP command speed-split.
-    * @param [in] flag 0-blocking, 1-non-blocking 
-    * @param [out] speed [x,y,z,rx,ry,rz] speed 
-    * @return error code 
-    */
-    int GetTargetTCPSpeed(byte flag, ref double[] speed);
-
-Get TCP feedback speed-split speed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Velocità Comando TCP - Velocità Componenti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get TCP feedback speed-cents.
-    * @param [in] flag 0-blocking, 1-non-blocking 
-    * @param [out] speed [x,y,z,rx,ry,rz] speed 
-    * @return error code 
-    */
-    int GetActualTCPSpeed(byte flag, ref double[] speed);
+    /** 
+    * @brief Ottenere Velocità Comando TCP - Velocità Componenti
+    * @param [in] flag 0-bloccante, 1-non bloccante 
+    * @param [out] speed [x,y,z,rx,ry,rz] velocità 
+    * @return Codice errore 
+    */
+    int GetTargetTCPSpeed(byte flag, ref double[] speed);
 
-Get current tool position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Velocità Feedback TCP - Velocità Componenti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get current tool position
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] desc_pos Tool position.
-    * @return Error code.
-    */
-    int GetActualTCPPose(byte flag, ref DescPose desc_pos); 
+    /** 
+    * @brief Ottenere Velocità Feedback TCP - Velocità Componenti
+    * @param [in] flag 0-bloccante, 1-non bloccante 
+    * @param [out] speed [x,y,z,rx,ry,rz] velocità 
+    * @return Codice errore 
+    */
+    int GetActualTCPSpeed(byte flag, ref double[] speed);
 
-Get the current tool coordinate system number
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Posa Utensile Corrente
++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the current tool coordinate system number.
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] id tool coordinate system number
-    * @return Error code.
-    */
-    int GetActualTCPNum(byte flag, ref int id).  
- 
-Get the current tool coordinate system number
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /**
+    * @brief  Ottenere Posa Utensile Corrente
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] desc_pos  Posa utensile
+    * @return   Codice errore
+    */
+    int GetActualTCPPose(byte flag, ref DescPose desc_pos); 
+
+Ottenere Numero Sistema Coordinate Utensile Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the current workpiece coordinate system number.
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] id The workpiece coordinate system number.
-    * @return Error code.
-    */
-    int GetActualWObjNum(byte flag, ref int id);
+    /**
+    * @brief  Ottenere Numero Sistema Coordinate Utensile Corrente
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] id  Numero sistema coordinate utensile
+    * @return   Codice errore
+    */
+    int GetActualTCPNum(byte flag, ref int id);  
 
-Get the current end flange position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Numero Sistema Coordinate Pezzo Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the current end flange position.
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] desc_pos Flange position.
-    * @return Error code.
-    */
-    int GetActualToolFlangePose(byte flag, ref DescPose desc_pos);  
+    /**
+    * @brief  Ottenere Numero Sistema Coordinate Pezzo Corrente
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] id  Numero sistema coordinate pezzo
+    * @return   Codice errore
+    */
+    int GetActualWObjNum(byte flag, ref int id);
 
-Get the current joint torque
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Posa Flangia Estremità Corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get current joint torque.
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] torques Joint torques.
-    * @return Error code.
-    */
-    int GetJointTorques(byte flag, float[] torques). 
+    /**
+    * @brief  Ottenere Posa Flangia Estremità Corrente
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] desc_pos  Posa flangia
+    * @return   Codice errore
+    */
+    int GetActualToolFlangePose(byte flag, ref DescPose desc_pos);   
 
-Get system time
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Coppia Articolare Corrente
+++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the system time.
-    * @param [out] t_ms unit ms
-    * @return Error code.
-    */
-    int GetSystemClock(ref double t_ms).
+    /**
+    * @brief Ottenere Coppia Articolare Corrente
+    * @param  [in] flag 0-bloccante, 1-non bloccante
+    * @param  [out] torques Coppia articolare
+    * @return   Codice errore
+    */
+    int GetJointTorques(byte flag, float[] torques); 
 
-Queries if the robot movement is complete
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Ora Sistema
+++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Query if robot motion is complete.
-    * @param [out] state 0-not completed, 1-completed
-    * @return Error code.
-    */    
-    int GetRobotMotionDone(ref byte state).
+    /**
+    * @brief  Ottenere Ora Sistema
+    * @param  [out] t_ms Unità ms
+    * @return   Codice errore
+    */
+    int GetSystemClock(ref double t_ms);
 
-Queries the length of the robot motion queue cache
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Verificare Se Movimento Robot Completato
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Query the robot motion queue cache length. 
-    * @param [out] len Cache length.
-    * @return Error code. 
-    */
-    int GetMotionQueueLength(ref int len).
+    /**
+    * @brief  Verificare Se Movimento Robot Completato
+    * @param  [out]  state  0-non completato, 1-completato
+    * @return   Codice errore
+    */   
+    int GetRobotMotionDone(ref byte state);
 
-Get the robot emergency stop state
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Verificare Lunghezza Coda Cache Movimento Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the state of the robot's emergency stop.
-    * @param [out] state Emergency stop state, 0-non-emergency stop, 1-emergency stop.
-    * @return Error code.  
-    */
-    int GetRobotEmergencyStopState(ref byte state).
+    /** 
+    * @brief Verificare Lunghezza Coda Cache Movimento Robot 
+    * @param [out] len   Lunghezza cache
+    * @return Codice errore 
+    */
+    int GetMotionQueueLength(ref int len);
 
-Get the state of the communication between the SDK and the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Arresto Emergenza Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the communication state of the SDK and the robot.
-    * @param [out] state communication state, 0-normal communication, 1-abnormal communication.
-    */
-    int GetSDKComState(ref int state).
+    /**
+    * @brief Ottenere Stato Arresto Emergenza Robot
+    * @param [out] state Stato arresto emergenza, 0-non arresto emergenza, 1-arresto emergenza
+    * @return Codice errore  
+    */
+    int GetRobotEmergencyStopState(ref byte state);
 
-Get safety stop signal
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Comunicazione SDK con Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the safe stop signal.
-    * @param [out] si0_state Safe stop signal SI0, 0-invalid, 1-valid
-    * @param [out] si1_state safe stop signal SI1, 0-invalid, 1-valid
-    */
-    int GetSafetyStopState(ref byte si0_state, ref byte si1_state);
+    /**
+    * @brief Ottenere Stato Comunicazione SDK con Robot
+    * @param [out]  state Stato comunicazione, 0-comunicazione normale, 1-comunicazione anomala
+    */
+    int GetSDKComState(ref int state);
 
-Get robot joint actuator temperature (℃)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Segnale Arresto Sicurezza
+++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get the robot's articulated actuator temperature (℃).
-    * @return Error code
-    */
-    int GetJointDriverTemperature(double[] temperature).
+    /**
+    * @brief Ottenere Segnale Arresto Sicurezza
+    * @param [out]  si0_state Segnale arresto sicurezza SI0, 0-non valido, 1-valido
+    * @param [out]  si1_state Segnale arresto sicurezza SI1, 0-non valido, 1-valido
+    */
+    int GetSafetyStopState(ref byte si0_state, ref byte si1_state);
 
-Get robot joint driver torque(Nm).
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Temperatura Azionamento Articolare Robot (℃)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get robot joint actuator torque (Nm).
-    * @return Error code
-    */
-    int GetJointDriverTorque(double torque[]).
+    /**
+    * @brief Ottenere Temperatura Azionamento Articolare Robot (℃)
+    * @return Codice errore
+    */
+    int GetJointDriverTemperature(double[] temperature);
 
-Get robot real-time status structure
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Coppia Azionamento Articolare Robot (Nm)
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get the robot realtime state structure.
-    * @param [out] pkg Robot real-time status structure. 
-    * @return Error code 
-    */
-    int GetRobotRealTimeState(ref ROBOT_STATE_PKG pkg);
+    /**
+    * @brief Ottenere Coppia Azionamento Articolare Robot (Nm)
+    * @return Codice errore
+    */
+    int GetJointDriverTorque(double torque[]);
 
-Sample Robot Status Query Code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Struttura Stato Tempo Reale Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void button29_Click(object sender, EventArgs e)
+    /** 
+    * @brief Ottenere Struttura Stato Tempo Reale Robot
+    * @param [out] pkg Struttura stato tempo reale robot 
+    * @return Codice errore 
+    */
+    int GetRobotRealTimeState(ref ROBOT_STATE_PKG pkg);
+
+Esempio Codice Query Stato Robot
+++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    private void button29_Click(object sender, EventArgs e)
     {
         ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
         double yangle = 0, zangle = 0;
@@ -377,129 +377,134 @@ Sample Robot Status Query Code
         robot.GetRobotRealTimeState(ref pkg);
     }
 
-Inverse kinematics solution
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Cinematica Inversa
++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Inverse kinematics solution
-    * @param [in] type 0-absolute position (base coordinate system), 1-incremental position (base coordinate system), 2-incremental position (instrumental coordinate system)
-    * @param [in] desc_pos Cartesian Position
-    * @param [in] config joint_space_configuration, [-1] - solve with reference to the current joint position, [0~7] - solve according to a specific joint space configuration
-    * @param [out] joint_pos Joint position.
-    * @return Error code
-    */ 
-    int GetInverseKin(int type, DescPose desc_pos, int config, ref JointPos joint_pos);
+    /**
+    * @brief  Calcolo Cinematica Inversa
+    * @param  [in] type 0-posa assoluta (sistema base), 1-posa incrementale (sistema base), 2-posa incrementale (sistema utensile)
+    * @param  [in] desc_pos Posa cartesiana
+    * @param  [in] config Configurazione spazio articolare, [-1]-calcolo riferimento posizione articolare corrente, [0~7]-soluzione basata configurazione spazio articolare specifica
+    * @param  [out] joint_pos Posizione articolare
+    * @return   Codice errore
+    */ 
+    int GetInverseKin(int type, DescPose desc_pos, int config, ref JointPos joint_pos);
 
-Inverse kinematics solution (reference position)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Cinematica Inversa (Riferimento Posizione)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Inverse kinematics solving, referencing a specified joint position to determine if there is a solution.
-    * @param [in] type 0-absolute position (base coordinate system), 1-incremental position (base coordinate system), 2-incremental position (instrumental coordinate system)
-    * @param [in] desc_pos Cartesian Position
-    * @param [in] joint_pos_ref reference joint position
-    * @param [out] result 0-no solution, 1-with solution
-    * @return Error code
-    */    
-    int GetInverseKinRef(int posMode, DescPose desc_pos, JointPos joint_pos_ref, ref JointPos joint_pos); 
+    /**
+    * @brief  Calcolo Cinematica Inversa, riferimento posizione articolare specificata per verificare se soluzione esiste
+    * @param  [in] type 0-posa assoluta (sistema base), 1-posa incrementale (sistema base), 2-posa incrementale (sistema utensile)
+    * @param  [in] desc_pos Posa cartesiana
+    * @param  [in] joint_pos_ref Posizione articolare riferimento
+    * @param  [out] result 0-nessuna soluzione, 1-soluzione esistente
+    * @return   Codice errore
+    */   
+    int GetInverseKinRef(int posMode, DescPose desc_pos, JointPos joint_pos_ref, ref JointPos joint_pos); 
 
-Get whether the inverse kinematics has a solution
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Verificare Se Esiste Soluzione Cinematica Inversa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Inverse kinematics solution, determine if there is a solution for the specified reference joint position.
-    * @param [in] posMode 0 absolute position, 1 relative position-base coordinate system, 2 relative position-tool coordinate system. 
-    * @param [in] desc_pos Cartesian position. 
-    * @param [in] joint_pos_ref Reference joint position. 
-    * @param [out] hasResult 0-no solution, 1-has solution 
-    * @return Error code 
-    */ 
-    int GetInverseKinHasSolution(int posMode, DescPose desc_pos, JointPos joint_pos_ref, ref bool hasResult);  
+    /** 
+    * @brief Calcolo Cinematica Inversa, verificare se esiste soluzione per posizione articolare riferimento specificata
+    * @param [in] posMode 0 posa assoluta, 1 posa relativa-sistema base, 2 posa relativa-sistema utensile 
+    * @param [in] desc_pos Posa cartesiana 
+    * @param [in] joint_pos_ref Posizione articolare riferimento 
+    * @param [out] hasResult 0-nessuna soluzione, 1-soluzione esistente 
+    * @return Codice errore 
+    */ 
+    int GetInverseKinHasSolution(int posMode, DescPose desc_pos, JointPos joint_pos_ref, ref bool hasResult);  
 
-Positive kinematics solution
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Cinematica Diretta
+++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Positive kinematics solution.
-    * @param [in] joint_pos joint position
-    * @param [out] desc_pos Cartesian position
-    * @return Error code.
-    */
-    int GetForwardKin(JointPos joint_pos, ref DescPose desc_pos); 
+    /**
+    * @brief  Calcolo Cinematica Diretta
+    * @param  [in] joint_pos Posizione articolare
+    * @param  [out] desc_pos Posa cartesiana
+    * @return   Codice errore
+    */
+    int GetForwardKin(JointPos joint_pos, ref DescPose desc_pos); 
 
-Robot Forward and Reverse Kinematics Calculation Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Calcolo Cinematica Diretta/Inversa Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void button30_Click(object sender, EventArgs e)
-    {
-         JointPos j1 = new JointPos(-11.904f, -99.669f, 117.473f, -108.616f, -91.726f, 74.256f);
-         DescPose desc_pos1 = new DescPose(-419.524f, -13.000f, 351.569f, -178.118f, 0.314f, 3.833f);
-         JointPos inverseRtn = new JointPos(0, 0, 0, 0, 0, 0, 0, 0);
-         robot.GetInverseKin(0, desc_pos1, -1, ref inverseRtn);
-         Console.WriteLine($"dcs1 GetInverseKin rtn is {inverseRtn.jPos[0]} {inverseRtn.jPos[1]} {inverseRtn.jPos[2]} {inverseRtn.jPos[3]} { inverseRtn.jPos[4]} {inverseRtn.jPos[5]}");
-         robot.GetInverseKinRef(0, desc_pos1, j1, ref inverseRtn);
-         Console.WriteLine($"dcs1 GetInverseKinRef rtn is {inverseRtn.jPos[0]} {inverseRtn.jPos[1]} {inverseRtn.jPos[2]} {inverseRtn.jPos[3]} { inverseRtn.jPos[4]} {inverseRtn.jPos[5]}");
-         bool hasResut = false;
-         robot.GetInverseKinHasSolution(0, desc_pos1, j1, ref hasResut);
-         Console.WriteLine($"dcs1 GetInverseKinRef result {hasResut}");
-         DescPose forwordResult = new DescPose(0, 0, 0, 0, 0, 0, 0);
-         robot.GetForwardKin(j1, ref forwordResult);
-         Console.WriteLine($"jpos1 forwordResult rtn is {forwordResult.tran.x} {forwordResult.tran.y} {forwordResult.tran.z} {forwordResult.rpy.rx } {forwordResult.rpy.ry} {forwordResult.rpy.rz}");
-    }
+    private void button30_Click(object sender, EventArgs e)
+    {
+        JointPos j1 = new JointPos(-11.904f, -99.669f, 117.473f, -108.616f, -91.726f, 74.256f);
+        DescPose desc_pos1 = new DescPose(-419.524f, -13.000f, 351.569f, -178.118f, 0.314f, 3.833f);
 
-Querying Robot Teaching Management Point Data
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        JointPos inverseRtn = new JointPos(0, 0, 0, 0, 0, 0);
+
+        robot.GetInverseKin(0, desc_pos1, -1, ref inverseRtn);
+        Console.WriteLine($"dcs1 GetInverseKin rtn is {inverseRtn.jPos[0]} {inverseRtn.jPos[1]} {inverseRtn.jPos[2]} {inverseRtn.jPos[3]} {inverseRtn.jPos[4]} {inverseRtn.jPos[5]}");
+        robot.GetInverseKinRef(0,  desc_pos1, j1, ref inverseRtn);
+        Console.WriteLine($"dcs1 GetInverseKinRef rtn is {inverseRtn.jPos[0]} {inverseRtn.jPos[1]} {inverseRtn.jPos[2]} {inverseRtn.jPos[3]} {inverseRtn.jPos[4]} {inverseRtn.jPos[5]}");
+
+        bool hasResut = false;
+        robot.GetInverseKinHasSolution(0,  desc_pos1,  j1, ref hasResut);
+        Console.WriteLine($"dcs1 GetInverseKinRef result {hasResut}");
+
+        DescPose forwordResult = new DescPose(0, 0, 0, 0, 0, 0);
+        robot.GetForwardKin(j1, ref forwordResult);
+        Console.WriteLine($"jpos1 forwordResult rtn is {forwordResult.tran.x} {forwordResult.tran.y} {forwordResult.tran.z} {forwordResult.rpy.rx} {forwordResult.rpy.ry} {forwordResult.rpy.rz}");
+    }
+
+Verificare Dati Punti Gestione Insegnamento Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Query robot instruction management point data. 
-    * @param [in] name Point name.
-    * @param [out] data point data double[20]{x,y,z,rx,ry,rz,j1,j2,j3,j4,j5,j6,tool, wobj,speed,acc,e1,e2,e3,e4}
-    * @return Error code 
-    */ 
-    int GetRobotTeachingPoint(string name, ref double[] data); 
+    /** 
+    * @brief Verificare Dati Punti Gestione Insegnamento Robot 
+    * @param [in] name    Nome punto
+    * @param [out] data   Dati punto double[20]{x,y,z,rx,ry,rz,j1,j2,j3,j4,j5,j6,tool, wobj,speed,acc,e1,e2,e3,e4}
+    * @return Codice errore 
+    */ 
+    int GetRobotTeachingPoint(string name, ref double[] data); 
 
-Get the robot DH parameter compensation value 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Valori Compensazione Parametri DH Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get the robot DH parameter compensation value. 
-    * @param [out] dhCompensation Robot DH parameter compensation value (mm) [cmpstD1,cmpstA2,cmpstA3,cmpstD4,cmpstD5,cmpstD6]
-    * @return Error code 
-    */
-    int GetDHCompensation(ref double[] dhCompensation).
+    /** 
+    * @brief Ottenere Valori Compensazione Parametri DH Robot 
+    * @param [out] dhCompensation Valori compensazione parametri DH robot(mm) [cmpstD1,cmpstA2,cmpstA3,cmpstD4,cmpstD5,cmpstD6]
+    * @return Codice errore 
+    */
+    int GetDHCompensation(ref double[] dhCompensation);
 
-Get control box SN code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ottenere Codice SN Quadro Controllo
+++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get control box SN code.
-    * @param [out] SNCode Control Box SN Code
-    * @return Error code.
-    */
-    int GetRobotSN(ref string SNCode);
+    /**
+    * @brief Ottenere Codice SN Quadro Controllo
+    * @param [out] SNCode Codice SN quadro controllo
+    * @return Codice errore
+    */
+    int GetRobotSN(ref string SNCode);
 
-Query the robot teaching management point data code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Verifica Dati Punti Gestione Insegnamento Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void button31_Click(object sender, EventArgs e)
+    private void button31_Click(object sender, EventArgs e)
     {
         string name = "A0";
         double[] data = new double[20];
@@ -524,22 +529,22 @@ Query the robot teaching management point data code example
         Console.WriteLine($"robot SN is  {SN}");
     }
 
-Get Tool Coordinate System by ID
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema Coordinate Utensile in Base al Numero
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get Tool Coordinate System by ID
-    * @param [in] id Tool coordinate system ID
-    * @param [out] coord Coordinate system value
-    * @return Error code
+    * @brief Ottenere Sistema Coordinate Utensile in Base al Numero
+    * @param [in] id Numero sistema coordinate utensile
+    * @param [out] coord Valori coefficienti coordinate
+    * @return Codice errore
     */
     int GetToolCoordWithID(int id,ref DescPose coord)
 
-Get Work Object Coordinate System by ID
+Ottenere Sistema Coordinate Pezzo in Base al Numero
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -547,44 +552,44 @@ Get Work Object Coordinate System by ID
     :linenos:
 
     /**
-    * @brief Get Work Object Coordinate System by ID
-    * @param [in]  id Work object coordinate system ID
-    * @param [out] coord Coordinate system value
-    * @return Error code
+    * @brief Ottenere Sistema Coordinate Pezzo in Base al Numero
+    * @param [in]  id Numero sistema coordinate pezzo
+    * @param [out] coord Valori coefficienti coordinate
+    * @return Codice errore
     */
     public int GetWObjCoordWithID(int id, ref DescPose coord)
 
-Get External Tool Coordinate System by ID
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema Coordinate Utensile Esterno in Base al Numero
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get External Tool Coordinate System by ID
-    * @param [in]  id External tool coordinate system ID
-    * @param [out] coord Coordinate system value
-    * @return Error code
+    * @brief Ottenere Sistema Coordinate Utensile Esterno in Base al Numero
+    * @param [in]  id Numero sistema coordinate utensile esterno
+    * @param [out] coord Valori coefficienti coordinate
+    * @return Codice errore
     */
     public int GetExToolCoordWithID(int id, ref DescPose coord)
 
-Get Extended Axis Coordinate System by ID
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema Coordinate Asse Esteso in Base al Numero
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get Extended Axis Coordinate System by ID
-    * @param [in]  id Extended axis coordinate system ID
-    * @param [out] coord Coordinate system value
-    * @return Error code
+    * @brief Ottenere Sistema Coordinate Asse Esteso in Base al Numero
+    * @param [in]  id Numero sistema coordinate utensile esterno
+    * @param [out] coord Valori coefficienti coordinate
+    * @return Codice errore
     */
     public int GetExAxisCoordWithID(int id, ref DescPose coord)
 
-Get Current Tool Coordinate System
+Ottenere Sistema Coordinate Utensile Corrente
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -592,13 +597,13 @@ Get Current Tool Coordinate System
     :linenos:
 
     /**
-     * @brief Get Current Tool Coordinate System
-     * @param [out] coord Coordinate system value
-     * @return Error code
+     * @brief Ottenere Sistema Coordinate Utensile Corrente
+     * @param [out] coord Valori coefficienti coordinate
+     * @return Codice errore
      */
     public int GetCurToolCoord(ref DescPose coord)
 
-Get Current Work Object Coordinate System
+Ottenere Sistema Coordinate Pezzo Corrente
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -606,27 +611,27 @@ Get Current Work Object Coordinate System
     :linenos:
 
     /**
-     * @brief Get Current Work Object Coordinate System
-     * @param [out] coord Coordinate system value
-     * @return Error code
+     * @brief Ottenere Sistema Coordinate Pezzo Corrente
+     * @param [out] coord Valori coefficienti coordinate
+     * @return Codice errore
      */
     public int GetCurWObjCoord(ref DescPose coord)
 
-Get Current External Tool Coordinate System
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema Coordinate Utensile Esterno Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
     :linenos:
 
     /**
-     * @brief Get Current External Tool Coordinate System
-     * @param  [out] coord Coordinate system value
-     * @return Error code
+     * @brief Ottenere Sistema Coordinate Utensile Esterno Corrente
+     * @param  [out] coord Valori coefficienti coordinate
+     * @return Codice errore
      */
     public int GetCurExToolCoord(ref DescPose coord)
 
-Get Current Extended Axis Coordinate System
+Ottenere Sistema Coordinate Asse Esteso Corrente
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -634,13 +639,13 @@ Get Current Extended Axis Coordinate System
     :linenos:
 
     /**
-     * @brief Get Current Extended Axis Coordinate System
-     * @param [out] coord Coordinate system value
-     * @return Error code
+     * @brief Ottenere Sistema Coordinate Asse Esteso Corrente
+     * @param [out] coord Valori coefficienti coordinate
+     * @return Codice errore
      */
     public int GetCurExAxisCoord(ref DescPose coord)
 
-Get Current Extended Axis Coordinate System
+Esempio Codice Ottenimento Sistemi Coordinate e Carico Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -706,8 +711,3 @@ Get Current Extended Axis Coordinate System
         robot.SetLoadCoord(id, cog);
         Thread.Sleep(100);
     }
-
-
-
-
-

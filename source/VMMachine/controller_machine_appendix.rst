@@ -1,12 +1,12 @@
-Appendix
-==================================
+Appendice
+===================
 
-Appendix 1: Enabling Virtualization in the BIOS
-------------------------------------------------------
+Appendice 1: Abilitare Virtualizzazione nel BIOS
+---------------------------------------------------------------------
 
-Different models of computers may have different processes to enable virtualization. Take Lenovo ThinkPad series Windows 10 as an example:
+Il processo per abilitare la virtualizzazione può variare a seconda del modello del computer. Di seguito un esempio con la serie ThinkPad di Lenovo con Windows 10:
 
-- Open PC Settings and select Update and Security.
+- Aprire le impostazioni del computer, selezionare "Aggiornamento e sicurezza".
 
 .. image:: controller_virtual_machine/013.png
    :width: 4in
@@ -16,70 +16,70 @@ Different models of computers may have different processes to enable virtualizat
    :width: 4in
    :align: center
 
-- Select "Recover".
+- Selezionare "Ripristino".
 
 .. image:: controller_virtual_machine/015.png
    :width: 4in
    :align: center
 
-- Select "Restart Now".
+- Selezionare "Riavvia ora".
 
 .. image:: controller_virtual_machine/016.png
    :width: 4in
    :align: center
 
-- Select "Troubleshoot".
+- Selezionare "Risoluzione dei problemi".
   
 .. image:: controller_virtual_machine/017.png
    :width: 4in
    :align: center
 
-- Select "Advanced Options".
+- Selezionare "Opzioni avanzate".
 
 .. image:: controller_virtual_machine/018.png
    :width: 4in
    :align: center
 
-- Select "UEFI Firmware Settings".
+- Selezionare "Impostazioni firmware UEFI".
 
 .. image:: controller_virtual_machine/019.png
    :width: 4in
    :align: center
 
-- Select "Restart".
+- Selezionare "Riavvia".
 
 .. image:: controller_virtual_machine/020.png
    :width: 4in
    :align: center
 
-- Select "Virtualization" under Security.
+- Selezionare "Virtualizzazione" sotto "Sicurezza".
 
 .. image:: controller_virtual_machine/021.png
    :width: 4in
    :align: center
 
-- Select "Enabled" and press "Enter" to confirm.
+- Selezionare "Abilitato", premere "Invio" per confermare.
 
 .. image:: controller_virtual_machine/022.png
    :width: 4in
    :align: center
 
-- Press "F10", select "Yes", press "Enter" to save changes.
+- Premere "F10", selezionare "Sì", premere "Invio" per salvare le modifiche.
 
 .. image:: controller_virtual_machine/023.png
    :width: 4in
    :align: center
 
-Appendix 2: Adding a Virtual NIC (Loopback Network Adapter)
--------------------------------------------------------------------
+Appendice 2: Aggiungere una Scheda di Rete Virtuale (Adattatore di Loopback)
+----------------------------------------------------------------------------------
 
-1. Open Device Manager, press "Windows Key - X", select "Network adapters".
+1. Aprire Gestione dispositivi: premere "Tasto Windows + X", selezionare "Gestione dispositivi".
    
 .. image:: controller_virtual_machine/024.png
    :width: 4in
    :align: center
 
-2. Add a network.
+2. Aggiungere un adattatore di rete.
 
 .. image:: controller_virtual_machine/025.png
    :width: 4in
@@ -109,7 +109,7 @@ Appendix 2: Adding a Virtual NIC (Loopback Network Adapter)
    :width: 4in
    :align: center
    
-3. View the virtual network card, press the "Windows key - X" , select "Network Connection".
+3. Visualizzare la scheda di rete virtuale: premere "Tasto Windows + X", selezionare "Connessioni di rete".
 
 .. image:: controller_virtual_machine/032.png
    :width: 4in
@@ -124,120 +124,120 @@ Appendix 2: Adding a Virtual NIC (Loopback Network Adapter)
    :align: center
 
 .. image:: controller_virtual_machine/035.png
-   :width: 6in
+   :width: 4in
    :align: center
    
-4. Configuring a Loopback Adapter Network.
+4. Configurare la rete dell'adattatore di loopback.
 
-- IP address: 192.168.58.XXX (same network segment as 192.168.58.2) .
-- Subnet mask: 255.255.255.0.
+- Indirizzo IP: 192.168.58.XXX (deve essere nella stessa sottorete di 192.168.58.2).
+- Maschera di sottorete: 255.255.255.0.
 
 .. image:: controller_virtual_machine/012.png
    :width: 6in
    :align: center
 
-5. Open the Virtualbox network configuration, select "Loopback Adapter Network" for the network card name, and start the virtual machine.
+5. Aprire la configurazione di rete di Virtualbox, selezionare "Rete adattatore loopback" come nome scheda di rete, quindi avviare la macchina virtuale.
 
 .. image:: controller_virtual_machine/013.png
    :width: 6in
    :align: center
 
-Appendix 3: Root Permissions
+Appendice 3: Permessi Root
 --------------------------------------
 
-After Ubuntu is installed, the root user is not allowed to log in by default, and the password is empty. If you want to log in as the root user, you must first set a password for the root user.
+Dopo l'installazione di Ubuntu, l'utente root non può accedere per impostazione predefinita e la password è vuota. Per utilizzare l'utente root, è necessario impostare prima una password per root.
 
-1. Open the terminal, type `sudo passwd root`, press Enter, and then enter the password several times. A success message will be displayed once the password is set.
+1. Aprire il terminale, digitare `sudo passwd root`, quindi premere Invio e inserire la password più volte. Verrà visualizzato un messaggio di successo per l'impostazione della password.
 
 .. image:: controller_virtual_machine/057.png
    :width: 6in
    :align: center
 
-2. Continue in the terminal by entering the command `su - root` to switch users, and press Enter to input the password.
+2. Nel terminale, continuare digitando il comando `su - root` per cambiare utente, premere Invio e inserire la password.
 
-.. warning:: When entering the command, be sure to include the hyphen in "su -". The option "-" signifies that the environment variables should be switched along with the user, and it is crucial not to omit it.
+.. warning:: Quando si inserisce il comando, è fondamentale includere il trattino "-". L'opzione "-" indica il cambio dell'ambiente insieme all'utente. Il trattino "-" non deve assolutamente essere omesso.
 
 .. image:: controller_virtual_machine/058.png
    :width: 6in
    :align: center
 
-Appendix 4: Docker Basic Commands
+Appendice 4: Comandi Docker Base
 --------------------------------------
 
-1. Docker help command: 
+1. Comando di aiuto Docker:
 
 .. code-block:: console
    :linenos:
 
    docker --help
 
-2. Start Docker :
+2. Avviare Docker:
 
 .. code-block:: console
    :linenos:
 
    systemctl start docker
 
-3.  Stop Docker :
+3. Arrestare Docker:
 
 .. code-block:: console
    :linenos:
 
    systemctl stop docker
 
-4. Restart Docker :
+4. Riavviare Docker:
 
 .. code-block:: console
    :linenos:
 
    systemctl restart docker
 
-5. Set Docker to start automatically with the service :
+5. Configurare Docker per l'avvio automatico con il servizio:
 
 .. code-block:: console
    :linenos:
 
    systemctl enable docker
 
-6. Check the running status of Docker :
+6. Verificare lo stato di esecuzione di Docker:
 
 .. code-block:: console
    :linenos:
 
    systemctl status docker
-   --If it's running, you'll see "active" in green
+   -- Se è in esecuzione, si vedrà (active) in verde dopo aver inserito il comando.
 
-7. Docker container :
-
-.. code-block:: console
-   :linenos:
-
-   docker images: List the downloaded images.
-   docker rmi [image_id_or_name]: Remove a local image.
-   docker rmi -f [image_id_or_name]: Force remove an image.
-   docker build: Build an image.
-   docker search [image_id_or_name]: Search for an image by keyword in the Hub.
-   docker pull [image_id_or_name]: Download an image
-   docker images: List the downloaded images.
-   docker rmi [image_id_or_name]: Remove a local image.
-   docker rmi -f [image_id_or_name]: Force remove an image.
-   docker build: Build an image.
-
-8. Docker container :
+7. Immagini Docker:
 
 .. code-block:: console
    :linenos:
 
-   docker ps: List running containers.
-   docker ps -a: List all containers, including those not running.
-   docker stop [container_id_or_name]: Stop a container.
-   docker kill [container_id]: Force stop a container.
-   docker start [container_id_or_name]: Start a stopped container.
-   docker inspect [container_id]: View all information about a container.
-   docker container logs [container_id]: View container logs.
-   docker top [container_id]: View processes inside the container.
-   docker exec -it [container_id] /bin/bash: Enter the container.
-   exit: Exit the container.
-   docker rm [container_id_or_name]: Remove a stopped container.
-   docker rm -f [container_id]: Remove a running container.
-   docker exec -it [container_ID] sh: Enter the container using the shell.
+   docker images: elenca le immagini scaricate, visualizza le immagini
+   docker rmi ID_immagine_o_nome: elimina l'immagine locale
+   docker rmi -f ID_immagine_o_nome: elimina l'immagine
+   docker build: costruisce un'immagine
+   docker search ID_immagine_o_nome: cerca immagini per parola chiave nel repository Docker Hub
+   docker pull ID_immagine_o_nome: scarica un'immagine dal repository
+   docker images: elenca le immagini scaricate, visualizza le immagini
+   docker rmi ID_immagine_o_nome: elimina l'immagine locale
+   docker rmi -f ID_immagine_o_nome: elimina l'immagine
+   docker build: costruisce un'immagine
+
+8. Contenitori Docker:
+
+.. code-block:: console
+   :linenos:
+
+   docker ps: elenca i contenitori in esecuzione
+   docker ps -a: visualizza tutti i contenitori, inclusi quelli non in esecuzione
+   docker stop ID_contenitore_o_nome: arresta il contenitore
+   docker kill ID_contenitore: arresta forzatamente il contenitore
+   docker start ID_contenitore_o_nome: avvia un contenitore arrestato
+   docker inspect ID_contenitore: visualizza tutte le informazioni del contenitore
+   docker container logs ID_contenitore: visualizza i log del contenitore
+   docker top ID_contenitore: visualizza i processi all'interno del contenitore
+   docker exec -it ID_contenitore /bin/bash: entra nel contenitore
+   exit: esce dal contenitore
+   docker rm ID_contenitore_o_nome: elimina un contenitore arrestato
+   docker rm -f ID_contenitore: elimina un contenitore in esecuzione
+   docker exec -it ID_contenitore sh: entra nel contenitore

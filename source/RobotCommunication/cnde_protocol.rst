@@ -1,9 +1,9 @@
-CNDE data frame protocol format
-=====================================
+Formato del protocollo del frame dati CNDE
+===================================================
 
-The communication protocol of CNDE for cooperative robots is as follows. The protocol distinguishes data frames with different functions by frame types. See Table 2-2 for the definition of frame types. Different types of frames correspond to different data content. See Table 3-1 ~ Table 3-7 for specific data content definitions.
+Il protocollo di comunicazione CNDE per il robot collaborativo è il seguente. Sia l'invio di dati dal client al robot che il feedback del robot al client devono rispettare questo protocollo. Il protocollo distingue i frame dati di diverse funzioni tramite il tipo di frame. Le definizioni dei tipi di frame sono riportate nella Tabella 2-2; diversi tipi di frame corrispondono a contenuti dati diversi. Le definizioni specifiche del contenuto dei dati sono riportate nelle Tabelle 3-1 ~ 3-7.
 
-.. centered:: Table 2-1 Data Frame Format of Robot CNDE
+.. centered:: Tabella 2-1 Formato del frame dati CNDE del robot
 
 .. list-table::
    :widths: 20 20 20 20 20 20 20
@@ -11,15 +11,15 @@ The communication protocol of CNDE for cooperative robots is as follows. The pro
    :align: center
    :class: sheet-center
 
-   * - **Name**
-     - **Frame header**
-     - **Frame count**
-     - **Frame type**
-     - **Data length**
-     - **Content**
-     - **Frame end**
+   * - **Nome**
+     - **Intestazione frame**
+     - **Contatore frame**
+     - **Tipo frame**
+     - **Lunghezza dati**
+     - **Contenuto**
+     - **Coda frame**
    
-   * - **Length(byte)**
+   * - **Lunghezza (byte)**
      - 2
      - 1
      - 1
@@ -27,15 +27,15 @@ The communication protocol of CNDE for cooperative robots is as follows. The pro
      - --
      - 2
    
-   * - **Content**
+   * - **Contenuto**
      - 0x5A5A
      - 0 ~ 255
      - 0 ~ 8
-     - Number of bytes of "content"
-     - Data frame content
+     - Numero di byte del "contenuto dati"
+     - Contenuto del frame dati
      - 0xA5A5
 
-.. centered:: Table 2-2 Data Frame Types of Robot CNDE
+.. centered:: Tabella 2-2 Tipi di frame dati CNDE del robot
 
 .. list-table::
    :widths: 40 20 40
@@ -43,42 +43,42 @@ The communication protocol of CNDE for cooperative robots is as follows. The pro
    :align: center
    :class: sheet-center
 
-   * - **Type**
-     - **Numerical value**
-     - **Data frame direction**
+   * - **Tipo**
+     - **Valore**
+     - **Direzione del frame dati**
 
-   * - Input Configuration Frame (Control Configuration)
+   * - Frame di configurazione di input (configurazione controllo)
      - 0x00
      - Client->Robot
 
-   * - Output Configuration Frame (Status Configuration)
+   * - Frame di configurazione di output (configurazione stato)
      - 0x01
      - Client->Robot
 
-   * - CNDE output start
+   * - Avvio output CNDE
      - 0x02
      - Client->Robot
 
-   * - CNDE output stops
+   * - Arresto output CNDE
      - 0x03
      - Client->Robot
 
-   * - Output data frame (status data)
+   * - Frame di dati di output (dati di stato)
      - 0x04
      - Robot->Client
 
-   * - Input data frame (control data)
+   * - Frame di dati di input (dati di controllo)
      - 0x05
      - Client->Robot
 
-   * - Message
+   * - Messaggio di prompt caratteri
      - 0x06
      - Client->Robot, Robot->Client
 
-   * - Set the version number of CNDE protocol of robot
+   * - Imposta numero versione protocollo CNDE del robot
      - 0x07
      - Client->Robot
 
-   * - Obtain the robot soft firmware version
+   * - Ottieni versione software/firmware del robot
      - 0x08
      - Client->Robot, Robot->Client

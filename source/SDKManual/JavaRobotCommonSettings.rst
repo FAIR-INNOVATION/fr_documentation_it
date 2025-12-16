@@ -1,119 +1,119 @@
-Robot common settings
-==================================
+Impostazioni comuni del robot
+==============================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Set tool reference point - six point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti di riferimento utensile - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /**
-    * @brief Set tool reference point - six point method
-    * @param [in] point_num Point number, range [1~6]
-    * @return Error code
-    */
+    /** 
+    * @brief Imposta il punto di riferimento utensile - Metodo a sei punti
+    * @param [in] point_num Numero del punto, intervallo [1~6]
+    * @return Codice di errore 
+    */ 
     int SetToolPoint(int point_num);
 
-Calculate tool coordinate system - six point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate utensile - Metodo a sei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /**
-    * @brief Calculate tool coordinate system
-    * @param [out] tcp_pose Tool coordinate system
-    * @return Error code
-    */
+    /** 
+    * @brief Calcola il sistema di coordinate utensile
+    * @param [out] tcp_pose Sistema di coordinate utensile
+    * @return Codice di errore 
+    */ 
     int ComputeTool(DescPose tcp_pose);
 
-Set tool reference point - four point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti di riferimento utensile - Metodo a quattro punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /**
-    * @brief Set tool reference point - four point method
-    * @param [in] point_num Point number, range [1~4]
-    * @return Error code
-    */
+    /** 
+    * @brief Imposta il punto di riferimento utensile - Metodo a quattro punti
+    * @param [in] point_num Numero del punto, intervallo [1~4]
+    * @return Codice di errore 
+    */ 
     int SetTcp4RefPoint(int point_num);
 
-Calculate tool coordinate system - four point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate utensile - Metodo a quattro punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /**
-    * @brief Calculate tool coordinate system
-    * @param [out] tcp_pose Tool coordinate system
-    * @return Error code
-    */
+    /** 
+    * @brief Calcola il sistema di coordinate utensile
+    * @param [out] tcp_pose Sistema di coordinate utensile
+    * @return Codice di errore 
+    */ 
     int ComputeTcp4(DescPose tcp_pose);
 
-Calculate tool coordinate system based on point information
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate utensile in base alle informazioni dei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /** 
+    * @brief Calcola il sistema di coordinate utensile in base alle informazioni dei punti
+    * @param [in] method Metodo di calcolo; 0-Metodo a quattro punti; 1-Metodo a sei punti
+    * @param [in] pos Gruppo di posizioni articolari, lunghezza array 4 per metodo a 4 punti, 6 per metodo a 6 punti
+    * @param [out] tool_pose Sistema di coordinate utensile in output
+    * @return Codice di errore 
+    */ 
+    int ComputeToolCoordWithPoints(int method, JointPos[] pos,DescPose tool_pose);
+
+Impostazione sistema di coordinate utensile
++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /** 
+    * @brief Imposta il sistema di coordinate utensile 
+    * @param [in] id Numero sistema di coordinate, intervallo [0~14]
+    * @param [in] coord  Posa del centro utensile rispetto al centro della flangia terminale
+    * @param [in] type  0-Sistema di coordinate utensile, 1-Sistema di coordinate sensore
+    * @param [in] install Posizione installazione, 0-Terminale robot, 1-Esterno robot
+    * @param [in] toolID  ID utensile
+    * @param [in] loadNum  Numero carico
+    * @return Codice di errore 
+    */ 
+    int SetToolCoord(int id, DescPose coord, int type, int install, int toolID, int loadNum);  
+
+Impostazione lista sistemi di coordinate utensile
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Calculate tool coordinate system based on point information
-    * @param [in] method Calculation method; 0-four point method; 1-six point method
-    * @param [in] pos Joint position group, array length is 4 for four point method, 6 for six point method
-    * @param [out] tool_pose Output tool coordinate system
-    * @return Error code
+    * @brief  Imposta la lista dei sistemi di coordinate utensile
+    * @param  [in] id Numero sistema di coordinate, intervallo [0~14]
+    * @param  [in] coord  Posa del centro utensile rispetto al centro della flangia terminale
+    * @param  [in] type  0-Sistema di coordinate utensile, 1-Sistema di coordinate sensore
+    * @param  [in] install Posizione installazione, 0-Terminale robot, 1-Esterno robot
+    * @param  [in] loadNum Numero carico
+    * @return  Codice di errore
     */
-    int ComputeToolCoordWithPoints(int method, JointPos[] pos, DescPose tool_pose);
+    int SetToolList(int id, DescPose coord, int type, int install, int loadNum);  
 
-Set tool coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento sistema di coordinate utensile corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set tool coordinate system
-    * @param [in] id Coordinate system number, range [0~14]
-    * @param [in] coord Tool center point pose relative to end flange center
-    * @param [in] type 0-tool coordinate system, 1-sensor coordinate system
-    * @param [in] install Installation position, 0-robot end, 1-external to robot
-    * @param [in] toolID Tool ID
-    * @param [in] loadNum Load number
-    * @return Error code
+    * @brief  Ottiene il sistema di coordinate utensile corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] desc_pos Posa del sistema di coordinate utensile
+    * @return  Codice di errore
     */
-    int SetToolCoord(int id, DescPose coord, int type, int install, int toolID, int loadNum);
+    int GetTCPOffset(int flag, DescPose desc_pos); 
 
-Set tool coordinate system list
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief Set tool coordinate system list
-    * @param [in] id Coordinate system number, range [0~14]
-    * @param [in] coord Tool center point pose relative to end flange center
-    * @param [in] type 0-tool coordinate system, 1-sensor coordinate system
-    * @param [in] install Installation position, 0-robot end, 1-external to robot
-    * @param [in] loadNum Load number
-    * @return Error code
-    */
-    int SetToolList(int id, DescPose coord, int type, int install, int loadNum);
-
-Get current tool coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief Get current tool coordinate system
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] desc_pos Tool coordinate system pose
-    * @return Error code
-    */
-    int GetTCPOffset(int flag, DescPose desc_pos);
-
-Robot tool coordinate system operation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice operazioni sistema di coordinate utensile robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -176,60 +176,60 @@ Robot tool coordinate system operation code example
         return 0;
     }
 
-Set external tool reference point - six point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti di riferimento utensile esterno - Metodo a sei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /** 
+    * @brief Imposta il punto di riferimento utensile esterno - Metodo a tre punti 
+    * @param [in] point_num Numero del punto, intervallo [1~3]
+    * @return Codice di errore 
+    */ 
+    int SetExTCPPoint(int point_num); 
+
+Calcolo sistema di coordinate utensile esterno - Metodo a sei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+    
+    /** 
+    * @brief Calcola il sistema di coordinate utensile esterno - Metodo a tre punti
+    * @param [out] tcp_pose Sistema di coordinate utensile esterno
+    * @return Codice di errore 
+    */ 
+    int ComputeExTCF(DescPose tcp_pose); 
+
+Impostazione sistema di coordinate utensile esterno
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set external tool reference point - three point method
-    * @param [in] point_num Point number, range [1~3]
-    * @return Error code
+    * @brief Imposta il sistema di coordinate utensile esterno 
+    * @param [in] id Numero sistema di coordinate, intervallo [0~14]
+    * @param [in] etcp  Posa del centro utensile rispetto al centro della flangia terminale
+    * @param [in] etool  Da determinare
+    * @return Codice di errore 
     */
-    int SetExTCPPoint(int point_num);
+    int SetExToolCoord(int id, DescPose etcp, DescPose etool); 
 
-Calculate external tool coordinate system - six point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione lista sistemi di coordinate utensile esterno
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Calculate external tool coordinate system - three point method
-    * @param [out] tcp_pose External tool coordinate system
-    * @return Error code
+    * @brief  Imposta la lista dei sistemi di coordinate utensile esterno
+    * @param  [in] id Numero sistema di coordinate, intervallo [0~14]
+    * @param  [in] etcp  Posa del centro utensile rispetto al centro della flangia terminale
+    * @param  [in] etool  Da determinare
+    * @return  Codice di errore
     */
-    int ComputeExTCF(DescPose tcp_pose);
+    int SetExToolList(int id, DescPose etcp, DescPose etool); 
 
-Set external tool coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief Set external tool coordinate system
-    * @param [in] id Coordinate system number, range [0~14]
-    * @param [in] etcp Tool center point pose relative to end flange center
-    * @param [in] etool To be determined
-    * @return Error code
-    */
-    int SetExToolCoord(int id, DescPose etcp, DescPose etool);
-
-Set external tool coordinate system list
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief Set external tool coordinate system list
-    * @param [in] id Coordinate system number, range [0~14]
-    * @param [in] etcp Tool center point pose relative to end flange center
-    * @param [in] etool To be determined
-    * @return Error code
-    */
-    int SetExToolList(int id, DescPose etcp, DescPose etool);
-
-Robot external tool coordinate system operation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice operazioni sistema di coordinate utensile esterno robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -267,90 +267,90 @@ Robot external tool coordinate system operation code example
         return 0;
     }
 
-Set workpiece reference point - three point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti di riferimento sistema di coordinate pezzo - Metodo a tre punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /**
-    * @brief Set workpiece reference point - three point method
-    * @param [in] point_num Point number, range [1~3]
-    * @return Error code
-    */
+    /** 
+    * @brief Imposta il punto di riferimento pezzo - Metodo a tre punti 
+    * @param [in] point_num Numero del punto, intervallo [1~3]
+    * @return Codice di errore 
+    */ 
     int SetWObjCoordPoint(int point_num);
 
-Calculate workpiece coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate pezzo
++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /** 
+    * @brief Calcola il sistema di coordinate pezzo
+    * @param [in]  method Metodo di calcolo 0: Origine-Asse X-Asse Z  1: Origine-Asse X-Piano XY
+    * @param [in]  refFrame Sistema di coordinate di riferimento
+    * @param [out]  wobj_pose Sistema di coordinate pezzo
+    * @return Codice di errore 
+    */ 
+    int ComputeWObjCoord(int method, int refFrame, DescPose wobj_pose); 
+
+Impostazione sistema di coordinate pezzo
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Calculate workpiece coordinate system
-    * @param [in] method Calculation method 0: origin-x axis-z axis 1: origin-x axis-xy plane
-    * @param [in] refFrame Reference coordinate system
-    * @param [out] wobj_pose Workpiece coordinate system
-    * @return Error code
-    */
-    int ComputeWObjCoord(int method, int refFrame, DescPose wobj_pose);
-
-Set workpiece coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief Set workpiece coordinate system
-    * @param [in] id Coordinate system number, range [1~15]
-    * @param [in] coord Workpiece coordinate system pose relative to end flange center
-    * @param [in] refFrame Reference coordinate system
-    * @return Error code
-    */
+    * @brief  Imposta il sistema di coordinate pezzo
+    * @param  [in] id Numero sistema di coordinate, intervallo [1~15]
+    * @param  [in] coord  Posa del sistema di coordinate pezzo rispetto al centro della flangia terminale
+    * @param  [in] refFrame Sistema di coordinate di riferimento
+    * @return  Codice di errore
+    */    
     int SetWObjCoord(int id, DescPose coord, int refFrame);
 
-Set workpiece coordinate system list
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione lista sistemi di coordinate pezzo
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set workpiece coordinate system list
-    * @param [in] id Coordinate system number, range [1~15]
-    * @param [in] coord Workpiece coordinate system pose relative to end flange center
-    * @param [in] refFrame Reference coordinate system
-    * @return Error code
-    */
+    * @brief  Imposta la lista dei sistemi di coordinate pezzo
+    * @param  [in] id Numero sistema di coordinate, intervallo [1~15]
+    * @param  [in] coord  Posa del sistema di coordinate pezzo rispetto al centro della flangia terminale
+    * @param  [in] refFrame Sistema di coordinate di riferimento
+    * @return  Codice di errore
+    */    
     int SetWObjList(int id, DescPose coord, int refFrame);
 
-Calculate workpiece coordinate system based on point information
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate pezzo in base alle informazioni dei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /**
-    * @brief Calculate workpiece coordinate system based on point information
-    * @param [in] method Calculation method; 0: origin-x axis-z axis 1: origin-x axis-xy plane
-    * @param [in] pos Three TCP position groups
-    * @param [in] refFrame Reference coordinate system
-    * @param [in] tcp_pose Output workpiece coordinate system
-    * @return Error code
-    */
+    /** 
+    * @brief Calcola il sistema di coordinate pezzo in base alle informazioni dei punti
+    * @param [in] method Metodo di calcolo; 0: Origine-Asse X-Asse Z  1: Origine-Asse X-Piano XY
+    * @param [in] pos Tre gruppi di posizioni TCP
+    * @param [in] refFrame Sistema di coordinate di riferimento
+    * @param [in] tcp_pose Sistema di coordinate pezzo in output
+    * @return Codice di errore 
+    */ 
     int ComputeWObjCoordWithPoints(int method, DescPose[] pos, int refFrame,DescPose tcp_pose);
 
-Get current workpiece coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento sistema di coordinate pezzo corrente
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get current workpiece coordinate system
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] desc_pos Workpiece coordinate system pose
-    * @return Error code
-    */
+    * @brief  Ottiene il sistema di coordinate pezzo corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] desc_pos Posa del sistema di coordinate pezzo
+    * @return  Codice di errore
+    */   
     int GetWObjOffset(int flag, DescPose desc_pos);
 
-Workpiece coordinate system operation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice operazioni sistema di coordinate pezzo robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -391,168 +391,168 @@ Workpiece coordinate system operation code example
         rtn = robot.GetWObjOffset(0, getWobjDesc);
         return 0;
     }
-
-Set global speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+Impostazione velocità globale
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set global speed
-    * @param [in] vel Speed percentage, range [0~100]
-    * @return Error code
+    * @brief  Imposta la velocità globale
+    * @param  [in]  vel  Percentuale velocità, intervallo [0~100]
+    * @return  Codice di errore
     */
-    int SetSpeed(int vel);
+    int SetSpeed(int vel); 
 
-Set robot acceleration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione accelerazione robot
+++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set robot acceleration
-    * @param [in] acc Robot acceleration percentage
-    * @return Error code
+    * @brief Imposta l'accelerazione del robot
+    * @param [in] acc Percentuale accelerazione robot
+    * @return Codice di errore
     */
     int SetOaccScale(double acc);
 
-Get robot default speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento velocità predefinita robot
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get robot default speed
-    * @return List[0]:int Error code; List[1]: double vel Speed, unit mm/s
-    */
-    List<Number> GetDefaultTransVel();
+    * @brief  Ottiene la velocità predefinita del robot
+    * @return  List[0]:int Codice errore; List[1]: double vel Velocità, unità mm/s
+    */   
+    List<Number> GetDefaultTransVel(); 
 
-Set end load weight
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione peso carico terminale
++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set end load weight
-    * @param [in] loadNum Load number
-    * @param [in] weight Load weight, unit kg
-    * @return Error code
+    * @brief  Imposta il peso del carico terminale
+    * @param  [in] loadNum Numero carico
+    * @param  [in] weight  Peso carico, unità kg
+    * @return  Codice di errore
     */
     int SetLoadWeight(int loadNum,double weight);
 
-Set end load center of mass coordinates
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coordinate centro di massa carico terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set end load center of mass coordinates
-    * @param [in] coord Center of mass coordinates, unit mm
-    * @return Error code
+    * @brief  Imposta le coordinate del centro di massa del carico terminale
+    * @param  [in] coord Coordinate centro di massa, unità mm
+    * @return  Codice di errore
     */
-    int SetLoadCoord(DescTran coord);
+    int SetLoadCoord(DescTran coord); 
 
-Set End Effector Load Center of Mass Coordinates
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: java
-   :linenos:
-
-   /**
-    * @brief  Set end effector load center of mass coordinates
-    * @param  [in] loadNum Load number
-    * @param  [in] coord Center of mass coordinates, unit: mm
-    * @return  Error code
-    */
-   public int SetLoadCoord(int loadNum, DescTran coord)
-
-Get current load weight
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coordinate centro di massa carico terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get current load weight
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @return List[0]:int Error code; List[1]: double weight Load weight, unit kg
-    */
-    List<Number> GetTargetPayload(int flag);
+     * @brief  Imposta le coordinate del centro di massa del carico terminale
+     * @param  [in] loadNum Numero carico
+     * @param  [in] coord Coordinate centro di massa, unità mm
+     * @return  Codice di errore
+     */
+    public int SetLoadCoord(int loadNum, DescTran coord)
 
-Get current load center of mass
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento peso carico corrente
+++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get current load center of mass
-    * @param [in] flag 0-blocking, 1-non-blocking
-    * @param [out] cog Load center of mass, unit mm
-    * @return Error code
+    * @brief  Ottiene il peso del carico corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @return  List[0]:int Codice errore; List[1]: double weight  Peso carico, unità kg
     */
+    List<Number> GetTargetPayload(int flag); 
+
+Ottenimento centro di massa carico corrente
++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Ottiene il centro di massa del carico corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] cog Centro di massa carico, unità mm
+    * @return  Codice di errore
+    */   
     int GetTargetPayloadCog(int flag, DescTran cog);
 
-Set robot installation method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione modalità installazione robot
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set robot installation method
-    * @param [in] install Installation method, 0-standard, 1-side, 2-inverted
-    * @return Error code
+    * @brief  Imposta la modalità di installazione del robot
+    * @param  [in]  install  Modalità installazione, 0-Montaggio normale, 1-Montaggio laterale, 2-Montaggio a soffitto
+    * @return  Codice di errore
     */
-    int SetRobotInstallPos(int install);
+    int SetRobotInstallPos(int install); 
 
-Set robot installation angle
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione angolo installazione robot
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set robot installation angle, free installation
-    * @param [in] yangle Tilt angle
-    * @param [in] zangle Rotation angle
-    * @return Error code
+    * @brief  Imposta l'angolo di installazione del robot, installazione libera
+    * @param  [in] yangle  Angolo inclinazione
+    * @param  [in] zangle  Angolo rotazione
+    * @return  Codice di errore
     */
-    int SetRobotInstallAngle(double yangle, double zangle);
+    int SetRobotInstallAngle(double yangle, double zangle); 
 
-Get robot installation angle
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento angolo installazione robot
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get robot installation angle
-    * @return List[0]:Error code; List[1]:double yangle Tilt angle; List[2]:double zangle Rotation angle
+    * @brief  Ottiene l'angolo di installazione del robot
+    * @return  List[0]:Codice errore; List[1]:double yangle Angolo inclinazione; List[2]:double zangle Angolo rotazione
     */
     public List<Number> GetRobotInstallAngle()
 
-Set system variable value
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione valore variabile di sistema
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set system variable value
-    * @param [in] id Variable number, range [1~20]
-    * @param [in] value Variable value
-    * @return Error code
+    * @brief  Imposta il valore della variabile di sistema
+    * @param  [in]  id  Numero variabile, intervallo [1~20]
+    * @param  [in]  value Valore variabile
+    * @return  Codice di errore
     */
-    int SetSysVarValue(int id, double value);
+    int SetSysVarValue(int id, double value); 
 
-Get system variable value
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento valore variabile di sistema
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get system variable value
-    * @param [in] id System variable number, range [1~20]
-    * @return List[0]:Error code; List[1]:double value System variable value
+    * @brief  Ottiene il valore della variabile di sistema
+    * @param  [in] id Numero variabile di sistema, intervallo [1~20]
+    * @return  List[0]:Codice errore; List[1]:double value Valore variabile di sistema
     */
-    List<Number> GetSysVarValue(int id);
+    List<Number> GetSysVarValue(int id); 
 
-Robot common settings code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice impostazioni comuni robot
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -613,68 +613,68 @@ Robot common settings code example
         return 0;
     }
 
-Joint friction compensation switch
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Interruttore compensazione attrito giunti
++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /** 
+    * @brief Interruttore compensazione attrito giunti 
+    * @param [in] state  0-Spegnimento, 1-Accensione
+    * @return Codice di errore 
+    */ 
+    int FrictionCompensationOnOff(int state); 
+
+Impostazione coefficiente compensazione attrito giunti - Montaggio normale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Joint friction compensation switch
-    * @param [in] state 0-off, 1-on
-    * @return Error code
-    */
-    int FrictionCompensationOnOff(int state);
-
-Set joint friction compensation coefficient - standard installation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief Set joint friction compensation coefficient - standard installation
-    * @param [in] coeff Six joint compensation coefficients, range [0~1]
-    * @return Error code
+    * @brief  Imposta il coefficiente di compensazione attrito giunti - Montaggio normale
+    * @param  [in]  coeff Sei coefficienti compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
     */
     int SetFrictionValue_level(Object[] coeff);
 
-Set joint friction compensation coefficient - side installation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente compensazione attrito giunti - Montaggio laterale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set joint friction compensation coefficient - side installation
-    * @param [in] coeff Six joint compensation coefficients, range [0~1]
-    * @return Error code
+    * @brief  Imposta il coefficiente di compensazione attrito giunti - Montaggio laterale
+    * @param  [in]  coeff Sei coefficienti compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
     */
-    int SetFrictionValue_wall(Object[] coeff);
+    int SetFrictionValue_wall(Object[] coeff); 
 
-Set joint friction compensation coefficient - inverted installation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente compensazione attrito giunti - Montaggio a soffitto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set joint friction compensation coefficient - inverted installation
-    * @param [in] coeff Six joint compensation coefficients, range [0~1]
-    * @return Error code
+    * @brief  Imposta il coefficiente di compensazione attrito giunti - Montaggio a soffitto
+    * @param  [in]  coeff Sei coefficienti compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
     */
     int SetFrictionValue_ceiling(Object[] coeff);
 
-Set joint friction compensation coefficient - free installation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente compensazione attrito giunti - Installazione libera
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set joint friction compensation coefficient - free installation
-    * @param [in] coeff Six joint compensation coefficients, range [0~1]
-    * @return Error code
+    * @brief  Imposta il coefficiente di compensazione attrito giunti - Installazione libera
+    * @param  [in]  coeff Sei coefficienti compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
     */
     int SetFrictionValue_freedom(Object[] coeff);
 
-Robot set joint friction compensation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice impostazione compensazione attrito giunti robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -705,32 +705,32 @@ Robot set joint friction compensation code example
         return 0;
     }
 
-Query robot error code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Query codice errore robot
++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Query robot error code
-     * @param [out] maincode Main error code
-     * @param [out] subcode Sub error code
-     * @return Error code
-     */
+     * @brief  Query codice errore robot
+     * @param  [out]  maincode  Codice errore principale
+     * @param  [out]  subcode   Codice errore secondario
+     * @return  Codice di errore
+     */ 
     int GetRobotErrorCode(int[] maincode, int[] subcode);
 
-Error state clear
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Cancellazione stato errore
+++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Error state clear
-    * @return Error code
+    * @brief  Cancellazione stato errore
+    * @return  Codice di errore
     */
-    int ResetAllError();
+    int ResetAllError(); 
 
-Robot fault state get and clear error code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice ottenimento stato guasto robot e cancellazione errori
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -747,36 +747,36 @@ Robot fault state get and clear error code example
         return 0;
     }
 
-Set wide voltage control box temperature and fan speed monitoring parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione parametri monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.6-3.8.3
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set wide voltage control box temperature and fan speed monitoring parameters
-    * @param [in] enable 0-disable monitoring; 1-enable monitoring
-    * @param [in] period Monitoring period(s), range 1-100
-    * @return Error code
+    * @brief Imposta i parametri di monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga
+    * @param [in] enable 0-Disabilita monitoraggio; 1-Abilita monitoraggio
+    * @param [in] period Periodo monitoraggio (s), intervallo 1-100
+    * @return Codice di errore
     */
     int SetWideBoxTempFanMonitorParam(int enable, int period);
 
-Get wide voltage control box temperature and fan speed monitoring parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento parametri monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.6-3.8.3
 
 .. code-block:: Java
     :linenos:
 
-    /**
-    * @brief Get wide voltage control box temperature and fan speed monitoring parameters
-    * @return List[0]-Error code,List[1]-enable 0-disable monitoring; 1-enable monitoring,List[2]-period Monitoring period(s), range 1-100
+    /** 
+    * @brief Ottiene i parametri di monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga
+    * @return List[0]-Codice errore,List[1]-enable 0-Disabilita monitoraggio; 1-Abilita monitoraggio,List[2]-period Periodo monitoraggio (s), intervallo 1-100
     */
     List<Number> GetWideBoxTempFanMonitorParam()
 
-Wide voltage control box temperature and fan current state get code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice ottenimento stato temperatura e corrente ventilatore quadro controllo tensione larga
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -808,84 +808,84 @@ Wide voltage control box temperature and fan current state get code example
         return 0;
     }
 
-Set Focus Calibration Point
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punto calibrazione fuoco
+++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set focus calibration point
-    * @param [in] pointNum Focus calibration point number (1-8)
-    * @param [in] point    Calibration point coordinates
-    * @return Error code
+    * @brief Imposta il punto di calibrazione fuoco
+    * @param [in] pointNum Numero punto calibrazione fuoco 1-8
+    * @param [in] point    Coordinate punto calibrazione
+    * @return Codice di errore
     */
     int SetFocusCalibPoint(int pointNum, DescPose point)
 
-Compute Focus Calibration Result
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo risultato calibrazione fuoco
+++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Compute focus calibration result
-    * @param [in] pointNum  Number of calibration points
-    * @param [in] resultPos Calibration result XYZ
-    * @param [out] accuracy  Calibration accuracy error
-    * @return Error code
+    * @brief Calcola il risultato della calibrazione fuoco
+    * @param [in] pointNum  Numero punti calibrazione
+    * @param [in] resultPos Risultato calibrazione XYZ
+    * @param [out] accuracy  Errore accuratezza calibrazione
+    * @return Codice di errore
     */
     int ComputeFocusCalib(int pointNum, DescTran resultPos, double[] accuracy)
 
-Start focus following
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvio inseguimento fuoco
+++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Start focus following
-    * @param [in] kp       Proportional parameter (default: 50.0)
-    * @param [in] kpredict Feedforward parameter (default: 19.0)
-    * @param [in] aMax     Maximum angular acceleration limit (default: 1440°/s²)
-    * @param [in] vMax     Maximum angular velocity limit (default: 180°/s)
-    * @param [in] type     Lock X-axis direction (0-Reference input vector; 1-Horizontal; 2-Vertical)
-    * @return Error code
+    * @brief Avvia l'inseguimento fuoco
+    * @param [in] kp       Parametro proporzionale, default 50.0
+    * @param [in] kpredict Parametro feedforward, default 19.0
+    * @param [in] aMax     Limite massima accelerazione angolare, default 1440°/s^2
+    * @param [in] vMax     Limite massima velocità angolare, default 180°/s
+    * @param [in] type     Blocco direzione asse X (0-Vettore input riferimento; 1-Orizzontale; 2-Verticale)
+    * @return Codice di errore
     */
     int FocusStart(double kp, double kpredict, double aMax, double vMax, int type)
 
-Stop Focus Following
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arresto inseguimento fuoco
+++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Stop focus following
-    * @return Error code
+    * @brief Arresta l'inseguimento fuoco
+    * @return Codice di errore
     */
     int FocusEnd()
 
-Set Focus Position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coordinate fuoco
++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
 .. code-block:: Java
     :linenos:
     
     /**
-    * @brief Set focus position
-    * @param pos Focus position XYZ
-    * @return Error code
+    * @brief Imposta le coordinate del fuoco
+    * @param pos Coordinate fuoco XYZ
+    * @return Codice di errore
     */
     public int SetFocusPosition(DescTran pos)
 
-Focus Following Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice inseguimento fuoco
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -957,88 +957,85 @@ Focus Following Code Example
         robot.FocusEnd();
     }
 
-Joint Torque Sensor Sensitivity Calibration Function Enabled
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Abilitazione funzione calibrazione sensibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Joint torque sensor sensitivity calibration function enabled
-    * @param status 0-Disabled; 1-Enabled
-    * @return Error code
+    * @brief Abilita la funzione di calibrazione sensibilità sensore coppia giunti
+    * @param status 0-Disabilita; 1-Abilita
+    * @return Codice di errore
     */
     public int JointSensitivityEnable(int status)
 
-Joint Torque Sensor Sensitivity Data Acquisition
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Raccolta dati sensibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Joint Torque Sensor Sensitivity Data Collection
-    * @return Error code
+    * @brief Raccolta dati sensibilità sensore coppia giunti
+    * @return Codice di errore
     */
     public int JointSensitivityCollect()
 
-Get Joint Torque Sensor Sensitivity Calibration Results
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento risultato calibrazione sensibilità sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get joint torque sensor sensitivity calibration results
-    * @param calibResult j1~j6 joint sensitivity [0-1]
-    * @param linearity j1~j6 joint linearity [0-1]
-    * @return Error code
+    * @brief Ottiene il risultato della calibrazione sensibilità sensore coppia giunti
+    * @param calibResult Sensibilità giunti j1~j6 [0-1]
+    * @param linearityn Linearità giunti j1~j6 [0-1]
+    * @return Codice di errore
     */
-    public int JointSensitivityCalibration(double[] calibResult, double[] linearity)
+    public int JointSensitivityCalibration(double calibResult[6], double linearity[6])
 
-Get Joint Torque Sensor Hysteresis Error
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Ottenimento errore isteresi sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get joint torque sensor hysteresis error
-    * @param hysteresisError j1~j6 joint hysteresis error
-    * @return Error code
+    * @brief Ottiene l'errore di isteresi del sensore coppia giunti
+    * @param hysteresisError Errore isteresi giunti j1~j6
+    * @return Codice di errore
     */
     public int JointHysteresisError(double[] hysteresisError);
     
-Get Joint Torque Sensor Repeatability
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Ottenimento ripetibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
     
     /**
-    * @brief Get joint torque sensor repeatability
-    * @param repeatability j1~j6 joint torque sensor repeatability
-    * @return Error code
+    * @brief Ottiene la ripetibilità del sensore coppia giunti
+    * @param repeatability Ripetibilità sensore coppia giunti j1~j6
+    * @return Codice di errore
     */
     public int JointRepeatability(double[] repeatability);
     
-Set Joint Force Sensor Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Impostazione parametri sensore forza giunti
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set joint force sensor parameters
-    * @param required M J1-J6 mass coefficient []
-    * @param required B J1-J6 damping coefficient []
-    * @param required K J1-J6 stiffness coefficient []
-    * @param default threshold Force control threshold, Nm
-    * @param default sensitivity Sensitivity, Nm/V, []
-    * @param default setZeroFlag Function enable flag; 0-Off; 1-On; 2-Record zero point at position 1; 3-Record zero point at position 2
-    * @return Error code
+    * @brief Imposta i parametri del sensore forza giunti
+    * @param  Parametro obbligatorio M Coefficiente massa J1-J6[]
+    * @param  Parametro obbligatorio B Coefficiente smorzamento J1-J6[]
+    * @param  Parametro obbligatorio K Coefficiente rigidezza J1-J6[]
+    * @param  Parametro default threshold Soglia controllo forza, Nm
+    * @param  Parametro default sensitivity Sensibilità, Nm/V,[]
+    * @param  Parametro default setZeroFlag Flag abilitazione funzione; 0-Disabilita; 1-Abilita; 2-Registra zero posizione1; 3-Registra zero posizione2
+    * @return Codice di errore
     */
     public int SetAdmittanceParams(double[] M, double[] B, double[] K, double[] threshold, double[] sensitivity, int setZeroFlag);
 
-Joint Torque Sensor Sensitivity Auto-Calibration Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice calibrazione automatica sensibilità sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1107,7 +1104,7 @@ Joint Torque Sensor Sensitivity Auto-Calibration Code Example
         rtn = robot.JointSensitivityCollect();
         System.out.printf("JointSensitivityCollect 7 rtn is %d\n", rtn);
         robot.Sleep(100);
-        // Reverse stroke
+        //Corsa inversa
         robot.MoveJ(jointPos6, descPos6, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
         robot.Sleep(100);
         rtn = robot.JointSensitivityCollect();
@@ -1168,40 +1165,40 @@ Joint Torque Sensor Sensitivity Auto-Calibration Code Example
         System.out.printf("SetAdmittanceParams rtn is %d\n", rtn);
     }
 
-Retrieve the number of error frames for the robot's 8 slave ports
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento conteggio frame errore 8 porte slave robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Retrieve error frame counts for the robot's 8 slave ports
-    * @param  inRecvErr Input received error frame count
-    * @param  inCRCErr Input CRC error frame count
-    * @param  inTransmitErr Input transmitted error frame count
-    * @param  inLinkErr Input link error frame count
-    * @param  outRecvErr Output received error frame count
-    * @param  outCRCErr Output CRC error frame count
-    * @param  outTransmitErr Output transmitted error frame count
-    * @param  outLinkErr Output link error frame count
-    * @return Error code
+    * @brief Ottiene il conteggio frame errore 8 porte slave robot
+    * @param  inRecvErr Conteggio frame errore ricezione input
+    * @param  inCRCErr Conteggio frame errore CRC input
+    * @param  inTransmitErr Conteggio frame errore trasmissione input
+    * @param  inLinkErr Conteggio frame errore collegamento input
+    * @param  outRecvErr Conteggio frame errore ricezione output
+    * @param  outCRCErr Conteggio frame errore CRC output
+    * @param  outTransmitErr Conteggio frame errore trasmissione output
+    * @param  outLinkErr Conteggio frame errore collegamento output
+    * @return Codice di errore
     */
     public int GetSlavePortErrCounter(int[] inRecvErr, int[] inCRCErr, int[] inTransmitErr, int[] inLinkErr, int[] outRecvErr, int[] outCRCErr, int[] outTransmitErr, int[] outLinkErr)
 
-Reset slave port error frames
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- .. code-block:: Java
+Azzera conteggio frame errore porte slave
++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief Clears error frames for slave port
-    * @param slaveID Slave ID (0~7)
-    * @return Error code
+    * @brief Azzera il conteggio frame errore porte slave
+    * @param slaveID Numero slave 0~7
+    * @return Codice di errore
     */
     public int SlavePortErrCounterClear(int slaveID)
 
-Example for retrieving slave port error frame codes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- .. code-block:: Java
+Esempio di codice ottenimento conteggio frame errore porte slave
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
     :linenos:
 
     public static void TestSlavePortErr(Robot robot)
@@ -1215,7 +1212,8 @@ Example for retrieving slave port error frame codes
         int[] outCRCErr =new int[8];
         int[] outTransmitErr =new int[8];
         int[] outLinkErr =new int[8];
-        robot.GetSlavePortErrCounter(inRecvErr,  inCRCErr, inTransmitErr, inLinkErr,outRecvErr, outCRCErr, outTransmitErr, outLinkErr);
+        robot.GetSlavePortErrCounter(inRecvErr,  inCRCErr, inTransmitErr, inLinkErr,
+                outRecvErr, outCRCErr, outTransmitErr, outLinkErr);
         for (int i = 0; i < 8; i++)
         {
             if (inRecvErr[i] != 0)
@@ -1259,35 +1257,35 @@ Example for retrieving slave port error frame codes
         robot.CloseRPC();
     }
 
-Set speed feedforward coefficients for each axis
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente feedforward velocità assi
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Sets the feedforward ratio for each axis
-    * @param  radio The feedforward ratio for each axis
-    * @return Error code
+    * @brief Imposta il coefficiente feedforward velocità assi
+    * @param  radio Coefficiente feedforward velocità assi
+    * @return Codice di errore
     */
     public int SetVelFeedForwardRatio(double[] radio)
 
-Retrieve speed feedforward ratios for each axis
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- .. code-block:: Java
+Ottenimento coefficiente feedforward velocità assi
++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief Retrieve speed feedforward ratios for each axis
-    * @param  radio Speed feedforward coefficients for each axis
-    * @return Error code
+    * @brief Ottiene il coefficiente feedforward velocità assi
+    * @param  radio Coefficiente feedforward velocità assi
+    * @return Codice di errore
     */
     public int GetVelFeedForwardRatio(double[] radio)
 
-Robot Speed Feedforward Coefficient Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- .. code-block:: Java
+Esempio di codice coefficiente feedforward velocità robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
     :linenos:
-    
+
     public static void TestVelFeedForwardRatio(Robot robot)
     {
         double[] setRadio =new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };

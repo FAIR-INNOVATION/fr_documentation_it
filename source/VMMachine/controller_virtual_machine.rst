@@ -1,78 +1,78 @@
-Virtual Machine
-==========================================
+Macchina Virtuale - VMware
+===============================================
 
-Overview
------------
-This manual aims to introduce how to use the FAIRINO SimMachine virtual machine.
+Panoramica
+------------------
+Questo manuale ha lo scopo di illustrare come utilizzare la macchina virtuale FAIRINO SimMachine.
 
-Operating Instructions
-----------------------
+Istruzioni Operative
+------------------------------------
 
-Installing VMware Workstation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installare VMware Workstation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-VMware Workstation demo version: 17.6.3 (skip this step if already installed).
+Versione dimostrativa di VMware Workstation: 17.6.3 (salta questo passaggio se già installato).
 
-Directly search for the VMware official website in your browser or click the URL \ `<https://www.vmware.com>`__\, then download the installation package and install it using the default path.
+Cerca direttamente il sito ufficiale di VMware nel browser o vai all'URL \ `<https://www.vmware.com>`__\ , scarica il pacchetto di installazione e installalo seguendo il percorso predefinito.
 
 .. image:: controller_virtual_machine/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 6.2-1 VMWare Interface
+.. centered:: Figura 6.2-1 Interfaccia VMWare
 
-Opening the Virtual Machine Image
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aprire l'Immagine della Macchina Virtuale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Download the virtual machine image FAIRINO_SimMachine.zip and extract it.
+1. Scarica l'immagine della macchina virtuale FAIRINO_SimMachine.zip ed estraila
    
-2. Open VMware, click File->Open. As shown in Figure 2-2 below:
+2. Apri VMware, clicca su File->Apri. Come mostrato nella Figura 2-2:
 
 .. image:: controller_virtual_machine/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 6.2-2 Open Image
+.. centered:: Figura 6.2-2 Aprire l'immagine
 
-3. Locate the extracted folder and select the file with the .vmx extension. As shown in Figure 2-3 below:
+3. Trova la cartella estratta, seleziona il file con estensione .vmx. Come mostrato nella Figura 2-3:
    
 .. image:: controller_virtual_machine/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 6.2-3 Select File
+.. centered:: Figura 6.2-3 Selezionare il file
 
-4. Click "Power on this virtual machine" to start the virtual machine. As shown in Figure 2-4 below:
+4. Clicca su "Power on this virtual machine" per avviare la macchina virtuale. Come mostrato nella Figura 2-4:
    
 .. image:: controller_virtual_machine/004.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 6.2-4 Start Virtual Machine
+.. centered:: Figura 6.2-4 Avviare la macchina virtuale
 
-5. Find "fr_get_vm_net" in the extracted folder and double-click to open it. As shown in Figure 2-5 below. The output content is the virtual machine IP. As shown in Figure 2-6 below.
+5. Nella cartella estratta, trova "fr_get_vm_net" e aprilo con un doppio clic, come mostrato nella Figura 2-5. Il contenuto mostrato è l'IP della macchina virtuale. Come mostrato nella Figura 2-6.
+
+.. note:: In caso di fallimento nell'ottenimento, accedi alla macchina virtuale ed esegui il comando "ifconfig" per ottenere l'IP.
       
-.. note:: If the acquisition fails, please go to the virtual machine and obtain it by executing the "ifconfig" command.
-
 .. image:: controller_virtual_machine/005.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 6.2-5 fr_get_vm_net.bat
+.. centered:: Figura 6.2-5 fr_get_vm_net.bat
       
 .. image:: controller_virtual_machine/006.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 6.2-6 Virtual Machine IP
+.. centered:: Figura 6.2-6 IP della macchina virtuale
 
-Accessing WebApp from Windows
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Accedere a WebApp da Windows
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. After obtaining the virtual machine IP, directly access the virtual machine IP in the Windows browser to enter WebApp. For example, enter: 192.168.182.222, as shown in Figure 2-7:
+1. Dopo aver ottenuto l'IP della macchina virtuale, accedi direttamente all'IP tramite il browser su Windows per entrare in WebApp. Ad esempio, inserisci: 192.168.182.222, come mostrato nella Figura 2-7:
          
 .. image:: controller_virtual_machine/007.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 6.2-7 Access WebApp via Virtual Machine IP
+.. centered:: Figura 6.2-7 Accedere a WebApp tramite l'IP della macchina virtuale

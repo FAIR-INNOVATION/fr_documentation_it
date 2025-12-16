@@ -1,72 +1,70 @@
-Foreword
-===========
+Introduzione
+============
 
 .. toctree:: 
-	:maxdepth: 5
+    :maxdepth: 5
 
-First of all, thank you very much for buying our company's FR series collaborative robot products. Our products have been carefully designed and tested many times to ensure that they can meet your needs in all aspects.
+Prima di tutto, desideriamo ringraziarvi per aver scelto il nostro prodotto robot collaborativo della serie FR. Il nostro prodotto è stato progettato e testato accuratamente per garantire che soddisfi tutte le vostre esigenze.
 
-Please read this product user manual carefully to ensure that you can use our products correctly and get the best experience. If you encounter any problems during use, please refer to the fault exclusion part in the manual, or contact our after-salesperson. We thank you very much for your support and trust, and look forward to providing you with better services and products.
+Vi preghiamo di leggere attentamente questo manuale dell'utente per assicurarvi di utilizzare correttamente il nostro prodotto e ottenere la migliore esperienza d'uso. Se doveste riscontrare problemi durante l'uso, consultate la sezione risoluzione dei problemi del manuale o contattate il nostro personale di assistenza post-vendita. Vi ringraziamo sinceramente per il vostro supporto e fiducia, e siamo ansiosi di offrirvi prodotti e servizi migliori.
 
-What is installed in the box
--------------------------------
+Contenuto della scatola
+-----------------------
 
-When you order a FR series collaborative robot, you will receive a box. Contains:
+Quando acquistate un robot collaborativo della serie FR, riceverete una scatola che contiene:
 
-- **One collaborative robot**
-- **One button box**
-- **One control box (including one control box cable)**
+- **Un robot collaborativo**
+- **Un box dei pulsanti**
+- **Un pannello di controllo (con un cavo di connessione incluso)**
 
-.. important:: The power cable provided with FARINO is for use with FARINO robots only. It cannot be used for electrical equipment other than the robot.
+.. important:: Il cavo di alimentazione FARINO è destinato esclusivamente all'uso con i robot FARINO e non può essere utilizzato per altri dispositivi elettrici.
 
-Important security description
+Avvertenze di sicurezza importanti
 ----------------------------------
 
-Robots are a device involving personal safety, so a safety assessment must be performed after each installation of the robot. You must follow all the security descriptions in Chapter 1.
+Il robot è un dispositivo che riguarda la sicurezza personale, quindi è necessario eseguire una valutazione della sicurezza ogni volta che si installa il robot. È necessario seguire tutte le istruzioni di sicurezza riportate nel Capitolo 1.
 
-How to use this manual
--------------------------
+Come utilizzare questo manuale
+-----------------------------------------
 
-This manual contains the guidance information of robot installation programming. Manual includes:
+Questo manuale contiene istruzioni per l'installazione e la programmazione del robot. Il manuale è suddiviso in:
 
--  **Hardware installation part**:Machinery installation and electrical installation of robots
--  **Analysis of the teachor software**:Robot teaching and programming
+-  **Sezione Installazione Hardware**: Installazione meccanica ed elettrica del robot
+-  **Sezione Analisi Software del Teach Pendant**: Insegnamento e programmazione del robot
 
-This manual is aimed at robot integrators, and integrators should receive basic mechanical and electrical training and be familiar with primary programming concepts.
+Questo manuale è destinato agli integratori di robot, che devono aver ricevuto una formazione di base in meccanica ed elettrica, e avere familiarità con concetti di programmazione di base.
 
-Follow the relevant standards
---------------------------------
+Normative di riferimento
+------------------------
 
 .. list-table::
    :widths: 30 70
    :header-rows: 0
    :align: center
 
-   * - **Standard**
-     - **Definition**
+   * - **Norma**
+     - **Definizione**
 
    * - 2006/42/EC:2006
-     - Machinery Directive:  Directive 2006/42/EC of the European Parliament and of the Council of 17 May 2006 on machinery, and amending Directive
-       95/16/EC(recast)
+     - Direttiva Macchine: Direttiva 2006/42/EC del Parlamento Europeo e del Consiglio del 17 maggio 2006 sulle macchine e modifica la Direttiva 95/16/EC (versione consolidata)
 
    * - 2004/108/EC:2004
-     - EMC Directive:  Directive 2004/108/EC of the European Parliament and of the Council of 15 December 2004 on the approximation of the laws of the Member
-       States relating to electromagnetic compatibility and  repealing Directive 89/336/EEC
+     - Direttiva EMC: Direttiva 2004/108/EC del Parlamento Europeo e del Consiglio del 15 dicembre 2004 sull'approssimazione delle leggi degli Stati membri relative alla compatibilità elettromagnetica e abrogazione della Direttiva 89/336/EEC
 
    * - EN ISO 13850:2008
-     - Safety of machinery:  Emergency stop - Principles for design
+     - Sicurezza delle macchine: Arresto di emergenza - Principi di progettazione
 
    * - EN ISO 13849-1:2008
-     - Safety of machinery:  Safety-related parts of control systems - Part 1: General principles of design
+     - Sicurezza delle macchine: Parti di controllo relative alla sicurezza dei sistemi - Parte 1: Principi generali di progettazione
 
    * - EN ISO 13849-2:2012
-     - Safety of machinery:  Safety-related parts of control systems - Part 2: Validation
+     - Sicurezza delle macchine: Parti di controllo relative alla sicurezza dei sistemi - Parte 2: Validazione
 
    * - EN ISO 12100:2010
-     - Safety of machinery:  General principles of design, risk assessment and risk reduction
+     - Sicurezza delle macchine: Principi generali di progettazione, valutazione del rischio e riduzione del rischio
 
    * - EN ISO 10218-1:2011
-     - Industrial robots:  Safety  Note: Content equivalent to ANSI/RIA R.15.06-2012, Part 1
+     - Robot industriali: Sicurezza Nota: Contenuto equivalente a ANSI/RIA R.15.06-2012, Parte 1
 
    * - ISO/TS 15066: 2016
-     - Safety requirements for collaborative industrial robot  Robots and robotic devices —Collaborative robots
+     - Requisiti di sicurezza per i robot collaborativi industriali: Robot e dispositivi robotici — Robot collaborativi

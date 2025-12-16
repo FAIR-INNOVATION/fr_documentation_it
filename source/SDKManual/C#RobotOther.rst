@@ -1,54 +1,54 @@
-Other interfaces
-=================
+Altre Interfacce
+================
 
 .. toctree:: 
     :maxdepth: 5
 
-Get SSH public key
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Chiave Pubblica SSH
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Get SSH public key 
-    * @param [out] keygen Public key
-    * @return Error code 
+    * @brief Ottenere Chiave Pubblica SSH 
+    * @param [out] keygen Chiave pubblica
+    * @return Codice errore 
     */
     int GetSSHKeygen(ref string keygen);
 
-Send SCP command
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inviare Comando SCP
++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Send SCP command
-    * @param [in] mode 0-Upload (host computer -> controller), 1-Download (controller -> host computer)
-    * @param [in] sshname Host computer username
-    * @param [in] sship Host computer IP address
-    * @param [in] usr_file_url Host computer file path
-    * @param [in] robot_file_url Robot controller file path
-    * @return Error code
+    * @brief Inviare Comando SCP
+    * @param [in] mode 0-Caricamento (PC supervisore -> controller), 1-Scaricamento (controller -> PC supervisore)
+    * @param [in] sshname Nome utente PC supervisore
+    * @param [in] sship Indirizzo IP PC supervisore
+    * @param [in] usr_file_url Percorso file PC supervisore
+    * @param [in] robot_file_url Percorso file controller robot
+    * @return Codice errore
     */
     int SetSSHScpCmd(int mode, string sshname, string sship, string usr_file_url, string robot_file_url);
 
-Calculate the MD5 value of a file in a specified path
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolare Valore MD5 File Percorso Specificato
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Calculate the MD5 value of a file in the specified path 
-    * @param [in] file_path File path including file name, default Traj folder path is "/fruser/traj/", such as "/fruser/traj/trajHelix_aima_1.txt"
-    * @param [out] md5 The MD5 value of the file
-    * @return Error code 
+    * @brief Calcolare Valore MD5 File Percorso Specificato 
+    * @param [in] file_path Percorso file incluso nome file, percorso cartella Traj predefinito:"/fruser/traj/", es. "/fruser/traj/trajHelix_aima_1.txt"
+    * @param [out] md5 Valore MD5 file
+    * @return Codice errore 
     */
     int ComputeFileMD5(string file_path, ref string md5);
 
-Robot SSH and MD5 command code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Istruzioni SSH, MD5 Robot
++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
     
 .. code-block:: c#
@@ -80,32 +80,32 @@ Robot SSH and MD5 command code example
         Console.WriteLine("md5 is: {0}", md5);
     }
 
-Set robot 20004 port feedback cycle
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Periodo Feedback Porta 20004 Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the robot's 20004 port feedback period
-    * @param [in] period Robot's 20004 port feedback period (ms)
-    * @return Error code
+    * @brief Impostare Periodo Feedback Porta 20004 Robot
+    * @param [in] period Periodo feedback porta 20004 robot(ms)
+    * @return Codice errore
     */
     int SetRobotRealtimeStateSamplePeriod(int period);
 
-Get the robot's 20004 port feedback period
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Periodo Feedback Porta 20004 Robot
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the feedback period for robot port 20004
-    * @param [out] period Feedback period for robot port 20004 (ms)
-    * @return Error code
+    * @brief Ottenere Periodo Feedback Porta 20004 Robot
+    * @param [out] period Periodo feedback porta 20004 robot(ms)
+    * @return Codice errore
     */
-    int GetRobotRealtimeStateSamplePeriod((ref int period);   
+    int GetRobotRealtimeStateSamplePeriod(ref int period);
 
-Robot 20004 port status feedback period configuration code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Configurazione Periodo Feedback Stato Porta 20004 Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -118,33 +118,33 @@ Robot 20004 port status feedback period configuration code example
         Thread.Sleep(1000);
     }
 
-Robot Software Upgrade
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento Software Robot
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Robot software upgrade
-    * @param [in] filePath Full path of the software upgrade package
-    * @param [in] block Whether to block until the upgrade is complete true: block; false: non-blocking
-    * @return Error code
+    * @brief Aggiornamento Software Robot
+    * @param [in] filePath Percorso completo pacchetto aggiornamento software
+    * @param [in] block Se bloccare fino al completamento aggiornamento true:bloccante; false:non bloccante
+    * @return   Codice errore
     */
     int SoftwareUpgrade(string filePath, bool block);
 
-Get robot software upgrade status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Aggiornamento Software Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get robot software upgrade status
-    * @param [out] state Robot software package upgrade status  0-idle or uploading upgrade package; 1~100: upgrade completion percentage; -1: upgrade software failed; -2: verification failed; -3: Version verification failed; -4: Unzipping failed; -5: User configuration upgrade failed; -6: Peripheral configuration upgrade failed; -7: Extended axis configuration upgrade failed; -8: Robot configuration upgrade failed; -9: DH parameter configuration upgrade failed
-    * @return Error code
+    * @brief  Ottenere Stato Aggiornamento Software Robot
+    * @param [out] state Stato aggiornamento pacchetto software robot  0-inattivo o caricamento pacchetto aggiornamento in corso; 1~100: percentuale completamento aggiornamento; -1:fallimento aggiornamento software; -2: fallimento verifica; -3: fallimento verifica versione; -4: fallimento estrazione; -5: fallimento aggiornamento configurazione utente; -6: fallimento aggiornamento configurazione periferiche; -7: fallimento aggiornamento configurazione assi estesi; -8: fallimento aggiornamento configurazione robot; -9: fallimento aggiornamento parametri DH
+    * @return   Codice errore
     */
     int GetSoftwareUpgradeState(ref int state);
 
-Robot software upgrade code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Aggiornamento Software Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -160,60 +160,60 @@ Robot software upgrade code example
         }
     }
 
-Download point table
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scaricamento Tabella Punti
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Download the point table from the robot controller to the local computer 
-    * @param [in] pointTableName The name of the point table in the controller: pointTable1.db
-    * @param [in] saveFilePath The path where the point table is downloaded to the computer: C://test/
-    * @return Error code 
+    * @brief Scaricamento Tabella Punti da Controller Robot a Computer Locale 
+    * @param [in] pointTableName Nome tabella punti nel controller: pointTable1.db
+    * @param [in] saveFilePath Percorso scaricamento tabella punti sul computer C://test/
+    * @return Codice errore 
     */
     int PointTableDownLoad(string pointTableName, string saveFilePath);
 
-Upload point table
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Caricamento Tabella Punti
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Upload the point table from the local computer to the robot controller 
-    * @param [in] pointTableFilePath The absolute path of the point table on the local computer C://test/pointTable1.db
-    * @return Error code 
+    * @brief Caricamento Tabella Punti da Computer Locale a Controller Robot 
+    * @param [in] pointTableFilePath Percorso assoluto tabella punti su computer locale C://test/pointTabl e1.db
+    * @return Codice errore 
     */
     int PointTableUpLoad(string pointTableFilePath);
 
-Point Table Update Lua Program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento Programma Lua con Tabella Punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Use the given point table to update the points in the Lua program
-    * @param [in] pointTableName The name of the point table in the controller: "pointTable1.db". When the point table is empty (i.e., ""), it indicates that the Lua program will be updated to the initial program without applying the point table.
-    * @param [in] luaFileName The name of the Lua file to be updated: "test.lua"
-    * @param [out] errorStr Error message for updating the point table in Lua  
-    * @return Error code 
+    * @brief Aggiornamento punti nel programma Lua usando la tabella punti fornita
+    * @param [in] pointTableName Nome tabella punti nel controller: "pointTable1.db", quando tabella punti vuota, cioè "", indica aggiornamento programma Lua al programma iniziale senza tabella punti applicata
+    * @param [in] luaFileName Nome file Lua da aggiornare   "test.lua"
+    * @param [out] errorStr Informazioni errore aggiornamento Lua tabella punti  
+    * @return Codice errore 
     */
     int PointTableUpdateLua(string pointTableName, string luaFileName, ref string errorStr);
 
-Switch point tables and apply
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Cambio Tabella Punti e Applicazione
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Switch point table and apply
-    * @param [in] pointTableName Name of the point table to switch to   "pointTable1.db"
-    * @param [out] errorStr Error message for switching point tables   
-    * @return Error code 
+    * @brief Cambio Tabella Punti e Applicazione
+    * @param [in] pointTableName Nome tabella punti da cambiare   "pointTable1.db"
+    * @param [out] errorStr Informazioni errore cambio tabella punti   
+    * @return Codice errore 
     */
     int PointTableSwitch(string pointTableName, ref string errorStr);
 
-Robot point table operation code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Operazioni Tabella Punti Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -236,44 +236,44 @@ Robot point table operation code example
         Console.WriteLine("retval is: {0}", rtn);
     }
 
-Controller log download
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scaricamento Log Controller
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Controller log download
-    * @param [in] savePath Save file path "D://zDown/"
-    * @return Error code
+    * @brief  Scaricamento Log Controller
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return   Codice errore
     */
     int RbLogDownload(string savePath);
 
-All Data Source Download
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scaricamento Tutte Sorgenti Dati
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief All Data Source Download
-    * @param [in] savePath Save file path "D://zDown/"
-    * @return Error code
+    * @brief Scaricamento Tutte Sorgenti Dati
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return   Codice errore
     */
     int AllDataSourceDownload(string savePath);
 
-Data backup package download
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scaricamento Pacchetto Backup Dati
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Data backup package download
-    * @param [in] savePath Save file path "D://zDown/"
-    * @return Error code
+    * @brief Scaricamento Pacchetto Backup Dati
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return   Codice errore
     */
     int DataPackageDownload(string savePath);
 
-Download controller data code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Scaricamento Dati Controller
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -289,35 +289,35 @@ Download controller data code example
         Console.WriteLine("DataPackageDownload rtn is {0}", rtn);
     }
 
-Robot Operating System Upgrade (LA Control Box)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento Sistema Operativo Robot (Quadro Controllo LA)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
     :linenos:
 
     /**
-     * @brief Robot Operating System Upgrade (LA Control Box)
-     * @param [in] filePath Full path of the operating system upgrade package
-     * @return Error code
+     * @brief Aggiornamento Sistema Operativo Robot (Quadro Controllo LA)
+     * @param [in] filePath Percorso completo pacchetto aggiornamento sistema operativo
+     * @return   Codice errore
      */
     public int KernelUpgrade(string filePath)
 
-Get Robot Operating System Upgrade Result (LA Control Box)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Risultato Aggiornamento Sistema Operativo Robot (Quadro Controllo LA)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
     :linenos:
 
     /**
-     * @brief Get Robot Operating System Upgrade Result (LA Control Box)
-     * @param [out] result Upgrade result: 0: Success; -1: Failure
-     * @return Error code
+     * @brief Ottenere Risultato Aggiornamento Sistema Operativo Robot (Quadro Controllo LA)
+     * @param [out] result Risultato aggiornamento: 0:successo; -1:fallimento
+     * @return   Codice errore
      */
     public int GetKernelUpgradeResult(ref int[] result)
 
-Set encoder upgrade
+Impostare Aggiornamento Encoder
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
@@ -325,13 +325,13 @@ Set encoder upgrade
     :linenos:
 
     /**
-    * @brief Set encoder upgrade
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code 
+    * @brief Impostare Aggiornamento Encoder
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     int SetEncoderUpgrade(string path);
 
-Set joint firmware upgrade
+Impostare Aggiornamento Firmware Giunto
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
@@ -339,14 +339,14 @@ Set joint firmware upgrade
     :linenos:
 
     /**
-    * @brief Set joint firmware upgrade
-    * @param [in] type Upgrade file type; 1 - Upgrade firmware; 2 - Upgrade slave configuration file
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code 
+    * @brief Impostare Aggiornamento Firmware Giunto
+    * @param [in] type Tipo file aggiornamento; 1-aggiornamento firmware; 2-aggiornamento file configurazione slave
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     int SetJointFirmwareUpgrade(int type, string path);
 
-Set firmware upgrade for control box
+Impostare Aggiornamento Firmware Quadro Controllo
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
@@ -354,14 +354,14 @@ Set firmware upgrade for control box
     :linenos:
 
     /**
-    * @brief Set firmware upgrade for control box
-    * @param [in] type Type of upgrade file; 1 - Upgrade firmware; 2 - Upgrade slave station configuration file
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code 
+    * @brief Impostare Aggiornamento Firmware Quadro Controllo
+    * @param [in] type Tipo file aggiornamento; 1-aggiornamento firmware; 2-aggiornamento file configurazione slave
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     int SetCtrlFirmwareUpgrade(int type, string path);
 
-Set end firmware upgrade
+Impostare Aggiornamento Firmware Estremità
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
@@ -369,28 +369,28 @@ Set end firmware upgrade
     :linenos:
 
     /**
-    * @brief Set end firmware upgrade
-    * @param [in] type Upgrade file type; 1 - Upgrade firmware; 2 - Upgrade slave configuration file
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code 
+    * @brief Impostare Aggiornamento Firmware Estremità
+    * @param [in] type Tipo file aggiornamento; 1-aggiornamento firmware; 2-aggiornamento file configurazione slave
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     int SetEndFirmwareUpgrade(int type, string path);
 
-Upgrade of the joint full parameter configuration file
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento File Configurazione Parametri Completi Giunto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Upgrade of the joint full parameter configuration file
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code 
+    * @brief Aggiornamento File Configurazione Parametri Completi Giunto
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     int JointAllParamUpgrade(string path);
 
-Example of upgrading code for robot from firmware
+Esempio Codice Aggiornamento Firmware Slave Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
@@ -416,7 +416,7 @@ Example of upgrading code for robot from firmware
         Console.WriteLine($"robot SetJointFirmwareUpgrade rtn is{rtn}");
     }
 
-Robot MCU log generation
+Generazione Log MCU Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
@@ -424,7 +424,7 @@ Robot MCU log generation
     :linenos:
 
     /**
-    * @brief Robot MCU log generation
-    * @return Error code
+    * @brief Generazione Log MCU Robot
+    * @return Codice errore
     */
     public int RobotMCULogCollect();

@@ -1,104 +1,104 @@
-Trajectory recurrence
-==============================
+Riproduzione Traiettoria Robot
+============================================
 
 .. toctree:: 
     :maxdepth: 5
 
-Set TPD Trajectory Recording Parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare i parametri di registrazione traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Set TPD trajectory recording parameters
-    * @param  [in] type  Recording data type, 1-Joint position
-    * @param  [in] name  Trajectory file name
-    * @param  [in] period_ms  Data sampling period, fixed value 2ms or 4ms or 8ms
-    * @param  [in] di_choose  DI selection, bit0~bit7 correspond to controller DI0~DI7, bit8~bit9 correspond to end DI0~DI1, 0-Not selected, 1-Selected
-    * @param  [in] do_choose  DO selection, bit0~bit7 correspond to controller DO0~DO7, bit8~bit9 correspond to end DO0~DO1, 0-Not selected, 1-Selected
-    * @return  Error code
+    * @brief  Imposta i parametri di registrazione traiettoria TPD
+    * @param  [in] type  Tipo dati registrazione, 1-Posizione giunti
+    * @param  [in] name  Nome file traiettoria
+    * @param  [in] period_ms  Periodo campionamento dati, valore fisso 2ms o 4ms o 8ms
+    * @param  [in] di_choose  Selezione DI, bit0~bit7 corrisponde a control box DI0~DI7, bit8~bit9 corrisponde a terminale DI0~DI1, 0-Non selezionato, 1-Selezionato
+    * @param  [in] do_choose  Selezione DO, bit0~bit7 corrisponde a control box DO0~DO7, bit8~bit9 corrisponde a terminale DO0~DO1, 0-Non selezionato, 1-Selezionato
+    * @return  Codice di errore
     */
     errno_t  SetTPDParam(int type, char name[30], int period_ms, uint16_t di_choose, uint16_t do_choose);
 
-Start TPD Trajectory Recording
-++++++++++++++++++++++++++++++++++++++++
+Iniziare la registrazione traiettoria TPD
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Start TPD trajectory recording
-    * @param  [in] type  Recording data type, 1-Joint position
-    * @param  [in] name  Trajectory file name
-    * @param  [in] period_ms  Data sampling period, fixed value 2ms or 4ms or 8ms
-    * @param  [in] di_choose  DI selection, bit0~bit7 correspond to controller DI0~DI7, bit8~bit9 correspond to end DI0~DI1, 0-Not selected, 1-Selected
-    * @param  [in] do_choose  DO selection, bit0~bit7 correspond to controller DO0~DO7, bit8~bit9 correspond to end DO0~DO1, 0-Not selected, 1-Selected
-    * @return  Error code
+    * @brief  Inizia la registrazione traiettoria TPD
+    * @param  [in] type  Tipo dati registrazione, 1-Posizione giunti
+    * @param  [in] name  Nome file traiettoria
+    * @param  [in] period_ms  Periodo campionamento dati, valore fisso 2ms o 4ms o 8ms
+    * @param  [in] di_choose  Selezione DI, bit0~bit7 corrisponde a control box DI0~DI7, bit8~bit9 corrisponde a terminale DI0~DI1, 0-Non selezionato, 1-Selezionato
+    * @param  [in] do_choose  Selezione DO, bit0~bit7 corrisponde a control box DO0~DO7, bit8~bit9 corrisponde a terminale DO0~DO1, 0-Non selezionato, 1-Selezionato
+    * @return  Codice di errore
     */
     errno_t  SetTPDStart(int type, char name[30], int period_ms, uint16_t di_choose, uint16_t do_choose); 
 
-Stop TPD Trajectory Recording
-++++++++++++++++++++++++++++++++++++++++
+Fermare la registrazione traiettoria TPD
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Stop TPD trajectory recording
-    * @return  Error code
+    * @brief  Ferma la registrazione traiettoria TPD
+    * @return  Codice di errore
     */
     errno_t  SetWebTPDStop();
 
-Delete TPD Trajectory Recording
-++++++++++++++++++++++++++++++++++++++++
+Eliminare la registrazione traiettoria TPD
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Delete TPD trajectory recording
-    * @param  [in] name  Trajectory file name
-    * @return  Error code
+    * @brief  Elimina la registrazione traiettoria TPD
+    * @param  [in] name  Nome file traiettoria
+    * @return  Codice di errore
     */   
     errno_t  SetTPDDelete(char name[30]);
 
-TPD Trajectory Preload
-++++++++++++++++++++++++++++
+Precaricamento traiettoria TPD
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  TPD trajectory preload
-    * @param  [in] name  Trajectory file name
-    * @return  Error code
+    * @brief  Precaricamento traiettoria TPD
+    * @param  [in] name  Nome file traiettoria
+    * @return  Codice di errore
     */      
     errno_t  LoadTPD(char name[30]);
 
-TPD Trajectory Playback
+Riproduzione traiettoria TPD
 ++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  TPD trajectory playback
-    * @param  [in] name  Trajectory file name
-    * @param  [in] blend 0-No smoothing, 1-Smoothing
-    * @param  [in] ovl  Speed scaling percentage, range [0~100]
-    * @return  Error code
+    * @brief  Riproduzione traiettoria TPD
+    * @param  [in] name  Nome file traiettoria
+    * @param  [in] blend 0-Non smoothing, 1-Smoothing
+    * @param  [in] ovl  Percentuale scala velocità, intervallo [0~100]
+    * @return  Codice di errore
     */
     errno_t  MoveTPD(char name[30], uint8_t blend, float ovl);
 
-Get TPD Start Pose
-++++++++++++++++++++++++++++
+Ottenere la posa iniziale TPD
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get TPD start pose
-     * @param  [in] name TPD file name, no file extension needed
-     * @return  Error code
+     * @brief  Ottiene la posa iniziale TPD
+     * @param  [in] name Nome file TPD, non necessita estensione file
+     * @return  Codice di errore
      */     
     errno_t  GetTPDStartPose(char name[30], DescPose *desc_pose);
 
-Robot TPD Trajectory Recording Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per registrazione traiettoria TPD robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
@@ -145,151 +145,151 @@ Robot TPD Trajectory Recording Code Example
       return 0;
     }
 
-Trajectory Preprocessing
-++++++++++++++++++++++++++++
+Pre-elaborazione traiettoria
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Trajectory preprocessing
-     * @param  [in] name  Trajectory file name
-     * @param  [in] ovl Speed scaling percentage, range [0~100]
-     * @param  [in] opt 1-Control point, default is 1
-     * @return  Error code
+     * @brief  Pre-elaborazione traiettoria
+     * @param  [in] name  Nome file traiettoria
+     * @param  [in] ovl Percentuale scala velocità, intervallo [0~100]
+     * @param  [in] opt 1-Punto di controllo, predefinito 1
+     * @return  Codice di errore
      */     
     errno_t  LoadTrajectoryJ(char name[30], float ovl, int opt);
 
-Trajectory Playback
-++++++++++++++++++++++++++++
+Riproduzione traiettoria
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Trajectory playback
-     * @return  Error code
+     * @brief  Riproduzione traiettoria
+     * @return  Codice di errore
      */     
     errno_t  MoveTrajectoryJ();
 
-Get Trajectory Start Pose
-++++++++++++++++++++++++++++
+Ottenere la posa iniziale della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get trajectory start pose
-     * @param  [in] name Trajectory file name
-     * @return  Error code
+     * @brief  Ottiene la posa iniziale della traiettoria
+     * @param  [in] name Nome file traiettoria
+     * @return  Codice di errore
      */     
     errno_t  GetTrajectoryStartPose(char name[30], DescPose *desc_pose);
 
-Get Trajectory Point Number
-++++++++++++++++++++++++++++
+Ottenere il numero di punti della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get trajectory point number
-     * @return  Error code
+     * @brief  Ottiene il numero di punti della traiettoria
+     * @return  Codice di errore
      */     
     errno_t  GetTrajectoryPointNum(int *pnum);
 
-Set Trajectory Running Speed
-++++++++++++++++++++++++++++++++++++
+Impostare la velocità durante la riproduzione della traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running speed
-     * @param  [in] ovl Speed percentage
-     * @return  Error code
+     * @brief  Imposta la velocità durante la riproduzione della traiettoria
+     * @param  [in] ovl Percentuale velocità
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJSpeed(float ovl);
 
-Set Trajectory Running Force and Torque
-++++++++++++++++++++++++++++++++++++++++++++
+Impostare forza e coppia durante la riproduzione della traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running force and torque
-     * @param  [in] ft Force and torque in three directions, unit N and Nm
-     * @return  Error code
+     * @brief  Imposta forza e coppia durante la riproduzione della traiettoria
+     * @param  [in] ft Forza e coppia in tre direzioni, unità N e Nm
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJForceTorque(ForceTorque *ft);
 
-Set Trajectory Running Force in X Direction
-++++++++++++++++++++++++++++++++++++++++++++
+Impostare la forza lungo la direzione x durante la riproduzione della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running force in X direction
-     * @param  [in] fx Force in X direction, unit N
-     * @return  Error code
+     * @brief  Imposta la forza lungo la direzione x durante la riproduzione della traiettoria
+     * @param  [in] fx Forza lungo direzione x, unità N
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJForceFx(double fx);
 
-Set Trajectory Running Force in Y Direction
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare la forza lungo la direzione y durante la riproduzione della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running force in Y direction
-     * @param  [in] fy Force in Y direction, unit N
-     * @return  Error code
+     * @brief  Imposta la forza lungo la direzione y durante la riproduzione della traiettoria
+     * @param  [in] fy Forza lungo direzione y, unità N
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJForceFy(double fy);
 
-Set Trajectory Running Force in Z Direction
-++++++++++++++++++++++++++++++++++++++++++++
+Impostare la forza lungo la direzione z durante la riproduzione della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running force in Z direction
-     * @param  [in] fz Force in X direction, unit N
-     * @return  Error code
+     * @brief  Imposta la forza lungo la direzione z durante la riproduzione della traiettoria
+     * @param  [in] fz Forza lungo direzione x, unità N
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJForceFz(double fz);
 
-Set Trajectory Running Torque Around X Axis
-++++++++++++++++++++++++++++++++++++++++++++
+Impostare la coppia attorno all'asse x durante la riproduzione della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running torque around X axis
-     * @param  [in] tx Torque around X axis, unit Nm
-     * @return  Error code
+     * @brief  Imposta la coppia attorno all'asse x durante la riproduzione della traiettoria
+     * @param  [in] tx Coppia attorno asse x, unità Nm
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJTorqueTx(double tx);
 
-Set Trajectory Running Torque Around Y Axis
-++++++++++++++++++++++++++++++++++++++++++++
+Impostare la coppia attorno all'asse y durante la riproduzione della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running torque around Y axis
-     * @param  [in] ty Torque around Y axis, unit Nm
-     * @return  Error code
+     * @brief  Imposta la coppia attorno all'asse y durante la riproduzione della traiettoria
+     * @param  [in] ty Coppia attorno asse y, unità Nm
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJTorqueTy(double ty);
 
-Set Trajectory Running Torque Around Z Axis
-++++++++++++++++++++++++++++++++++++++++++++
+Impostare la coppia attorno all'asse z durante la riproduzione della traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Set trajectory running torque around Z axis
-     * @param  [in] tz Torque around Z axis, unit Nm
-     * @return  Error code
+     * @brief  Imposta la coppia attorno all'asse z durante la riproduzione della traiettoria
+     * @param  [in] tz Coppia attorno asse z, unità Nm
+     * @return  Codice di errore
      */     
     errno_t  SetTrajectoryJTorqueTz(double tz);
 
-Upload Trajectory J File
+Caricare file traiettoria J
 +++++++++++++++++++++++++++++
 .. versionadded:: V3.7.7
 
@@ -297,28 +297,28 @@ Upload Trajectory J File
     :linenos:
 
     /**
-	 * @brief Upload trajectory J file
-	 * @param [in] filePath Full path name of trajectory file to upload   C://test/testJ.txt
-	 * @return Error code
-	 */
-	errno_t TrajectoryJUpLoad(const std::string& filePath);
+     * @brief Carica file traiettoria J
+     * @param [in] filePath Nome percorso completo file traiettoria da caricare   C://test/testJ.txt
+     * @return Codice di errore
+     */
+    errno_t TrajectoryJUpLoad(const std::string& filePath);
 
-Delete Trajectory J File
-+++++++++++++++++++++++++++++
+Eliminare file traiettoria J
+++++++++++++++++++++++++++++++++++
 .. versionadded:: V3.7.7
 
 .. code-block:: c++
     :linenos:
 
     /**
-	 * @brief Delete trajectory J file
-	 * @param [in] fileName File name testJ.txt
-	 * @return Error code
-	 */
-	errno_t TrajectoryJDelete(const std::string& fileName);
+     * @brief Elimina file traiettoria J
+     * @param [in] fileName Nome file testJ.txt
+     * @return Codice di errore
+     */
+    errno_t TrajectoryJDelete(const std::string& fileName);
 
-Robot Trajectory J File Playback Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per riproduzione file traiettoria J robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
@@ -376,41 +376,41 @@ Robot Trajectory J File Playback Code Example
       return 0;
     }
 
-Trajectory Preprocessing (Trajectory Lookahead)
+Pre-elaborazione traiettoria (traiettoria lookahead)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-	 * @brief  Trajectory preprocessing (Trajectory Lookahead)
-	 * @param  [in] name  Trajectory file name
-	 * @param  [in] mode Sampling mode, 0-No sampling; 1-Equal data interval sampling; 2-Equal error limit sampling
-	 * @param  [in] errorLim Error limit, takes effect when using linear fitting
-	 * @param  [in] type Smoothing method, 0-Bezier smoothing
-	 * @param  [in] precision Smoothing precision, takes effect when using Bezier smoothing
-	 * @param  [in] vamx Set maximum speed, mm/s
-	 * @param  [in] amax Set maximum acceleration, mm/s2
-	 * @param  [in] jmax Set maximum jerk, mm/s3
-	 * @param [in] flag Constant velocity lookahead switch; 0-Disable; 1-Enable
-	 * @return Error code
-	 */
-	 errno_t LoadTrajectoryLA(char name[30], int mode, double errorLim, int type, double precision, double vamx, double amax, double jmax, int flag = 0);
+     * @brief Pre-elaborazione traiettoria (traiettoria lookahead)
+     * @param [in] name  Nome file traiettoria
+     * @param [in] mode Modalità campionamento, 0-Non campionare; 1-Campionamento a intervalli dati uguali; 2-Campionamento con limite errore uguale
+     * @param [in] errorLim Limite errore, efficace quando si usa interpolazione lineare
+     * @param [in] type Metodo smoothing, 0-Smoothing Bezier
+     * @param [in] precision Precisione smoothing, efficace quando si usa smoothing Bezier
+     * @param [in] vamx Velocità massima impostata, mm/s
+     * @param [in] amax Accelerazione massima impostata, mm/s2
+     * @param [in] jmax Jerk massimo impostato, mm/s3
+     * @param [in] flag Interruttore lookahead velocità costante 0-Non attivare; 1-Attivare
+     * @return Codice di errore
+     */
+    errno_t LoadTrajectoryLA(char name[30], int mode, double errorLim, int type, double precision, double vamx, double amax, double jmax, int flag = 0);
 
-Trajectory Playback (Trajectory Lookahead)
+Riproduzione traiettoria (traiettoria lookahead)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Trajectory playback (Trajectory Lookahead)
-    * @return  Error code
+    * @brief  Riproduzione traiettoria (traiettoria lookahead)
+    * @return  Codice di errore
     */
     errno_t MoveTrajectoryLA();
 
-Trajectory Playback (Trajectory Lookahead) Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per riproduzione traiettoria (traiettoria lookahead)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:

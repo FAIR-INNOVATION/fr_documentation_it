@@ -1,22 +1,22 @@
-Other interfaces
+Altre Interfacce
 ================
 
 .. toctree:: 
     :maxdepth: 5
 
-Get SSH public key
+Ottenere Chiave Pubblica SSH
 +++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get SSH public key
-    * @param [out] keygen Public key
-    * @return Error code
+    * @brief Ottiene chiave pubblica SSH
+    * @param [out] keygen Chiave pubblica
+    * @return Codice errore
     */
     int GetSSHKeygen(String[] keygen)
 
-Issue SCP command
+Inviare Comando SCP
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.6-3.8.3
 
@@ -24,30 +24,30 @@ Issue SCP command
     :linenos:
 
     /** 
-    * @brief Issue SCP command
-    * @param [in] mode 0-upload (host->controller), 1-download (controller->host)
-    * @param [in] sshname Host username
-    * @param [in] sship Host IP address
-    * @param [in] usr_file_url Host file path
-    * @param [in] robot_file_url Robot controller file path
-    * @return Error code
+    * @brief Invia comando SCP
+    * @param [in] mode 0-upload (PC -> controller), 1-download (controller -> PC)
+    * @param [in] sshname Nome utente PC
+    * @param [in] sship Indirizzo IP PC
+    * @param [in] usr_file_url Percorso file PC
+    * @param [in] robot_file_url Percorso file controller robot
+    * @return Codice errore
     */
     int SetSSHScpCmd(int mode, String sshname, String sship, String usr_file_url, String robot_file_url)
 
-Calculate MD5 value of specified file
+Calcolare Valore MD5 File in Percorso Specificato
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Calculate MD5 value of specified file
-    * @param [in] file_path File path including filename, default Traj folder path:"/fruser/traj/", e.g. "/fruser/traj/trajHelix_aima_1.txt"
-    * @param [out] md5 File MD5 value
-    * @return Error code
+    * @brief Calcola valore MD5 file in percorso specificato
+    * @param [in] file_path Percorso file incluso nome file, percorso predefinito cartella Traj: "/fruser/traj/", es. "/fruser/traj/trajHelix_aima_1.txt"
+    * @param [out] md5 Valore MD5 file
+    * @return Codice errore
     */
     int ComputeFileMD5(String file_path, String[] md5)
 
-Robot SSH and MD5 command code example
+Esempio Codice Comandi SSH, MD5 Robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
@@ -74,30 +74,30 @@ Robot SSH and MD5 command code example
         return 0;
     }
 
-Set robot port 20004 feedback period
+Impostare Periodo Feedback Porta 20004 Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set robot port 20004 feedback period
-    * @param [in] period Robot port 20004 feedback period(ms)
-    * @return  Error code
+    * @brief Imposta periodo feedback porta 20004 robot
+    * @param [in] period Periodo feedback porta 20004 robot (ms)
+    * @return  Codice errore
     */
     public int SetRobotRealtimeStateSamplePeriod(int period)
 
-Get robot port 20004 feedback period
+Ottenere Periodo Feedback Porta 20004 Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get robot port 20004 feedback period
-    * @return  List[0]:Error code; List[1]:Robot port 20004 feedback period(ms)
+    * @brief Ottiene periodo feedback porta 20004 robot
+    * @return  List[0]:Codice errore; List[1]:Periodo feedback porta 20004 robot (ms)
     */
     public List<Integer> GetRobotRealtimeStateSamplePeriod()
 
-Robot port 20004 status feedback period configuration example
+Esempio Codice Configurazione Periodo Feedback Porta 20004 Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
@@ -112,32 +112,32 @@ Robot port 20004 status feedback period configuration example
         return 0;
     }
 
-Robot software upgrade
+Aggiornamento Software Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Robot software upgrade
-     * @param [in] filePath Full path of software upgrade package
-     * @param [in] block Whether to block until upgrade completes true:block; false:non-block
-     * @return  Error code
+     * @brief Aggiornamento software robot
+     * @param [in] filePath Percorso completo pacchetto aggiornamento software
+     * @param [in] block Blocco fino a completamento aggiornamento true:bloccante; false:non bloccante
+     * @return  Codice errore
      */
     public int SoftwareUpgrade(String filePath, boolean block)
 
-Get robot software upgrade status
+Ottenere Stato Aggiornamento Software Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Get robot software upgrade status
-    * @return  List[0]:Error code; List[1]:Robot software upgrade status 0-idle or uploading upgrade package; 1~100: upgrade completion percentage; -1:upgrade failed; -2:verification failed; -3:version verification failed; -4:decompression failed; -5:user configuration upgrade failed; -6:peripheral configuration upgrade failed; -7:extended axis configuration upgrade failed; -8:robot configuration upgrade failed; -9:DH parameter configuration upgrade failed
+    * @brief Ottiene stato aggiornamento software robot
+    * @return  List[0]:Codice errore; List[1]:Stato aggiornamento software robot 0-inattivo o caricamento pacchetto; 1~100: percentuale completamento; -1: fallimento aggiornamento software; -2: fallimento verifica; -3: fallimento verifica versione; -4: fallimento decompressione; -5: fallimento aggiornamento configurazione utente; -6: fallimento aggiornamento configurazione periferiche; -7: fallimento aggiornamento configurazione assi estesi; -8: fallimento aggiornamento configurazione robot; -9: fallimento aggiornamento parametri DH
     */
     public List<Integer> GetSoftwareUpgradeState()
 
-Robot software upgrade code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Aggiornamento Software Robot
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -153,46 +153,46 @@ Robot software upgrade code example
         }
     }
 
-Download point table database
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Download Database Tabella Punti
++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Download point table database 
-    * @param [in] pointTableName Point table name to download    pointTable1.db
-    * @param [in] saveFilePath Storage path for downloaded point table   C://test/
-    * @return Error code 
+    * @brief Download database tabella punti
+    * @param [in] pointTableName Nome tabella punti da scaricare    pointTable1.db
+    * @param [in] saveFilePath Percorso salvataggio tabella punti   C://test/
+    * @return Codice errore 
     */
     int PointTableDownLoad(String pointTableName, String saveFilePath);
 
-Upload point table database
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Upload Database Tabella Punti
++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Upload point table database 
-    * @param [in] pointTableFilePath Full path name of point table to upload   C://test/pointTable1.db
-    * @return Error code 
+    * @brief Upload database tabella punti
+    * @param [in] pointTableFilePath Percorso completo tabella punti da caricare   C://test/pointTable1.db
+    * @return Codice errore 
     */
     int PointTableUpLoad(String pointTableFilePath);
 
-Point table update lua file
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento File Lua Tabella Punti
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Point table update lua file
-    * @param [in] pointTableName Point table name to switch to   "pointTable1.db", when empty "", means updating lua program to initial program without applied point table
-    * @param [in] luaFileName Lua file name to update   "testPointTable.lua"
-    * @param [out] errorStr Point table switching error message
-    * @return Error code 
+    * @brief Aggiornamento file Lua tabella punti
+    * @param [in] pointTableName Nome tabella punti da cambiare   "pointTable1.db", quando tabella punti è vuota, cioè "", significa aggiornare programma Lua a programma iniziale senza tabella punti applicata
+    * @param [in] luaFileName Nome file Lua da aggiornare   "testPointTable.lua"
+    * @param [out] errorStr Informazioni errore cambio tabella punti
+    * @return Codice errore 
     */
     int PointTableUpdateLua(String pointTableName, String luaFileName, String errorStr);
 
-Robot point table operation code example
+Esempio Codice Operazioni Tabella Punti Robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
@@ -215,7 +215,7 @@ Robot point table operation code example
         return 0;
     }
 
-Controller log download
+Download Log Controller
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 
@@ -223,13 +223,13 @@ Controller log download
     :linenos:
 
     /** 
-    * @brief Controller log download
-    * @param [in] savePath Save file path"D://zDown/"
-    * @return Error code
+    * @brief Download log controller
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return Codice errore
     */
     int RbLogDownload(String savePath);
 
-All data source download
+Download Tutte Fonti Dati
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 
@@ -237,13 +237,13 @@ All data source download
     :linenos:
 
     /** 
-    * @brief All data source download
-    * @param [in] savePath Save file path"D://zDown/"
-    * @return Error code
+    * @brief Download tutte fonti dati
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return Codice errore
     */
     int AllDataSourceDownload(String savePath);
 
-Data backup package download
+Download Pacchetto Backup Dati
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 
@@ -251,13 +251,13 @@ Data backup package download
     :linenos:
 
     /** 
-    * @brief Data backup package download
-    * @param [in] savePath Save file path"D://zDown/"
-    * @return Error code
+    * @brief Download pacchetto backup dati
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return Codice errore
     */
     int DataPackageDownload(String savePath);
 
-Download controller data code example
+Esempio Codice Download Dati Controller
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
@@ -272,7 +272,7 @@ Download controller data code example
         return 0;
     }
 
-Set Encoder Upgrade
+Impostare Aggiornamento Encoder
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
@@ -280,13 +280,13 @@ Set Encoder Upgrade
     :linenos:
 
     /**
-    * @brief Set encoder upgrade
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Imposta aggiornamento encoder
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     int SetEncoderUpgrade(String path)
 
-Set Joint Firmware Upgrade
+Impostare Aggiornamento Firmware Giunti
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
@@ -294,14 +294,14 @@ Set Joint Firmware Upgrade
     :linenos:
 
     /**
-    * @brief Set joint firmware upgrade
-    * @param [in] type Upgrade file type: 1-Firmware upgrade; 2-Slave configuration file upgrade
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Imposta aggiornamento firmware giunti
+    * @param [in] type Tipo file aggiornamento; 1-aggiornamento firmware; 2-aggiornamento file configurazione slave
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     public int SetJointFirmwareUpgrade(int type, String path)
 
-Set Controller Firmware Upgrade
+Impostare Aggiornamento Firmware Box Controllo
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
@@ -309,14 +309,14 @@ Set Controller Firmware Upgrade
     :linenos:
 
     /**
-    * @brief Set controller firmware upgrade
-    * @param [in] type Upgrade file type: 1-Firmware upgrade; 2-Slave configuration file upgrade
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Imposta aggiornamento firmware box controllo
+    * @param [in] type Tipo file aggiornamento; 1-aggiornamento firmware; 2-aggiornamento file configurazione slave
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     public int SetCtrlFirmwareUpgrade(int type, String path)
 
-Set End-Effector Firmware Upgrade
+Impostare Aggiornamento Firmware Terminale
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
@@ -324,28 +324,28 @@ Set End-Effector Firmware Upgrade
     :linenos:
 
     /**
-    * @brief Set end-effector firmware upgrade
-    * @param [in] type Upgrade file type: 1-Firmware upgrade; 2-Slave configuration file upgrade
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Imposta aggiornamento firmware terminale
+    * @param [in] type Tipo file aggiornamento; 1-aggiornamento firmware; 2-aggiornamento file configurazione slave
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     public int SetEndFirmwareUpgrade(int type, String path)
 
-Joint Complete Parameter Configuration Upgrade
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento File Configurazione Parametri Completi Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.7-3.8.4
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Joint complete parameter configuration upgrade
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Aggiornamento file configurazione parametri completi giunti
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice errore
     */
     public int JointAllParamUpgrade(String path)
 
-Robot Slave Firmware Upgrade Code Example
+Esempio Codice Aggiornamento Firmware Slave Robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
@@ -376,41 +376,41 @@ Robot Slave Firmware Upgrade Code Example
         robot.CloseRPC();
     }
 
-Robot Operating System Upgrade (LA Control Box)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento Sistema Operativo Robot (Box Controllo LA)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Robot Operating System Upgrade (LA Control Box)
-     * @param [in] filePath Full path of the operating system upgrade package
-     * @return Error code
+     * @brief Aggiornamento sistema operativo robot (box controllo LA)
+     * @param [in] filePath Percorso completo pacchetto aggiornamento sistema operativo
+     * @return  Codice errore
      */
     public int KernelUpgrade(String filePath)
 
-Get Robot Operating System Upgrade Result (LA Control Box)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Risultato Aggiornamento Sistema Operativo Robot (Box Controllo LA)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Get Robot Operating System Upgrade Result (LA Control Box)
-     * @param [out] result Upgrade result: 0: Success; -1: Failure
-     * @return Error code
+     * @brief Ottiene risultato aggiornamento sistema operativo robot (box controllo LA)
+     * @param [out] result Risultato aggiornamento: 0:successo; -1:fallimento
+     * @return  Codice errore
      */
     public int GetKernelUpgradeResult(int[] result)
 
-Robot MCU Log Generation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Generazione Log MCU Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Robot MCU log generation
-    * @return Error code
+    * @brief Generazione log MCU robot
+    * @return Codice errore
     */
     public int RobotMCULogCollect()

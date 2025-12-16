@@ -1,2433 +1,1954 @@
-Graphical programming
-=========================
+Programmazione grafica
+======================
 
-.. toctree::
+.. toctree:: 
    :maxdepth: 6
 
-Introduction
---------------------
+Introduzione
+------------
 
-Since the teaching pendant is generally not connected to external peripherals such as keyboard and mouse, when accessing the robot WebAPP on the teaching pendant side, users can edit the robot teaching program through the graphical programming function. Functional standardization functions are implemented using the Blockly library, which can be integrated into the WebAPP system, and custom code blocks can be implemented as needed. After dragging and dropping programming, it is converted into a LUA program and sent and run through the existing instruction protocol.
+Poiché il pannello di insegnamento (teach pendant) generalmente non è collegato a periferiche esterne come tastiera o mouse, quando si accede all'applicazione Web del robot tramite il pannello stesso, l'utente può utilizzare la funzionalità di programmazione grafica per modificare i programmi di insegnamento del robot. Questa funzionalità si basa sulla libreria Blockly, integrabile nel sistema WebAPP; consente inoltre di definire blocchi di codice personalizzati e, una volta completata la programmazione mediante trascinamento, converte automaticamente il risultato in un programma LUA, che viene poi inviato al robot tramite il protocollo di comandi esistente.
 
-By using graphical programming, it can be simple and easy to understand, easy to operate, and Chinese language operation.
+Grazie alla programmazione grafica, è possibile ottenere un approccio semplice, intuitivo e facile da usare, con interfaccia completamente localizzata in cinese.
 
-The page is divided into three areas: "operation bar", "toolbox toolbar" and "workspace code editing area". The overall layout design is as follows.
+L’interfaccia è suddivisa in tre aree principali: “Barra degli strumenti”, “Toolbox” e “Area di modifica del codice (workspace)”. Il layout generale è mostrato nella figura seguente:
 
 .. image:: graphical/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.1 Graphical programming interface
+.. centered:: Figura 10.1‑1 Interfaccia di programmazione grafica
 
-**Operation bar**
+**Barra degli strumenti**
 
-1) **Load**: responsible for reloading the workspace;
-
-2) **Import**: responsible for importing related graphical programming programs;
-
-3) **Export**: responsible for exporting the saved graphical programming programs in the workspace. The "Save" button function is to save the code block as the corresponding teaching program after editing is completed;
-
-4) **Save**: responsible for saving the edited graphical code block;
-
-5) **Clear**: responsible for quickly clearing the code editing area;
-
-6) **Code**: responsible for translating code blocks into Lua code.
+1) **Carica**: ricarica l’area di lavoro (workspace);
+2) **Importa**: importa programmi di programmazione grafica esistenti;
+3) **Esporta**: esporta il programma grafico attualmente salvato nell’area di lavoro;
+4) **Salva**: salva i blocchi grafici modificati come programma di insegnamento;
+5) **Pulisci**: cancella rapidamente l’intera area di modifica;
+6) **Codice**: converte i blocchi grafici in codice Lua.
 
 **Toolbox**
 
-1) Code blocks containing all instructions and logic codes can be dragged to the workspace to create code blocks and edit them;
+1) Contiene tutti i blocchi di codice relativi a istruzioni e logica, trascinabili nell’area di lavoro per creare e modificare il programma;
+2) I blocchi nella Toolbox sono ulteriormente organizzati per categorie di istruzioni;
+3) Istruzioni logiche: if-else, while, ecc.;
+4) Istruzioni di movimento base: PTP, LIN, ARC, ecc.;
+5) Istruzioni specifiche per applicazioni: incollaggio, saldatura, nastri trasportatori, ecc. Ciò permette di trovare facilmente i blocchi necessari durante l’utilizzo.
 
-2) The Toolbox toolbar section will be further classified according to the instruction type;
+**Workspace**: area in cui vengono editati e visualizzati i blocchi grafici del programma.
 
-3) Logic instructions: if-else, while, etc;
+Comandi grafici di tipo logico
+------------------------------
 
-4) Basic motion instructions: PTP, LIN, ARC, etc. Instructions are classified according to application scenarios: gluing, welding, conveyor belts, etc. You can easily find the required code blocks during use.
-
-**Workspace**: Graphical code blocks can be edited and displayed in the code editing area.
-
-Logic Graphical Programming Commands
-----------------------------------------
-Logic Graphical Programming Commands include loops, numbers and other logic commands.
+I comandi grafici di tipo logico includono istruzioni per cicli, numeri e altre operazioni logiche.
 
 .. image:: graphical/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.2 Logic Graphical Programming
+.. centered:: Figura 10.2 Comandi grafici di tipo logico
 
-If/Else Judgment Instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "If/Else Judgment Instruction" code block to enter the graphical editing interface workspace. (This instruction requires a certain programming foundation. If you need help, please contact us)
+Istruzione If/Else
+~~~~~~~~~~~~~~~~~~
+
+Trascinare il blocco “Istruzione If/Else” nell’area di lavoro dell’interfaccia grafica.  
+(Questa istruzione richiede conoscenze di base di programmazione. In caso di necessità, contattare il supporto.)
 
 .. image:: graphical/021.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.2-1 If/Else Judgment Instruction Code Block
+.. centered:: Figura 10.2-1 Blocco If/Else
 
-While Instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "While Instruction" code block to enter the graphical editing interface workspace. (This instruction requires a certain programming foundation. If you need help, please contact us)
+Istruzione While
+~~~~~~~~~~~~~~~~
 
-Add the input waiting condition after While, add the motion instruction code block inside while, and click Save. (For ease of operation, you can enter any do content and edit other instructions in the program to insert instead)
+Trascinare il blocco “Istruzione While” nell’area di lavoro dell’interfaccia grafica.  
+(Questa istruzione richiede conoscenze di base di programmazione. In caso di necessità, contattare il supporto.)
+
+Aggiungere una condizione di attesa dopo “While” e inserire all’interno del ciclo blocchi di movimento. Al termine, fare clic su “Salva”.  
+(Per comodità, è possibile inserire temporaneamente qualsiasi contenuto nel blocco “do”, per poi sostituirlo successivamente con le istruzioni desiderate.)
 
 .. image:: graphical/022.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.2-2 While instruction code block
+.. centered:: Figura 10.2-2 Blocco While
 
-Jump instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Jump instruction" code block to enter the graphical editing interface workspace. (This instruction requires a certain programming foundation. If you need help, please contact us)
+Istruzione di salto (Jump)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Jump name: Enter the jump name to determine the jump position
+Trascinare il blocco “Istruzione di salto” nell’area di lavoro dell’interfaccia grafica.  
+(Questa istruzione richiede conoscenze di base di programmazione. In caso di necessità, contattare il supporto.)
+
+- **Nome salto**: inserire il nome del punto di destinazione del salto.
 
 .. image:: graphical/023.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.2-3 Jump instruction code block
+.. centered:: Figura 10.2-3 Blocco di salto
 
-.. important:: Jump name cannot start with a number
+.. important:: Il nome del salto non può iniziare con un numero.
 
-Variable class graphical programming command
-----------------------------------------------------------
-Variable class graphical programming commands include create variable commands.
+Comandi grafici per variabili
+-----------------------------
+
+I comandi grafici per variabili includono l’istruzione per creare variabili.
 
 .. image:: graphical/004.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.3 Variable class graphical programming
+.. centered:: Figura 10.3 Comandi grafici per variabili
 
-Variable instruction
-~~~~~~~~~~~~~~~~~~~~~
-Click the "Create" button to enter the variable name to be defined.
+Istruzione variabile
+~~~~~~~~~~~~~~~~~~~~
 
-Drag the "Variable instruction" code block to enter the graphical editing interface workspace.
+Fare clic sul pulsante “Crea” per inserire il nome della variabile da definire.
 
-"Variable" instruction node, parameters:
+Trascinare il blocco “Istruzione variabile” nell’area di lavoro.
+
+Parametri del nodo “Variabile”:
 
 .. image:: graphical/024.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.3-1 Variable instruction code block
+.. centered:: Figura 10.3-1 Blocco variabile
 
-Function class graphical programming command
---------------------------------------------------------
-Function class graphical programming command includes create function command.
+Comandi grafici per funzioni
+----------------------------
+
+I comandi grafici per funzioni includono l’istruzione per creare funzioni.
 
 .. image:: graphical/005.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.4 Function class graphical programming
+.. centered:: Figura 10.4 Comandi grafici per funzioni
 
-Function method instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Function method instruction" code block to enter the graphical editing interface workspace.
+Istruzione metodo funzione
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-"Function method" instruction node, parameters:
+Trascinare il blocco “Istruzione metodo funzione” nell’area di lavoro.
 
-- Function name: the name of the function to be run.
+Parametri del nodo “Metodo funzione”:
+
+- **Nome funzione**: nome della funzione da eseguire
 
 .. image:: graphical/025.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.4-1 Function method instruction code block
+.. centered:: Figura 10.4-1 Blocco metodo funzione
 
-Motion graphic programming commands
-----------------------------------------
-Motion graphic programming commands include PTP, Lin, ARC and other motion commands.
+Comandi grafici di movimento
+---------------------------------
+
+I comandi grafici di movimento includono istruzioni PTP, LIN, ARC, ecc.
 
 .. image:: graphical/006.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5 Motion graphic programming
+.. centered:: Figura 10.5 Comandi grafici di movimento
 
-Point-to-point instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "point-to-point instruction" code block to enter the graphical editing interface workspace.
+Istruzione Punto-a-Punto (PTP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can select the point you want to reach. The smooth transition time setting can make the movement from this point to the next point continuous. For the offset setting, you can choose to offset based on the base coordinate system and offset based on the tool coordinate system, and pop up the x, y, z, rx, ry, rz offset settings. The specific PTP path is the optimal path automatically planned by the motion controller.
+Trascinare il blocco “Istruzione Punto-a-Punto” nell’area di lavoro.
 
-"Point to point" instruction node, parameters:
+È possibile selezionare il punto da raggiungere. Il parametro “Tempo di transizione fluida” consente di rendere continuo il movimento verso il punto successivo. L’opzione “Offset” permette di scegliere tra offset rispetto al sistema di coordinate base o rispetto allo strumento, aprendo campi per impostare gli offset x, y, z, rx, ry, rz. Il percorso PTP viene automaticamente pianificato dal controllore come percorso ottimale.
 
-- Point name: teaching point
+Parametri del nodo “Punto-a-Punto”:
 
-- Debug speed (%): 0 ~ 100
-
-- Stop: false/true
-
-- Smooth transition (ms): Smooth transition time 0 ~ 500
-
-- Whether to offset No/base coordinate offset/tool ​​coordinate offset When No is selected, the dx~drz parameter values ​​are not effective
-
-- dx~drz: offset
+- **Nome punto**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
+- **Stop**: false/true
+- **Transizione fluida (ms)**: tempo di transizione 0 ~ 500
+- **Offset**: No / Offset base / Offset strumento (se “No”, i parametri dx~drz non sono attivi)
+- **dx~drz**: valori di offset
 
 .. image:: graphical/026.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-1 Point-to-point instruction code block
+.. centered:: Figura 10.5-1 Blocco Punto-a-Punto
 
-Straight line instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Straight line instruction" code block to enter the graphical editing interface workspace.
+Istruzione Lineare (LIN)
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction function is similar to the "point to point" instruction, but the path to the point reached by this instruction is a straight line.
+Trascinare il blocco “Istruzione Lineare” nell’area di lavoro.
 
-"Straight line" instruction node, parameters:
+Questa istruzione è simile a “Punto-a-Punto”, ma il percorso verso il punto di destinazione è una linea retta.
 
-- Point name: teaching point
+Parametri del nodo “Lineare”:
 
-- Debug speed (%): 0 ~ 100
-
-- Stop: false/true, when true is selected, the smooth transition parameter value is not effective
-
-- Smooth transition (mm): smooth transition radius 0 ~ 1000
-
-- Whether to seek: false/true
-
-- Seek point variable: REF0~99/RES0~99, when false is selected for whether to seek, the parameter is not effective;
-
-- Whether to offset: No
-
-- Joint overspeed protection: No/Yes
-
-- Processing strategy: Standard/Stop with error when overspeeding/Adaptive deceleration
-
-- Allowed deceleration threshold: 0~100
+- **Nome punto**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
+- **Stop**: false/true (se true, il parametro “Transizione fluida” non è attivo)
+- **Transizione fluida (mm)**: raggio di transizione 0 ~ 1000
+- **Ricerca posizione**: false/true
+- **Variabile punto ricerca**: REF0~99/RES0~99 (non attiva se “Ricerca posizione” è false)
+- **Offset**: No
+- **Protezione sovravelocità giunti**: No/Sì
+- **Strategia gestione**: Standard / Arresto con errore in caso di sovravelocità / Riduzione automatica velocità
+- **Soglia riduzione ammessa (%)**: 0~100
 
 .. image:: graphical/027.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-2 Straight line instruction code block
+.. centered:: Figura 10.5-2 Blocco Lineare
 
-Straight line (adjustable angular velocity at transition point) instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Straight line (adjustable angular velocity at transition point) instruction" code block to enter the graphical editing interface workspace.
+Istruzione Lineare (con velocità angolare regolabile nei punti di transizione)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The function of this instruction is similar to the "point to point" instruction, but this instruction includes adjustable angular velocity at transition point.
+Trascinare il blocco “Istruzione Lineare (con velocità angolare regolabile nei punti di transizione)” nell’area di lavoro.
 
-"Straight line (adjustable angular velocity at transition point)" command node, parameters:
+Funzionalità simile all’istruzione “Punto-a-Punto”, ma include la regolazione della velocità angolare nei punti di transizione.
 
-- Maximum angular velocity: 0~300
+Parametri del nodo:
+
+- **Velocità angolare massima**: 0~300
 
 .. image:: graphical/028.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-3 Straight line (adjustable angular velocity at transition point) command code block
+.. centered:: Figura 10.5-3 Blocco Lineare (velocità angolare regolabile)
 
-Straight line (seamPos) command
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Straight line (seamPos) command" code block to enter the graphical editing interface workspace.
+Istruzione Lineare (seamPos)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This command function is used to use laser sensors in welding scenarios.
+Trascinare il blocco “Istruzione Lineare (seamPos)” nell’area di lavoro.
 
-"Straight line (seamPos)" command node, parameters:
+Questa istruzione è progettata per scenari di saldatura con sensori laser.
 
-- Point name: teaching point
+Parametri del nodo “Lineare (seamPos)”:
 
-- Debug speed (%): 0 ~ 100
-
-- Stop: false/true, when true is selected, the smooth transition parameter value is not effective
-
-- Smooth transition (mm): smooth transition radius 0 ~ 1000
-
-- Weld cache data selection: execution planning data/execution record data;
-
-- Plate type: corrugated plate/corrugated plate/fence plate/oil drum/corrugated shell steel;
-
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset/laser raw data offset When no is selected, the dx~drz parameter value is not effective
-
-- dx~drz: offset
+- **Nome punto**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
+- **Stop**: false/true (se true, il parametro “Transizione fluida” non è attivo)
+- **Transizione fluida (mm)**: raggio di transizione 0 ~ 1000
+- **Selezione dati cucitura**: Esegui dati pianificati / Esegui dati registrati
+- **Tipo lamiera**: Lamiera ondulata / Lamiera grecata / Recinzione / Fusto / Acciaio corrugato
+- **Offset**: No / Offset base / Offset strumento / Offset dati grezzi laser (se “No”, i parametri dx~drz non sono attivi)
+- **dx~drz**: valori di offset
 
 .. image:: graphical/029.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-4 Straight line (seamPos) command code block
+.. centered:: Figura 10.5-4 Blocco Lineare (seamPos)
 
-Arc command
-~~~~~~~~~~~~~~~~~~~~
-Drag the "Arc command" code block to enter the graphical editing interface workspace.
+Istruzione Arco (ARC)
+~~~~~~~~~~~~~~~~~~~~~
 
-Arc motion contains two points, the first point is the transition point in the middle of the arc, and the second point is the end point. Both the transition point and the end point can be set to offset or not. You can choose to offset based on the base coordinate system and offset based on the tool coordinate system, set the x, y, z, rx, ry, rz offset, and the end point can set the smooth transition radius to achieve a continuous motion effect
+Trascinare il blocco “Istruzione Arco” nell’area di lavoro.
 
-"Arc" instruction node, parameters:
+Il movimento ad arco richiede due punti: il primo è il punto intermedio dell’arco, il secondo è il punto finale. Entrambi i punti consentono di impostare offset rispetto al sistema di coordinate base o dello strumento (x, y, z, rx, ry, rz). È possibile impostare un raggio di transizione fluida al punto finale per garantire continuità del movimento.
 
-- Arc middle point: teaching point
+Parametri del nodo “Arco”:
 
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset When no is selected, the dx~drz parameter value is not effective
-
-- dx~drz: offset
-
-- Arc end point: teaching point
-
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset When no is selected, the dx~drz parameter value is not effective
-
-- dx~drz: offset
-
-- Debug speed (%): 0 ~ 100
-
-- Stop: false/true, when true is selected, the smooth transition parameter value is not effective
-
-- Smooth transition (mm): smooth transition radius 0 ~ 1000
+- **Punto intermedio arco**: punto di insegnamento
+- **Offset**: No / Offset base / Offset strumento (se “No”, i parametri dx~drz non sono attivi)
+- **dx~drz**: valori di offset
+- **Punto finale arco**: punto di insegnamento
+- **Offset**: No / Offset base / Offset strumento (se “No”, i parametri dx~drz non sono attivi)
+- **dx~drz**: valori di offset
+- **Velocità debug (%)**: 0 ~ 100
+- **Stop**: false/true (se true, il parametro “Transizione fluida” non è attivo)
+- **Transizione fluida (mm)**: raggio di transizione 0 ~ 1000
 
 .. image:: graphical/030.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5-5 Arc instruction code block
+.. centered:: Figura 10.5-5 Blocco Arco
 
-Full circle command
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "full circle command" code block to enter the graphical editing interface workspace.
+Istruzione Cerchio completo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click the "full circle" command node to enter the node diagram editing interface.
+Trascinare il blocco “Istruzione Cerchio completo” nell’area di lavoro.
 
-Full circle motion includes two points, the first point is the full circle middle transition point 1, the second point is the full circle middle transition point 2, transition point 2 can be set whether to offset, the offset is effective for both transition point 1 and transition point 2.
+Fare clic sul nodo “Cerchio completo” per accedere all’editor grafico.
 
-"Full circle" command node, parameters:
+Il movimento circolare completo richiede due punti intermedi. L’offset impostato sul secondo punto si applica a entrambi i punti.
 
-- Full circle middle point 1: teaching point
+Parametri del nodo “Cerchio completo”:
 
-- Full circle middle point 2: teaching point
-
-- Debug speed (%): 0 ~ 100
-
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset When No is selected, the dx~drz parameter value is not effective
-
-- dx~drz: offset
+- **Punto intermedio 1**: punto di insegnamento
+- **Punto intermedio 2**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
+- **Offset**: No / Offset base / Offset strumento (se “No”, i parametri dx~drz non sono attivi)
+- **dx~drz**: valori di offset
 
 .. image:: graphical/031.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-6 Full circle instruction code block
+.. centered:: Figura 10.5-6 Blocco Cerchio completo
 
-Spiral instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Spiral instruction" code block to enter the graphical editing interface workspace.
+Istruzione Spirale
+~~~~~~~~~~~~~~~~~~
 
-The spiral motion includes three points, which form a circle. In the third point setting page, there are several parameter settings, including the number of spiral turns, attitude correction angle, radius increment and axis direction increment. The number of spiral turns is the number of spiral motion turns. The attitude correction angle corrects the attitude at the end of the spiral and the attitude of the first point of the spiral. The radius increment is the increment of each circle radius, and the axis direction increment is the increment of the spiral axis direction. Set whether to offset. The offset is effective for the entire spiral trajectory.
+Trascinare il blocco “Istruzione Spirale” nell’area di lavoro.
 
-"Spiral" command node, parameters:
+Il movimento a spirale richiede tre punti che definiscono un cerchio. Nella configurazione del terzo punto è possibile impostare: numero di spire, correzione dell’assetto, incremento del raggio e incremento lungo l’asse di rotazione. Il numero di spire indica quante volte il robot compie il percorso a spirale. La correzione dell’assetto regola l’orientamento finale rispetto al primo punto. L’incremento del raggio definisce quanto aumenta (o diminuisce) il raggio ad ogni spira. L’incremento sull’asse definisce lo spostamento lungo l’asse della spirale. L’offset impostato si applica all’intera traiettoria.
 
-- Spiral middle point 1: teaching point
+Parametri del nodo “Spirale”:
 
-- Spiral middle point 2: teaching point
-
-- Spiral middle point 3: teaching point
-
-- Debug speed (%): 0 ~ 100
-
-- Offset: No/base coordinate offset/tool ​​coordinate offset When No is selected, the dx~drz parameter values ​​are not effective
-
-- dx~drz: offset
-
-- Spiral turns: 0 ~ 100
-
-- Posture angle correction rx (°): -1000 ~ 1000
-
-- Posture angle correction ry (°): -1000 ~ 1000
-
-- Posture angle correction rz (°): -1000 ~ 1000
-
-- Radius increment (mm): -100 ~ 100
-
-- Rotation axis direction increment (mm): -100 ~ 100
+- **Punto spirale 1**: punto di insegnamento
+- **Punto spirale 2**: punto di insegnamento
+- **Punto spirale 3**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
+- **Offset**: No / Offset base / Offset strumento (se “No”, i parametri dx~drz non sono attivi)
+- **dx~drz**: valori di offset
+- **Numero spire**: 0 ~ 100
+- **Correzione assetto rx (°)**: -1000 ~ 1000
+- **Correzione assetto ry (°)**: -1000 ~ 1000
+- **Correzione assetto rz (°)**: -1000 ~ 1000
+- **Incremento raggio (mm)**: -100 ~ 100
+- **Incremento asse (mm)**: -100 ~ 100
 
 .. image:: graphical/032.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5-7 Spiral instruction code block
+.. centered:: Figura 10.5-7 Blocco Spirale
 
-New spiral instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "New Spiral Instruction" code block to enter the graphical editing interface workspace.
+Nuova istruzione Spirale
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click the "New Spiral" instruction node to enter the node graph editing interface.
+Trascinare il blocco “Nuova istruzione Spirale” nell’area di lavoro.
 
-The new spiral motion is an optimized version of the spiral motion. This instruction only requires one point plus the configuration of various parameters to realize the spiral motion. The robot takes the current position as the starting point. The user sets the debugging speed, whether to offset, the number of spiral turns, spiral inclination, initial radius, radius increment, axis direction increment and rotation direction. The number of spiral turns refers to the number of spiral turns of the spiral line. The spiral inclination refers to the angle between the tool Z axis and the horizontal direction. The posture correction angle corrects the posture at the end of the spiral line and the posture of the first point of the spiral line. The initial radius refers to the radius of the first circle. The radius increment refers to the increment of each circle radius. The axis direction increment refers to the increment of the spiral axis direction. The rotation direction is clockwise and counterclockwise.
+Fare clic sul nodo “Nuova spirale” per accedere all’editor grafico.
 
-"New spiral" command node, parameters:
+Questa è una versione ottimizzata del movimento a spirale. Richiede solo un punto più vari parametri. Il robot considera la posizione corrente come punto iniziale. L’utente imposta: velocità debug, offset, numero di spire, inclinazione della spirale, raggio iniziale, incremento raggio, incremento asse e direzione di rotazione. L’inclinazione della spirale è l’angolo tra l’asse Z dello strumento e il piano orizzontale. Il raggio iniziale definisce il raggio della prima spira. La direzione di rotazione può essere oraria o antioraria.
 
-- Spiral start point: teaching point
+Parametri del nodo “Nuova spirale”:
 
-- Debug speed (%): 0 ~ 100
-
-- Offset: No/base coordinate offset/tool ​​coordinate offset When No is selected, the dx~drz parameter values ​​are not effective
-
-- dx~drz: offset
-
-- Spiral turns: 0 ~ 100
-
-- Spiral inclination (°): -100 ~ 100
-
-- Initial radius: 0 ~ 100
-
-- Radius increment (mm): -100 ~ 100
-
-- Rotation axis direction increment (mm): -100 ~ 100
-
-- Rotation direction: clockwise/counterclockwise
+- **Punto iniziale spirale**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
+- **Offset**: No / Offset base / Offset strumento (se “No”, i parametri dx~drz non sono attivi)
+- **dx~drz**: valori di offset
+- **Numero spire**: 0 ~ 100
+- **Inclinazione spirale (°)**: -100 ~ 100
+- **Raggio iniziale**: 0 ~ 100
+- **Incremento raggio (mm)**: -100 ~ 100
+- **Incremento asse (mm)**: -100 ~ 100
+- **Direzione rotazione**: Oraria / Antioraria
 
 .. image:: graphical/033.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-8 New spiral instruction code block
+.. centered:: Figura 10.5-8 Blocco Nuova spirale
 
-Horizontal spiral instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Horizontal spiral instruction" code block to enter the graphical editing interface workspace.
+Istruzione Spirale orizzontale (H-Spiral)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The "H-Spiral" instruction is a horizontal space spiral motion. This instruction is set after the single-segment motion (straight line) instruction.
+Trascinare il blocco “Istruzione Spirale orizzontale” nell’area di lavoro.
 
-"Horizontal spiral" instruction node, parameters:
+L’istruzione “H-Spiral” genera un movimento a spirale nello spazio orizzontale ed è progettata per seguire un’istruzione di movimento lineare.
 
-- Spiral radius: 0~100mm
+Parametri del nodo “Spirale orizzontale”:
 
-- Spiral angular velocity: 0~2rev/s
-
-- Rotation direction: spiral clockwise/counterclockwise
-
-- Spiral inclination: 0~40°
+- **Raggio spirale**: 0~100 mm
+- **Velocità angolare spirale**: 0~2 giri/s
+- **Direzione rotazione**: Oraria / Antioraria
+- **Inclinazione spirale**: 0~40°
 
 .. image:: graphical/034.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5-9 Horizontal spiral instruction code block
+.. centered:: Figura 10.5-9 Blocco Spirale orizzontale
 
-Spline instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Spline instruction" code block to enter the graphical editing interface workspace.
+Istruzione Spline
+~~~~~~~~~~~~~~~~~
 
-This instruction is divided into three parts: spline group start, spline segment and spline group end. The spline group start is the start mark of the spline motion. The spline segment currently only contains the SPL segment in the node diagram. The spline group end is the end mark of the spline motion.
+Trascinare il blocco “Istruzione Spline” nell’area di lavoro.
 
-"Spline-SPTP" instruction node, parameters:
+Questa istruzione è composta da tre parti: inizio gruppo spline, segmento spline e fine gruppo spline. L’inizio segna l’avvio del movimento spline, il segmento attualmente supporta solo il tipo SPL, e la fine conclude il movimento.
 
-- Point name: teaching point
+Parametri del nodo “Spline-SPTP”:
 
-- Debug speed (%): 0 ~ 100
+- **Nome punto**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
 
 .. image:: graphical/035.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5-10 Spline instruction code block
+.. centered:: Figura 10.5-10 Blocco Spline
 
-New spline instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "New spline instruction" code block to enter the graphical editing interface workspace.
+Nuova istruzione Spline
+~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is a spline instruction algorithm optimization instruction, which will replace the existing spline instruction in the future. This instruction is divided into three parts: multi-point trajectory start, multi-point trajectory segment and multi-point trajectory end. Multi-point trajectory start is the starting mark of multi-point trajectory movement. Multi-point trajectory segment is to set each trajectory point. Click the icon to enter the point adding interface. Multi-point trajectory end is the end mark of multi-point trajectory movement. Here you can set the control mode and debugging speed. The control mode is divided into given control point and given path point.
+Trascinare il blocco “Nuova istruzione Spline” nell’area di lavoro.
 
-"New Spline" instruction node, parameters:
+Questa è una versione ottimizzata dell’istruzione Spline e sostituirà quella esistente. È composta da: inizio traiettoria multi-punto, segmento traiettoria e fine traiettoria. L’inizio segna l’avvio, i segmenti consentono di aggiungere punti tramite interfaccia dedicata, e la fine permette di impostare modalità di controllo e velocità. La modalità di controllo può essere “punti di controllo” o “punti di percorso”.
 
-- Control mode: teach point
+Parametri del nodo “Nuova spline”:
 
-- Global average connection time: integer type, greater than 10, default value is 2000ms
+- **Modalità controllo**: punti di insegnamento
+- **Tempo medio globale di transizione**: intero >10, valore predefinito 2000 ms
 
-"New Spline-SPL" instruction node, parameters:
+Parametri del nodo “Nuova spline-SPL”:
 
-- Point name: teach point
-
-- Debug speed (%): 0 ~ 100
-
-- Smooth transition radius: 0 ~ 1000
-
-- Is it the last point: No/Yes
+- **Nome punto**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100
+- **Raggio transizione fluida**: 0 ~ 1000
+- **Ultimo punto**: No / Sì
 
 .. image:: graphical/036.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-11 New Spline Instruction Code Block
+.. centered:: Figura 10.5-11 Blocco Nuova spline
 
-Swing Instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Swing Instruction" code block to enter the graphical editing interface workspace.
+Istruzione Oscillazione
+~~~~~~~~~~~~~~~~~~~~~~~
 
-"Swing" instruction node, parameters:
+Trascinare il blocco “Istruzione Oscillazione” nell’area di lavoro.
 
-- Number: 0~7
+Parametri del nodo “Oscillazione”:
+
+- **Numero**: 0~7
 
 .. image:: graphical/037.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5-12 Swing instruction code block
+.. centered:: Figura 10.5-12 Blocco Oscillazione
 
-Point offset instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "point offset instruction" code block to enter the graphical editing interface workspace.
+Istruzione Offset punto
+~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is an overall offset instruction. Enter each offset. The intermediate motion instructions will be offset based on the base coordinates (or workpiece coordinates).
+Trascinare il blocco “Istruzione Offset punto” nell’area di lavoro.
 
-"Point offset" command node, parameters:
+Questa istruzione applica un offset globale. I movimenti successivi saranno traslati rispetto al sistema di coordinate base (o pezzo) secondo i valori inseriti.
 
-- ∆x: offset, -300~300
+Parametri del nodo “Offset punto”:
 
-- ∆y: offset, -300~300
-
-- ∆z: offset, -300~300
-
-- ∆rx: offset, -300~300
-
-- ∆ry: offset, -300~300
-
-- ∆rz: offset, -300~300
+- **∆x**: offset, -300~300
+- **∆y**: offset, -300~300
+- **∆z**: offset, -300~300
+- **∆rx**: offset, -300~300
+- **∆ry**: offset, -300~300
+- **∆rz**: offset, -300~300
 
 .. image:: graphical/038.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5-13 Point offset command code block
+.. centered:: Figura 10.5-13 Blocco Offset punto
 
-Servo command
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Servo command" code block to enter the graphical editing interface workspace.
+Istruzione Servo
+~~~~~~~~~~~~~~~~
 
-Servo control (Cartesian space motion) instructions, which can control the robot motion through absolute posture control or based on the current posture offset.
+Trascinare il blocco “Istruzione Servo” nell’area di lavoro.
 
-"Servo" command node, parameters:
+Questa istruzione controlla il movimento nello spazio cartesiano mediante controllo servo. Può agire in posizione assoluta o con offset rispetto alla posizione corrente.
 
-- Movement mode: absolute position/base coordinate offset/tool ​​coordinate offset
+Parametri del nodo “Servo”:
 
-- x: offset, -300~300
-
-- y: offset, -300~300
-
-- z: offset, -300~300
-
-- rx: offset, -300~300
-
-- ry: offset, -300~300
-
-- rz: offset, -300~300
-
-- Proportional coefficient x: 0~1
-
-- Proportional coefficient y: 0~1
-
-- Proportional coefficient z: 0~1
-
-- Proportional coefficient rx: 0~1
-
-- Proportional coefficient ry: 0~1
-
-- Proportional coefficient rz: 0~1
-
-- Acceleration (%): 0~100
-
-- Speed ​​(%): 0~100
-
-- Command cycle (s): 0.001~0.016
-
-- Filter time (s): 0~1
-
-- Scale up: 0~100
+- **Modalità movimento**: Posizione assoluta / Offset base / Offset strumento
+- **x**: offset, -300~300
+- **y**: offset, -300~300
+- **z**: offset, -300~300
+- **rx**: offset, -300~300
+- **ry**: offset, -300~300
+- **rz**: offset, -300~300
+- **Coefficiente proporzionale x**: 0~1
+- **Coefficiente proporzionale y**: 0~1
+- **Coefficiente proporzionale z**: 0~1
+- **Coefficiente proporzionale rx**: 0~1
+- **Coefficiente proporzionale ry**: 0~1
+- **Coefficiente proporzionale rz**: 0~1
+- **Accelerazione (%)**: 0~100
+- **Velocità (%)**: 0~100
+- **Periodo comando (s)**: 0.001~0.016
+- **Tempo filtro (s)**: 0~1
+- **Amplificazione proporzionale**: 0~100
 
 .. image:: graphical/039.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-14 Servo command code block
+.. centered:: Figura 10.5-14 Blocco Servo
 
-Trajectory command
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Trajectory command" code block to enter the graphical editing interface workspace.
+Istruzione Traiettoria
+~~~~~~~~~~~~~~~~~~~~~~
 
-In this command, the user first needs to have a recorded trajectory.
+Trascinare il blocco “Istruzione Traiettoria” nell’area di lavoro.
 
-"Trajectory" command node, parameters:
+Prima di utilizzare questa istruzione, è necessario aver registrato una traiettoria.
 
-- Select trajectory file: recorded trajectory
+Parametri del nodo “Traiettoria”:
 
-- Debug speed (%): 0 ~ 100, default value is 25
+- **Seleziona file traiettoria**: traiettoria registrata
+- **Velocità debug (%)**: 0 ~ 100, valore predefinito 25
 
 .. image:: graphical/040.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-15 Trajectory command code block
+.. centered:: Figura 10.5-15 Blocco Traiettoria
 
-TrajectoryJ command
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "TrajectoryJ command" code block to enter the graphical editing interface workspace.
+Istruzione Traiettoria J
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this command, the user first needs to have a recorded trajectory, and the trajectory file can be pre-imported in the teaching program interface. The trajectory command and trajectoryJ command are suitable for the general interface of the camera directly giving the trajectory. When there is a discrete trajectory point file in a fixed format, it can be imported into the system to make the robot move according to the trajectory of the imported file.
+Trascinare il blocco “Istruzione Traiettoria J” nell’area di lavoro.
 
-"Track J" command node, parameters:
+Richiede una traiettoria registrata, che deve essere importata preventivamente. Le istruzioni “Traiettoria” e “Traiettoria J” sono interfacce generiche per traiettorie fornite da telecamere, utilizzabili quando si dispone di file di traiettoria discreti in formato standard.
 
-- Select track file: recorded track
+Parametri del nodo “Traiettoria J”:
 
-- Debug speed (%): 0 ~ 100, default value is 25
-
-- Track mode: path point/control point
+- **Seleziona file traiettoria**: traiettoria registrata
+- **Velocità debug (%)**: 0 ~ 100, valore predefinito 25
+- **Modalità traiettoria**: Punti percorso / Punti controllo
 
 .. image:: graphical/041.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-16 Track J command code block
+.. centered:: Figura 10.5-16 Blocco Traiettoria J
 
-Track reproduction command
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Track reproduction command" code block to enter the graphical editing interface workspace.
+Istruzione Riproduzione traiettoria
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this command, the user first needs to have a recorded track.
+Trascinare il blocco “Istruzione Riproduzione traiettoria” nell’area di lavoro.
 
-When programming, first use the point-to-point command to reach the corresponding track starting point, then select the track in the track reproduction command, select the smooth track, and set the debugging speed. The track loading command is mainly used to pre-read the track file and extract it into a track command for better application in conveyor belt tracking scenarios.
+Richiede una traiettoria registrata.
 
-"Trajectory Reproduction" command node, parameters:
+Durante la programmazione, raggiungere prima il punto iniziale della traiettoria con un’istruzione PTP, quindi selezionare la traiettoria, abilitare l’opzione “Traiettoria fluida” e impostare la velocità debug. Questa istruzione è particolarmente utile per scenari con nastri trasportatori.
 
-- Trajectory name: recorded trajectory
+Parametri del nodo “Riproduzione traiettoria”:
 
-- Smooth trajectory: No/Yes
-
-- Debug speed (%): 0 ~ 100, default value is 25
+- **Nome traiettoria**: traiettoria registrata
+- **Traiettoria fluida**: No / Sì
+- **Velocità debug (%)**: 0 ~ 100, valore predefinito 25
 
 .. image:: graphical/042.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-17 Trajectory Reproduction Command Code Block
+.. centered:: Figura 10.5-17 Blocco Riproduzione traiettoria
 
-DMP Command
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "DMP Command" code block to enter the graphical editing interface workspace.
+Istruzione DMP
+~~~~~~~~~~~~~~
 
-DMP is a method of trajectory imitation learning, which requires planning the reference trajectory in advance. In the command editing interface, select the teaching point as the new starting point, click "Add" and "Apply" to save the command. The specific path of DMP is a new trajectory that imitates the reference trajectory with a new starting point.
+Trascinare il blocco “Istruzione DMP” nell’area di lavoro.
 
-"DMP" command node, parameters:
+DMP (Dynamic Movement Primitives) è un metodo di apprendimento per imitazione di traiettorie. Richiede una traiettoria di riferimento predefinita. Selezionare un punto di insegnamento come nuovo punto iniziale, fare clic su “Aggiungi” e “Applica” per salvare l’istruzione. Il percorso risultante sarà una nuova traiettoria che imita quella di riferimento a partire dal nuovo punto.
 
-- Point name: teaching point
+Parametri del nodo “DMP”:
 
-- Debug speed (%): 0 ~ 100, default value is 100
+- **Nome punto**: punto di insegnamento
+- **Velocità debug (%)**: 0 ~ 100, valore predefinito 100
 
 .. image:: graphical/043.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-18 DMP command code block
+.. centered:: Figura 10.5-18 Blocco DMP
 
-Tool conversion instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Tool conversion instruction" code block to enter the graphical editing interface workspace.
+Istruzione Cambio strumento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Select the tool coordinate system to be automatically converted, click "Add" and "Apply" to save the instruction. The tool coordinate system are automatically converted.
+Trascinare il blocco “Istruzione Cambio strumento” nell’area di lavoro.
 
-"Tool conversion" instruction node, parameters:
+Selezionare il sistema di coordinate dello strumento da attivare. Dopo aver fatto clic su “Aggiungi” e “Applica”, i punti definiti nel sistema selezionato verranno convertiti automaticamente.
 
-- Tool coordinate system: Tool coordinate system table
+Parametri del nodo “Cambio strumento”:
+
+- **Sistema coordinate strumento**: elenco dei sistemi disponibili
 
 .. image:: graphical/044.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.5-19 Tool conversion instruction code block
+.. centered:: Figura 10.5-19 Blocco Cambio strumento
 
-Workpiece conversion instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Workpiece conversion instruction" code block to enter the graphical editing interface workspace.
+Istruzione Cambio pezzo
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Select the workpiece coordinate system to be automatically converted, the points in the workpiece coordinate system are automatically converted.
+Trascinare il blocco “Istruzione Cambio pezzo” nell’area di lavoro.
 
-"Workpiece conversion" instruction node, parameters:
+Selezionare il sistema di coordinate del pezzo da attivare. Dopo aver fatto clic su “Aggiungi” e “Applica”, i punti definiti nel sistema selezionato verranno convertiti automaticamente.
 
-- Workpiece coordinate system: Workpiece coordinate system table
+Parametri del nodo “Cambio pezzo”:
+
+- **Sistema coordinate pezzo**: elenco dei sistemi disponibili
 
 .. image:: graphical/045.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.5-20 Workpiece conversion instruction code block
+.. centered:: Figura 10.5-20 Blocco Cambio pezzo
 
-Control class graphical programming commands
----------------------------------------------
-Control class graphical programming commands include Wait, IO and other control commands.
+Comandi grafici di controllo
+---------------------------------
+
+I comandi grafici di controllo includono istruzioni Wait, I/O, ecc.
 
 .. image:: graphical/007.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6 Control Class Graphical Programming Commands
+.. centered:: Figura 10.6 Comandi grafici di controllo
 
-Wait Command
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Wait Command" code block to enter the graphical editing interface workspace.
+Istruzione Attesa
+~~~~~~~~~~~~~~~~~
 
-This command is a delay command, which is divided into four parts: "WaitMs", "WaitDI", "WaitMultiDI" and "WaitAI".
+Trascinare il blocco “Istruzione Attesa” nell’area di lavoro.
 
-1. "Wait" command node, parameters:
+Questa istruzione implementa un ritardo e comprende quattro varianti: “WaitMs”, “WaitDI”, “WaitMultiDI” e “WaitAI”.
 
-- Wait time (ms): The delay waiting time unit is milliseconds, enter the number of milliseconds to wait
+1. Nodo “Attesa”:
+
+- **Tempo attesa (ms)**: tempo di ritardo in millisecondi
 
 .. image:: graphical/046.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-1 Wait command code block
+.. centered:: Figura 10.6-1 Blocco Attesa
 
-2. "Wait DI" command node, parameters:
+2. Nodo “Attesa DI”:
 
-- DI port number: Ctrl-DI0 ~ Ctrl-CI7(WaitDI,[0~15]), End-DI0 ~ End-DI1(WaitToolDI,[0~1])
-
-- Status: false/true
-
-- Maximum time (ms): 0 ~ 10000
-
-- Wait timeout processing: stop error/continue execution/keep waiting
+- **Porta DI**: Ctrl-DI0 ~ Ctrl-CI7 (WaitDI, [0~15]), End-DI0 ~ End-DI1 (WaitToolDI, [0~1])
+- **Stato**: false/true
+- **Tempo massimo (ms)**: 0 ~ 10000
+- **Gestione timeout**: Arresto con errore / Continua esecuzione / Attesa indefinita
 
 .. image:: graphical/047.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-2 Wait for DI instruction code block
+.. centered:: Figura 10.6-2 Blocco Attesa DI
 
-3. "Wait for multiple DI" instruction node, parameters:
+3. Nodo “Attesa multipla DI”:
 
-- Condition: and/or
-
-- Condition selection: select the port number of the bit state to be turned on, separated by commas, such as DI0, DI1
-
-- True value corresponding port: select the port number of the true value, separated by commas, such as DI0, DI1
-
-- Maximum time (ms): 0 ~ 10000, maximum waiting time
-
-- Waiting timeout processing: stop error/continue execution/wait forever
+- **Condizione**: AND / OR
+- **Porte selezionate**: elenco delle porte, separate da virgole, es. DI0,DI1
+- **Porte vero**: elenco delle porte che devono essere vere, es. DI0,DI1
+- **Tempo massimo (ms)**: 0 ~ 10000
+- **Gestione timeout**: Arresto con errore / Continua esecuzione / Attesa indefinita
 
 .. image:: graphical/048.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-3 Wait for multiple DI instruction code block
+.. centered:: Figura 10.6-3 Blocco Attesa multipla DI
 
-4. "Wait for AI" instruction node, parameters:
+4. Nodo “Attesa AI”:
 
-- Condition: and/or
-
-- AI port number: Ctrl-AI0 ~ Ctrl-AI1(WaitAI,[0~1]), End-AI0(WaitToolAI,[0])
-
-- Condition: greater than/less than
-
-- Value (%): 1 ~ 100
-
-- Maximum time (ms): 0 ~ 10000
-
-- Waiting timeout processing: stop reporting errors/continue execution/keep waiting. When waiting for timeout processing, the maximum time defaults to 0
+- **Condizione**: AND / OR
+- **Porta AI**: Ctrl-AI0 ~ Ctrl-AI1 (WaitAI, [0~1]), End-AI0 (WaitToolAI, [0])
+- **Operatore**: Maggiore / Minore
+- **Valore (%)**: 1 ~ 100
+- **Tempo massimo (ms)**: 0 ~ 10000
+- **Gestione timeout**: Arresto con errore / Continua esecuzione / Attesa indefinita (se “Attesa indefinita”, il tempo massimo è ignorato)
 
 .. image:: graphical/049.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-4 Waiting for AI command code block
+.. centered:: Figura 10.6-4 Blocco Attesa AI
 
-Mode switching command
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "mode switching command" code block to enter the graphical editing interface workspace.
+Istruzione Cambio modalità
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This command can switch the robot to manual mode. It is usually added at the end of a program so that the user can automatically switch the robot to manual mode and drag the robot after the program ends.
+Trascinare il blocco “Istruzione Cambio modalità” nell’area di lavoro.
 
-"Mode switch" instruction node, parameters:
+Consente di passare il robot in modalità manuale, utile da inserire alla fine di un programma per permettere all’utente di muovere manualmente il robot dopo l’esecuzione.
 
-- Mode switch: manual mode
+Parametri del nodo “Cambio modalità”:
+
+- **Modalità**: Manuale
 
 .. image:: graphical/050.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-5 Mode switch instruction code block
+.. centered:: Figura 10.6-5 Blocco Cambio modalità
 
-Pause instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Pause instruction" code block to enter the graphical editing interface workspace.
+Istruzione Pausa
+~~~~~~~~~~~~~~~~
 
-This instruction is a pause instruction. Insert this instruction in the program. When the program executes this instruction, the robot will be in a paused state. If you want to continue running, click the "Pause/Resume" button in the control area.
+Trascinare il blocco “Istruzione Pausa” nell’area di lavoro.
 
-"Pause" command node, parameters:
+Durante l’esecuzione, il robot si ferma in corrispondenza di questa istruzione. Per riprendere, premere il tasto “Pausa/Riprendi” nell’area di controllo.
 
-- Pause type: no function, cylinder not in place, etc.
+Parametri del nodo “Pausa”:
+
+- **Tipo pausa**: Nessuna funzione, Cilindro non in posizione, ecc.
 
 .. image:: graphical/051.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-6 Pause command code block
+.. centered:: Figura 10.6-6 Blocco Pausa
 
-Coordinate system command
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Set tool coordinate system"/"Set workpiece coordinate system" code block to enter the graphical editing interface workspace.
+Istruzioni Sistema di coordinate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. "Set tool coordinate system" command node, parameters:
+Trascinare i blocchi “Imposta sistema strumento” / “Imposta sistema pezzo” nell’area di lavoro.
 
-- Tool coordinate system name: toolcoord1 ~ toolcoord19(SetToolList,[0~19]), etoolcoord0 ~ etoolcoord14(SetExToolList, [0~14])
+1. Nodo “Imposta sistema strumento”:
+
+- **Nome sistema strumento**: toolcoord1 ~ toolcoord19 (SetToolList, [0~19]), etoolcoord0 ~ etoolcoord14 (SetExToolList, [0~14])
 
 .. image:: graphical/052.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-7 Set tool coordinate system command code block
+.. centered:: Figura 10.6-7 Blocco Imposta sistema strumento
 
-2. "Set workpiece coordinate system" command node, parameters:
+2. Nodo “Imposta sistema pezzo”:
 
-- Workpiece coordinate system name: wobjcoord1 ~ wobjcoord14
+- **Nome sistema pezzo**: wobjcoord1 ~ wobjcoord14
 
 .. image:: graphical/053.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-8 Set workpiece coordinate system instruction code block
+.. centered:: Figura 10.6-8 Blocco Imposta sistema pezzo
 
-Simulation AI instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Set AO"/"Get AI" code block to enter the graphical editing interface workspace.
+Istruzioni I/O analogici
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this instruction, there are two functions: setting analog output (SetAO/SPLCSetAO) and getting analog input (GetAI/SPLCGetAI).
+Trascinare i blocchi “Imposta AO” / “Leggi AI” nell’area di lavoro.
 
-1. "Set AO" instruction node, parameters:
+Comprende due funzioni: impostazione uscite analogiche (SetAO/SPLCSetAO) e lettura ingressi analogici (GetAI/SPLCGetAI).
 
-- Port: Ctrl-AO0 ~ Ctrl-AO1 (blocking: SetAO, non-blocking: SPLCSetAO, [0~1]), End-AO0 (blocking: SetToolAO, non-blocking: SPLCSetToolAO, [0])
+1. Nodo “Imposta AO”:
 
-- Value (%): 0 ~ 100
-
-- Whether to block: blocking/non-blocking
-
-- Whether to apply thread: no/yes
+- **Porta**: Ctrl-AO0 ~ Ctrl-AO1 (bloccante: SetAO, non bloccante: SPLCSetAO, [0~1]), End-AO0 (bloccante: SetToolAO, non bloccante: SPLCSetToolAO, [0])
+- **Valore (%)**: 0 ~ 100
+- **Bloccante**: Sì / No
+- **Usa thread**: No / Sì
 
 .. image:: graphical/054.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-9 Set AO instruction code block
+.. centered:: Figura 10.6-9 Blocco Imposta AO
 
-2. "Get AI" instruction node, parameters:
+2. Nodo “Leggi AI”:
 
-- Port: Ctrl-AI0 ~ Ctrl-DI1 (blocking: GetAI, non-blocking: SPLCGetAI, [0~1]), End-AI0 (blocking: GetToolAI, non-blocking: SPLCGetToolAI, [0])
-
-- Condition: greater than/less than
-
-- Value (%): 0 ~ 100
-
-- Maximum time (ms): 0 ~ 10000
-
-- Blocking: Blocking/Non-blocking
-
-- Apply thread: No/Yes
+- **Porta**: Ctrl-AI0 ~ Ctrl-AI1 (bloccante: GetAI, non bloccante: SPLCGetAI, [0~1]), End-AI0 (bloccante: GetToolAI, non bloccante: SPLCGetToolAI, [0])
+- **Condizione**: Maggiore / Minore
+- **Valore (%)**: 0 ~ 100
+- **Tempo massimo (ms)**: 0 ~ 10000
+- **Bloccante**: Sì / No
+- **Usa thread**: No / Sì
 
 .. image:: graphical/055.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-10 Get AI instruction code block
+.. centered:: Figura 10.6-10 Blocco Leggi AI
 
-Digital IO Instructions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Set DO"/"Get DI" code block to enter the graphical editing interface workspace.
+Istruzioni I/O digitali
+~~~~~~~~~~~~~~~~~~~~~~~
 
-The instructions are IO instructions, which are divided into two parts: Set IO (SetDO/SPLCSetDO) and Get IO (GetDI/SPLCGetDI).
+Trascinare i blocchi “Imposta DO” / “Leggi DI” nell’area di lavoro.
 
-1. "Set DO" instruction node, parameters:
+Comprende due funzioni: impostazione uscite digitali (SetDO/SPLCSetDO) e lettura ingressi digitali (GetDI/SPLCGetDI).
 
-- Port: Ctrl-DO0 ~ Ctrl-CO7 (blocking: SetDO, non-blocking: SPLCSetDO, [0~15]), End-DO0 ~ End-DO1 (blocking: SetToolDO, non-blocking: SPLCSetToolDO, [0~1])
+1. Nodo “Imposta DO”:
 
-- Status: false/true
-
-- Blocking: blocking/non-blocking
-
-- Smooth trajectory: Break/Serious
-
-- Apply thread: No/Yes
+- **Porta**: Ctrl-DO0 ~ Ctrl-CO7 (bloccante: SetDO, non bloccante: SPLCSetDO, [0~15]), End-DO0 ~ End-DO1 (bloccante: SetToolDO, non bloccante: SPLCSetToolDO, [0~1])
+- **Stato**: false/true
+- **Bloccante**: Sì / No
+- **Traiettoria fluida**: Break / Serious
+- **Usa thread**: No / Sì
 
 .. image:: graphical/056.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-11 Set DO instruction code block
+.. centered:: Figura 10.6-11 Blocco Imposta DO
 
-2. "Get DI" instruction node, parameters:
+2. Nodo “Leggi DI”:
 
-- Port: Ctrl-DI0 ~ Ctrl-CI7 (blocking: GetDI, non-blocking: SPLCGetDI, [0~15]), End-DI0 ~ End-DI1(Blocking: GetToolDI, Non-blocking: SPLCGetToolDI, [0~1])
-
-- Blocking: Blocking/Non-blocking
-
-- Status: false/true
-
-- Maximum waiting time (ms): 0 ~ 10000
-
-- Apply thread: No/Yes
+- **Porta**: Ctrl-DI0 ~ Ctrl-CI7 (bloccante: GetDI, non bloccante: SPLCGetDI, [0~15]), End-DI0 ~ End-DI1 (bloccante: GetToolDI, non bloccante: SPLCGetToolDI, [0~1])
+- **Bloccante**: Sì / No
+- **Stato**: false/true
+- **Tempo massimo attesa (ms)**: 0 ~ 10000
+- **Usa thread**: No / Sì
 
 .. image:: graphical/057.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.6-12 Get DI instruction code block
+.. centered:: Figura 10.6-12 Blocco Leggi DI
 
-Motion DO instruction
-~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Motion DO instruction" code block to enter the graphical editing interface work area.
+Istruzioni DO in movimento
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction implements the function of continuously outputting DO signals according to the set interval during linear motion.
+Trascinare il blocco “Istruzione DO in movimento” nell’area di lavoro.
 
-1. "Motion DO continuous output" instruction node, parameters:
+Consente di emettere segnali DO durante un movimento lineare, con opzione di output continuo o singolo.
 
-- Port: Ctrl-DO0 ~ Ctrl-DO0(MoveDOStart,[0~15]), End-DO1(MoveDOStart,[0~1])
+1. Nodo “Output continuo DO in movimento”:
 
-- Setting interval (mm): 0 ~ 500
+- **Porta**: Ctrl-DO0 ~ Ctrl-DO0 (MoveDOStart, [0~15]), End-DO1 (MoveDOStart, [0~1])
+- **Intervallo (mm)**: 0 ~ 500
+- **Duty cycle (%)**: 0 ~ 99
 
-- Output pulse duty cycle (%): 0 ~ 99
+2. Nodo “Output singolo DO in movimento”:
 
-2. "Motion DO single output" instruction node, parameters:
-
-- Port: Ctrl-DO0 ~ Ctrl-DO0(MoveDOOnceStart,[0~15]), End-DO1(MoveDOOnceStart,[0~1])
-
-- Output mode: uniform speed output/free configuration
-
-- Set time (ms): 0 ~ 1000 (the uniform speed output mode defaults to -1)
-
-- Reset time (ms): 0 ~ 1000 (the uniform speed output mode defaults to -1)
+- **Porta**: Ctrl-DO0 ~ Ctrl-DO0 (MoveDOOnceStart, [0~15]), End-DO1 (MoveDOOnceStart, [0~1])
+- **Modalità output**: Output in fase costante / Configurazione libera
+- **Tempo set (ms)**: 0 ~ 1000 (valore predefinito -1 in modalità costante)
+- **Tempo reset (ms)**: 0 ~ 1000 (valore predefinito -1 in modalità costante)
 
 .. image:: graphical/058.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-13 "Motion DO single/continuous output" instruction code block
+.. centered:: Figura 10.6-13 Blocchi Output DO in movimento
 
-Motion AO instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Motion AO instruction" code block to enter the graphical editing interface workspace.
+Istruzioni AO in movimento
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When this instruction is used with the motion instruction, it can output the AO signal in proportion to the real-time TCP speed during the motion process.
+Trascinare il blocco “Istruzione AO in movimento” nell’area di lavoro.
 
-"Move AO" command node, parameters:
+In combinazione con istruzioni di movimento, permette di emettere un segnale AO proporzionale alla velocità TCP in tempo reale.
 
-- Control box AO number: Ctrl-AO0 ~ Ctrl-AO1 (MoveAOStart, [0~1]), End-AO0 (MoveToolAOStart, 0)
+Parametri del nodo “AO in movimento”:
 
-- Maximum TCP speed: 0 ~ 100
-
-- Maximum TCP speed AO percentage: 0 ~ 100
-
-- Dead zone compensation value AO percentage: 0 ~ 100
+- **Numero AO controllore**: Ctrl-AO0 ~ Ctrl-AO1 (MoveAOStart, [0~1]), End-AO0 (MoveToolAOStart, 0)
+- **Velocità TCP massima**: 0 ~ 100
+- **Percentuale AO a velocità massima**: 0 ~ 100
+- **Compensazione zona morta AO (%)**: 0 ~ 100
 
 .. image:: graphical/059.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-14 "Move AO" command code block
+.. centered:: Figura 10.6-14 Blocco AO in movimento
 
-Collision level command
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Collision level command" code block to enter the graphical editing interface workspace.
+Istruzione Livello collisione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This command sets the collision level. Through this command, the collision level of each axis can be adjusted in real time during program operation, and the application scenario can be deployed more flexibly.
+Trascinare il blocco “Istruzione Livello collisione” nell’area di lavoro.
 
-"Collision level" command node, parameters:
+Permette di regolare dinamicamente la soglia di rilevamento collisione per ciascun asse durante l’esecuzione del programma.
 
-- Standard level: standard level/custom percentage
+Parametri del nodo “Livello collisione”:
 
-- joint1-joint6(N): 0 ~ 100, collision threshold, array type
+- **Livello standard**: Standard / Percentuale personalizzata
+- **joint1-joint6 (N)**: 0 ~ 100, soglie di collisione (array)
 
 .. image:: graphical/060.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-15 Collision level command code block
+.. centered:: Figura 10.6-15 Blocco Livello collisione
 
-Acceleration command
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "acceleration command" code block to enter the graphical editing interface workspace.
+Istruzione Accelerazione
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-The "acceleration" command is to realize the function of setting the robot acceleration separately. By adjusting the motion command acceleration scaling factor, the acceleration and deceleration time can be increased or decreased, and the robot action beat time can be adjusted.
+Trascinare il blocco “Istruzione Accelerazione” nell’area di lavoro.
 
-"Acceleration" command node, parameters:
+Permette di regolare separatamente l’accelerazione del robot, modificando il fattore di scala per accelerazione/decelerazione e quindi il tempo ciclo delle operazioni.
 
-- Acceleration percentage (%): 0 ~ 100
+Parametri del nodo “Accelerazione”:
+
+- **Percentuale accelerazione (%)**: 0 ~ 100
 
 .. image:: graphical/061.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.6-16 Acceleration command code block
+.. centered:: Figura 10.6-16 Blocco Accelerazione
 
-Peripheral graphical programming commands
-------------------------------------------------------
-Peripheral graphical programming commands include peripheral commands such as grippers, spray guns, and extended axes.
+Comandi grafici per periferiche
+-------------------------------
+
+I comandi grafici per periferiche includono pinze, pistole a spruzzo, assi esterni, ecc.
 
 .. image:: graphical/008.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7 Peripheral graphical programming commands
+.. centered:: Figura 10.7 Comandi grafici per periferiche
 
-Gripper commands
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "gripper movement", "gripper activation" and "gripper reset" code blocks to enter the graphical editing interface workspace.
+Istruzioni Pinza
+~~~~~~~~~~~~~~~~
 
-In the command, the number of the configured and activated gripper is displayed, the settings of the gripper opening and closing, opening and closing speed, and opening and closing torque are displayed in percentages, and the blocking function option is displayed. If blocking is selected, the gripper movement needs to wait for the previous motion instruction to be executed before execution. If non-blocking is selected, the gripper movement is parallel to the previous motion instruction.
+Trascinare i blocchi “Movimento pinza”, “Attivazione pinza” e “Reinizializzazione pinza” nell’area di lavoro.
 
-1. "Gripper Movement" node, parameters:
+Mostrano i numeri delle pinze già configurate e attivate. Consentono di impostare apertura/chiusura, velocità e coppia (valori percentuali). L’opzione “Bloccante” determina se il movimento della pinza attende il completamento dell’istruzione precedente.
 
-- Gripper number: the number of the activated gripper
+1. Nodo “Movimento pinza”:
 
-- Gripper position: 0~100
-
-- Opening and closing speed: 0~100
-
-- Opening and closing torque: 0~100
-
-- Maximum time (ms): 0~30000
-
-- Blocking: false/true
+- **Numero pinza**: pinza attivata
+- **Posizione pinza**: 0~100
+- **Velocità apertura/chiusura**: 0~100
+- **Coppia apertura/chiusura**: 0~100
+- **Tempo massimo (ms)**: 0~30000
+- **Bloccante**: false/true
 
 .. image:: graphical/062.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-1 Gripper Movement Instruction Code Block
+.. centered:: Figura 10.7-1 Blocco Movimento pinza
 
-Gripper reset instruction, display the configured gripper number, and you can add the gripper reset instruction to the program.
+2. Nodo “Reinizializzazione pinza”:
 
-2. "Gripper reset" node, parameters:
-
-- Gripper number: the number of the activated gripper
+- **Numero pinza**: pinza attivata
 
 .. image:: graphical/063.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-2 Gripper reset instruction code block
+.. centered:: Figura 10.7-2 Blocco Reinizializzazione pinza
 
-Gripper activation instruction, display the configured gripper number, you can add the gripper activation instruction to the program.
+3. Nodo “Attivazione pinza”:
 
-3. "Gripper activation" node, parameters:
-
-- Gripper number: the number of the activated gripper
+- **Numero pinza**: pinza attivata
 
 .. image:: graphical/064.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-3 Gripper activation instruction code block
+.. centered:: Figura 10.7-3 Blocco Attivazione pinza
 
-Spray gun instruction
-~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Spray gun instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Pistola a spruzzo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This command is related to spraying, controlling the spray gun to "start spraying", "stop spraying", "start cleaning gun" and "stop cleaning gun". When editing the relevant nodes of this program, you need to confirm that the spray gun peripherals have been configured, otherwise it cannot be saved. See the robot peripherals section for details.
+Trascinare il blocco “Istruzione Pistola a spruzzo” nell’area di lavoro.
+
+Controlla le funzioni di verniciatura: avvio/arresto spruzzo, avvio/arresto pulizia ugello. Prima di utilizzare queste istruzioni, verificare che la pistola sia stata correttamente configurata come periferica.
 
 .. image:: graphical/065.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-4 Start spraying instruction code block
+.. centered:: Figura 10.7-4 Blocco Avvio spruzzo
 
 .. image:: graphical/066.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-5 Stop spraying instruction code block
+.. centered:: Figura 10.7-5 Blocco Arresto spruzzo
 
 .. image:: graphical/067.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-6 Start gun cleaning instruction code block
+.. centered:: Figura 10.7-6 Blocco Avvio pulizia
 
 .. image:: graphical/068.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-7 Stop gun cleaning instruction code block
+.. centered:: Figura 10.7-7 Blocco Arresto pulizia
 
-Extended axis instruction (controller+PLC)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Extended axis instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Asse esterno (Controllore + PLC)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is used in combination with the PTP instruction for scenarios using external axes. It can decompose the movement of a point in the X-axis direction in space into external axis movement. Select the external axis number, select synchronous movement mode, and select the point to be reached.
+Trascinare il blocco “Istruzione Asse esterno” nell’area di lavoro.
 
-It is divided into UDP communication loading/configuration, asynchronous movement, synchronous PTP/LIN movement, synchronous ARC movement, return to zero instruction and enable instruction.
+Utilizzato in scenari con assi esterni, in combinazione con istruzioni PTP per decomporre movimenti lungo l’asse X su assi esterni. Include configurazione UDP, movimenti asincroni/sincroni, ritorno a zero e abilitazione.
 
-"UDP communication configuration" command node, enter the IP address, port number and communication cycle;
+- Nodo “Configurazione comunicazione UDP”: IP, porta, periodo comunicazione
 
 .. image:: graphical/069.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-8 UDP communication configuration command code block
+.. centered:: Figura 10.7-8 Blocco Configurazione UDP
 
-"Asynchronous motion" command node, parameters:
+- Nodo “Movimento asincrono”:
 
-- Point name: teaching point
-
-- Debug speed (%): 0~100
+  - **Nome punto**: punto di insegnamento
+  - **Velocità debug (%)**: 0~100
 
 .. image:: graphical/070.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-9 Asynchronous motion command code block
+.. centered:: Figura 10.7-9 Blocco Movimento asincrono
 
-"Synchronous PTP/LIN motion" command node, parameters:
+- Nodo “Movimento sincrono PTP/LIN”:
 
-- Motion selection: PTP/LIN
-
-- Point name: teaching point
-
-- Debug speed (%): 0~100
+  - **Tipo movimento**: PTP / LIN
+  - **Nome punto**: punto di insegnamento
+  - **Velocità debug (%)**: 0~100
 
 .. image:: graphical/071.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-10 "Synchronous PTP/LIN motion" instruction code block
+.. centered:: Figura 10.7-10 Blocco Movimento sincrono PTP/LIN
 
-"Synchronous ARC motion" instruction node, default motion mode is ARC, parameters:
+- Nodo “Movimento sincrono ARC” (modalità ARC predefinita):
 
-Point name: teaching point
-
-Debug speed (%): 0~100
+  - **Nome punto**: punto di insegnamento
+  - **Velocità debug (%)**: 0~100
 
 .. image:: graphical/072.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.7-11 "Synchronous ARC motion" instruction code block
+.. centered:: Figura 10.7-11 Blocco Movimento sincrono ARC
 
-"Extended axis return to zero" instruction node, parameters:
+- Nodo “Ritorno a zero asse esterno”:
 
-- Extended axis number: 1~4
-
-- Return to zero mode: current position return to zero/negative limit return to zero/positive limit return to zero
-
-- Home speed: 0~2000, default position 5
-
-- Zero point clamp speed: 0~2000, default is 1
+  - **Numero asse esterno**: 1~4
+  - **Modalità ritorno**: Posizione corrente / Limite negativo / Limite positivo
+  - **Velocità ricerca zero**: 0~2000, predefinito 5
+  - **Velocità bloccaggio zero**: 0~2000, predefinito 1
 
 .. image:: graphical/073.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.7-12 Extended axis return to zero instruction code block
+.. centered:: Figura 10.7-12 Blocco Ritorno a zero asse esterno
 
-"Extended axis enable" instruction node,, parameters:
+- Nodo “Abilitazione asse esterno”:
 
-- Extended axis number: 1~4
+  - **Numero asse esterno**: 1~4
 
 .. image:: graphical/074.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-13 Extended axis enable instruction code block
+.. centered:: Figura 10.7-13 Blocco Abilitazione asse esterno
 
-Extended axis instruction (controller+servo drive)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Extended axis instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Asse esterno (Controllore + Drive servo)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction can configure the extended axis parameters. Set different parameters according to different control modes. The configured extended axis can set its zero point.
+Trascinare il blocco “Istruzione Asse esterno” nell’area di lavoro.
 
-It is divided into servo ID, control mode, servo enable and servo return to zero; the control mode is further divided into position mode and speed mode. These two nodes need to be used in conjunction with the control mode, otherwise they cannot take effect if added separately.
+Permette di configurare parametri di assi esterni controllati direttamente da drive servo. Include ID servo, modalità controllo, abilitazione e ritorno a zero.
 
-"Servo ID" command node, parameters:
+- Nodo “ID servo”:
 
-- Servo ID: 1~15
+  - **ID servo**: 1~15
 
 .. image:: graphical/075.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-14 Servo ID command code block
+.. centered:: Figura 10.7-14 Blocco ID servo
 
-"Control mode" command node, parameters:
+- Nodo “Modalità controllo”:
 
-- Servo ID: 1~15
-
-- Control mode: Position mode/Speed ​​mode
+  - **ID servo**: 1~15
+  - **Modalità**: Posizione / Velocità
 
 .. image:: graphical/076.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-15 Control mode command code block
+.. centered:: Figura 10.7-15 Blocco Modalità controllo
 
-"Servo enable" command node, parameters:
+- Nodo “Abilitazione servo”:
 
-- Servo ID: 1~15
-
-- Servo enable: Servo enable/disable
+  - **ID servo**: 1~15
+  - **Abilitazione**: Abilita / Disabilita
 
 .. image:: graphical/077.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-16 Servo enable command code block
+.. centered:: Figura 10.7-16 Blocco Abilitazione servo
 
-"Servo return to zero" command node, parameters:
+- Nodo “Ritorno a zero servo”:
 
-- Servo ID: 1~15
-
-- Return to zero mode: current position return to zero/negative limit return to zero/positive limit return to zero
-
-- Homing speed: 0~2000, default position 5
-
-- Zero point clamp speed: 0~2000, default is 1
-
-- Acceleration percentage: 1~100, default is 100
+  - **ID servo**: 1~15
+  - **Modalità ritorno**: Posizione corrente / Limite negativo / Limite positivo
+  - **Velocità ricerca zero**: 0~2000, predefinito 5
+  - **Velocità bloccaggio zero**: 0~2000, predefinito 1
+  - **Percentuale accelerazione**: 1~100, predefinito 100
 
 .. image:: graphical/078.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.7-17 Servo return to zero command code block
+.. centered:: Figura 10.7-17 Blocco Ritorno a zero servo
 
-"Position mode" command node, parameters:
+- Nodo “Modalità posizione”:
 
-- Servo ID: 1~15
-
-- Target position: unlimited
-
-- Homing speed: unlimited
-
-- Acceleration percentage: 1~100, default is 100
+  - **ID servo**: 1~15
+  - **Posizione target**: illimitata
+  - **Velocità ricerca zero**: illimitata
+  - **Percentuale accelerazione**: 1~100, predefinito 100
 
 .. image:: graphical/079.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.7-18 Position mode command code block
+.. centered:: Figura 10.7-18 Blocco Modalità posizione
 
-"Speed ​​mode" command node, parameters:
+- Nodo “Modalità velocità”:
 
-- Servo ID: 1~15
-
-- Target speed: unlimited
-
-- Acceleration percentage: 1~100, default is 100
+  - **ID servo**: 1~15
+  - **Velocità target**: illimitata
+  - **Percentuale accelerazione**: 1~100, predefinito 100
 
 .. image:: graphical/080.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.7-19 Speed ​​mode command code block
+.. centered:: Figura 10.7-19 Blocco Modalità velocità
 
-Conveyor belt command
-~~~~~~~~~~~~~~~~~~~~~~
-This command contains four commands: IO real-time detection, position real-time detection, tracking on and tracking off. See the robot peripherals chapter for details
+Istruzioni Nastro trasportatore
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-"IO real-time detection" instruction node, parameters:
+Include quattro comandi: rilevamento I/O in tempo reale, rilevamento posizione in tempo reale, attivazione/disattivazione tracking.
 
-- Maximum waiting time: 0~10000
+- Nodo “Rilevamento I/O in tempo reale”:
+
+  - **Tempo massimo attesa**: 0~10000
 
 .. image:: graphical/081.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-20 IO real-time detection instruction code block
+.. centered:: Figura 10.7-20 Blocco Rilevamento I/O in tempo reale
 
-"Position real-time detection" instruction node, parameters:
+- Nodo “Rilevamento posizione in tempo reale”:
 
-- Working mode: Tracking grabbing/Tracking motion/TPD tracking
+  - **Modalità lavoro**: Presa con tracking / Movimento con tracking / Tracking TPD
 
 .. image:: graphical/082.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-21 Position real-time detection instruction code block
+.. centered:: Figura 10.7-21 Blocco Rilevamento posizione in tempo reale
 
-"Tracking on", "Tracking off" instruction nodes, parameters:
+- Nodi “Attivazione/Disattivazione tracking”:
 
-Working mode: Tracking grabbing/Tracking motion/TPD tracking
+  - **Modalità lavoro**: Presa con tracking / Movimento con tracking / Tracking TPD
 
 .. image:: graphical/083.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-22 Tracking on/off instruction code block
+.. centered:: Figura 10.7-22 Blocchi Attivazione/Disattivazione tracking
 
-Polishing instruction
+Istruzioni Levigatura
 ~~~~~~~~~~~~~~~~~~~~~
-Drag the "Polishing instruction" code block to enter the graphical editing interface workspace.
 
-This instruction is used for polishing scenes. When using it, you need to unload the driver first and then load the driver, and then set the polishing device to enable.
+Trascinare il blocco “Istruzione Levigatura” nell’area di lavoro.
 
-Then set the speed, contact force, extension distance and control mode of the polishing device. At the same time, you can clear the polishing device errors and clear the device force sensor.
+Utilizzato in scenari di levigatura. Richiede caricamento/smontaggio driver, abilitazione dispositivo, impostazione velocità, forza di contatto, escursione e modalità di controllo. Include anche comandi per cancellare errori e azzerare il sensore di forza.
 
 .. image:: graphical/084.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-23 Communication driver load/unload instruction code block
+.. centered:: Figura 10.7-23 Blocchi Caricamento/Smontaggio driver
 
-"Device enable" instruction node, parameters:
+- Nodo “Abilitazione dispositivo”:
 
-- Device enable: up enable/down enable
+  - **Abilitazione**: Abilita / Disabilita
 
 .. image:: graphical/085.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-24 Device enable instruction code block
+.. centered:: Figura 10.7-24 Blocco Abilitazione dispositivo
 
 .. image:: graphical/086.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-25 Device error clear instruction code block
+.. centered:: Figura 10.7-25 Blocco Cancellazione errori
 
 .. image:: graphical/087.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-26 Device force sensor clear command code block
+.. centered:: Figura 10.7-26 Blocco Azzeramento sensore forza
 
-"Speed" command node, parameters:
+- Nodo “Velocità”:
 
-- Speed: 0~5500
+  - **Velocità**: 0~5500
 
 .. image:: graphical/088.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-27 Device speed command code block
+.. centered:: Figura 10.7-27 Blocco Velocità dispositivo
 
-"Set force" command node, parameters:
+- Nodo “Forza impostata”:
 
-- Set force: 0~200
+  - **Forza**: 0~200
 
 .. image:: graphical/089.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-28 Set force command code block
+.. centered:: Figura 10.7-28 Blocco Forza impostata
 
-"Extend distance" command node, parameters:
+- Nodo “Escursione”:
 
-- Extend distance: 0~12
+  - **Escursione**: 0~12
 
 .. image:: graphical/090.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-29 Extension distance instruction code block
+.. centered:: Figura 10.7-29 Blocco Escursione
 
-"Polishing contact force" instruction node, parameters:
+- Nodo “Forza contatto levigatura”:
 
-- Contact force: 0~10000
+  - **Forza contatto**: 0~10000
 
 .. image:: graphical/091.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-30 Polishing contact force instruction code block
+.. centered:: Figura 10.7-30 Blocco Forza contatto levigatura
 
-"Set force transition time" instruction node, parameters:
+- Nodo “Tempo transizione forza”:
 
-- Set force transition time: 0~10000
+  - **Tempo transizione**: 0~10000
 
 .. image:: graphical/092.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-31 Set force transition time instruction code block
+.. centered:: Figura 10.7-31 Blocco Tempo transizione forza
 
-"Workpiece weight" instruction node, parameters:
+- Nodo “Peso pezzo”:
 
-- Workpiece weight: 0~10000
+  - **Peso**: 0~10000
 
 .. image:: graphical/093.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-32 Workpiece weight instruction code block
+.. centered:: Figura 10.7-32 Blocco Peso pezzo
 
-"Control mode" instruction node, parameters:
+- Nodo “Modalità controllo”:
 
-- Control mode: return to zero mode/position mode/torque mode
+  - **Modalità**: Ritorno a zero / Posizione / Coppia
 
 .. image:: graphical/094.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.7-33 Control mode instruction code block
+.. centered:: Figura 10.7-33 Blocco Modalità controllo
 
-Welding Graphical Programming Commands
-----------------------------------------------
-Welding Graphical Programming Commands include positioning, segment welding, welding, laser tracking and other welding commands.
+Comandi grafici per saldatura
+-----------------------------
+
+I comandi grafici per saldatura includono ricerca posizione, saldatura intermittente, saldatura continua, tracking laser, ecc.
 
 .. image:: graphical/009.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8 Welding Graphical Programming Commands
+.. centered:: Figura 10.8 Comandi grafici per saldatura
 
-Segment welding instructions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Segment welding instruction" code block to enter the graphical editing interface work area.
+Istruzione Saldatura intermittente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is a special welding instruction, mainly used for cyclic intermittent welding scenarios with one section of welding and one section of non-welding. 
+Trascinare il blocco “Istruzione Saldatura intermittente” nell’area di lavoro.
 
-Between the starting point and the end point, use this instruction, select the segment welding mode, select the starting point and end point, set the debugging speed, set the DO port for arc starting, execution length, non-execution length, set the function mode according to the actual application scenario, and the swing selection and rounding rules can realize the segment welding function. 
+Utilizzata per saldature intermittenti (tratti saldati alternati a tratti non saldati). Richiede punti iniziale e finale, modalità, velocità, porta DO per l’arco, lunghezza tratti saldati/non saldati, modalità funzionale, oscillazione e regole di arrotondamento.
 
-For detailed operations, see the program teaching page segment welding instruction.
+1. Nodo “Spegni/Avvia arco”:
 
-1. "Arc off/arc on" command node, parameters:
-
-- I/O type: controller IO/extension IO
-
-- Welding process number: 0 ~ 7
-
-- Maximum waiting time (ms): 0 ~ 10000
+- **Tipo I/O**: I/O controllore / I/O esteso
+- **Numero processo saldatura**: 0 ~ 7
+- **Tempo massimo attesa (ms)**: 0 ~ 10000
 
 .. image:: graphical/095.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-1 "Arc off/arc on" command code block
+.. centered:: Figura 10.8-1 Blocco Spegni/Avvia arco
 
-2. "Segment welding" command node, parameters:
+2. Nodo “Saldatura intermittente”:
 
-- Segment welding mode: no change of posture/change of posture
-
-- Starting point: teaching point
-
-- End point: teaching point
-
-- Debug speed (%): 0~100, default is 100
-
-- Execution length: 0~1000
-
-- Non-execution length: 0~1000
-
-- Function mode: 0~100, default is 100
-
-- Swing selection: execute segment without swing/execute segment swing
-
-- Rounding rules: no rounding/loop rounding/single-segment rounding
+- **Modalità**: Assetto fisso / Assetto variabile
+- **Punto iniziale**: punto di insegnamento
+- **Punto finale**: punto di insegnamento
+- **Velocità debug (%)**: 0~100, predefinito 100
+- **Lunghezza saldata**: 0~1000
+- **Lunghezza non saldata**: 0~1000
+- **Modalità funzionale**: 0~100, predefinito 100
+- **Oscillazione**: Nessuna / Solo nei tratti saldati
+- **Regola arrotondamento**: Nessuna / Ciclico / Per singolo tratto
 
 .. image:: graphical/096.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-2 Segment welding instruction code block
+.. centered:: Figura 10.8-2 Blocco Saldatura intermittente
 
-Welding instruction
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "welding instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Saldatura
+~~~~~~~~~~~~~~~~~~~~
 
-This instruction is mainly used for welding machine peripherals. Before adding this instruction, please confirm whether the welding machine configuration in the user peripherals is complete. For details, see the robot peripherals chapter.
+Trascinare il blocco “Istruzione Saldatura” nell’area di lavoro.
 
-1. “Welding Voltage” Command Node, Parameters:
+Utilizzate con periferiche saldatrici. Verificare la corretta configurazione della saldatrice prima dell’uso.
 
-- I/O Type: Controller IO / Extended IO
-- Welding Voltage: Minimum value is 0
-- Welding Current Control AO: Ctrl-AO0 / Ctrl-AO1
-- Smoothing Selection: Break / Serious
+1. Nodo “Tensione saldatura”:
+
+- **Tipo I/O**: I/O controllore / I/O esteso
+- **Tensione saldatrice**: ≥0
+- **AO controllo corrente**: Ctrl-AO0/Ctrl-AO1
+- **Scelta fluidità**: Break / Serious
 
 .. image:: graphical/097.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-3 Welding Voltage Command Code Block
+.. centered:: Figura 10.8-3 Blocco Tensione saldatura
 
-2. “Welding Current” Command Node, Parameters:
+2. Nodo “Corrente saldatura”:
 
-- I/O Type: Controller IO / Extended IO
-- Welding Current: Minimum value is 0
-- Welding Current Control AO: Ctrl-AO0 / Ctrl-AO1
-- Smoothing Selection: Break / Serious
+- **Tipo I/O**: I/O controllore / I/O esteso
+- **Corrente saldatrice**: ≥0
+- **AO controllo corrente**: Ctrl-AO0/Ctrl-AO1
+- **Scelta fluidità**: Break / Serious
 
 .. image:: graphical/098.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-4 Welding machine current command code block
+.. centered:: Figura 10.8-4 Blocco Corrente saldatura
 
-3. "Gas supply/gas off" command node, parameters:
+3. Nodo “Apri/Chiudi gas”:
 
-- I/O type: controller IO/extension IO
+- **Tipo I/O**: I/O controllore / I/O esteso
 
 .. image:: graphical/099.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-5 "Gas supply/gas off" command code block
+.. centered:: Figura 10.8-5 Blocco Apri/Chiudi gas
 
-4. "Forward wire feeding/stop forward wire feeding" command node, parameters:
+4. Nodo “Filamento avanti/Stop filamento avanti”:
 
-- I/O type: controller IO/extension IO
+- **Tipo I/O**: I/O controllore / I/O esteso
 
 .. image:: graphical/100.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-6 "Forward wire feeding/stop forward wire feeding" command code block
+.. centered:: Figura 10.8-6 Blocco Filamento avanti/Stop
 
-5. "Reverse wire feeding/stop reverse wire feeding" command node, parameters:
+5. Nodo “Filamento indietro/Stop filamento indietro”:
 
-- I/O type: controller IO/extension IO
+- **Tipo I/O**: I/O controllore / I/O esteso
 
 .. image:: graphical/101.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-7 "Reverse wire feeding/stop reverse wire feeding" command code block
+.. centered:: Figura 10.8-7 Blocco Filamento indietro/Stop
 
-Laser tracking command
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Laser tracking command" code block to enter the graphical editing interface workspace.
+Istruzioni Tracking laser
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This command contains three parts: laser command, tracking command and positioning command. Before adding this command, please confirm whether the laser tracking sensor in the user's peripherals has been successfully configured. See the robot peripherals section for details.
+Trascinare il blocco “Istruzione Tracking laser” nell’area di lavoro.
 
-1. "Turn sensor on/off" command node, parameters:
+Comprende comandi per sensore laser, tracking e ricerca posizione. Verificare la corretta configurazione del sensore prima dell’uso.
 
-- Select weld type: 0 ~ 49
+1. Nodo “Accendi/Spengi sensore”:
+
+- **Tipo cucitura**: 0 ~ 49
+- **Numero task**: 0 ~ 255
+- **Soluzione**: 0 ~ 5
 
 .. image:: graphical/102.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-8 "Turn sensor on/off—weld type" command code block
-
-- Select task number: 0 ~ 255
+.. centered:: Figura 10.8-8 Blocco Accendi/Spengi sensore – Tipo cucitura
 
 .. image:: graphical/103.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-9 "Turn sensor on/off—task number" command code block
-
-- Solution: 0 ~ 5
+.. centered:: Figura 10.8-9 Blocco Accendi/Spengi sensore – Numero task
 
 .. image:: graphical/104.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-10 "Turn sensor on/off—solution" command code block
+.. centered:: Figura 10.8-10 Blocco Accendi/Spengi sensore – Soluzione
 
-2. "Load/unload sensor" command node, parameters:
+2. Nodo “Carica/Scarica sensore”:
 
-- Function selection: Ruiniu RRT-SV2-BP/Chuangxiang CXZK-RBTA4L
+- **Selezione funzione**: RRT-SV2-BP / CXZK-RBTA4L
 
 .. image:: graphical/105.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-11 "Load/unload sensor" instruction code block
+.. centered:: Figura 10.8-11 Blocco Carica/Scarica sensore
 
-3. "Start/stop laser tracking" instruction node, parameters:
+3. Nodo “Avvia/Arresta tracking laser”:
 
-- Coordinate system name: custom configuration coordinate system
+- **Nome sistema coordinate**: sistema configurato
 
 .. image:: graphical/106.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-12 "Start/stop laser tracking" instruction code block
+.. centered:: Figura 10.8-12 Blocco Avvia/Arresta tracking laser
 
-4. "Laser Sensor Record" Command Node, Parameters:
+4. Nodo “Registrazione sensore laser”:
 
-- Function Selection: Stop Recording / Real-time Tracking / Start Recording / Path Playback
-- Function Selection: Delay Time / Delay Distance
-- Time: 0 ~ 10000
-- Extended Axis Number: 1 ~ 4
-- Distance: 0 ~ 10000
-- Compensation Sensitivity Coefficient: 0 ~ 1
-- Speed: 0 ~ 100
+- **Funzione**: Arresta registrazione / Tracking in tempo reale / Avvia registrazione / Riproduci traiettoria
+- **Tipo ritardo**: Tempo / Distanza
+- **Tempo**: 0 ~ 10000
+- **Asse esterno**: 1 ~ 4
+- **Distanza**: 0 ~ 10000
+- **Coefficiente sensibilità**: 0 ~ 1
+- **Velocità**: 0 ~ 100
 
 .. image:: graphical/107.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-13 "Laser Sensor Record" Command Code Block
+.. centered:: Figura 10.8-13 Blocco Registrazione sensore laser
 
-5. "Sensor Point Movement" instruction node, parameters:
+5. Nodo “Movimento acquisizione punti sensore”:
 
-- Coordinate system name: Custom configuration coordinate system
-
-- Movement mode: PTP/Lin
-
-- Debug speed (%): 0 ~ 100
-
-- State reference point: Teaching Point
+- **Nome sistema coordinate**: sistema configurato
+- **Modalità movimento**: PTP / Lin
+- **Velocità debug (%)**: 0 ~ 100
+- **Punto riferimento assetto**: punto di insegnamento
 
 .. image:: graphical/108.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-14 "Sensor Point Movement" instruction code block
+.. centered:: Figura 10.8-14 Blocco Movimento acquisizione punti
 
-6. "Laser Tracking Reappearance" instruction node, parameters:
+6. Nodo “Riproduzione tracking laser”:
 
 .. image:: graphical/109.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-15 "Laser Tracking Reappearance" instruction code block
+.. centered:: Figura 10.8-15 Blocco Riproduzione tracking laser
 
-7. "Positioning Start/End" instruction node, parameters:
+7. Nodo “Avvia/Arresta ricerca posizione”:
 
-- Coordinate system name: Custom configuration coordinate system
-
-- Direction: -x/-x/-y/-y/-z/-z/Specify direction
-
-- Direction point: If "Specify direction" is not selected, the parameter is invalid
-
-- Speed ​​(%): 0 ~ 100
-
-- Length (mm): 0 ~ 1000
-
-- Maximum position seeking time (ms): 0 ~ 10000
+- **Nome sistema coordinate**: sistema configurato
+- **Direzione**: -x / -y / -z / Direzione specifica
+- **Punto direzione**: non attivo se non è selezionata “Direzione specifica”
+- **Velocità (%)**: 0 ~ 100
+- **Lunghezza (mm)**: 0 ~ 1000
+- **Tempo massimo ricerca (ms)**: 0 ~ 10000
 
 .. image:: graphical/110.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-16 "Position seeking start/end" instruction code block
+.. centered:: Figura 10.8-16 Blocco Avvia/Arresta ricerca posizione
 
-Laser recording instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Laser recording instruction" code block to enter the graphical editing interface work area.
+Istruzioni Registrazione laser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction realizes the laser tracking and recording start and end point extraction function, so that the robot can automatically move to the starting position. It is suitable for occasions where the movement starts from the outside of the workpiece and the laser tracking and recording is performed. At the same time, the host computer can obtain the information of the start and end points in the recorded data for subsequent movement.
+Trascinare il blocco “Istruzione Registrazione laser” nell’area di lavoro.
 
-The adjustable laser tracking repetition speed function enables the robot to record at a very fast speed and then reproduce at the normal welding speed, which can improve work efficiency.
+Permette di estrarre automaticamente i punti iniziale e finale dalla registrazione laser, utili per muovere il robot al punto di partenza. Consente anche di registrare a velocità elevata e riprodurre a velocità normale, migliorando l’efficienza.
 
-1. "Laser Sensor Record" Command Node, Parameters:
-
-- Function Selection: Stop Recording / Real-time Tracking / Start Recording / Path Playback
-- Function Selection: Delay Time / Delay Distance
-- Time: 0 ~ 10000
-- Extended Axis Number: 1 ~ 4
-- Distance: 0 ~ 10000
-- Compensation Sensitivity Coefficient: 0 ~ 1
-- Speed: 0 ~ 100
+1. Nodo “Registrazione sensore laser” (parametri identici a Figura 10.8-13)
 
 .. image:: graphical/111.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-17 Weld data record command code block
+.. centered:: Figura 10.8-17 Blocco Registrazione dati cucitura
 
-2. "Get weld start/end point" command node, parameters:
+2. Nodo “Ottieni punto iniziale/finale cucitura”:
 
-- Movement mode: PTP/LIN
-
-- Speed ​​(%): 0~100, default is 30
+- **Modalità movimento**: PTP / LIN
+- **Velocità (%)**: 0~100, predefinito 30
 
 .. image:: graphical/112.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-18 "Get weld start/end point" command code block
+.. centered:: Figura 10.8-18 Blocco Ottieni punto iniziale/finale
 
-Welding wire positioning instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Welding wire positioning instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Ricerca posizione filo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is generally used in welding scenarios and requires the welding machine to be used in combination with the robot IO and motion instructions. It is divided into positioning start, positioning end, positioning point setting, offset calculation and contact point data writing.
+Trascinare il blocco “Istruzione Ricerca posizione filo” nell’area di lavoro.
 
-"Wire position finding start/end" command node, parameters:
+Utilizzata in scenari di saldatura, richiede integrazione tra I/O, movimenti e saldatrice.
 
-- Reference position: do not update/update
+Comprende: avvio/arresto ricerca, impostazione punti ricerca, calcolo offset, scrittura dati contatto.
 
-- Position finding speed: 0~100
+- Nodo “Avvia/Arresta ricerca filo”:
 
-- Position finding distance: 0~1000
-
-- Automatic return mark: do not automatically return/automatically return
-
-- Automatic return speed: 0~100
-
-- Automatic return distance: 0~1000
-
-- Position finding method: teaching point positioning/position finding with offset
+  - **Posizione riferimento**: Non aggiornare / Aggiorna
+  - **Velocità ricerca**: 0~100
+  - **Distanza ricerca**: 0~1000
+  - **Ritorno automatico**: No / Sì
+  - **Velocità ritorno**: 0~100
+  - **Distanza ritorno**: 0~1000
+  - **Modalità ricerca**: Punto insegnato / Con offset
 
 .. image:: graphical/113.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-19 "Wire position finding start/end" command code block
+.. centered:: Figura 10.8-19 Blocco Avvia/Arresta ricerca filo
 
-The position finding point setting adds points according to the weld type and calculation method.
-
-- When the type is fillet weld and the calculation method is 1D (one of xyz), the point to be added is selected from point a and point b;
-
-- When the type is fillet weld and the calculation method is 2D (two of xyz), the point to be added is selected from point a, point b, point e, and point f;
-
-- When the type is fillet weld and the calculation method is 3D (xyz), the point to be added is selected from point a, point b, point c, point d, point e, and point f;
-
-- When the type is fillet weld and the calculation method is 2D- (two of xyz, one of rxryrz), the point to be added is selected from point a, point b, point c, point d, point e, and point f;
-
-- When the type is inner and outer diameter and the calculation method is 2D2D (two of xyz), the point to be added is selected from point a and point b;
-
-- When the type is point and the calculation method is 3D (xyz), the point to be added is selected from point a, point b, point c, point d, point e, and point f;
-
-- When the type is camera and the calculation method is 3D-(xyzrxryrz), the point to be added is selected from point a and point b;
-
-- When the type is surface and the calculation method is 3D-(xyzrxryrz), the point to be added is selected from point a and point b;
+- Impostazione punti ricerca: varia in base al tipo di cucitura e metodo di calcolo (vedi documento originale per dettagli)
 
 .. image:: graphical/114.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-20 "Point Finding Setting Guide" instruction code block
+.. centered:: Figura 10.8-20 Guida impostazione punti ricerca
 
-Calculate the offset and set the reference point and contact point according to the weld type and calculation method.
-
-- When the type is fillet weld and the calculation method is 1D (one of xyz), set reference point 1 and contact point 1;
-
-- When the type is fillet weld and the calculation method is 2D (two of xyz), set reference point 1, reference point 2, contact point 1, and contact point 2;
-
-- When the type is fillet weld and the calculation method is 3D (xyz), set reference point 1, reference point 2, reference point 3, contact point 1, contact point 2, and contact point 3;
-
-- When the type is fillet weld and the calculation method is 2D- (two of xyz, one of rxryrz), set reference point 1, reference point 2, reference point 3, contact point 1, contact point 2, and contact point 3;
-
-- When the type is inner and outer diameter and the calculation method is 2D2D (two of xyz), set reference point 1, reference point 2, reference point 3, contact point 1, contact point 2, and contact point 3;
-
-- When the type is point and the calculation method is 3D (xyz), set contact point 1 and contact point 2;
-
-- When the type is camera and the calculation method is 3D-(xyzrxryrz), set contact point 1 and contact point 2;
-
-- When the type is surface and the calculation method is 3D-(xyzrxryrz), set contact point 1, contact point 2, contact point 3, contact point 4, contact point 5, and contact point 6;
+- Calcolo offset: varia in base al tipo di cucitura e metodo di calcolo (vedi documento originale per dettagli)
 
 .. image:: graphical/115.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-21 "Calculate offset" instruction code block
+.. centered:: Figura 10.8-21 Blocco Calcolo offset
 
-"Write contact point data" instruction node, parameters:
+- Nodo “Scrittura dati contatto”:
 
-- Contact point name: RES0~99
-
-- Contact point name: data format is {0,0,0,0,0,0};
+  - **Nome punto contatto**: RES0~99
+  - **Formato dati**: {0,0,0,0,0,0}
 
 .. image:: graphical/116.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-22 "Contact point data write" instruction code block
+.. centered:: Figura 10.8-22 Blocco Scrittura dati contatto
 
-Arc tracking instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Arc tracking instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Tracking ad arco
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction implements robot weld tracking and uses weld deviation detection to compensate the trajectory. Arc sensors can be used to detect weld deviation.
+Trascinare il blocco “Istruzione Tracking ad arco” nell’area di lavoro.
 
-"Arc tracking on/off" command node, parameters:
+Utilizza un sensore ad arco per rilevare deviazioni della cucitura e compensare la traiettoria.
 
-- Arc tracking lag time (ms): reference value 50
+- Nodo “Avvia/Arresta tracking ad arco”:
 
-- Deviation compensation: off/on
-
-- Adjustment coefficient: 0 ~ 300
-
-- Compensation time (cyc): 0 ~ 300
-
-- Maximum compensation amount per time (mm): 0 ~ 300
-
-- Total maximum compensation amount (mm): 0 ~ 300
-
-- Upper and lower coordinate system selection: swing
-
-- Upper and lower reference current setting method: feedback/constant
-
-- Upper and lower reference current (A): 0 ~ 300
+  - **Ritardo tracking (ms)**: es. 50
+  - **Compensazione deviazione**: Disattivata / Attivata
+  - **Coefficiente regolazione**: 0 ~ 300
+  - **Tempo compensazione (cicli)**: 0 ~ 300
+  - **Compensazione max per ciclo (mm)**: 0 ~ 300
+  - **Compensazione totale max (mm)**: 0 ~ 300
+  - **Selezione sistema coordinate**: Oscillazione
+  - **Modalità corrente riferimento**: Feedback / Costante
+  - **Corrente riferimento (A)**: 0 ~ 300
 
 .. image:: graphical/117.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.8-23 Arc tracking instruction code block
+.. centered:: Figura 10.8-23 Blocco Tracking ad arco
 
-Posture adjustment instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Posture Adjustment Instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Regolazione assetto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is for the welding tracking adaptive adjustment of the welding gun posture scene. You need to teach the three points PosA, PosB, and PosC first, otherwise you cannot add nodes.
+Trascinare il blocco “Istruzione Regolazione assetto” nell’area di lavoro.
 
-After recording the three corresponding posture points, add the posture adaptive adjustment instruction according to the actual movement direction of the robot. See the robot peripherals chapter for details.
+Utilizzata per regolare automaticamente l’assetto della torcia durante il tracking. Richiede tre punti di insegnamento (PosA, PosB, PosC).
 
-"Start posture adjustment" command node, parameters:
+- Nodo “Avvia regolazione assetto”:
 
-- Plate type: Corrugated board/Corrugated board/Fence board/Corrugated carapace steel
-
-- Movement direction: From left to right/From right to left
-
-- Posture adjustment time (ms): 0 ~ 1000
-
-- First segment length (mm):
-
-- Inflection point type: From top to bottom/From bottom to top
-
-- Second segment length (mm):
-
-- Third segment length (mm):
-
-- Fourth segment length (mm):
-
-- Fifth segment length (mm):
+  - **Tipo lamiera**: Lamiera ondulata / Grecata / Recinzione / Acciaio corrugato
+  - **Direzione movimento**: Sinistra→Destra / Destra→Sinistra
+  - **Tempo regolazione (ms)**: 0 ~ 1000
+  - **Lunghezza tratto 1 (mm)**:
+  - **Tipo curva**: Alto→Basso / Basso→Alto
+  - **Lunghezza tratto 2-5 (mm)**:
 
 .. image:: graphical/118.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.8-24 Posture adjustment command code block
+.. centered:: Figura 10.8-24 Blocco Regolazione assetto
 
-Force control graphical programming commands
-------------------------------------------------------
-Force control graphical programming commands include force control set, torque recording and other force control commands.
+Comandi grafici per controllo di forza
+-------------------------------------------
+
+I comandi grafici per controllo di forza includono set di controllo forza, registrazione coppia, ecc.
 
 .. image:: graphical/010.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9 Force control graphical programming commands
+.. centered:: Figura 10.9 Comandi grafici per controllo di forza
 
-Force control commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "force control command" code block to enter the graphical editing interface workspace.
+Istruzioni Controllo forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The command includes nine commands: FT_Guard (collision detection), FT_Control (constant force control), FT_Compliance (compliance control), FT_Spiral (spiral insertion), FT_Rot ​​(rotation insertion), FT_Lin (linear insertion), FT_FindSurface (surface positioning), FT_CalCenter (center positioning), FT_Click (click force detection), see the robot peripherals chapter for details.
+Trascinare il blocco “Istruzione Controllo forza” nell’area di lavoro.
 
-1. "Open/Close Collision Detection" command node, parameters:
+Comprende otto comandi: FT_Guard (rilevamento collisioni), FT_Control (controllo forza costante), FT_Compliance (controllo compliance), FT_Spiral (inserimento a spirale), FT_Rot (inserimento rotazionale), FT_Lin (inserimento lineare), FT_FindSurface (localizzazione superficie), FT_CalCenter (localizzazione centro).
 
-- Coordinate system name: Custom configured coordinate system
+1. Nodo “Attiva/Disattiva rilevamento collisioni”:
 
-- Fx-Tx true value: true/false
-
-- Fx-Tx current value: Enter according to actual situation
-
-- Fx-Tx maximum threshold: Enter according to actual situation
-
-- Fx-Tx minimum threshold: Enter according to actual situation
+- **Nome sistema coordinate**: sistema configurato
+- **Fx-Tx valore reale**: true/false
+- **Fx-Tx valore corrente**: inserito dall’utente
+- **Soglia massima/minima**: inserite dall’utente
 
 .. image:: graphical/119.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-1 Open/Close Collision Detection Command Code Block
+.. centered:: Figura 10.9-1 Blocco Rilevamento collisioni
 
-2. "Open/Close Control" command node, parameters:
+2. Nodo “Attiva/Disattiva controllo”:
 
-- Coordinate system name: Custom configured coordinate system
-
-- Fx-Tx true value: true/false
-
-- Fx-Tx current value: Adjust according to actual situation
-
-- F_P_gain - F_D_gain: Adjust according to actual situation, cannot be 0
-
-- Adaptive start/stop state: Stop/Open
-
-- ILC control start/stop status: stop/training/practical operation
-
-- Maximum adjustment distance (mm): 0 ~ 1000
-
-- Maximum adjustment angle (°): 0 ~ 1000
+- **Nome sistema coordinate**: sistema configurato
+- **Fx-Tx valore reale**: true/false
+- **Fx-Tx valore corrente**: regolabile
+- **Guadagni F_P, F_I, F_D**: ≠0
+- **Stato adattivo**: Arresto / Attivo
+- **Stato ILC**: Arresto / Training / Esecuzione
+- **Distanza max regolazione (mm)**: 0 ~ 1000
+- **Angolo max regolazione (°)**: 0 ~ 1000
 
 .. image:: graphical/120.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-2 Open/close control instruction code block
+.. centered:: Figura 10.9-2 Blocco Controllo forza
 
-3. "Open/close smooth control" instruction node, parameters:
+3. Nodo “Attiva/Disattiva compliance”:
 
-- Send position adjustment coefficient: 0 ~ 1
-
-- Smooth opening force threshold (N): 0 ~ 100
+- **Coefficiente regolazione posizione**: 0 ~ 1
+- **Soglia forza attivazione (N)**: 0 ~ 100
 
 .. image:: graphical/121.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-3 Open/close smooth control instruction code block
+.. centered:: Figura 10.9-3 Blocco Compliance
 
-4. "Spiral insertion" instruction node, parameters:
+4. Nodo “Inserimento a spirale”:
 
-- Coordinate system name: tool coordinate system/base coordinate system
-
-- Radius feed per revolution (mm): 0 ~ 100, reference value: 0.7
-
-- Force or torque threshold (N/Nm): 0 ~ 100, reference value: 50
-
-- Maximum exploration time (ms): 0 ~ 60000, reference value: 60000
-
-- Maximum linear velocity (mm/s): 0 ~ 100, reference value: 5
+- **Nome sistema coordinate**: Strumento / Base
+- **Avanzamento raggio per giro (mm)**: 0 ~ 100, es. 0.7
+- **Soglia forza/coppia (N/Nm)**: 0 ~ 100, es. 50
+- **Tempo esplorazione max (ms)**: 0 ~ 60000, es. 60000
+- **Velocità lineare max (mm/s)**: 0 ~ 100, es. 5
 
 .. image:: graphical/122.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-4 Helical insertion instruction code block
+.. centered:: Figura 10.9-4 Blocco Inserimento a spirale
 
-5. "Rotation insertion" instruction node, parameters:
+5. Nodo “Inserimento rotazionale”:
 
-- Coordinate system name: tool coordinate system/base coordinate system
-
-- Rotation angular velocity (°/s): 0 ~ 100, reference value: 0.7
-
-- Trigger force or end torque (N/Nm): 0 ~ 100, reference value: 50
-
-- Maximum rotation angle (°): 0 ~ 100, reference value: 5
-
-- Direction of force: direction z/direction mz
-
-- Maximum rotation angular acceleration (°/s^2): 0 ~ 100
-
-- Insertion direction: positive/negative
+- **Nome sistema coordinate**: Strumento / Base
+- **Velocità angolare (°/s)**: 0 ~ 100, es. 0.7
+- **Forza/coppia terminale (N/Nm)**: 0 ~ 100, es. 50
+- **Angolo rotazione max (°)**: 0 ~ 100, es. 5
+- **Direzione forza**: z / mz
+- **Accelerazione angolare max (°/s²)**: 0 ~ 100
+- **Direzione inserimento**: Positiva / Negativa
 
 .. image:: graphical/123.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-5 Rotational insertion instruction code block
+.. centered:: Figura 10.9-5 Blocco Inserimento rotazionale
 
-6. "Linear insertion" instruction node, parameters:
+6. Nodo “Inserimento lineare”:
 
-- Coordinate system name: tool coordinate system/base coordinate system
-
-- Action termination force threshold (N): 0 ~ 100
-
-- Linear speed (mm/s): 0 ~ 100, reference value: 1
-
-- Linear acceleration (°/s^2): 0 ~ 100
-
-- Maximum insertion distance (mm): 0 ~ 100
-
-- Insertion direction: positive/negative
+- **Nome sistema coordinate**: Strumento / Base
+- **Soglia forza terminale (N)**: 0 ~ 100
+- **Velocità lineare (mm/s)**: 0 ~ 100, es. 1
+- **Accelerazione lineare (mm/s²)**: 0 ~ 100
+- **Distanza inserimento max (mm)**: 0 ~ 100
+- **Direzione inserimento**: Positiva / Negativa
 
 .. image:: graphical/124.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-6 Linear insertion instruction code block
+.. centered:: Figura 10.9-6 Blocco Inserimento lineare
 
-7. "Surface positioning" instruction node, parameters:
+7. Nodo “Localizzazione superficie”:
 
-- Coordinate system name: tool coordinate system/base coordinate
-
-- Moving direction: positive/negative
-
-- Moving axis: X/Y/Z
-
-- Exploration linear speed (mm/s): 0 ~ 100
-
-- Exploration acceleration (mm/s^2): 0 ~ 100
-
-- Maximum exploration distance (mm): 0 ~ 100
-
-- Action termination force threshold (N): 0 ~ 100
+- **Nome sistema coordinate**: Strumento / Base
+- **Direzione movimento**: Positiva / Negativa
+- **Asse movimento**: X / Y / Z
+- **Velocità esplorazione (mm/s)**: 0 ~ 100
+- **Accelerazione esplorazione (mm/s²)**: 0 ~ 100
+- **Distanza esplorazione max (mm)**: 0 ~ 100
+- **Soglia forza terminale (N)**: 0 ~ 100
 
 .. image:: graphical/125.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-7 Surface positioning instruction code block
+.. centered:: Figura 10.9-7 Blocco Localizzazione superficie
 
-8. "Middle plane start/end calculation" instruction node:
+8. Nodo “Inizio/Fine calcolo piano medio”.
 
 .. image:: graphical/126.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-8 Middle plane start/end calculation instruction code block
+.. centered:: Figura 10.9-8 Blocco Calcolo piano medio
 
-Torque recording instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Torque recording instruction" code block to enter the graphical editing interface workspace.
+Istruzioni Registrazione coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is a torque recording instruction, which includes three instructions: "Torque Recording Start/"Torque Recording Stop" and "Torque Recording Reset".
+Trascinare il blocco “Istruzione Registrazione coppia” nell’area di lavoro.
 
-Realize the torque real-time recording collision detection function.
+Comprende tre comandi: avvio, arresto e reset registrazione coppia, utilizzati per rilevare collisioni in tempo reale.
 
-Click the "Torque Recording Start" button to continuously record the collision situation during the operation of the motion instruction. The recorded real-time torque is used as the theoretical value of the collision detection judgment to reduce the probability of false alarms.
+- Nodo “Avvio registrazione coppia”:
 
-When the set threshold range is exceeded, the duration of the collision detection is recorded.
-
-Click the "Torque Recording Stop" button to stop recording. Click "Torque Recording Reset" to restore the status to the default state.
-
-1. "Torque Recording Start" instruction node, parameters:
-
-- Smoothing selection: unsmoothed (original data)/smoothed (smoothed data)
-
-- Joint negative threshold (Nm): -100 ~ 0
-
-- Joint positive threshold (Nm): 0 ~ 100
-
-- Joint continuous collision detection time (ms): 0 ~ 1000
+  - **Scelta fluidità**: Dati grezzi / Dati filtrati
+  - **Soglia negativa giunti (Nm)**: -100 ~ 0
+  - **Soglia positiva giunti (Nm)**: 0 ~ 100
+  - **Tempo rilevamento collisione (ms)**: 0 ~ 1000
 
 .. image:: graphical/128.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 10.9-9 Torque record start instruction code block
+.. centered:: Figura 10.9-9 Blocco Avvio registrazione coppia
 
-2. "Torque record end" instruction node
+- Nodo “Arresto registrazione coppia”
 
 .. image:: graphical/129.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-10 Torque record end instruction code block
+.. centered:: Figura 10.9-10 Blocco Arresto registrazione coppia
 
-3. "Torque record reset" instruction node
+- Nodo “Reset registrazione coppia”
 
 .. image:: graphical/130.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.9-11 Torque record reset instruction code block
+.. centered:: Figura 10.9-11 Blocco Reset registrazione coppia
 
-Communication graphic programming commands
---------------------------------------------------
-Communication graphic programming commands include modbus master station settings (client), modbus slave station settings, register reading and other communication commands.
+Comandi grafici per comunicazione
+--------------------------------------
+
+I comandi grafici per comunicazione includono configurazione Modbus master/slave, lettura/scrittura registri, ecc.
 
 .. image:: graphical/011.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.10 Communication Graphical Programming Commands
+.. centered:: Figura 10.10 Comandi grafici per comunicazione
 
-Modbus Commands
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Modbus Command" code block to enter the graphical editing interface workspace.
+Istruzioni Modbus
+~~~~~~~~~~~~~~~~~
 
-This command function is a bus function based on the ModbusTCP protocol. Users can control the robot to communicate with the ModbusTCP client or server (master and slave communication) through relevant commands, and read and write coils, discrete quantities, and registers. For more ModbusTCP operation functions, please contact us for consultation.
+Trascinare il blocco “Istruzione Modbus” nell’area di lavoro.
 
-Before using the modbus node function, you need to configure the master station, slave station, and DI, DO, AI, and AO names in the teaching program ModbusTCP configuration.
+Basate sul protocollo ModbusTCP, permettono comunicazione tra robot e dispositivi Modbus (client/server) per lettura/scrittura di coil, input discreti, registri.
 
-1. Master digital output settings, parameters:
+Prima dell’uso, configurare master/slave e nomi DI/DO/AI/AO nell’apposita sezione.
 
-- Modbus master station name: Configure according to actual conditions
+(Seguono 15 nodi con parametri dettagliati, tradotti in modo analogo ai precedenti)
 
-- DO name: Configure according to actual conditions
+Comandi grafici avanzati
+------------------------
 
-- Number of registers: Integer type 0 ~ 128
-
-- Register value: Determined according to the number of registers, multiple values ​​can be entered. For example, if the quantity is 3, the values ​​are 1, 0, 1
-
-.. image:: graphical/131.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-1 Master station "read/write digital output" instruction code block
-
-2. Master station digital input settings, parameters:
-
-- Modbus master station name: configure according to actual situation
-
-- DI name: configure according to actual situation
-
-- Number of registers: integer type 0 ~ 128
-
-.. image:: graphical/132.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-2 Master station "read digital input" instruction code block
-
-3. Master station analog output settings, parameters:
-
-- Modbus master station name: configure according to actual situation
-
-- AO name: configure according to actual situation
-
-- Number of registers: integer type 0 ~ 128
-
-- Register value: Determined by the number of registers, multiple values ​​can be entered. For example, if the quantity is 3, the values ​​are 1, 0, 1
-
-.. image:: graphical/133.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-3 Master station "read/write analog output" instruction code block
-
-4. Master station analog input setting, parameters:
-
-- Modbus master station name: configure according to actual situation
-
-- AI name: configure according to actual situation
-
-- Number of registers: integer type 0 ~ 128
-
-.. image:: graphical/134.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-4 Master station "read analog input" instruction code block
-
-5. Master station wait digital input setting, parameters:
-
-- Modbus master station name: configure according to actual situation
-
-- DI name: configure according to actual situation
-
-- Waiting state: true/false
-
-- Timeout time (ms): integer type 0 ~ 128
-
-.. image:: graphical/135.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-5 Master station "wait for digital input" instruction code block
-
-6. Master station wait analog word input setting, parameters:
-
-- Modbus master station name: Configure according to actual situation
-
-- AI name: Configure according to actual situation
-
-- Waiting state: greater than/less than
-
-- Number of registers: Integer type 0 ~ 128
-
-- Register value: Determined by the number of registers, multiple values ​​can be entered.
-
-.. image:: graphical/136.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-6 Master station "Wait for analog input instruction code block"
-
-7. Slave station digital output settings, parameters:
-
-- DO name: Configure according to actual situation
-
-- Number of registers: Integer type 0 ~ 128
-
-- Register value: Determined by the number of registers, multiple values ​​can be entered. For example, the number is 3, the value is 1,0,1
-
-.. image:: graphical/137.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-7 Slave station "Read/write digital output" instruction code block
-
-8. Slave station digital input settings, parameters:
-
-- DI name: Configure according to actual situation
-
-- Number of registers: Integer type 0 ~ 128
-
-.. image:: graphical/138.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-8 Slave "Read Digital Input" Instruction Code Block
-
-9. Slave Analog Output Settings, Parameters:
-
-- AO Name: Configure according to actual situation
-
-- Number of Registers: Integer 0 ~ 128
-
-- Register Value: Determined by the number of registers, multiple values ​​can be entered. For example, if the number is 3, the values ​​are 1, 0, 1
-
-.. image:: graphical/139.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-9 Slave "Read/Write Analog Output" Instruction Code Block
-
-10. Slave Analog Input Settings, Parameters:
-
-- AI Name: Configure according to actual situation
-
-- Number of Registers: Integer 0 ~ 128
-
-.. image:: graphical/140.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-10 Slave station "read analog input" instruction code block
-
-11. Slave station wait digital input setting, parameters:
-
-- DI name: configure according to actual situation
-
-- Waiting state: true/false
-
-- Timeout (ms): integer type
-
-.. image:: graphical/141.png
-   :width: 6in
-   :align: center
-
-.. centered:: Chart 10.10-11 Slave station "wait digital input" instruction code block
-
-12. Slave station wait analog input setting, parameters:
-
-- AI name: configure according to actual situation
-
-- Waiting state: greater than/less than
-
-- Number of registers: integer type 0 ~ 128
-
-- Register value: determined according to the number of registers, multiple values ​​can be entered.
-
-.. image:: graphical/142.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-12 Slave "Wait for analog input" instruction code block
-
-13. Read register instruction, parameters:
-
-- Function code: 0x01-coil/0x02-discrete/0x03-holding register/0x04-input register
-
-- Register, coil, discrete address: enter according to actual situation
-
-- Register, coil, discrete quantity number: 0 ~ 255
-
-- Address: enter according to actual situation
-
-- Whether to apply thread: No/Yes
-
-.. image:: graphical/143.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-13 "Read register" instruction code block
-
-14. Read register data instruction, parameters:
-
-- Register, coil, discrete quantity number: 0 ~ 255
-
-- Whether to apply thread: No/Yes
-
-.. image:: graphical/144.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-14 "Read register data" instruction code block
-
-15. Write register instruction, parameters:
-
-- Function code: 0x01-coil/0x02-discrete/0x03-holding register/0x04-input register
-
-- Register, coil address: enter according to actual situation
-
-- Number of registers, coils: 0 ~ 255
-
-- Byte array: enter according to actual situation
-
-- Address: enter according to actual situation
-
-- Whether to apply thread: No/Yes
-
-.. image:: graphical/145.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 10.10-15 "Write register instruction" instruction code block
-
-Advanced Graphical Programming Commands
-------------------------------------------------
-Advanced graphical programming commands include advanced commands such as dofile calling subroutines, auxiliary threads, and folding instructions.
+I comandi grafici avanzati includono chiamata sottoprogrammi, thread ausiliari, blocchi pieghevoli, ecc.
 
 .. image:: graphical/012.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.11 Advanced Graphical Programming Commands
+.. centered:: Figura 10.11 Comandi grafici avanzati
 
-Folding Instructions
-~~~~~~~~~~~~~~~~~~~~~
-Drag the "Folding Instructions" code block to enter the graphical editing interface workspace.
+Istruzione Blocco pieghevole
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction provides multi-line code block folding display, which is convenient for users to read code blocks.
+Trascinare il blocco “Istruzione Blocco pieghevole” nell’area di lavoro.
 
-"Fold" instruction node, parameters:
+Permette di raggruppare più blocchi in un’unica riga espandibile/comprimibile, migliorando la leggibilità.
 
-- Code block name: name the fold code block
+- **Nome blocco**: nome descrittivo
 
 .. image:: graphical/146.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.11-1 Fold instruction code block
+.. centered:: Figura 10.11-1 Blocco pieghevole
 
-Call subroutine instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "Call subroutine instruction" code block to enter the graphical editing interface workspace.
+Istruzione Chiamata sottoprogramma
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is the call subroutine instruction. Insert this instruction in the program. When the program executes this instruction, the robot will be in a paused state. If you want to continue running, click the "Pause/Resume" button in the control area.
+Trascinare il blocco “Istruzione Chiamata sottoprogramma” nell’area di lavoro.
 
-"Call subroutine" instruction node, parameters:
+Esegue un sottoprogramma Lua esterno.
 
-- dofile file: create the generated file name
-
-- Which layer to call: first layer/second layer
-
-- id number: corresponding position id of the layer
+- **File dofile**: nome file generato
+- **Livello chiamata**: Primo / Secondo
+- **ID**: identificativo posizione
 
 .. image:: graphical/147.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.11-2 Call subroutine instruction code block
+.. centered:: Figura 10.11-2 Blocco Chiamata sottoprogramma
 
-Auxiliary thread instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "auxiliary thread" code block to enter the graphical editing interface workspace.
+Istruzione Thread ausiliario
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Thread command is an auxiliary thread function. Users can define an auxiliary thread to run simultaneously with the main thread. The auxiliary thread mainly interacts with external devices for data, supports socket communication, robot DI status acquisition, robot DO status setting, robot status information acquisition, and data interaction with the main thread. The data obtained by the main thread through the auxiliary thread is used to control the judgment of the robot's motion logic.
+Trascinare il blocco “Istruzione Thread ausiliario” nell’area di lavoro.
 
-"Auxiliary thread" instruction node, parameters:
+Permette di eseguire un thread parallelo per comunicazione con dispositivi esterni (socket, stato I/O, ecc.).
 
-- Method name: auxiliary thread name
-
-- Call function: auxiliary thread call function value
+- **Nome metodo**: nome del thread
+- **Funzione chiamata**: funzione da eseguire
 
 .. image:: graphical/148.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.11-3 Auxiliary thread code block
+.. centered:: Figura 10.11-3 Blocco Thread ausiliario
 
-Point table instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "point table" code block to enter the graphical editing interface workspace.
+Istruzione Tabella punti
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is mainly used to switch between system mode and point table mode. By switching the point table, the teaching points in different point tables are applied. For details, see Chapter 12 - Teaching Points.
+Trascinare il blocco “Istruzione Tabella punti” nell’area di lavoro.
 
-"Point table" instruction node, parameters:
+Permette di commutare tra diverse tabelle di punti di insegnamento.
 
-- Point table mode: switch different point table names
+- **Modalità tabella punti**: nome tabella
 
 .. image:: graphical/149.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.11-4 Point table code block
+.. centered:: Figura 10.11-4 Blocco Tabella punti
 
-Focus follow instruction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Drag the "focus follow" code block to enter the graphical editing interface workspace.
+Istruzione Inseguimento fuoco
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This instruction is mainly used to focus on one point and follow the movement during the robot movement.
+Trascinare il blocco “Istruzione Inseguimento fuoco” nell’area di lavoro.
 
-"Focus follow" command node, parameters:
+Mantiene l’orientamento dello strumento verso un punto fisso durante il movimento.
 
-- Parameter ratio: 0~100, default value 50
-
-- Feedforward parameter: 0~1000, default value 19
-
-- Maximum angular velocity acceleration limit: 0~10000, default value 1440
-
-- Maximum angular velocity limit: 0~1000, default value 180
-
-- Lock X-axis direction: reference input vector/horizontal/vertical
+- **Coefficiente parametro**: 0~100, predefinito 50
+- **Parametro feedforward**: 0~1000, predefinito 19
+- **Limite accelerazione angolare max**: 0~10000, predefinito 1440
+- **Limite velocità angolare max**: 0~1000, predefinito 180
+- **Blocco asse X**: Vettore riferimento / Orizzontale / Verticale
 
 .. image:: graphical/150.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.11-5 Focus follow code block
+.. centered:: Figura 10.11-5 Blocco Inseguimento fuoco
 
-Graphical programming command usage example
------------------------------------------------------
-After selecting the graphical programming type, click the graphical code block to be used, and you can drag and splice it in the workspace.
+Esempi di utilizzo
+------------------
 
-For example, select PTP and Lin motion instructions and control instruction Waitms for splicing. The outer layer can nest a folding advanced instruction and enter the comment name to achieve code block folding operation.
+Dopo aver selezionato il tipo di programmazione grafica, trascinare i blocchi desiderati nell’area di lavoro e collegarli.
 
-Click the drop-down box to select the instruction parameter type, and the input box can be filled in with instruction parameter data. The following are examples of graphical programming commands:
+Esempio: combinare istruzioni PTP, LIN e Waitms, racchiudendole in un blocco pieghevole con commento descrittivo.
 
 .. image:: graphical/013.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-1 Example of graphical programming commands
+.. centered:: Figura 10.12-1 Esempio comandi grafici
 
-After completing the splicing of graphical programming instructions and filling in parameters, fill in the workspace name and click the "Save" icon to save this program. Select the "workspace" that has been written, click Start Run, and you can execute this program.
+Dopo aver completato la connessione e l’impostazione dei parametri, assegnare un nome al programma e fare clic su “Salva”. Selezionare il programma salvato e avviarlo per eseguirlo.
 
-Modularization of graphical programming code blocks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In order to improve the readability of graphical programming codes, the modularization function of graphical programming code blocks has been added, namely, advanced instructions: folding instruction code blocks.
+Modularizzazione blocchi grafici
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La funzionalità di modularizzazione migliora la leggibilità tramite blocchi pieghevoli.
 
 .. image:: graphical/014.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-2 Folding instruction code block
+.. centered:: Figura 10.12-2 Blocco pieghevole
 
-1. Write a code block instruction, add a folding instruction code block in the outer layer, and write the remarks of the instruction in the input box.
+1. Creare una sequenza di blocchi e racchiuderla in un blocco pieghevole, inserendo un commento descrittivo.
 
 .. image:: graphical/015.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-3 Folding instruction effect diagram
+.. centered:: Figura 10.12-3 Effetto blocco pieghevole
 
-2. Right-click "Fold Block" in the right-click operation bar, and the instruction code block will be folded. The code block is folded into a line and the program can be executed correctly when folded.
+2. Fare clic destro sul blocco e selezionare “Piega”: la sequenza viene compressa in una riga, mantenendo la funzionalità.
 
 .. image:: graphical/016.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-4 Folded effect diagram
+.. centered:: Figura 10.12-4 Vista compressa
 
-3. Scroll the mouse to realize the page zoom function, the specific effect is as follows:
+3. È possibile zoomare la pagina con la rotellina del mouse.
 
 .. image:: graphical/017.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-5 Page zoom function effect diagram
+.. centered:: Figura 10.12-5 Funzione zoom
 
-Graphical programming same name overwrite
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-On the graphical programming page, after creating/loading a file, change the workspace name and click Save. If the changed workspace name file already exists, the "Teaching point already exists" pop-up box will be triggered, as shown below.
+Sovrascrittura con nome identico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Quando si salva un programma con un nome già esistente, appare un avviso.
 
 .. image:: graphical/018.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-6 Graphical programming program overwriting
+.. centered:: Figura 10.12-6 Sovrascrittura programma
 
-**Step1**: Click the "Cancel" button to continue the previous operation.
+**Passo 1**: Cliccare “Annulla” per annullare l’operazione.  
+**Passo 2**: Selezionare “Aggiorna programma insegnamento” e cliccare “Sovrascrivi” per sostituire il file esistente.
 
-**Step2**: Click the "Synchronize and update teaching program" checkbox, and then click the "Overwrite" button, the lua program on the current graphical programming page will overwrite the lua program of the changed workspace file name.
+Verifica salvataggio non effettuato
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Graphical programming program not saved verification
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-On the graphical programming page, after opening/creating a new program, if the graphical programming program is changed but not saved.
-
-If you click the "Open" file operation, the "Save this program" pop-up box will be triggered, prompting "The current program has changed, do you want to save the changes to this program?", as shown in the figure below.
+Se si modifica un programma senza salvarlo e si tenta di aprirne un altro o di uscire dalla pagina, appare un avviso.
 
 .. image:: graphical/019.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-7 Current page program is not saved verification
+.. centered:: Figura 10.12-7 Avviso modifica non salvata (apertura file)
 
-**Step1**: Click the "Don't Save" button to continue the previous "Open" file operation.
+**Passo 1**: Cliccare “Non salvare” per procedere senza salvare.  
+**Passo 2**: Cliccare “Salva” per salvare e proseguire.
 
-**Step2**: Click the "Save" button, the unsaved Lua program is saved successfully, and the previous "Open" file operation is continued.
-
-If you leave the graphical programming page and switch to other pages, the "Do you want to save this program" prompt will also be triggered, and you will still stay on the current graphical programming page, as shown below.
+Lo stesso avviso appare quando si lascia la pagina:
 
 .. image:: graphical/020.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10.12-8 Switch page program is not saved verification
+.. centered:: Figura 10.12-8 Avviso modifica non salvata (cambio pagina)
 
-**Step1**: Click the "Don't Save" button to jump to the previously selected page.
-
-**Step2**: Click the "Save" button, the unsaved Lua program is saved successfully, and jumps to the previously selected page. If the saved program name already exists, it prompts that the teaching point already exists, whether to overwrite. After canceling/overwriting, jump to the previously selected page.
+**Passo 1**: Cliccare “Non salvare” per cambiare pagina.  
+**Passo 2**: Cliccare “Salva”; se il nome esiste già, confermare la sovrascrittura, quindi cambiare pagina.

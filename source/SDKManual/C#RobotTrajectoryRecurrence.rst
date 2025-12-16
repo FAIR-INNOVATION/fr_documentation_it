@@ -1,106 +1,105 @@
-Robot trajectory reproduction
-===============================================
+Riproduzione Traiettoria Robot
+============================================
 
 .. toctree:: 
     :maxdepth: 5
 
-
-Set the parameters for TPD trajectory recording
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Parametri Registrazione Traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the TPD trajectory recording parameters
-    * @param [in] type records data type, 1- joint position
-    * @param [in] name Trajectory file name
-    * @param [in] period_ms data sampling period, fixed value 2ms, 4ms or 8ms
-    * @param [in] di_choose DI selection,bit0 to bit7 correspond to control box DI0 to DI7, bit8 to bit9 correspond to end DI0 to DI1, 0- no selection, 1- selection
-    * @param [in] do_choose DO selection,bit0 to bit7 correspond to control box DO0 to DO7, bit8 to bit9 correspond to end DO0 to DO1, 0- do not select, 1- select
-    * @return error code
-    * /
+    /**
+    * @brief  Impostare Parametri Registrazione Traiettoria TPD
+    * @param  [in] type  Tipo dati registrazione, 1-posizione articolare
+    * @param  [in] name  Nome file traiettoria
+    * @param  [in] period_ms  Periodo campionamento dati, valori fissi 2ms o 4ms o 8ms
+    * @param  [in] di_choose  Selezione DI, bit0~bit7 corrispondono DI0~DI7 quadro controllo, bit8~bit9 corrispondono DI0~DI1 estremità, 0-non selezionato, 1-selezionato
+    * @param  [in] do_choose  Selezione DO, bit0~bit7 corrispondono DO0~DO7 quadro controllo, bit8~bit9 corrispondono DO0~DO1 estremità, 0-non selezionato, 1-selezionato
+    * @return   Codice errore
+    */
     int SetTPDParam(int type, string name, int period_ms, UInt16 di_choose, UInt16 do_choose);
 
-Start TPD trajectory recording
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Iniziare Registrazione Traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Starts TPD trajectory recording
-    * @param [in] type records data type, 1- joint position
-    * @param [in] name Trajectory file name
-    * @param [in] period_ms data sampling period, fixed value 2ms, 4ms or 8ms
-    * @param [in] di_choose DI selection,bit0 to bit7 correspond to control box DI0 to DI7, bit8 to bit9 correspond to end DI0 to DI1, 0- no selection, 1- selection
-    * @param [in] do_choose DO selection,bit0 to bit7 correspond to control box DO0 to DO7, bit8 to bit9 correspond to end DO0 to DO1, 0- do not select, 1- select
-    * @return error code
-    * /
-    int SetTPDStart(int type, string name, int period_ms, UInt16 di_choose, UInt16 do_choose);
+    /**
+    * @brief  Iniziare Registrazione Traiettoria TPD
+    * @param  [in] type  Tipo dati registrazione, 1-posizione articolare
+    * @param  [in] name  Nome file traiettoria
+    * @param  [in] period_ms  Periodo campionamento dati, valori fissi 2ms o 4ms o 8ms
+    * @param  [in] di_choose  Selezione DI, bit0~bit7 corrispondono DI0~DI7 quadro controllo, bit8~bit9 corrispondono DI0~DI1 estremità, 0-non selezionato, 1-selezionato
+    * @param  [in] do_choose  Selezione DO, bit0~bit7 corrispondono DO0~DO7 quadro controllo, bit8~bit9 corrispondono DO0~DO1 estremità, 0-non selezionato, 1-selezionato
+    * @return   Codice errore
+    */
+    int SetTPDStart(int type, string name, int period_ms, UInt16 di_choose, UInt16 do_choose); 
 
-Stop TPD trajectory recording
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arrestare Registrazione Traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Stop TPD trajectory recording
-    * @return error code
-    * /
-    int SetWebTPDStop();
+    /**
+    * @brief  Arrestare Registrazione Traiettoria TPD
+    * @return   Codice errore
+    */
+    int SetWebTPDStop(); 
 
-Delete the TPD trajectory record
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Eliminare Registrazione Traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Delete TPD trajectory records
-    * @param [in] name Trajectory file name
-    * @return error code
-    * /
-    int SetTPDDelete(string name);
+    /**
+    * @brief  Eliminare Registrazione Traiettoria TPD
+    * @param  [in] name  Nome file traiettoria
+    * @return   Codice errore
+    */   
+    int SetTPDDelete(string name); 
 
-TPD trajectory preloading
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Precaricamento Traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Trajectory Preloading
-    * @param [in] name Trajectory file name
-    * @return error code
-    * /
+    /**
+    * @brief  Precaricamento Traiettoria
+    * @param  [in] name  Nome file traiettoria
+    * @return   Codice errore
+    */      
     int LoadTPD(string name);
 
-Obtain the starting pose of the TPD trajectory
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Posa Iniziale Traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Obtain the starting pose of the trajectory
-    * @param [in] name Trajectory file name
-    * @param [out] desc_pose trajectory starting pose
-    * @return error code
-    * /
-    int GetTPDStartPose(string name, ref DescPose desc_pose);
+    /** 
+    * @brief Ottenere Posa Iniziale Traiettoria 
+    * @param [in] name  Nome file traiettoria
+    * @param [out] desc_pose Posa iniziale traiettoria 
+    * @return Codice errore 
+    */ 
+    int GetTPDStartPose(string name, ref DescPose desc_pose); 
 
-TPD trajectory reproduction
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Riproduzione Traiettoria TPD
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Trajectory Reproduction
-    * @param [in] name Trajectory file name
-    * @param [in] blend 0- not smooth, 1- smooth
-    * @param [in] ovl speed scaling percentage, range [0 to 100]
-    * @return error code
-    * /
-    int MoveTPD(string name, byte blend, float ovl);
+    /**
+    * @brief  Riproduzione Traiettoria
+    * @param  [in] name  Nome file traiettoria
+    * @param  [in] blend 0-non smoothing, 1-smoothing
+    * @param  [in] ovl  Percentuale scala velocità, range [0~100]
+    * @return   Codice errore
+    */
+    int MoveTPD(string name, byte blend, float ovl); 
 
-A sample code for robot TPD trajectory recording
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Registrazione Traiettoria TPD Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -144,178 +143,178 @@ A sample code for robot TPD trajectory recording
         robot.SetTPDDelete(name);
     }
 
-Preprocessing of external trajectory files
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pre-elaborazione File Traiettoria Esterna
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief External Trajectory File Preprocessing
-    * @param [in] name Trajectory file name
-    * @param [in] ovl speed scaling percentage, range [0 to 100]
-    * @param [in] opt 1- Control point, default is 1
-    * @return error code
-    * /
-    int LoadTrajectoryJ(string name, float ovl, int opt);
+    /** 
+    * @brief Pre-elaborazione File Traiettoria Esterna 
+    * @param [in] name Nome file traiettoria  
+    * @param [in] ovl Percentuale scala velocità, range [0~100] 
+    * @param [in] opt 1-punto controllo, default 1 
+    * @return Codice errore 
+    */ 
+    int LoadTrajectoryJ(string name, float ovl, int opt); 
 
-External trajectory file trajectory reproduction
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Riproduzione File Traiettoria Esterna
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief External Trajectory file trajectory reproduction
-    * @return error code
-    * /
+    /** 
+    * @brief Riproduzione File Traiettoria Esterna  
+    * @return Codice errore 
+    */
     int MoveTrajectoryJ();
 
-Obtain the starting position of the trajectory file's trajectory
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Posizione Iniziale Traiettoria File Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Get the starting position of the trajectory file trajectory
-    * @param [in] name Trajectory file name
-    * @param [out] desc_pose trajectory starting pose
-    * @return error code
-    * /
-    int GetTrajectoryStartPose(string name, ref DescPose desc_pose);
+    /** 
+    * @brief Ottenere Posizione Iniziale Traiettoria File Traiettoria 
+    * @param [in] name Nome file traiettoria  
+    * @param [out] desc_pose Posa iniziale traiettoria  
+    * @return Codice errore 
+    */ 
+    int GetTrajectoryStartPose(string name, ref DescPose desc_pose); 
 
-Obtain the trajectory point number in the trajectory file
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Numero Punto Traiettoria File Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Get the trajectory point number
-    * @param [out] pnum trajectory point number
-    * @return error code
-    * /
+    /** 
+    * @brief Ottenere Numero Punto Traiettoria   
+    * @param [out] pnum Numero punto traiettoria  
+    * @return Codice errore 
+    */  
     int GetTrajectoryPointNum(ref int pnum);
 
-Set the running speed of the trajectory file trajectory
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Velocità Esecuzione Traiettoria File Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the running speed of the trajectory file trajectory
-    * @param [in] ovl speed percentage
-    * @return error code
-    * /
+    /** 
+    * @brief Impostare Velocità Esecuzione Traiettoria File Traiettoria   
+    * @param [in] ovl Percentuale velocità  
+    * @return Codice errore 
+    */  
     int SetTrajectoryJSpeed(double ovl);
 
-Set the force and torque during the trajectory file's trajectory operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Forza e Coppia durante Esecuzione Traiettoria File Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the force and torque during the trajectory operation of the trajectory file
-    * @param [in] ft forces and torques in three directions, units N and Nm
-    * @return error code
-    * /
-    int SetTrajectoryJForceTorque(ForceTorque ft);
+    /** 
+    * @brief Impostare Forza e Coppia durante Esecuzione Traiettoria File Traiettoria  
+    * @param [in] ft Forza e coppia tre direzioni, unità N e Nm
+    * @return Codice errore 
+    */
+    int SetTrajectoryJForceTorque(ForceTorque ft); 
 
-Set the force along the x direction during the trajectory's operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Forza lungo Direzione x durante Esecuzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the force along the x direction during the trajectory operation
-    * @param [in] fx the force along the x direction, unit N
-    * @return error code
-    * /
+    /** 
+    * @brief Impostare Forza lungo Direzione x durante Esecuzione Traiettoria  
+    * @param [in] fx  Forza lungo direzione x, unità N
+    * @return Codice errore 
+    */
     int SetTrajectoryJForceFx(double fx);
 
-Set the force along the y direction during the trajectory's operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Forza lungo Direzione y durante Esecuzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the force along the y direction during the trajectory operation
-    * @param [in] fy the force along the y direction, unit N
-    * @return error code
-    * /
+    /** 
+    * @brief Impostare Forza lungo Direzione y durante Esecuzione Traiettoria  
+    * @param [in] fy  Forza lungo direzione y, unità N
+    * @return Codice errore 
+    */
     int SetTrajectoryJForceFy(double fy);
 
-Set the force along the z direction during the trajectory's operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Forza lungo Direzione z durante Esecuzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the force along the z direction during the trajectory operation
-    * @param [in] fz force along the z direction, unit N
-    * @return error code
-    * /
+    /** 
+    * @brief Impostare Forza lungo Direzione z durante Esecuzione Traiettoria  
+    * @param [in] fz  Forza lungo direzione z, unità N
+    * @return Codice errore 
+    */
     int SetTrajectoryJForceFz(double fz);
 
-Set the torque around the X-axis during the trajectory's operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Coppia attorno Asse x durante Esecuzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the torque around the X-axis during the trajectory operation
-    * @param [in] tx Torque around the X-axis, in Nm
-    * @return error code
-    * /
+    /** 
+    * @brief Impostare Coppia attorno Asse x durante Esecuzione Traiettoria  
+    * @param [in] tx  Coppia attorno asse x, unità Nm
+    * @return Codice errore 
+    */
     int SetTrajectoryJTorqueTx(double tx);
 
-Set the torque around the Y-axis during the trajectory's operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Coppia attorno Asse y durante Esecuzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the torque around the Y-axis during the trajectory operation
-    * @param [in] ty Torque around the Y-axis, in Nm
-    * @return error code
-    * /
+    /** 
+    * @brief Impostare Coppia attorno Asse y durante Esecuzione Traiettoria  
+    * @param [in] ty  Coppia attorno asse y, unità Nm
+    * @return Codice errore 
+    */
     int SetTrajectoryJTorqueTy(double ty);
 
-Set the torque around the Z-axis during the trajectory's operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Coppia attorno Asse z durante Esecuzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Set the torque around the Z-axis during the trajectory operation
-    * @param [in] tz the torque around the Z-axis, in Nm
-    * @return error code
-    * /
+    /** 
+    * @brief Impostare Coppia attorno Asse z durante Esecuzione Traiettoria  
+    * @param [in] tz  Coppia attorno asse z, unità Nm
+    * @return Codice errore 
+    */
     int SetTrajectoryJTorqueTz(double tz);
 
-Upload the trajectory J file
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Caricare File Traiettoria J
+++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Upload the trajectory J file
-    * @param [in] filePath upload the full path name of the trajectory file C://test/testJ.txt
-    * @return error code
-    * /
+    /**
+    * @brief Caricare File Traiettoria J
+    * @param [in] filePath Nome percorso completo file traiettoria caricamento   C://test/testJ.txt
+    * @return Codice errore
+    */
     int TrajectoryJUpLoad(string filePath);
 
-Delete the trajectory J file
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Eliminare File Traiettoria J
+++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Delete the trajectory J file
-    * @param [in] fileName file name testJ.txt
-    * @return error code
-    * /
+    /**
+    * @brief Eliminare File Traiettoria J
+    * @param [in] fileName Nome file testJ.txt
+    * @return Codice errore
+    */
     int TrajectoryJDelete(string fileName);
 
-Sample code for reproducing robot trajectory J files
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Riproduzione File Traiettoria J Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -374,38 +373,38 @@ Sample code for reproducing robot trajectory J files
         Console.WriteLine("MoveTrajectoryJ rtn is: {0}\n", rtn);
     }
 
-Trajectory preprocessing (trajectory forward-looking)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pre-elaborazione Traiettoria (Look-ahead Traiettoria)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Trajectory Preprocessing (Trajectory Preview)
-    * @param [in] name Trajectory file name
-    * @param [in] mode Sampling mode, 0- no sampling; 1- Equal data interval sampling; 2- Equal error limiting sampling
-    * @param [in] errorLim error limit, effective with linear fitting
-    * @param [in] type smoothing method, 0-Bezier smoothing
-    * @param [in] precision Smoothing accuracy, effective when using Bezier smoothing
-    * @param [in] The maximum speed set by vamx, mm/s
-    * @param [in] The maximum acceleration set by amax, mm/s2
-    * @param [in] The maximum acceleration set by jmax, mm/s3
-    * @return error code
-    * /
-    int LoadTrajectoryLA(string name, int mode, double errorLim, int type, double precision, double vamx, double amax,  double jmax);
+    /**
+    * @brief  Pre-elaborazione Traiettoria (Look-ahead Traiettoria)
+    * @param  [in] name  Nome file traiettoria
+    * @param  [in] mode Modalità campionamento, 0-non campionamento; 1-campionamento intervallo dati uguale; 2-campionamento limite errore uguale
+    * @param  [in] errorLim Limite errore, effettivo quando usa interpolazione lineare
+    * @param  [in] type Metodo smoothing, 0-smoothing Bezier
+    * @param  [in] precision Precisione smoothing, effettivo quando usa smoothing Bezier
+    * @param  [in] vamx Velocità massima impostata, mm/s
+    * @param  [in] amax Accelerazione massima impostata, mm/s2
+    * @param  [in] jmax Jerk massimo impostato, mm/s3
+    * @return   Codice errore   
+    */
+    int LoadTrajectoryLA(string name, int mode, double errorLim, int type, double precision, double vamx, double amax, double jmax);
 
-Trajectory reproduction (Trajectory Foresight)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Riproduzione Traiettoria (Look-ahead Traiettoria)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Trajectory Reproduction (Trajectory Preview)
-    * @return error code
-    * /
+    /**
+    * @brief  Riproduzione Traiettoria (Look-ahead Traiettoria)
+    * @return   Codice errore   
+    */
     int MoveTrajectoryLA();
 
-Trajectory reproduction (trajectory forward-looking) code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Riproduzione Traiettoria (Look-ahead Traiettoria)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -416,7 +415,7 @@ Trajectory reproduction (trajectory forward-looking) code example
         string nameA = "/fruser/traj/A.txt";
         string nameB = "/fruser/traj/B.txt";
 
-        rtn = robot.LoadTrajectoryLA(nameB, 0, 0, 0, 1, 100.0, 100.0, 1000.0);    // 直线拟合
+        rtn = robot.LoadTrajectoryLA(nameB, 0, 0, 0, 1, 100.0, 100.0, 1000.0);    // Interpolazione lineare
         Console.WriteLine($"LoadTrajectoryLA rtn is {rtn}");
 
         DescPose startPos = new DescPose(0, 0, 0, 0, 0, 0);

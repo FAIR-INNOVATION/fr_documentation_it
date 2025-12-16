@@ -1,248 +1,245 @@
-System
-===============
+Impostazioni di Sistema
+==============================
 
 .. toctree:: 
    :maxdepth: 6
 
-General settings
--------------------
+Impostazioni Generali
+-----------------------------
 
-Click "System Settings" on the left menu bar, and then click "General Settings" on the secondary menu bar to enter the general settings interface. General settings can update the robot system time according to the current computer time so that the time of the log content can be recorded accurately.
+Cliccare sul menu a sinistra "Impostazioni di Sistema", quindi sul sottomenu "Impostazioni Generali" per accedere alla pagina delle impostazioni generali. Le impostazioni generali permettono di aggiornare l'ora del sistema robotico in base all'ora del computer per garantire l'accuratezza dei log.
 
 .. image:: system/028.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑1 Time Settings
+.. centered:: Figura 15.1-1 Impostazione dell'Ora
 
-Network settings can set the controller IP, subnet mask, default gateway, DNS server and teach pendant IP (this IP is valid when using our FR-HMI teach pendant, and the teach pendant enable status needs to be configured to enable when using the FR-HMI teach pendant), which is convenient for customers to use the scene.
-
-Network settings
-~~~~~~~~~~~~~~~~~~~~~~~~
+Impostazioni di Rete
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: system/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.1‑2 Network settings diagram
+.. centered:: Figura 15.1-2 Schema Impostazioni di Rete
 
-- **Set network card**: Enter the network card IP, subnet mask (linked with IP, automatically filled in), default gateway, and DNS server that need to communicate. The factory default IP of network card 0 network port is: 192.168.57.2, and the factory default IP of network card 1 network port is: 192.168.58.2.
+-  **Configura Scheda di Rete**: Inserire l'IP della scheda di rete da comunicare, la subnet mask (compilata automaticamente con l'IP), il gateway predefinito e il server DNS. L'IP predefinito della scheda 0 è: 192.168.57.2, e della scheda 1 è: 192.168.58.2.
 
-- **Teach pendant enable**: Control whether to enable the teach pendant. The teach pendant is turned off by default, and the device cannot be operated using the teach pendant. Click the slide switch button to enable the teach pendant to operate the device.
+-  **Abilita Insegnatore**: Controlla se abilitare l'insegnatore. Di default l'insegnatore è disabilitato e non permette l'operazione tramite insegnatore. Scorrendo l'interruttore si abilita l'insegnatore.
+  
+-  **IP di Accesso**: Selezionare la scheda di rete associata a WebAPP e WebRecovery. Quando l'insegnatore è abilitato, WebAPP seleziona di default la scheda 1, e la scheda 0 non è selezionabile.
+  
+-  **Configura Rete**: Cliccare su "Configura Rete" per avviare la configurazione. Dopo il completamento, è necessario riavviare il dispositivo.
+  
+Calibrazione Touchscreen Insegnatore
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **Access IP**: Select the network card associated with WebAPP and WebRecovery. When the teach pendant is enabled, WebAPP selects network card 1 by default, and network card 0 is not selectable.
-
-- **Set up network**: Click the "Set up network" button, and it will prompt that the configuration is in progress. After the configuration is complete, you need to restart the device.
-
-Teach pendant touch screen calibration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-After enabling the teach pendant, you can calibrate the teach pendant.
+Dopo l'abilitazione dell'insegnatore, è possibile calibrarlo.
 
 .. image:: system/029.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑3 Teach pendant touch screen calibration
+.. centered:: Figura 15.1-3 Calibrazione Touchscreen Insegnatore
+  
+Configurazione PC Periferico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Peripheral industrial computer configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To enable the peripheral industrial computer, you need to enter the IP address. After successful configuration, you need to restart the control box and industrial computer.
+Per abilitare il PC periferico, è necessario inserire l'IP. Dopo la configurazione, riavviare la scatola di controllo e il PC.
 
 .. image:: system/030.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑4 Peripheral IPC Configuration
+.. centered:: Figura 15.1-4 Configurazione PC Periferico
+  
+Lingua di Sistema
+~~~~~~~~~~~~~~~~~~~~~~
 
-System Language
-~~~~~~~~~~~~~~~~~~
+Importazione Lingua
++++++++++++++++++++++++++
 
-Language Import
-++++++++++++++++
-
-Select a language pack to import (Note: the import file format is [language code].json). If the import is successful and the language pack is not an existing language in the system, a new imported language pack data will be added to the system language.
+Selezionare un pacchetto lingua da importare (Nota: il formato del file deve essere [codice lingua].json). Se l'importazione è riuscita e la lingua non è già presente, verrà aggiunta una nuova opzione.
 
 .. image:: system/031.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑5 System language interface
+.. centered:: Figura 15.1-5 Interfaccia Lingua di Sistema
 
-Language Export
-+++++++++++++++++
-Select the system language, taking English as an example, click the "Export" button, and the exported download file will pop up on the page.
+Esportazione Lingua
++++++++++++++++++++++++
+Selezionare la lingua di sistema, ad esempio l'inglese, e cliccare su "Esporta" per scaricare il file.
 
 .. image:: system/035.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.1‑6 Export system language
+.. centered:: Figura 15.1-6 Esportazione Lingua di Sistema
    
-Language Application
-++++++++++++++++++++++
+Applicazione Lingua
++++++++++++++++++++++++
 
-Select the system language and click the "Apply" button to switch the system language. After the language is applied successfully, the system will automatically log out to the login page, and the system language will be switched to the current language. Take English as an example:
+Selezionare la lingua di sistema e cliccare su "Applica" per cambiarla. Dopo l'applicazione, il sistema si disconnette automaticamente e la lingua viene aggiornata. Esempio con l'inglese:
 
 .. image:: system/036.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.1‑7 Language system successful interface
+.. centered:: Figura 15.1-7 Interfaccia Lingua Applicata
 
-System safe mode recovery
-++++++++++++++++++++++++++++++
+Ripristino Modalità Sicurezza
++++++++++++++++++++++++++++++++++++
 
-When the system needs to upgrade or downgrade the version, or the system language pack import fails and the system cannot be entered normally, you need to enter the "System Security Mode Recovery" interface. The specific operations are as follows:
-1. Enter the System Settings -> General Settings -> Network Settings interface, adjust the WebRecovery access IP to the network card 0 position, and click "Set Network".
+Quando è necessario effettuare aggiornamenti/rollback del sistema o si verificano errori di importazione del pacchetto lingua, seguire queste operazioni:
+1. Accedere a Impostazioni di Sistema -> Impostazioni Generali -> Impostazioni Rete, impostare l'IP WebRecovery sulla scheda 0 e cliccare su "Configura Rete".
 
 .. image:: system/037.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.1‑8 WebRecovery set up the network card interface
+.. centered:: Figura 15.1-8 Impostazione Scheda WebRecovery
 
-2. After the network settings are successful, restart the control box, switch the IP address to 192.168.57.xxx, and connect the network cable to the control box network card 0.
-3. Log in to the URL "192.168.57.2:8050" and enter the "System Security Mode Recovery" interface.
+2. Dopo la configurazione, riavviare la scatola di controllo, impostare l'IP 192.168.57.xxx e collegare il cavo alla scheda 0.
+3. Accedere a "192.168.57.2:8050" per entrare nella modalità sicurezza.
 
 .. image:: system/038.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 15.1‑9 System security mode recovery interface
+.. centered:: Figura 15.1-9 Interfaccia Modalità Sicurezza
 
-- Software upgrade package import: system software package upgrade or downgrade;
-- Restore factory language: clear the imported application language package data, restore the factory language package data, and set the default language to English;
+- Importazione Pacchetto Software: aggiornamenti/rollback del sistema;
+- Ripristino Lingua Predefinita: elimina le lingue importate e ripristina la lingua predefinita (inglese).
   
-Fault data
-~~~~~~~~~~~~
+Dati di Guasto
+~~~~~~~~~~~~~~~~~~~~
 
-Click the "Fault Data Save Enable" button to generate a fault data file when the controller fails, saving data 15 seconds before and after the fault.
+Abilitando "Salvataggio Dati Guasto", il sistema genera un file contenente i dati dei 15 secondi prima/dopo un guasto.
 
-After saving, you can select all data sources to export in the system settings, and unzip error_data.tar.gz to view the fault data file.
+Dopo il salvataggio, è possibile esportare tutti i dati in system settings e decomprimere error_data.tar.gz per visualizzare i dati.
 
 .. image:: system/039.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figure 15.1‑10 Fault data
-
-Timeout Logout Time Setting
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Users can set the timeout logout time. If the time is met, the robot will automatically log out. The unit is min.
-
-.. image:: system/033.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 15.1‑11 Timeout Logout Time Setting
+.. centered:: Figura 15.1-10 Dati di Guasto
+  
+Timeout Disconnessione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-System Settings
-~~~~~~~~~~~~~~~~~
+Impostare il tempo di timeout (in minuti) per la disconnessione automatica.
 
-Restoring to factory settings under system recovery can clear user data and restore the robot to factory configuration.
+.. image:: system/033.png
+   :width: 4in
+   :align: center
 
-The slave log generation and controller log export functions are to download some important status or error record files of the controller, which is convenient for troubleshooting robot problems.
+.. centered:: Figura 15.1-11 Timeout Disconnessione
+  
+Impostazioni di Sistema
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Il ripristino alle impostazioni di fabbrica elimina i dati utente e reimposta il robot.
+
+La generazione dei log slave e l'esportazione dei log controller permettono di scaricare file utili per il debug.
 
 .. image:: system/034.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑12 System Settings
+.. centered:: Figura 15.1-12 Impostazioni di Sistema
 
-Account settings account settings
---------------------------------------
+Impostazioni Account
+---------------------------
 
-Click Account Settings on the secondary menu bar to enter the Account Settings interface. Account management functions are only available to administrators. The function is divided into the following three modules:
+Cliccare sul sottomenu "Impostazioni Account". Solo l'amministratore può gestire gli account, suddivisi in tre moduli:
 
-User Management
-~~~~~~~~~~~~~~~~~~~~~~~
+Gestione Utenti
+~~~~~~~~~~~~~~~~~~~~~
 
-User management page, used to save user information, you can add user ID, function, etc. The user can log in by entering the existing user name and password in the user list.
+La pagina gestione utenti permette di aggiungere informazioni come ID, nome e ruolo.
 
 .. image:: system/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-1 User Management
+.. centered:: Figura 15.2-1 Gestione Utenti
 
--  **Add users**:Click the "Add" button, enter the job number, name, password and select the function. 
-  
+-  **Nuovo Utente**: Cliccare su "Nuovo", inserire ID, nome, password e selezionare il ruolo.
+
 .. important::
-   The job number can be up to 10-digit integer, and the job number and password are uniquely checked, and the password is displayed in Braille. After the user is added successfully, you can enter the name and password to log in again.
-
+   L'ID massimo è un numero intero di 10 cifre. ID e password devono essere unici, la password è visibile in Braille. Dopo la creazione, è possibile effettuare il login con nome e password.
+  
 .. image:: system/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-2 Add users
+.. centered:: Figura 15.2-2 Nuovo Account
   
--  **Edit users**:When there is a user list, click the "Edit" button on the right, the job number and name cannot be modified, but the password and function can be modified, and the password also needs to be uniquely verified.
+-  **Modifica Utente**: Cliccare su "Modifica" a destra, ID e nome non modificabili, password e ruolo modificabili (password uniche).
   
 .. image:: system/004.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-3 Edit users
+.. centered:: Figura 15.2-3 Modifica Utente
 
--  **Delete users**:The deletion methods are divided into single deletion and batch deletion. 
- 
-   1. Click the single "Delete" button on the right side of the list, and it will prompt "Please click the delete button again to confirm deletion", and click the list again to delete successfully. 
-   
-   2. Click the check box on the left, select the users to be deleted, and then click the batch "Delete" button at the top of the list twice to delete. 
-   
+-  **Elimina Utente**: Eliminazione singola o multipla.
+  
+  1. Cliccare su "Elimina" singolo, confermare con un secondo click.
+  
+  2. Selezionare utenti con checkbox e cliccare due volte su "Elimina" multiplo.
+
 .. important::
-   The initial user 111 and the current login user cannot be deleted.
+   L'utente iniziale 111 e l'utente attuale non possono essere eliminati.
 
 .. image:: system/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-4 Delete users
+.. centered:: Figura 15.2-4 Elimina Utente
 
-
-Authority management
-~~~~~~~~~~~~~~~~~~~~~~~
+Gestione Permessi
+~~~~~~~~~~~~~~~~~~~~~
 
 .. important:: 
-   The default function data (function code 1-6) cannot be deleted, and the function code cannot be modified, but the function name and function description can be modified and the authority of the function can be set.
+   I ruoli predefiniti (codice 1-6) non possono essere eliminati o modificati nel codice, ma possono essere modificati nome, descrizione e permessi.
 
 .. image:: system/006.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-5 Authority management
+.. centered:: Figura 15.2-5 Gestione Permessi
 
-There are six functions by default, administrators have no function restrictions, operators and monitors can use a small number of functions, ME engineers, PE&PQE engineers and technicians & team leaders have some function restrictions, administrators have no function restrictions, the specific default permissions are shown in the following table:
+I sei ruoli predefiniti hanno permessi diversi: l'amministratore ha accesso completo, operatori e osservatori hanno accesso limitato, ingegneri ME/PE&PQE e tecnici hanno permessi parziali. Tabella dettagliata:
 
 .. important:: 
-   Default permissions can be modified
+   I permessi predefiniti sono modificabili.
 
-.. centered:: Table 15.2-1 Permission details
+.. centered:: Tabella 15.2-1 Dettagli Permessi
 
 .. image:: system/007.png
    :width: 6in
    :align: center
 
--  **Add function**: Click the "Add" button, enter the function code, function name and function description, click the "Save" button, and return to the list page after success. Among them, the function code can only be an integer greater than 0 and cannot be the same as the existing function code, and all input items are required.
+-  **Nuovo Ruolo**: Cliccare su "Nuovo", inserire codice (intero positivo unico), nome e descrizione.
 
 .. image:: system/008.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-6 Add function
+.. centered:: Figura 15.2-6 Nuovo Ruolo
 
--  **Edit function name and description**: Click the "Edit" icon in the table operation bar to modify the function name and function description of the current function. After the modification is completed, click the "Save" button below to confirm the modification.
+-  **Modifica Nome/Descrizione**: Cliccare sull'icona "Modifica" per aggiornare nome e descrizione.
 
 .. image:: system/009.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-7 Edit function name and description
+.. centered:: Figura 15.2-7 Modifica Ruolo
 
--  **Set function permissions**: Click the "Settings" icon in the table operation bar to set the permissions of the current function. After setting, click the "Save" button below to confirm the settings.
+-  **Configura Permessi**: Cliccare sull'icona "Imposta" per definire i permessi.
 
 .. image:: system/010.png
    :width: 6in
@@ -252,72 +249,71 @@ There are six functions by default, administrators have no function restrictions
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-8 Set function permissions
+.. centered:: Figura 15.2-8 Configura Permessi
 
--  **Delete function**: Click the "Delete" icon in the table operation bar, firstly, it will check whether the current function is used by a user, if no user uses it, the current function can be deleted, otherwise it cannot be deleted.
+-  **Elimina Ruolo**: Cliccare sull'icona "Elimina" dopo aver verificato che non ci siano utenti associati.
 
 .. image:: system/012.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-9 Delete function
+.. centered:: Figura 15.2-9 Elimina Ruolo
 
-Import/Export
-~~~~~~~~~~~~~~~~~~~~~~~
+Importa/Esporta
+~~~~~~~~~~~~~~~~~~
 
 .. image:: system/013.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2-10 Account settings import/export
+.. centered:: Figura 15.2-10 Importa/Esporta Account
 
--  **Import**: Click the "Import" button to import user management and rights management data in batches.
+-  **Importa**: Importa in massa dati utente e permessi.
+-  **Esporta**: Esporta in massa dati utente e permessi.
 
--  **Export**: Click the "Export" button to export the data of user management and rights management in batches.
+Informazioni
+--------------
 
-About
-------------
-
-Click About on the secondary menu bar to enter the About interface. This page shows the model and serial number of the robot, the web version and control box version used by the robot, hardware version and firmware version.
+Cliccare sul sottomenu "Informazioni" per visualizzare il modello, il numero seriale, le versioni software, hardware e firmware.
 
 .. image:: system/014.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.3-1 About Schematics
+.. centered:: Figura 15.3-1 Schermata Informazioni
 
-Software Upgrade
+Aggiornamento Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Operation Preparation
+Preparazione
 +++++++++++++++++++++++++++++++
 
-1. Before upgrading, check and confirm the current software version in "System Settings - About".
-2. Software upgrade package: Download from the corresponding version's FARRDOC "Resources Download - Robot Software Download". After extraction, it contains the software upgrade package "software.tar.gz" for the corresponding version.
+1. Verificare la versione corrente in "Impostazioni di Sistema" > "Informazioni".
+2. Scaricare il pacchetto software da "Documentazione Faao" > "Download Software", decomprimere per ottenere software.tar.gz.
 
-Important Notes
+Note
 +++++++++++++++++++++++++++++++
 
-1. **Data Backup**: It is recommended to perform a backup before upgrading (refer to section 3.2.1) to avoid data loss due to upgrade anomalies.
-2. **Version Restrictions**:
+1. Backup dati: Eseguire un backup prima dell'aggiornamento (vedi sezione 3.2.1).
+2. Limiti di versione:
 
-.. centered:: Table 15.3-1 Version Upgrade Restrictions
+.. centered:: Tabella 15.3-1 Limiti Versione
 
 .. list-table::
    :widths: 50 50
    :header-rows: 0
    :align: center
 
-   * - **Current Version**
-     - **Maximum Upgradeable Version**
+   * - **Versione Corrente** 
+     - **Versione Massima Aggiornabile**
 
-   * - < v3.6.1
+   * - <v3.6.1
      - v3.6.1
 
-   * - v3.6.1 - v3.6.4
+   * - v3.6.1-v3.6.4
      - v3.6.5
 
-   * - v3.6.5 - v3.6.8
+   * - v3.6.5-v3.6.8
      - v3.6.9
 
    * - v3.6.9 - v3.7.4
@@ -327,92 +323,89 @@ Important Notes
      - v3.7.6
 
    * - ≥ v3.7.6
-     - No restrictions
+     - Nessun limite
 
-3. **Cache Clearance**: After each upgrade (especially for cross-version upgrades), it is recommended to clear the browser cache to ensure normal system operation.
+3. Pulizia Cache: Dopo ogni aggiornamento, pulire la cache del browser.
 
-Operation Steps
+Procedura
 *****************************
 
-**Software Upgrade**:
+**Aggiornamento Software**:
 
-1. Under the "System Settings" -> "About" menu, click the "Upgrade" button to enter the software upgrade interface;
+1. In "Impostazioni di Sistema" > "Informazioni", cliccare su "Aggiorna".
 
 .. image:: system/040.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.3-2 System Upgrade Interface
+.. centered:: Figura 15.3-2 Interfaccia Aggiornamento
 
-2. Click "Choose File" and select the software package "software.tar.gz" downloaded from the official website;
+2. Cliccare su "Seleziona File" e scegliere software.tar.gz scaricato.
 
-.. important::
-   The software upgrade package name must be exactly "software.tar.gz". If the upgrade package name differs, the upgrade will fail. Rename it to the correct package name.
+.. important:: 
+   Il nome del pacchetto deve essere software.tar.gz. In caso di errore, rinominare il file.
 
-3. Click "Upload Upgrade Package" to start the upgrade. The progress bar will be displayed during the upgrade process;
+3. Cliccare su "Carica" per iniziare l'aggiornamento con barra di avanzamento.
 
-4. When the upgrade progress reaches 100%, the interface will prompt "Upgrade successful, please restart the control box";
+4. Al completamento (100%), il sistema indica "Aggiornamento Riuscito. Riavviare la scatola di controllo".
 
 .. image:: system/041.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.3-3 Software Upgrade Successful
+.. centered:: Figura 15.3-3 Aggiornamento Riuscito
 
-5. After restarting the control box, the upgrade is complete. Confirm the version information in "About".
+5. Riavviare la scatola di controllo e verificare la versione in "Informazioni".
 
-**Firmware Upgrade**: After the robot enters BOOT mode, upload the upgrade compressed package, select the required slave stations (control box slave station, body drive slave stations 1~6, end effector slave station) to perform the upgrade operation, and display the upgrade status.
+**Aggiornamento Firmware**: In modalità BOOT, caricare il pacchetto e selezionare gli slave (controller, attuatori 1-6, end-effector) per l'aggiornamento.
 
 .. image:: system/042.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.3-4 Firmware Upgrade
+.. centered:: Figura 15.3-4 Aggiornamento Firmware
 
-**Slave Station Configuration File Upgrade**: After the robot is disabled, upload the upgrade file, select the required slave stations (control box slave station, body drive slave stations 1~6, end effector slave station) to perform the upgrade operation, and display the upgrade status.
+**Aggiornamento Configurazione Slave**: Dopo il disabilitamento, caricare il file e selezionare gli slave per l'aggiornamento.
 
 .. image:: system/043.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.3-5 Slave Station Configuration File Upgrade
+.. centered:: Figura 15.3-5 Aggiornamento Configurazione Slave
 
-**Encoder Upgrade**: After the robot is disabled, upload the upgrade file, select the required joints (Joint1~Joint6) to upgrade, and configure the encoder mode.
+**Aggiornamento Encoder**: Dopo il disabilitamento, caricare il file e selezionare le giunture (Joint1-Joint6) con il relativo modo.
 
 .. image:: system/044.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.3-6 Encoder Upgrade
+.. centered:: Figura 15.3-6 Aggiornamento Encoder
 
-Custom information
-------------------------
+Informazioni Personalizzate
+---------------------------------
 
-Click the custom information of the secondary menu bar to enter the custom information interface. Custom information functions can only be used by administrators.
-This page can upload user information packages, robot models, and setting teaching program encryption status.
+Cliccare sul sottomenu "Informazioni Personalizzate". Solo l'amministratore può caricare pacchetti utente, configurare il modello robotico e abilitare la crittografia del programma insegnatore.
 
 .. image:: system/015.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.4-1 Custom information schematic diagram
+.. centered:: Figura 15.4-1 Informazioni Personalizzate
 
-Robot Model
-~~~~~~~~~~~~~~~
+Modello Robotico
+~~~~~~~~~~~~~~~~~~~
 
 .. important::
-   1. The robot model configured here is a custom robot model name, which is inconsistent with the robot model function configured in "System" -> "Maintenance" -> "Controller Compatible";
-   2. It is not recommended to use names starting with "FR" and "ART". If you enter a custom robot model starting with "FR" and "ART", the model name you enter must be consistent with the "Model Abbreviation" in the robot model catalog table (for details of the robot model catalog table, see the "Robot Model Configuration" section).
+   1. La configurazione qui è personalizzata e non coincide con "Impostazioni di Sistema" > "Modalità Manutenzione" > "Compatibilità Controller".
+   2. Evitare di usare "FR" o "ART" come inizio. Se usati, il nome deve corrispondere esattamente al "Nome Breve" nella tabella modelli.
 
-Parameter range configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Intervallo Parametri
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Parameter range configuration, only the administrator can adjust the parameter range, and the parameters of other authorized members can only be set within the parameter range set by the administrator.
+Solo l'amministratore può configurare gli intervalli dei parametri, gli altri utenti possono solo impostare valori entro tali intervalli. La configurazione avviene tramite slider o inserimento manuale.
 
-There are two ways to set parameters: slider dragging and manual input. 
-
-.. important:: 
-   The maximum value of the parameter range must be greater than the minimum value. 3 seconds after the parameter range is successfully configured, it will automatically jump to the login page, and you need to log in again.
+.. important::
+   Il valore massimo deve essere maggiore del minimo. Dopo la configurazione, si torna automaticamente alla pagina di login dopo 3 secondi.
 
 .. image:: system/016.png
    :width: 6in
@@ -422,84 +415,81 @@ There are two ways to set parameters: slider dragging and manual input.
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.4-2 Schematic diagram of parameter range configuration
+.. centered:: Figura 15.4-2 Configurazione Intervallo Parametri
 
-Robot License Usage Time
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tempo di Utilizzo Consentito
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. License Usage Time settings
+1. **Impostazione Blocco Schermo**
 
-Check the web interface lock screen settings in "Custom" and set whether this function is turned on. When choosing to turn on this function, select the usage period. If not selected, it will prompt "The usage period cannot be empty".
+In "Informazioni Personalizzate", abilitare/disabilitare il tempo di utilizzo. Quando abilitato, selezionare il periodo (non può essere vuoto).
 
-.. note:: If the Robot License Usage Time is turned on, secondary settings cannot be made, and the system time cannot be updated.) After selecting the usage period, click the "Configure" button.
+.. note:: Se il blocco schermo è attivo, non è possibile riconfigurare o modificare l'ora del sistema.
 
-After selecting the usage period, click the "Configure" button.
+Cliccare su "Configura" dopo aver selezionato il periodo.
 
 .. image:: system/023.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.4-3 WEB interface lock screen shutdown settings
+.. centered:: Figura 15.4-3 Tempo di Utilizzo Disattivato
 
 .. image:: system/024.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.4-4 WEB interface lock screen enable settings
+.. centered:: Figura 15.4-4 Tempo di Utilizzo Attivato
 
-2. Expiration reminder
+2. **Notifica Scadenza**
 
-When the web interface Robot License Usage Time is turned on, the following prompt will appear after logging in to the interface:
-
-1)5 days before the expiration of the device, if you power on and log in successfully, a pop-up window will prompt the remaining days of the use period, which can be eliminated by resetting.
+Quando attivo, all'avvio (5 giorni prima della scadenza) appare una notifica con i giorni rimasti, resettabile.
 
 .. image:: system/025.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.4-5 Boot prompt
+.. centered:: Figura 15.4-5 Notifica Avvio
 
-2)If the device continues to work, 5 days before the device expires, a pop-up window will automatically pop up at zero o'clock to prompt the remaining days of the service life, which can be eliminated by resetting.
+Durante l'utilizzo continuo, alle 00:00 appare la notifica.
 
 .. image:: system/026.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.4-6 Continuous work tips
+.. centered:: Figura 15.4-6 Notifica Utilizzo Continuo
 
-3. Unlock login
+3. **Login Sblocco**
 
-When the web interface Robot License Usage Time is turned on, after the device expires, you will directly enter the lock screen interface when you log in to the webApp for the first time. When the device continues to work, it will automatically log out after obtaining the lock screen data at zero point and enter the lock screen interface. At this time, enter the unlock code to unlock and enter the login interface, enter your login information to log in.
+Dopo la scadenza, al primo login si entra nella schermata di blocco. Durante l'utilizzo continuo, alle 00:00 si disconnette automaticamente. Inserire il codice di sblocco (generato dal distributore) per accedere.
 
-.. note:: The integrator operates to generate an encrypted unlock code.
+.. note:: Il codice di sblocco è generato dal distributore.
  
 .. image:: system/027.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.4-7 Lock screen  
+.. centered:: Figura 15.4-7 Schermata Blocco  
 
-Robot model configuration
---------------------------------------
+Configurazione Modello Robotico
+-------------------------------------
 
-.. important:: 
-   If you need to modify the robot model, please contact our technical engineers and proceed under guidance.
+.. important:: Per modificare il modello robotico, contattare l'ingegnere tecnico.
 
-After logging into the collaborative robot console Web, select the corresponding model to modify in the "System Settings" -> "Maintenance Mode" -> "Controller Compatibility" configuration item. For the robot model, refer to the table below.
+Dopo aver effettuato il login, in "Impostazioni di Sistema" > "Modalità Manutenzione" > "Compatibilità Controller", selezionare il modello corrispondente dalla tabella:
 
-The robot model table is as follows:
+Tabella Modelli Robotici:
 
 .. list-table::
    :widths: 10 58 32
    :header-rows: 0
    :align: center
 
-   * - **Numerical value**
-     - **Model (Main model - Major - Minor)**
-     - **Model Abbreviation**
-     
+   * - **Valore**
+     - **Modello (Modello-Maggiore-Minore)**
+     - **Nome Breve**
+
    * - 0
-     - Not configured
+     - Non Configurato
      - /
 
    * - 1
@@ -515,7 +505,7 @@ The robot model table is as follows:
      - FR3 V6.0(Mirror)
 
    * - ...
-     - Reserved
+     - Riservato
      - /
 
    * - 101
@@ -531,7 +521,7 @@ The robot model table is as follows:
      - FR5 V6.0
      
    * - ...
-     - Reserved
+     - Riservato
      - /
    
    * - 201
@@ -543,7 +533,7 @@ The robot model table is as follows:
      - FR10 V6.0
      
    * - ...
-     - Reserved
+     - Riservato
      - /
    
    * - 301
@@ -555,7 +545,7 @@ The robot model table is as follows:
      - FR16 V6.0
      
    * - ...
-     - Reserved
+     - Riservato
      - /
    
    * - 401
@@ -567,7 +557,7 @@ The robot model table is as follows:
      - FR20 V6.0
      
    * - ...
-     - Reserved
+     - Riservato
      - /
 
    * - 501
@@ -575,7 +565,7 @@ The robot model table is as follows:
      - ART3
      
    * - ...
-     - Reserved
+     - Riservato
      - /
 
    * - 601
@@ -583,7 +573,7 @@ The robot model table is as follows:
      - ART5
      
    * - ...
-     - Reserved
+     - Riservato
      - /
 
    * - 702
@@ -595,15 +585,19 @@ The robot model table is as follows:
      - FR3-WMS
      
    * - ...
-     - Reserved
+     - Riservato
      - /
   
    * - 802
      - FRCustom(8)-V1-001(FR5WM)
      - FR5WM
-     
+        
+   * - 803
+     - FRCustom(8)-V1-002(FR5-WML)
+     - FR5-WML
+         
    * - ...
-     - Reserved
+     - Riservato
      - /
 
    * - 901
@@ -613,7 +607,7 @@ The robot model table is as follows:
    * - 902
      - FRCustom(9)-V1-001(FR10YD)
      - FR10YD
-     
+
    * - 904
      - FRCustom(9)-V1-001(FR3-C)
      - FR3-C
@@ -621,9 +615,9 @@ The robot model table is as follows:
    * - 905
      - FRCustom(9)-V01-001(FR30L)
      - FR30L
-
+     
    * - ...
-     - Reserved
+     - Riservato
      - /
 
    * - 1001
@@ -631,8 +625,7 @@ The robot model table is as follows:
      - FR30 V6.0
      
    * - ...
-     - Reserved
+     - Riservato
      - /
 
-.. note:: 
-   Among them, 10 major version numbers (1-10) are reserved, and 10 minor version numbers (1-10) are reserved.
+.. note:: Il numero maggiore ha 10 risorse (1-10), il numero minore ha 10 risorse (1-10).

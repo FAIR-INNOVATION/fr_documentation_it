@@ -1,127 +1,136 @@
-Common Settings
-==========================
+Impostazioni Comuni del Robot
+=============================
 
-.. toctree:: 
-    :maxdepth: 5
+.. toctree::
+   :maxdepth: 5
 
-Set Tool Reference Point - Six-Point Method
-+++++++++++++++++++++++++++++++++++++++++++
+Impostare il punto di riferimento dello strumento - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set tool reference point - six-point method
-     * @param [in] point_num Point number, range [1~6] 
-     * @return Error code
-     */
-    errno_t SetToolPoint(int point_num);
+   /**
+    * @brief Imposta il punto di riferimento dello strumento - Metodo a sei punti
+    * @param [in] point_num Numero del punto, intervallo [1~6]
+    * @return Codice di errore
+    */
+   errno_t SetToolPoint(int point_num);
 
-Calculate Tool Coordinate System
-++++++++++++++++++++++++++++++++
+Calcolare il sistema di coordinate dello strumento
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Calculate tool coordinate system
-     * @param [out] tcp_pose Tool coordinate system
-     * @return Error code
-     */
-    errno_t ComputeTool(DescPose *tcp_pose);
+   /**
+    * @brief  Calcola il sistema di coordinate dello strumento
+    * @param [out] tcp_pose Sistema di coordinate dello strumento
+    * @return Codice di errore
+    */
+   errno_t ComputeTool(DescPose *tcp_pose);
 
-Set Tool Reference Point - Four-Point Method
-++++++++++++++++++++++++++++++++++++++++++++
+Impostare il punto di riferimento dello strumento - Metodo a quattro punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set tool reference point - four-point method
-     * @param [in] point_num Point number, range [1~4] 
-     * @return Error code
-     */
-    errno_t SetTcp4RefPoint(int point_num);
+   /**
+    * @brief Imposta il punto di riferimento dello strumento - Metodo a quattro punti
+    * @param [in] point_num Numero del punto, intervallo [1~4]
+    * @return Codice di errore
+    */
+   errno_t SetTcp4RefPoint(int point_num);
 
-Calculate Tool Coordinate System
-++++++++++++++++++++++++++++++++
+Calcolare il sistema di coordinate dello strumento
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Calculate tool coordinate system
-     * @param [out] tcp_pose Tool coordinate system
-     * @return Error code
-     */
-    errno_t ComputeTcp4(DescPose *tcp_pose);
+   /**
+    * @brief  Calcola il sistema di coordinate dello strumento
+    * @param [out] tcp_pose Sistema di coordinate dello strumento
+    * @return Codice di errore
+    */
+   errno_t ComputeTcp4(DescPose *tcp_pose);
 
-Calculate Tool Coordinate System from Points
-++++++++++++++++++++++++++++++++++++++++++++
+Calcolare il sistema di coordinate dello strumento in base alle informazioni sui punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Calculate tool coordinate system from point data
-     * @param [in] method Calculation method: 0-four-point method; 1-six-point method
-     * @param [in] pos Joint position array (4 points for four-point method, 6 points for six-point method)
-     * @param [out] coord Resulting tool coordinate system
-     * @return Error code
-     */
-    errno_t ComputeToolCoordWithPoints(int method, JointPos pos[], DescPose& coord);
+   /**
+    * @brief Calcola il sistema di coordinate dello strumento in base alle informazioni sui punti
+    * @param [in] method Metodo di calcolo; 0-Metodo a quattro punti; 1-Metodo a sei punti
+    * @param [in] pos Gruppo di posizioni articolari, lunghezza array 4 per metodo a quattro punti, 6 per metodo a sei punti
+    * @param [out] coord Risultato del sistema di coordinate dello strumento
+    * @return Codice di errore
+    */
+   errno_t ComputeToolCoordWithPoints(int method, JointPos pos[], DescPose& coord);
 
-Set Tool Coordinate System
-++++++++++++++++++++++++++++++++++
+Impostare il sistema di coordinate dello strumento
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set tool coordinate system
-     * @param [in] id Coordinate system ID, range [0~14]
-     * @param [in] coord Tool center point pose relative to end flange center
-     * @param [in] type 0-tool coordinate system, 1-sensor coordinate system
-     * @param [in] install Installation position: 0-robot end, 1-external to robot
-     * @param [in] toolID Tool ID
-     * @param [in] loadNum Load number
-     * @return Error code
-     */
-    errno_t SetToolCoord(int id, DescPose *coord, int type, int install, int toolID, int loadNum);
+   /**
+    * @brief  Imposta il sistema di coordinate dello strumento
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] coord  Posa del centro dello strumento rispetto al centro della flangia terminale
+    * @param  [in] type  0-Sistema di coordinate dello strumento, 1-Sistema di coordinate del sensore
+    * @param  [in] install Posizione di installazione, 0-Terminale del robot, 1-Esterno del robot
+    * @param  [in] toolID ID dello strumento
+    * @param  [in] loadNum Numero del carico
+    * @return  Codice di errore
+    */
+   errno_t SetToolCoord(int id, DescPose *coord, int type, int install, int toolID, int loadNum);
 
-Set Tool Coordinate System List
-++++++++++++++++++++++++++++++++++++
+Impostare l'elenco dei sistemi di coordinate dello strumento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set tool coordinate system list
-     * @param [in] id Coordinate system ID, range [0~14]
-     * @param [in] coord Tool center point pose relative to end flange center
-     * @param [in] type 0-tool coordinate system, 1-sensor coordinate system
-     * @param [in] install Installation position: 0-robot end, 1-external to robot
-     * @param [in] loadNum Load number
-     * @return Error code
-     */
-    errno_t SetToolList(int id, DescPose *coord, int type, int install, int loadNum);
+   /**
+    * @brief  Imposta l'elenco dei sistemi di coordinate dello strumento
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] coord  Posa del centro dello strumento rispetto al centro della flangia terminale
+    * @param  [in] type  0-Sistema di coordinate dello strumento, 1-Sistema di coordinate del sensore
+    * @param  [in] install Posizione di installazione, 0-Terminale del robot, 1-Esterno del robot
+    * @param  [in] loadNum Numero del carico
+    * @return  Codice di errore
+    */
+   errno_t SetToolList(int id, DescPose *coord, int type, int install, int loadNum);
 
-Get Current Tool Coordinate System
-++++++++++++++++++++++++++++++++++++++++++
+Ottenere il sistema di coordinate dello strumento corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Get current tool coordinate system
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] desc_pos Tool coordinate system pose
-     * @return Error code
-     */
-    errno_t GetTCPOffset(uint8_t flag, DescPose *desc_pos);
+   /**
+    * @brief  Ottieni il sistema di coordinate dello strumento corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] desc_pos Posa del sistema di coordinate dello strumento
+    * @return  Codice di errore
+    */
+   errno_t  GetTCPOffset(uint8_t flag, DescPose *desc_pos);
 
-Robot Tool Coordinate System Operation Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per operazioni sul sistema di coordinate dello strumento del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestTCPCompute(void)
     {
@@ -186,66 +195,71 @@ Robot Tool Coordinate System Operation Example
         return 0;
     }
 
-Set External Tool Reference Point - Six-Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare il punto di riferimento dello strumento esterno - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set external tool reference point - six-point method
-     * @param [in] point_num Point number, range [1~4] 
-     * @return Error code
-     */
-    errno_t SetExTCPPoint(int point_num);
+   /**
+    * @brief Imposta il punto di riferimento dello strumento esterno - Metodo a sei punti
+    * @param [in] point_num Numero del punto, intervallo [1~4]
+    * @return Codice di errore
+    */
+   errno_t SetExTCPPoint(int point_num);
 
-Calculate External Tool Coordinate System
-+++++++++++++++++++++++++++++++++++++++++++++
+Calcolare il sistema di coordinate dello strumento esterno
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Calculate external tool coordinate system
-     * @param [out] tcp_pose External tool coordinate system
-     * @return Error code
-     */
-    errno_t ComputeExTCF(DescPose *tcp_pose);  
+   /**
+    * @brief  Calcola il sistema di coordinate dello strumento esterno
+    * @param [out] tcp_pose Sistema di coordinate dello strumento esterno
+    * @return Codice di errore
+    */
+   errno_t ComputeExTCF(DescPose *tcp_pose);
 
-Set External Tool Coordinate System
-+++++++++++++++++++++++++++++++++++
+Impostare il sistema di coordinate dello strumento esterno
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set external tool coordinate system
-     * @param [in] id Coordinate system ID, range [0~14]
-     * @param [in] etcp Tool center point pose relative to end flange center
-     * @param [in] etool To be determined
-     * @return Error code
-     */
-    errno_t SetExToolCoord(int id, DescPose *etcp, DescPose *etool);
+   /**
+    * @brief  Imposta il sistema di coordinate dello strumento esterno
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] etcp  Posa del centro dello strumento rispetto al centro della flangia terminale
+    * @param  [in] etool  Da determinare
+    * @return  Codice di errore
+    */
+   errno_t  SetExToolCoord(int id, DescPose *etcp, DescPose *etool);
 
-Set External Tool Coordinate System List
-++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare l'elenco dei sistemi di coordinate dello strumento esterno
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set external tool coordinate system list
-     * @param [in] id Coordinate system ID, range [0~14]
-     * @param [in] etcp Tool center point pose relative to end flange center
-     * @param [in] etool To be determined
-     * @return Error code
-     */
-    errno_t SetExToolList(int id, DescPose *etcp, DescPose *etool);
+   /**
+    * @brief  Imposta l'elenco dei sistemi di coordinate dello strumento esterno
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] etcp  Posa del centro dello strumento rispetto al centro della flangia terminale
+    * @param  [in] etool  Da determinare
+    * @return  Codice di errore
+    */
+   errno_t  SetExToolList(int id, DescPose *etcp, DescPose *etool);
 
-Robot External Tool Coordinate System Operation Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per operazioni sul sistema di coordinate dello strumento esterno del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestExtCoord(void)
     {
@@ -283,539 +297,568 @@ Robot External Tool Coordinate System Operation Example
        return 0;
     }
 
-Set Workpiece Reference Point - Three-Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare il punto di riferimento del pezzo - Metodo a tre punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set workpiece reference point - three-point method
-     * @param [in] point_num Point number, range [1~3] 
-     * @return Error code
-     */
-    errno_t SetWObjCoordPoint(int point_num);
+   /**
+    * @brief Imposta il punto di riferimento del pezzo - Metodo a tre punti
+    * @param [in] point_num Numero del punto, intervallo [1~3]
+    * @return Codice di errore
+    */
+   errno_t SetWObjCoordPoint(int point_num);
 
-Calculate Workpiece Coordinate System
-+++++++++++++++++++++++++++++++++++++++++++++
+Calcolare il sistema di coordinate del pezzo
+++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Calculate workpiece coordinate system
-     * @param [in] method Calculation method: 0-origin-x-axis-z-axis, 1-origin-x-axis-xy-plane
-     * @param [in] refFrame Reference coordinate system
-     * @param [out] wobj_pose Workpiece coordinate system
-     * @return Error code
-     */
-    errno_t ComputeWObjCoord(int method, int refFrame, DescPose *wobj_pose);
+   /**
+    * @brief  Calcola il sistema di coordinate del pezzo
+    * @param [in] method Metodo di calcolo 0: Origine-asse X-asse Z  1: Origine-asse X-piano XY
+    * @param [in] refFrame Sistema di coordinate di riferimento
+    * @param [out] wobj_pose Sistema di coordinate del pezzo
+    * @return Codice di errore
+    */
+   errno_t ComputeWObjCoord(int method, int refFrame, DescPose *wobj_pose);
 
-Set Workpiece Coordinate System
-+++++++++++++++++++++++++++++++
+Impostare il sistema di coordinate del pezzo
+++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set workpiece coordinate system
-     * @param [in] id Coordinate system ID, range [0~14]
-     * @param [in] coord Workpiece coordinate system pose relative to end flange center
-     * @param [in] refFrame Reference coordinate system
-     * @return Error code
-     */
-    errno_t SetWObjCoord(int id, DescPose *coord, int refFrame);
+   /**
+    * @brief  Imposta il sistema di coordinate del pezzo
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] coord  Posa del sistema di coordinate del pezzo rispetto al centro della flangia terminale
+    * @param  [in] refFrame Sistema di coordinate di riferimento
+    * @return  Codice di errore
+    */
+   errno_t SetWObjCoord(int id, DescPose *coord, int refFrame);
 
-Set Workpiece Coordinate System List
-++++++++++++++++++++++++++++++++++++
+Impostare l'elenco dei sistemi di coordinate del pezzo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set workpiece coordinate system list
-     * @param [in] id Coordinate system ID, range [0~14]
-     * @param [in] coord Workpiece coordinate system pose relative to end flange center
-     * @param [in] refFrame Reference coordinate system
-     * @return Error code
-     */
-    errno_t SetWObjList(int id, DescPose *coord, int refFrame);
+   /**
+    * @brief  Imposta l'elenco dei sistemi di coordinate del pezzo
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] coord  Posa del sistema di coordinate del pezzo rispetto al centro della flangia terminale
+    * @param  [in] refFrame Sistema di coordinate di riferimento
+    * @return  Codice di errore
+    */
+   errno_t SetWObjList(int id, DescPose *coord, int refFrame);
 
-Calculate Workpiece Coordinate System from Points
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolare il sistema di coordinate del pezzo in base alle informazioni sui punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Calculate workpiece coordinate system from point data
-     * @param [in] method Calculation method: 0-origin-x-axis-z-axis, 1-origin-x-axis-xy-plane
-     * @param [in] pos Three TCP position array
-     * @param [in] refFrame Reference coordinate system
-     * @param [out] coord Resulting workpiece coordinate system
-     * @return Error code
-     */
-    errno_t ComputeWObjCoordWithPoints(int method, DescPose pos[], int refFrame, DescPose& coord);
+   /**
+    * @brief Calcola il sistema di coordinate del pezzo in base alle informazioni sui punti
+    * @param [in] method Metodo di calcolo; 0: Origine-asse X-asse Z  1: Origine-asse X-piano XY
+    * @param [in] pos Gruppo di tre posizioni TCP
+    * @param [in] refFrame Sistema di coordinate di riferimento
+    * @param [out] coord Risultato del sistema di coordinate del pezzo
+    * @return Codice di errore
+    */
+   errno_t ComputeWObjCoordWithPoints(int method, DescPose pos[], int refFrame, DescPose& coord);
 
-Get Current Workpiece Coordinate System
-++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il sistema di coordinate del pezzo corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Get current workpiece coordinate system
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] desc_pos Workpiece coordinate system pose
-     * @return Error code
-     */   
-    errno_t GetWObjOffset(uint8_t flag, DescPose *desc_pos);
+   /**
+    * @brief  Ottieni il sistema di coordinate del pezzo corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] desc_pos Posa del sistema di coordinate del pezzo
+    * @return  Codice di errore
+    */
+   errno_t  GetWObjOffset(uint8_t flag, DescPose *desc_pos);
 
-Robot Workpiece Coordinate System Operation Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per operazioni sul sistema di coordinate del pezzo del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    int TestWobjCoord(void)
-    {
-        ROBOT_STATE_PKG pkg = {};
-        FRRobot robot;
-        robot.LoggerInit();
-        robot.SetLoggerLevel(1);
-        int rtn = robot.RPC("192.168.58.2");
-        if (rtn != 0)
-        {
-            return -1;
-        }
-        robot.SetReConnectParam(true, 30000, 500);
-        DescPose p1Desc(-89.606, 779.517, 193.516, 178.000, 0.476, -92.484);
-        JointPos p1Joint(-108.145, -50.137, 85.818, -125.599, -87.946, 74.329);
-        DescPose p2Desc(-24.656, 850.384, 191.361, 177.079, -2.058, -95.355);
-        JointPos p2Joint(-111.024, -41.538, 69.222, -114.913, -87.743, 74.329);
-        DescPose p3Desc(-99.813, 766.661, 241.878, -176.817, 1.917, -91.604);
-        JointPos p3Joint(-107.266, -56.116, 85.971, -122.560, -92.548, 74.331);
-        ExaxisPos exaxisPos(0, 0, 0, 0);
-        DescPose offdese(0, 0, 0, 0, 0, 0);
-        DescPose posTCP[3] = { p1Desc , p2Desc , p3Desc };
-        DescPose coordRtn = {};
-        rtn = robot.ComputeWObjCoordWithPoints(1, posTCP, 0, coordRtn);
-        printf("ComputeWObjCoordWithPoints    %d  coord is %f %f %f %f %f %f \n", rtn, coordRtn.tran.x, coordRtn.tran.y, coordRtn.tran.z, coordRtn.rpy.rx, coordRtn.rpy.ry, coordRtn.rpy.rz);
-        robot.MoveJ(&p1Joint, &p1Desc, 1, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
-        robot.SetWObjCoordPoint(1);
-        robot.MoveJ(&p2Joint, &p2Desc, 1, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
-        robot.SetWObjCoordPoint(2);
-        robot.MoveJ(&p3Joint, &p3Desc, 1, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
-        robot.SetWObjCoordPoint(3);
-        rtn = robot.ComputeWObjCoord(1, 0, &coordRtn);
-        printf("ComputeWObjCoord                   %d  coord is %f %f %f %f %f %f \n", rtn, coordRtn.tran.x, coordRtn.tran.y, coordRtn.tran.z, coordRtn.rpy.rx, coordRtn.rpy.ry, coordRtn.rpy.rz);
-        robot.SetWObjCoord(1, &coordRtn, 0);
-        robot.SetWObjList(1, &coordRtn, 0);
-        DescPose getWobjDesc = {};
-        rtn = robot.GetWObjOffset(0, &getWobjDesc);
-        printf("GetWObjOffset                   %d  coord is %f %f %f %f %f %f \n", rtn, coordRtn.tran.x, coordRtn.tran.y, coordRtn.tran.z, coordRtn.rpy.rx, coordRtn.rpy.ry, coordRtn.rpy.rz);
-        robot.CloseRPC();
-        return 0;
-    }
+     int TestWobjCoord(void)
+     {
+         ROBOT_STATE_PKG pkg = {};
+         FRRobot robot;
+         robot.LoggerInit();
+         robot.SetLoggerLevel(1);
+         int rtn = robot.RPC("192.168.58.2");
+         if (rtn != 0)
+         {
+             return -1;
+         }
+         robot.SetReConnectParam(true, 30000, 500);
+         DescPose p1Desc(-89.606, 779.517, 193.516, 178.000, 0.476, -92.484);
+         JointPos p1Joint(-108.145, -50.137, 85.818, -125.599, -87.946, 74.329);
+         DescPose p2Desc(-24.656, 850.384, 191.361, 177.079, -2.058, -95.355);
+         JointPos p2Joint(-111.024, -41.538, 69.222, -114.913, -87.743, 74.329);
+         DescPose p3Desc(-99.813, 766.661, 241.878, -176.817, 1.917, -91.604);
+         JointPos p3Joint(-107.266, -56.116, 85.971, -122.560, -92.548, 74.331);
+         ExaxisPos exaxisPos(0, 0, 0, 0);
+         DescPose offdese(0, 0, 0, 0, 0, 0);
+         DescPose posTCP[3] = { p1Desc , p2Desc , p3Desc };
+         DescPose coordRtn = {};
+         rtn = robot.ComputeWObjCoordWithPoints(1, posTCP, 0, coordRtn);
+         printf("ComputeWObjCoordWithPoints    %d  coord is %f %f %f %f %f %f \n", rtn, coordRtn.tran.x, coordRtn.tran.y, coordRtn.tran.z, coordRtn.rpy.rx, coordRtn.rpy.ry, coordRtn.rpy.rz);
+         robot.MoveJ(&p1Joint, &p1Desc, 1, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
+         robot.SetWObjCoordPoint(1);
+         robot.MoveJ(&p2Joint, &p2Desc, 1, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
+         robot.SetWObjCoordPoint(2);
+         robot.MoveJ(&p3Joint, &p3Desc, 1, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
+         robot.SetWObjCoordPoint(3);
+         rtn = robot.ComputeWObjCoord(1, 0, &coordRtn);
+         printf("ComputeWObjCoord                   %d  coord is %f %f %f %f %f %f \n", rtn, coordRtn.tran.x, coordRtn.tran.y, coordRtn.tran.z, coordRtn.rpy.rx, coordRtn.rpy.ry, coordRtn.rpy.rz);
+         robot.SetWObjCoord(1, &coordRtn, 0);
+         robot.SetWObjList(1, &coordRtn, 0);
+         DescPose getWobjDesc = {};
+         rtn = robot.GetWObjOffset(0, &getWobjDesc);
+         printf("GetWObjOffset                   %d  coord is %f %f %f %f %f %f \n", rtn, coordRtn.tran.x, coordRtn.tran.y, coordRtn.tran.z, coordRtn.rpy.rx, coordRtn.rpy.ry, coordRtn.rpy.rz);
+         robot.CloseRPC();
+         return 0;
+     }
 
-Set Global Speed
-++++++++++++++++
+Impostare la velocità globale
++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set global speed
-     * @param [in] vel Speed percentage, range [0~100]
-     * @return Error code
-     */
-    errno_t SetSpeed(int vel);
+   /**
+    * @brief  Imposta la velocità globale
+    * @param  [in]  vel  Percentuale di velocità, intervallo [0~100]
+    * @return  Codice di errore
+    */
+   errno_t  SetSpeed(int vel);
 
-Set Robot Acceleration
-+++++++++++++++++++++++++++
+Impostare l'accelerazione del robot
+++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set robot acceleration
-     * @param [in] acc Robot acceleration percentage
-     * @return Error code
-     */
-    errno_t SetOaccScale(double acc);
+   /**
+    * @brief Imposta l'accelerazione del robot
+    * @param [in] acc Percentuale di accelerazione del robot
+    * @return Codice di errore
+    */
+   errno_t SetOaccScale(double acc);
 
-Get Robot Default Speed
-+++++++++++++++++++++++++++++++
+Ottenere la velocità predefinita del robot
+++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Get robot default speed
-     * @param [out] vel Speed in mm/s
-     * @return Error code
-     */   
-    errno_t GetDefaultTransVel(float *vel);
-    
-Set End Load Weight
-++++++++++++++++++++++++
+   /**
+    * @brief  Ottieni la velocità predefinita del robot
+    * @param  [out]  vel  Velocità, unità mm/s
+    * @return  Codice di errore
+    */
+   errno_t  GetDefaultTransVel(float *vel);
+
+Impostare il peso del carico terminale
+++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set end load weight
-     * @param [in] loadNum Load number
-     * @param [in] weight Load weight in kg
-     * @return Error code
-     */
-    errno_t SetLoadWeight(int loadNum = 0, float weight);
-
-Set End Effector Payload Center of Gravity Coordinates
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v3.8.6
-    
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief Set End Effector Payload Center of Gravity Coordinates
-    * @param [in] loadNum Payload number
-    * @param [in] coord Center of gravity coordinates, unit mm
-    * @return Error code
+   /**
+    * @brief  Imposta il peso del carico terminale
+    * @param  [in] loadNum Numero del carico
+    * @param  [in] weight  Peso del carico, unità kg
+    * @return  Codice di errore
     */
-    errno_t SetLoadCoord(int loadNum, DescTran* coord);
+   errno_t SetLoadWeight(int loadNum = 0, float weight);
 
-Get Current Load Weight
-++++++++++++++++++++++++++++
+Impostare le coordinate del centro di massa del carico terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. versionadded:: C++SDK-v3.8.6
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Get current load weight
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] weight Load weight in kg
-     * @return Error code
-     */
-    errno_t GetTargetPayload(uint8_t flag, float *weight);
+   /**
+    * @brief Imposta le coordinate del centro di massa del carico terminale
+    * @param [in] loadNum Numero del carico
+    * @param [in] coord Coordinate del centro di massa, unità mm
+    * @return Codice di errore
+    */
+   errno_t SetLoadCoord(int loadNum, DescTran* coord);
 
-Get Current Load Center of Gravity
-+++++++++++++++++++++++++++++++++++++++++
+Ottenere il peso del carico corrente
+++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Get current load center of gravity
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] cog Load center of gravity in mm
-     * @return Error code
-     */   
-    errno_t GetTargetPayloadCog(uint8_t flag, DescTran *cog);
+   /**
+    * @brief  Ottieni il peso del carico corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] weight Peso del carico, unità kg
+    * @return  Codice di errore
+    */
+   errno_t  GetTargetPayload(uint8_t flag, float *weight);
 
-Set Robot Installation Method
-+++++++++++++++++++++++++++++++++++++
+Ottenere il centro di massa del carico corrente
++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set robot installation method
-     * @param [in] install Installation method: 0-standard, 1-wall-mounted, 2-ceiling-mounted
-     * @return Error code
-     */
-    errno_t SetRobotInstallPos(uint8_t install);   
+   /**
+    * @brief  Ottieni il centro di massa del carico corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] cog Centro di massa del carico, unità mm
+    * @return  Codice di errore
+    */
+   errno_t  GetTargetPayloadCog(uint8_t flag, DescTran *cog);
 
-Set Robot Installation Angle
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Set robot installation angle (free installation)
-     * @param [in] yangle Tilt angle
-     * @param [in] zangle Rotation angle
-     * @return Error code
-     */
-    errno_t SetRobotInstallAngle(double yangle, double zangle);
-
-Get Robot Installation Angle
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Get robot installation angle
-     * @param [out] yangle Tilt angle
-     * @param [out] zangle Rotation angle
-     * @return Error code
-     */
-    errno_t GetRobotInstallAngle(float *yangle, float *zangle);
-
-Set System Variable Value
-+++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Set system variable value
-     * @param [in] id Variable number, range [1~20]
-     * @param [in] value Variable value
-     * @return Error code
-     */
-    errno_t SetSysVarValue(int id, float value);
-
-Get System Variable Value
-++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Get system variable value
-     * @param [in] id System variable number, range [1~20]
-     * @param [out] value System variable value
-     * @return Error code
-     */
-    errno_t GetSysVarValue(int id, float *value);
-
-Robot Common Settings Example
-++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    int TestLoadInstall(void)
-    {
-        ROBOT_STATE_PKG pkg = {};
-        FRRobot robot;
-        robot.LoggerInit();
-        robot.SetLoggerLevel(1);
-        int rtn = robot.RPC("192.168.58.2");
-        if (rtn != 0)
-        {
-            return -1;
-        }
-        robot.SetReConnectParam(true, 30000, 500);
-        for (int i = 1; i < 100; i++)
-        {
-            robot.SetSpeed(i);
-            robot.SetOaccScale(i);
-            robot.Sleep(30);
-        }
-        float defaultVel = 0.0;
-        robot.GetDefaultTransVel(&defaultVel);
-        printf("GetDefaultTransVel is %f\n", defaultVel);
-        for (int i = 1; i < 21; i++)
-        {
-            robot.SetSysVarValue(i, i + 0.5);
-            robot.Sleep(100);
-        }
-        for (int i = 1; i < 21; i++)
-        {
-            float value = 0;
-            robot.GetSysVarValue(i, &value);
-            printf("sys value  %d is :%f\n", i, value);
-            robot.Sleep(100);
-        }
-        robot.SetLoadWeight(0, 2.5);
-        DescTran loadCoord = {};
-        loadCoord.x = 3.0;
-        loadCoord.y = 4.0;
-        loadCoord.z = 5.0;
-        robot.SetLoadCoord(&loadCoord);
-        robot.Sleep(1000);
-        float getLoad = 0.0;
-        robot.GetTargetPayload(0, &getLoad);
-        DescTran getLoadTran = {};
-        robot.GetTargetPayloadCog(0, &getLoadTran);
-        printf("get load is %f; get load cog is %f %f %f\n", getLoad, getLoadTran.x, getLoadTran.y, getLoadTran.z);
-        robot.SetRobotInstallPos(0);
-        robot.SetRobotInstallAngle(15.0, 25.0);
-        float anglex = 0.0;
-        float angley = 0.0;
-        robot.GetRobotInstallAngle(&anglex, &angley);
-        printf("GetRobotInstallAngle x:  %f;  y:  %f\n", anglex, angley);
-        robot.CloseRPC();
-        return 0;
-    }
-
-Joint Friction Compensation Switch
-+++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Joint friction compensation switch
-     * @param [in] state 0-off, 1-on
-     * @return Error code
-     */
-    errno_t FrictionCompensationOnOff(uint8_t state);
-
-Set Joint Friction Compensation Coefficient - Standard Installation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Set joint friction compensation coefficient - standard installation
-     * @param [in] coeff Six joint compensation coefficients, range [0~1]
-     * @return Error code
-     */
-    errno_t SetFrictionValue_level(float coeff[6]);
-
-Set Joint Friction Compensation Coefficient - Wall Installation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Set joint friction compensation coefficient - wall installation
-     * @param [in] coeff Six joint compensation coefficients, range [0~1]
-     * @return Error code
-     */
-    errno_t SetFrictionValue_wall(float coeff[6]);
-
-Set Joint Friction Compensation Coefficient - Ceiling Installation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Set joint friction compensation coefficient - ceiling installation
-     * @param [in] coeff Six joint compensation coefficients, range [0~1]
-     * @return Error code
-     */
-    errno_t SetFrictionValue_ceiling(float coeff[6]);
-
-Set Joint Friction Compensation Coefficient - Free Installation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Set joint friction compensation coefficient - free installation
-     * @param [in] coeff Six joint compensation coefficients, range [0~1]
-     * @return Error code
-     */
-    errno_t SetFrictionValue_freedom(float coeff[6]);
-
-Robot Joint Friction Compensation Example
+Impostare il metodo di installazione del robot
 ++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
+
+   /**
+    * @brief  Imposta il metodo di installazione del robot
+    * @param  [in] install  Metodo di installazione, 0-Installazione verticale, 1-Installazione laterale, 2-Installazione a testa in giù
+    * @return  Codice di errore
+    */
+   errno_t  SetRobotInstallPos(uint8_t install);
+
+Impostare l'angolo di installazione del robot
+++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Imposta l'angolo di installazione del robot, installazione libera
+    * @param  [in] yangle  Angolo di inclinazione
+    * @param  [in] zangle  Angolo di rotazione
+    * @return  Codice di errore
+    */
+   errno_t  SetRobotInstallAngle(double yangle, double zangle);
+
+Ottenere l'angolo di installazione del robot
++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Ottieni l'angolo di installazione del robot
+    * @param  [out] yangle Angolo di inclinazione
+    * @param  [out] zangle Angolo di rotazione
+    * @return  Codice di errore
+    */
+   errno_t  GetRobotInstallAngle(float *yangle, float *zangle);
+
+Impostare il valore della variabile di sistema
+++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Imposta il valore della variabile di sistema
+    * @param  [in]  id  Numero della variabile, intervallo [1~20]
+    * @param  [in]  value Valore della variabile
+    * @return  Codice di errore
+    */
+   errno_t  SetSysVarValue(int id, float value);
+
+Ottenere il valore della variabile di sistema
++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Ottieni il valore della variabile di sistema
+    * @param  [in] id Numero della variabile di sistema, intervallo [1~20]
+    * @param  [out] value  Valore della variabile di sistema
+    * @return  Codice di errore
+    */
+   errno_t  GetSysVarValue(int id, float *value);
+
+Esempio di codice per impostazioni comuni del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+     int TestLoadInstall(void)
+     {
+         ROBOT_STATE_PKG pkg = {};
+         FRRobot robot;
+         robot.LoggerInit();
+         robot.SetLoggerLevel(1);
+         int rtn = robot.RPC("192.168.58.2");
+         if (rtn != 0)
+         {
+             return -1;
+         }
+         robot.SetReConnectParam(true, 30000, 500);
+         for (int i = 1; i < 100; i++)
+         {
+             robot.SetSpeed(i);
+             robot.SetOaccScale(i);
+             robot.Sleep(30);
+         }
+         float defaultVel = 0.0;
+         robot.GetDefaultTransVel(&defaultVel);
+         printf("GetDefaultTransVel is %f\n", defaultVel);
+         for (int i = 1; i < 21; i++)
+         {
+             robot.SetSysVarValue(i, i + 0.5);
+             robot.Sleep(100);
+         }
+         for (int i = 1; i < 21; i++)
+         {
+             float value = 0;
+             robot.GetSysVarValue(i, &value);
+             printf("sys value  %d is :%f\n", i, value);
+             robot.Sleep(100);
+         }
+         robot.SetLoadWeight(0, 2.5);
+         DescTran loadCoord = {};
+         loadCoord.x = 3.0;
+         loadCoord.y = 4.0;
+         loadCoord.z = 5.0;
+         robot.SetLoadCoord(&loadCoord);
+         robot.Sleep(1000);
+         float getLoad = 0.0;
+         robot.GetTargetPayload(0, &getLoad);
+         DescTran getLoadTran = {};
+         robot.GetTargetPayloadCog(0, &getLoadTran);
+         printf("get load is %f; get load cog is %f %f %f\n", getLoad, getLoadTran.x, getLoadTran.y, getLoadTran.z);
+         robot.SetRobotInstallPos(0);
+         robot.SetRobotInstallAngle(15.0, 25.0);
+         float anglex = 0.0;
+         float angley = 0.0;
+         robot.GetRobotInstallAngle(&anglex, &angley);
+         printf("GetRobotInstallAngle x:  %f;  y:  %f\n", anglex, angley);
+         robot.CloseRPC();
+         return 0;
+     }
+
+Interruttore compensazione attrito giunti
+++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Interruttore compensazione attrito giunti
+    * @param  [in]  state  0-Spegni, 1-Accendi
+    * @return  Codice di errore
+    */
+   errno_t  FrictionCompensationOnOff(uint8_t state);
+
+Impostare coefficienti compensazione attrito giunti - Installazione verticale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Imposta coefficienti compensazione attrito giunti - Installazione verticale
+    * @param  [in]  coeff Sei coefficienti di compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
+    */
+   errno_t  SetFrictionValue_level(float coeff[6]);
+
+Impostare coefficienti compensazione attrito giunti - Installazione laterale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Imposta coefficienti compensazione attrito giunti - Installazione laterale
+    * @param  [in]  coeff Sei coefficienti di compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
+    */
+   errno_t  SetFrictionValue_wall(float coeff[6]);
+
+Impostare coefficienti compensazione attrito giunti - Installazione a testa in giù
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Imposta coefficienti compensazione attrito giunti - Installazione a testa in giù
+    * @param  [in]  coeff Sei coefficienti di compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
+    */
+   errno_t  SetFrictionValue_ceiling(float coeff[6]);
+
+Impostare coefficienti compensazione attrito giunti - Installazione libera
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief  Imposta coefficienti compensazione attrito giunti - Installazione libera
+    * @param  [in]  coeff Sei coefficienti di compensazione giunti, intervallo [0~1]
+    * @return  Codice di errore
+    */
+   errno_t  SetFrictionValue_freedom(float coeff[6]);
+
+Esempio di codice per impostazione compensazione attrito giunti del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
 
     int TestFriction(void)
     {
-        ROBOT_STATE_PKG pkg = {};
-        FRRobot robot;
+       ROBOT_STATE_PKG pkg = {};
+       FRRobot robot;
 
-        robot.LoggerInit();
-        robot.SetLoggerLevel(1);
-        int rtn = robot.RPC("192.168.58.2");
-        if (rtn != 0)
-        {
-            return -1;
-        }
-        robot.SetReConnectParam(true, 30000, 500);
-        float lcoeff[6] = { 0.9,0.9,0.9,0.9,0.9,0.9 };
-        float wcoeff[6] = { 0.4,0.4,0.4,0.4,0.4,0.4 };
-        float ccoeff[6] = { 0.6,0.6,0.6,0.6,0.6,0.6 };
-        float fcoeff[6] = { 0.5,0.5,0.5,0.5,0.5,0.5 };
-        rtn = robot.FrictionCompensationOnOff(1);
-        printf("FrictionCompensationOnOff rtn is %d\n", rtn);
-        rtn = robot.SetFrictionValue_level(lcoeff);
-        printf("SetFrictionValue_level rtn is %d\n", rtn);
-        rtn = robot.SetFrictionValue_wall(wcoeff);
-        printf("SetFrictionValue_wall rtn is %d\n", rtn);
-        rtn = robot.SetFrictionValue_ceiling(ccoeff);
-        printf("SetFrictionValue_ceiling rtn is %d\n", rtn);
-        rtn = robot.SetFrictionValue_freedom(fcoeff);
-        printf("SetFrictionValue_freedom rtn is %d\n", rtn);
-        robot.CloseRPC();
-        return 0;
+       robot.LoggerInit();
+       robot.SetLoggerLevel(1);
+       int rtn = robot.RPC("192.168.58.2");
+       if (rtn != 0)
+       {
+          return -1;
+       }
+       robot.SetReConnectParam(true, 30000, 500);
+       float lcoeff[6] = { 0.9,0.9,0.9,0.9,0.9,0.9 };
+       float wcoeff[6] = { 0.4,0.4,0.4,0.4,0.4,0.4 };
+       float ccoeff[6] = { 0.6,0.6,0.6,0.6,0.6,0.6 };
+       float fcoeff[6] = { 0.5,0.5,0.5,0.5,0.5,0.5 };
+       rtn = robot.FrictionCompensationOnOff(1);
+       printf("FrictionCompensationOnOff rtn is %d\n", rtn);
+       rtn = robot.SetFrictionValue_level(lcoeff);
+       printf("SetFrictionValue_level rtn is %d\n", rtn);
+       rtn = robot.SetFrictionValue_wall(wcoeff);
+       printf("SetFrictionValue_wall rtn is %d\n", rtn);
+       rtn = robot.SetFrictionValue_ceiling(ccoeff);
+       printf("SetFrictionValue_ceiling rtn is %d\n", rtn);
+       rtn = robot.SetFrictionValue_freedom(fcoeff);
+       printf("SetFrictionValue_freedom rtn is %d\n", rtn);
+       robot.CloseRPC();
+       return 0;
     }
 
-Query Robot Error Code
-+++++++++++++++++++++++++++
+Interrogare codice errore robot
+++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Query robot error code
-     * @param [out] maincode Main error code
-     * @param [out] subcode Sub error code
-     * @return Error code
-     */ 
-    errno_t GetRobotErrorCode(int *maincode, int *subcode);
+   /**
+    * @brief  Interroga codice errore robot
+    * @param  [out]  maincode  Codice errore principale
+    * @param  [out]  subcode   Codice errore secondario
+    * @return  Codice di errore
+    */
+   errno_t  GetRobotErrorCode(int *maincode, int *subcode);
 
-Error State Clear
-+++++++++++++++++++
+Cancellazione stato errore
+++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Error state clear
-     * @return Error code
-     */
-    errno_t ResetAllError();
+   /**
+    * @brief  Cancellazione stato errore
+    * @return  Codice di errore
+    */
+   errno_t  ResetAllError();
 
-Robot Fault State Acquisition and Error Clear Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per ottenimento stato guasto robot e cancellazione errori
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestGetError(void)
     {
-        ROBOT_STATE_PKG pkg = {};
-        FRRobot robot;
-        robot.LoggerInit();
-        robot.SetLoggerLevel(1);
-        int rtn = robot.RPC("192.168.58.2");
-        if (rtn != 0)
-        {
-            return -1;
-        }
-        robot.SetReConnectParam(true, 30000, 500);
-        int maincode, subcode;
-        robot.GetRobotErrorCode(&maincode, &subcode);
-        printf("robot maincode is %d; subcode is %d\n", maincode, subcode);
-        robot.ResetAllError();
-        robot.Sleep(1000);
-        robot.GetRobotErrorCode(&maincode, &subcode);
-        printf("robot maincode is %d; subcode is %d\n", maincode, subcode);
-        robot.CloseRPC();
-        return 0;
+       ROBOT_STATE_PKG pkg = {};
+       FRRobot robot;
+       robot.LoggerInit();
+       robot.SetLoggerLevel(1);
+       int rtn = robot.RPC("192.168.58.2");
+       if (rtn != 0)
+       {
+          return -1;
+       }
+       robot.SetReConnectParam(true, 30000, 500);
+       int maincode, subcode;
+       robot.GetRobotErrorCode(&maincode, &subcode);
+       printf("robot maincode is %d; subcode is %d\n", maincode, subcode);
+       robot.ResetAllError();
+       robot.Sleep(1000);
+       robot.GetRobotErrorCode(&maincode, &subcode);
+       printf("robot maincode is %d; subcode is %d\n", maincode, subcode);
+       robot.CloseRPC();
+       return 0;
     }
 
-Set wide voltage control box temperature and fan current monitoring parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare parametri monitoraggio temperatura e corrente ventole centralina a tensione ampia
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    *@brief setting wide voltage control box temperature and fan current monitoring parameters
-    *@param [ in ] enable 0-do not enable monitoring; 1-enable monitoring
-    *@param [ in ] period (s) , range 1-100
-    *@return error code
+   /**
+    * @brief Imposta parametri monitoraggio temperatura e corrente ventole centralina a tensione ampia
+    * @param [in] enable 0-Disabilita monitoraggio; 1-Abilita monitoraggio
+    * @param [in] period Periodo monitoraggio (s), intervallo 1-100
+    * @return Codice di errore
     */
-    errno_t SetWideBoxTempFanMonitorParam(int enable, int period);
-    
-Obtain wide voltage control box temperature and fan current monitoring parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t SetWideBoxTempFanMonitorParam(int enable, int period);
+
+Ottenere parametri monitoraggio temperatura e corrente ventole centralina a tensione ampia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Obtain wide voltage control box temperature and fan current monitoring parameters
-    *@param [ in ] enable 0-do not enable monitoring; 1-enable monitoring
-    *@param [ in ] period (s) , range 1-100
-    *@return error code
+   /**
+    * @brief Ottiene parametri monitoraggio temperatura e corrente ventole centralina a tensione ampia
+    * @param [out] enable 0-Disabilita monitoraggio; 1-Abilita monitoraggio
+    * @param [out] period Periodo monitoraggio (s), intervallo 1-100
+    * @return Codice di errore
     */
-    errno_t GetWideBoxTempFanMonitorParam(int &enable, int &period);
-    
-Wide voltage control box temperature and fan current state acquisition code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t GetWideBoxTempFanMonitorParam(int &enable, int &period);
+
+Esempio di codice per ottenimento stato temperatura e corrente ventole centralina a tensione ampia
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
      int TestWideVoltageCtrlBoxtemp(void)
      {
@@ -858,68 +901,68 @@ Wide voltage control box temperature and fan current state acquisition code exam
          return 0;
      }
 
-Calculate Focus Calibration Results
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolare risultato calibrazione fuoco
+++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Calculate focus calibration results
-    * @param [in] pointNum Number of calibration points
-    * @param [out] resultPos Calibration result XYZ
-    * @param [out] accuracy Calibration accuracy error
-    * @return Error code
+   /**
+    * @brief Calcola risultato calibrazione fuoco
+    * @param [in] pointNum Numero punti calibrazione
+    * @param [out] resultPos Risultato calibrazione XYZ
+    * @param [out] accuracy Precisione errore calibrazione
+    * @return Codice di errore
     */
-    errno_t ComputeFocusCalib(int pointNum, DescTran& resultPos, float& accuracy);
-         
-Set Focus Position
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t ComputeFocusCalib(int pointNum, DescTran& resultPos, float& accuracy);
+
+Impostare coordinate fuoco
+++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set focus position
-    * @param [in] pos Focus position XYZ
-    * @return Error code
+   /**
+    * @brief Imposta coordinate fuoco
+    * @param [in] pos Coordinate fuoco XYZ
+    * @return Codice di errore
     */
-    errno_t SetFocusPosition(DescTran pos);
-         
-Enable Focus Following
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t SetFocusPosition(DescTran pos);
+
+Avviare inseguimento fuoco
+++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Enable focus following
-    * @param [in] kp Proportional parameter (default: 50.0)
-    * @param [in] kpredict Feedforward parameter (default: 19.0)
-    * @param [in] aMax Maximum angular acceleration limit (default: 1440°/s²)
-    * @param [in] vMax Maximum angular velocity limit (default: 180°/s)
-    * @param [in] type X-axis locking mode (0-reference input vector; 1-horizontal; 2-vertical)
-    * @return Error code
+   /**
+    * @brief Avvia inseguimento fuoco
+    * @param [in] kp Parametro proporzionale, default 50.0
+    * @param [in] kpredict Parametro feedforward, default 19.0
+    * @param [in] aMax Limite massima accelerazione angolare, default 1440°/s^2
+    * @param [in] vMax Limite massima velocità angolare, default 180°/s
+    * @param [in] type Blocca direzione asse X (0-Vettore input riferimento; 1-Orizzontale; 2-Verticale)
+    * @return Codice di errore
     */
-    errno_t FocusStart(double kp, double kpredict, double aMax, double vMax, int type);
-         
-Disable Focus Following
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t FocusStart(double kp, double kpredict, double aMax, double vMax, int type);
+
+Fermare inseguimento fuoco
+++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Disable focus following
-    * @return Error code
+   /**
+    * @brief Ferma inseguimento fuoco
+    * @return Codice di errore
     */
-    errno_t FocusEnd();
+   errno_t FocusEnd();
 
-Robot Focus Following Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per inseguimento fuoco robot
++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestFocus()
     {
@@ -982,94 +1025,94 @@ Robot Focus Following Code Example
       return 0;
     }
 
-Open the joint torque sensor sensitivity calibration function
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Abilitare funzione calibrazione sensibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Open the joint torque sensor sensitivity calibration function
-    * @param [ in ] status 0-off; 1-on
-    * @return  error code
+   /**
+    * @brief Abilita funzione calibrazione sensibilità sensore coppia giunti
+    * @param [in] status 0-Disabilita; 1-Abilita
+    * @return  Codice di errore
     */
-    errno_t JointSensitivityEnable(int status);
+   errno_t JointSensitivityEnable(int status);
 
-Data acquisition of joint torque sensor sensitivity
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Acquisizione dati sensibilità sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Data acquisition of joint torque sensor sensitivity
-    * @return error code
+   /**
+    * @brief Acquisizione dati sensibilità sensore coppia giunti
+    * @return Codice di errore
     */
-    errno_t JointSensitivityCollect();
+   errno_t JointSensitivityCollect();
 
-Obtain joint torque sensor sensitivity calibration results
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere risultato calibrazione sensibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Get joint torque sensor sensitivity calibration results
-    * @param [out] calibResult j1~j6 joint sensitivity [0-1]
-    * @param [out] linearity j1~j6 joint linearity [0-1]
-    * @return Error code
+   /**
+    * @brief Ottiene risultato calibrazione sensibilità sensore coppia giunti
+    * @param [out] calibResult Sensibilità giunti j1~j6 [0-1]
+    * @param [out] linearity Linearità giunti j1~j6 [0-1]
+    * @return Codice di errore
     */
-    errno_t JointSensitivityCalibration(double calibResult[6], double linearity[6]);
+   errno_t JointSensitivityCalibration(double calibResult[6], double linearity[6]);
 
-Get Joint Torque Sensor Hysteresis Error
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere errore isteresi sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Get joint torque sensor hysteresis error
-    * @param [out] hysteresisError j1~j6 joint hysteresis error
-    * @return Error code
+   /**
+    * @brief Ottiene errore isteresi sensore coppia giunti
+    * @param [out] hysteresisError Errore isteresi giunti j1~j6
+    * @return Codice di errore
     */
-    errno_t JointHysteresisError(double hysteresisError[6]);
-    
-Get Joint Torque Sensor Repeatability
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t JointHysteresisError(double hysteresisError[6]);
+
+Ottenere ripetibilità sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
-    
-    /**
-    * @brief Get joint torque sensor repeatability
-    * @param [out] repeatability j1~j6 joint torque sensor repeatability
-    * @return Error code
+   :linenos:
+
+   /**
+    * @brief Ottiene ripetibilità sensore coppia giunti
+    * @param [out] repeatability Ripetibilità sensore coppia giunti j1~j6
+    * @return Codice di errore
     */
-    errno_t JointRepeatability(double repeatability[6]);
-    
-Set Joint Force Sensor Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t JointRepeatability(double repeatability[6]);
+
+Impostare parametri sensore forza giunti
++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set joint force sensor parameters
-    * @param [in] M J1-J6 mass coefficient [0.001 ~ 10]
-    * @param [in] B J1-J6 damping coefficient [0.001 ~ 10]
-    * @param [in] K J1-J6 stiffness coefficient [0.001 ~ 10]
-    * @param [in] threshold Force control threshold, Nm
-    * @param [in] sensitivity Sensitivity, Nm/V, [0 ~ 10]
-    * @param [in] setZeroFlag Function enable flag; 0-Off; 1-On; 2-Record zero point at position 1; 3-Record zero point at position 2
-    * @return Error code
+   /**
+    * @brief Imposta parametri sensore forza giunti
+    * @param [in] M Coefficiente massa J1-J6 [0.001 ~ 10]
+    * @param [in] B Coefficiente smorzamento J1-J6 [0.001 ~ 10]
+    * @param [in] K Coefficiente rigidità J1-J6 [0.001 ~ 10]
+    * @param [in] threshold Soglia controllo forza, Nm
+    * @param [in] sensitivity Sensibilità, Nm/V, [0 ~ 10]
+    * @param [in] setZeroFlag Flag abilitazione funzione; 0-Disabilita; 1-Abilita; 2-Registra zero posizione 1; 3-Registra zero posizione 2
+    * @return Codice di errore
     */
-    errno_t SetAdmittanceParams(double M[6], double B[6], double K[6], double threshold[6], double sensitivity[6], int setZeroFlag);
+   errno_t SetAdmittanceParams(double M[6], double B[6], double K[6], double threshold[6], double sensitivity[6], int setZeroFlag);
 
-An example of joint torque sensor sensitivity auto-calibration code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per calibrazione automatica sensibilità sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestSensitivityCalib()
     {
@@ -1183,9 +1226,9 @@ An example of joint torque sensor sensitivity auto-calibration code
         printf("JointSensitivityCalibration rtn is %d\n", rtn);
         rtn = robot.JointSensitivityEnable(0);
         printf("JointSensitivityEnable rtn is %d\n", rtn);
-        printf("jointSensor Calib result is %f %f %f %f %f %f\njointSensor linearity is %f %f %f %f %f %f\n", 
-            calibResult[0], calibResult[1], calibResult[2], 
-            calibResult[3], calibResult[4], calibResult[5], 
+        printf("jointSensor Calib result is %f %f %f %f %f %f\njointSensor linearity is %f %f %f %f %f %f\n",
+            calibResult[0], calibResult[1], calibResult[2],
+            calibResult[3], calibResult[4], calibResult[5],
             linearity[0], linearity[1], linearity[2],
             linearity[3], linearity[4], linearity[5]);
         double hysteresisError[6] = { 0.0 };
@@ -1207,45 +1250,45 @@ An example of joint torque sensor sensitivity auto-calibration code
         printf("SetAdmittanceParams rtn is %d\n", rtn);
         robot.CloseRPC();
     }
-    
-Gets 8 slave error frames
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ottenere numero frame errori 8 porte slave robot
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief  gets 8 slave error frames
-    * @param [ out ] in recverr
-    * @param [ out -RSB- inCRCErr enCRC CRC error frames
-    * @param [ out ] in forwarding error frames
-    * @param [ out ] inlinker R enter link error frames
-    * @param [ out ] out recverr output received error frames
-    * @param [ out ] outCRCErr output CRC error frames
-    * @param [ out ] outtransmitterr output forwarding error frames
-    * @param [ out ] outLinkErr output link error frames
-    * @return  error code
+   /**
+    * @brief Ottiene numero frame errori 8 porte slave robot
+    * @param [out] inRecvErr Numero frame errori ricezione input
+    * @param [out] inCRCErr Numero frame errori CRC input
+    * @param [out] inTransmitErr Numero frame errori trasmissione input
+    * @param [out] inLinkErr Numero frame errori collegamento input
+    * @param [out] outRecvErr Numero frame errori ricezione output
+    * @param [out] outCRCErr Numero frame errori CRC output
+    * @param [out] outTransmitErr Numero frame errori trasmissione output
+    * @param [out] outLinkErr Numero frame errori collegamento output
+    * @return Codice di errore
     */
-    errno_t GetSlavePortErrCounter(int inRecvErr[8], int inCRCErr[8], int inTransmitErr[8], int inLinkErr[8], int outRecvErr[8], int outCRCErr[8], int outTransmitErr[8], int outLinkErr[8]);
+   errno_t GetSlavePortErrCounter(int inRecvErr[8], int inCRCErr[8], int inTransmitErr[8], int inLinkErr[8], int outRecvErr[8], int outCRCErr[8], int outTransmitErr[8], int outLinkErr[8]);
 
-Error frame zeroing at slave port
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Azzeramento frame errori porte slave
++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Error frame zeroing at slave port
-    * @param [in] slaveID Slave station number 0 ~ 7
-    * @return error code
+   /**
+    * @brief Azzeramento frame errori porte slave
+    * @param [in] slaveID Numero slave 0~7
+    * @return Codice di errore
     */
-    errno_t SlavePortErrCounterClear(int slaveID);
-    
-Gets an example of a slave port error frame code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t SlavePortErrCounterClear(int slaveID);
+
+Esempio di codice per ottenimento frame errori porte slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestSlavePortErr()
     {
@@ -1259,7 +1302,7 @@ Gets an example of a slave port error frame code
             return 0;
         }
         robot.SetReConnectParam(true, 30000, 500);
-        int inRecvErr[8] = {0.0}; 
+        int inRecvErr[8] = {0.0};
         int inCRCErr[8] = { 0.0 };
         int inTransmitErr[8] = { 0.0 };
         int inLinkErr[8] = { 0.0 };
@@ -1313,37 +1356,37 @@ Gets an example of a slave port error frame code
         return 0;
     }
 
-Set feed-forward coefficients for each axis
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare coefficiente feedforward velocità assi
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set feed-forward coefficients for each axis
-    * @param [in] radio Feed-forward coefficient of velocity of each axis
-    * @return error code
+   /**
+    * @brief Imposta coefficiente feedforward velocità assi
+    * @param [in] radio Coefficiente feedforward velocità assi
+    * @return Codice di errore
     */
-    errno_t SetVelFeedForwardRatio(double radio[6]);
+   errno_t SetVelFeedForwardRatio(double radio[6]);
 
-Obtain the feed-forward coefficients of each axis
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere coefficiente feedforward velocità assi
+++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Obtain the feed-forward coefficients of each axis
-    * @param [out] radio Feed-forward coefficient of velocity of each axis
-    * @return error code
+   /**
+    * @brief Ottiene coefficiente feedforward velocità assi
+    * @param [out] radio Coefficiente feedforward velocità assi
+    * @return Codice di errore
     */
-    errno_t GetVelFeedForwardRatio(double radio[6]);
+   errno_t GetVelFeedForwardRatio(double radio[6]);
 
-Example of robot velocity feed-forward coefficient code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per coefficiente feedforward velocità robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestVelFeedForwardRatio()
     {

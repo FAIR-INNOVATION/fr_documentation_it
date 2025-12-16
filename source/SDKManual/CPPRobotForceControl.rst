@@ -1,176 +1,176 @@
-Force control
-=======================
+Controllo della Forza del Robot
+===============================
 
 .. toctree:: 
     :maxdepth: 5
 
-Force sensor configuration
-+++++++++++++++++++++++++++++
+Configurazione Sensore di Forza/Coppia
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief force sensor configuration
-    * @param [in] company force sensor manufacturer, 17-Kunwei Technology, 19-Aerospace 11th Institute, 20-ATI Sensor, 21-Zhongke Midian, 22-Weihang Minxin, 23-NBIT, 24-Xinjingcheng (XJC), 26-NSR
-    * @param [in] device device number, Kunwei (0-KWR75B), Aerospace 11th Institute (0-MCS6A-200-4), ATI (0-AXIA80-M8), Zhongke Midian (0-MST2010), Weihang Minxin (0-WHC6L-YB-10A), NBIT (0-XLH93003ACS), Xinjingcheng XJC (0-XJC-6F-D82), NSR (0-NSR-FTSensorA)
-    * @param [in] softvesion Software version number, not used yet, default is 0
-    * @param [in] bus device is hung at the end bus position, not used yet, default is 0
-    * @return error code
-    */
-    errno_t  FT_SetConfig(int company, int device, int softvesion, int bus);
+	 * @brief  Configura il sensore di forza/coppia
+	 * @param  [in] company  Produttore del sensore di forza/coppia, 17-Kunwei Tech, 19-Aerospace 11th Academy, 20-ATI Sensor, 21-Zhongke Midian, 22-Weihang Minxin, 23-NBIT, 24-Xin Jingcheng (XJC), 26-NSR
+	 * @param  [in] device  Numero dispositivo, Kunwei(0-KWR75B), Aerospace 11th Academy(0-MCS6A-200-4), ATI(0-AXIA80-M8), Zhongke Midian(0-MST2010), Weihang Minxin(0-WHC6L-YB-10A), NBIT(0-XLH93003ACS), Xin Jingcheng XJC(0-XJC-6F-D82), NSR(0-NSR-FTSensorA)
+	 * @param  [in] softvesion  Numero versione software, attualmente non utilizzato, default 0
+	 * @param  [in] bus  Posizione del bus terminale su cui è collegato il dispositivo, attualmente non utilizzato, default 0
+	 * @return  Codice errore
+	 */
+    errno_t FT_SetConfig(int company, int device, int softvesion, int bus);
 
-Get the force sensor configuration
+Ottenere Configurazione Sensore di Forza/Coppia
+++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene la configurazione del sensore di forza/coppia
+    * @param  [in] company  Produttore del sensore di forza/coppia, da definire
+    * @param  [in] device  Numero dispositivo, attualmente non utilizzato, default 0
+    * @param  [in] softvesion  Numero versione software, attualmente non utilizzato, default 0
+    * @param  [in] bus  Posizione del bus terminale su cui è collegato il dispositivo, attualmente non utilizzato, default 0
+    * @return  Codice errore
+    */
+    errno_t  FT_GetConfig(int *company, int *device, int *softvesion, int *bus);
+
+Attivazione Sensore di Forza/Coppia
 ++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get the force sensor configuration
-    * @param  [in] company  Force sensor manufacturer, to be determined
-    * @param  [in] device  Device number, not used yet. The default value is 0
-    * @param  [in] softvesion  Software version. The value is not used. The default value is 0
-    * @param  [in] bus The device is attached to the terminal bus and is not in use. The default value is 0
-    * @return  Error code
-    */
-    errno_t  FT_GetConfig(int *company, int *device, int *softvesion, int *bus);
-
-Force Sensor Activation
-+++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Force sensor activation
-    * @param  [in] act  0- reset, 1- activate
-    * @return  Error code
+    * @brief  Attiva il sensore di forza/coppia
+    * @param  [in] act  0-reset, 1-attiva
+    * @return  Codice errore
     */
     errno_t  FT_Activate(uint8_t act);
 
-Force sensor calibration
-++++++++++++++++++++++++++
+Taratura Zero Sensore di Forza/Coppia
+++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Force sensor calibration
-    * @param  [in] act  0- zero removal, 1- zero correction
-    * @return  Error code
+    * @brief  Taratura zero del sensore di forza/coppia
+    * @param  [in] act  0-rimuovi offset zero, 1-correggi offset zero
+    * @return  Codice errore
     */
     errno_t  FT_SetZero(uint8_t act);   
 
-Set Force Sensor Reference Coordinate System
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Sistema di Riferimento per Sensore di Forza/Coppia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Set force sensor reference coordinate system
-    * @param  [in] ref  0-Tool coordinate system, 1-Base coordinate system
-    * @return  Error code
+    * @brief  Imposta il sistema di riferimento per il sensore di forza/coppia
+    * @param  [in] ref  0-sistema di coordinate utensile, 1-sistema di coordinate base
+    * @return  Codice errore
     */
     errno_t  FT_SetRCS(uint8_t ref); 
 
-Set Payload Weight Under Force Sensor
-+++++++++++++++++++++++++++++++++++++++
+Impostare Peso del Carico per Sensore di Forza
++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Set payload weight under force sensor
-     * @param [in] weight  Payload weight in kg
-     * @return  Error code
+     * @brief Imposta il peso del carico per il sensore di forza
+     * @param [in] weight Peso del carico kg
+     * @return Codice errore
      */
     errno_t SetForceSensorPayload(double weight);
 
-Set Payload Center of Gravity Under Force Sensor
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Centro di Gravità del Carico per Sensore di Forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Set payload center of gravity under force sensor
-     * @param [in] x  Payload COG x in mm
-     * @param [in] y  Payload COG y in mm
-     * @param [in] z  Payload COG z in mm
-     * @return  Error code
+     * @brief Imposta il centro di gravità del carico per il sensore di forza
+     * @param [in] x Centro di gravità x mm
+     * @param [in] y Centro di gravità y mm
+     * @param [in] z Centro di gravità z mm
+     * @return Codice errore
      */
     errno_t SetForceSensorPayloadCog(double x, double y, double z);
 
-Get Payload Weight Under Force Sensor
-+++++++++++++++++++++++++++++++++++++++
+Ottenere Peso del Carico per Sensore di Forza
++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
     
     /**
-     * @brief Get payload weight under force sensor
-     * @param [in] weight  Payload weight in kg
-     * @return  Error code
+     * @brief Ottiene il peso del carico per il sensore di forza
+     * @param [in] weight Peso del carico kg
+     * @return Codice errore
      */
     errno_t GetForceSensorPayload(double& weight);
 
-Get Payload Center of Gravity Under Force Sensor
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Centro di Gravità del Carico per Sensore di Forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Get payload center of gravity under force sensor
-     * @param [out] x  Payload COG x in mm
-     * @param [out] y  Payload COG y in mm
-     * @param [out] z  Payload COG z in mm
-     * @return  Error code
+     * @brief Ottiene il centro di gravità del carico per il sensore di forza
+     * @param [out] x Centro di gravità x mm
+     * @param [out] y Centro di gravità y mm
+     * @param [out] z Centro di gravità z mm
+     * @return Codice errore
      */
     errno_t GetForceSensorPayloadCog(double& x, double& y, double& z);
 
-Force Sensor Auto Zero Calibration
-+++++++++++++++++++++++++++++++++++++++
+Taratura Zero Automatica Sensore di Forza
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Force sensor auto zero calibration
-     * @param [out] weight  Sensor mass in kg
-     * @param [out] pos  Sensor COG in mm
-     * @return  Error code
+     * @brief Taratura zero automatica del sensore di forza
+     * @param [out] weight Massa del sensore kg
+     * @param [out] pos Centro di gravità del sensore mm
+     * @return Codice errore
      */
     errno_t ForceSensorAutoComputeLoad(double& weight, DescTran& pos);
 
-Get Force/Torque Data in Reference Coordinate System
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Dati Forza/Coppia nel Sistema di Riferimento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get force/torque data in reference coordinate system
-    * @param  [out] ft  Force/torque, fx, fy, fz, tx, ty, tz
-    * @return  Error code
+    * @brief  Ottiene i dati forza/coppia nel sistema di riferimento
+    * @param  [out] ft  Forza/coppia, fx,fy,fz,tx,ty,tz
+    * @return  Codice errore
     */   
     errno_t  FT_GetForceTorqueRCS(ForceTorque *ft); 
 
-Get Raw Force/Torque Data from Force Sensor
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Dati Forza/Coppia Originali dal Sensore
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get raw force/torque data from force sensor
-    * @param  [out] ft  Force/torque, fx, fy, fz, tx, ty, tz
-    * @return  Error code
+    * @brief  Ottiene i dati forza/coppia originali dal sensore
+    * @param  [out] ft  Forza/coppia, fx,fy,fz,tx,ty,tz
+    * @return  Codice errore
     */   
     errno_t  FT_GetForceTorqueOrigin(ForceTorque *ft); 
 
-Force Sensor Configuration and Auto Zero Calibration Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Configurazione e Taratura Automatica Sensore di Forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -229,57 +229,57 @@ Force Sensor Configuration and Auto Zero Calibration Code Example
     }
 
 
-Payload Weight Identification Record
-+++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione Identificazione Peso Carico
+++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Payload weight identification record
-    * @param  [in] id  Sensor coordinate system number, range [1~14]
-    * @return  Error code
+    * @brief  Registra dati per identificazione peso carico
+    * @param  [in] id  Numero sistema di coordinate sensore, intervallo [1~14]
+    * @return  Codice errore
     */
     errno_t  FT_PdIdenRecord(int id);   
 
-Payload Weight Identification Calculation
-+++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Identificazione Peso Carico
+++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Payload weight identification calculation
-    * @param  [out] weight  Payload weight in kg
-    * @return  Error code
+    * @brief  Calcola identificazione peso carico
+    * @param  [out] weight  Peso del carico, unità kg
+    * @return  Codice errore
     */   
     errno_t  FT_PdIdenCompute(float *weight);
 
-Payload COG Identification Record
-+++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Payload COG identification record
-    * @param  [in] id  Sensor coordinate system number, range [1~14]
-    * @param  [in] index  Point number, range [1~3]
-    * @return  Error code
-    */
-    errno_t  FT_PdCogIdenRecord(int id, int index);    
-
-Payload COG Identification Calculation
+Registrazione Identificazione Centro di Gravità Carico
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Payload COG identification calculation
-    * @param  [out] cog  Payload COG in mm
-    * @return  Error code
+    * @brief  Registra dati per identificazione centro di gravità carico
+    * @param  [in] id  Numero sistema di coordinate sensore, intervallo [1~14]
+    * @param  [in] index  Numero punto, intervallo [1~3]
+    * @return  Codice errore
+    */
+    errno_t  FT_PdCogIdenRecord(int id, int index);    
+
+Calcolo Identificazione Centro di Gravità Carico
++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Calcola identificazione centro di gravità carico
+    * @param  [out] cog  Centro di gravità carico, unità mm
+    * @return  Codice errore
     */   
     errno_t  FT_PdCogIdenCompute(DescTran *cog); 
 
-Force Sensor Payload Identification Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Identificazione Carico Sensore di Forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -347,26 +347,26 @@ Force Sensor Payload Identification Code Example
       return 0;
     }
 
-Collision Guard
-+++++++++++++++++++++++++++++++++++++++++++++
+Guardia Collisioni
++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Collision guard
-    * @param  [in] flag 0-Turn off collision guard, 1-Turn on collision guard
-    * @param  [in] sensor_id  Force sensor number
-    * @param  [in] select  Select whether to detect collision in six degrees of freedom, 0-Do not detect, 1-Detect
-    * @param  [in] ft  Collision force/torque, fx, fy, fz, tx, ty, tz
-    * @param  [in] max_threshold  Maximum threshold
-    * @param  [in] min_threshold  Minimum threshold
-    * @note   Force/torque detection range: (ft-min_threshold, ft+max_threshold)
-    * @return  Error code
+    * @brief  Guardia collisioni
+    * @param  [in] flag 0-disattiva guardia collisioni, 1-attiva guardia collisioni
+    * @param  [in] sensor_id Numero sensore di forza
+    * @param  [in] select  Selezione quali 6 gradi di libertà rilevare per collisioni, 0-non rilevare, 1-rilevare
+    * @param  [in] ft  Forza/coppia collisione, fx,fy,fz,tx,ty,tz
+    * @param  [in] max_threshold Soglia massima
+    * @param  [in] min_threshold Soglia minima
+    * @note   Intervallo di rilevamento forza/coppia: (ft-min_threshold, ft+max_threshold)
+    * @return  Codice errore
     */   
     errno_t  FT_Guard(uint8_t flag, int sensor_id, uint8_t select[6], ForceTorque *ft, float max_threshold[6], float min_threshold[6]); 
 
-Collision Guard Code Example
-+++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Guardia Collisioni
++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -416,34 +416,34 @@ Collision Guard Code Example
       return 0;
     }
 
-Constant force control
-+++++++++++++++++++++++++++++++++++++++++++++
+Controllo Forza Costante
++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    *@brief  constant control
-    *@param [ in ] flag 0-off constant force control, 1-on constant force control
-    *@param [ in ] sensor number
-    *@param [ in ] select six degrees of freedom whether to detect collision, 0-no detection, 1-detection
-    *@param [ in ] ft impact torque, FX, F Y, F Z, TX, Ty, TZ
-    *@param [ in ] ft force PID parameter, moment PID parameter
-    *@param [ in ] adj adaptive start-stop control, 0-off, 1-on
-    *@param [ in ] ILC start-stop control, 0-stop, 1-training, 2-operation
-    *@param [ in ] Max adjusted distance, in mm
-    *@param [ in ] max
-    *@param [ in ] m quality parameters
-    *@param [ in ] b damping parameter
-    *@param [ in ] Polish radio radius, mm
-    *@param [ in ] filter on flag 0-off, 1-on, off by default
-    *@param [ in ] POSADAPT gesture 0-off, 1-on, off by default
-    *@param [ in ] is noblock flag, 0-blocking, 1-nonblocking
-    *@return  error code
+    * @brief Controllo forza costante
+    * @param [in] flag 0-disattiva controllo forza costante, 1-attiva controllo forza costante
+    * @param [in] sensor_id Numero sensore di forza
+    * @param [in] select Selezione quali 6 gradi di libertà rilevare per collisioni, 0-non rilevare, 1-rilevare
+    * @param [in] ft Forza/coppia collisione, fx,fy,fz,tx,ty,tz
+    * @param [in] ft_pid Parametri PID forza, parametri PID coppia
+    * @param [in] adj_sign Controllo start/stop adattativo, 0-disattiva, 1-attiva
+    * @param [in] ILC_sign Controllo start/stop ILC, 0-ferma, 1-addestra, 2-operazione
+    * @param [in] max_dis Distanza massima di regolazione, unità mm
+    * @param [in] max_ang Angolo massimo di regolazione, unità deg
+    * @param [in] M Parametri massa 
+    * @param [in] B Parametri smorzamento
+    * @param [in] polishRadio Raggio levigatura, unità mm
+    * @param [in] filter_Sign Segnale attivazione filtro 0-off; 1-on, default off
+    * @param [in] posAdapt_sign Segnale attivazione conformità posa 0-off; 1-on, default off
+    * @param [in] isNoBlock Segnale blocco, 0-blocca; 1-non blocca
+    * @return Codice errore
     */
     errno_t FT_Control(uint8_t flag, int sensor_id, uint8_t select[6], ForceTorque* ft, float ft_pid[6], uint8_t adj_sign, uint8_t ILC_sign, float max_dis, float max_ang, double M[2], double B[2], double polishRadio = 0.0, int filter_Sign = 0, int posAdapt_sign = 0, int isNoBlock = 0); 
 
-Example of constant force control code with damping
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Controllo Forza Costante con Smorzamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -492,59 +492,59 @@ Example of constant force control code with damping
       return 0;
     }
 
-Spiral Search
-+++++++++++++++++++++++++++++++++++++++++++++
+Esplorazione Spirale
++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Spiral search
-    * @param  [in] rcs  Reference coordinate system, 0-Tool coordinate system, 1-Base coordinate system
-    * @param  [in] dr  Radius feed per circle
-    * @param  [in] ft  Force/torque threshold, fx, fy, fz, tx, ty, tz, range [0~100]
-    * @param  [in] max_t_ms  Maximum search time in ms
-    * @param  [in] max_vel  Maximum linear velocity in mm/s
-    * @return  Error code
+    * @brief  Esplorazione spirale
+    * @param  [in] rcs Sistema di riferimento, 0-sistema di coordinate utensile, 1-sistema di coordinate base
+    * @param  [in] dr Incremento raggio per giro
+    * @param  [in] ft Soglia forza/coppia, fx,fy,fz,tx,ty,tz, intervallo [0~100]
+    * @param  [in] max_t_ms Tempo massimo esplorazione, unità ms
+    * @param  [in] max_vel Velocità lineare massima, unità mm/s
+    * @return  Codice errore
     */   
     errno_t  FT_SpiralSearch(int rcs, float dr, float ft, float max_t_ms, float max_vel);  
 
-Rotary Insertion
-+++++++++++++++++++++++++++++++++++++++++++++
+Inserimento Rotazionale
++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Rotary insertion
-    * @param  [in] rcs  Reference coordinate system, 0-Tool coordinate system, 1-Base coordinate system
-    * @param  [in] angVelRot  Rotational angular velocity in deg/s
-    * @param  [in] ft  Force/torque threshold, fx, fy, fz, tx, ty, tz, range [0~100]
-    * @param  [in] max_angle  Maximum rotation angle in deg
-    * @param  [in] orn  Force/torque direction, 1-Along z-axis, 2-Around z-axis
-    * @param  [in] max_angAcc  Maximum rotational acceleration in deg/s^2, not currently used, default is 0
-    * @param  [in] rotorn  Rotation direction, 1-Clockwise, 2-Counterclockwise
-    * @return  Error code
+    * @brief  Inserimento rotazionale
+    * @param  [in] rcs Sistema di riferimento, 0-sistema di coordinate utensile, 1-sistema di coordinate base
+    * @param  [in] angVelRot Velocità angolare rotazione, unità deg/s
+    * @param  [in] ft  Soglia forza/coppia, fx,fy,fz,tx,ty,tz, intervallo [0~100]
+    * @param  [in] max_angle Angolo massimo rotazione, unità deg
+    * @param  [in] orn Direzione forza/coppia, 1-direz. asse z, 2-rotaz. attorno asse z
+    * @param  [in] max_angAcc Accelerazione angolare massima, unità deg/s^2, attualmente non utilizzata, default 0
+    * @param  [in] rotorn  Direzione rotazione, 1-orario, 2-antiorario
+    * @return  Codice errore
     */   
     errno_t  FT_RotInsertion(int rcs, float angVelRot, float ft, float max_angle, uint8_t orn, float max_angAcc, uint8_t rotorn);    
 
-Linear Insertion
-+++++++++++++++++++++++++++++++++++++++++++++
+Inserimento Lineare
++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Linear insertion
-    * @param  [in] rcs  Reference coordinate system, 0-Tool coordinate system, 1-Base coordinate system
-    * @param  [in] ft  Force/torque threshold, fx, fy, fz, tx, ty, tz, range [0~100]
-    * @param  [in] lin_v  Linear velocity in mm/s
-    * @param  [in] lin_a  Linear acceleration in mm/s^2, not currently used
-    * @param  [in] max_dis  Maximum insertion distance in mm
-    * @param  [in] linorn  Insertion direction, 0-Negative direction, 1-Positive direction
-    * @return  Error code
+    * @brief  Inserimento lineare
+    * @param  [in] rcs Sistema di riferimento, 0-sistema di coordinate utensile, 1-sistema di coordinate base
+    * @param  [in] ft  Soglia forza/coppia, fx,fy,fz,tx,ty,tz, intervallo [0~100]
+    * @param  [in] lin_v Velocità lineare, unità mm/s
+    * @param  [in] lin_a Accelerazione lineare, unità mm/s^2, attualmente non utilizzata
+    * @param  [in] max_dis Distanza massima inserimento, unità mm
+    * @param  [in] linorn  Direzione inserimento, 0-direz. negativa, 1-direz. positiva
+    * @return  Codice errore
     */   
     errno_t  FT_LinInsertion(int rcs, float ft, float lin_v, float lin_a, float max_dis, uint8_t linorn);    
 
-Spiral Search, Linear Insertion and Other Instruction Code Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Istruzioni Esplorazione Spirale, Inserimento Lineare, ecc.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -639,49 +639,49 @@ Spiral Search, Linear Insertion and Other Instruction Code Examples
       return 0;
     }
 
-Surface Localization
-+++++++++++++++++++++++++++++++++++++++++++++
+Individuazione Superficie
+++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Surface localization
-    * @param  [in] rcs  Reference coordinate system, 0-Tool coordinate system, 1-Base coordinate system
-    * @param  [in] dir  Movement direction, 1-Positive direction, 2-Negative direction 
-    * @param  [in] axis  Movement axis, 1-x axis, 2-y axis, 3-z axis
-    * @param  [in] lin_v  Search linear velocity in mm/s
-    * @param  [in] lin_a  Search linear acceleration in mm/s^2, not currently used, default is 0
-    * @param  [in] max_dis  Maximum search distance in mm
-    * @param  [in] ft  Action termination force/torque threshold, fx, fy, fz, tx, ty, tz  
-    * @return  Error code
+    * @brief  Individuazione superficie
+    * @param  [in] rcs Sistema di riferimento, 0-sistema di coordinate utensile, 1-sistema di coordinate base
+    * @param  [in] dir  Direzione movimento, 1-direz. positiva, 2-direz. negativa 
+    * @param  [in] axis Asse movimento, 1-asse x, 2-asse y, 3-asse z
+    * @param  [in] lin_v Velocità lineare esplorazione, unità mm/s
+    * @param  [in] lin_a Accelerazione lineare esplorazione, unità mm/s^2, attualmente non utilizzata, default 0
+    * @param  [in] max_dis Distanza massima esplorazione, unità mm
+    * @param  [in] ft  Soglia forza/coppia per terminazione azione, fx,fy,fz,tx,ty,tz  
+    * @return  Codice errore
     */   
     errno_t  FT_FindSurface(int rcs, uint8_t dir, uint8_t axis, float lin_v, float lin_a, float max_dis, float ft);   
 
-Calculate Middle Plane Position - Start
-+++++++++++++++++++++++++++++++++++++++++++++
+Inizio Calcolo Posizione Piano Centrale
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Calculate middle plane position - start
-    * @return  Error code
+    * @brief  Inizio calcolo posizione piano centrale
+    * @return  Codice errore
     */   
     errno_t  FT_CalCenterStart();
 
-Calculate Middle Plane Position - End
-+++++++++++++++++++++++++++++++++++++++++++++
+Fine Calcolo Posizione Piano Centrale
+++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Calculate middle plane position - end
-    * @param  [out] pos  Middle plane pose
-    * @return  Error code
+    * @brief  Fine calcolo posizione piano centrale
+    * @param  [out] pos Posa piano centrale
+    * @return  Codice errore
     */      
     errno_t  FT_CalCenterEnd(DescPose *pos);
 
-Surface Localization Code Example
-+++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Individuazione Superficie
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -754,32 +754,32 @@ Surface Localization Code Example
       return 0;
     }
 
-Compliance Control Activation
-+++++++++++++++++++++++++++++++++++++++++++++
+Inizio Controllo di Conformità (Compliance)
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Compliance control activation
-    * @param  [in] p  Position adjustment coefficient or compliance coefficient
-    * @param  [in] force  Compliance activation force threshold in N
-    * @return  Error code
+    * @brief  Inizio controllo di conformità
+    * @param  [in] p Coefficiente di regolazione posizione o coefficiente di conformità
+    * @param  [in] force Soglia forza per attivazione conformità, unità N
+    * @return  Codice errore
     */   
     errno_t  FT_ComplianceStart(float p, float force); 
 
-Compliance Control Deactivation
-+++++++++++++++++++++++++++++++++++++++++++++
+Fine Controllo di Conformità (Compliance)
+++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Compliance control deactivation
-    * @return  Error code
+    * @brief  Fine controllo di conformità
+    * @return  Codice errore
     */   
     errno_t  FT_ComplianceStop(); 
 
-Compliance Control Code Example
-+++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Controllo di Conformità
+++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -851,58 +851,58 @@ Compliance Control Code Example
       return 0;
     }
 
-Payload Identification Initialization
-+++++++++++++++++++++++++++++++++++++++++++++
+Inizializzazione Identificazione Carico Dinamico
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Payload identification initialization
-    * @return Error code
+    * @brief Inizializza filtro per identificazione carico dinamico
+    * @return Codice errore
     */
     errno_t LoadIdentifyDynFilterInit();
 
-Payload Identification Initialization
-+++++++++++++++++++++++++++++++++++++++++++++
+Inizializzazione Variabili Identificazione Carico Dinamico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Payload identification initialization
-    * @return Error code
+    * @brief Inizializza variabili per identificazione carico dinamico
+    * @return Codice errore
     */
     errno_t LoadIdentifyDynVarInit();
 
-Payload Identification Main Program
-+++++++++++++++++++++++++++++++++++++++++++++
+Programma Principale Identificazione Carico
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Payload identification main program
-    * @param [in] joint_torque  Joint torque
-    * @param [in] joint_pos  Joint position
-    * @param [in] t  Sampling period
-    * @return Error code
+    * @brief Programma principale identificazione carico
+    * @param [in] joint_torque Coppia articolare
+    * @param [in] joint_pos Posizione articolare
+    * @param [in] t Periodo di campionamento
+    * @return Codice errore
     */
     errno_t LoadIdentifyMain(double joint_torque[6], double joint_pos[6], double t);
 
-Get Payload Identification Result
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Risultati Identificazione Carico
+++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get payload identification result
+    * @brief Ottiene risultati identificazione carico
     * @param [in] gain 
-    * @param [out] weight  Payload weight
-    * @param [out] cog  Payload COG
-    * @return Error code
+    * @param [out] weight Peso del carico
+    * @param [out] cog Centro di gravità del carico
+    * @return Codice errore
     */
     errno_t LoadIdentifyGetResult(double gain[12], double *weight, DescTran *cog);
 
-Robot Payload Identification Code Example
-+++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Identificazione Carico Robot
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -947,46 +947,31 @@ Robot Payload Identification Code Example
       return 0;
     }
 
-Force Sensor Assisted Drag
-+++++++++++++++++++++++++++
+Trascinamento Assistito da Sensore di Forza
+++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: C++SDK-v2.2.0-3.8.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-	  * @brief  Force sensor assisted drag
-	  * @param  [in] status  Control status, 0-Off; 1-On
-	  * @param  [in] asaptiveFlag  Adaptive activation flag, 0-Off; 1-On
-	  * @param  [in] interfereDragFlag  Interference area drag flag, 0-Off; 1-On
-	  * @param  [in] ingularityConstraintsFlag  Singularity strategy, 0-Avoid; 1-Cross
-	  * @param  [in] forceCollisionFlag Robot collision detection sign for auxiliary dragging; 0-off; 1-on
-	  * @param  [in] M  Inertia coefficient
-	  * @param  [in] B  Damping coefficient
-	  * @param  [in] K  Stiffness coefficient
-	  * @param  [in] F  Drag six-dimensional force threshold
-	  * @param  [in] Fmax  Maximum drag force limit
-	  * @param  [in] Vmax  Maximum joint velocity limit
-      * @return  error code
-      */
-      errno_t EndForceDragControl(int status, int asaptiveFlag, int interfereDragFlag, int ingularityConstraintsFlag, int forceCollisionFlag, std::vector<double> M, std::vector<double> B, std::vector<double> K, std::vector<double> F, double Fmax, double Vmax);
+    * @brief  Controllo trascinamento assistito da sensore di forza
+    * @param  [in] status Stato controllo, 0-disattiva; 1-attiva
+    * @param  [in] asaptiveFlag Segnale attivazione adattativo, 0-disattiva; 1-attiva
+    * @param  [in] interfereDragFlag Segnale trascinamento in zona di interferenza, 0-disattiva; 1-attiva
+    * @param  [in] ingularityConstraintsFlag Strategia punto singolare, 0-evitamento; 1-attraversamento
+    * @param  [in] forceCollisionFlag Segnale rilevamento collisione robot durante trascinamento assistito; 0-disattiva; 1-attiva
+    * @param  [in] M Coefficiente inerzia
+    * @param  [in] B Coefficiente smorzamento
+    * @param  [in] K Coefficiente rigidezza
+    * @param  [in] F Soglia forza a sei dimensioni per trascinamento
+    * @param  [in] Fmax Limite massimo forza trascinamento
+    * @param  [in] Vmax Limite massimo velocità articolare
+    * @return  Codice errore
+    */
+    errno_t EndForceDragControl(int status, int asaptiveFlag, int interfereDragFlag, int ingularityConstraintsFlag, int forceCollisionFlag, std::vector<double> M, std::vector<double> B, std::vector<double> K, std::vector<double> F, double Fmax, double Vmax);
 
-Get Force Sensor Drag Switch Status
-+++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v2.1.5.0
-    
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief Get force sensor drag switch status
-     * @param [out] dragState  Force sensor assisted drag control status, 0-Off; 1-On
-     * @param [out] sixDimensionalDragState  Six-dimensional force assisted drag control status, 0-Off; 1-On
-     * @return Error code
-     */
-    errno_t GetForceAndTorqueDragState(int& dragState, int& sixDimensionalDragState);
-
-Force Sensor Auto Activation After Error Clear
+Ottenere Stato Interruttore Trascinamento Sensore di Forza
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
@@ -994,67 +979,82 @@ Force Sensor Auto Activation After Error Clear
     :linenos:
 
     /**
-     * @brief Auto activate force sensor after error clear
-     * @param [in] status  Control status, 0-Off; 1-On
-     * @return Error code
+     * @brief Ottiene lo stato dell'interruttore di trascinamento del sensore di forza
+     * @param [out] dragState Stato controllo trascinamento assistito da sensore di forza, 0-disattiva; 1-attiva
+     * @param [out] sixDimensionalDragState Stato controllo trascinamento assistito a sei dimensioni, 0-disattiva; 1-attiva
+     * @return Codice errore
      */
-    errno_t SetForceSensorDragAutoFlag(int status);
+    errno_t GetForceAndTorqueDragState(int& dragState, int& sixDimensionalDragState);
 
-Force Sensor Assisted Drag Code Example
-+++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    int TestEndForceDragCtrl(void)
-    {
-      ROBOT_STATE_PKG pkg = {};
-      FRRobot robot;
-      robot.LoggerInit();
-      robot.SetLoggerLevel(1);
-      int rtn = robot.RPC("192.168.58.2");
-      if (rtn != 0)
-      {
-        return -1;
-      }
-      robot.SetReConnectParam(true, 30000, 500);
-      robot.SetForceSensorDragAutoFlag(1);
-      vector <double> M = { 15.0, 15.0, 15.0, 0.5, 0.5, 0.1 };
-      vector <double> B = { 150.0, 150.0, 150.0, 5.0, 5.0, 1.0 };
-      vector <double> K = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
-      vector <double> F = { 10.0, 10.0, 10.0, 1.0, 1.0, 1.0 };
-      robot.EndForceDragControl(1, 0, 0, 0, 1, M, B, K, F, 50, 100);
-      robot.Sleep(5000);
-      int dragState = 0;
-      int sixDimensionalDragState = 0;
-      robot.GetForceAndTorqueDragState(dragState, sixDimensionalDragState);
-      printf("the drag state is %d %d \n", dragState, sixDimensionalDragState);
-      robot.EndForceDragControl(0, 0, 0, 0, 1, M, B, K, F, 50, 100);
-      robot.CloseRPC();
-      return 0;
-    }
-
-Set Six-Dimensional Force and Joint Impedance Hybrid Drag Switch and Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione Automatica Sensore di Forza dopo Cancellazione Errore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Set six-dimensional force and joint impedance hybrid drag switch and parameters
-     * @param [in] status  Control status, 0-Off; 1-On
-     * @param [in] impedanceFlag  Impedance activation flag, 0-Off; 1-On
-     * @param [in] lamdeDain  Drag gain
-     * @param [in] KGain  Stiffness gain
-     * @param [in] BGain  Damping gain
-     * @param [in] dragMaxTcpVel  Maximum end linear velocity limit for drag
-     * @param [in] dragMaxTcpOriVel  Maximum end angular velocity limit for drag
-     * @return Error code
+     * @brief Attivazione automatica sensore di forza dopo cancellazione errore
+     * @param [in] status Stato controllo, 0-disattiva; 1-attiva
+     * @return Codice errore
+     */
+    errno_t SetForceSensorDragAutoFlag(int status);
+
+Esempio di Codice Trascinamento Assistito da Sensore di Forza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+     int TestEndForceDragCtrl(void)
+     {
+         ROBOT_STATE_PKG pkg = {};
+         FRRobot robot;
+         robot.LoggerInit();
+         robot.SetLoggerLevel(1);
+         int rtn = robot.RPC("192.168.58.2");
+         if (rtn != 0)
+         {
+             return -1;
+         }
+         robot.SetReConnectParam(true, 30000, 500);
+         robot.SetForceSensorDragAutoFlag(1);
+         vector <double> M = { 15.0, 15.0, 15.0, 0.5, 0.5, 0.1 };
+         vector <double> B = { 150.0, 150.0, 150.0, 5.0, 5.0, 1.0 };
+         vector <double> K = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+         vector <double> F = { 10.0, 10.0, 10.0, 1.0, 1.0, 1.0 };
+         robot.EndForceDragControl(1, 0, 0, 0, 1, M, B, K, F, 50, 100);
+         robot.Sleep(5000);
+         int dragState = 0;
+         int sixDimensionalDragState = 0;
+         robot.GetForceAndTorqueDragState(dragState, sixDimensionalDragState);
+         printf("the drag state is %d %d \n", dragState, sixDimensionalDragState);
+         robot.EndForceDragControl(0, 0, 0, 0, 1, M, B, K, F, 50, 100);
+         robot.CloseRPC();
+         return 0;
+     }
+
+Impostare Interruttore e Parametri Trascinamento Ibrido Impedenza Sei Dimensioni e Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C++SDK-v2.1.5.0
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief Imposta interruttore e parametri per trascinamento ibrido impedenza sei dimensioni e articolare
+     * @param [in] status Stato controllo, 0-disattiva; 1-attiva
+     * @param [in] impedanceFlag Segnale attivazione impedenza, 0-disattiva; 1-attiva
+     * @param [in] lamdeDain Guadagno trascinamento
+     * @param [in] KGain Guadagno rigidezza
+     * @param [in] BGain Guadagno smorzamento
+     * @param [in] dragMaxTcpVel Limite massimo velocità lineare terminale durante trascinamento
+     * @param [in] dragMaxTcpOriVel Limite massimo velocità angolare terminale durante trascinamento
+     * @return Codice errore
      */
     errno_t ForceAndJointImpedanceStartStop(int status, int impedanceFlag, std::vector<double> lamdeDain, std::vector<double> KGain, std::vector<double> BGain, double dragMaxTcpVel, double dragMaxTcpOriVel);
 
-Six-Dimensional Force and Joint Impedance Hybrid Drag Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Trascinamento Ibrido Impedenza Sei Dimensioni e Articolare
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -1086,31 +1086,31 @@ Six-Dimensional Force and Joint Impedance Hybrid Drag Code Example
       return 0;
     }
 
-Impedance Start/Stop Control
-++++++++++++++++++++++++++++++++++++++++++++
+Controllo Start/Stop Impedenza
++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Impedance Start/Stop Control
-    * @param [in] status 0: Stop; 1- Start
-    * @param [in] workSpace 0- Joint Space; 1- Cartesian Space
-    * @param [in] forceThreshold Trigger force threshold (N)
-    * @param [in] m Mass parameter
-    * @param [in] b Damping parameter
-    * @param [in] k Stiffness parameter
-    * @param [in] maxV Maximum linear velocity (mm/s)
-    * @param [in] maxVA Maximum linear acceleration (mm/s²)
-    * @param [in] maxW Maximum angular velocity (°/s)
-    * @param [in] maxWA Maximum angular acceleration (°/s²)
-    * @return Error code
+    * @brief Controllo start/stop impedenza
+    * @param [in] status 0：disattiva; 1-attiva
+    * @param [in] workSpace 0-spazio articolare; 1-spazio cartesiano
+    * @param [in] forceThreshold Soglia forza di attivazione (N)
+    * @param [in] m Parametro massa
+    * @param [in] b Parametro smorzamento
+    * @param [in] k Parametro rigidezza
+    * @param [in] maxV Velocità lineare massima (mm/s)
+    * @param [in] maxVA Accelerazione lineare massima (mm/s2)
+    * @param [in] maxW Velocità angolare massima (°/s)
+    * @param [in] maxWA Accelerazione angolare massima (°/s2)
+    * @return Codice errore
     */
     errno_t ImpedanceControlStartStop(int status, int workSpace, double forceThreshold[6], double m[6], double b[6], double k[6], double maxV, double maxVA, double maxW, double maxWA);
 
-Robot Impedance Start/Stop Control Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Controllo Start/Stop Impedenza Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
@@ -1182,4 +1182,3 @@ Robot Impedance Start/Stop Control Code Example
       robot.CloseRPC();
       return 0;
     }
-            

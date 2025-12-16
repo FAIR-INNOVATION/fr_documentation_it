@@ -1,280 +1,280 @@
-Status query
-=====================
+Interrogazione Stato Robot
+==========================
 
 .. toctree:: 
     :maxdepth: 5
 
-Get Current Joint Positions (Degrees)
+Ottenere Posizione Articolare Corrente (Angoli)
+++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene la posizione articolare corrente (angoli)
+    * @param  [in] flag 0-bloccante, 1-non bloccante
+    * @param  [out] jPos Posizioni delle sei articolazioni, unità deg
+    * @return  Codice errore
+    */
+    errno_t  GetActualJointPosDegree(uint8_t flag, JointPos *jPos);
+
+Ottenere Velocità di Feedback Articolare
++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief  Ottiene velocità di feedback articolare - deg/s
+     * @param  [in] flag 0-bloccante, 1-non bloccante
+     * @param  [out] speed Velocità delle sei articolazioni
+     * @return  Codice errore 
+     */ 
+    errno_t  GetActualJointSpeedsDegree(uint8_t flag, float speed[6]);
+
+Ottenere Accelerazione di Feedback Articolare
+++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief  Ottiene accelerazione di feedback articolare - deg/s^2
+     * @param  [in] flag 0-bloccante, 1-non bloccante
+     * @param  [out] acc Accelerazione delle sei articolazioni
+     * @return  Codice errore 
+     */ 
+    errno_t  GetActualJointAccDegree(uint8_t flag, float acc[6]);   
+
+Ottenere Velocità Risultante Istruzionale TCP
+++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief  Ottiene velocità risultante istruzionale TCP
+     * @param  [in] flag 0-bloccante, 1-non bloccante
+     * @param  [out] tcp_speed Velocità lineare
+     * @param  [out] ori_speed Velocità di orientamento
+     * @return  Codice errore 
+     */
+    errno_t  GetTargetTCPCompositeSpeed(uint8_t flag, float *tcp_speed, float *ori_speed);
+
+Ottenere Velocità Risultante di Feedback TCP
+++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief  Ottiene velocità risultante di feedback TCP
+     * @param  [in] flag 0-bloccante, 1-non bloccante
+     * @param  [out] tcp_speed Velocità lineare
+     * @param  [out] ori_speed Velocità di orientamento
+     * @return  Codice errore 
+     */ 
+    errno_t  GetActualTCPCompositeSpeed(uint8_t flag, float *tcp_speed, float *ori_speed);
+
+Ottenere Velocità Istruzionale TCP
++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief  Ottiene velocità istruzionale TCP
+     * @param  [in] flag 0-bloccante, 1-non bloccante
+     * @param  [out] speed Velocità [x,y,z,rx,ry,rz]
+     * @return  Codice errore 
+     */ 
+    errno_t  GetTargetTCPSpeed(uint8_t flag, float speed[6]);
+
+Ottenere Velocità di Feedback TCP
++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief  Ottiene velocità di feedback TCP
+     * @param  [in] flag 0-bloccante, 1-non bloccante
+     * @param  [out] speed Velocità [x,y,z,rx,ry,rz]
+     * @return  Codice errore 
+     */ 
+    errno_t  GetActualTCPSpeed(uint8_t flag, float speed[6]);
+
+Ottenere Posa Corrente Utensile
+++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene la posa corrente dell'utensile
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] desc_pos  Posa utensile
+    * @return  Codice errore
+    */
+    errno_t  GetActualTCPPose(uint8_t flag, DescPose *desc_pos);
+
+Ottenere Numero Sistema di Coordinate Utensile Corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene il numero del sistema di coordinate utensile corrente
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] id  Numero sistema di coordinate utensile
+    * @return  Codice errore
+    */
+    errno_t  GetActualTCPNum(uint8_t flag, int *id);
+
+Ottenere Numero Sistema di Coordinate Pezzo Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene il numero del sistema di coordinate pezzo corrente
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] id  Numero sistema di coordinate pezzo
+    * @return  Codice errore
+    */
+    errno_t  GetActualWObjNum(uint8_t flag, int *id);  
+
+Ottenere Posa Corrente Flangia Terminale
++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene la posa corrente della flangia terminale
+    * @param  [in] flag  0-bloccante, 1-non bloccante
+    * @param  [out] desc_pos  Posa flangia
+    * @return  Codice errore
+    */
+    errno_t  GetActualToolFlangePose(uint8_t flag, DescPose *desc_pos);  
+
+Ottenere Coppia Corrente Articolare
+++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ottiene la coppia corrente articolare
+    * @param  [in] flag 0-bloccante, 1-non bloccante
+    * @param  [out] torques Coppia articolare
+    * @return  Codice errore
+    */
+    errno_t  GetJointTorques(uint8_t flag, float torques[6]);
+
+Ottenere Ora di Sistema
++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene l'ora di sistema
+    * @param  [out] t_ms Unità ms
+    * @return  Codice errore
+    */
+    errno_t  GetSystemClock(float *t_ms);
+
+Interrogare Se il Movimento del Robot è Completato
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get current joint positions (degrees)
-    * @param  [in] flag 0-Blocking, 1-Non-blocking
-    * @param  [out] jPos Six joint positions, unit deg
-    * @return  Error code
-    */
-    errno_t  GetActualJointPosDegree(uint8_t flag, JointPos *jPos);
-
-Get Joint Feedback Speed
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief  Get joint feedback speed - deg/s
-     * @param  [in] flag 0-Blocking, 1-Non-blocking
-     * @param  [out] speed Six joint speeds
-     * @return  Error code 
-     */ 
-    errno_t  GetActualJointSpeedsDegree(uint8_t flag, float speed[6]);
-
-Get Joint Feedback Acceleration
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief  Get joint feedback acceleration - deg/s^2
-     * @param  [in] flag 0-Blocking, 1-Non-blocking
-     * @param  [out] acc Six joint accelerations
-     * @return  Error code 
-     */ 
-    errno_t  GetActualJointAccDegree(uint8_t flag, float acc[6]);   
-
-Get TCP Command Composite Speed
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief  Get TCP command composite speed
-     * @param  [in] flag 0-Blocking, 1-Non-blocking
-     * @param  [out] tcp_speed Linear speed
-     * @param  [out] ori_speed Orientation speed
-     * @return  Error code 
-     */
-    errno_t  GetTargetTCPCompositeSpeed(uint8_t flag, float *tcp_speed, float *ori_speed);
-
-Get TCP Feedback Composite Speed
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief  Get TCP feedback composite speed
-     * @param  [in] flag 0-Blocking, 1-Non-blocking
-     * @param  [out] tcp_speed Linear speed
-     * @param  [out] ori_speed Orientation speed
-     * @return  Error code 
-     */ 
-    errno_t  GetActualTCPCompositeSpeed(uint8_t flag, float *tcp_speed, float *ori_speed);
-
-Get TCP Command Speed
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief  Get TCP command speed
-     * @param  [in] flag 0-Blocking, 1-Non-blocking
-     * @param  [out] speed [x,y,z,rx,ry,rz] speed
-     * @return  Error code 
-     */ 
-    errno_t  GetTargetTCPSpeed(uint8_t flag, float speed[6]);
-
-Get TCP Feedback Speed
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief  Get TCP feedback speed
-     * @param  [in] flag 0-Blocking, 1-Non-blocking
-     * @param  [out] speed [x,y,z,rx,ry,rz] speed
-     * @return  Error code 
-     */ 
-    errno_t  GetActualTCPSpeed(uint8_t flag, float speed[6]);
-
-Get Current Tool Pose
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Get current tool pose
-    * @param  [in] flag  0-Blocking, 1-Non-blocking
-    * @param  [out] desc_pos  Tool pose
-    * @return  Error code
-    */
-    errno_t  GetActualTCPPose(uint8_t flag, DescPose *desc_pos);
-
-Get Current Tool Frame Number
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Get current tool frame number
-    * @param  [in] flag  0-Blocking, 1-Non-blocking
-    * @param  [out] id  Tool frame number
-    * @return  Error code
-    */
-    errno_t  GetActualTCPNum(uint8_t flag, int *id);
-
-Get Current Work Object Frame Number
-++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Get current work object frame number
-    * @param  [in] flag  0-Blocking, 1-Non-blocking
-    * @param  [out] id  Work object frame number
-    * @return  Error code
-    */
-    errno_t  GetActualWObjNum(uint8_t flag, int *id);  
-
-Get Current End Flange Pose
-+++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Get current end flange pose
-    * @param  [in] flag  0-Blocking, 1-Non-blocking
-    * @param  [out] desc_pos  Flange pose
-    * @return  Error code
-    */
-    errno_t  GetActualToolFlangePose(uint8_t flag, DescPose *desc_pos);  
-
-Get Current Joint Torque
-++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief Get current joint torque
-    * @param  [in] flag 0-Blocking, 1-Non-blocking
-    * @param  [out] torques Joint torque
-    * @return  Error code
-    */
-    errno_t  GetJointTorques(uint8_t flag, float torques[6]);
-
-Get System Time
-++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Get system time
-    * @param  [out] t_ms Unit ms
-    * @return  Error code
-    */
-    errno_t  GetSystemClock(float *t_ms);
-
-Check If Robot Motion Is Complete
-++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Check if robot motion is complete
-    * @param  [out]  state  0-Not complete, 1-Complete
-    * @return  Error code
+    * @brief  Interroga se il movimento del robot è completato
+    * @param  [out]  state  0-non completato, 1-completato
+    * @return  Codice errore
     */   
     errno_t  GetRobotMotionDone(uint8_t *state);
 
-Query Robot Motion Queue Length
-++++++++++++++++++++++++++++++++++++
+Interrogare Lunghezza Buffer Coda Movimento Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Query robot motion queue length
-     * @param  [out]  len  Queue length
-     * @return  Error code
-     */ 
+     * @brief  Interroga la lunghezza del buffer della coda di movimento del robot
+     * @param  [out]  len  Lunghezza buffer
+     * @return  Codice errore
+     */ 
     errno_t  GetMotionQueueLength(int *len);
 
-Get Robot Emergency Stop Status
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Arresto di Emergenza Robot
+++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot emergency stop status
-    * @param [out] state Emergency stop status, 0-Normal, 1-Emergency stop
-    * @return Error code 
+    * @brief Ottiene lo stato di arresto di emergenza del robot
+    * @param [out] state Stato arresto di emergenza, 0-nessun arresto di emergenza, 1-arresto di emergenza
+    * @return Codice errore 
     */
     errno_t GetRobotEmergencyStopState(uint8_t *state);
 
-Get SDK-Robot Communication Status
+Ottenere Stato Comunicazione tra SDK e Robot
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get SDK-robot communication status
-    * @param [out] state Communication status, 0-Normal, 1-Abnormal
+    * @brief Ottiene lo stato di comunicazione tra SDK e robot
+    * @param [out] state Stato comunicazione, 0-comunicazione normale, 1-comunicazione anomala
     */
     errno_t GetSDKComState(int *state);
 
-Get Safety Stop Signal
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Segnale Arresto di Sicurezza
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get safety stop signal
-    * @param [out] si0_state Safety stop signal SI0, 0-Invalid, 1-Valid
-    * @param [out] si1_state Safety stop signal SI1, 0-Invalid, 1-Valid
+    * @brief Ottiene il segnale di arresto di sicurezza
+    * @param [out] si0_state Segnale arresto sicurezza SI0, 0-non attivo, 1-attivo
+    * @param [out] si1_state Segnale arresto sicurezza SI1, 0-non attivo, 1-attivo
     */
     errno_t GetSafetyStopState(uint8_t *si0_state, uint8_t *si1_state);
 
-Get Robot Joint Driver Temperature(℃)
-++++++++++++++++++++++++++++++++++++++++++
+Ottenere Temperatura Azionamenti Articolari Robot (°C)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot joint driver temperature(℃)
-    * @return Error code
+    * @brief Ottiene la temperatura degli azionamenti articolari del robot (°C)
+    * @return Codice errore
     */
     errno_t GetJointDriverTemperature(double temperature[]);
 
-Get Robot Joint Driver Torque(Nm)
-++++++++++++++++++++++++++++++++++++++++++
+Ottenere Coppia Azionamenti Articolari Robot (Nm)
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot joint driver torque(Nm)
-    * @return Error code
+    * @brief Ottiene la coppia degli azionamenti articolari del robot (Nm)
+    * @return Codice errore
     */
     errno_t GetJointDriverTorque(double torque[]);
         
-Get Robot Real-time Status Structure
-+++++++++++++++++++++++++++++++++++++++++++
+Ottenere Struttura Stato in Tempo Reale Robot
++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.3.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot real-time status structure
-    * @param [out] pkg Robot real-time status structure
-    * @return Error code
+    * @brief Ottiene la struttura dello stato in tempo reale del robot
+    * @param [out] pkg Struttura stato in tempo reale robot
+    * @return Codice errore
     */
     errno_t GetRobotRealTimeState(ROBOT_STATE_PKG *pkg);
 
-Robot Status Query Code Example
-+++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Interrogazione Stato Robot
++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos: 
 
@@ -360,66 +360,66 @@ Robot Status Query Code Example
       return 0;
     }
 
-Inverse Kinematics Calculation
-+++++++++++++++++++++++++++++++++
+Calcolo Cinematica Inversa
++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Inverse kinematics calculation
-    * @param  [in] type 0-Absolute pose (base frame), 1-Incremental pose (base frame), 2-Incremental pose (tool frame)
-    * @param  [in] desc_pos Cartesian pose
-    * @param  [in] config Joint space configuration, [-1]-Calculate based on current joint position, [0~7]-Solve according to specific joint space configuration
-    * @param  [out] joint_pos Joint position
-    * @return  Error code
+    * @brief  Calcolo cinematica inversa (Inverse Kinematics)
+    * @param  [in] type 0-posa assoluta (sistema di coordinate base), 1-posa incrementale (sistema di coordinate base), 2-posa incrementale (sistema di coordinate utensile)
+    * @param  [in] desc_pos Posa cartesiana
+    * @param  [in] config Configurazione spazio articolare, [-1]-calcolo riferito alla posizione articolare corrente, [0~7]-soluzione basata su specifica configurazione spazio articolare
+    * @param  [out] joint_pos Posizione articolare
+    * @return  Codice errore
     */
     errno_t  GetInverseKin(int type, DescPose *desc_pos, int config, JointPos *joint_pos);
 
-Inverse Kinematics Calculation (Reference Position)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Cinematica Inversa (Posizione di Riferimento)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Inverse kinematics calculation, solve based on specified joint position
-    * @param  [in] type 0-Absolute pose (base frame), 1-Incremental pose (base frame), 2-Incremental pose (tool frame)
-    * @param  [in] desc_pos Cartesian pose
-    * @param  [in] joint_pos_ref Reference joint position
-    * @param  [out] joint_pos Joint position
-    * @return  Error code
+    * @brief  Calcolo cinematica inversa, risolve riferendosi a una specifica posizione articolare
+    * @param  [in] type 0-posa assoluta (sistema di coordinate base), 1-posa incrementale (sistema di coordinate base), 2-posa incrementale (sistema di coordinate utensile)
+    * @param  [in] desc_pos Posa cartesiana
+    * @param  [in] joint_pos_ref Posizione articolare di riferimento
+    * @param  [out] joint_pos Posizione articolare
+    * @return  Codice errore
     */   
     errno_t  GetInverseKinRef(int type, DescPose *desc_pos, JointPos *joint_pos_ref, JointPos *joint_pos);
 
-Check If Inverse Kinematics Has Solution
+Verificare Se Esiste Soluzione per Cinematica Inversa
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Inverse kinematics calculation, check if solution exists based on specified joint position
-    * @param  [in] type 0-Absolute pose (base frame), 1-Incremental pose (base frame), 2-Incremental pose (tool frame)
-    * @param  [in] desc_pos Cartesian pose
-    * @param  [in] joint_pos_ref Reference joint position
-    * @param  [out] result 0-No solution, 1-Solution exists
-    * @return  Error code
+    * @brief  Calcolo cinematica inversa, verifica se esiste soluzione riferendosi a una specifica posizione articolare
+    * @param  [in] type 0-posa assoluta (sistema di coordinate base), 1-posa incrementale (sistema di coordinate base), 2-posa incrementale (sistema di coordinate utensile)
+    * @param  [in] desc_pos Posa cartesiana
+    * @param  [in] joint_pos_ref Posizione articolare di riferimento
+    * @param  [out] result 0-nessuna soluzione, 1-esiste soluzione
+    * @return  Codice errore
     */   
     errno_t  GetInverseKinHasSolution(int type, DescPose *desc_pos, JointPos *joint_pos_ref, uint8_t *result);
 
-Forward Kinematics Calculation
-++++++++++++++++++++++++++++++++++++
+Calcolo Cinematica Diretta
++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Forward kinematics calculation
-    * @param  [in] joint_pos Joint position
-    * @param  [out] desc_pos Cartesian pose
-    * @return  Error code
+    * @brief  Calcolo cinematica diretta (Forward Kinematics)
+    * @param  [in] joint_pos Posizione articolare
+    * @param  [out] desc_pos Posa cartesiana
+    * @return  Codice errore
     */
     errno_t  GetForwardKin(JointPos *joint_pos, DescPose *desc_pos);
 
-Robot Kinematics Calculation Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Calcolo Cinematica Diretta e Inversa Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -452,49 +452,48 @@ Robot Kinematics Calculation Code Example
       return 0;
     }
 
-Query Robot Teaching Point Data
-++++++++++++++++++++++++++++++++++++
+Interrogare Dati Punti Gestione Insegnamento Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Query robot teaching point data
-     * @param  [in]  name  Point name
-     * @param  [out]  data   Point data
-     * @return  Error code
-     */ 
+     * @brief  Interroga i dati dei punti della gestione insegnamento del robot
+     * @param  [in]  name  Nome punto
+     * @param  [out]  data  Dati punto
+     * @return  Codice errore
+     */ 
     errno_t  GetRobotTeachingPoint(char name[64], float data[20]);
 
-Get Robot DH Parameter Compensation Values
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Ottenere Valori di Compensazione Parametri DH Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot DH parameter compensation values
-    * @param [out] dhCompensation Robot DH parameter compensation values(mm) [cmpstD1,cmpstA2,cmpstA3,cmpstD4,cmpstD5,cmpstD6]
-    * @return Error code
+    * @brief Ottiene i valori di compensazione dei parametri DH del robot
+    * @param [out] dhCompensation Valori di compensazione parametri DH robot (mm) [cmpstD1,cmpstA2,cmpstA3,cmpstD4,cmpstD5,cmpstD6]
+    * @return Codice errore
     */
     errno_t GetDHCompensation(double dhCompensation[6]);
 
-Get Controller SN Code
-+++++++++++++++++++++++++++++++++++++++++
+Ottenere Codice SN Controllore
++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.1-3.8.1
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get controller SN code
-    * @param [out] SNCode Controller SN code
-    * @return Error code
+    * @brief Ottiene il codice SN del controllore
+    * @param [out] SNCode Codice SN controllore
+    * @return Codice errore
     */
     errno_t GetRobotSN(std::string& SNCode);
 
-Query Robot Teaching Point Data Code Example
+Esempio di Codice Interrogazione Dati Punti Gestione Insegnamento
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
@@ -534,111 +533,111 @@ Query Robot Teaching Point Data Code Example
       return 0;
     }
 
-Get Tool Coordinate System by ID
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema di Coordinate Utensile in Base al Numero
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Tool Coordinate System by ID
-    * @param [in] id Tool coordinate system ID
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate utensile in base al numero
+    * @param [in] id Numero sistema di coordinate utensile
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetToolCoordWithID(int id, DescPose& coord);
 
-Get Work Object Coordinate System by ID
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema di Coordinate Pezzo in Base al Numero
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Work Object Coordinate System by ID
-    * @param [in] id Work object coordinate system ID
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate pezzo in base al numero
+    * @param [in] id Numero sistema di coordinate pezzo
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetWObjCoordWithID(int id, DescPose& coord);
     
-Get External Tool Coordinate System by ID
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema di Coordinate Utensile Esterno in Base al Numero
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get External Tool Coordinate System by ID
-    * @param [in] id External tool coordinate system ID
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate utensile esterno in base al numero
+    * @param [in] id Numero sistema di coordinate utensile esterno
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetExToolCoordWithID(int id, DescPose& coord);
     
-Get Extended Axis Coordinate System by ID
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema di Coordinate Assi Estesi in Base al Numero
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Extended Axis Coordinate System by ID
-    * @param [in] id External tool coordinate system ID
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate assi estesi in base al numero
+    * @param [in] id Numero sistema di coordinate utensile esterno (Nota: parametro probabilmente da verificare, il nome suggerisce per assi estesi)
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetExAxisCoordWithID(int id, DescPose& coord);
 
-Get Payload Mass and Center of Gravity by ID
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Massa e Centro di Gravità del Carico in Base al Numero
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Payload Mass and Center of Gravity by ID
-    * @param [in] id Payload ID
-    * @param [out] weight Payload mass
-    * @param [out] cog Payload center of gravity
-    * @return Error code
+    * @brief Ottiene massa e centro di gravità del carico in base al numero
+    * @param [in] id Numero carico
+    * @param [out] weight Massa del carico
+    * @param [out] cog Centro di gravità del carico
+    * @return Codice errore
     */
     errno_t GetTargetPayloadWithID(int id, double& weight, DescTran& cog);
     
-Get Current Tool Coordinate System
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema di Coordinate Utensile Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
     
     /**
-    * @brief Get Current Tool Coordinate System
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate utensile corrente
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetCurToolCoord(DescPose& coord);
         
-Get Current Work Object Coordinate System
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema di Coordinate Pezzo Corrente
++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Current Work Object Coordinate System
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate pezzo corrente
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetCurWObjCoord(DescPose& coord);
             
-Get Current External Tool Coordinate System
+Ottenere Sistema di Coordinate Utensile Esterno Corrente
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -646,28 +645,28 @@ Get Current External Tool Coordinate System
     :linenos:
 
     /**
-    * @brief Get Current External Tool Coordinate System
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate utensile esterno corrente
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetCurExToolCoord(DescPose& coord);
                 
-Get Current Extended Axis Coordinate System
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema di Coordinate Assi Estesi Corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Current Extended Axis Coordinate System
-    * @param [out] coord Coordinate system values
-    * @return Error code
+    * @brief Ottiene il sistema di coordinate assi estesi corrente
+    * @param [out] coord Valori del sistema di coordinate
+    * @return Codice errore
     */
     errno_t GetCurExAxisCoord(DescPose& coord);
 
-Get Robot Coordinate Systems and Payload Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Ottenimento Sistemi di Coordinate e Carico Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++

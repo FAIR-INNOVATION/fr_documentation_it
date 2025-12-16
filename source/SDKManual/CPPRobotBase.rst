@@ -1,115 +1,115 @@
-Basics
-=================
+Fondamenti del Robot
+=================================
 
 .. toctree:: 
     :maxdepth: 5
 
-Instantiate Robot
-++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Robot interface class constructor
-    */
-    FRRobot();
-
-Establish Communication with Controller
-++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Establish communication with robot controller
-    * @param  [in] ip  Controller IP address, default is 192.168.58.2
-    * @return Error code
-    */
-    errno_t  RPC(const char *ip);
-
-Close Communication with Controller
-++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief  Close communication with robot controller
-     * @return Error code
-     */
-    errno_t  CloseRPC();
-
-Query SDK Version
-++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Query SDK version
-    * @param  [out] version   SDK version
-    * @return  Error code
-    */  
-    errno_t  GetSDKVersion(char *version);
-
-Get Controller IP
-++++++++++++++++++++++++++++++++++
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief  Get controller IP
-    * @param  [out] ip  Controller IP
-    * @return  Error code
-    */
-    errno_t  GetControllerIP(char *ip);
-
-Control Robot to Enter/Exit Drag Teaching Mode
+Creare un'istanza del Robot (Istanziazione)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Control robot to enter/exit drag teaching mode
-    * @param  [in] state 0-Exit drag teaching mode, 1-Enter drag teaching mode
-    * @return  Error code
+    * @brief   Costruttore della classe interfaccia del robot
+    */
+    FRRobot();
+
+Stabilire la comunicazione con il controller
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief   Stabilisce la comunicazione con il controller del robot
+    * @param  [in] ip  Indirizzo IP del controller, predefinito di fabbrica: 192.168.58.2
+    * @return Codice di errore
+    */
+    errno_t  RPC(const char *ip);
+
+Chiudere la comunicazione con il controller
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief   Chiude la comunicazione con il controller del robot
+     * @return Codice di errore
+     */
+    errno_t  CloseRPC();
+
+Interrogare il numero di versione dell'SDK
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief   Interroga il numero di versione dell'SDK
+    * @param  [out] version   Numero di versione dell'SDK
+    * @return   Codice di errore
+    */  
+    errno_t  GetSDKVersion(char *version);
+
+Ottenere l'IP del controller
+++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief   Ottiene l'IP del controller
+    * @param  [out] ip  IP del controller
+    * @return   Codice di errore
+    */
+    errno_t  GetControllerIP(char *ip);
+
+Controllare l'ingresso o l'uscita del robot dalla modalità di insegnamento tramite trascinamento (drag & teach)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief   Controlla l'ingresso o l'uscita del robot dalla modalità di insegnamento tramite trascinamento
+    * @param  [in] state 0-Esci dalla modalità insegnamento tramite trascinamento, 1-Entra nella modalità insegnamento tramite trascinamento
+    * @return   Codice di errore
     */
     errno_t  DragTeachSwitch(uint8_t state);
 
-Check if Robot is in Drag Mode
-++++++++++++++++++++++++++++++++++
+Interrogare se il robot è in modalità trascinamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Check if robot is in drag teaching mode
-    * @param  [out] state 0-Not in drag teaching mode, 1-In drag teaching mode
-    * @return  Error code
+    * @brief   Interroga se il robot è in modalità di insegnamento tramite trascinamento
+    * @param  [out] state 0-Non in modalità insegnamento tramite trascinamento, 1-In modalità insegnamento tramite trascinamento
+    * @return   Codice di errore
     */
     errno_t  IsInDragTeach(uint8_t *state);
 
-Enable/Disable Robot
-++++++++++++++++++++++++++++++++++
+Controllare l'abilitazione (enable) o la disabilitazione (disable) del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Enable/disable robot (enabled by default after power on)
-    * @param  [in] state  0-Disable, 1-Enable
-    * @return  Error code
+    * @brief   Controlla l'abilitazione o la disabilitazione del robot. Dopo l'accensione, il robot è automaticamente abilitato per impostazione predefinita.
+    * @param  [in] state  0-Disabilita (disable), 1-Abilitata (enable)
+    * @return   Codice di errore
     */
     errno_t  RobotEnable(uint8_t state);
 
-Switch Between Manual/Auto Mode
-++++++++++++++++++++++++++++++++++
+Controllare la commutazione della modalità manuale/automatica del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Switch between manual/auto mode
-    * @param [in] mode 0-Auto mode, 1-Manual mode
-    * @return Error code
+    * @brief Controlla la commutazione della modalità manuale/automatica del robot
+    * @param [in] mode 0-Modalità automatica, 1-Modalità manuale
+    * @return Codice di errore
     */
     errno_t  Mode(int mode);
 
-Shut Down Robot OS
+Spegnere il sistema operativo del robot
 +++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.1-3.8.1
 
@@ -117,39 +117,39 @@ Shut Down Robot OS
     :linenos:
 
     /**
-    * @brief Shut down robot operating system
-    * @return Error code
+    * @brief Spegne il sistema operativo del robot
+    * @return Codice di errore
     */
     errno_t ShutDownRobotOS();
 
-Set Reconnection Parameters
-++++++++++++++++++++++++++++++++++++++++++
+Impostare i parametri di riconnessione per la comunicazione con il robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set communication reconnection parameters
-    * @param [in] enable Enable reconnection when network fails true-enable false-disable
-    * @param [in] reconnectTime Reconnection time (ms)
-    * @param [in] period Reconnection interval (ms)
-    * @return Error code
+    * @brief Imposta i parametri di riconnessione per la comunicazione con il robot
+    * @param [in] enable Abilita la riconnessione in caso di guasto di rete true-Abilitata false-Disabilitata
+    * @param [in] reconnectTime Tempo di riconnessione, unità ms
+    * @param [in] period Periodo di riconnessione, unità ms
+    * @return Codice di errore
     */
     errno_t SetReConnectParam(bool enable, int reconnectTime = 30000, int period = 50);
 
-Shut down the robot operating system
-+++++++++++++++++++++++++++++++++++++++++++++++
+Spegnere il sistema operativo del robot
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Shut down the robot operating system
-    * @return Error code
+    * @brief Spegne il sistema operativo del robot
+    * @return Codice di errore
     */
     int ShutDownRobotOS();
 
-Initialize Log Parameters
+Inizializzare i parametri del registro (log)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.2.0
@@ -158,15 +158,15 @@ Initialize Log Parameters
     :linenos:
 
     /**
-    * @brief Initialize log parameters;
-    * @param output_model：Output mode, 0-Direct output; 1-Buffered output; 2-Asynchronous output;
-    * @param file_path: File save path+name (max 256 chars), must be in xxx.log format, e.g. /home/fr/linux/fairino.log;
-    * @param file_num：Number of rolling files, 1~20. Single file size limit 50MB;
-    * @return errno_t Error code;
+    * @brief Inizializza i parametri del registro (log);
+    * @param output_model：Modalità di output, 0-Output diretto；1-Output bufferizzato；2-Output asincrono;
+    * @param file_path: Percorso+Nome del file di salvataggio, lunghezza massima 256, il nome deve essere nel formato xxx.log, ad esempio /home/fr/linux/fairino.log;
+    * @param file_num：Numero di file per l'archiviazione a rotazione (rolling), da 1 a 20 file. Dimensione massima per singolo file 50M;
+    * @return errno_t Codice di errore;
     */
-    errno_t LoggerInit(int output_model = 0, std::string file_path = "", int file_num = 5);
+	errno_t LoggerInit(int output_model = 0, std::string file_path = "", int file_num = 5);
 
-Set Log Filter Level
+Impostare il livello di filtro del registro (log)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.2.0
 
@@ -174,13 +174,13 @@ Set Log Filter Level
     :linenos:
 
     /**
-    * @brief Set log filter level;
-    * @param lvl: Filter level, smaller value means less logs, default is 1. 1-error, 2-warning, 3-info, 4-debug;
+    * @brief Imposta il livello di filtro del registro (log);
+    * @param lvl: Valore del livello di filtro, valori più bassi producono meno log in output, valore predefinito è 1. 1-error, 2-warning, 3-inform, 4-debug;
     */
     void SetLoggerLevel(int lvl = 1);
 
-Basic Robot Control Example
-++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il controllo di base del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
@@ -224,23 +224,23 @@ Basic Robot Control Example
             return 0;
     }
 
-Get Robot Software Version Example
-++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per ottenere la versione software del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot software version
-    * @param[out]    robotModel Robot model
-    * @param[out]    webversion Web version
-    * @param[out]    controllerVersion Controller version
-    * @return Error code
+    * @brief Ottiene la versione software del robot
+    * @param[out]	robotModel Modello del robot
+    * @param[out]	webversion Versione web
+    * @param[out]	controllerVersion Versione del controller
+    * @return Codice di errore
     */
     errno_t GetSoftwareVersion(char robotModel[64], char webVersion[64], char controllerVersion[64]);
 
-Get Robot Hardware Version
-+++++++++++++++++++++++++++++++++
+Ottenere la versione hardware del robot
++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
@@ -248,20 +248,20 @@ Get Robot Hardware Version
     :linenos:
 
     /**
-    * @brief Get robot hardware version
-    * @param[out] ctrlBoxBoardversion Control box board hardware version
-    * @param[out] driver1version Driver 1 hardware version
-    * @param[out] driver2version Driver 2 hardware version
-    * @param[out] driver3version Driver 3 hardware version
-    * @param[out] driver4version Driver 4 hardware version
-    * @param[out] driver5version Driver 5 hardware version
-    * @param[out] driver6version Driver 6 hardware version
-    * @param[out] endBoardversion End board hardware version
+    * @brief Ottiene la versione hardware del robot
+    * @param[out] ctrlBoxBoardversion Versione hardware della scheda principale del control box
+    * @param[out] driver1version Versione hardware del driver 1
+    * @param[out] driver2version Versione hardware del driver 2
+    * @param[out] driver3version Versione hardware del driver 3
+    * @param[out] driver4version Versione hardware del driver 4
+    * @param[out] driver5version Versione hardware del driver 5
+    * @param[out] driver6version Versione hardware del driver 6
+    * @param[out] endBoardversion Versione hardware della scheda terminale (end board)
     */
     errno_t GetHardwareVersion(char ctrlBoxBoardversion[128], char driver1version[128], char driver2version[128], char driver3version[128], char driver4version[128], char driver5version[128], char driver6version[128], char endBoardversion[128]);
 
-Get Robot Firmware Version
-+++++++++++++++++++++++++++++++++
+Ottenere la versione firmware del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
@@ -269,20 +269,20 @@ Get Robot Firmware Version
     :linenos:
 
     /**
-    * @brief Get robot firmware version
-    * @param[out] ctrlBoxBoardversion Control box board firmware version
-    * @param[out] driver1version Driver 1 firmware version
-    * @param[out] driver2version Driver 2 firmware version
-    * @param[out] driver3version Driver 3 firmware version
-    * @param[out] driver4version Driver 4 firmware version
-    * @param[out] driver5version Driver 5 firmware version
-    * @param[out] driver6version Driver 6 firmware version
-    * @param[out] endBoardversion End board firmware version
+    * @brief Ottiene la versione firmware del robot
+    * @param[out] ctrlBoxBoardversion Versione firmware della scheda principale del control box
+    * @param[out] driver1version Versione firmware del driver 1
+    * @param[out] driver2version Versione firmware del driver 2
+    * @param[out] driver3version Versione firmware del driver 3
+    * @param[out] driver4version Versione firmware del driver 4
+    * @param[out] driver5version Versione firmware del driver 5
+    * @param[out] driver6version Versione firmware del driver 6
+    * @param[out] endBoardversion Versione firmware della scheda terminale (end board)
     */
     errno_t GetFirmwareVersion(char ctrlBoxBoardversion[128], char driver1version[128], char driver2version[128], char driver3version[128], char driver4version[128], char driver5version[128], char driver6version[128], char endBoardversion[128]);
 
-Get Robot Software/Firmware Version Example
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per ottenere le versioni software/firmware del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:

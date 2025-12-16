@@ -1,117 +1,117 @@
-Teaching Points
-===============
+Punti di Insegnamento
+=================================
 
 .. toctree:: 
    :maxdepth: 6
 
-Teaching management is divided into two modes: "System Mode" and "Point Table Mode". When calling the manipulator program, different inspection schemes can be achieved by calling different point tables, fulfilling recipe requirements. For each additional device or product subsequently, the point table data package can be downloaded to the robot via the host computer. Point table data packages newly created by the robot can also be uploaded to the host computer.
+La gestione dell'insegnamento è suddivisa in due modalità: "Modalità Sistema" e "Modalità Tabella Punti", per consentire, durante la chiamata di un programma del manipolatore, di implementare diversi schemi di ispezione richiamando diverse tabelle di punti, soddisfacendo così le esigenze della ricetta. Successivamente, ogni volta che viene aggiunto un nuovo dispositivo o prodotto, il pacchetto dati della tabella punti può essere scaricato nel robot tramite il sistema supervisore, e i pacchetti dati delle nuove tabelle di punti create dal robot possono anche essere caricati al sistema supervisore.
 
-**System Mode**: Supports "importing, exporting, deleting, renaming, modifying, overwriting, modifying, viewing" teaching point content, as well as single-step movement to teaching points.
+**Modalità Sistema**: Supporta "importare, esportare, eliminare, rinominare, modificare, sovrascrivere, modificare, visualizzare" il contenuto dei punti di insegnamento, nonché il movimento passo-passo ai punti di insegnamento.
 
 .. image:: points/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 12.1-1 Teaching Management Interface - System Mode
+.. centered:: Grafico 12.1-1 Interfaccia gestione insegnamento - Modalità Sistema
 
-**Point Table Mode**: Supports "adding, applying, renaming, deleting, importing, exporting" point tables, and "deleting, modifying, viewing, and overwriting" point content within a point table, as well as single-step movement to teaching points.
+**Modalità Tabella Punti**: Supporta "aggiungere, applicare, rinominare, eliminare, importare, esportare" tabelle di punti, "eliminare, modificare, visualizzare e sovrascrivere" il contenuto dei punti all'interno della tabella punti, nonché il movimento passo-passo ai punti di insegnamento.
 
 .. image:: points/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 12.1-2 Teaching Management Interface - Point Table Mode
+.. centered:: Grafico 12.1-2 Interfaccia gestione insegnamento - Modalità Tabella Punti
 
-The top right corner of the Teaching Management interface displays the robot body operation bar. Users can move the robot body on this interface and then perform data overwrite operations for teaching points.
+Nell'angolo in alto a destra dell'interfaccia di gestione dell'insegnamento viene visualizzata la barra di controllo del corpo robot. In questa interfaccia, l'utente può spostare il corpo del robot, quindi eseguire l'operazione di sovrascrittura dei dati del punto di insegnamento.
 
 .. image:: points/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 12.1-3 Teaching Management Interface - Robot Body Operation Bar
+.. centered:: Grafico 12.1-3 Interfaccia gestione insegnamento - Barra di controllo corpo robot
 
-You can enter a teaching point name in the top right corner of the teaching point table data to search; Click on the teaching point name in the teaching point table data to enter edit mode, input the modified name, and click anywhere outside the teaching point name to complete the modification.
+Nell'angolo in alto a destra della tabella dei dati dei punti di insegnamento è possibile inserire il nome del punto di insegnamento per la ricerca; cliccando sul nome del punto di insegnamento nella tabella dei dati, si entra in modalità modifica. Inserendo il nome modificato e cliccando al di fuori del nome del punto di insegnamento, la modifica viene completata.
 
 .. note:: 
    .. image:: points/004.png
       :height: 0.75in
       :align: left
 
-   Name: **Import Button**
+   Nome: **Pulsante Importa**
    
-   Function: Import teaching point file
+   Funzione: Importazione file punto di insegnamento
 
 .. note:: 
    .. image:: points/005.png
       :height: 0.75in
       :align: left
 
-   Name: **Export Button**
+   Nome: **Pulsante Esporta**
    
-   Function: Export teaching point file
+   Funzione: Esportazione file punto di insegnamento
 
 .. note:: 
    .. image:: points/006.png
       :height: 0.75in
       :align: left
 
-   Name: **Delete Button**
+   Nome: **Pulsante Elimina**
    
-   Function: After selecting one/multiple teaching points, click the "Delete" button above the table, the prompt "Please click the delete button again to confirm deletion" appears. Click again to delete the point information;
+   Funzione: Dopo aver selezionato uno o più punti di insegnamento, cliccando il pulsante "Elimina" sopra la tabella, viene richiesto di "Cliccare nuovamente il pulsante Elimina per confermare l'eliminazione". Cliccando nuovamente, le informazioni del punto vengono eliminate;
 
 .. note:: 
    .. image:: points/007.png
       :height: 0.75in
       :align: left
 
-   Name: **Overwrite Point Button**
+   Nome: **Pulsante Sovrascrivi Punto**
    
-   Function: Click to overwrite the teaching point with the robot's current point data, and select "Whether to sync the teaching program" in the pop-up window
+   Funzione: Cliccare per sovrascrivere il punto di insegnamento con i dati di posizione correnti del robot, e nella finestra di dialogo scegliere "Sincronizzare il programma di insegnamento"
 
 .. image:: points/008.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 12.1-4 Overwrite Teaching Point
+.. centered:: Grafico 12.1-4 Sovrascrittura punto di insegnamento
 
 .. note:: 
    .. image:: points/009.png
       :height: 0.75in
       :align: left
 
-   Name: **Edit Button**
+   Nome: **Pulsante Modifica**
    
-   Function: Click to confirm modification of the teaching point's x, y, z, rx, ry, rz, and v values
+   Funzione: Cliccare per confermare la modifica dei valori x, y, z, rx, ry, rz e v del punto di insegnamento
 
 .. important:: 
-   The modified values for the teaching point's x, y, z, rx, ry, rz should not exceed the robot's working range.
+   I valori modificati di x, y, z, rx, ry, rz del punto di insegnamento non devono superare il campo di lavoro del robot.
 
 .. note:: 
    .. image:: points/010.png
       :height: 0.75in
       :align: left
 
-   Name: **Details Button**
+   Nome: **Pulsante Dettagli**
    
-   Function: Click to view teaching point details
+   Funzione: Cliccare per visualizzare i dettagli del punto di insegnamento
 
 .. image:: points/011.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 12.1-5 Teaching Point Details
+.. centered:: Grafico 12.1-5 Dettagli punto di insegnamento
 
 .. note:: 
    .. image:: points/012.png
       :height: 0.75in
       :align: left
 
-   Name: **Start Run Button**
+   Nome: **Pulsante Avvia Esecuzione**
    
-   Function: Click to select the method for single-point operation to move the robot to the position of this point; Select PTP for Point-to-Point motion, select Lin for Linear motion.
+   Funzione: Cliccare per scegliere il metodo di esecuzione del punto singolo, spostando il robot nella posizione di quel punto; selezionare PTP per movimento punto a punto, selezionare Lin per movimento lineare.
 
 .. image:: points/013.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 12.1-6 Run Teaching Point
+.. centered:: Grafico 12.1-6 Esecuzione punto di insegnamento

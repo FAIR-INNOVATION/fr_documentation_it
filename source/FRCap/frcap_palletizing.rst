@@ -1,47 +1,43 @@
-Palletizing FRCap
-=======================
+FRCap per Pallettizzazione
+=================================
 
-.. toctree:: 
-   :maxdepth: 6
+Gestione dei Pacchetti Plugin
+-------------------------------------
 
-Palletizing FRCap plug-in package management
-----------------------------------------------
-
-In the collaborative robot WebApp, "System Settings - FRCap Config." page，click the "Import" button and select the palletizing FRCap plug-in package (name format: plug-in package name + version number. frcap, example: palletizer Palletizer-v0.0.0.plugin) to upload. After the upload is successful, the list displays the successfully imported palletized FRCap plug-in package, including Status, Name, Version, Description and Author, etc. The palletizing FRCap plug-in package can be "Deactivate", "Enabled" and "Delete" in the operation bar.
+Nella WebApp del robot collaborativo, nella pagina "Impostazioni di Sistema" -> "Configurazione Plugin", clicca sul pulsante "Importa", seleziona il pacchetto plugin FRCap per pallettizzazione (formato del nome: nome del pacchetto plugin + numero di versione.plugin, esempio: Palletizzatore Palletizer-v0.0.0.plugin) e caricalo. Dopo il caricamento riuscito, la lista mostrerà il pacchetto plugin FRCap per pallettizzazione importato con successo, inclusi lo stato di attivazione/disattivazione del plugin, nome, numero di versione, descrizione e autore, ecc. Nella barra delle operazioni, è possibile "Disattivare", "Attivare" ed "Eliminare" il pacchetto plugin FRCap per pallettizzazione.
 
 .. image:: frcap_pictures/013.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-1-1 WebApp plug-in configuration interface
+.. centered:: Figura 10-1-1 Interfaccia di Configurazione Plugin WebApp
 
-After successfully importing the palletizing FRCap plug-in package for the first time, the status of the plug-in package is "Disabled". Click the "Enable" button. After successful activation, the "Auxiliary Application" module of the collaborative robot WebApp adds the palletizing FRCap plug-in package start page ( For example: the page module name corresponding to Palletizer-v0.0.0.plugin is "Palletizer"). Click the "Start" button to enter the homepage, view the currently configured palletizing formula, and use it according to your needs.
+Dopo la prima importazione riuscita del pacchetto plugin FRCap per pallettizzazione, lo stato del pacchetto sarà "Disattivato". Clicca sul pulsante "Attiva" e, dopo l'attivazione riuscita, il modulo "Applicazioni Ausiliarie" della WebApp del robot collaborativo aggiungerà la pagina iniziale del pacchetto plugin FRCap per pallettizzazione (ad esempio, il modulo di pagina corrispondente a Palletizzatore Palletizer-v0.0.0.plugin è "Palletizzatore Palletizer"). Clicca sul pulsante "Inizia" per accedere alla home page, visualizza le ricette di pallettizzazione attualmente configurate e utilizzale in base alle esigenze.
 
 .. note:: 
-    If the recipe is empty, please add/import the recipe first.
+   Se la ricetta è vuota, aggiungi/importa prima una ricetta.
 
 .. image:: frcap_pictures/014.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-1-2 WebApp+ palletizing FRCap display diagram
+.. centered:: Figura 10-1-2 Visualizzazione WebApp + FRCap per Pallettizzazione
 
 .. image:: frcap_pictures/015.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-1-3 Palletizing FRCap Home Page
+.. centered:: Figura 10-1-3 Home Page di FRCap per Pallettizzazione
 
-Recipe management
-----------------------------------------------
-
-Each recipe is divided into three major areas: recipe name, recipe operation and recipe editing. The operation area buttons are: Rename, Export, Copy and Delete.
+Gestione delle Ricette
+------------------------------------
+Ogni ricetta è divisa in tre aree principali: nome della ricetta, operazioni della ricetta e modifica della ricetta. I pulsanti nell'area operativa sono, in ordine: Rinomina, Esporta, Copia ed Elimina.
 
 .. image:: frcap_pictures/016.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-2-1 Recipe area division
+.. centered:: Figura 10-2-1 Suddivisione delle Aree della Ricetta
 
 .. note:: 
    .. image:: frcap_pictures/045.png
@@ -49,8 +45,8 @@ Each recipe is divided into three major areas: recipe name, recipe operation and
       :height: 0.5in
       :align: left
 
-   | Name: Export recipe
-   | Function: Export the data of the current recipe
+   | Nome: **Esporta Ricetta**
+   | Funzione: Esporta i dati della ricetta corrente
 
 .. note:: 
    .. image:: frcap_pictures/046.png
@@ -58,8 +54,8 @@ Each recipe is divided into three major areas: recipe name, recipe operation and
       :height: 0.5in
       :align: left
 
-   | Name: Copy recipe
-   | Function: Copy the data of the current recipe
+   | Nome: **Copia Ricetta**
+   | Funzione: Copia i dati della ricetta corrente
 
 .. note:: 
    .. image:: frcap_pictures/047.png
@@ -67,31 +63,28 @@ Each recipe is divided into three major areas: recipe name, recipe operation and
       :height: 0.5in
       :align: left
 
-   | Name: Delete recipe
-   | Function: Delete the current recipe
+   | Nome: **Elimina Ricetta**
+   | Funzione: Elimina la ricetta corrente
 
-Obtain
-+++++++++++++++++++++
-
-After entering the homepage of the palletizing plug-in package, you can obtain all current recipes. When the number of recipes is greater than four, a scroll bar appears in the recipe display area, and the user can scroll up and down to view the recipes.
+Ottenere
+~~~~~~~~~~~~~~~
+Dopo aver acceduto alla home page del plugin per pallettizzazione, ottieni tutte le ricette correnti. Quando il numero di ricette è superiore a quattro, nella zona di visualizzazione delle ricette appare una barra di scorrimento, consentendo all'utente di scorrere verso l'alto e il basso per visualizzare le ricette.
 
 .. note:: 
-    All recipe names start with "palletizing", for example "palletizing_test1".
+   Tutti i nomi delle ricette iniziano con "palletizing", ad esempio "palletizing_test1".
 
 .. image:: frcap_pictures/017.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-2-2 Recipe acquisition
+.. centered:: Figura 10-2-2 Ottenimento delle Ricette
 
-New
-+++++++++++++++++++++
-
-In the operation area of any formula, click the "Add" button to enter the "New Formula" pop-up window, enter the name of the palletizing formula, and click the "Confirm" button. After the addition is successful, the new palletizing formula will be added to the formula display area.
+Aggiungere
+~~~~~~~~~~~~~~
+Nell'area operativa di qualsiasi ricetta, clicca sul pulsante "Aggiungi", entra nella finestra di dialogo "Aggiungi Ricetta", inserisci il nome della ricetta di pallettizzazione e clicca sul pulsante "Conferma". Dopo l'aggiunta riuscita, l'area di visualizzazione delle ricette mostrerà la nuova ricetta di pallettizzazione aggiunta.
 
 .. note:: 
-    All recipe names start with "palletizing". There is no need to enter "palletizing". You only need to enter the name after "_". For example, "palletizing_add", enter "add".
-
+   Tutti i nomi delle ricette iniziano con "palletizing", non è necessario inserire "palletizing", basta inserire il nome che segue "_". Ad esempio, per "palletizing_add", inserisci solo "add".
 
 .. image:: frcap_pictures/018.png
    :width: 6in
@@ -101,50 +94,47 @@ In the operation area of any formula, click the "Add" button to enter the "New F
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-3 New recipe added
+.. centered:: Figura 10-2-3 Aggiunta di una Ricetta
 
-Rename
-+++++++++++++++++++++
-In the operation area of any formula, click the "Rename" icon to enter the "Palletizing Recipe Rename" pop-up window, enter the name of the palletizing formula, and click the "Confirm" button. After the renaming is successful, the original palletizing recipe name in the recipe display area is renamed.
+Rinominare
+~~~~~~~~~~~~~~~~~~
+Nell'area operativa di qualsiasi ricetta, clicca sulla casella di immissione del nome della ricetta, entra nella finestra di dialogo "Rinomina Ricetta di Pallettizzazione", inserisci il nome della ricetta di pallettizzazione e clicca sul pulsante "Conferma". Dopo la rinomina riuscita, il nome originale della ricetta di pallettizzazione nell'area di visualizzazione verrà rinominato.
 
-.. note:: 
-    All recipe names start with "palletizing". There is no need to enter "palletizing". The modal window will automatically bring out the name after "_". For example, "palletizing_rename" will automatically bring out "rename".
+.. note::
+   Tutti i nomi delle ricette iniziano con "palletizing", non è necessario inserire "palletizing", la finestra modale mostrerà automaticamente il nome che segue "_". Ad esempio, per "palletizing_rename", mostrerà automaticamente "rename".
 
 .. image:: frcap_pictures/020.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-4 Recipe rename
+.. centered:: Figura 10-2-4 Rinomina di una Ricetta
 
-Export
-+++++++++++++++++++++
-
-In the operation area of any recipe, click the "Export" icon to download all data of the current recipe.
+Esportare
+~~~~~~~~~~~~~~~
+Nell'area operativa di qualsiasi ricetta, clicca sull'icona "Esporta" per scaricare tutti i dati della ricetta corrente.
 
 .. image:: frcap_pictures/021.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-5 Recipe export
+.. centered:: Figura 10-2-5 Esportazione di una Ricetta
 
-Copy
-+++++++++++++++++++++
-
-In the operation area of any formula, click the "Copy" icon to enter the "Palletizing Formula Copy" pop-up window, enter the name of the palletizing formula, and click the "Confirm" button. After the copy is successful, the copied palletizing formula will be added to the formula display area.
+Copiare
+~~~~~~~~~~~~~~~~~
+Nell'area operativa di qualsiasi ricetta, clicca sull'icona "Copia", entra nella finestra di dialogo "Copia Ricetta di Pallettizzazione", inserisci il nome della ricetta di pallettizzazione e clicca sul pulsante "Conferma". Dopo la copia riuscita, l'area di visualizzazione delle ricette mostrerà la ricetta di pallettizzazione copiata.
 
 .. note:: 
-    All recipe names start with "palletizing". There is no need to enter "palletizing". The modal window will automatically bring out the names after "_". For example, "palletizing_copy" will automatically bring out "copy".
+   Tutti i nomi delle ricette iniziano con "palletizing", non è necessario inserire "palletizing", la finestra modale mostrerà automaticamente il nome che segue "_". Ad esempio, per "palletizing_copy", mostrerà automaticamente "copy".
 
 .. image:: frcap_pictures/022.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-6 Recipe copy
+.. centered:: Figura 10-2-6 Copia di una Ricetta
 
-Delete
-+++++++++++++++++++++
-
-In the operation area of any recipe, click the "Delete" icon to delete the current recipe.
+Eliminare
+~~~~~~~~~~~~~~~~~
+Nell'area operativa di qualsiasi ricetta, clicca sull'icona "Elimina" per eliminare la ricetta corrente.
 
 .. image:: frcap_pictures/023.png
    :width: 6in
@@ -154,111 +144,108 @@ In the operation area of any recipe, click the "Delete" icon to delete the curre
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-7 Recipe delete
+.. centered:: Figura 10-2-7 Eliminazione di una Ricetta
 
-Edit
-+++++++++++++++++++++
-
-For any recipe, click the "Edit" button to enter the configuration interface of the current recipe.
+Modificare
+~~~~~~~~~~~~~~~~
+Per qualsiasi ricetta, clicca sul pulsante "Modifica" per accedere all'interfaccia di configurazione della ricetta corrente.
 
 .. image:: frcap_pictures/025.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-8 Palletizing recipe editor
+.. centered:: Figura 10-2-8 Modifica della Ricetta di Pallettizzazione
 
-Import
-+++++++++++++++++++++
-
-Click the "Import" button, select the compressed package of the palletizing formula and upload it. After the import is successful, the imported formula will be added to the palletizing formula.
+Importare
+~~~~~~~~~~~~~~~~
+Clicca sul pulsante "Importa", seleziona il pacchetto compresso della ricetta di pallettizzazione e caricalo. Dopo l'importazione riuscita, la ricetta di pallettizzazione includerà la ricetta importata.
 
 .. note:: 
-    All recipe compressed package names start with "palletizing" and end with ".tar.gz", such as "palletizing_import.tar.gz".
+   Tutti i nomi dei pacchetti compressi delle ricette iniziano con "palletizing" e terminano con ".tar.gz", ad esempio "palletizing_import.tar.gz".
 
 .. image:: frcap_pictures/026.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-9 Recipe import
+.. centered:: Figura 10-2-9 Importazione di una Ricetta
 
 .. important:: 
-    When "adding", "renaming" and "copying" a palletizing formula, entering an existing formula name will prompt "There is already a formula with the same name".
+   Per "Aggiungi", "Rinomina" e "Copia" della ricetta di pallettizzazione, se viene inserito un nome di ricetta già esistente, verrà mostrato il messaggio "Esiste già una ricetta con lo stesso nome".
 
 .. image:: frcap_pictures/027.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-2-10 Tips for recipes with the same name
+.. centered:: Figura 10-2-10 Messaggio di Nome Duplicato della Ricetta
 
-Recipe configuration
-----------------------------------------------
-
-The configuration interface of any recipe displays the basic information of boxes, trays, modes and advanced configurations, and configures specific parameters in the corresponding configuration column.
+Configurazione della Ricetta
+------------------------------------
+L'interfaccia di configurazione di qualsiasi ricetta mostra le informazioni di base della configurazione di scatola, pallet, modalità e configurazione avanzata, con la configurazione dei parametri specifici effettuata nella rispettiva barra di configurazione.
 
 .. image:: frcap_pictures/028.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-1 Palletizing recipe editing interface
+.. centered:: Figura 10-3-1 Interfaccia di Modifica della Ricetta di Pallettizzazione
 
-Box configuration
-++++++++++++++++++++++++++++++++++++++++++
+Impostazione della Stazione di Lavoro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Workstation Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In recipe editing, you can choose whether to use a palletizing workstation, as shown in Figure 2-2. If a palletizing workstation is used, the corresponding palletizing functions will be completed using I/O signals from the workstation PLC; if no palletizing workstation is selected, the palletizing functions will default to using I/O signals from the control box.
+Nella modifica della ricetta, è possibile scegliere se utilizzare una stazione di lavoro per pallettizzazione, come mostrato nella Figura 2-2. Se si utilizza la stazione di lavoro per pallettizzazione, le funzioni di pallettizzazione corrispondenti vengono completate utilizzando i segnali I/O nel PLC della stazione di lavoro; se si sceglie di non utilizzare una stazione di lavoro per pallettizzazione, per impostazione predefinita si utilizzano i segnali I/O sul quadro di controllo per completare le funzioni di pallettizzazione.
 
 .. image:: frcap_pictures/076.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 10-3-1-1 Recipe Editing Page
+.. centered:: Figura 10-3-1-1 Pagina di Modifica della Ricetta
 
-Palletizing Function I/O Wiring Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione del Cablaggio I/O per la Funzione di Pallettizzazione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(1) After selecting to use a palletizing workstation, click on Extended I/O Configuration. Based on the corresponding functions and the actual wiring of the I/O interfaces with the PLC, you can customize the selection of I/O signal configuration for palletizing functions. Figure 2-3 shows the default wiring configuration for the palletizing workstation.
+(1) Dopo aver scelto di utilizzare la stazione di lavoro per pallettizzazione, clicca su Configurazione I/O Estesa. In base alla funzionalità corrispondente e al cablaggio effettivo con le interfacce I/O del PLC, è possibile selezionare personalmente la configurazione dei segnali I/O per la funzione di pallettizzazione. La Figura 2-3 mostra la configurazione predefinita del cablaggio per la stazione di lavoro per pallettizzazione.
 
 .. image:: frcap_pictures/077.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 10-3-1-2 Default Wiring Configuration for Palletizing Workstation
+.. centered:: Figura 10-3-1-2 Configurazione Predefinita del Cablaggio della Stazione di Lavoro per Pallettizzazione
 
-(2) If you choose not to use a palletizing workstation, the system defaults to using control box I/O signals. Based on the corresponding functions and the actual wiring of the I/O interfaces with the control box, you can customize the selection of I/O signal configuration for palletizing functions. Figure 2-4 shows the default wiring configuration when no palletizing workstation is used (using control box I/O).
+(2) Se si sceglie di non utilizzare una stazione di lavoro per pallettizzazione, per impostazione predefinita vengono utilizzati i segnali I/O del quadro di controllo. In base alla funzionalità corrispondente e al cablaggio effettivo con le interfacce I/O del quadro di controllo, è possibile selezionare personalmente la configurazione dei segnali I/O per la funzione di pallettizzazione. La Figura 2-4 mostra la configurazione predefinita del cablaggio senza stazione di lavoro per pallettizzazione (utilizzando I/O del quadro di controllo).
 
 .. image:: frcap_pictures/078.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 10-3-1-3 Default Wiring Configuration for No Palletizing Workstation (Control Box I/O)
+.. centered:: Figura 10-3-1-3 Configurazione Predefinita del Cablaggio senza Stazione di Lavoro per Pallettizzazione (I/O Quadro di Controllo)
 
-Palletizing Function I/O Communication Test
+Test di Comunicazione I/O per la Funzione di Pallettizzazione
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(1) When using a palletizing workstation, after configuring the extended I/O signals for the workstation palletizing workstation, you can click "Test" to verify the functionality of the wired I/O;
-
+(1) Quando si sceglie di utilizzare una stazione di lavoro per pallettizzazione, dopo aver configurato i segnali I/O estesi della stazione di lavoro per pallettizzazione, è possibile cliccare su "Test" per verificare le funzionalità I/O cablate;
+ 
 .. image:: frcap_pictures/079.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 10-3-1-4 Palletizing Workstation I/O Wiring Test
+.. centered:: Figura 10-3-1-4 Test del Cablaggio I/O della Stazione di Lavoro per Pallettizzazione
 
-(2) When no palletizing workstation is selected, after configuring the control box I/O signals corresponding to the palletizing functions, you can click "Test" to verify the functionality of the wired I/O;
-
+(2) Quando si sceglie di non utilizzare una stazione di lavoro per pallettizzazione, dopo aver configurato i segnali I/O del quadro di controllo corrispondenti alle funzioni di pallettizzazione, è possibile cliccare su "Test" per verificare le funzionalità I/O cablate;
+ 
 .. image:: frcap_pictures/080.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 10-3-1-5 No Palletizing Workstation (Control Box I/O) Wiring Test
+.. centered:: Figura 10-3-1-5 Test del Cablaggio senza Stazione di Lavoro per Pallettizzazione (I/O Quadro di Controllo)
 
-Box operation
-~~~~~~~~~~~~~~~~~~
+Configurazione della Scatola
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Boxes can be configured with multiple boxes of different types.
+Operazioni sulla Scatola
+++++++++++++++++++++++++++++++++
 
-Click the "Add" button. After the addition is successful, a new box will be added in the current order.
+È possibile configurare più scatole di diversi tipi.
+
+Clicca sul pulsante "Aggiungi", dopo l'aggiunta riuscita, verrà aggiunta una scatola nell'ordine corrente.
 
 .. image:: frcap_pictures/048.png
    :width: 6in
@@ -268,17 +255,17 @@ Click the "Add" button. After the addition is successful, a new box will be adde
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-2 Add new box
+.. centered:: Figura 10-3-2 Aggiunta di una Scatola
 
-Click the input box area where the box name is displayed, and the "Box Rename" modal window will pop up. After entering the name, click the "Confirm" button to confirm the renaming.
+Clicca sull'area della casella di immissione mostrata dal nome della scatola, si aprirà la finestra modale "Rinomina Scatola". Inserisci il nome e clicca sul pulsante "Conferma" per confermare la rinomina.
 
 .. image:: frcap_pictures/050.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-3 Rename box
+.. centered:: Figura 10-3-3 Rinomina di una Scatola
 
-Click the "Copy" icon. After the copy is successful, copy a box based on the current box name.
+Clicca sull'icona "Copia", dopo la copia riuscita, verrà copiata una scatola in base al nome della scatola corrente.
 
 .. image:: frcap_pictures/051.png
    :width: 6in
@@ -288,12 +275,12 @@ Click the "Copy" icon. After the copy is successful, copy a box based on the cur
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-4 Copy box
+.. centered:: Figura 10-3-4 Copia di una Scatola
 
-Click the "Delete" icon to delete the box data.
+Clicca sull'icona "Elimina" per eliminare i dati della scatola.
 
 .. note:: 
-   Do not delete boxes that have been configured in the mode configuration.
+   Non eliminare le scatole già configurate nella configurazione della modalità.
 
 .. image:: frcap_pictures/053.png
    :width: 6in
@@ -303,24 +290,24 @@ Click the "Delete" icon to delete the box data.
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-5 Delete box
+.. centered:: Figura 10-3-5 Eliminazione di una Scatola
 
-For any box, click the "Edit" button to enter the box parameter configuration interface. After the configuration is successful, the box configuration status chart is green; when the configuration is not completed, the box configuration status icon is yellow.
+Per qualsiasi scatola, clicca sul pulsante "Modifica" per accedere all'interfaccia di configurazione dei parametri della scatola. Dopo la configurazione riuscita, l'icona dello stato di configurazione della scatola diventa verde; quando la configurazione non è completata, l'icona dello stato di configurazione della scatola è gialla.
 
 .. image:: frcap_pictures/055.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-6 Box parameter configuration completed
+.. centered:: Figura 10-3-6 Configurazione dei Parametri della Scatola Completata
 
 .. image:: frcap_pictures/056.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-7 Box parameter configuration is not completed
+.. centered:: Figura 10-3-7 Configurazione dei Parametri della Scatola Non Completata
 
-Box parameters
-~~~~~~~~~~~~~~~~~~
+Parametri della Scatola
+++++++++++++++++++++++++++++++++
 
 .. note:: 
    .. image:: frcap_pictures/057.png
@@ -328,8 +315,8 @@ Box parameters
       :height: 0.5in
       :align: left
 
-   | Name: Previous box
-   | Function: Switch to select the previous box. When the first box is selected, switch the selection to the last box again.
+   | Nome: **Scatola Precedente**
+   | Funzione: Passa alla scatola precedente. Quando viene selezionata la prima scatola, passando ancora si seleziona l'ultima scatola.
 
 .. note:: 
    .. image:: frcap_pictures/058.png
@@ -337,67 +324,64 @@ Box parameters
       :height: 0.5in
       :align: left
 
-   | Name: Next box
-   | Function: Switch to select the next box. When the last box is selected, switch to the first box again.
+   | Nome: **Scatola Successiva**
+   | Funzione: Passa alla scatola successiva. Quando viene selezionata l'ultima scatola, passando ancora si seleziona la prima scatola.
 
-Click "Edit" in the box configuration column to enter the "Box Configuration" pop-up window, set the "length", "width", "height", "load", "workpiece label orientation" and workpiece in place signal of the box, click "Confirm" button to complete the box information configuration; set the grab point of the box (keep the grab point at the center of the box, and the bottom of the suction cup will be in a squeeze state when in contact with the box), and click the "Record" button to complete the setting.
+Nella barra di configurazione della scatola, clicca su "Modifica" per accedere alla finestra di dialogo "Configurazione Scatola". Imposta "Lunghezza", "Larghezza", "Altezza", "Carico", "Orientamento Etichetta Pezzo" e il segnale di presenza del pezzo della scatola, quindi clicca sul pulsante "Conferma" per completare la configurazione delle informazioni della scatola; imposta il punto di presa della scatola (mantenendo il punto di presa al centro della scatola, con la ventosa a contatto con la scatola in uno stato compresso), clicca sul pulsante "Registra" per completare l'impostazione.
 
 .. image:: frcap_pictures/029.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-8 Box configuration
+.. centered:: Figura 10-3-8 Configurazione della Scatola
 
 .. image:: frcap_pictures/030.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-9 Box grab point
+.. centered:: Figura 10-3-9 Punto di Presa della Scatola
 
-.. important:: 
-    The box grab point must be recorded, otherwise the length, width and height of the box cannot be configured.
+.. important:: È necessario registrare il punto di presa della scatola, altrimenti non sarà possibile configurare lunghezza, larghezza e altezza della scatola.
 
-Pallet configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Click "Config" in the pallet configuration column to enter the "Pallet Configuration" pop-up window, set the "front", "side" and "height" of the pallet, then set the workstation transition point, and click "Confirm Configuration" to complete the pallet information setting.
+Configurazione del Pallet
++++++++++++++++++++++++++++++++++
+Nella barra di configurazione del pallet, clicca su "Configura" per accedere alla finestra di dialogo "Configurazione Pallet". Imposta "Lato Anteriore", "Lato Laterale" e "Altezza" del pallet, quindi imposta i punti di transizione della postazione, clicca su "Conferma Configurazione" per completare l'impostazione delle informazioni del pallet.
 
 .. image:: frcap_pictures/031.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-10 Pallet configuration
+.. centered:: Figura 10-3-10 Configurazione del Pallet
 
 .. image:: frcap_pictures/032.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-11 Left station transition point
+.. centered:: Figura 10-3-11 Punto di Transizione della Postazione Sinistra
 
 .. image:: frcap_pictures/033.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-12 Right station transition point
+.. centered:: Figura 10-3-12 Punto di Transizione della Postazione Destra
 
-.. important:: 
-    Station transition points must be recorded, otherwise the program that cannot be generated cannot be saved.
+.. important:: È necessario registrare i punti di transizione della postazione, altrimenti il programma generato non potrà essere salvato.
 
-Pattern configuration
-++++++++++++++++++++++++++++++++++++++++++
+Configurazione della Modalità
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Pattern operation
-~~~~~~~~~~~~~~~~~~~~
+Operazioni sulla Modalità
+++++++++++++++++++++++++++++++
 
-When selecting boxes in a pattern configuration, you can select boxes of the same height but different lengths and widths. The mode display area is divided into: mode addition (configuring palletizing type) and palletizing layer configuration.
+Nella configurazione della modalità, quando si seleziona una scatola, è possibile scegliere scatole con la stessa altezza ma lunghezza e larghezza diverse. L'area di visualizzazione della modalità è divisa in: Aggiunta Modalità (configurazione dello schema di pallettizzazione) e Configurazione dei Livelli di Pallettizzazione.
 
 .. image:: frcap_pictures/059.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-13 Mode display area
+.. centered:: Figura 10-3-13 Area di Visualizzazione della Modalità
 
-Click the "Add" button. After the addition is successful, a new mode will be added in the current order.
+Clicca sul pulsante "Aggiungi", dopo l'aggiunta riuscita, verrà aggiunta una modalità nell'ordine corrente.
 
 .. image:: frcap_pictures/060.png
    :width: 6in
@@ -407,17 +391,17 @@ Click the "Add" button. After the addition is successful, a new mode will be add
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-14 New pattern
+.. centered:: Figura 10-3-14 Aggiunta di una Modalità
 
-In any mode in the mode adding area, click the input box area where the mode name is displayed, and the "Mode Rename" modal window will pop up. After entering the name, click the "Confirm" button to confirm the renaming.
+In qualsiasi modalità nell'area di aggiunta modalità, clicca sull'area della casella di immissione mostrata dal nome della modalità, si aprirà la finestra modale "Rinomina Modalità". Inserisci il nome e clicca sul pulsante "Conferma" per confermare la rinomina.
 
 .. image:: frcap_pictures/062.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-15 Rename pattern
+.. centered:: Figura 10-3-15 Rinomina di una Modalità
 
-In any mode in the mode adding area, click the "Copy" icon. After the copy is successful, a mode will be copied according to the current mode name.
+In qualsiasi modalità nell'area di aggiunta modalità, clicca sull'icona "Copia", dopo la copia riuscita, verrà copiata una modalità in base al nome della modalità corrente.
 
 .. image:: frcap_pictures/063.png
    :width: 6in
@@ -427,9 +411,9 @@ In any mode in the mode adding area, click the "Copy" icon. After the copy is su
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-16 Copy pattern
+.. centered:: Figura 10-3-16 Copia di una Modalità
 
-In any mode in the mode adding area, click the "Delete" icon to delete the current mode data.
+In qualsiasi modalità nell'area di aggiunta modalità, clicca sull'icona "Elimina" per eliminare i dati della modalità corrente.
 
 .. image:: frcap_pictures/065.png
    :width: 6in
@@ -439,32 +423,32 @@ In any mode in the mode adding area, click the "Delete" icon to delete the curre
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-17 Delete pattern
+.. centered:: Figura 10-3-17 Eliminazione di una Modalità
 
-In any mode in the mode adding area, click the "Edit" button to enter the "Mode Configuration" modal window and configure the palletizing type of the current mode. After the configuration is successful, the box configuration status chart is green; when the configuration is not completed, the box configuration status icon is yellow.
+In qualsiasi modalità nell'area di aggiunta modalità, clicca sul pulsante "Modifica" per accedere alla finestra modale "Configurazione Modalità" e configura lo schema di pallettizzazione della modalità corrente. Dopo la configurazione riuscita, l'icona dello stato di configurazione della scatola diventa verde; quando la configurazione non è completata, l'icona dello stato di configurazione della scatola è gialla.
 
 .. image:: frcap_pictures/067.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-18 Pattern parameter configuration completed
+.. centered:: Figura 10-3-18 Configurazione dei Parametri della Modalità Completata
 
 .. image:: frcap_pictures/068.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-19 Mode parameter configuration is not completed
+.. centered:: Figura 10-3-19 Configurazione dei Parametri della Modalità Non Completata
 
-In the palletizing layer configuration area, the number and sorting of the palletizing layers are displayed. Click the "Edit" button to enter the "Palletizing Sequence Configuration" modal window, enter the "Number of Palletizing Layers", select the mode of each layer, and click the "Confirm" button to complete the configuration.
+Nell'area di configurazione dei livelli di pallettizzazione, vengono mostrati il numero di livelli di pallettizzazione e l'ordinamento. Clicca sul pulsante "Modifica" per accedere alla finestra modale "Configurazione Sequenza Schema", inserisci il "Numero di Livelli di Pallettizzazione", seleziona la modalità per ogni livello, quindi clicca sul pulsante "Conferma" per completare la configurazione.
 
 .. image:: frcap_pictures/069.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-20 Palletizing layer configuration
+.. centered:: Figura 10-3-20 Configurazione del Numero di Livelli di Pallettizzazione
 
-Pattern parameters
-~~~~~~~~~~~~~~~~~~~~
+Parametri della Modalità
+++++++++++++++++++++++++++++++
 
 .. note:: 
    .. image:: frcap_pictures/057.png
@@ -472,8 +456,8 @@ Pattern parameters
       :height: 0.5in
       :align: left
 
-   | Name: Previous mode
-   | Function: Switch to select the previous mode. When the first mode is selected, switch to the last mode again.
+   | Nome: **Modalità Precedente**
+   | Funzione: Passa alla modalità precedente. Quando viene selezionata la prima modalità, passando ancora si seleziona l'ultima modalità.
 
 .. note:: 
    .. image:: frcap_pictures/058.png
@@ -481,48 +465,44 @@ Pattern parameters
       :height: 0.5in
       :align: left
 
-   | Name: Next mode
-   | Function: Switch to select the next mode. When the last mode is selected, switch to the first mode again.
+   | Nome: **Modalità Successiva**
+   | Funzione: Passa alla modalità successiva. Quando viene selezionata l'ultima modalità, passando ancora si seleziona la prima modalità.
 
-Click "Edit" in the mode configuration column to enter the "Mode Configuration" pop-up window. It is mainly divided into three areas: pattern selection, box operation and stacking simulation.
+Nella barra di configurazione della modalità, clicca su "Configura" per accedere alla finestra di dialogo "Configurazione Modalità". È principalmente divisa in quattro aree: selezione modalità, operazioni scatola e simulazione schema.
 
 .. image:: frcap_pictures/040.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-21 Pattern  configuration
+.. centered:: Figura 10-3-21 Configurazione della Modalità
 
 .. important:: 
-    When adding boxes, the background color of the workpiece turns red when there is a collision between boxes, and the above operation cannot be performed at this time. If necessary, please adjust the box to be collision-free.
+   Quando si aggiungono scatole, se c'è collisione tra le scatole, lo sfondo del pezzo diventa rosso, e a questo punto le operazioni sopra non possono essere eseguite. Se necessario, regolare le scatole per evitare collisioni.
 
-Select the mode at the top of the pop-up window, select the box in the box operation area to add boxes in this mode, first set the box interval, you can add it individually or in batches, click "Confirm" to complete the mode information setting. When the heights of the selected boxes are inconsistent, the configuration cannot be completed, and the prompt "Box types are highly inconsistent and can't be added in the same pattern."
+Nell'intestazione della finestra di dialogo, seleziona la modalità, nell'area operazioni scatola seleziona le scatole da aggiungere in questa modalità, imposta prima la spaziatura tra le scatole, può essere aggiunta singolarmente o in batch, quindi clicca su "Conferma" per completare l'impostazione delle informazioni della modalità. Quando le altezze delle scatole selezionate non sono coerenti, la configurazione non può essere completata e viene visualizzato il messaggio "Le altezze dei tipi di scatola non sono coerenti e non possono essere aggiunte nella stessa modalità".
 
 .. image:: frcap_pictures/070.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-22 Tips for inconsistent heights of selected boxes
+.. centered:: Figura 10-3-22 Messaggio di Altezza Scatole Incoerente
 
-Select the reference mode (the selected mode cannot be selected), compare and see whether the current mode configuration can be palletized based on the reference mode, so that customers can intuitively check the box stacking types in different modes.
-
-.. note:: 
-    Currently only two modes, A and B, are supported.
+Seleziona una modalità di riferimento (non è possibile selezionare la modalità già scelta), confronta e verifica se la configurazione della modalità corrente può effettuare pallettizzazione sulla base di questa modalità di riferimento, aiutando il cliente a visualizzare intuitivamente lo schema delle scatole in diverse modalità.
 
 .. important:: 
-    Palletizing direction: Taking the right pallet as an example, the lower right corner is the farthest point. Place a row of workpieces vertically or horizontally from the lower right corner, then place workpieces horizontally or vertically in the upper row, and so on (Web page The palletizing direction has been marked, please check carefully). The left pallet places workpieces mirroring the right pallet mode.
+   Direzione di Pallettizzazione: Prendendo come esempio il pallet destro, l'angolo in basso a destra è il punto più lontano. Posizionare una fila di pezzi verticalmente o orizzontalmente dall'angolo in basso a destra, quindi posizionare la fila successiva di pezzi orizzontalmente o verticalmente sopra, e così via (la direzione di pallettizzazione è indicata nella pagina Web, si prega di controllare). Per il pallet sinistro, i pezzi vengono posizionati in modo speculare rispetto allo schema del pallet destro.
 
-Advanced configuration
-+++++++++++++++++++++++++++++++++++++++
-
-Click "Config" in the advanced configuration column to enter the "Advanced Configuration" pop-up window. The configuration items are as follows:
+Configurazione Avanzata
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Nella barra di configurazione avanzata, clicca su "Configura" per accedere alla finestra di dialogo "Configurazione Avanzata". Gli elementi di configurazione sono i seguenti:
 
 .. image:: frcap_pictures/041.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-23 Advanced configuration
+.. centered:: Figura 10-3-23 Configurazione Avanzata
 
-1) Dimensions of palletizing equipment: Dimensions of palletizing workbench.
+1) Dimensioni del Dispositivo di Pallettizzazione: Le dimensioni del banco di lavoro per pallettizzazione.
 
 .. image:: frcap_pictures/074.png
    :width: 6in
@@ -532,118 +512,110 @@ Click "Config" in the advanced configuration column to enter the "Advanced Confi
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-24 Palletizing Station
+.. centered:: Figura 10-3-24 Banco di Lavoro per Pallettizzazione
 
-.. important:: 
-    X, Y, and Z are the absolute values of the coordinates of the point at the upper right corner of the left tray or the upper left corner of the right tray relative to the robot's base coordinate system. Angle is the rotation angle during the robot's installation, which is recommended to be 0 during installation.
-    
-2) Lifting height for picking up materials: User-defined lifting height after successfully picking up materials from the grabbing point.
+.. important::
+   X, Y, Z sono i valori assoluti delle coordinate dell'angolo superiore destro del pallet sinistro o dell'angolo superiore sinistro del pallet destro rispetto al sistema di coordinate di base del robot. Angle è l'angolo di rotazione durante l'installazione del robot, si raccomanda di impostarlo a 0 durante l'installazione.
 
-3) Waiting time for picking up materials: The user can customize the waiting time for monitoring the negative pressure arrival signal after picking up materials, and repeat the picking up action when it is not in place.
+2) Altezza di Sollevamento per il Prelievo Materiale: Altezza personalizzata dall'utente a cui sollevare il materiale dopo il prelievo riuscito dal punto di presa.
 
-4) First/second offset distance: User-defined offset distance for tilting the robot to the target point. (Note: The first offset parameter Z must be greater than the height of the box, otherwise it will collide with the already placed boxes during the stacking process).
+3) Tempo di Attesa per il Prelievo Materiale: Tempo personalizzato dall'utente per attendere il segnale di pressione negativa dopo l'aspirazione. Se il segnale non arriva, ripetere l'azione di aspirazione.
 
-5) Partition configuration: Click "Configuration" in the partition configuration column to enter the "Partition Configuration" pop-up window, set the partition size "length", "width" and "height" and select the start and stop of the partition.
+4) Prima/Seconda Distanza di Offset: Distanza di offset personalizzata dall'utente per posizionare il robot inclinato fino al punto target.
+
+.. note::
+   Il parametro Z del primo offset deve essere maggiore dell'altezza della scatola, altrimenti durante il posizionamento potrebbe verificarsi collisione con le scatole già posizionate.
+
+5) Configurazione del Divisore: Imposta le dimensioni "Lunghezza", "Larghezza" e "Altezza" del divisore e scegli l'attivazione/disattivazione del divisore.
+
+.. note::
+   Quando la funzione divisore è attivata, la gestione delle ricette mostra i parametri di base della configurazione del divisore nella visualizzazione della configurazione avanzata.
 
 .. image:: frcap_pictures/034.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-25 Partition configuration
+.. centered:: Figura 10-3-25 Configurazione del Divisore
 
 .. image:: frcap_pictures/071.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-26 Recipe Management - Advanced Configuration Displays Partition Configuration
+.. centered:: Figura 10-3-26 Gestione Ricette - Configurazione Avanzata Mostra Configurazione Divisore
 
-Then set the transition points of the partitions. There are three transition points for the partitions. The purpose of setting them is to roughly plan a movement path after grabbing the partitions to avoid collisions and being unable to complete the action of placing the partitions.
+Quindi imposta i punti di transizione del divisore. I punti di transizione del divisore sono tre, l'impostazione ha lo scopo di pianificare approssimativamente un percorso di movimento dopo aver afferrato il divisore, evitando collisioni che impedirebbero il completamento dell'azione di posizionamento del divisore.
 
-.. note:: 
-    Transition point 1 starts to move a certain distance from the box grab point and then teaches; transition point 2 starts to move a certain distance from transition point 1 and starts teaching, and can also become a transition intermediate point; transition point 3 starts to move from transition point 2 A distance is the last point before the partition is placed.
+.. note:: Il punto di transizione 1 viene insegnato dopo aver mosso una certa distanza dal punto di presa della scatola; il punto di transizione 2 viene insegnato dopo aver mosso una certa distanza dal punto di transizione 1 e può anche essere considerato il punto intermedio di transizione; il punto di transizione 3 è l'ultimo punto prima del posizionamento del divisore, mosso una certa distanza dal punto di transizione 2.
 
 .. image:: frcap_pictures/035.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-27 Partition transition point 1 (take the right station as an example)
+.. centered:: Figura 10-3-27 Punto di Transizione Divisore 1 (Esempio Postazione Destra)
 
 .. image:: frcap_pictures/036.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-28 Partition transition point 2 (take the right station as an example)
+.. centered:: Figura 10-3-28 Punto di Transizione Divisore 2 (Esempio Postazione Destra)
 
 .. image:: frcap_pictures/037.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-29 Partition transition point 3 (take the right station as an example)
+.. centered:: Figura 10-3-29 Punto di Transizione Divisore 3 (Esempio Postazione Destra)
 
-Then set the grab point (keep the grab point at the center of the partition, and the bottom of the suction cup will be in a squeeze state when it contacts the partition) and placement point, and click "Confirm" to complete the partition information setting.
+Quindi imposta il punto di presa (mantenendo il punto di presa al centro del divisore, con la ventosa a contatto con il divisore in uno stato compresso) e il punto di posizionamento, clicca su "Conferma" per completare l'impostazione delle informazioni del divisore.
 
 .. image:: frcap_pictures/038.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-30 Partition grab point (take the right station as an example)
+.. centered:: Figura 10-3-30 Punto di Presa del Divisore (Esempio Postazione Destra)
 
 .. image:: frcap_pictures/039.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 10-3-31 Partition placement point (take the right workstation as an example)
+.. centered:: Figura 10-3-31 Punto di Posizionamento del Divisore (Esempio Postazione Destra)
 
-6) Lifting axis: Users can customize the start and stop of the lifting axis, communication parameters (IP address, port number and communication cycle), the floor number to start lifting and select the start and stop of the lifting axis. 
+6) Asse di Sollevamento: Configurazione personalizzata dall'utente per l'attivazione/disattivazione dell'asse di sollevamento, parametri di comunicazione (indirizzo IP, numero porta e ciclo di comunicazione), numero del livello di inizio sollevamento e scelta dell'attivazione/disattivazione dell'asse di sollevamento.
 
-.. note:: 
-    - When the lifting shaft is working, the height it lifts each time is the height of the box.
-    - When the lifting shaft function is turned on, the home page displays the advanced configuration content and displays the lifting shaft test button. Click the "Test" button to enter the "Lifting" button. Axis Test" pop-up window is used to test the accuracy of loading communication, rising and falling of the lifting axis to avoid problems such as inability to work and large errors when used directly.
+.. note::
+   - Quando l'asse di sollevamento è in funzione, l'altezza di sollevamento ogni volta corrisponde all'altezza della scatola.
+   - Quando la funzione asse di sollevamento è attivata, la home page mostra il pulsante di test dell'asse di sollevamento nella visualizzazione della configurazione avanzata. Cliccando sul pulsante "Test" si accede alla finestra di dialogo "Test Asse di Sollevamento", dove è possibile testare il caricamento della comunicazione, la salita e la discesa per verificarne l'accuratezza, evitando problemi di mancato funzionamento o grandi errori durante l'uso diretto.
 
 .. image:: frcap_pictures/042.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-32 Lifting shaft configuration
+.. centered:: Figura 10-3-32 Configurazione dell'Asse di Sollevamento
 
 .. image:: frcap_pictures/072.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-3-33 Recipe Management - Advanced Configuration Display Lifting Axis
+.. centered:: Figura 10-3-33 Gestione Ricette - Configurazione Avanzata Mostra Asse di Sollevamento
 
 .. image:: frcap_pictures/073.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 10-3-34 Lifting shaft test
+.. centered:: Figura 10-3-34 Test dell'Asse di Sollevamento
 
-Procedural generation
---------------------------------------------
+Generazione del Programma
+------------------------------------
+Nella parte inferiore della visualizzazione delle ricette, cerca "Generazione Programma", inserisci il nome del programma, seleziona la ricetta in base alla ricetta e alle esigenze, la ricetta sinistra e destra possono essere uguali o diverse, quindi clicca sul pulsante "Genera".
 
-Check "Program Generation" below the recipe display, enter the program name, select the recipe according to the recipe and requirements. The left and right recipes can be the same or different, and click the "Generate" button.
-
-.. note:: 
-    All program names start with "palletizing". There is no need to enter "palletizing". You only need to enter the name after "_". For example, for "palletizing_program", enter "program".
+.. note:: Tutti i nomi dei programmi iniziano con "palletizing", non è necessario inserire "palletizing", basta inserire il nome che segue "_". Ad esempio, per "palletizing_program", inserisci solo "program".
 
 .. important:: 
-    1) If the palletizing formula is not selected for the left or right station, it means that the station is not enabled.
-    2) After successfully generating the program, be sure to manually save all subprograms and main programs in program teaching.
-    3) The depalletizing program starts with "de", for example, the palletizing program is "palletizing_program" and the depalletizing program is "depalletizing_program".
+    1. Se la postazione sinistra o destra non ha selezionato una ricetta di pallettizzazione, significa che quella postazione non è abilitata.
+    2. Dopo la generazione riuscita del programma, assicurati di salvare manualmente tutti i sottoprogrammi e il programma principale nella programmazione dimostrativa del programma.
+    3. I programmi di depallettizzazione iniziano con "de", ad esempio, se il programma di pallettizzazione è "palletizing_program", il programma di depallettizzazione sarà "depalletizing_program".
 
 .. image:: frcap_pictures/043.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 10-4-1 Procedural generation
-
-.. Palletizing status page start and stop
-.. --------------------------------------------
-
-.. Enable this function in the "Status Page" column, enter the palletizing work status page, and view "Production Information", "Alarm Information" and "Palletizing Program".
-
-.. .. image:: frcap_pictures/044.png
-..    :width: 6in
-..    :align: center
-
-.. .. centered:: Figure 10-5-1 Palletizing status page
+.. centered:: Figura 10-4-1 Generazione del Programma

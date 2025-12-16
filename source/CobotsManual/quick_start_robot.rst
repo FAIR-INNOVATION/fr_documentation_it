@@ -1,164 +1,161 @@
-Quick start
-============================
+Avvio Rapido del Robot
+==================================
 
 .. toctree:: 
    :maxdepth: 5
 
-Install the robot arm and control box
-------------------------------------------
+Installazione del Braccio Robotico e della Scatola di Controllo
+----------------------------------------------------------------------------------
 
-Install the robot arm and control box according to the 3.5 and 3.6 in the hardware installation of Chapter 3.
+Installare e collegare il braccio robotico e la scatola di controllo secondo le sezioni 3.5 e 3.6 in 3. Installazione Hardware.
 
--  Take out the robotic arm and use 4 M8 bolts with a strength of not less than 8.8 levels to install the robot arm. Install the robot arm on a strong and shock -proof surface. If it is fixed with aluminum plate, the thickness of the aluminum plate is not less than 16mm. If the iron plate is fixed, the thickness of the iron plate is not less than 8mm;
+-  Prendere il braccio robotico dalla confezione, installarlo utilizzando 4 viti M8 con resistenza non inferiore a grado 8.8. Montare il braccio robotico su una superficie solida e antivibrante. Se fissato con una piastra di alluminio, lo spessore dell'alluminio deve essere di almeno 16 mm; se fissato con una piastra di acciaio, lo spessore dell'acciaio deve essere di almeno 8 mm;
 
--  Place the control box on its feet;
+-  Posizionare la scatola di controllo sui suoi piedini;
 
--  Connect the robot arm ontology to the heavy load interface of the control box;
+-  Collegare il cavo ad alta potenza del corpo del braccio robotico all'interfaccia ad alta potenza della scatola di controllo;
 
--  Plug the button box aviation plug into the control box exemporary instrument interface. 
+-  Inserire il connettore del pulsantiered nella porta insegnatore della scatola di controllo;
 
--  Make sure the power button of the control box is turned off (the button is turned to 0) and connect the power cord to the power socket;
+-  Assicurarsi che il pulsante di alimentazione della scatola di controllo sia spento (pulsante su 0) e collegare il cavo di alimentazione alla presa di alimentazione;
 
--  Plug in the power control box plug.
+-  Inserire la spina di alimentazione della scatola di controllo.
 
 .. warning:: 
-   (1) If the robot is placed on a strong surface, the robot may dump and cause damage.
+   (1) Se il robot non è posizionato in sicurezza su una superficie solida, potrebbe ribaltarsi e causare lesioni.
+   
+   (2) Non accendere e spegnere rapidamente l'alimentazione della scatola di controllo. Si consiglia che il tempo tra OFF e il successivo ON dell'interruttore di alimentazione della scatola di controllo sia superiore a 1 minuto.
 
-   (2) Do not quickly switch the power of the control box on and off. It is recommended that the time between switching the power of the control box off and on again be greater than 1 minute.
+Avvio del Robot tramite Insegnatore
+---------------------------------------------
 
-Demonstrate startup control robot
--------------------------------------
+La scatola di controllo collega il braccio robotico, l'insegnatore e qualsiasi dispositivo periferico tramite ingressi/uscite elettrici fisici. È necessario accendere la scatola di controllo per alimentare il braccio robotico.
 
-The control box is connected to the robot arm, the teaching box, and the physical electrical input/output terminal of any peripheral equipment. You must open the control box to power the robot's arm.
+-  Premere il pulsante di alimentazione della scatola di controllo per accenderla;
 
--  Press the power button of the control box to open the control box;
+-  Dopo l'avvio del robot, questo si trova in modalità manuale e non abilitato. Se è necessario operare il robot in modalità manuale, è necessario premere l'interruttore abilitante a tre posizioni sull'insegnatore: OFF (rilasciare) ⇒ ON ⇒ OFF (premere). Quando l'interruttore è in stato ON, trascinare o controllare il movimento del robot.
 
--  After starting the robot, at this time the robot is manual mode and has not enabled. If the robot needs to be operated in the manual mode, you need to press the three bits on the teaching pendant to switch off (let go) ⇒ OFF (press) as the switch as a switch Drag or control the robot movement when you are on your state.
+-  Se non è necessario operare il robot in modalità manuale, è possibile utilizzare il selettore rotante a chiave sull'insegnatore per cambiare la modalità operativa del robot: Automatica, Manuale, Personalizzata;
 
--  If you do not need to operate the robot in the manual mode, you can use the key switch to switch the robot working mode on the key to switch the button: automatic, manual, custom;
+-  Quando si passa il robot in stato manuale, controllare che non ci siano anomalie all'interno o all'esterno dello spazio di sicurezza e operare il funzionamento della macchina con cautela;
 
--  When switching the robot's manual state, check whether there is abnormal abnormality inside and outside the safety space and to operate the machine's operation carefully;
+-  Quando si passa il robot in stato automatico, controllare le misure di sicurezza e ripristinarle allo stato normale, quindi operare il funzionamento della macchina con cautela;
 
--  When switching the robot's automatic state, check the safety measures and return to the normal state and operate the machine operation carefully;
+-  Se l'insegnatore non si accende normalmente, verificare che le connessioni del dispositivo siano normali.
 
--  When the teaching pendant cannot be opened normally, please check whether the device connection is normal.
+Controllo del Movimento del Robot tramite Pulsantiered
+-------------------------------------------------------------------
 
-Button box control robot movement
----------------------------------------
+Fare riferimento a 3.6.3. Definizione LED terminale in 3. Installazione Hardware per controllare il robot. I pulsantiered esistenti sono divisi in: Pulsantiered 60 (POE)(BX01), Pulsantiered 60 (POE)(BX02)-V1.0, Pulsantiered 60 (POE)(BX02)-V2.0. Prendendo come esempio il Pulsantiered 60 (POE)(BX01), la procedura operativa è la seguente.
 
-Refer to the 3.6.3 of the hardware installation of Chapter 3. The end LED definition of the end to control the robot. The existing button boxes are divided into 60-button box (POE)(BX01), 60-button box (POE)(BX02)-V1.0, 60-button box (POE)(BX02)-V2.0.
+Senza Insegnatore
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Taking the 60-button box (POE)(BX01) as an example, the operation steps are as follows.
-
-Not paired with teaching pendant
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  **Step1**:Turn on the power switch of the robot control box, start the robot, wait for the end LED to display green for a long time before operating the robot, as shown in figure below.
+-  **Step1**: Accendere l'interruttore di alimentazione della scatola di controllo del robot, avviare il robot, attendere che il LED terminale sia verde fisso, quindi è possibile operare il robot come mostrato di seguito:
 
 .. figure:: quick_start_robot/001.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-1 Green Schematic Diagram of End LED
+.. centered:: Grafico 4.3-1 Schema LED terminale verde
 
--  **Step2**:Long press the button box "button 2" to enter the mode without teaching pendant, and the end LED flashes blue three times, as shown in figure below.
+-  **Step2**: Tenere premuto il "Pulsante 2" del pulsantiered per entrare in modalità senza insegnatore. Il LED terminale lampeggia ciano tre volte, come mostrato di seguito:
 
 .. figure:: quick_start_robot/002.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-2 end LED blue blue schematic diagram
+.. centered:: Grafico 4.3-2 Schema LED terminale ciano
 
--  **Step3**:Long press button "button 1" Switch the robot to the drag mode. At this time, the end LED is white and blue, as shown in Figure 4.3-3. To any position of the mobile robot, long press the "button 1" to exit the drag mode, the short-press button box "button 2" records P1 point, the end LED purple flashes three times, as shown in Figure 4.3-4.
+-  **Step3**: Tenere premuto il "Pulsante 1" del pulsantiered per passare il robot in modalità trascinamento. A questo punto il LED terminale è bianco ciano, come nel Grafico 4.3-3. Spostare il robot in una posizione qualsiasi, tenere premuto il "Pulsante 1" per uscire dalla modalità trascinamento, premere brevemente il "Pulsante 2" del pulsantiered per registrare il punto P1. Il LED terminale lampeggia viola tre volte, come nel Grafico 4.3-4.
 
--  **Step4**:Mobile robot, short press button box "button 2" record P2 point, the end LED purple flashes three times, as shown in Figure 4.3-4.
+-  **Step4**: Spostare il robot, premere brevemente il "Pulsante 2" del pulsantiered per registrare il punto P2. Il LED terminale lampeggia viola tre volte, come nel Grafico 4.3-4.
 
 .. figure:: quick_start_robot/003.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-3 end LED white green schematic diagram
+.. centered:: Grafico 4.3-3 Schema LED terminale bianco ciano
 
 .. figure:: quick_start_robot/004.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-4 end LED purple schematic diagram
+.. centered:: Grafico 4.3-4 Schema LED terminale viola
 
--  **Step5**:The long press button "button 1" exit the drag mode. At this time, it is a manual mode. The end LED is green, as shown in Figure 4.3-5. Short press "Key 1" to switch the robot to the automatic mode. At this time, the end LED is blue, as shown in Figure 4.3-6.
+-  **Step5**: Tenere premuto il "Pulsante 1" del pulsantiered per uscire dalla modalità trascinamento. A questo punto si è in modalità manuale, il LED terminale è verde, come nel Grafico 4.3-5. Premere brevemente il "Pulsante 1" per passare il robot in modalità automatica. A questo punto il LED terminale è blu, come nel Grafico 4.3-6.
 
--  **Step6**:The short press button "button 3" runs the program, the end LED blue flashes twice, as shown in Figure 4.3-6.
+-  **Step6**: Premere brevemente il "Pulsante 3" del pulsantiered per eseguire il programma. Il LED terminale lampeggia blu due volte, come nel Grafico 4.3-6.
 
 .. figure:: quick_start_robot/005.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-5 end LED green schematic diagram
+.. centered:: Grafico 4.3-5 Schema LED terminale verde
 
 .. figure:: quick_start_robot/006.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-6 end LED blue schematic diagram
+.. centered:: Grafico 4.3-6 Schema LED terminale blu
 
--  **Step7**:Short press the button box "button 3" to stop running the program, and the red LED at the end flashes three times, as shown in figure below.
+-  **Step7**: Premere brevemente il "Pulsante 3" del pulsantiered per fermare l'esecuzione del programma. Il LED terminale lampeggia rosso tre volte, come mostrato di seguito:
 
 .. figure:: quick_start_robot/007.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-7 end LED red schematic diagram
+.. centered:: Grafico 4.3-7 Schema LED terminale rosso
 
-Matching the teaching pendant
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Con Insegnatore
+~~~~~~~~~~~~~~~~~~~~~~
 
--  **Step1**:Start the robot and wait for the end LED green to stop flashing before operating the robot.
+-  **Step1**: Avviare il robot, attendere che il LED terminale verde smetta di lampeggiare, quindi è possibile operare il robot.
 
--  **Step2**:Open the teaching pendant and enter the program editing interface.
+-  **Step2**: Accendere l'insegnatore e accedere all'interfaccia di modifica programma.
 
--  **Step3**:Select the blank template to create a new program file.
+-  **Step3**: Selezionare un modello vuoto per creare un nuovo file di programma.
 
--  **Step4**:Short -press button box button 1 Switch the robot to the manual mode. At this time, the end LED is green.
+-  **Step4**: Premere brevemente il pulsante 1 del pulsantiered per passare il robot in modalità manuale. A questo punto il LED terminale è verde.
 
--  **Step5**:Long press the button box button 1 to switch the robot to the drag mode. At this time, the end LED is white and green, the mobile robot to any position, the short press button box button 2 records P1, the end LED purple flashes three times, manually add "PTP(p1,100,-1,0)"The instructions to the program file.
+-  **Step5**: Tenere premuto il pulsante 1 del pulsantiered per passare il robot in modalità trascinamento. A questo punto il LED terminale è bianco ciano. Spostare il robot in una posizione qualsiasi, premere brevemente il pulsante 2 del pulsantiered per registrare il punto P1. Il LED terminale lampeggia viola tre volte. Aggiungere manualmente l'istruzione "PTP(p1,100,-1,0)" al file di programma.
 
 .. figure:: quick_start_robot/008.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-8 record and add some P1
+.. centered:: Grafico 4.3-8 Registrazione e aggiunta punto P1
 
--  **Step6**:Mobile robot, short -press button box button 2 records P2 point, end LED purple flashes three times, and manually add the "PTP(p2,100,-1,0)" instruction to the program.
+-  **Step6**: Spostare il robot, premere brevemente il pulsante 2 del pulsantiered per registrare il punto P2. Il LED terminale lampeggia viola tre volte. Aggiungere manualmente l'istruzione "PTP(p2,100,-1,0)" al programma.
 
 .. figure:: quick_start_robot/009.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 4.3-9 record and add some P2
+.. centered:: Grafico 4.3-9 Registrazione e aggiunta punto P2  
 
--  **Step7**:Save the program file content.
+-  **Step7**: Salvare il contenuto del file di programma.
 
--  **Step8**:Long press the button box button 1 to exit the drag mode. At this time, it is a manual mode. The end LED is green. The short press button box button 1 switch the robot to the automatic mode. At this time, the end LED is blue.
+-  **Step8**: Tenere premuto il pulsante 1 del pulsantiered per uscire dalla modalità trascinamento. A questo punto si è in modalità manuale, il LED terminale è verde. Premere brevemente il pulsante 1 del pulsantiered per passare il robot in modalità automatica. A questo punto il LED terminale è blu.
 
--  **Step9**:Short pressing button box button 3 Run the program, the end LED blue flashes twice.
+-  **Step9**: Premere brevemente il pulsante 3 del pulsantiered per eseguire il programma. Il LED terminale lampeggia blu due volte.
 
+Controllo del Movimento del Robot tramite Insegnatore
+---------------------------------------------------------------
 
-Teaching pendant control robot movement
---------------------------------------------------
+Cliccare il pulsante "Programmazione Insegnamento" nel menu di primo livello a sinistra dell'insegnatore, cliccare il sottomenu "Programmazione Programma" per accedere all'interfaccia di insegnamento programma. Questa interfaccia implementa principalmente la scrittura e la modifica dei programmi di insegnamento del robot.
 
-Click the "Program" button in the first-level menu on the left side of the teaching pendant, and click the sub -menu "Coding" to enter the program demonstration interface. The interface mainly implements the writing and modification of the robot teaching program.
-
-After clicking the "New" icon button, the user names the file and selects a template as the content of the new file. Click the newly created to create a successful and open the program file.
+Dopo aver cliccato il pulsante icona "Nuovo", l'utente assegna un nome al file e seleziona un modello come contenuto del nuovo file. Cliccando Nuovo, la creazione avviene con successo e il file di programma viene aperto.
 
 .. figure:: quick_start_robot/010.png
    :align: center
    :width: 6in
    
-.. centered:: Figure 4.4-1 Demonstration of teaching program running schematic diagram
+.. centered:: Grafico 4.4-1 Schema esecuzione programma insegnamento
 
 .. warning:: 
-   Your head and trunk cannot be located in the range (work area) that the robot can reach. Please do not put your fingers in the place where the robot can grasp.
+   La testa e il busto non devono trovarsi all'interno dell'area raggiungibile dal robot (area di lavoro). Non mettere le dita in punti dove il robot potrebbe afferrarle.
 
 .. important:: 
-   - Don't let the robot move to yourself or other objects, because it will cause damage to the robot.
-   - This is just a quick start guide to teach you how to easily use FR collaborative robots. The premise of this guide is that the environment is safe and harmless, and users are cautious. Do not increase the speed or acceleration to the default value. Before the robot enters the operation, risk assessment is always carried out.
+   - Non far muovere il robot dentro se stesso o dentro altri oggetti, poiché ciò potrebbe causare danni al robot.
+   - Questa è solo una guida di avvio rapido per insegnare come utilizzare facilmente il robot collaborativo FR. La guida presuppone un ambiente sicuro e innocuo, e un utente attento e cauto. Non aumentare la velocità o l'accelerazione oltre i valori predefiniti. Effettuare sempre una valutazione del rischio prima di mettere il robot in funzione.

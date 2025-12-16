@@ -1,734 +1,738 @@
-Peripherals
+Periferiche
 =============
 
 .. toctree::
   :maxdepth: 5
 
-End-Effector Lua Custom Open Protocol
-----------------------------------------
+Protocollo Aperto Personalizzato Lua per l'Estremità
+----------------------------------------------------------------------
 
-Overview
-~~~~~~~~~~~~~~~~
+Panoramica
+~~~~~~~~~~~~~~~~~~
 
-The End-Effector Lua Custom Open Protocol supports the use of force sensors, grippers, and welding handles. It also supports the combined use of force sensors and grippers.
+Il protocollo aperto personalizzato Lua per l'estremità supporta l'uso di sensori di forza, pinze e maniglie di saldatura, consentendo anche l'uso combinato di sensori di forza e pinze.
 
-Operation Steps
-~~~~~~~~~~~~~~~~~~~~~~~
+Procedura Operativa
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Navigate to System Settings -> About -> Firmware Upgrade interface, select the end-effector firmware .bin file, and upgrade the end-effector firmware.
+**Step1**: Accedere a Impostazioni di sistema->Informazioni->Aggiornamento firmware, selezionare il file binario del firmware dell'estremità .bin e aggiornare il firmware dell'estremità.
 
 .. important::
-   First, confirm whether the end-effector firmware version FV2.010.06 or later meets the requirements. If the version does not meet the requirements, upgrade the corresponding software firmware; otherwise, firmware upgrade is not necessary.
+   È necessario prima verificare se la versione del firmware dell'estremità FV2.010.06 e le versioni software successive sono compatibili. Se la versione non è compatibile, eseguire l'aggiornamento del firmware software corrispondente, altrimenti non è necessario aggiornare il firmware.
 
-   Before uploading the end-effector firmware upgrade package, it is necessary to disable the robot and then enter boot mode.
+   Prima di caricare il pacchetto di aggiornamento del firmware dell'estremità, è necessario disabilitare il robot e quindi entrare in modalità boot.
 
 .. figure:: robot_peripherals/001.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.1‑1 Upgrade End-Effector Firmware
+.. centered:: Diagramma 8.1‑1 Aggiornamento firmware dell'estremità
 
-**Step2**: Navigate to the content interface of Peripherals -> Gripper/Force Sensor/Welding Handle, click the "Custom Protocol" card to enter the interface, upload the Lua end-effector open protocol, select the required Lua end-effector open protocol, and perform the upload operation.
+**Step2**: Accedere a Periferiche->Pinza/Sensore di forza/Maniglia di saldatura, fare clic sulla scheda "Protocollo personalizzato" per accedere all'interfaccia, caricare il protocollo aperto Lua dell'estremità, selezionare il protocollo aperto Lua dell'estremità da caricare ed eseguire l'operazione di caricamento.
 
 .. important::
-   Before uploading the end-effector protocol, you need to enter boot mode. Simultaneously, the file name must begin with `AXLE_LUA_`.
+   Prima di caricare il protocollo dell'estremità, è necessario entrare in modalità boot. Inoltre, il nome del file deve iniziare con `AXLE_LUA_`.
 
 .. figure:: robot_peripherals/002.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.1‑2 Upload Lua End-Effector Open Protocol
+.. centered:: Diagramma 8.1‑2 Caricamento protocollo aperto Lua dell'estremità
 
-**Step3**: Configure the end-effector communication parameters, including baud rate, data bits, stop bits, etc. After configuration, click the "Configure" button.
+**Step3**: Configurare i parametri di comunicazione dell'estremità, che includono baud rate, bit di dati, bit di stop, ecc. Dopo la configurazione, fare clic sul pulsante "Configura".
 
 .. figure:: robot_peripherals/003.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.1‑3 Configure End-Effector Communication Parameters
+.. centered:: Diagramma 8.1‑3 Configurazione parametri di comunicazione dell'estremità
 
-The detailed end-effector communication parameters are as follows:
+I parametri dettagliati di comunicazione dell'estremità sono i seguenti:
 
-- **Baud Rate**: Supports 1-9600, 2-14400, 3-19200, 4-38400, 5-56000, 6-67600, 7-115200, 8-128000; The end-effector Rs485 driver chip is a low-speed 485, baud rate cannot be >200k;
-- **Data Bits**: Supports (8,9), commonly 8 is used;
-- **Stop Bits**: 1-1, 2-0.5, 3-2, 4-1.5, commonly 1 is used;
-- **Parity Bit**: 0-None, 1-Odd, 2-Even, commonly 0 is used;
-- **Timeout**: 1~1000ms, this value needs to be set reasonably in combination with the peripheral device;
-- **Timeout Retries**: 1~10, mainly for timeout retransmission, reducing sporadic exceptions and improving user experience;
-- **Periodic Command Interval**: 1~1000ms, mainly used for the time interval between each issuance of periodic commands;
+- **Baud rate**: supporta 1-9600, 2-14400, 3-19200, 4-38400, 5-56000, 6-67600, 7-115200, 8-128000; il chip driver RS485 dell'estremità è un 485 a bassa velocità, il baud rate non può essere >200k;
+- **Bit di dati**: supporta (8,9), attualmente comunemente usato è 8;
+- **Bit di stop**: 1-1, 2-0.5, 3-2, 4-1.5, attualmente comunemente usato è 1;
+- **Bit di parità**: 0-None, 1-Odd, 2-Even, attualmente comunemente usato è 0;
+- **Timeout**: 1~1000ms, questo valore deve essere impostato in combinazione con la periferica esterna con un parametro di tempo ragionevole;
+- **Numero di timeout**: 1~10, utilizzato principalmente per la ritrasmissione in caso di timeout, riducendo le anomalie occasionali e migliorando l'esperienza utente;
+- **Intervallo di tempo del comando periodico**: 1~1000ms, utilizzato principalmente per l'intervallo di tempo di ogni invio del comando periodico;
 
-**Step4**: Enable the End-Effector Lua by clicking the "Enable" button.
+**Step4**: Abilitazione Lua dell'estremità, fare clic sul pulsante "Attiva".
 
 .. figure:: robot_peripherals/004.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.1‑4 Enable End-Effector Lua
+.. centered:: Diagramma 8.1‑4 Abilitazione Lua dell'estremità
 
-When an exception occurs in the Lua file, a "End-Effector Lua File Exception" warning is prompted, and "Ignore/Recover" processing can be performed. Turn off the Lua enable button to close the warning prompt.
+Quando si verifica un'anomalia nel file Lua, viene visualizzato l'avviso "Anomalia file Lua dell'estremità", che può essere gestito con "Non ripristinare/Ripristinare". Disattivando il pulsante di abilitazione Lua, l'avviso viene chiuso.
 
 .. figure:: robot_peripherals/005.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.1‑5 Lua File Exception
+.. centered:: Diagramma 8.1‑5 Anomalia file Lua
 
-When the device type is a gripper, status monitoring can be performed.
+Quando il tipo di dispositivo è una pinza, è possibile monitorarne lo stato.
 
-**Turn on "Status Monitoring"**: The gripper status bar on the right displays real-time status information such as gripper running speed, torque, position, etc.
+**Attivare "Monitoraggio stato"**: la barra di stato della pinza a destra mostra in tempo reale informazioni come velocità di funzionamento, coppia, posizione, ecc.
 
-**Turn off "Status Monitoring"**: The gripper data status bar on the right closes.
+**Disattivare "Monitoraggio stato"**: la barra di stato dati della pinza a destra viene chiusa.
 
 .. figure:: robot_peripherals/006.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.1‑6 Status Monitoring
+.. centered:: Diagramma 8.1‑6 Monitoraggio stato
 
-Gripper
+Pinza
 -------------------
 
-In the "Initial" -> "Peripherals" -> "Gripper" interface, grippers can currently be used via Pre-Adapted Devices and the End-Effector Lua Custom Open Protocol.
+Nell'interfaccia "Impostazioni iniziali"->"Periferiche"->"Pinza", è attualmente possibile utilizzare la pinza tramite dispositivi già adattati e il protocollo aperto personalizzato Lua dell'estremità.
 
-Pre-Adapted Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dispositivi già adattati
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Click "Pre-Adapted Devices" to enter the end-effector peripheral configuration interface. The gripper configuration information includes gripper manufacturer, gripper type, software version, and mounting position. Users can configure the corresponding gripper information according to specific production needs. If the user needs to change the configuration, they can first select the corresponding gripper number, click the "Clear" button to clear the corresponding configuration, and reconfigure according to the requirements;
+**Step1**: Fare clic su "Dispositivi già adattati" per accedere all'interfaccia di configurazione delle periferiche dell'estremità. Le informazioni di configurazione della pinza sono suddivise in produttore della pinza, tipo di pinza, versione software e posizione di montaggio. L'utente può configurare le informazioni della pinza corrispondenti in base alle esigenze di produzione specifiche. Se l'utente necessita di modificare la configurazione, può prima selezionare il numero della pinza corrispondente, fare clic sul pulsante "Cancella" per cancellare la configurazione corrispondente e riconfigurare in base alle esigenze;
 
 .. figure:: robot_peripherals/007.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.2‑1 Gripper Configuration
+.. centered:: Diagramma 8.2‑1 Configurazione pinza
 
 .. important::
-	Before clicking to clear the configuration, the corresponding gripper should be in an inactive state.
+	Prima di fare clic su cancella configurazione, la pinza corrispondente deve essere in stato non attivato.
 
-**Step2**: After the gripper configuration is completed, the user can view the corresponding gripper information in the gripper information table at the bottom of the page. If a configuration error is found, click the "Clear" button to reconfigure the gripper;
+**Step2**: Dopo aver completato la configurazione della pinza, l'utente può visualizzare le informazioni corrispondenti nella tabella delle informazioni della pinza nella parte inferiore della pagina. Se viene rilevato un errore di configurazione, è possibile fare clic sul pulsante "Cancella" per riconfigurare la pinza;
 
 .. figure:: robot_peripherals/008.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.2‑2 Gripper Configuration Information
+.. centered:: Diagramma 8.2‑2 Informazioni di configurazione pinza
 
-**Step3**: Select the configured gripper, click the "Reset" button, after the page pops up indicating the command was sent successfully, then click the "Activate" button. Check the activation status in the gripper information table to determine whether the activation was successful;
+**Step3**: Selezionare la pinza configurata, fare clic sul pulsante "Reset". Dopo che la pagina indica l'invio riuscito del comando, fare clic sul pulsante "Attiva". È possibile controllare lo stato di attivazione nella tabella delle informazioni della pinza per determinare se l'attivazione è riuscita;
 
 .. important::
-	When activating the gripper, the gripper must not be holding any object.
+	Quando si attiva la pinza, la pinza non deve avere oggetti bloccati.
 
-**Step4**: In the program teaching command interface, select the "Gripper" command. In the gripper command interface, the user can select the gripper number they want to control (grippers that have been configured and activated), set the corresponding open/close state, open/close speed, open/close torque, and the maximum waiting time for the gripper action. After completing the settings, click Add to apply. Additionally, gripper activation and reset commands can be added to activate/reset the gripper when running the program.
+**Step4**: Nell'interfaccia dei comandi di insegnamento del programma, selezionare il comando "Gripper". Nell'interfaccia del comando della pinza, l'utente può selezionare il numero della pinza che si desidera controllare (pinza già configurata e attivata), impostare lo stato di apertura/chiusura corrispondente, la velocità di apertura/chiusura, la coppia di apertura/chiusura e il tempo massimo di attesa per l'azione della pinza. Dopo aver completato le impostazioni, fare clic su Aggiungi applicazione. Inoltre, è possibile aggiungere i comandi di attivazione e reset della pinza per attivare/resettare la pinza durante l'esecuzione del programma.
 
 .. figure:: robot_peripherals/009.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.2‑3 Gripper Command Editing
+.. centered:: Diagramma 8.2‑3 Modifica comando pinza
 
-Gripper Program Teaching
-++++++++++++++++++++++++++++++++++++++++++++++++
+Insegnamento programma pinza
++++++++++++++++++++++++++++++++++++++++++
 
 .. list-table::
    :widths: 15 40 100
    :header-rows: 1
 
-   * - No.
-     - Command Format
-     - Comment
+   * - Numero
+     - Formato comando
+     - Commento
    * - 1
      - PTP(template2,100,-1,0)
-     - # Wait for gripping point
+     - #Punto di attesa per la presa
    * - 2
      - PTP(template1,100,-1,0)
-     - # Gripping point
+     - #Punto di presa
    * - 3
      - MoveGripper(1,255,255,0,1000,0)
-     - # Gripper close
+     - #Chiusura pinza
    * - 4
      - PTP(template2,100,-1,0)
      - /
    * - 5
      - PTP(template3,100,-1,0)
-     - # Wait for placement point
+     - #Punto di attesa per il rilascio
    * - 6
      - PTP(template3,100,-1,0)
-     - # Placement point
+     - #Punto di rilascio
    * - 7
      - MoveGripper(1,0,255,0,1000,0)
-     - # Gripper open
+     - #Apertura pinza
 
-Custom Open Protocol
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protocollo aperto personalizzato
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For the steps to upload a gripper custom protocol, refer to the content of the End-Effector Lua Custom Open Protocol.
+I passaggi per il caricamento del protocollo personalizzato della pinza si riferiscono al contenuto del protocollo aperto personalizzato Lua dell'estremità.
 
-**Step1**: Enable Gripper -> Select Gripper ID -> Check the function codes adapted for the gripper -> Click Configure. The configured device displays the Gripper ID and function codes.
+**Step1**: Abilita pinza->Seleziona ID pinza->Seleziona i codici funzione adattati per la pinza->Fare clic su Configura, nei dispositivi configurati vengono visualizzati l'ID e i codici funzione della pinza.
 
 .. figure:: robot_peripherals/010.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.2‑4 Configure Gripper
+.. centered:: Diagramma 8.2‑4 Configurazione pinza
 
 .. note::
-  The current supported device address range for the end-effector open function for grippers is 1~8. Before use, adjust the gripper device address via the gripper manufacturer's upper computer software.
+   Poiché la funzione aperta dell'estremità attualmente supporta un intervallo di indirizzi del dispositivo pinza da 1 a 8, prima dell'uso è necessario regolare l'indirizzo del dispositivo pinza tramite il software del produttore della pinza.
 
-  The selected function codes should be queried from the product manual provided by the gripper manufacturer to match the gripper's adapted functions, and should correspond to the end-effector Lua function codes. For details, please refer to the "End-Effector Lua Adaptation Gripper Instruction Manual".
+   La selezione dei codici funzione deve essere verificata tramite il manuale del prodotto fornito dal produttore della pinza per i codici funzione adattati della pinza e deve corrispondere ai codici funzione Lua dell'estremità. Per dettagli, consultare il "Manuale di istruzioni per l'adattamento della pinza Lua dell'estremità".
 
-**Step2**: Select Gripper ID -> Reset -> Activate. The gripper performs an initialization. For specific initialization details, please refer to the product manual provided by the gripper manufacturer.
+**Step2**: Seleziona ID pinza->Reset->Attiva, la pinza esegue un'inizializzazione. Per i dettagli dell'inizializzazione, fare riferimento al manuale del prodotto fornito dal produttore della pinza.
 
 .. figure:: robot_peripherals/011.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.2‑5 Activate Gripper
+.. centered:: Diagramma 8.2‑5 Attivazione pinza
 
-**Step3**: Enter Teach Program -> Program Programming -> Add Gripper Motion Command.
+**Step3**: Accedere a Insegnamento programma->Programmazione programma->Aggiungi comando di movimento pinza.
 
 .. figure:: robot_peripherals/012.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.2‑6 Add Gripper Motion Command
+.. centered:: Diagramma 8.2‑6 Aggiunta comando di movimento pinza
 
 .. figure:: robot_peripherals/013.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.2‑7 Gripper Motion Command Example
+.. centered:: Diagramma 8.2‑7 Esempio comando di movimento pinza
 
-Multiple Grippers
-++++++++++++++++++++++++++++++++++
+Pinze multiple
++++++++++++++++++++
 
-Activation and motion control refer to the gripper steps.
+L'attivazione e il controllo del movimento fanno riferimento ai passaggi della pinza.
 
 .. figure:: robot_peripherals/014.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.2‑8 Configure Multiple Grippers
+.. centered:: Diagramma 8.2‑8 Configurazione pinze multiple
 
-.. note:: The current supported device address range for the end-effector open function for grippers is 1~8. Before use, adjust the gripper device address via the gripper manufacturer's upper computer software.
+.. note:: Poiché la funzione aperta dell'estremità attualmente supporta un intervallo di indirizzi del dispositivo pinza da 1 a 8, prima dell'uso è necessario regolare l'indirizzo del dispositivo pinza tramite il software del produttore della pinza.
 
-Rotary Gripper
-++++++++++++++++++++++++++++
+Pinza rotante
++++++++++++++++++++
 
-**Step1**: Enable Gripper -> Select Gripper ID -> Check the function codes adapted for the gripper -> Click Configure. The configured device displays the Gripper ID and function codes.
+**Step1**: Abilita pinza->Seleziona ID pinza->Seleziona i codici funzione adattati per la pinza->Fare clic su Configura, nei dispositivi configurati vengono visualizzati l'ID e i codici funzione della pinza.
 
 .. figure:: robot_peripherals/010.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.2‑9 Configure Gripper and Function Codes
+.. centered:: Diagramma 8.2‑9 Configurazione pinza e codici funzione
 
-.. note:: The selected function codes should be queried from the product manual provided by the gripper manufacturer to match the gripper's adapted functions, and should correspond to the end-effector Lua function codes. For details, please refer to "FR05-End-Effector Full Peripheral Protocol-V2.5-20241101.xlsx".
+.. note:: La selezione dei codici funzione deve essere verificata tramite il manuale del prodotto fornito dal produttore della pinza per i codici funzione adattati della pinza e deve corrispondere ai codici funzione Lua dell'estremità. Per dettagli, consultare "FR05-Protocollo periferiche complete estremità-V2.5-20241101.xlsx".
 
-**Step2**: Select Gripper ID -> Reset -> Activate. The gripper performs an initialization. For specific initialization details, please refer to the product manual provided by the gripper manufacturer.
+**Step2**: Seleziona ID pinza->Reset->Attiva, la pinza esegue un'inizializzazione. Per i dettagli dell'inizializzazione, fare riferimento al manuale del prodotto fornito dal produttore della pinza.
 
 .. figure:: robot_peripherals/011.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.2‑10 Activate Gripper
+.. centered:: Diagramma 8.2‑10 Attivazione pinza
 
-**Step3**: Enter Teach Program -> Program Programming -> Add Rotary Gripper Motion Command.
+**Step3**: Accedere a Insegnamento programma->Programmazione programma->Aggiungi comando di movimento pinza rotante.
 
 .. figure:: robot_peripherals/012.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.2‑11 Add Rotary Gripper Motion Command
+.. centered:: Diagramma 8.2‑11 Aggiunta comando di movimento pinza rotante
 
 .. figure:: robot_peripherals/015.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.2‑12 Rotary Gripper Motion Command Example
+.. centered:: Diagramma 8.2‑12 Esempio comando di movimento pinza rotante
 
-.. note:: The rotation turns are absolute rotation turns. The maximum forward rotation turns are 90, and the maximum reverse rotation turns are 90. A reset operation is required after rotation.
+.. note:: Il numero di giri di rotazione è il numero di giri assoluto. Il numero massimo di giri in avanti è 90, il numero massimo di giri all'indietro è 90. Dopo la rotazione, è necessario eseguire un'operazione di reset.
 
-Force Sensor
+Sensore di Forza
 -------------------------
 
-In the "Initial" -> "Peripherals" -> "Force Sensor" interface, force sensors can currently be used via Pre-Adapted Devices and the End-Effector Lua Custom Open Protocol.
+Nell'interfaccia "Impostazioni iniziali"->"Periferiche"->"Sensore di forza", è attualmente possibile utilizzare il sensore di forza tramite dispositivi già adattati e il protocollo aperto personalizzato Lua dell'estremità.
 
-Pre-Adapted Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dispositivi già adattati
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Click "Pre-Adapted Devices" to enter the end-effector peripheral configuration interface.
+**Step1**: Fare clic su "Dispositivi già adattati" per accedere all'interfaccia di configurazione delle periferiche dell'estremità.
 
-The force sensor configuration information includes manufacturer, type, software version, and mounting position. Users can configure the corresponding force sensor information according to specific production needs. If the user needs to change the configuration, they can first select the corresponding number, click the "Clear" button to clear the corresponding information, and reconfigure according to the requirements;
+Le informazioni di configurazione del sensore di forza sono suddivise in produttore, tipo, versione software e posizione di montaggio. L'utente può configurare le informazioni del sensore di forza corrispondenti in base alle esigenze di produzione specifiche. Se l'utente necessita di modificare la configurazione, può prima selezionare il numero corrispondente, fare clic sul pulsante "Cancella" per cancellare le informazioni corrispondenti e riconfigurare in base alle esigenze;
 
 .. figure:: robot_peripherals/016.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.3‑1 Force Sensor Configuration
+.. centered:: Diagramma 8.3‑1 Configurazione sensore di forza
 
 .. important::
-	Before clicking to clear the configuration, the corresponding sensor should be in an inactive state.
+	Prima di fare clic su cancella configurazione, il sensore corrispondente deve essere in stato non attivato.
 
-**Step2**: After the force sensor configuration is completed, the user can view the corresponding force sensor information in the information table at the bottom of the page. If a configuration error is found, click the "Clear" button to reconfigure.
+**Step2**: Dopo aver completato la configurazione del sensore di forza, l'utente può visualizzare le informazioni corrispondenti nella tabella delle informazioni nella parte inferiore della pagina. Se viene rilevato un errore di configurazione, è possibile fare clic sul pulsante "Cancella" per riconfigurare.
 
 .. figure:: robot_peripherals/017.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.3‑2 Force Sensor Configuration Information
+.. centered:: Diagramma 8.3‑2 Informazioni di configurazione sensore di forza
 
-**Step3**: Select the configured force sensor number, click the "Reset" button, after the page pops up indicating the command was sent successfully, then click the "Activate" button. Check the activation status in the force sensor information table to determine whether the activation was successful; Additionally, the force sensor will have an initial value. The user can choose "Zero Calibration" and "Remove Zero" according to usage requirements. Force sensor zero calibration requires ensuring the force sensor is level and vertically downward, and the robot has no configured load.
+**Step3**: Selezionare il numero del sensore di forza configurato, fare clic sul pulsante "Reset". Dopo che la pagina indica l'invio riuscito del comando, fare clic sul pulsante "Attiva". È possibile controllare lo stato di attivazione nella tabella delle informazioni del sensore di forza per determinare se l'attivazione è riuscita; Inoltre, il sensore di forza avrà un valore iniziale. L'utente può scegliere "Correzione zero" e "Rimozione zero" in base alle esigenze di utilizzo. La correzione zero del sensore di forza richiede che il sensore di forza sia posizionato verticalmente verso il basso e che il robot non sia configurato con un carico.
 
-**Step4**: After the force sensor configuration is completed, it is necessary to configure the sensor type tool coordinate system. The sensor tool coordinate system values can be directly input and applied based on the distance between the sensor and the end-effector tool center.
+**Step4**: Dopo aver completato la configurazione del sensore di forza, è necessario configurare il sistema di coordinate dell'utensile del tipo di sensore. È possibile inserire direttamente il valore del sistema di coordinate dell'utensile del sensore in base alla distanza tra il sensore e il centro dell'utensile dell'estremità e applicare.
 
-Sensor Load Identification
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Identificazione carico sensore
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Under the "Initial" -> "Basic" -> "Load" menu bar, click "Sensor Identification" to enter the sensor load identification interface.
+Sotto la barra dei menu "Impostazioni iniziali"->"Base"->"Carico", fare clic su "Identificazione sensore" per accedere all'interfaccia di identificazione del carico del sensore.
 
-Specific Pose Identification: Clear the end-effector load data, configure the force sensor, establish the sensor coordinate system, adjust the robot end-effector posture to vertical downward, perform "Zero Calibration" and then install the end-effector load. First, select the corresponding sensor tool coordinate system, adjust the robot so that the sensor and tool are vertical downward, record data, and calculate the mass. Then, adjust the robot to 3 different postures, record three sets of data respectively, calculate the center of mass, confirm it is correct and click Apply.
+Identificazione postura specifica: Cancellare i dati del carico dell'estremità, configurare il sensore di forza, stabilire il sistema di coordinate del sensore, regolare la postura dell'estremità del robot in verticale verso il basso, eseguire "Correzione zero" e quindi installare il carico dell'estremità. Prima selezionare il sistema di coordinate dell'utensile del sensore corrispondente, regolare il robot in modo che il sensore e l'utensile siano verticali verso il basso, registrare i dati, calcolare la massa. Successivamente, regolare il robot in 3 posture diverse, registrare rispettivamente tre gruppi di dati, calcolare il centro di massa, confermare che sia corretto e fare clic su Applica.
 
-**Dynamic Identification**: Clear the end-effector load data, configure the force sensor, establish the sensor coordinate system, adjust the robot end-effector posture to vertical downward, perform "Zero Calibration" and then install the end-effector load. Click "Identification Start", drag the robot to move, then click "Identification Stop", and the load result will be automatically applied to the robot.
+**Identificazione dinamica**: Cancellare i dati del carico dell'estremità, configurare il sensore di forza, stabilire il sistema di coordinate del sensore, regolare la postura dell'estremità del robot in verticale verso il basso, eseguire "Correzione zero" e quindi installare il carico dell'estremità. Fare clic su "Avvia identificazione", trascinare il robot per il movimento, quindi fare clic su "Interrompi identificazione", e il risultato del carico verrà automaticamente applicato al robot.
 
-**Auto Zero**: After the sensor records the initial position, it can automatically zero.
+**Correzione zero automatica**: Dopo che il sensore ha registrato la posizione iniziale, può eseguire automaticamente la correzione zero.
 
 .. figure:: robot_peripherals/018.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.3‑3 Sensor Load Identification
+.. centered:: Diagramma 8.3‑3 Identificazione carico sensore
 
-Force Sensor Assisted Dragging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Trascinamento assistito da sensore di forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After configuring the sensor, it can be paired with the sensor to provide better assistance for dragging the robot. For the first use, you can configure according to the data in the right figure. After applying, you do not need to enter the drag mode; directly drag the end-effector force sensor to control the robot to move in a fixed posture. (The data in the figure below is a reference standard)
+Dopo aver configurato il sensore, è possibile abbinarlo al sensore per un migliore assistimento nel trascinamento del robot. Al primo utilizzo, è possibile configurare secondo i dati nell'immagine a destra. Dopo aver applicato, non è necessario entrare in modalità di trascinamento, è sufficiente trascinare direttamente il sensore di forza dell'estremità per controllare il movimento del robot in una postura fissa. (I dati nella figura seguente sono uno standard di riferimento)
 
 .. figure:: robot_peripherals/019.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.3‑4 Force/Torque Sensor Drag Lock
+.. centered:: Diagramma 8.3‑4 Blocco trascinamento sensore forza/coppia
 
 .. note::
-   Singularity Strategy is a function developed under force sensor assisted locking for singularity crossing and avoidance.
+   La strategia dei punti singolari è una funzione sviluppata per il superamento e l'evitamento dei punti singolari sotto il blocco assistito da sensore di forza.
 
-   Singularity Avoidance Strategy is the default function option. After enabling assisted dragging, the avoidance function is enabled by default. Singularity avoidance is a function that applies virtual force to move the robot away from a singular configuration when the robot is in a singular pose.
+   La strategia di evitamento dei punti singolari è l'opzione di funzione predefinita. Dopo aver attivato il trascinamento assistito, la funzione di evitamento è attivata per impostazione predefinita. L'evitamento dei punti singolari è una funzione che, quando il robot si trova in una configurazione singolare, applica una forza virtuale per allontanare il robot dalla configurazione singolare.
 
-   Singular Configurations:
+   Configurazioni singolari:
 
-   **Elbow Singularity**: Rotation axes 2, 3, and 4 are in the same plane. At this time, the elbow joint is fully extended or fully contracted. Due to FR robot mechanical limits, the fully contracted configuration cannot be reached.
+   **Singolarità del gomito**: Gli assi di rotazione 2, 3, 4 si trovano sullo stesso piano. In questo caso, l'articolazione del gomito è completamente estesa o completamente contratta. A causa dei limiti meccanici del robot FR, la configurazione completamente contratta non è raggiungibile.
 
-   **Wrist Singularity**: Rotation axes 4 and 6 are parallel. Due to FR robot mechanical limits, this configuration cannot be reached.
+   **Singolarità del polso**: Gli assi di rotazione 4, 6 sono paralleli. A causa dei limiti meccanici del robot FR, questa configurazione non è raggiungibile.
 
-   **Shoulder Singularity**: The wrist center point is located in the plane formed by rotation axes 1 and 2.
+   **Singolarità della spalla**: Il punto centrale del polso si trova sul piano formato dagli assi di rotazione 1 e 2.
 
-   Singularity Crossing Function: Select "Singularity Strategy" as "Cross" and apply. When the robot detects that the current pose is in a singular configuration, it automatically switches to the current loop drag mode. When it detects exiting the singular configuration, the drag mode switches back to force sensor assisted dragging to continue motion.
+   Funzione di superamento dei punti singolari: Selezionare "Strategia punti singolari" come "Superamento" e applicare. Quando il robot rileva che la posa corrente è in una configurazione singolare, passa automaticamente alla modalità di trascinamento a loop di corrente. Quando rileva l'uscita dalla configurazione singolare, la modalità di trascinamento torna al trascinamento assistito da sensore di forza per continuare il movimento.
 
-**Adaptive Selection**: Enable when assembly is required; after enabling, dragging becomes heavier;
+**Selezione adattativa**: Attivare quando necessario per l'assemblaggio. Dopo l'attivazione, il trascinamento diventa più pesante;
 
-**Inertia Parameters**: Adjust the feel during the dragging process, operate with caution under the guidance of technical personnel.
+**Parametri di inerzia**: Regolare la sensazione durante il trascinamento. Operare con cautela sotto la guida del personale tecnico.
 
-**Damping Parameters**:
+**Parametri di smorzamento**:
 
--  Translation Direction: Recommended parameter range [100-200];
--  Rotation Direction: Recommended parameter range [3-10], with the RZ direction range [0.1-5];
--  Effect: When dragging with the sensor, increasing damping makes dragging difficult, decreasing damping makes dragging the robot too easy (recommended not to set too small);
--  Overall Damping Parameter Range: Translation XYZ: [100-1000]; Rotation RX, RY: [3-50], RZ: [2-10];
--  Maximum Drag Force is 50, Maximum Drag Speed is 180.
+-  Direzione di traslazione: Si consiglia di impostare i parametri nell'intervallo [100-200];
 
-**Stiffness Parameters**: All set to 0;
+-  Direzione di rotazione: Si consiglia di impostare i parametri nell'intervallo [3-10], dove la direzione RZ ha un intervallo di impostazione di [0.1-5];
 
-**Drag Force Threshold**: Translation XYZ: [5-10]; Rotation RX, RY, RZ: [0.5-5];
+-  Effetto: Durante il trascinamento con il sensore, aumentare lo smorzamento rende il trascinamento difficile, diminuire lo smorzamento rende il trascinamento del robot troppo facile (si consiglia di non impostare valori troppo piccoli);
+
+-  Intervallo complessivo dei parametri di smorzamento: Traslazione XYZ: [100-1000]; Rotazione RX, RY: [3-50], RZ: [2-10];
+
+-  Forza massima di trascinamento 50, velocità massima di trascinamento 180.
+
+**Parametri di rigidità**: Impostare tutti a 0;
+
+**Soglia di forza di trascinamento**: Traslazione XYZ: [5-10]; Rotazione RX, RY, RZ: [0.5-5];
 
 .. important::
-   Locking is achieved by increasing the force threshold for translation directions XYZ or rotation directions RX, RY, RZ.
+   Modalità di blocco aumentando la soglia di forza nelle direzioni di traslazione XYZ o rotazione RX, RY, RZ.
 
-Force/Torque Sensor Collision Detection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rilevamento collisione sensore forza/coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command Description: The "FT_Guard" command is the collision detection command. Select the corresponding sensor coordinate system, check the effective torque direction detection, set the current value, maximum collision threshold, and minimum collision threshold. The normal collision detection condition range is (Current Value - Min Threshold, Current Value + Max Threshold). Add the "Enable" and "Disable" commands to the program.
+Descrizione comando: Il comando "FT_Guard" è un comando di rilevamento collisione. Selezionare il sistema di coordinate del sensore corrispondente, selezionare le direzioni di rilevamento della coppia abilitate, impostare il valore corrente, la soglia massima di collisione e la soglia minima di collisione. La condizione normale di rilevamento collisione è nell'intervallo (valore corrente - soglia minima, valore corrente + soglia massima). Aggiungere i comandi "Attiva" e "Disattiva" al programma.
 
 .. figure:: robot_peripherals/020.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑5 FT_Guard Command Editing
+.. centered:: Diagramma 8.3‑5 Modifica comando FT_Guard
 
-Program Example:
+Esempio programma:
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **Numero**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
      - FT_Guard(1,1,1,1,1,0,0,0,5,0,0,0,0,0,10,0,0,0,0,0,5,0,0,0,0,0)
-     - # Force/Torque Collision Detection Enable
+     - #Attivazione rilevamento collisione forza/coppia
 
    * - 2
      - PTP(template1,100,-1,0)
-     - # Motion Command
+     - #Comando di movimento
 
    * - 3
      - FT_Guard(0,1,1,1,1,0,0,0,5,0,0,0,0,0,10,0,0,0,0,0,5,0,0,0,0,0)
-     - # Force/Torque Collision Detection Disable
+     - #Disattivazione rilevamento collisione forza/coppia
 
-Force/Torque Sensor Force Control Motion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Movimento controllato dalla forza sensore forza/coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command Description: The "FT_Control" command is the force control motion command, which allows the robot to move near the set force, commonly used in grinding scenarios. Select the corresponding sensor coordinate system, check the effective torque direction detection, set the detection threshold, and the PID proportional coefficients in each direction (generally set p to 0.001), set the maximum adjustment distance (for X,Y,Z) and maximum adjustment angle (for RX,RY,RZ). Add the "Enable" and "Disable" commands to the program.
+Descrizione comando: Il comando "FT_Control" è un comando di movimento controllato dalla forza, che consente al robot di muoversi vicino alla forza impostata, comunemente utilizzato in scenari di levigatura. Selezionare il sistema di coordinate del sensore corrispondente, selezionare le direzioni di rilevamento della coppia abilitate, impostare la soglia di rilevamento e i coefficienti PID proporzionali in ciascuna direzione (generalmente impostare p a 0.001), impostare la distanza di regolazione massima (corrispondente a X,Y,Z) e l'angolo di regolazione massimo (corrispondente a RX,RY,RZ). Aggiungere i comandi "Attiva" e "Disattiva" al programma.
 
 .. figure:: robot_peripherals/021.png
    :align: center
    :width: 6in
-
+  
 .. figure:: robot_peripherals/022.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑6 FT_Control Command Editing
+.. centered:: Diagramma 8.3‑6 Modifica comando FT_Control
 
-Program Example:
+Esempio programma:
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **Numero**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
      - FT_Control(1,11,1,0,1,0,0,0,10,0,5,0,0,0,0.001,0,0,0,0,0,0,0,0,10,5)
-     - # Force/Torque Motion Control Enable
+     - #Attivazione controllo movimento forza/coppia
 
    * - 2
      - Lin(template3,100,-1,0,0)
-     - # Motion Command
+     - #Comando di movimento
 
    * - 3
      - FT_Control(0,11,1,0,1,0,0,0,10,0,5,0,0,0,0.001,0,0,0,0,0,0,0,10,5)
-     - # Force/Torque Motion Control Disable
+     - #Disattivazione controllo movimento forza/coppia
 
-Force/Torque Sensor Spiral Insertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Inserimento a spirale sensore forza/coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command Description: The "FT_Spiral" command is for spiral search insertion, generally used for shaft-hole assembly actions of cylindrical shafts. Before running the action, the robot end-effector needs to be dragged to the approximate position of the hole. According to the current scene, set the command parameters, add them to the program. After running, the robot will explore with a spiral motion.
+Descrizione comando: Il comando "FT_Spiral" è un inserimento a spirale, generalmente utilizzato per azioni di assemblaggio asse-foro cilindrico. Prima di eseguire l'azione, è necessario trascinare l'estremità del robot nella posizione approssimativa del foro. In base allo scenario corrente, impostare i parametri del comando, aggiungerlo al programma. Dopo l'esecuzione, il robot esplorerà con un movimento a spirale.
 
 .. figure:: robot_peripherals/023.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑7 FT_Spiral Command Editing
+.. centered:: Diagramma 8.3‑7 Modifica comando FT_Spiral
 
-Program Example:
+Esempio programma:
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **Numero**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
      - FT_Control(1,10,0,0,1,0,0,0,0,0,5,0,0,0,0.0005,0,0,0,0,0,0,10,0)
-     - # Force/Torque Motion Control Enable
+     - #Attivazione controllo movimento forza/coppia
 
    * - 2
      - FT_SpiralSearch(0,0.7,0,60000,5)
-     - # Spiral Insertion
+     - #Inserimento a spirale
 
    * - 3
      - FT_Control(0,10,0,0,1,0,0,0,0,0,5,0,0,0,0.0005,0,0,0,0,0,0,10,0)
-     - # Force/Torque Motion Control Disable
+     - #Disattivazione controllo movimento forza/coppia
 
-Force/Torque Sensor Rotation Insertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Inserimento rotazionale sensore forza/coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command Description: The "FT_Rot" command is for rotation search insertion, generally used to follow the spiral insertion action, for keyed shaft-hole assembly. Before running the action, the robot end-effector needs to be moved to the hole position found by the spiral search or a taught hole position that is completely aligned. According to the current scene, set the command parameters, add them to the program. After running, the robot will explore with a slow rotation.
+Descrizione comando: Il comando "FT_Rot" è un inserimento rotazionale, generalmente utilizzato per azioni di assemblaggio asse-foro con chiavetta, successivo all'inserimento a spirale. Prima di eseguire l'azione, è necessario spostare l'estremità del robot nella posizione del foro trovata dall'esplorazione a spirale o nella posizione del foro completamente allineata. In base allo scenario corrente, impostare i parametri del comando, aggiungerlo al programma. Dopo l'esecuzione, il robot esplorerà con una rotazione lenta.
 
 .. figure:: robot_peripherals/024.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑8 FT_Rot Command Editing
+.. centered:: Diagramma 8.3‑8 Modifica comando FT_Rot
 
-Program Example:
+Esempio programma:
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **Numero**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
      - FT_Control(1,10,0,0,1,0,0,0,0,0,5,0,0,0,0.0005,0,0,0,0,0,0,10,0)
-     - # Force/Torque Motion Control Enable
+     - #Attivazione controllo movimento forza/coppia
 
    * - 2
      - FT_RotInsertion(0,3,0,5,1,0,1)
-     - # Rotation Insertion
+     - #Inserimento rotazionale
 
    * - 3
      - FT_Control(0,10,0,0,1,0,0,0,0,0,5,0,0,0,0.0005,0,0,0,0,0,0,10,0)
-     - # Force/Torque Motion Control Disable
+     - #Disattivazione controllo movimento forza/coppia
 
-Force/Torque Sensor Linear Insertion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Inserimento lineare sensore forza/coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command Description: The "FT_Lin" command is for linear search insertion, generally used to follow the spiral insertion action or rotation insertion action, for keyed shaft-hole assembly. Before running the action, the robot end-effector needs to be moved to the hole position found by the spiral search, the end position of the rotation insertion action, or a taught hole position that is completely aligned. According to the current scene, set the command parameters, add them to the program. After running, the robot will perform linear motion in the set direction.
+Descrizione comando: Il comando "FT_Lin" è un inserimento lineare, generalmente utilizzato per azioni di assemblaggio asse-foro con chiavetta, successivo all'inserimento a spirale o rotazionale. Prima di eseguire l'azione, è necessario spostare l'estremità del robot nella posizione del foro trovata dall'esplorazione a spirale, nella posizione finale dell'inserimento rotazionale o nella posizione del foro completamente allineata. In base allo scenario corrente, impostare i parametri del comando, aggiungerlo al programma. Dopo l'esecuzione, il robot si muoverà linearmente nella direzione impostata.
 
 .. figure:: robot_peripherals/025.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑9 FT_Lin Command Editing
+.. centered:: Diagramma 8.3‑9 Modifica comando FT_Lin
 
-Program Example:
+Esempio programma:
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **Numero**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
      - FT_Control(1,10,0,0,1,0,0,0,0,0,5,0,0,0,0.0005,0,0,0,0,0,0,10,0)
-     - # Force/Torque Motion Control Enable
+     - #Attivazione controllo movimento forza/coppia
 
    * - 2
      - FT_LinInsertion(0,50,1,0,100,1)
-     - # Linear Insertion
+     - #Inserimento lineare
 
    * - 3
      - FT_Control(0,10,0,0,1,0,0,0,0,0,5,0,0,0,0.0005,0,0,0,0,0,0,10,0)
-     - # Force/Torque Motion Control Disable
+     - #Disattivazione controllo movimento forza/coppia
 
-Force/Torque Sensor Surface Finding
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Posizionamento superficie sensore forza/coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command Description: The "FT_FindSurface" command is for surface finding, generally used to find the surface of an object. According to the current scene, set the corresponding coordinate system, movement direction, movement axis, search linear speed, search linear acceleration, maximum search distance, action termination force threshold and other parameters, add them to the program. Run the program, the action starts executing, and the robot end-effector begins to slowly move towards the direction of the surface.
+Descrizione comando: Il comando "FT_FindSurface" è per il posizionamento della superficie, generalmente utilizzato per trovare la superficie di un oggetto. In base allo scenario corrente, impostare il sistema di coordinate corrispondente, direzione di movimento, asse di movimento, velocità lineare di esplorazione, accelerazione lineare di esplorazione, distanza massima di esplorazione, soglia di forza di terminazione dell'azione, ecc. Aggiungere al programma, eseguire il programma, l'azione inizia, l'estremità del robot inizia a muoversi lentamente verso la direzione della superficie.
 
 .. figure:: robot_peripherals/026.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑10 FT_FindSurface Command Editing
+.. centered:: Diagramma 8.3‑10 Modifica comando FT_FindSurface
 
-Program Example:
+Esempio programma:
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **Numero**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
      - PTP(1,30,-1,0)
-     - # Initial Position
+     - #Posizione iniziale
 
    * - 2
      - FT_FindSurface(0,1,3,1,0,100,5)
-     - # Surface Finding
+     - #Posizionamento piano
 
-Force/Torque Sensor Center Finding
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Posizionamento centrale sensore forza/coppia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command Description: The "FT_CalCenter" command is for center finding, generally used to find the middle plane surface between two surfaces. According to the current scene, set the corresponding coordinate system, movement direction, movement axis, search linear speed, search linear acceleration, maximum search distance, action termination force threshold and other parameters, find surface A and surface B respectively, add them to the program. Run the program, the action starts executing, the robot slowly moves towards the direction of surface A, after locating surface A, the robot slowly moves towards the direction of surface B, after locating surface B, the center plane position can be calculated.
+Descrizione comando: Il comando "FT_CalCenter" è per il posizionamento del centro, generalmente utilizzato per trovare la superficie centrale di due superfici. In base allo scenario corrente, impostare il sistema di coordinate corrispondente, direzione di movimento, asse di movimento, velocità lineare di esplorazione, accelerazione lineare di esplorazione, distanza massima di esplorazione, soglia di forza di terminazione dell'azione, ecc. Trovare rispettivamente il piano A e il piano B, aggiungere al programma, eseguire il programma, l'azione inizia, il robot si muove lentamente verso la direzione della superficie A, dopo il posizionamento della superficie A, il robot si muove lentamente verso la direzione della superficie B, dopo il posizionamento della superficie B, è possibile calcolare la posizione del piano centrale.
 
 .. figure:: robot_peripherals/027.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑11 FT_CalCenter Command Editing
+.. centered:: Diagramma 8.3‑11 Modifica comando FT_CalCenter
 
-Program Example:
+Esempio programma:
 
 .. list-table::
    :widths: 20 40 50
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **Numero**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
      - PTP(1,30,-1,0)
-     - # Initial Position
+     - #Posizione iniziale
 
    * - 2
      - FT_CalCenterStart()
-     - # Surface Finding Start
+     - #Inizio posizionamento superficie
 
    * - 3
      - FT_Control(1,10,0,0,1,0,0,0,0,0,-10,0,0,0,0.00001,0,0,0,0,0,0,100,0)
-     - # Force/Torque Motion Control Enable
+     - #Attivazione controllo movimento forza/coppia
 
    * - 4
      - FT_FindSurface(1,2,2,10,0,200,5)
-     - # Locate Plane A
+     - #Posizionamento piano A
 
    * - 5
      - FT_Control(0,10,0,0,1,0,0,0,0,0,-10,0,0,0,0.00001,0,0,0,0,0,0,100,0)
-     - # Force/Torque Motion Control Disable
+     - #Disattivazione controllo movimento forza/coppia
 
    * - 6
      - PTP(1,30,-1,0)
-     - # Initial Position
+     - #Posizione iniziale
 
    * - 7
      - FT_Control(1,10,0,0,1,0,0,0,0,0,-10,0,0,0,0.00001,0,0,0,0,0,0,100,0)
-     - # Force/Torque Motion Control Enable
-
+     - #Attivazione controllo movimento forza/coppia
+     
    * - 8
      - FT_FindSurface(1,1,2,20,0,200,5)
-     - # Locate Plane B
+     - #Posizionamento piano B
 
    * - 9
      - FT_Control(0,10,0,0,1,0,0,0,0,0,10,0,0,0,0.00001,0,0,0,0,0,0,100,0)
-     - # Force/Torque Motion Control Disable
+     - #Disattivazione controllo movimento forza/coppia
 
    * - 10
      - pos={}
-     - # Define array pos
+     - #Definire array pos
 
    * - 11
      - pos = FT_CalCenterEnd()
-     - # Get located center Cartesian pose
+     - #Ottenere posa cartesiana del centro di posizionamento
 
    * - 12
      - MoveCart(pos,GetActualTCPNum(),GetActualWObjNum(),30,10,100,-1,0)
-     - # Move to the located center position
+     - #Spostarsi alla posizione centrale di posizionamento
 
-Custom Open Protocol
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protocollo aperto personalizzato
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click the "Custom Protocol" card to enter the interface, enable the force sensor. The configured device displays the force sensor. Click to enter the FT interface to query force sensor data.
+Fare clic sulla scheda "Protocollo personalizzato" per accedere all'interfaccia, abilitare il sensore di forza, nei dispositivi configurati viene visualizzato il sensore di forza. Fare clic per accedere all'interfaccia FT, interrogare i dati del sensore di forza.
 
 .. figure:: robot_peripherals/028.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.3‑12 Enable Force Sensor
+.. centered:: Diagramma 8.3‑12 Abilitazione sensore di forza
 
-Welding Pendant
+Maniglia di Saldatura
 -------------------------------------------------------------
 
-In the "Initial" -> "Peripherals" -> "Welding Pendant" interface, the welding pendant can currently be used through adapted devices and the end Lua custom open protocol.
+Nell'interfaccia "Impostazioni iniziali"->"Periferiche"->"Maniglia di saldatura", è attualmente possibile utilizzare la maniglia di saldatura tramite dispositivi già adattati e il protocollo aperto personalizzato Lua dell'estremità.
 
-Adapted Devices
-~~~~~~~~~~~~~~~~~~~~~~
+Dispositivi già adattati
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Configuration Steps
-++++++++++++++++++++++++++++++++++++
+Procedura di configurazione
+++++++++++++++++++++++++++++++++++++++++++++
 
-**Step1**: Click the "Adapted Devices" card to enter the Adapted Devices interface. The configuration information is divided into Manufacturer, Type, Software Version, and Mounting Position. Users can configure the corresponding information according to specific production needs. If users need to change the configuration, they can first select the corresponding manufacturer, click the "Clear" button to clear the corresponding information, and reconfigure according to requirements.
+**Step1**: Fare clic sulla scheda "Dispositivi già adattati" per accedere all'interfaccia dei dispositivi già adattati. Le informazioni di configurazione sono suddivise in produttore, tipo, versione software e posizione di montaggio. L'utente può configurare le informazioni corrispondenti in base alle esigenze di produzione specifiche. Se l'utente necessita di modificare la configurazione, può prima selezionare il produttore corrispondente, fare clic sul pulsante "Cancella" per cancellare le informazioni corrispondenti e riconfigurare in base alle esigenze;
 
 .. figure:: robot_peripherals/029.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.4‑1 Welding Pendant Adapted Device Configuration
+.. centered:: Diagramma 8.4‑1 Configurazione dispositivo già adattato maniglia di saldatura
 
 .. important::
-    The corresponding device should be in an inactive state before clicking to clear the configuration.
+	Prima di fare clic su cancella configurazione, il dispositivo corrispondente deve essere in stato non attivato.
 
-**Step2**: Configure key positions A-E and the IO key sequentially. After the Smart Tool configuration is completed, the task manager internally maintains the function corresponding to each button. When it detects that a button is pressed, it automatically executes the function item corresponding to that button.
+**Step2**: Configurare in sequenza i tasti A-E e il tasto IO. Dopo aver completato la configurazione di Smart Tool, il gestore delle attività mantiene internamente la funzione corrispondente a ciascun pulsante. Quando viene rilevata la pressione di un pulsante, viene automaticamente eseguita la funzione corrispondente a quel pulsante.
 
-A-E Key Functions:
+Funzioni tasti A-E:
 
-- New Program
-- Save Program
+- Nuovo programma
+- Salva programma
 - PTP
 - Lin
 - ARC
-- Start Weave Weld
-- End Weave Weld
-- IO Port
+- Inizio saldatura oscillante
+- Fine saldatura oscillante
+- Porta IO
 
--  **Motion Command**: When selecting PTP, LIN, or ARC motion commands, the corresponding point speed needs to be entered. After successful configuration, a related motion command is added to the teach program. When configuring the ARC motion command, the PTP/LIN command must be configured first.
+-  **Comando di movimento**: Quando si selezionano i comandi di movimento PTP, LIN, ARC, è necessario inserire la velocità del punto corrispondente. Dopo la configurazione riuscita, viene aggiunto un comando di movimento correlato al programma di insegnamento. Quando si configura il comando di movimento ARC, è necessario prima configurare il comando PTP/LIN.
   
--  **DO Output**: When selecting "DO Output", a dropdown menu is displayed allowing selection of DO0⁓DO7 options.
+-  **Uscita DO**: Quando si seleziona "Uscita DO", viene visualizzata una casella a discesa che consente di selezionare le opzioni di uscita DO0⁓DO7.
 
 .. image:: robot_peripherals/030.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.4‑2 A-E Keys
+.. centered:: Diagramma 8.4‑2 Tasti A-E
 
-IO Key Functions:
+Funzioni tasti IO:
 
--  **IO Signal Configuration**: The dropdown menu allows selection of DO0⁓DO7 options, CO0⁓CO7 options, End-DO0, End-DO1, and extended IO (Aux-DO0⁓Aux-DO127);
+-  **Configurazione segnale IO**: La casella a discesa consente di selezionare le opzioni DO0⁓DO7, CO0⁓CO7, End-DO0, End-DO1 e IO estesi (Aux-DO0⁓Aux-DO127);
 
--  **Combined Command**: After selecting "IO Signal", under specific conditions, the "Welder Selection" and "Point Speed" configuration items are displayed, generating different program commands.
+-  **Comando combinato**: Dopo aver selezionato "Segnale IO", in condizioni specifiche vengono visualizzati gli elementi di configurazione "Selezione saldatrice" e "Velocità punto", generando diversi comandi di programma.
 
 .. important::
-   -  When the IO signal is configured as DO0~DO7 or CO0~CO7 (without "Arc Start" configured), the program adds SetDO; "Welder Selection" and "Point Speed" are hidden at this time.
-   -  When the IO signal is configured as End-DO0 or End-DO1, the program adds SetToolDO; "Welder Selection" and "Point Speed" are hidden at this time.
-   -  When the IO signal is configured as extended IO (without "Welder Arc Start" configured), the program adds SetAuxDO; "Welder Selection" and "Point Speed" are hidden at this time.
-   -  When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) and "Welder Selection" is "None", the program adds SetDO; "Welder Selection" and "Point Speed" are hidden at this time.
-   -  When the IO signal configuration item is extended IO (with "Welder Arc Start" configured) and "Welder Selection" is "None", the program adds SetAuxDO; "Welder Selection" and "Point Speed" are hidden at this time.
-   -  When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) or extended IO (with "Welder Arc Start" configured), and "Welder Selection" is "Welding", the first press adds ARCStart, the second adds ARCEnd, the third adds ArcStart, the fourth adds ARCStart, alternating and repeating the above operations; "Welder Selection" and "Point Speed" are hidden at this time.
-   -  When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) or extended IO (with "Welder Arc Start" configured), and "Welder Selection" is "LIN+Welding", the first press adds LIN and ARCStart, the second adds LIN and ARCEnd, the third adds LIN and ARCStart, the fourth adds LIN and ARCEnd, alternating and repeating the above operations; "Welder Selection" and "Point Speed" are displayed at this time.
-   -  When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) or extended IO (with "Welder Arc Start" configured), and "Welder Selection" is "LIN+Welding+Weaving", the first press adds LIN, ARCStart, and WeaveStart, the second adds LIN, ARCEnd, and WeaveEnd, the third adds LIN, ARCStart, and WeaveStart, the fourth adds LIN, ARCEnd, and WeaveEnd, alternating and repeating the above operations; "Welder Selection" and "Point Speed" are hidden at this time.
+   -  Quando la configurazione del segnale IO è DO0~DO7 o CO0~CO7 (non configurato "accensione arco"), il programma aggiunge SetDO; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
+   -  Quando la configurazione del segnale IO è End-DO0, End-DO1, il programma aggiunge SetToolDO; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
+   -  Quando la configurazione del segnale IO è IO estesi (non configurato "accensione arco saldatrice"), il programma aggiunge SetAuxDO; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
+   -  Quando la configurazione del segnale IO è CO0~CO7 (configurato "accensione arco"), se "Selezione saldatrice" è "Nessuna", il programma aggiunge SetDO; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
+   -  Quando la configurazione del segnale IO è IO estesi (configurato "accensione arco saldatrice"), se "Selezione saldatrice" è "Nessuna", il programma aggiunge SetAuxDO; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
+   -  Quando la configurazione del segnale IO è CO0~CO7 (configurato "accensione arco") o IO estesi (configurato "accensione arco saldatrice"), se "Selezione saldatrice" è "Saldatura", alla prima pressione il programma aggiunge ARCStart, alla seconda ARCEnd, alla terza ARCStart, alla quarta ARCStart, alternando ripetutamente le operazioni sopra; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
+   -  Quando la configurazione del segnale IO è CO0~CO7 (configurato "accensione arco") o IO estesi (configurato "accensione arco saldatrice"), se "Selezione saldatrice" è "LIN+saldatura", alla prima pressione il programma aggiunge LIN e ARCStart, alla seconda LIN e ARCEnd, alla terza LIN e ARCStart, alla quarta LIN e ARCEnd, alternando ripetutamente le operazioni sopra; in questo caso vengono visualizzati "Selezione saldatrice" e "Velocità punto".
+   -  Quando la configurazione del segnale IO è CO0~CO7 (configurato "accensione arco") o IO estesi (configurato "accensione arco saldatrice"), se "Selezione saldatrice" è "LIN+saldatura+oscillazione", alla prima pressione il programma aggiunge LIN, ARCStart e WeaveStart, alla seconda LIN, ARCEnd e WeaveEnd, alla terza LIN, ARCStart e WeaveStart, alla quarta LIN, ARCEnd e WeaveEnd, alternando ripetutamente le operazioni sopra; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
 
   
 .. image:: robot_peripherals/031.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.4‑3 IO Key
+.. centered:: Diagramma 8.4‑3 Tasti IO
 
-Custom Protocol
-~~~~~~~~~~~~~~~~~~~~~~
+Protocollo personalizzato
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Custom Protocol" to enter the end Lua open protocol adaptation welding pendant function interface.
+Fare clic su "Protocollo personalizzato" per accedere all'interfaccia della funzione di adattamento della maniglia di saldatura tramite il protocollo aperto Lua dell'estremità.
 
-Protocol Configuration
-+++++++++++++++++++++++++++++++++++++++
+Configurazione protocollo
+++++++++++++++++++++++++++++++++++++++++++
 
-When using the open protocol to adapt the welding pendant, it is necessary to first enter the web page for open protocol upload configuration after the robot is powered on and starts.
+Quando si utilizza il protocollo aperto per adattare la maniglia di saldatura, dopo l'accensione e l'avvio del robot, è necessario prima accedere alla pagina web per caricare e configurare il protocollo aperto.
 
-Click "Custom Protocol Upload", click "Enter Boot", click "Upload" open protocol. After the upload is completed, restart the device to use the end Lua open protocol to adapt the welding pendant.
+Fare clic su "Caricamento protocollo personalizzato", fare clic su "Entra in Boot", fare clic su "Carica" protocollo aperto. Dopo il caricamento, riavviare il dispositivo per utilizzare il protocollo aperto Lua dell'estremità per adattare la maniglia di saldatura.
 
 .. figure:: robot_peripherals/032.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.4‑4 End Open Protocol Upload
+.. centered:: Diagramma 8.4‑4 Caricamento protocollo aperto dell'estremità
 
-Slide the "End Protocol Enable" switch to ON to adapt the welding pendant. After enabling, parameters are retained after power off and restart.
+Attivare l'interruttore "Abilitazione protocollo estremità" per adattare la maniglia di saldatura. Dopo l'attivazione, i parametri vengono mantenuti dopo il riavvio.
 
 .. figure:: robot_peripherals/033.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.4‑5 End Open Protocol Enable
+.. centered:: Diagramma 8.4‑5 Abilitazione protocollo aperto dell'estremità
 
-Open Protocol Template
+Modello protocollo aperto
 ++++++++++++++++++++++++++++++
 
-Taking the Jiashida adaptation open protocol as an example:
+Prendendo come esempio il protocollo aperto adattato per Jiashida:
 
 .. code-block:: console
 
-   function Getbit(X,Bit)                   -- Extract the corresponding bit of X
+   function Getbit(X,Bit)                   --Estrae il bit corrispondente di X
    return ((X&(1<<Bit))>>Bit)
    end
    while(1)
@@ -747,30 +751,30 @@ Taking the Jiashida adaptation open protocol as an example:
    T1={0x7D,0x08,0x22,0xB4,0x03,0x00}
    T2={0x7D,0X08,0X22,0XB5,0x1E,0x00}
    DelayMs(5)
-   RxLen=WeldToolMasterGetCmd(RxData)                                    -- The WeldToolMasterGetCmd() function is used to get commands sent by the welding pendant (for when the welding pendant acts as the master station). Requires pushing an empty table onto the stack (X={}) when used.
+   RxLen=WeldToolMasterGetCmd(RxData)                                    --La funzione WeldToolMasterGetCmd() viene utilizzata per ottenere i comandi inviati dalla maniglia di saldatura (per il caso in cui la maniglia di saldatura funge da master). Durante l'uso è necessario inserire una tabella vuota (X={})
    if (RxData[1]==0x7D)and(RxData[2]==0x08)and(RxData[3]==0x22) then
    if(RxData[4] == 0xB3)then                                              
-      -- Taking Jiashida welding pendant function code as an example, here it is 0xB3 (Set Welding Parameters).
+      --Prendendo come esempio il codice funzione della maniglia di saldatura Jiashida, qui è 0xB3 (impostazione parametri saldatura).
    local SetParams={A2=RxData[7],A1=RxData[8],A6=(ByteToDwFloat(RxData[9],RxData[10],RxData[11],RxData[12]))*1000,
    A8=(ByteToDwFloat(RxData[13],RxData[14],RxData[15],RxData[16])),A7=(ByteToDwFloat(RxData[17],RxData[18],RxData[19],RxData[20])),
    A4=(ByteToDwFloat(RxData[21],RxData[22],RxData[23],RxData[24]))*1000,A5=(ByteToDwFloat(RxData[25],RxData[26],RxData[27],RxData[28]))*1000}
-   SetWeldParams(SetParams)                                                -- The SetWeldParams() function is used to set the controller's welding parameters. Need to refer to the welding pendant custom parameter table to determine the welding parameters that need to be modified (divided into 3 areas A, B, C in total).
-   Dword=GetRobotState()                                                   -- The GetRobotState() function is used to get the robot's related status. Currently bit0 is the robot enable status, bit1 is the robot fault status, bit2 is the robot moving status, bit3 is the arc start/end command signal. Refer to End Full Peripherals Protocol V2.7.
+   SetWeldParams(SetParams)                                                --La funzione SetWeldParams() viene utilizzata per impostare i parametri di saldatura del controller, è necessario fare riferimento alla tabella dei parametri personalizzati della maniglia di saldatura per determinare i parametri di saldatura da modificare (suddivisi in 3 aree A,B,C)
+   Dword=GetRobotState()                                                   --La funzione GetRobotState() viene utilizzata per ottenere lo stato correlato del robot, attualmente bit0 è lo stato di abilitazione del robot, bit1 è lo stato di errore del robot, bit2 è lo stato di movimento del robot, bit3 è il segnale del comando di accensione/spegnimento arco, fare riferimento al protocollo periferiche complete estremità V2.7
    T0[7]=((Dword)&(1<<1))
-   T0[8],T0[9]=WeldToolCrcValue(T0)                                        -- WeldToolCrcValue() Faro custom protocol CRC check
+   T0[8],T0[9]=WeldToolCrcValue(T0)                                        --Metodo CRC protocollo personalizzato FA
    T0[10]=0x0E
-   EndTxWeldData(T0)                                                       -- The EndTxWeldData() function is used to send packaged data (here it is responding to the welding pendant's set welding parameters command).
+   EndTxWeldData(T0)                                                       --La funzione EndTxWeldData() viene utilizzata per inviare dati impacchettati (qui per rispondere al comando di impostazione parametri saldatura della maniglia di saldatura)
    DelayMs(5)
    end
-   if(RxData[4] == 0xB4)then                                               -- 0xB4 Real-time Control Command
+   if(RxData[4] == 0xB4)then                                               --0xB4 comando di controllo in tempo reale
    local key={K0=Getbit(RxData[7],0),K1=Getbit(RxData[7],1),K2=Getbit(RxData[7],2),K3=Getbit(RxData[7],3),
    K4=Getbit(RxData[7],4),K5=Getbit(RxData[7],5),K6=Getbit(RxData[7],6),K7=Getbit(RxData[7],7),
    K8=Getbit(RxData[8],0),K9=Getbit(RxData[8],1),K10=Getbit(RxData[8],2),K11=Getbit(RxData[8],3),
    K12=Getbit(RxData[8],4),K13=Getbit(RxData[8],5),K14=Getbit(RxData[8],6),K15=Getbit(RxData[9],0),
    K16=Getbit(RxData[9],1),K17=Getbit(RxData[9],2),K18=Getbit(RxData[9],3),K19=Getbit(RxData[9],4),
    K20=Getbit(RxData[9],5),K21=Getbit(RxData[9],6),K22=Getbit(RxData[9],7),K23=Getbit(RxData[10],0),
-   K24=Getbit(RxData[10],1)}                                               -- Key values need to refer to End Full Peripherals Protocol V2.7 Table 26. K0-K31 correspond to DWordInput10's bit0-bit31, K32-K63 correspond to DWordInput9's bit0-bit31.
-   SetWeldToolKeys(key)                                                    -- The SetWeldToolKeys() function is used to upload the welding pendant button status. Can adjust the key values filled in the table according to the actual situation of the welding pendant.
+   K24=Getbit(RxData[10],1)}                                               --I valori dei tasti devono fare riferimento alla tabella 26 del protocollo periferiche complete estremità V2.7, K0-K31 corrispondono a bit0-bit31 di DWordInput10, K32-K63 corrispondono a bit0-bit31 di DWordInput9
+   SetWeldToolKeys(key)                                                    --La funzione SetWeldToolKeys() viene utilizzata per caricare lo stato dei tasti della maniglia di saldatura, è possibile regolare i valori dei tasti riportati nella tabella in base alla situazione effettiva della maniglia di saldatura
    Dword=GetRobotState()
    T1[7]=(Dword)&(0x1)
    T1[8]=(Dword>>1)&(0x1)
@@ -781,10 +785,10 @@ Taking the Jiashida adaptation open protocol as an example:
    DelayMs(5)
    end
    if(RxData[4] == 0xB5)then                                               
-   -- Read Welding Parameters (Get from the controller, give to the welding pendant)
+   --Lettura parametri saldatura (ottenuti dal controller, inviati alla maniglia di saldatura)
    local wldpams={"A2","A1","A6","A8","A7","A4","A5"}                      
-   -- Fill according to the welding parameters actually needed by the welding pendant. Jiashada needs these here, refer to End Full Peripherals Protocol V2.7 Table 26.
-   GetWeldParams(wldpams)                                                  -- GetWeldParams() gets the corresponding welding parameters and replaces their values in the table (assuming A2=100, then after calling the function, wldpams[1]=100).
+   --Inserire in base ai parametri di saldatura effettivamente necessari per la maniglia di saldatura, qui Jiashida richiede questi, fare riferimento alla tabella 26 del protocollo periferiche complete estremità V2.7
+   GetWeldParams(wldpams)                                                  --GetWeldParams() ottiene i parametri di saldatura corrispondenti e sostituisce i loro valori nella tabella (supponendo A2=100, dopo la chiamata della funzione, wldpams[1]=100)
    T2[7]=wldpams[1]
    T2[8]=wldpams[2]
    wldpams[3]=wldpams[3]/1000
@@ -805,12 +809,12 @@ Taking the Jiashida adaptation open protocol as an example:
    LuaGc()
    end
 
-Instructions Supported by Open Protocol
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Comandi supportati dal protocollo aperto
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following instructions can be configured in the open protocol, while bits 39-63 are reserved for future expansion.
+È possibile configurare i seguenti comandi nel protocollo aperto, mentre 39-63 sono riservati per espansioni future.
 
-.. centered:: Table 8.4-1 Instructions Supported by Open Protocol
+.. centered:: Tabella 8.4-1 Comandi supportati dal protocollo aperto
 
 .. list-table::
    :widths: 20 80
@@ -819,98 +823,98 @@ The following instructions can be configured in the open protocol, while bits 39
    :class: sheet-center
 
    * - **Bit**
-     - **Description**
+     - **Descrizione**
    * - 0
-     - Clear Program
+     - Cancella programma
    * - 1
-     - Save Program
+     - Salva programma
    * - 2
-     - Generate Safe Point (LIN Command)
+     - Genera punto di sicurezza (comando LIN)
    * - 3
-     - Generate Linear Motion Point (LIN Command)
+     - Genera punto di esecuzione lineare (comando LIN)
    * - 4
-     - Add Arc Transition Point
+     - Aggiungi punto di transizione arco
    * - 5
-     - Add Arc End Point and Generate ARC Command
+     - Aggiungi punto finale arco e genera comando ARC
    * - 6
-     - Switch Mode, default is Manual Mode
+     - Cambia modalità, predefinito in modalità manuale
    * - 7
-     - Toggle Robot Run Status
+     - Cambia stato di esecuzione del robot
    * - 8
-     - Toggle Robot Drag Status
+     - Cambia stato di trascinamento del robot
    * - 9
-     - Start Spot Weld
+     - Inizia saldatura a punti
    * - 10
-     - Add Start Weave Arc Command
+     - Aggiungi comando inizio arco oscillante
    * - 11
-     - Add End Weave Arc Command
+     - Aggiungi comando fine arco oscillante
    * - 12
-     - Jog in Positive X Direction
+     - Movimento a impulsi direzione X positiva
    * - 13
-     - Jog in Negative X Direction
+     - Movimento a impulsi direzione X negativa
    * - 14
-     - Jog in Positive Y Direction
+     - Movimento a impulsi direzione Y positiva
    * - 15
-     - Jog in Negative Y Direction
+     - Movimento a impulsi direzione Y negativa
    * - 16
-     - Jog in Positive Z Direction
+     - Movimento a impulsi direzione Z positiva
    * - 17
-     - Jog in Negative Z Direction
+     - Movimento a impulsi direzione Z negativa
    * - 18
-     - Jog in Positive RX Direction
+     - Movimento a impulsi direzione RX positiva
    * - 19
-     - Jog in Negative RX Direction
+     - Movimento a impulsi direzione RX negativa
    * - 20
-     - Jog in Positive RY Direction
+     - Movimento a impulsi direzione RY positiva
    * - 21
-     - Jog in Negative RY Direction
+     - Movimento a impulsi direzione RY negativa
    * - 22
-     - Jog in Positive RZ Direction
+     - Movimento a impulsi direzione RZ positiva
    * - 23
-     - Jog in Negative RZ Direction
+     - Movimento a impulsi direzione RZ negativa
    * - 24
-     - Generate Start Point
+     - Genera punto di partenza
    * - 25
      - PTP
    * - 26
-     - Fixed Pose Drag
+     - Trascinamento a postura fissa
    * - 27
-     - Weld Interruption Recovery
+     - Ripristino interruzione saldatura
    * - 28
-     - Weld Interruption Exit
+     - Uscita interruzione saldatura
    * - 29
      - SetDO
    * - 30
-     - Offline
+     - offline
    * - 31
-     - Configuration Parameter Update
+     - Aggiornamento parametri di configurazione
    * - 32
-     - ArcStart
+     - Accensione arco ArcStart
    * - 33
-     - ArcEnd
+     - Spegnimento arco ArcEnd
    * - 34
-     - Lin+ArcStart+WeaveStart
+     - Lin+ArcStart+weaveStart
    * - 35
-     - Lin+ArcEnd+WeaveEnd
+     - Lin+ArcEnd+weaveEnd
    * - 36
      - Lin+ArcStart
    * - 37
      - Lin+ArcEnd
    * - 38
-     - Undo Program
+     - Annulla programma
    * - 39
-     - Reserved
+     - Riservato
    * - ...
-     - Reserved
+     - Riservato
    * - 63
-     - Reserved
+     - Riservato
 
-Configurable Parameters in Open Protocol
+Parametri configurabili nel protocollo aperto
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following parameters can be configured in the open protocol.
+È possibile configurare i seguenti parametri nel protocollo aperto.
 
-.. centered:: Table 8.4-2 Configurable Parameters in Open Protocol
+.. centered:: Tabella 8.4-2 Parametri configurabili nel protocollo aperto
 
 .. list-table::
    :widths: 10 40 20 30
@@ -918,1850 +922,1887 @@ The following parameters can be configured in the open protocol.
    :align: center
    :class: sheet-center
 
-   * - **Index**
-     - **Data Content**
-     - **Data Type**
-     - **Range**
+   * - **Indice**
+     - **Contenuto dati**
+     - **Tipo dati**
+     - **Intervallo**
 
    * - 0
-     - Welding Speed
+     - Velocità di saldatura
      - float
      - 0-100%
 
    * - 1
-     - Air Move Speed
+     - Velocità linea vuota
      - float
      - 0-100%
 
    * - 2
-     - Arc Start/End Timeout
+     - Tempo di timeout accensione/spegnimento arco
      - float
      - 0-65535(ms)
 
    * - 3
-     - Weave Left Dwell Time
+     - Tempo di sosta sinistra oscillazione
      - float
      - 0-99999 (ms)
 
    * - 4
-     - Weave Right Dwell Time
+     - Tempo di sosta destra oscillazione
      - float
      - 0-99999 (ms)
 
    * - 5
-     - Spot Weld Time
+     - Tempo saldatura a punti
      - float
      - 0-99999 (ms)
 
    * - 6
-     - Weave Width
+     - Larghezza oscillazione
      - float
      - 0-1000 (0.1mm)
 
    * - 7
-     - Weave Frequency
+     - Frequenza oscillazione
      - float
      - 0-100(0.1Hz)
 
    * - 8
-     - Welder Control Type; 0-Control Box IO; 1-Digital Communication Protocol (UDP)
+     - Tipo controllo saldatrice; 0-IO quadro controllo; 1-Protocollo comunicazione digitale (UDP)
      - float
      - 0-255
 
    * - 9
-     - Welding Process Number (0-99)
+     - Numero processo saldatura (0-99)
      - float
      - 0-99
 
    * - 10
-     - Weave Type
+     - Tipo oscillazione
      - float
      - 0-255
 
    * - 11
-     - Current Control Output Analog Output Port
+     - Porta uscita analogica controllo corrente
      - float
      - 0-1
 
    * - 12
-     - Voltage Control Output Analog Output Port
+     - Porta uscita analogica controllo tensione
      - float
      - 0-1
 
    * - 13
-     - Operation DO Port Number
+     - Numero porta DO operativa
      - float
      - 0-15
 
    * - 14
-     - Weave Parameter Number
+     - Numero parametri oscillazione
      - float
      - 0-255
 
    * - 15
-     - Manual Mode Global Speed
+     - Velocità globale modalità manuale
      - float
      - 0-100%
 
    * - 16
-     - Auto Mode Global Speed
+     - Velocità globale modalità automatica
      - float
      - 0-100%
 
    * - 17
-     - Welding Current
+     - Corrente di saldatura
      - float
      - 0-999990 (0.1A)
 
    * - 18
-     - Welding Voltage
+     - Tensione di saldatura
      - float
      - 0-999990 (0.1V)
 
    * - 19
-     - Single Jog Maximum Distance
+     - Distanza massima movimento a impulsi singolo
      - float
      - 0-1000 (0.1mm)
 
    * - 20
-     - Welder Ready Extended DI Port
+     - Porta DI estesa preparazione saldatrice
      - float
      - 0-127
 
    * - 21
-     - Arc Success Extended DI Port
+     - Porta DI estesa accensione arco riuscita
      - float
      - 0-127
 
    * - 22
-     - Weld Interruption Recovery Extended DI Port
+     - Porta DI estesa ripristino interruzione saldatura
      - float
      - 0-127
 
    * - 23
-     - Weld Interruption Exit Extended DI Port
+     - Porta DI estesa uscita interruzione saldatura
      - float
      - 0-127
 
    * - 24
-     - Welder Arc Start Extended DO Port
+     - Porta DO estesa accensione arco saldatrice
      - float
      - 0-127
 
    * - 25
-     - Gas Detection Extended D0 Port
+     - Porta D0 estesa rilevamento gas
      - float
      - 0-127
 
    * - 26
-     - Forward Wire Feed Extended D0 Port
+     - Porta D0 estesa avanzamento filo positivo
      - float
      - 0-127
 
    * - 27
-     - Reverse Wire Feed Extended D0 Port
+     - Porta D0 estesa avanzamento filo inverso
      - float
      - 0-127
 
    * - 28
-     - Weld Interruption Recovery Enable
+     - Abilitazione ripristino interruzione saldatura
      - float
      - 0-1
 
    * - 29
-     - Go to Recovery Point Speed
+     - Velocità punto di ripristino
      - float
      - 0-100%
 
    * - 30
-     - Motion Mode
+     - Modalità movimento
      - float
      - 0-1
 
    * - 31
-     - Welding Arc Interruption Detection Enable
+     - Abilitazione rilevamento interruzione arco saldatura
      - float
      - 0-1
 
    * - 32
-     - Whether to Include Wait Time(ms)
+     - Se include tempo di attesa (ms)
      - float
      - 0-1
 
    * - 33
-     - Weave Callback Ratio
+     - Rapporto di callback oscillazione
      - float
      - 0-100%
 
    * - 34
-     - Weave Position Wait Type
+     - Tipo attesa posizione oscillazione
      - float
      - 0-255
 
    * - 35
-     - Arc Start Time
+     - Tempo accensione arco
      - float
      - 0-65535 (ms)
 
    * - 36
-     - Arc End Time
+     - Tempo spegnimento arco
      - float
      - 0-65535 (ms)
 
    * - 37
-     - Welding Arc Interruption Confirmation Duration
+     - Durata conferma interruzione arco saldatura
      - float
      - 0-65535 (ms)
 
    * - 38
-     - Overlap Distance
+     - Distanza sovrapposizione
      - float
      - 0-1000(0.1mm)
 
    * - 39
-     - Arc Start Current
+     - Corrente accensione arco
      - float
      - 0-999990(0.1A)
 
    * - 40
-     - Arc Start Voltage
+     - Tensione accensione arco
      - float
      - 0-999990(0.1V)
 
    * - 41
-     - Arc End Current
+     - Corrente spegnimento arco
      - float
      - 0-999990(0.1A)
 
    * - 42
-     - Arc End Voltage
+     - Tensione spegnimento arco
      - float
      - 0-999990(0.1V)
 
    * - 43
-     - Minimum Welding Current
+     - Corrente di saldatura minima
      - float
      - 0-999990(0.1A)
 
    * - 44
-     - Maximum Welding Current
+     - Corrente di saldatura massima
      - float
      - 0-999990(0.1A)
 
    * - 45
-     - Analog Output Corresponding to Minimum Welding Current
+     - Uscita analogica corrispondente a corrente di saldatura minima
      - float
      - 0-100(0.1A)
 
    * - 46
-     - Analog Output Corresponding to Maximum Welding Current
+     - Uscita analogica corrispondente a corrente di saldatura massima
      - float
      - 0-100(0.1A)
 
    * - 47
-     - Minimum Welding Voltage
+     - Tensione di saldatura minima
      - float
      - 0-2000(0.1V)
 
    * - 48
-     - Maximum Welding Voltage
+     - Tensione di saldatura massima
      - float
      - 0-2000(0.1V)
 
    * - 49
-     - Analog Output Corresponding to Minimum Welding Voltage
+     - Uscita analogica corrispondente a tensione di saldatura minima
      - float
      - 0-100(0.1V)
 
    * - 50
-     - Analog Output Corresponding to Maximum Welding Voltage
+     - Uscita analogica corrispondente a tensione di saldatura massima
      - float
      - 0-100(0.1V)
 
    * - 51
-     - Vertical Triangle Weave Left Chord Length
+     - Lunghezza corda sinistra oscillazione triangolo verticale
      - float
      - 0-1000(0.1mm)
 
    * - 52
-     - Vertical Triangle Weave Right Chord Length
+     - Lunghezza corda destra oscillazione triangolo verticale
      - float
      - 0-1000(0.1mm)
 
    * - 53
-     - Weave Direction Azimuth Angle
+     - Angolo azimutale direzione oscillazione
      - float
      - -1800-1800(0.1°)
 
    * - 54
-     - Weave Direction Tilt Angle
+     - Angolo di inclinazione laterale direzione oscillazione
      - float
      - -1800-1800(0.1°)
 
    * - 55
-     - Vertical Triangle Weave Apex Wait Time
+     - Tempo di attesa punto apicale triangolo oscillazione triangolo verticale
      - float
      - 0-99999(ms)
 
-Spray Gun
--------------
+Pistola a Spruzzo
+-----------------------
 
-Spray Gun Peripheral Configuration Steps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Procedura di configurazione periferica pistola a spruzzo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: In the "Initial" -> "Peripherals" menu bar, click "Spray Gun" to enter the spray gun configuration interface.
+**Step1**: Nella barra dei menu "Impostazioni iniziali"->"Periferiche", fare clic su "Pistola a spruzzo" per accedere all'interfaccia di configurazione della pistola a spruzzo.
 
-The spraying function allows one-click configuration of keys for quick setup of the required DOs for spraying (by default, DO10 is configured for spray start/stop, DO11 for gun cleaning).
+L'utente può configurare rapidamente i tasti con un clic tramite la funzione di spruzzatura, configurando rapidamente i DO necessari per la spruzzatura (configurazione predefinita DO10 per avvio/arresto spruzzatura, DO11 per pulizia pistola).
 
-Users can also customize DO configuration according to their needs in "Initial" -> "Basic" -> "I/O Settings".
+L'utente può anche configurare personalmente i DO in "Impostazioni iniziali"->"Base"->"Impostazioni I/O" in base alle proprie esigenze.
 
 .. important::
-    Before using the spraying function, the corresponding tool coordinate system must be established and applied during program teaching.
+	Prima di utilizzare la funzione di spruzzatura, è necessario prima stabilire il corrispondente sistema di coordinate dell'utensile e applicarlo durante l'insegnamento del programma.
 
-**Step2**: After configuration is complete, click the four buttons "Start Spraying", "Stop Spraying", "Start Cleaning", and "Stop Cleaning" to debug the spray gun.
+**Step2**: Dopo aver completato la configurazione, fare clic sui quattro pulsanti "Inizia spruzzatura", "Arresta spruzzatura", "Inizia pulizia pistola" e "Arresta pulizia pistola" per eseguire il debug della pistola a spruzzo.
 
 .. figure:: robot_peripherals/034.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.5‑1 Spray Gun Configuration
+.. centered:: Diagramma 8.5‑1 Configurazione pistola a spruzzo
 
-**Step3**: Select the "Spray Gun" command in the program command interface. According to the specific program teaching requirements, add the four instructions "Start Spraying", "Stop Spraying", "Start Cleaning", and "Stop Cleaning" at the appropriate locations.
+**Step3**: Nell'interfaccia dei comandi di programmazione del programma, selezionare il comando "Pistola a spruzzo". In base alle esigenze specifiche di insegnamento del programma, aggiungere e applicare i quattro comandi "Inizia spruzzatura", "Arresta spruzzatura", "Inizia pulizia pistola" e "Arresta pulizia pistola" nei punti corrispondenti.
 
 .. figure:: robot_peripherals/035.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.5‑2 Spray Gun Commands
+.. centered:: Diagramma 8.5‑2 Comando pistola a spruzzo
 
-Spraying Program Teaching
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Insegnamento programma spruzzatura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 15 40 100
    :header-rows: 1
 
-   * - No.
-     - Command Format
-     - Comment
+   * - Numero
+     - Formato comando
+     - Commento
    * - 1
      - Lin(template1,100,-1,0,0)
-     - #Start spraying point
+     - #Punto di inizio spruzzatura
    * - 2
      - SprayStart()
-     - #Start spraying
+     - #Inizia spruzzatura
    * - 3
      - Lin(template2,100,-1,0,0)
-     - #Spraying path
+     - #Percorso spruzzatura
    * - 4
      - Lin(template3,100,-1,0,0)
-     - #Stop spraying point
+     - #Punto di arresto spruzzatura
    * - 5
      - SprayStop()
-     - #Stop spraying
+     - #Arresta spruzzatura
    * - 6
      - Lin(template4,100,-1,0,0)
-     - #Cleaning point
+     - #Punto di pulizia pistola
    * - 7
      - PowerCleanStart()
-     - #Start cleaning
+     - #Inizia pulizia pistola
    * - 8
      - WaitTime(5000)
-     - #Cleaning time ms
+     - #Tempo pulizia pistola ms
    * - 9
      - PowerCleanStop()
-     - #Stop cleaning
+     - #Arresta pulizia pistola
 
-Welding Machine
---------------------------
+Saldatrice
+-------------
 
-Collaborative robots carrying welding torches for welding operations can significantly improve welding efficiency and quality. Faro collaborative robots can control welding through three methods: "Controller IO", "Digital Communication Protocol (UDP)", or "Digital Communication Protocol (Modbus TCP)":
+Il robot collaborativo che trasporta una torcia di saldatura per operazioni di saldatura può migliorare significativamente l'efficienza e la qualità della saldatura. Il robot collaborativo FA può controllare la saldatura attraverso tre metodi: "IO del controller", "Protocollo di comunicazione digitale (UDP)" o "Protocollo di comunicazione digitale (Modbus TCP)":
 
-**Controller IO**: The robot controls the welding current and voltage by setting the control box analog output (0-10V), controls welding arc initiation, wire feeding, and gas supply through the control box digital output, and collects signals such as welder ready and arc success through the control box digital input.
+**IO del controller**: Il robot controlla la grandezza della corrente e tensione di saldatura impostando l'uscita analogica del quadro di controllo (0-10V), controlla l'accensione dell'arco, l'avanzamento del filo e l'alimentazione del gas attraverso l'uscita digitale del quadro di controllo, e acquisisce segnali di ingresso come preparazione della saldatrice e accensione dell'arco riuscita attraverso l'ingresso digitale del quadro di controllo.
 
-**Digital Communication Protocol (UDP)**: The robot communicates with a PLC via UDP, and the PLC then communicates with the welding machine via CANOpen bus or other protocols to control welding voltage, current, and operations like arc initiation, wire feeding, and gas supply (Refer to Appendix 1 for the robot UDP communication protocol content).
+**Protocollo di comunicazione digitale (UDP)**: Il robot comunica con il PLC tramite UDP, il PLC a sua volta comunica con la saldatrice tramite bus CANOpen o altri protocolli, controllando così la tensione e corrente di saldatura e operazioni come accensione dell'arco, avanzamento del filo e alimentazione del gas (il contenuto del protocollo di comunicazione UDP del robot è allegato in Appendice 1).
 
-**Digital Communication Protocol (Modbus TCP)**: This refers to the controller peripheral open protocol, typically a runnable LUA program. The program includes commands for creating communication, cyclically writing control data to the slave device, and reading real-time status data. When this LUA program is executed, the robot establishes communication with the device and performs data exchange. The IP address, port number, cycle, and other communication parameters can be customized in the controller peripheral open protocol LUA program. Users need to modify the protocol content according to the actual device situation when using it. Devices supported by the controller peripheral open protocol include grinding heads, laser sensors, CNC, welding machines, etc. The controller peripheral open protocol file name must start with `CtrlDev_`, such as "CtrlDev_Welding.lua". A maximum of 4 open protocols can run simultaneously.
+**Protocollo di comunicazione digitale (Modbus TCP)**: Protocollo aperto periferiche controller, di solito un programma LUA eseguibile. Il programma include istruzioni per la creazione della comunicazione, cicli per scrivere dati di controllo e leggere dati di stato in tempo reale al dispositivo slave. Quando si esegue questo programma LUA, il robot stabilisce la comunicazione con il dispositivo e scambia dati. Nel programma LUA del protocollo aperto periferiche controller, è possibile personalizzare parametri di comunicazione come indirizzo IP, numero di porta, ciclo, ecc. L'utente deve modificare il contenuto di questo protocollo in base alla situazione effettiva del dispositivo durante l'uso. I dispositivi supportati dal protocollo aperto periferiche controller includono testine di levigatura, sensori laser, CNC, saldatrici, ecc. Il nome del file del protocollo aperto periferiche controller deve iniziare con `CtrlDev_`, ad esempio "CtrlDev_Welding.lua", supportando al massimo 4 protocolli aperti in esecuzione simultanea.
 
 .. figure:: robot_peripherals/036.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑1 Welding Machine
+.. centered:: Diagramma 8.6‑1 Saldatrice
 
-Welding control via "Controller IO" or "Digital Communication Protocol (UDP)" mainly includes the following steps: ① Welding torch installation and signal wiring; ② Welding machine parameter configuration; ③ Writing welding control programs.
+Il controllo della saldatura tramite "IO del controller" o "Protocollo di comunicazione digitale (UDP)" include principalmente i seguenti passi: ①Installazione della torcia di saldatura e cablaggio dei segnali; ②Configurazione dei parametri della saldatrice; ③Scrittura del programma di controllo della saldatura.
 
-Welding Torch Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installazione torcia di saldatura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The welding torch is installed at the robot end via an adapter plate, and the welding torch cable must be fixed to the robotic arm.
+La torcia di saldatura è installata all'estremità del robot tramite una piastra di adattamento, i cavi della torcia di saldatura devono essere fissati al braccio robotico.
 
 .. figure:: robot_peripherals/037.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6‑2 Welding Torch Installed at Robot End
+.. centered:: Diagramma 8.6‑2 Installazione torcia di saldatura all'estremità del robot
 
-After the welding torch is fixed and installed, calibrate the welding torch tool coordinate system using the six-point method and apply it as the current tool coordinate system. The calibration accuracy of the welding torch tool coordinate system will affect the actual welding accuracy.
+Dopo il fissaggio e l'installazione della torcia di saldatura, calibrare il sistema di coordinate dell'utensile della torcia di saldatura utilizzando il metodo a sei punti e applicarlo come sistema di coordinate dell'utensile corrente. La precisione della calibrazione del sistema di coordinate dell'utensile della torcia di saldatura influenzerà la precisione della saldatura effettiva.
 
 .. figure:: robot_peripherals/038.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-3 Robot Tool Coordinate System Calibration and Application
+.. centered:: Diagramma 8.6-3 Calibrazione e applicazione sistema di coordinate utensile robot
 
-Welding Machine Parameter Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione parametri saldatrice
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Collaborative robots can control the welding process through "Controller IO" signals or "Digital Communication Protocol". The configuration operations for these two methods mainly differ in the following two points:
+Il robot collaborativo può controllare il processo di saldatura tramite segnali "IO del controller" o "Protocollo di comunicazione digitale". Le principali differenze nelle operazioni di configurazione tra i due metodi sono le seguenti:
 
-① When using "Controller IO", it is necessary to set the correspondence between the actual controlled welding current/voltage and the control box analog output values.
+①Quando si utilizzano "IO del controller", è necessario impostare la relazione corrispondente tra il controllo effettivo della corrente e tensione di saldatura e il valore di uscita analogica del quadro di controllo;
 
-② When using "Digital Communication Protocol", communication parameters need to be configured.
+②Quando si utilizza il "Protocollo di comunicazione digitale", è necessario configurare i parametri di comunicazione.
 
-"Controller IO" Welding Control Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione controllo saldatura "IO del controller"
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In the "Initial" -> "Peripherals" -> "Welding Machine" menu bar, click the "Controller I/O" card to enter the interface.
+Nella barra dei menu "Impostazioni iniziali"->"Periferiche"->"Saldatrice", fare clic sulla scheda "I/O controller" per accedere all'interfaccia.
 
 .. figure:: robot_peripherals/039.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-4 Controller I/O
+.. centered:: Diagramma 8.6-4 I/O controller
 
-Welding IO Signal Configuration
-********************************************************
+Configurazione segnali IO saldatura
+************************************************
 
-As shown in the figure below, select the DI input ports for the welder status signals and the DO output ports for the welder control signals, then click the "Configure" button. The meanings of each signal are as follows:
+Come mostrato nella figura sottostante, selezionare la porta di ingresso DI del segnale di stato della saldatrice e la porta di uscita DO del segnale di controllo della saldatrice, fare clic sul pulsante "Configura". Il significato di ciascun segnale è il seguente:
 
 .. figure:: robot_peripherals/040.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-5 Set Welding Machine Signal Ports
+.. centered:: Diagramma 8.6-5 Impostazione porte segnale saldatrice
 
-**Welder Ready**: This signal is output from the welding machine to the robot when the welding machine is ready to perform welding operations.
+**Preparazione saldatrice**: Quando la saldatrice è pronta per eseguire operazioni di saldatura, la saldatrice invia questo segnale al robot.
 
-When the welding machine is not ready due to faults or other reasons, this signal is not input to the robot. At this time, the robot WebApp prompt in the upper right corner "Welder not ready". If your welding machine does not have a welder ready signal, you can set this port to "None".
+Quando la saldatrice non è pronta a causa di guasti o altri motivi, non invia questo segnale al robot. In questo caso, l'angolo in alto a destra della WebApp del robot segnala "Saldatrice non pronta". Se la saldatrice non ha un segnale di preparazione, è possibile impostare la porta di questo elemento su "Nessuno".
 
 .. figure:: robot_peripherals/041.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6-6 Welder Not Ready Error
+.. centered:: Diagramma 8.6-6 Errore saldatrice non pronta
 
 .. figure:: robot_peripherals/042.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-7 Welder Ready Set to "None"
+.. centered:: Diagramma 8.6-7 Impostazione preparazione saldatrice su "Nessuno"
 
-**Arc Success**: The arc has been successfully initiated. After the robot outputs the arc initiation signal to the welding machine, it waits for the arc success feedback signal from the welding machine. If the robot does not detect the arc success signal from the welding machine within the set timeout period, the robot reports an "Arc initiation timeout" error.
+**Accensione arco riuscita**: L'accensione dell'arco della saldatrice ha avuto successo. Dopo che il robot invia il segnale di accensione dell'arco alla saldatrice, attende il segnale di feedback di accensione dell'arco riuscita dalla saldatrice. Se il robot non rileva il segnale di accensione dell'arco riuscita dalla saldatrice entro il tempo di timeout impostato, il robot segnala l'errore "Timeout accensione arco".
 
-If the arc success signal is not configured, welding can still be performed using the robot welding function, but the robot will report a "Arc success DI not configured" warning. If your welding machine has an arc success signal output, we recommend configuring this signal for safer welding.
+Quando si utilizza la funzione di saldatura del robot senza configurare il segnale di accensione dell'arco riuscita, è ancora possibile saldare, ma il robot segnalerà l'avviso "DI accensione arco riuscita non configurata"; se la saldatrice ha un segnale di uscita di accensione dell'arco riuscita, si consiglia di configurare questo segnale per una saldatura più sicura.
 
 .. figure:: robot_peripherals/043.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6-8 Arc Initiation Timeout Error
+.. centered:: Diagramma 8.6-8 Errore timeout accensione arco
    
 .. figure:: robot_peripherals/044.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6-9 Arc Success DI Not Configured Warning
+.. centered:: Diagramma 8.6-9 Avviso DI accensione arco riuscita non configurata
 
-**Welding Interruption Recovery**: Triggered when the arc is unexpectedly interrupted during robot welding or the operator actively pauses welding. When this signal input to the robot changes from invalid to valid after a welding interruption, the robot automatically resumes welding from the original interruption position.
+**Ripristino interruzione saldatura**: Durante il processo di saldatura del robot, se l'arco si interrompe accidentalmente o l'operatore sospende attivamente la saldatura, si verifica un'interruzione della saldatura. Dopo l'interruzione della saldatura, quando il segnale esterno inviato al robot passa da non valido a valido, il robot riprende automaticamente la saldatura dalla posizione originale dell'interruzione.
 
-**Welding Interruption Exit**: Triggered when the arc is unexpectedly interrupted during robot welding or the operator actively pauses welding. When this signal input to the robot changes from invalid to valid after a welding interruption, the robot terminates welding. After termination, welding cannot be resumed.
+**Uscita interruzione saldatura**: Durante il processo di saldatura del robot, se l'arco si interrompe accidentalmente o l'operatore sospende attivamente la saldatura, si verifica un'interruzione della saldatura. Dopo l'interruzione della saldatura, quando il segnale esterno inviato al robot passa da non valido a valido, il robot termina la saldatura. Dopo la terminazione della saldatura, non è possibile riprenderla.
 
-**Welding Arc Initiation**: The DO output port through which the robot controls the welding machine to initiate the arc. When the robot program executes the arc initiation command, the corresponding DO output port for arc initiation automatically outputs a valid signal.
+**Accensione arco saldatrice**: Porta di uscita DO del robot per controllare l'accensione dell'arco della saldatrice. Quando il programma del robot esegue il comando di accensione dell'arco, la porta di uscita DO corrispondente all'accensione dell'arco della saldatrice emette automaticamente un segnale valido.
 
-**Gas Detection**: The DO output port through which the robot controls the welding machine to supply gas. When the robot executes the welding gas supply command, the corresponding DO output port for gas supply automatically outputs a valid signal.
+**Rilevamento gas**: Porta di uscita DO del robot per controllare l'alimentazione del gas della saldatrice. Quando il robot esegue il comando di alimentazione del gas per la saldatura, la porta di uscita DO corrispondente all'alimentazione del gas emette automaticamente un segnale valido.
 
-**Forward Wire Feed**: The DO output port through which the robot controls the welding machine for forward wire feeding. When the robot executes the forward wire feed command, the corresponding DO output port for forward wire feed automatically outputs a valid signal.
+**Avanzamento filo positivo**: Porta di uscita DO del robot per controllare l'avanzamento positivo del filo della saldatrice. Quando il robot esegue il comando di avanzamento positivo del filo, la porta di uscita DO corrispondente all'avanzamento positivo del filo emette automaticamente un segnale valido.
 
-**Reverse Wire Feed**: The DO output port through which the robot controls the welding machine for reverse wire feeding. When the robot executes the reverse wire feed command, the corresponding DO output port for reverse wire feed automatically outputs a valid signal.
+**Avanzamento filo inverso**: Porta di uscita DO del robot per controllare l'avanzamento inverso del filo della saldatrice. Quando il robot esegue il comando di avanzamento inverso del filo, la porta di uscita DO corrispondente all'avanzamento inverso del filo emette automaticamente un segnale valido.
 
-Welding Process Parameter Configuration
-********************************************************
+Configurazione parametri processo saldatura
+****************************************************
 
-As shown in the figure below, find the "Welding Process Parameters" section on the welding configuration page. The collaborative robot provides 100 sets of welding process parameters, numbered 0 to 99. Process number 0 indicates not using the welding process curve, while process numbers 1-99 use the welding process curve.
+Come mostrato nella figura sottostante, nella pagina di configurazione della saldatura, trovare la barra "Parametri processo saldatura". Il robot collaborativo fornisce da 0 a 99 gruppi di parametri di processo saldatura, di cui il numero di processo 0 indica che non si utilizza la curva del processo di saldatura, i numeri di processo 1-99 utilizzano la curva del processo di saldatura.
    
 .. figure:: robot_peripherals/045.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-10 Welding Process Parameter Configuration
+.. centered:: Diagramma 8.6-10 Configurazione parametri processo saldatura
 
-When using the welding process curve, take selecting welding process number 1 as an example. Input the parameters from Arc Initiation Current to Arc Closing Time as shown in Figure 8, then click the "Configure" button. The actual welding process represented by these parameters is as follows:
+Quando si utilizza la curva del processo di saldatura, prendendo come esempio la selezione del numero di processo di saldatura 1, inserire in sequenza i parametri da corrente di accensione arco a tempo di spegnimento arco come mostrato nella Figura 8, fare clic sul pulsante "Configura". Il processo di saldatura effettivo rappresentato da questi parametri di processo è il seguente:
 
-① Set welding current 200A, voltage 23V;
-② Execute arc initiation, wait for arc success;
-③ After arc success, maintain the arc for 500ms (Arc initiation time, robot does not move);
-④ Set welding current 150A, welding voltage 21V, then the robot starts moving and performs welding;
-⑤ After welding to the end point, set welding current to 100A, welding voltage to 19V (Arc closing current, Arc closing voltage);
-⑥ After setting the arc closing current and voltage, maintain arc burning for 500ms (robot does not move), finally extinguish the arc.
+①Impostare corrente di saldatura 200A, tensione 23V;
 
-When not using the welding process curve, i.e., selecting welding process parameter number 0, as shown below, the welding process is:
-① Set welding current and welding voltage;
-② The robot controls the welding machine to initiate the arc and waits for arc success;
-③ After arc success, the robot starts moving and performs welding;
-④ The robot extinguishes the arc immediately after welding to the end point.
+②Eseguire l'accensione dell'arco, attendere l'accensione dell'arco riuscita;
+
+③Dopo il successo dell'accensione dell'arco, mantenere l'arco per 500ms (tempo di accensione arco, robot non si muove);
+
+④Impostare corrente di saldatura 150A, tensione di saldatura 21V, quindi il robot inizia a muoversi e a saldare;
+
+⑤Dopo aver raggiunto la fine della saldatura, impostare la corrente di saldatura a 100A, la tensione di saldatura a 19V (corrente di spegnimento arco, tensione di spegnimento arco);
+
+⑥Dopo aver impostato la corrente e tensione di spegnimento arco, mantenere l'arco acceso per 500ms (robot non si muove), infine spegnere l'arco.
+
+Quando non si utilizza la curva del processo di saldatura, ovvero selezionando il numero di parametri di processo di saldatura 0, come mostrato nella figura sottostante, il processo di saldatura è:
+
+①Impostare corrente e tensione di saldatura;
+
+②Il robot controlla la saldatrice per accendere l'arco e attende il successo dell'accensione;
+
+③Dopo il successo dell'accensione dell'arco, il robot inizia a muoversi e a saldare;
+
+④Dopo che il robot ha raggiunto la fine della saldatura, spegne immediatamente l'arco.
    
 .. figure:: robot_peripherals/046.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-11 Not Using Welding Process Curve
+.. centered:: Diagramma 8.6-11 Non utilizzare la curva del processo di saldatura
 
-Setting the Relationship Diagram Between Welding Current/Voltage and Analog Output
-***************************************************************************************************************************
+Impostazione relazione corrente/tensione saldatura con uscita analogica
+*********************************************************************************
 
-When the collaborative robot welding control type is selected as "Controller IO", the welding current and voltage values are controlled by the magnitude of the control box analog output (control box analog output voltage range is 0 ~ 10V). At this time, it is necessary to configure the linear correspondence between the control box analog output value and the actual welding current and welding voltage values.
+Quando si seleziona il tipo di controllo saldatura come "IO controller", si controllano i valori di corrente e tensione di saldatura effettivi attraverso la grandezza dell'uscita analogica del quadro di controllo (l'intervallo di tensione di uscita analogica del quadro di controllo è 0 ~ 10V). In questo caso, è necessario configurare la relazione lineare corrispondente tra il valore di uscita analogica del quadro di controllo e la corrente e tensione di saldatura effettiva.
 
-As shown in Figure 12, find the "Analog Current Voltage Relationship Diagram" on the welding machine configuration page. "A-V" represents the correspondence between welding current and the control box output analog voltage, and "V-V" represents the correspondence between welding voltage and the control box output analog voltage.
+Come mostrato nella Figura 12, nella pagina di configurazione della saldatrice, trovare la "Relazione corrente/tensione analogica", dove "A-V" rappresenta la relazione corrispondente tra la corrente di saldatura e la tensione di uscita analogica del quadro di controllo, "V-V" rappresenta la relazione corrispondente tra la tensione di saldatura e la tensione di uscita analogica del quadro di controllo.
 
-Select "A-V", input the welding current range 0-1000A, analog output voltage 0-10V, output AO as "Ctrl-AO0" (the analog output port for welding current control is AO0), click the "Configure" button; Under these parameters, when the control box outputs an analog voltage of 1.5V, it corresponds to a welding current of 150A.
+Selezionare "A-V", inserire l'intervallo di corrente di saldatura 0-1000A, tensione di uscita analogica 0-10V, uscita AO come "Ctrl-AO0" (porta di uscita analogica di controllo corrente di saldatura è AO0), fare clic sul pulsante "Configura"; con questi parametri, quando il quadro di controllo emette una tensione analogica di 1.5V, corrisponde a una corrente di saldatura di 150A.
    
 .. figure:: robot_peripherals/047.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-12 Welding Current vs Output Analog Correspondence Configuration
+.. centered:: Diagramma 8.6-12 Configurazione relazione corrispondente corrente saldatura e uscita analogica
 
-As shown in Figure 13, click "V-V" to set the correspondence between welding voltage and the control box analog output voltage. Input the welding voltage range as 0-60V, the analog output voltage value as 0-10V, and the output AO as "Ctrl-AO1" (the analog output port for welding voltage control is AO1), then click the "Configure" button. In this case, if the control box AO1 analog output is 3.5V, it actually controls the welding voltage to be 21V.
+Come mostrato nella Figura 13, fare clic su "V-V" per impostare la relazione corrispondente tra la tensione di saldatura e la tensione di uscita analogica del quadro di controllo, inserire l'intervallo di tensione di saldatura 0-60V, valore di tensione di uscita analogica 0-10V, uscita AO come "Ctrl-AO1" (porta di uscita analogica di controllo corrente di saldatura è AO0), fare clic sul pulsante "Configura". In questo caso, se il quadro di controllo emette una tensione analogica AO1 di 3.5V, controlla effettivamente una tensione di saldatura di 21V.
    
 .. figure:: robot_peripherals/048.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-13 Welding Voltage vs Output Analog Correspondence Configuration
+.. centered:: Diagramma 8.6-13 Configurazione relazione corrispondente tensione saldatura e uscita analogica
 
-Welding Machine Debugging
-**********************************************
+Debug saldatrice
+************************
 
-As shown in Figure 14, find "Welding Machine Debugging" on the welding machine configuration page. Select process number 1, input the timeout time as 1000ms, click "Gas On", and the robot will control the welding machine to start supplying shielding gas. Click the "Gas Off" button, and the robot will control the welding machine to stop supplying shielding gas. The operation methods for other buttons like "Arc Start", "Forward Wire Feed", "Reverse Wire Feed", etc., are the same and will not be repeated.
+Come mostrato nella Figura 14, nella pagina di configurazione della saldatrice, trovare "Debug saldatrice", selezionare il numero di processo 1, inserire il tempo di timeout 1000ms, fare clic su "Alimenta gas", il robot controllerà la saldatrice per iniziare a fornire gas di protezione, fare clic sul pulsante "Arresta gas", il robot controllerà la saldatrice per interrompere il gas di protezione. Gli altri pulsanti "Accendi arco", "Avanzamento filo positivo", "Avanzamento filo inverso", ecc., hanno lo stesso metodo operativo e non verranno ulteriormente descritti.
    
 .. figure:: robot_peripherals/049.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-14 Welding Machine Debugging
+.. centered:: Diagramma 8.6-14 Debug saldatrice
 
-"Digital Communication Protocol (UDP)" Welding Control Configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione controllo saldatura "Protocollo di comunicazione digitale (UDP)"
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-When the robot uses the "Digital Communication Protocol" for welding control, it essentially communicates with a PLC via UDP. The robot transmits control data such as arc initiation, wire feeding, gas supply, current, and voltage to the PLC via UDP communication. The PLC then further controls the welding machine via CANOpen bus (or other methods). Simultaneously, the PLC collects actual welding current, voltage, and arc success signals and feeds them back to the robot. (Refer to Appendix 1 for the robot UDP communication protocol content).
+Il controllo della saldatura del robot tramite "Protocollo di comunicazione digitale" è essenzialmente la comunicazione UDP tra il robot e il PLC. Il robot trasmette dati di controllo come accensione dell'arco, avanzamento del filo, alimentazione del gas, corrente, tensione, ecc., al PLC tramite comunicazione UDP, che a sua volta controlla ulteriormente la saldatrice tramite bus CANOpen (o altri metodi). Allo stesso tempo, il PLC acquisisce la corrente e tensione di saldatura effettiva, il segnale di accensione dell'arco riuscita e li invia al robot. (Il contenuto del protocollo di comunicazione UDP del robot è allegato in Appendice 1).
 
-In the "Initial" -> "Peripherals" menu bar, click "Welding Machine" to enter the welding machine configuration interface. As shown below:
+Nella barra dei menu "Impostazioni iniziali"->"Periferiche", fare clic su "Saldatrice" per accedere all'interfaccia di configurazione della saldatrice. Come mostrato nella figura sottostante:
    
 .. figure:: robot_peripherals/050.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-15 Digital Communication Protocol (UDP)
+.. centered:: Diagramma 8.6-15 Protocollo di comunicazione digitale (UDP)
 
-Since the robot communicates with the PLC via UDP, UDP communication parameters need to be configured. The meanings of these parameters are as follows:
+Poiché il robot comunica con il PLC tramite UDP, è necessario configurare i parametri di comunicazione UDP. Il significato di ciascun parametro è il seguente:
 
-**IP Address**: The IP address of the PLC end for UDP communication.
-**Port Number**: The UDP communication port number on the PLC end.
-**Communication Cycle**: The cycle for UDP communication between the robot and the PLC, default is 2ms.
-**Packet Loss Detection Cycle, Packet Loss Count**: When the number of lost packets within the packet loss detection cycle exceeds the set value, the robot reports a "UDP communication packet loss exception" error and automatically cuts off the communication.
-**Communication Interruption Confirmation Duration**: If the robot does not receive a complete frame of PLC feedback data within this duration, it reports a "UDP communication interruption" error alarm and cuts off the UDP communication.
-**Auto-reconnect after Power Restart**: Whether the robot automatically attempts to reconnect and recover after detecting a robot power restart.
-**Auto-reconnect after Communication Interruption**: Whether the robot automatically attempts to reconnect and recover after detecting a UDP communication interruption.
-**Reconnection Cycle, Reconnection Count**: When auto-reconnect after UDP communication interruption is enabled and a interruption is detected, the robot attempts reconnection at the set cycle. If the reconnection count reaches the maximum set value and the connection is still not successful, the robot reports a "UDP communication interruption" error alarm and cuts off the UDP communication.
+**Indirizzo IP**: Indirizzo IP del lato PLC della comunicazione UDP;
 
-After configuring the above parameters, click the "Configure" button. After successful configuration, click the "Load" button.
+**Numero di porta**: Numero di porta di comunicazione UDP del lato PLC;
+
+**Ciclo di comunicazione**: Ciclo di comunicazione UDP tra robot e PLC, predefinito 2ms;
+
+**Ciclo di rilevamento perdita pacchetti, numero di perdite pacchetti**: Quando il numero di pacchetti persi nel ciclo di rilevamento delle perdite supera il valore impostato, il robot segnala l'errore "Anomalia perdita pacchetti comunicazione UDP" e interrompe automaticamente la comunicazione.
+
+**Durata conferma interruzione comunicazione**: Se il robot non riceve un pacchetto di dati di feedback completo dal PLC entro questa durata, segnala l'errore di allarme "Interruzione comunicazione UDP" e interrompe la comunicazione UDP.
+
+**Riconnessione automatica dopo spegnimento/riavvio**: Indica se il robot tenta automaticamente di riconnettersi dopo aver rilevato lo spegnimento e riavvio del robot;
+
+**Riconnessione automatica dopo interruzione comunicazione**: Indica se il robot tenta automaticamente di riconnettersi dopo aver rilevato l'interruzione della comunicazione UDP;
+
+**Ciclo di riconnessione, numero di riconnessioni**: Dopo aver abilitato la riconnessione automatica dopo interruzione comunicazione UDP e rilevato l'interruzione della comunicazione UDP, il robot tenta di riconnettersi con il ciclo impostato. Quando il numero di tentativi di riconnessione raggiunge il valore massimo impostato senza successo, il robot segnala l'errore di allarme "Interruzione comunicazione UDP" e interrompe la comunicazione UDP.
+
+Dopo aver configurato i parametri sopra, fare clic sul pulsante "Configura". Dopo la configurazione riuscita, fare clic sul pulsante "Carica".
    
 .. figure:: robot_peripherals/051.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-16 UDP Communication Configuration
+.. centered:: Diagramma 8.6-16 Configurazione comunicazione UDP
 
 .. note::
    .. image:: robot_peripherals/052.png
       :height: 0.75in
       :align: left
 
-   Name: **Edit Button**
+   Nome: **Pulsante modifica**
    
-   Function: Open/Close UDP communication parameter configuration
+   Funzione: Apertura/chiusura configurazione parametri comunicazione UDP
 
 .. note::
    .. image:: robot_peripherals/053.png
       :height: 0.75in
       :align: left
 
-   Name: **Load Button**
+   Nome: **Pulsante carica**
    
-   Function: Load UDP communication
+   Funzione: Caricamento comunicazione UDP
 
-Welding IO Signal Configuration
-********************************************************
+Configurazione segnali IO saldatura
+*******************************************
 
-Select the DI input ports for the welder status signals and the DO output ports for the welder control signals, then click the "Configure" button. The meanings of each signal are as follows:
+Selezionare la porta di ingresso DI del segnale di stato della saldatrice e la porta di uscita DO del segnale di controllo della saldatrice, fare clic sul pulsante "Configura". Il significato di ciascun segnale è il seguente:
    
 .. figure:: robot_peripherals/054.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-17 Set Welding Machine Signal Ports
+.. centered:: Diagramma 8.6-17 Impostazione porte segnale saldatrice
 
-**Welder Ready**: This signal is output from the welding machine to the robot when the welding machine is ready to perform welding operations.
+**Preparazione saldatrice**: Quando la saldatrice è pronta per eseguire operazioni di saldatura, la saldatrice invia questo segnale al robot;
 
-When the welding machine is not ready due to faults or other reasons, this signal is not input to the robot. At this time, the robot WebApp prompt in the upper right corner "Welder not ready". If your welding machine does not have a welder ready signal, you can set this port to "-1".
+Quando la saldatrice non è pronta a causa di guasti o altri motivi, non invia questo segnale al robot. In questo caso, l'angolo in alto a destra della WebApp del robot segnala "Saldatrice non pronta". Se la saldatrice non ha un segnale di preparazione, è possibile impostare la porta di questo elemento su "-1".
    
 .. figure:: robot_peripherals/041.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6-18 Welder Not Ready Error
+.. centered:: Diagramma 8.6-18 Errore saldatrice non pronta
    
 .. figure:: robot_peripherals/055.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-19 Welder Ready Set to "-1"
+.. centered:: Diagramma 8.6-19 Impostazione preparazione saldatrice su "-1"
 
-**Arc Success**: The arc has been successfully initiated. After the robot outputs the arc initiation signal to the welding machine, it waits for the arc success feedback signal from the welding machine. If the robot does not detect the arc success signal from the welding machine within the set timeout period, the robot reports an "Arc initiation timeout" error.
+**Accensione arco riuscita**: L'accensione dell'arco della saldatrice ha avuto successo. Dopo che il robot invia il segnale di accensione dell'arco alla saldatrice, attende il segnale di feedback di accensione dell'arco riuscita dalla saldatrice. Se il robot non rileva il segnale di accensione dell'arco riuscita dalla saldatrice entro il tempo di timeout impostato, il robot segnala l'errore "Timeout accensione arco";
 
-If the arc success signal is not configured, welding can still be performed using the robot welding function, but the robot will report a "Arc success DI not configured" warning. If your welding machine has an arc success signal output, we recommend configuring this signal for safer welding.
+Quando si utilizza la funzione di saldatura del robot senza configurare il segnale di accensione dell'arco riuscita, è ancora possibile saldare, ma il robot segnalerà l'avviso "DI accensione arco riuscita non configurata"; se la saldatrice ha un segnale di uscita di accensione dell'arco riuscita, si consiglia di configurare questo segnale per una saldatura più sicura.
    
 .. figure:: robot_peripherals/043.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6-20 Arc Initiation Timeout Error	
+.. centered:: Diagramma 8.6-20 Errore timeout accensione arco	
       
 .. figure:: robot_peripherals/044.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6-21 Arc Success DI Not Configured Warning
+.. centered:: Diagramma 8.6-21 Errore DI accensione arco riuscita non configurata
 
-**Welding Interruption Recovery**: Triggered when the arc is unexpectedly interrupted during robot welding or the operator actively pauses welding. When this signal input to the robot changes from invalid to valid after a welding interruption, the robot automatically resumes welding from the original interruption position.
+**Ripristino interruzione saldatura**: Durante il processo di saldatura del robot, se l'arco si interrompe accidentalmente o l'operatore sospende attivamente la saldatura, si verifica un'interruzione della saldatura. Dopo l'interruzione della saldatura, quando il segnale esterno inviato al robot passa da non valido a valido, il robot riprende automaticamente la saldatura dalla posizione originale dell'interruzione.
 
-**Welding Interruption Exit**: Triggered when the arc is unexpectedly interrupted during robot welding or the operator actively pauses welding. When this signal input to the robot changes from invalid to valid after a welding interruption, the robot terminates welding. After termination, welding cannot be resumed.
+**Uscita interruzione saldatura**: Durante il processo di saldatura del robot, se l'arco si interrompe accidentalmente o l'operatore sospende attivamente la saldatura, si verifica un'interruzione della saldatura. Dopo l'interruzione della saldatura, quando il segnale esterno inviato al robot passa da non valido a valido, il robot termina la saldatura. Dopo la terminazione della saldatura, non è possibile riprenderla.
 
-**Welding Arc Initiation**: The DO output port through which the robot controls the welding machine to initiate the arc. When the robot program executes the arc initiation command, the corresponding DO output port for arc initiation automatically outputs a valid signal.
+**Accensione arco saldatrice**: Porta di uscita DO del robot per controllare l'accensione dell'arco della saldatrice. Quando il programma del robot esegue il comando di accensione dell'arco, la porta di uscita DO corrispondente all'accensione dell'arco della saldatrice emette automaticamente un segnale valido.
 
-**Gas Detection**: The DO output port through which the robot controls the welding machine to supply gas. When the robot executes the welding gas supply command, the corresponding DO output port for gas supply automatically outputs a valid signal.
+**Rilevamento gas**: Porta di uscita DO del robot per controllare l'alimentazione del gas della saldatrice. Quando il robot esegue il comando di alimentazione del gas per la saldatura, la porta di uscita DO corrispondente all'alimentazione del gas emette automaticamente un segnale valido.
 
-**Forward Wire Feed**: The DO output port through which the robot controls the welding machine for forward wire feeding. When the robot executes the forward wire feed command, the corresponding DO output port for forward wire feed automatically outputs a valid signal.
+**Avanzamento filo positivo**: Porta di uscita DO del robot per controllare l'avanzamento positivo del filo della saldatrice. Quando il robot esegue il comando di avanzamento positivo del filo, la porta di uscita DO corrispondente all'avanzamento positivo del filo emette automaticamente un segnale valido.
 
-**Reverse Wire Feed**: The DO output port through which the robot controls the welding machine for reverse wire feeding. When the robot executes the reverse wire feed command, the corresponding DO output port for reverse wire feed automatically outputs a valid signal.
+**Avanzamento filo inverso**: Porta di uscita DO del robot per controllare l'avanzamento inverso del filo della saldatrice. Quando il robot esegue il comando di avanzamento inverso del filo, la porta di uscita DO corrispondente all'avanzamento inverso del filo emette automaticamente un segnale valido.
 
-Welding Process Parameter Configuration
-********************************************************
+Configurazione parametri processo saldatura
+************************************************
 
-As shown in Figure 22, find the "Welding Process Parameters" section on the welding configuration page. The collaborative robot provides 100 sets of welding process parameters, numbered 0 to 99. Process number 0 indicates not using the welding process curve, while process numbers 1-99 use the welding process curve.
+Come mostrato nella Figura 22, nella pagina di configurazione della saldatura, trovare la barra "Parametri processo saldatura". Il robot collaborativo fornisce da 0 a 99 gruppi di parametri di processo saldatura, di cui il numero di processo 0 indica che non si utilizza la curva del processo di saldatura, i numeri di processo 1-99 utilizzano la curva del processo di saldatura.
       
 .. figure:: robot_peripherals/045.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-22 Welding Process Parameter Configuration
+.. centered:: Diagramma 8.6-22 Configurazione parametri processo saldatura
 
-When using the welding process curve, take selecting welding process number 1 as an example. Input the parameters from Arc Initiation Current to Arc Closing Time as shown in Figure 8, then click the "Configure" button. The actual welding process represented by these parameters is as follows:
+Quando si utilizza la curva del processo di saldatura, prendendo come esempio la selezione del numero di processo di saldatura 1, inserire in sequenza i parametri da corrente di accensione arco a tempo di spegnimento arco come mostrato nella Figura 8, fare clic sul pulsante "Configura". Il processo di saldatura effettivo rappresentato da questi parametri di processo è il seguente:
 
-① Set welding current 200A, voltage 23V;
-② Execute arc initiation, wait for arc success;
-③ After arc success, maintain the arc for 500ms (Arc initiation time, robot does not move);
-④ Set welding current 150A, welding voltage 21V, then the robot starts moving and performs welding;
-⑤ After welding to the end point, set welding current to 100A, welding voltage to 19V (Arc closing current, Arc closing voltage);
-⑥ After setting the arc closing current and voltage, maintain arc burning for 500ms (robot does not move), finally extinguish the arc.
+①Impostare corrente di saldatura 200A, tensione 23V;
 
-When not using the welding process parameters, i.e., selecting welding process parameter number 0, the welding process is:
-① Set the corresponding welding current and welding voltage via the set current/voltage interface;
-② The robot controls the welding machine to initiate the arc and waits for arc success;
-③ After arc success, the robot starts moving and performs welding;
-④ The robot extinguishes the arc immediately after welding to the end point.
+②Eseguire l'accensione dell'arco, attendere l'accensione dell'arco riuscita;
+
+③Dopo il successo dell'accensione dell'arco, mantenere l'arco per 500ms (tempo di accensione arco, robot non si muove);
+
+④Impostare corrente di saldatura 150A, tensione di saldatura 21V, quindi il robot inizia a muoversi e a saldare;
+
+⑤Dopo aver raggiunto la fine della saldatura, impostare la corrente di saldatura a 100A, la tensione di saldatura a 19V (corrente di spegnimento arco, tensione di spegnimento arco);
+
+⑥Dopo aver impostato la corrente e tensione di spegnimento arco, mantenere l'arco acceso per 500ms (robot non si muove), infine spegnere l'arco.
+
+Quando non si utilizza la curva del processo di saldatura, ovvero selezionando il numero di parametri di processo di saldatura 0, il processo di saldatura è:
+
+①Impostare la corrente e tensione di saldatura tramite l'interfaccia di impostazione corrente e tensione;
+
+②Il robot controlla la saldatrice per accendere l'arco e attende il successo dell'accensione;
+
+③Dopo il successo dell'accensione dell'arco, il robot inizia a muoversi e a saldare;
+
+④Dopo che il robot ha raggiunto la fine della saldatura, spegne immediatamente l'arco.
       
 .. figure:: robot_peripherals/046.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6-23 Not Using Welding Process Curve
+.. centered:: Diagramma 8.6-23 Non utilizzare la curva del processo di saldatura
 
-Welding Machine Debugging
-**********************************************
+Debug saldatrice
+***********************
 
-Find "Welding Machine Debugging" on the welding machine configuration page. Select process number 1, input the timeout time as 1000ms, click "Gas On", and the robot will control the welding machine to start supplying shielding gas. Click the "Gas Off" button, and the robot will control the welding machine to stop supplying shielding gas. The operation methods for other buttons like "Arc Start", "Forward Wire Feed", "Reverse Wire Feed", etc., are the same and will not be repeated.
+Nella pagina di configurazione della saldatrice, trovare "Debug saldatrice", selezionare il numero di processo 1, inserire il tempo di timeout 1000ms, fare clic su "Alimenta gas", il robot controllerà la saldatrice per iniziare a fornire gas di protezione, fare clic sul pulsante "Arresta gas", il robot controllerà la saldatrice per interrompere il gas di protezione. Gli altri pulsanti "Accendi arco", "Avanzamento filo positivo", "Avanzamento filo inverso", ecc., hanno lo stesso metodo operativo e non verranno ulteriormente descritti.
 
 .. figure:: robot_peripherals/049.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.5-24 Welding Machine Debugging
+.. centered:: Diagramma 8.5-24 Debug saldatrice
 
-Welding Program Writing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Scrittura programma saldatura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Writing Programs Using Welding Process Curves
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura programma con curva del processo di saldatura
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-When using the welding process curve (i.e., selecting welding process parameter numbers 1 ~ 99), the voltage and current control during the welding process follows the curve parameters set for a specific process number, and there is no need to separately add instructions to set welding voltage and current. As shown in Figure 25, click "Teach" -> "Program Programming", and create a new user program "testWeld.lua".
+Quando si utilizza la curva del processo di saldatura (ovvero selezionando il numero di parametri di processo di saldatura 1 ~ 99), il controllo della tensione e corrente durante il processo di saldatura segue i parametri della curva impostati da un numero di processo specifico, non è necessario aggiungere separatamente comandi per impostare la tensione e corrente di saldatura. Come mostrato nella Figura 25, fare clic su "Insegnamento programma"->"Programmazione programma", creare un nuovo programma utente "testWeld.lua".
 
 .. figure:: robot_peripherals/056.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6-25 Create "testWeld.lua" Program
+.. centered:: Diagramma 8.6-25 Creazione programma "testWeld.lua"
 
-In the opened welding instruction addition page, select the control type as "Controller I/O" (select based on the actual configured welding control method), select the welding process number as 1 (Process number 0 does not use the welding process curve, numbers 1-99 do), set the maximum wait time as 10000ms, click the "Arc Start" button and then the "Arc Close" button sequentially, and finally click "Apply".
+Nella pagina di aggiunta comandi di saldatura aperta, selezionare il tipo di controllo come "I/O controller" (selezionare in base al metodo di controllo della saldatura effettivamente configurato), selezionare il numero di processo di saldatura 1 (il numero di processo 0 non utilizza la curva del processo di saldatura, i numeri di processo 1-99 utilizzano la curva del processo di saldatura), tempo di attesa massimo 10000ms, fare clic in sequenza sul pulsante "Accendi arco" e sul pulsante "Spegni arco", infine fare clic su "Applica".
 
 .. figure:: robot_peripherals/057.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6-26 Welding Instruction Addition
+.. centered:: Diagramma 8.6-26 Aggiunta comando saldatura
 
-Now the "testWeld.lua" program has added the welding arc start instruction and the welding arc close instruction. Since the arc start and close operations selected welding process curve number 1, the voltage and current control during the welding process follows the curve parameters set for process number 1, and there is no need to separately add instructions to set welding voltage and current.
+A questo punto, nel programma "testWeld.lua" sono stati aggiunti i comandi di accensione e spegnimento dell'arco di saldatura. Poiché l'accensione e lo spegnimento dell'arco di saldatura utilizzano la curva del processo di saldatura numero 1, il controllo della tensione e corrente durante il processo di saldatura segue i parametri della curva impostati dal numero di processo 1, non è necessario aggiungere separatamente comandi per impostare la tensione e corrente di saldatura.
 
 .. figure:: robot_peripherals/058.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6-27 Arc Start and Close Program
+.. centered:: Diagramma 8.6-27 Programma accensione e spegnimento arco
 
-Add two linear motion instructions and adjust the instruction order so that the robot first moves to point "P1", executes arc start, then moves to point "P2", and executes arc close, achieving welding from point "P1" to point "P2".
+Aggiungere due comandi di movimento lineare e regolare l'ordine dei comandi in modo che il robot si muova prima al punto "P1", esegua l'accensione dell'arco, poi si muova al punto "P2", esegua lo spegnimento dell'arco, realizzando la saldatura del robot dal punto "P1" al punto "P2".
 
 .. figure:: robot_peripherals/059.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6-28 Robot Welding from Point P1 to P2
+.. centered:: Diagramma 8.6-28 Saldatura robot da punto P1 a punto P2
 
-Writing Programs Without Using Welding Process Curves
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura programma senza curva del processo di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-When not using the welding process curve (i.e., selecting welding process parameter number 0), instructions to set welding voltage and current must be added to the welding program to control the actual welding parameters. Click "Teach" -> "Program Teaching", and create a new user program "testWeld.lua".
+Quando non si utilizza la curva del processo di saldatura (ovvero selezionando il numero di parametri di processo di saldatura 0), nel programma di saldatura è necessario aggiungere comandi per impostare la tensione e corrente di saldatura per controllare i parametri di saldatura effettivi. Fare clic su "Insegnamento simulazione", "Insegnamento programma", creare un nuovo programma utente "testWeld.lua".
 
 .. figure:: robot_peripherals/056.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6-29 Create "testWeld.lua" Program
+.. centered:: Diagramma 8.6-29 Creazione programma "testWeld.lua"
 
-In the opened welding instruction addition page, select the control type as "Controller I/O" (select based on the actual configured welding control method), select the welding process number as 0 (Process number 0 does not use the welding process curve, numbers 1-99 do), set the welding current control AO as "Ctrl-AO0", welding current as 150A, click the "Add" button; set the welding voltage control AO as "Ctrl-AO1", welding voltage as 21V, click the "Add" button; set the maximum wait time as 10000ms, click the "Arc Start" button and then the "Arc Close" button sequentially, and finally click "Apply".
+Nella pagina di aggiunta comandi di saldatura aperta, selezionare il tipo di controllo come "I/O controller" (selezionare in base al metodo di controllo della saldatura effettivamente configurato), selezionare il numero di processo di saldatura 0 (il numero di processo 0 non utilizza la curva del processo di saldatura, i numeri di processo 1-99 utilizzano la curva del processo di saldatura), AO controllo corrente saldatura come "Ctrl-AO0", corrente di saldatura 150A, fare clic sul pulsante "Aggiungi"; impostare AO controllo tensione saldatura come "Ctrl-AO1", tensione di saldatura 21V, fare clic sul pulsante "Aggiungi"; impostare tempo di attesa massimo 10000ms, fare clic in sequenza sul pulsante "Accendi arco" e sul pulsante "Spegni arco", infine fare clic su "Applica".
 
 .. figure:: robot_peripherals/057.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6-30 Welding Instruction Addition
+.. centered:: Diagramma 8.6-30 Aggiunta comando saldatura
 
-Now the "testWeld.lua" program has added the welding arc start instruction and the welding arc close instruction. Since the arc start and close instructions selected welding process number 0, when the program executes the set welding voltage and current instructions, the robot will automatically output the corresponding control box analog signal based on the set welding voltage and current values and the "Welding voltage, current vs output analog correspondence" set in the welding machine configuration page.
+A questo punto, nel programma "testWeld.lua" sono stati aggiunti i comandi di accensione e spegnimento dell'arco di saldatura. Poiché i comandi di accensione e spegnimento dell'arco di saldatura utilizzano il numero di processo di saldatura 0, quando il programma esegue i comandi di impostazione della tensione e corrente di saldatura, il robot emetterà automaticamente l'uscita analogica corrispondente del quadro di controllo in base ai valori di tensione e corrente di saldatura impostati e alla "Relazione corrispondente tra tensione/corrente di saldatura e uscita analogica" impostata nella pagina di configurazione della saldatrice.
 
 .. figure:: robot_peripherals/060.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6-31 Set Welding Voltage, Current, Arc Start, Arc Close Program
+.. centered:: Diagramma 8.6-31 Programma impostazione tensione, corrente, accensione e spegnimento arco
 
-Add two linear motion instructions and adjust the instruction order so that the robot first moves to point "P1", executes arc start, then moves to point "P2", and executes arc close, achieving welding from point "P1" to point "P2".
+Aggiungere due comandi di movimento lineare e regolare l'ordine dei comandi in modo che il robot si muova prima al punto "P1", esegua l'accensione dell'arco, poi si muova al punto "P2", esegua lo spegnimento dell'arco, realizzando la saldatura del robot dal punto "P1" al punto "P2".
 
 .. figure:: robot_peripherals/061.png
    :align: center
    :width: 6in 
 
-.. centered:: Figure 8.6-32 Robot Welding from Point P1 to P2
+.. centered:: Diagramma 8.6-32 Saldatura robot da punto P1 a punto P2
 
-Running the above program will achieve welding along a straight line P1 ~ P2. Before running the program, please check:
-① Whether the welding torch is correctly installed, whether the welding torch tool coordinate system has been calibrated, and applied as the current tool coordinate system;
-② Whether the welding power supply, gas path, and wire feed path are working normally;
-③ Whether the signal line connections between the robot and the welding machine are normal.
+Eseguire il programma sopra per realizzare una saldatura lineare P1 ~ P2. Prima di eseguire il programma, verificare:
 
-Welding Interruption and Recovery
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+①Se la torcia di saldatura è installata correttamente, se il sistema di coordinate dell'utensile della torcia di saldatura è stato calibrato e applicato come sistema di coordinate dell'utensile corrente;
 
-Welding interruption may occur during robot welding under the following circumstances:
-① The operator actively pauses welding to observe the actual welding condition or perform operations like cleaning the nozzle;
-② Unexpected welding arc interruption;
-③ The robot collides, causing welding to pause;
+②Se l'alimentazione della saldatura, le linee del gas e del filo funzionano normalmente;
 
-After a welding interruption occurs during robot welding, the operator can switch the robot to manual mode, drag the robot to a safe position, and address the cause of the interruption.
+③Se i collegamenti dei segnali tra il robot e la saldatrice sono normali.
 
-After the issue is resolved, the collaborative robot can automatically move from the current position back to the position where the welding interruption occurred, re-ignite the arc, and resume welding. The specific operation process is:
-① Configure welding interruption recovery parameters;
-② Execute the welding program, pause welding during the process to cause an interruption;
-③ Switch the robot to manual mode, handle the relevant issues, then switch the robot back to automatic mode after completion;
-④ Click the "Resume Welding" button, and the robot automatically resumes welding.
+Interruzione e ripristino saldatura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Welding Interruption Recovery Parameter Configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Durante il processo di saldatura del robot, possono verificarsi interruzioni nelle seguenti situazioni:
 
-In the "Initial" -> "Peripherals" menu bar, click "Welding Machine" to enter the welding machine configuration interface. Find the "Detect Arc Interruption Parameter Configuration" section, turn on "Function Enable", input "Confirmation Duration" as 20ms, click the "Configure" button. This means that if the arc success signal remains invalid for more than 20ms during welding, the robot will report a "Welding arc interruption" error.
+①L'operatore sospende attivamente la saldatura per osservare la situazione effettiva della saldatura o eseguire operazioni come la pulizia dell'ugello;
+
+②Interruzione accidentale dell'arco di saldatura;
+
+③Collisione del robot che causa la sospensione della saldatura;
+
+Dopo un'interruzione durante il processo di saldatura del robot, l'operatore può passare il robot in modalità manuale, trascinare il robot in una posizione sicura e gestire la causa dell'interruzione.
+
+Dopo aver risolto il problema, il robot collaborativo può spostarsi automaticamente dalla posizione corrente alla posizione in cui si è verificata l'interruzione della saldatura, riaccendere l'arco e riprendere la saldatura. La procedura operativa specifica è:
+
+①Configurazione dei parametri di ripristino dopo interruzione della saldatura;
+
+②Eseguire il programma di saldatura, sospendere la saldatura durante il processo di saldatura per causare l'interruzione;
+
+③Passare il robot in modalità manuale e gestire i problemi correlati, dopo aver risolto i problemi, passare nuovamente il robot in modalità automatica;
+
+④Fare clic sul pulsante "Ripristina saldatura", il robot riprende automaticamente la saldatura.
+
+Configurazione parametri ripristino dopo interruzione saldatura
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Nella barra dei menu "Impostazioni iniziali"->"Periferiche", fare clic su "Saldatrice" per accedere all'interfaccia di configurazione della saldatrice, trovare la barra "Configurazione parametri rilevamento interruzione arco", attivare "Abilita funzione", inserire "Durata conferma" 20ms, fare clic sul pulsante "Configura", ovvero quando durante il processo di saldatura il segnale di accensione dell'arco riuscita è non valido per più di 20ms, il robot segnala l'errore "Interruzione arco di saldatura".
 
 .. figure:: robot_peripherals/062.png
    :align: center
    :width: 4in 
 
-.. centered:: Figure 8.6-33 Detect Arc Interruption Parameter Configuration
+.. centered:: Diagramma 8.6-33 Configurazione parametri rilevamento interruzione arco
 
-Find the "Welding Interruption Recovery Parameter Configuration" section, turn on "Function Enable", input "Overlap Distance" as 5mm, "Speed" as 10%, "Motion Mode" as "PTP", click the "Configure" button. The explanations for these three parameters are as follows:
+Trovare la barra "Configurazione parametri ripristino dopo interruzione saldatura", attivare "Abilita funzione", inserire "Distanza sovrapposizione" 5mm, "Velocità" 10%, "Modalità movimento" come "PTP", fare clic sul pulsante "Configura". Il significato di questi tre parametri è spiegato di seguito:
 
-**Overlap Distance**: To ensure the continuity between the resumed weld and the weld before the interruption, the arc restart point for welding recovery needs to have a certain overlap distance with the original weld.
+**Distanza sovrapposizione**: Per garantire la continuità della saldatura dopo il ripristino, il punto di riaccensione della saldatura e la saldatura originale devono avere una certa distanza di sovrapposizione.
 
-**Speed**: After a welding interruption, the robot often needs to be moved to a safe position and the weld needs to be treated. After treatment is completed and welding recovery is executed, the robot will move from the current position to the welding restart point. This "Speed" indicates the speed at which the robot moves to the restart point.
+**Velocità**: Dopo l'interruzione della saldatura, spesso è necessario spostare il robot in una posizione sicura e gestire la saldatura. Dopo aver risolto i problemi ed eseguito il ripristino della saldatura, il robot si sposterà dalla posizione corrente al punto di riaccensione della saldatura. Questa "Velocità" indica la velocità con cui il robot si sposta al punto di riaccensione.
 
-**Motion Mode**: After a welding interruption, the robot often needs to be moved to a safe position and the weld needs to be treated. After treatment is completed and welding recovery is executed, the robot will move from the current position to the welding restart point. This "Motion Mode" indicates the motion mode used by the robot to move to the restart point, with "LIN" and "PTP" available for selection.
+**Modalità movimento**: Dopo l'interruzione della saldatura, spesso è necessario spostare il robot in una posizione sicura e gestire la saldatura. Dopo aver risolto i problemi ed eseguito il ripristino della saldatura, il robot si sposterà dalla posizione corrente al punto di riaccensione della saldatura. Questa "Modalità movimento" indica il modo in cui il robot si sposta al punto di riaccensione, sono disponibili due modalità "LIN" e "PTP".
 
 .. figure:: robot_peripherals/063.png
    :align: center
    :width: 4in 
 
-.. centered:: Figure 8.6-34 Welding Interruption Recovery Parameter Configuration
+.. centered:: Diagramma 8.6-34 Configurazione parametri ripristino dopo interruzione saldatura
 
-Welding Interruption Recovery Application
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Applicazione ripristino dopo interruzione saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Take the "testWeld" program as an example. Switch the robot to automatic mode, click the start button, and the robot begins welding. During welding, click the pause button. At this point, welding is interrupted, and a welding interruption recovery prompt box pops up in the WebApp right corner. Click the "Resume Welding" button, and the robot automatically moves to the restart point and executes the subsequent welding tasks.
+Prendendo come esempio il programma "testWeld", passare il robot in modalità automatica, fare clic sul pulsante di avvio, il robot inizia l'operazione di saldatura. Durante il processo di saldatura, fare clic sul pulsante di pausa, a questo punto la saldatura si interrompe. Nell'angolo in alto a destra della WebApp viene visualizzata una finestra di promemoria per il ripristino della saldatura dopo interruzione. Fare clic sul pulsante "Ripristina saldatura", il robot si sposta automaticamente al punto di riaccensione ed esegue le successive operazioni di saldatura.
 
 .. figure:: robot_peripherals/064.png
    :align: center
    :width: 6in 
 
-.. centered:: Figure 8.6-35 Execute Welding Program
+.. centered:: Diagramma 8.6-35 Esecuzione programma saldatura
 
 .. figure:: robot_peripherals/065.png
    :align: center
    :width: 6in 
 
-.. centered:: Figure 8.6-36 Welding Recovery
+.. centered:: Diagramma 8.6-36 Ripristino saldatura
 
 .. warning::
-   The collaborative robot welding interruption recovery function can only be used for linear welds or circular arc welds. When using a while (1) loop for welding, nested multi-layer while loops are not supported, and conditional judgment statements containing local variables cannot be included. If using stitch welding function, please pay attention to adding the interface for feedback stitch welding information.
+   La funzione di ripristino dopo interruzione della saldatura del robot collaborativo può essere utilizzata solo per saldature lineari o ad arco. Quando si utilizza il ciclo while (1) per la saldatura, non supporta cicli while annidati su più livelli e non può contenere istruzioni condizionali con variabili locali. Se si utilizza la funzione di saldatura a punti, prestare attenzione ad aggiungere l'interfaccia di feedback delle informazioni sulla saldatura a punti.
 
-Attachment 1: Robot UDP Communication Protocol
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Appendice 1: Protocollo di comunicazione UDP del robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
-  1) CRC check method: Uses modbus 16 check but only takes the lower 8 bits for verification. The data areas for verification are D100-D176, D200-D273.
+  1) Metodo di verifica CRC: Utilizza la verifica modbus 16 ma prende solo i bit bassi 8 per la verifica, l'area dati di verifica è D100-D176, D200-D273.
 
-  2) Arc Tracking: The actual current feedback converts the actual current obtained by the PLC from the welder into an analog value of 0-4095 and transmits it to the analog channel 0 of the UDP data protocol, i.e., D168.
+  2) Tracciamento arco: Il feedback della corrente effettiva consiste nel convertire la corrente effettiva della saldatrice acquisita dal PLC in un valore analogico 0-4095 e trasmetterlo al canale analogico 0 del protocollo dati UDP, ovvero D168.
 
-  3) Speed conversion logic: Robot issued speed (unit mm/s) V ÷ lead × 60 = V';
-     PLC converts the robot issued speed V' × encoder resolution ÷ 60 = V" (unit pulse/s).
+  3) Logica di conversione della velocità: Velocità inviata dal robot (unità mm/s) V÷passo×60=V';
 
-Robot Controller -> PLC
-++++++++++++++++++++++++++++++++++++++++++++
+    Il PLC converte la velocità inviata dal robot V'×risoluzione encoder÷60=V" unità (impulsi/s).
+
+Controller robot->PLC
+++++++++++++++++++++++
 
 .. list-table::
    :widths: 10 10 10 10 20
    :header-rows: 1
    :align: center
 
-   * - No.
-     - Register Address
-     - Data Type
-     - Data Value
-     - Variable Name
+   * - Numero
+     - Indirizzo registro
+     - Tipo dati
+     - Valore dati
+     - Nome variabile
 
    * - 1
      - D199
      - INT
      - 0x5A5A
-     - Frame Header
+     - Intestazione frame
 
    * - 2
      - D200
      - INT
-     -
-     - 1# Motor Control Word
+     - 
+     - Parola di controllo motore 1#
 
    * - 3
      - D201
      - DINT
-     -
-     - 1# Target Position Input
+     - 
+     - Ingresso posizione target 1#
 
    * - 4
      - D202
      - DINT
-     -
-     - 1# Target Position Input
+     - 
+     - Ingresso posizione target 1#
 
    * - 5
      - D203
      - INT
-     -
-     - 1# Homing Control Word
+     - 
+     - Parola di controllo homing 1#
 
    * - 6
      - D204
      - DINT
-     -
-     - 1# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 1#
 
    * - 7
      - D205
      - DINT
-     -
-     - 1# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 1#
 
    * - 8
      - D206
      - DINT
-     -
-     - 1# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 1#
 
    * - 9
      - D207
      - DINT
-     -
-     - 1# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 1#
 
    * - 10
      - D208
      - DINT
-     -
-     - 1# Position Offset (Reserved)
+     - 
+     - Offset posizione 1# (riservato)
 
    * - 11
      - D209
      - DINT
-     -
-     - 1# Position Offset (Reserved)
+     - 
+     - Offset posizione 1# (riservato)
 
    * - 12
      - D210
      - DINT
-     -
-     - 1# Speed Offset (Reserved)
+     - 
+     - Offset velocità 1# (riservato)
 
    * - 13
      - D211
      - DINT
-     -
-     - 1# Speed Offset (Reserved)
+     - 
+     - Offset velocità 1# (riservato)
 
    * - 14
      - D212
      - DINT
-     -
-     - 1# Torque Offset (Reserved)
+     - 
+     - Offset coppia 1# (riservato)
 
    * - 15
      - D213
      - DINT
-     -
-     - 1# Torque Offset (Reserved)
+     - 
+     - Offset coppia 1# (riservato)
 
    * - 16
      - D214
      - INT
-     -
-     - 2# Motor Control Word
+     - 
+     - Parola di controllo motore 2#
 
    * - 17
      - D215
      - DINT
-     -
-     - 2# Target Position Input
+     - 
+     - Ingresso posizione target 2#
 
    * - 18
      - D216
      - DINT
-     -
-     - 2# Target Position Input
+     - 
+     - Ingresso posizione target 2#
 
    * - 19
      - D217
      - INT
-     -
-     - 2# Homing Control Word
+     - 
+     - Parola di controllo homing 2#
 
    * - 20
      - D218
      - DINT
-     -
-     - 2# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 2#
 
    * - 21
      - D219
      - DINT
-     -
-     - 2# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 2#
 
    * - 22
      - D220
      - DINT
-     -
-     - 2# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 2#
 
    * - 23
      - D221
      - DINT
-     -
-     - 2# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 2#
 
    * - 24
      - D222
      - DINT
-     -
-     - 2# Position Offset (Reserved)
+     - 
+     - Offset posizione 2# (riservato)
 
    * - 25
      - D223
      - DINT
-     -
-     - 2# Position Offset (Reserved)
+     - 
+     - Offset posizione 2# (riservato)
 
    * - 26
      - D224
      - DINT
-     -
-     - 2# Speed Offset (Reserved)
+     - 
+     - Offset velocità 2# (riservato)
 
    * - 27
      - D225
      - DINT
-     -
-     - 2# Speed Offset (Reserved)
+     - 
+     - Offset velocità 2# (riservato)
 
    * - 28
      - D226
      - DINT
-     -
-     - 2# Torque Offset (Reserved)
+     - 
+     - Offset coppia 2# (riservato)
 
    * - 29
      - D227
      - DINT
-     -
-     - 2# Torque Offset (Reserved)
+     - 
+     - Offset coppia 2# (riservato)
 
    * - 30
      - D228
      - INT
-     -
-     - 3# Motor Control Word
-
+     - 
+     - Parola di controllo motore 3#
+  
    * - 31
      - D229
      - DINT
-     -
-     - 3# Target Position Input
+     - 
+     - Ingresso posizione target 3#
 
    * - 32
      - D230
      - DINT
-     -
-     - 3# Target Position Input
+     - 
+     - Ingresso posizione target 3#
 
    * - 33
      - D231
      - INT
-     -
-     - 3# Homing Control Word
+     - 
+     - Parola di controllo homing 3#
 
    * - 34
      - D232
      - DINT
-     -
-     - 3# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 3#
 
    * - 35
      - D233
      - DINT
-     -
-     - 3# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 3#
 
    * - 36
      - D234
      - DINT
-     -
-     - 3# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 3#
 
    * - 37
      - D235
      - DINT
-     -
-     - 3# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 3#
 
    * - 38
      - D236
      - DINT
-     -
-     - 3# Position Offset (Reserved)
+     - 
+     - Offset posizione 3# (riservato)
 
    * - 39
      - D237
      - DINT
-     -
-     - 3# Position Offset (Reserved)
+     - 
+     - Offset posizione 3# (riservato)
 
    * - 40
      - D238
      - DINT
-     -
-     - 3# Speed Offset (Reserved)
+     - 
+     - Offset velocità 3# (riservato)
 
    * - 41
      - D239
      - DINT
-     -
-     - 3# Speed Offset (Reserved)
+     - 
+     - Offset velocità 3# (riservato)
 
    * - 42
      - D240
      - DINT
-     -
-     - 3# Torque Offset (Reserved)
+     - 
+     - Offset coppia 3# (riservato)
 
    * - 43
      - D241
      - DINT
-     -
-     - 3# Torque Offset (Reserved)
+     - 
+     - Offset coppia 3# (riservato)
 
    * - 44
      - D242
      - INT
-     -
-     - 4# Motor Control Word
-
+     - 
+     - Parola di controllo motore 4#
+  
    * - 45
      - D243
      - DINT
-     -
-     - 4# Target Position Input
+     - 
+     - Ingresso posizione target 4#
 
    * - 46
      - D244
      - DINT
-     -
-     - 4# Target Position Input
+     - 
+     - Ingresso posizione target 4#
 
    * - 47
      - D245
      - INT
-     -
-     - 4# Homing Control Word
+     - 
+     - Parola di controllo homing 4#
 
    * - 48
      - D246
      - DINT
-     -
-     - 4# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 4#
 
    * - 49
      - D247
      - DINT
-     -
-     - 4# Homing High Speed Input
+     - 
+     - Ingresso alta velocità homing 4#
 
    * - 50
      - D248
      - DINT
-     -
-     - 4# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 4#
 
    * - 51
      - D249
      - DINT
-     -
-     - 4# Homing Low Speed Input
+     - 
+     - Ingresso bassa velocità homing 4#
 
    * - 52
      - D250
      - DINT
-     -
-     - 4# Position Offset (Reserved)
+     - 
+     - Offset posizione 4# (riservato)
 
    * - 53
      - D251
      - DINT
-     -
-     - 4# Position Offset (Reserved)
+     - 
+     - Offset posizione 4# (riservato)
 
    * - 54
      - D252
      - DINT
-     -
-     - 4# Speed Offset (Reserved)
+     - 
+     - Offset velocità 4# (riservato)
 
    * - 55
      - D253
      - DINT
-     -
-     - 4# Speed Offset (Reserved)
+     - 
+     - Offset velocità 4# (riservato)
 
    * - 56
      - D254
      - INT
-     -
-     - Reserved
+     - 
+     - Riservato
 
    * - 57
      - D255
      - INT
-     -
-     - Welding Mode Setting (0-DC Mono, 1-Pulse Mono, 2-JOB Mode, 3-Local Control Mode, 4-Separate Mode, 5-CC/CV, 6-TIG, 7-CMT Mode)
+     - 
+     - Impostazione modalità saldatura (0-DC unario, 1-Pulse unario, 2-Modalità JOB, 3-Modalità controllo locale, 4-Modalità separata, 5-CC/CV, 6-TIG, 7-Modalità CMT)
 
    * - 58
      - D256
      - INT
-     -
-     - General Output DO(0-15)
+     - 
+     - Uscita DO ordinaria (0-15)
 
    * - 59
      - D257
      - INT
-     -
-     - General Output DO(16-31)
+     - 
+     - Uscita DO ordinaria (16-31)
 
    * - 60
      - D258
      - INT
-     -
-     - General Output DO(32-47)
+     - 
+     - Uscita DO ordinaria (32-47)
 
    * - 61
      - D259
      - INT
-     -
-     - General Output DO(48-63)
+     - 
+     - Uscita DO ordinaria (48-63)
 
    * - 62
      - D260
      - INT
-     -
-     - General Output DO(64-79)
+     - 
+     - Uscita DO ordinaria (64-79)
 
    * - 63
      - D261
      - INT
-     -
-     - General Output DO(80-95)
+     - 
+     - Uscita DO ordinaria (80-95)
 
    * - 64
      - D262
      - INT
-     -
-     - High-Speed Output DO(96-111)
+     - 
+     - Uscita DO ad alta velocità (96-111)
 
    * - 65
      - D263
      - INT
-     -
-     - High-Speed Output DO(112-127)
+     - 
+     - Uscita DO ad alta velocità (112-127)
 
    * - 66
      - D264
      - INT
-     -
-     - Analog Output AO0
+     - 
+     - Uscita analogica AO0
 
    * - 67
      - D265
      - INT
-     -
-     - Analog Output AO1
+     - 
+     - Uscita analogica AO1
 
    * - 68
      - D266
      - INT
-     -
-     - Analog Output AO2
+     - 
+     - Uscita analogica AO2
 
    * - 69
      - D267
      - INT
-     -
-     - Analog Output AO3
+     - 
+     - Uscita analogica AO3
 
    * - 70
      - D268
      - REAL
-     -
-     - Issued Welding Voltage
+     - 
+     - Tensione di saldatura inviata
 
    * - 71
      - D269
      - REAL
-     -
-     - Issued Welding Voltage
+     - 
+     - Tensione di saldatura inviata
 
    * - 72
      - D270
      - REAL
-     -
-     - Issued Welding Current
+     - 
+     - Corrente di saldatura inviata
 
    * - 73
      - D271
      - REAL
-     -
-     - Issued Welding Current
+     - 
+     - Corrente di saldatura inviata
 
    * - 74
      - D272
      - REAL
-     -
-     - Packet Loss Detection Cycle
+     - 
+     - Ciclo di rilevamento perdita pacchetti
 
    * - 75
      - D273
      - INT
-     -
-     - Number of Lost Packets
+     - 
+     - Numero di pacchetti persi
 
    * - 76
      - D274
      - INT
-     -
-     - Frame Count (0-255)
+     - 
+     - Contatore frame (0-255)
 
    * - 77
      - D275
      - INT
-     -
-     - CRC Check Code
+     - 
+     - Codice di verifica CRC
 
-PLC -> Robot Controller
-++++++++++++++++++++++++++++++++++++++++++
+PLC -> Controller robot
+++++++++++++++++++++++++++++++++++
+
 
 .. list-table::
    :widths: 10 10 10 10 20
    :header-rows: 1
    :align: center
 
-   * - No.
-     - Register Address
-     - Data Type
-     - Data Value
-     - Variable Name
+   * - Numero
+     - Indirizzo registro
+     - Tipo dati
+     - Valore dati
+     - Nome variabile
 
    * - 1
      - D99
      - INT
      - 0x5A5A
-     - Frame Header
+     - Intestazione frame
 
    * - 2
      - D100
      - INT
-     -
-     - 1# Motor Status Word
+     - 
+     - Parola di stato motore 1#
 
    * - 3
      - D101
      - DINT
-     -
-     - 1# Current Position
+     - 
+     - Posizione corrente 1#
 
    * - 4
      - D102
      - DINT
-     -
-     - 1# Current Position
+     - 
+     - Posizione corrente 1#
 
    * - 5
      - D103
      - INT
-     -
-     - 1# Homing Status Word
+     - 
+     - Parola di stato homing 1#
 
    * - 6
      - D104
      - DINT
-     -
-     - 1# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 1#
 
    * - 7
      - D105
      - DINT
-     -
-     - 1# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 1#
 
    * - 8
      - D106
      - DINT
-     -
-     - 1# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 1#
 
    * - 9
      - D107
      - DINT
-     -
-     - 1# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 1#
 
    * - 10
      - D108
      - INT
-     -
-     - 1# Fault Code
+     - 
+     - Codice di errore 1#
 
    * - 11
      - D109
      - DINT
-     -
-     - 1# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 1# (riservato)
 
    * - 12
      - D110
      - DINT
-     -
-     - 1# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 1# (riservato)
 
    * - 13
      - D111
      - DINT
-     -
-     - 1# Speed Feedback (Reserved)
+     - 
+     - Feedback velocità 1# (riservato)
 
    * - 14
      - D112
      - DINT
-     -
-     - 1# Speed Feedback (Reserved)
+     - 
+     - Feedback velocità 1# (riservato)
 
    * - 15
      - D113
      - DINT
-     -
-     - 1# Real-time Torque (Reserved)
+     - 
+     - Coppia in tempo reale 1# (riservato)
 
    * - 16
      - D114
      - DINT
-     -
-     - 1# Real-time Torque (Reserved)
+     - 
+     - Coppia in tempo reale 1# (riservato)
 
    * - 17
      - D115
      - INT
-     -
-     - 2# Motor Status Word
+     - 
+     - Parola di stato motore 2#
 
    * - 18
      - D116
      - DINT
-     -
-     - 2# Current Position
+     - 
+     - Posizione corrente 2#
 
    * - 19
      - D117
      - DINT
-     -
-     - 2# Current Position
+     - 
+     - Posizione corrente 2#
 
    * - 20
      - D118
      - INT
-     -
-     - 2# Homing Status Word
+     - 
+     - Parola di stato homing 2#
 
    * - 21
      - D119
      - DINT
-     -
-     - 2# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 2#
 
    * - 22
      - D120
      - DINT
-     -
-     - 2# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 2#
 
    * - 23
      - D121
      - DINT
-     -
-     - 2# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 2#
 
    * - 24
      - D122
      - DINT
-     -
-     - 2# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 2#
 
    * - 25
      - D123
      - INT
-     -
-     - 2# Fault Code
+     - 
+     - Codice di errore 2#
 
    * - 26
      - D124
      - DINT
-     -
-     - 2# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 2# (riservato)
 
    * - 27
      - D125
      - DINT
-     -
-     - 2# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 2# (riservato)
 
    * - 28
      - D126
      - DINT
-     -
-     - 2# Speed Feedback (Reserved)
+     - 
+     - Feedback velocità 2# (riservato)
 
    * - 29
      - D127
      - DINT
-     -
-     - 2# Speed Feedback (Reserved)
+     - 
+     - Feedback velocità 2# (riservato)
 
    * - 30
      - D128
      - DINT
-     -
-     - 2# Real-time Torque (Reserved)
-
+     - 
+     - Coppia in tempo reale 2# (riservato)
+  
    * - 31
      - D129
      - DINT
-     -
-     - 2# Real-time Torque (Reserved)
+     - 
+     - Coppia in tempo reale 2# (riservato)
 
    * - 32
      - D130
      - INT
-     -
-     - 3# Motor Status Word
+     - 
+     - Parola di stato motore 3#
 
    * - 33
      - D131
      - DINT
-     -
-     - 3# Current Position
+     - 
+     - Posizione corrente 3#
 
    * - 34
      - D132
      - DINT
-     -
-     - 3# Current Position
+     - 
+     - Posizione corrente 3#
 
    * - 35
      - D133
      - INT
-     -
-     - 3# Homing Status Word
+     - 
+     - Parola di stato homing 3#
 
    * - 36
      - D134
      - DINT
-     -
-     - 3# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 3#
 
    * - 37
      - D135
      - DINT
-     -
-     - 3# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 3#
 
    * - 38
      - D136
      - DINT
-     -
-     - 3# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 3#
 
    * - 39
      - D137
      - DINT
-     -
-     - 3# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 3#
 
    * - 40
      - D138
      - DINT
-     -
-     - 3# Fault Code
+     - 
+     - Codice di errore 3#
 
    * - 41
      - D139
      - DINT
-     -
-     - 3# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 3# (riservato)
 
    * - 42
      - D140
      - DINT
-     -
-     - 3# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 3# (riservato)
 
    * - 43
      - D141
      - DINT
-     -
-     - 3# Speed Feedback (Reserved)
+     - 
+     - Feedback velocità 3# (riservato)
 
    * - 44
      - D142
      - DINT
-     -
-     - 3# Speed Feedback (Reserved)
-
+     - 
+     - Feedback velocità 3# (riservato)
+  
    * - 45
      - D143
      - DINT
-     -
-     - 3# Real-time Torque (Reserved)
+     - 
+     - Coppia in tempo reale 3# (riservato)
 
    * - 46
      - D144
      - DINT
-     -
-     - 3# Real-time Torque (Reserved)
+     - 
+     - Coppia in tempo reale 3# (riservato)
 
    * - 47
      - D145
      - INT
-     -
-     - 4# Motor Status Word
+     - 
+     - Parola di stato motore 4#
 
    * - 48
      - D146
      - DINT
-     -
-     - 4# Current Position
+     - 
+     - Posizione corrente 4#
 
    * - 49
      - D147
      - DINT
-     -
-     - 4# Current Position
+     - 
+     - Posizione corrente 4#
 
    * - 50
      - D148
      - INT
-     -
-     - 4# Homing Status Word
+     - 
+     - Parola di stato homing 4#
 
    * - 51
      - D149
      - DINT
-     -
-     - 4# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 4#
 
    * - 52
      - D150
      - DINT
-     -
-     - 4# Homing High Speed Feedback
+     - 
+     - Feedback alta velocità homing 4#
 
    * - 53
      - D151
      - DINT
-     -
-     - 4# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 4#
 
    * - 54
      - D152
      - DINT
-     -
-     - 4# Homing Low Speed Feedback
+     - 
+     - Feedback bassa velocità homing 4#
 
    * - 55
      - D153
      - DINT
-     -
-     - 4# Fault Code
+     - 
+     - Codice di errore 4#
 
    * - 56
      - D154
      - DINT
-     -
-     - 4# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 4# (riservato)
 
    * - 57
      - D155
      - DINT
-     -
-     - 4# Following Deviation (Reserved)
+     - 
+     - Deviazione inseguimento 4# (riservato)
 
    * - 58
      - D156
      - DINT
-     -
-     - 4# Speed Feedback (Reserved)
+     - 
+     - Feedback velocità 4# (riservato)
 
    * - 59
      - D157
      - DINT
-     -
-     - 4# Speed Feedback (Reserved)
+     - 
+     - Feedback velocità 4# (riservato)
 
    * - 60
      - D158
      - DINT
-     -
-     - Real-time Torque (Reserved)
+     - 
+     - Coppia in tempo reale (riservato)
 
    * - 61
      - D159
      - DINT
-     -
-     - Real-time Torque (Reserved)
+     - 
+     - Coppia in tempo reale (riservato)
 
    * - 62
      - D160
      - INT
-     -
-     - General Input DI(0-15)
+     - 
+     - Ingresso DI ordinario (0-15)
 
    * - 63
      - D161
      - INT
-     -
-     - General Input DI(16-31)
+     - 
+     - Ingresso DI ordinario (16-31)
 
    * - 64
      - D162
      - INT
-     -
-     - General Input DI(32-47)
+     - 
+     - Ingresso DI ordinario (32-47)
 
    * - 65
      - D163
      - INT
-     -
-     - General Input DI(48-63)
+     - 
+     - Ingresso DI ordinario (48-63)
 
    * - 66
      - D164
      - INT
-     -
-     - General Input DI(64-79)
+     - 
+     - Ingresso DI ordinario (64-79)
 
    * - 67
      - D165
      - INT
-     -
-     - General Input DI(80-95)
+     - 
+     - Ingresso DI ordinario (80-95)
 
    * - 68
      - D166
      - INT
-     -
-     - High-Speed Input DI(96-111)
+     - 
+     - Ingresso DI ad alta velocità (96-111)
 
    * - 69
      - D167
      - INT
-     -
-     - High-Speed Input DI(112-127)
+     - 
+     - Ingresso DI ad alta velocità (112-127)
 
    * - 70
      - D168
      - INT
-     -
-     - Analog Input AI0
+     - 
+     - Ingresso analogico AI0
 
    * - 71
      - D169
      - INT
-     -
-     - Analog Input AI1
+     - 
+     - Ingresso analogico AI1
 
    * - 72
      - D170
      - INT
-     -
-     - Analog Input AI2
+     - 
+     - Ingresso analogico AI2
 
    * - 73
      - D171
      - INT
-     -
-     - Analog Input AI3
+     - 
+     - Ingresso analogico AI3
 
    * - 74
      - D172
      - REAL
-     -
-     - Actual Current Feedback
+     - 
+     - Feedback corrente effettiva
 
    * - 75
      - D173
      - REAL
-     -
-     - Actual Current Feedback
+     - 
+     - Feedback corrente effettiva
 
    * - 76
      - D174
      - REAL
-     -
-     - Actual Voltage Feedback
+     - 
+     - Feedback tensione effettiva
 
    * - 77
      - D175
      - REAL
-     -
-     - Actual Voltage Feedback
+     - 
+     - Feedback tensione effettiva
 
    * - 78
      - D176
      - INT
-     -
-     - Fault Code 0-No Fault, 1-Data Packet Loss
+     - 
+     - Codice di errore 0-nessun errore, 1-perdita dati pacchetto
 
    * - 79
      - D177
      - INT
-     -
-     - Frame Count
+     - 
+     - Contatore frame
 
    * - 80
      - D178
      - INT
-     -
-     - CRC Check Code
+     - 
+     - Codice di verifica CRC
 
-Digital Communication Protocol (Modbus TCP)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protocollo di comunicazione digitale (Modbus TCP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Initial" -> "Peripherals" -> "Welder" to enter the welder interface, then click the "Digital Communication Protocol (Modbus TCP)" card to enter the Welder Open Protocol interface.
+Fare clic su "Impostazioni iniziali"->"Periferiche"->"Saldatrice" per accedere all'interfaccia della saldatrice, fare clic sulla scheda "Protocollo di comunicazione digitale (Modbus TCP)" per accedere all'interfaccia del protocollo aperto della saldatrice.
 
-Protocol Configuration
-++++++++++++++++++++++++++++++++++++++++++
+Configurazione protocollo
+++++++++++++++++++++++++++++
 
-In the Open Protocol Configuration, click the "Upload" button to upload the completed Open Protocol LUA program file to the controller. Select an Open Protocol ID and Open Protocol Name, then click the "Configure" button (the selected Protocol ID must match the ID written in the Open Protocol file) to assign an ID to each open protocol.
+Nella configurazione del protocollo aperto, fare clic sul pulsante "Carica" per caricare il file del programma LUA del protocollo aperto completato nel controller. Selezionare un ID del protocollo aperto e un nome del protocollo aperto, fare clic sul pulsante "Configura" (l'ID del protocollo selezionato deve corrispondere all'ID scritto nel file del protocollo aperto), assegnare un ID a ciascun protocollo aperto.
 
 .. figure:: robot_peripherals/066.png
    :align: center
    :width: 4in
 
-.. centered:: Chart 8.6‑37 Controller Peripheral Open Protocol Upload and Configuration
+.. centered:: Diagramma 8.6‑37 Caricamento e configurazione protocollo aperto periferiche controller
 
-In the configured protocol list, click the "Load" button. The running status indicator lights up, indicating that the open protocol has been loaded successfully.
+Nel protocollo configurato, fare clic sul pulsante "Carica", la spia dello stato di esecuzione si illumina, indicando che il protocollo aperto è stato caricato correttamente.
 
 .. figure:: robot_peripherals/067.png
    :align: center
    :width: 4in
 
-.. centered:: Chart 8.6-38 Controller Peripheral Open Protocol Loading and Running Indication
+.. centered:: Diagramma 8.6-38 Caricamento e indicazione di esecuzione protocollo aperto periferiche controller
 
-Welder Open Protocol
-++++++++++++++++++++++++++++++++++++++++++
+Protocollo aperto saldatrice
++++++++++++++++++++++++++++++++++++++++
 
-The robot communicates with the welder via the controller peripheral open protocol using ModbusTCP. Write the corresponding communication protocol LUA file according to the welder slave register definitions. Configure communication parameters such as the welder IP address, port number, and register addresses for arc start control, wire feed control, etc., in this file. Upload this protocol to the robot controller and load it to enable communication between the robot and the welder.
+Il robot comunica con la saldatrice tramite il protocollo aperto periferiche controller tramite comunicazione ModbusTCP. In base alla definizione dei registri slave della saldatrice, scrivere il corrispondente file di protocollo di comunicazione LUA. In questo file configurare i parametri di comunicazione come l'indirizzo IP della saldatrice, il numero di porta e gli indirizzi dei registri per il controllo dell'accensione dell'arco, dell'avanzamento del filo, ecc. Caricare questo protocollo nel controller del robot e caricarlo per realizzare la comunicazione tra robot e saldatrice.
 
-Welder Open Protocol Example
+Esempio protocollo aperto saldatrice
 ************************************************
 
 .. code-block:: console
    :linenos:
 
-   local id = 1 --Protocol number, must match the protocol number configured in WebApp
+   local id = 1 --Numero protocollo, deve corrispondere al numero protocollo configurato in WebApp
    local ctrlValues = {0, 0, 0, 0, 0, 0}
    local realTimeState = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
    ModbusTCPMasterClose(id)
    ModbusTCPMasterCreate('192.168.58.45', 502, 1, id)
    while(1) do
    setArcStart, setWireForward, setWireReverse, setShieldingGas, setTouchEnable, setRobotError,setRobotEnableState,default1,default2, default3, default4, setCurrent, setVoltage, SetMode = WeldingGetCtrlState()
-   local ctrlWord = 0
+   local ctrlWord = 0  
    ctrlWord = SetBitWithIndex(ctrlWord, 0, setArcStart)
    ctrlWord = SetBitWithIndex(ctrlWord, 1, setWireForward)
    ctrlWord = SetBitWithIndex(ctrlWord, 2, setWireReverse)
@@ -2792,7 +2833,7 @@ Welder Open Protocol Example
    WeldingSetRealtimeState(realTimeState)
 
    local stopFlag = GetOpenLUAStopFlag(id)
-   if(stopFlag ~= 0) then
+   if(stopFlag ~= 0) then 
    ModbusTCPMasterClose(id)
    break
    end
@@ -2800,441 +2841,441 @@ Welder Open Protocol Example
    sleep_ms(10)
    end
 
-Welder Open Protocol Analysis
-******************************************************
+Analisi del protocollo aperto per saldatrici
+************************************************************
 
-The welder open protocol mainly consists of three parts:
+Il protocollo aperto per saldatrici comprende principalmente tre parti:
 
-**① Establish Communication Connection**: Specify the protocol number id (must match the protocol number set when loading the open protocol), welder IP address, port number, and other parameters. Use the "ModbusTCPMasterCreate()" command to establish a ModbusTCP connection between the robot and the welder.
+**① Stabilire la connessione di comunicazione**: Il master specifica parametri come l'ID del protocollo (l'ID impostato durante il caricamento del protocollo aperto deve corrispondere all'ID nel file di protocollo), l'indirizzo IP della saldatrice, il numero di porta, ecc., e stabilisce una connessione Modbus TCP tra robot e saldatrice attraverso il comando "ModbusTCPMasterCreate()".
 
-**② Cyclically Write Control Data to Welder**: When the welder open protocol executes, it first reads the current welder control data from the robot controller's internal memory, then writes this data to the welder to control its actions. The return values of the instruction "WeldingGetCtrlState()", which reads robot welding control data in the protocol, are defined in Table 2-1. The control data can be decomposed according to the actual welder control register definitions and then written to the welder via ModbusTCP.
+**② Scrittura ciclica dei dati di controllo alla saldatrice**: Durante l'esecuzione del protocollo aperto per saldatrici, prima vengono letti i dati di controllo correnti della saldatrice dall'interno del controller del robot, poi questi dati vengono scritti nella saldatrice per controllarne le azioni. Il valore restituito dal comando "WeldingGetCtrlState()" che legge i dati di controllo della saldatura del robot nel protocollo è definito nella Tabella 2-1. I dati di controllo possono essere scomposti in base alla definizione del registro di controllo effettivo della saldatrice, quindi scritti nella saldatrice via Modbus TCP.
 
-.. centered:: Table 8.19-1 WeldingGetCtrlState() Return Values
+.. centered:: Tabella 8.19-1 Valore restituito da WeldingGetCtrlState()
 
 .. list-table::
    :widths: 10 20 30 40
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Type**
-     - **Name**
-     - **Description**
+   * - **N.**
+     - **Tipo**
+     - **Nome**
+     - **Descrizione**
 
    * - 1
      - uint16_t
      - setArcStart
-     - Arc Start Signal; 0-Arc Extinguish; 1-Arc Start
+     - Segnale di inizio arco; 0-arco spento; 1-arco acceso
 
    * - 2
      - uint16_t
      - setWireForward
-     - Forward Wire Feed: 0-Stop Wire Feed; 1-Forward Wire Feed
+     - Avanzamento filo: 0-arresto avanzamento filo; 1-avanzamento filo in avanti
 
    * - 3
      - uint16_t
      - setWireReverse
-     - Reverse Wire Feed: 0-Stop Wire Feed; 1-Reverse Wire Feed
+     - Retromarcia filo: 0-arresto avanzamento filo; 1-avanzamento filo indietro
 
    * - 4
      - uint16_t
      - setShieldingGas
-     - Shielding Gas Control: 0-Stop Gas; 1-Start Gas
+     - Controllo gas di protezione: 0-arresto gas; 1-erogazione gas
 
    * - 5
      - uint16_t
      - setTouchEnable
-     - Wire Touch Sensing Enable: 0-Disable; 1-Enable
+     - Abilitazione ricerca posizione filo: 0-disabilitato; 1-abilitato
 
    * - 6
      - uint16_t
      - setRobotError
-     - Robot Fault: 0-No Fault; 1-Fault
+     - Guasto robot: 0-nessun guasto; 1-guasto
 
    * - 7
      - uint16_t
      - setRobotEnableState
-     - Robot Enable State: 0-Not Enabled; 1-Enabled
+     - Stato abilitazione robot: 0-non abilitato; 1-abilitato
 
    * - 8
      - uint16_t
      - default1
-     - Reserved
+     - Riservato
 
    * - 9
      - uint16_t
      - default2
-     - Reserved
+     - Riservato
 
    * - 10
      - uint16_t
      - default3
-     - Reserved
+     - Riservato
 
    * - 11
      - uint16_t
      - default4
-     - Reserved
+     - Riservato
 
    * - 12
      - uint16_t
      - setCurrent
-     - Set Welding Current (0.1A)
+     - Imposta corrente di saldatura (0.1A)
 
    * - 13
      - uint16_t
      - setVoltage
-     - Set Welding Voltage (0.01V)
+     - Imposta tensione di saldatura (0.01V)
 
    * - 14
      - uint16_t
      - SetMode
-     - Set Welding Mode: 0-DC Mono, 1-Pulse Mono, 2-JOB Mode, 3-Local Control Mode, 4-Separate Mode, 5-CC/CV, 6-TIG, 7-CMT Mode
+     - Imposta modalità saldatura: 0-CC monocomando, 1-impulso monocomando, 2-modalità JOB, 3-modalità controllo locale, 4-modalità separata, 5-CC/CV, 6-TIG, 7-modalità CMT
 
    * - 15
      - uint16_t
      - default6
-     - Reserved
+     - Riservato
 
    * - 16
      - uint16_t
      - default7
-     - Reserved
+     - Riservato
 
    * - 17
      - uint16_t
      - default8
-     - Reserved
+     - Riservato
 
    * - 18
      - uint16_t
      - default9
-     - Reserved
+     - Riservato
 
    * - 19
      - uint16_t
      - default10
-     - Reserved
+     - Riservato
 
    * - 20
      - uint16_t
      - default11
-     - Reserved
+     - Riservato
 
-**③ Cyclically Read Status Data from Welder**: The welder open protocol first reads real-time status data from the welder via ModbusTCP, then writes the relevant data to the robot controller, allowing the robot to monitor the welder's real-time action status. The parameter for the protocol's interface "WeldingSetRealtimeState()", which sets the welder status in the robot, is an array containing all welder statuses (note: in the open protocol LUA, array indexing starts from 1) as shown in Table 2-2. The welder status data read via ModbusTCP according to the actual welder status register definitions can be combined into the welder status array and written to the robot controller.
+**③ Lettura ciclica dei dati di stato dalla saldatrice**: Il protocollo aperto per saldatrici prima legge i dati di stato in tempo reale dalla saldatrice via Modbus TCP, poi scrive i dati rilevanti nel controller del robot, permettendo al robot di monitorare lo stato di azione in tempo reale della saldatrice. L'interfaccia "WeldingSetRealtimeState()" che imposta lo stato della saldatrice al robot nel protocollo ha come parametro un array contenente tutti gli stati della saldatrice (nota: in LUA per protocolli aperti, l'indice dell'array inizia da 1) come mostrato nella Tabella 2-2. I dati di stato della saldatrice possono essere letti via Modbus TCP in base alla definizione del registro di stato effettivo della saldatrice, quindi combinati in un array di stati della saldatrice e scritti nel controller del robot.
 
-.. centered:: Table 8.19-2 WeldingSetRealtimeState() Detailed Parameters
+.. centered:: Tabella 8.19-2 Parametri dettagliati di WeldingSetRealtimeState()
 
 .. list-table::
    :widths: 10 20 30 40
    :align: center
    :class: sheet-center
 
-   * - **Type**
-     - **Name**
-     - **Array Index**
-     - **Description**
+   * - **Tipo**
+     - **Nome**
+     - **Indice Array**
+     - **Descrizione**
 
    * - uint16_t[20]
      - realTimeState
      - 1
-     - Welder Model
+     - Modello saldatrice
 
    * - uint16_t[20]
      - realTimeState
      - 2
-     - Arc State: 0-Arc Off; 1-Arc On
+     - Stato arco: 0-arco non acceso; 1-arco acceso
 
    * - uint16_t[20]
      - realTimeState
      - 3
-     - Wire Contact State: 0-Not Contacted; 1-Contacted
+     - Stato contatto filo: 0-non a contatto; 1-a contatto
 
    * - uint16_t[20]
      - realTimeState
      - 4
-     - Welder Fault State: 0-No Fault; 1-Welder Fault
+     - Stato guasto saldatrice: 0-nessun guasto; 1-guasto saldatrice
 
    * - uint16_t[20]
      - realTimeState
      - 5
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 6
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 7
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 8
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 9
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 10
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 11
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 12
-     - Real-time Welding Current (0.1A)
+     - Corrente di saldatura in tempo reale (0.1A)
 
    * - uint16_t[20]
      - realTimeState
      - 13
-     - Real-time Welding Voltage (0.01V)
+     - Tensione di saldatura in tempo reale (0.01V)
 
    * - uint16_t[20]
      - realTimeState
      - 14
-     - Welder Fault Code
+     - Codice errore saldatrice
 
    * - uint16_t[20]
      - realTimeState
      - 15
-     - Welder Communication Heartbeat Data
+     - Dati heartbeat comunicazione saldatrice
 
    * - uint16_t[20]
      - realTimeState
      - 16
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 17
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 18
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 19
-     - Reserved
+     - Riservato
 
    * - uint16_t[20]
      - realTimeState
      - 20
-     - Reserved
+     - Riservato
 
-Welding Machine Open Protocol Upload and Load
-*********************************************************************
+Caricamento e upload del protocollo aperto per saldatrici
+***********************************************************
 
-Successively click "Initial", "Peripherals", "Control Box", "Peripheral Open Protocol", then click the "Upload" button to upload the welding machine open protocol file "CtrlDev_WELDING.lua" (The protocol file name must start with `CtrlDev_` and have the extension `.lua`).
+Cliccare in sequenza "Impostazioni iniziali", "Periferiche", "Scatola di controllo", "Protocolli aperti per periferiche", cliccare il pulsante "Upload" per caricare il protocollo aperto per saldatrici "CtrlDev_WELDING.lua" (il nome del file di protocollo deve iniziare con `CtrlDev_` ed avere estensione ".lua").
 
 .. figure:: robot_peripherals/068.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑39 Upload Welding Machine Open Protocol
+.. centered:: Grafico 8.6‑39 Upload protocollo aperto per saldatrici
 
-In "Protocol Configuration", select a "Protocol Number" (needs to match the protocol number in the open protocol file), here using number 1 as an example, and select the "Protocol Name" as the welding machine open protocol "CtrlDev_WELDING.lua". Click the "Configure" button. At this point, the configured welding machine open protocol is displayed in "Device Operation and Status".
+In "Configurazione protocollo", selezionare un "ID protocollo" (deve corrispondere all'ID protocollo nel file di protocollo aperto), qui ad esempio ID 1, e selezionare il "Nome protocollo" come protocollo aperto per saldatrici "CtrlDev_WELDING.lua", cliccare il pulsante "Configura", a questo punto nel "Controllo periferica e stato" verrà visualizzato il protocollo aperto per saldatrici configurato.
 
 .. figure:: robot_peripherals/069.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑40 Configure Welding Machine Open Protocol
+.. centered:: Grafico 8.6‑40 Configurazione protocollo aperto per saldatrici
 
-Click the "Connect" button to load the welding machine open protocol. The running status indicator lights up, indicating that the robot and the welding machine are communicating.
+Cliccare il pulsante "Connetti" per caricare il protocollo aperto per saldatrici, la spia dello stato di esecuzione si accende indicando che robot e saldatrice stanno comunicando.
 
 .. figure:: robot_peripherals/070.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑41 Load Welding Machine Open Protocol
+.. centered:: Grafico 8.6‑41 Caricamento protocollo aperto per saldatrici
 
-Welding Machine Debugging
-********************************************************
+Regolazione saldatrice
+**************************
+Prima di regolare la saldatrice, assicurarsi che il protocollo aperto per saldatrici sia stato caricato correttamente e che gli indirizzi dei registri correlati siano configurati correttamente.
 
-Before debugging the welding machine, please ensure that the welding machine open protocol has been loaded normally and the relevant register address configurations are correct.
-
-Successively click "Initial", "Peripherals", "Welding Machine", and select "Digital Communication Protocol (ModbusTcp)".
+Cliccare in sequenza "Impostazioni iniziali", "Periferiche", "Saldatrice", selezionare "Protocollo comunicazione digitale (ModbusTcp)".
 
 .. figure:: robot_peripherals/036.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑42 Select "Digital Communication Protocol (ModbusTcp)"
+.. centered:: Grafico 8.6‑42 Selezione "Protocollo comunicazione digitale (ModbusTcp)"
 
-Click buttons such as "Arc Start", "Arc Stop", "Gas On", "Gas Off", etc., and observe whether the actual welding machine actions are consistent with the settings. If the welding machine does not perform the set actions, check if the register configuration in the welding machine open protocol is incorrect and perform further debugging.
+Cliccare i pulsanti "Accensione arco", "Spegnimento arco", "Apertura gas", "Chiusura gas", ecc., osservare se le azioni effettive della saldatrice corrispondono alle impostazioni. Se la saldatrice non esegue l'azione impostata, verificare se la configurazione dei registri nel protocollo aperto per saldatrici è errata e procedere con ulteriori regolazioni.
 
 .. figure:: robot_peripherals/049.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑43 Welding Machine Debugging
+.. centered:: Grafico 8.6‑43 Regolazione saldatrice
 
-Welding Program Writing
-********************************
+Scrittura programma di saldatura
+*******************************************
 
-Click "Initial", "Teach Program", "Program Programming", and create a new program "testWeld.lua".
+Cliccare "Impostazioni iniziali", "Programmazione insegnamento", "Programmazione programma", creare un nuovo programma "testWeld.lua".
 
 .. figure:: robot_peripherals/056.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6‑44 Create Welding LUA Program
+.. centered:: Grafico 8.6‑44 Creazione programma LUA saldatura
 
-Click the "Welding" button. In the pop-up welding command addition page, select "Digital Communication Protocol (Modbus Tcp)". Then successively select "Arc Start", click "Add", select "Arc Stop", click "Add", and finally click the "Apply" button.
+Cliccare il pulsante "Saldatura", nella pagina di aggiunta comandi saldatura che appare selezionare "Protocollo comunicazione digitale (Modbus Tcp)", selezionare in sequenza "Accensione arco", cliccare "Aggiungi", cliccare "Spegnimento arco", cliccare "Aggiungi", infine cliccare il pulsante "Applica".
 
 .. figure:: robot_peripherals/071.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.6‑45 Add Arc Start and Arc Stop Commands
+.. centered:: Grafico 8.6‑45 Aggiunta comandi accensione e spegnimento arco
 
-At this point, the Arc Start and Arc Stop commands have been successfully added to "testWeld.lua".
+A questo punto l'aggiunta dei comandi di accensione e spegnimento arco in "testWeld.lua" è completata.
 
 .. figure:: robot_peripherals/058.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑46 Added Arc Start and Arc Stop Commands
+.. centered:: Grafico 8.6‑46 Aggiunta comandi accensione e spegnimento arco
 
-Successively add the welding start point and welding end point. Switch the robot to automatic mode, and under safe conditions, start the program. The robot will then control the welding machine to perform welding along one weld seam.
+Aggiungere in sequenza il punto di inizio e il punto di fine saldatura. Portare il robot in modalità automatica e, in condizioni di sicurezza garantite, avviare il programma. Il robot controllerà quindi la saldatrice per eseguire una saldatura lungo una corda di giunzione.
 
 .. figure:: robot_peripherals/059.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑47 Welding Program
+.. centered:: Grafico 8.6‑47 Programma di saldatura
 
-Welding Machine Open Protocol Unload
-**********************************************************
+Scaricamento protocollo aperto per saldatrici
+*******************************************************
 
-Successively click "Initial", "Peripherals", "Control Box", "Peripheral Open Protocol". In the "Device Operation and Status" section, click the "Unload" button.
+Cliccare in sequenza "Impostazioni iniziali", "Periferiche", "Scatola di controllo", "Protocolli aperti per periferiche", nel "Controllo periferica e stato" cliccare il pulsante "Scarica".
 
 .. figure:: robot_peripherals/067.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑48 Unload Open Protocol
+.. centered:: Grafico 8.6‑48 Scaricamento protocollo aperto
 
-At this point, the protocol running status indicator turns off.
+A questo punto la spia dello stato di esecuzione del protocollo si spegne.
 
 .. figure:: robot_peripherals/072.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.6‑49 Open Protocol Unloaded
+.. centered:: Grafico 8.6‑49 Protocollo aperto scaricato
 
-If welding debugging is performed or a welding program is executed at this time, the robot will report a "Protocol Not Loaded Error" in the lower left corner of the WebApp.
+A questo punto, durante la regolazione della saldatura o l'esecuzione di un programma di saldatura, il robot segnalerà un errore "Errore protocollo non caricato" in basso a sinistra nel WebApp.
 
 .. figure:: robot_peripherals/073.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.6‑50 Protocol Not Loaded Error
+.. centered:: Grafico 8.6‑50 Errore protocollo non caricato
 
-Extended Axis Configuration
----------------------------------------------------
+Configurazione assi estesi
+---------------------------------------
 
-In "Initial" -> "Peripherals", click "Extended Axis" to enter the Extended Axis configuration interface, which includes Extended Axis Coordinate System configuration and Extended Axis Peripheral configuration. The interface when first entering Extended Axis configuration is as follows:
+In "Impostazioni iniziali" -> "Periferiche", cliccare "Assi estesi" per accedere all'interfaccia di configurazione assi estesi, che include la configurazione del sistema di coordinate degli assi estesi e la configurazione delle periferiche degli assi estesi. La prima volta che si accede all'interfaccia di configurazione assi estesi appare quanto segue:
 
 .. figure:: robot_peripherals/074.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑1 Initial Extended Axis Configuration Interface
+.. centered:: Grafico 8.7‑1 Interfaccia primo accesso configurazione assi estesi
 
-Currently, Extended Axis Peripheral configuration is divided into the following two types based on communication method:
+Attualmente la configurazione delle periferiche per assi estesi si divide, in base al metodo di comunicazione, nelle seguenti due categorie:
 
-- Controller + PLC (UDP Communication).
+- Controller + PLC (comunicazione UDP).
 
-- Controller + Servo Drive (485 Communication).
+- Controller + azionamenti servo (comunicazione 485).
 
-Extended Axis Coordinate System
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sistema di coordinate assi estesi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Extended Axis Coordinate System settings interface allows for the application, clearing, and configuration of the extended axis coordinate system.
+Nell'interfaccia di impostazione del sistema di coordinate assi estesi è possibile applicare, cancellare e configurare le coordinate degli assi estesi.
 
 .. note::
    .. image:: robot_peripherals/075.png
       :height: 0.75in
       :align: left
 
-   Name: **Apply**
+   Nome: **Applica**
 
-   Function: Apply the extended axis coordinate system
+   Funzione: Applica il sistema di coordinate assi estesi
 
 .. note::
    .. image:: robot_peripherals/076.png
       :height: 0.75in
       :align: left
 
-   Name: **Clear**
+   Nome: **Cancella**
 
-   Function: Clear extended axis coordinate system data
+   Funzione: Cancella i dati del sistema di coordinate assi estesi
 
-There are 5 numbers in the drop-down list for the Extended Axis Coordinate System, from exaxis0 to exaxis4. Selecting a corresponding coordinate system will display its coordinate values below. After selecting a coordinate system, click the "Apply" button, and the currently used extended axis coordinate system changes to the selected one, as shown below.
+L'elenco a discesa dei sistemi di coordinate assi estesi contiene 5 numeri, da exaxis0 a exaxis4. Selezionando un sistema di coordinate corrispondente, i valori delle coordinate verranno visualizzati in basso. Dopo aver selezionato un sistema di coordinate, cliccare il pulsante "Applica", il sistema di coordinate assi estesi in uso diventerà quello selezionato, come mostrato di seguito.
 
 .. image:: robot_peripherals/077.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑2 Extended Axis Coordinate System
+.. centered:: Grafico 8.7‑2 Sistema di coordinate assi estesi
 
-Select an extended axis coordinate system other than "exaxis0", click "Configure" to enter the Extended Axis Coordinate System configuration interface to reset the extended axis coordinate system for that number. As shown below:
+Selezionare un sistema di coordinate assi estesi diverso da "exaxis0", cliccare "Configura" per accedere all'interfaccia di configurazione del sistema di coordinate assi estesi e reimpostare il sistema di coordinate per quel numero. Come mostrato di seguito:
 
 .. important::
-  - Before calibration, first clear the extended axis coordinate system to be calibrated, and apply this extended axis coordinate system.
+  - Prima della taratura, cancellare il sistema di coordinate assi estesi da tarare e applicare tale sistema di coordinate.
 
-  - Select the extended axis number. "Get Info" can retrieve the drive information for the corresponding extended axis, which can be used for parameter configuration.
+  - Selezionare il numero dell'asse esteso, ottenere informazioni permette di ottenere le informazioni dell'azionamento corrispondente all'asse esteso. Possiamo configurare i parametri in base a tali informazioni.
 
 .. image:: robot_peripherals/078.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑3 Extended Axis Coordinate System Calibration
+.. centered:: Grafico 8.7‑3 Taratura sistema di coordinate assi estesi
 
-The current extended axis solutions are as follows:
+Le soluzioni attuali per gli assi estesi sono le seguenti:
 
-- 0 - Single Degree of Freedom Linear Slide
+- 0-Guida lineare a singolo grado di libertà
 
-- 1 - Two Degree of Freedom L-type Positioner
+- 1-Posizionatore a L a due gradi di libertà
 
-- 2 - Three Degree of Freedom (Temporarily unavailable)
+- 2-Tre gradi di libertà (non ancora disponibile)
 
-- 3 - Four Degree of Freedom (Temporarily unavailable)
+- 3-Quattro gradi di libertà (non ancora disponibile)
 
-- 4 - Single Degree of Freedom Positioner
+- 4-Posizionatore a singolo grado di libertà
 
-- 5 - Two Degree of Freedom AGV
+- 5-Carrello a due gradi di libertà
 
-**Single Degree of Freedom Linear Slide**: First set the DH parameters, then set the robot's position relative to the extended axis (the linear slide is considered *on* the extended axis). If not calibrating, just click Save; at this point, the extended axis can only move asynchronously.
+
+**Guida lineare a singolo grado di libertà**: Prima impostare i parametri DH, poi impostare la posizione del robot rispetto all'asse esteso, la guida lineare si trova sull'asse esteso. Se non si effettua la taratura, cliccare semplicemente salva. In questo caso l'asse esteso può muoversi solo in modo asincrono.
 
 .. image:: robot_peripherals/079.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7-4 Linear Slide DH Parameter Configuration
+.. centered:: Grafico 8.7-4 Configurazione parametri DH guida lineare
 
 .. image:: robot_peripherals/080.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7-5 Linear Slide -- Robot Position Relative to Extended Axis Configuration
+.. centered:: Grafico 8.7-5 Guida lineare - Configurazione posizione robot rispetto all'asse esteso
 
-If synchronous movement with the robot is required, at the extended axis zero point, click the operation area 'Eaxis' to enable the extended axis. Align the robot end center point (using the tool end point under the applied tool coordinate system) to a fixed point on the extended axis with two different postures, setting Point 1 and Point 2 respectively.
+Se si desidera un movimento sincrono con il robot, nella posizione zero dell'asse esteso, cliccare Eaxis nell'area operativa per abilitare l'asse esteso. Portare il centro dell'estremità del robot (usando il punto terminale dell'utensile nel sistema di coordinate utensile applicato) su un punto fisso sull'asse esteso con due pose diverse, impostare rispettivamente il punto 1 e il punto 2.
 
 .. image:: robot_peripherals/081.png
    :width: 3in
@@ -3244,9 +3285,9 @@ If synchronous movement with the robot is required, at the extended axis zero po
    :width: 3in
    :align: center
 
-.. centered:: Figure 8.7‑6 Linear Slide Calibration Points 1 and 2
+.. centered:: Grafico 8.7‑6 Guida lineare punti di taratura 1 e 2
 
-Disable the axis, move the extended axis a certain distance, enable it again, and similarly align the robot end center point to the previous fixed point, setting Point 3. Disable the axis, move the extended axis back to the zero point, and enable the extended axis. Move the robot end center point to a point in space directly above the fixed point, setting Point 4. Calculate the coordinate system and save.
+Disabilitare, spostare l'asse esteso di una certa distanza, abilitare nuovamente, portare il centro dell'estremità del robot sullo stesso punto fisso di prima, impostare il punto 3. Disabilitare, portare l'asse esteso alla posizione zero, abilitare l'asse esteso. Portare il centro dell'estremità del robot in un punto nello spazio direttamente sopra il punto fisso, impostare il punto 4, calcolare il sistema di coordinate e salvare.
 
 .. image:: robot_peripherals/083.png
    :width: 3in
@@ -3256,31 +3297,31 @@ Disable the axis, move the extended axis a certain distance, enable it again, an
    :width: 3in
    :align: center
 
-.. centered:: Figure 8.7‑7 Linear Slide Calibration Points 3 and 4
+.. centered:: Grafico 8.7‑7 Guida lineare punti di taratura 3 e 4
 
-**Two Degree of Freedom L-type Positioner**: The positioner consists of two extended axes. First set the DH parameters. Measure the DH parameters of the positioner according to the diagram and input them into the boxes. Set the robot's position relative to the extended axis (the positioner is considered *outside* the extended axis). If not calibrating, just click Save; at this point, the extended axes can only move asynchronously.
+**Posizionatore a L a due gradi di libertà**: Il posizionatore è composto da due assi estesi. Prima impostare i parametri DH, misurare i parametri DH del posizionatore in base al diagramma e inserirli nei campi di input. Impostare la posizione del robot rispetto all'asse esteso, il posizionatore si trova all'esterno dell'asse esteso. Se non si effettua la taratura, cliccare semplicemente salva. In questo caso l'asse esteso può muoversi solo in modo asincrono.
 
 .. image:: robot_peripherals/085.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑8 Two DOF L-type Positioner DH Parameter Configuration
+.. centered:: Grafico 8.7‑8 Configurazione parametri DH posizionatore a L a due gradi di libertà
 
 .. image:: robot_peripherals/086.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑9 Two DOF L-type Positioner -- Robot Position Relative to Extended Axis
+.. centered:: Grafico 8.7‑9 Posizionatore a L a due gradi di libertà - Posizione robot rispetto all'asse esteso
 
-If synchronous movement with the robot is required, at the extended axes zero point, click the operation area 'Eaxis' to enable the extended axes. Establish a coordinate system on the positioner. Select a point and input its Cartesian pose in that coordinate system. For example, selecting a point in the positive Y direction, measuring Y as 100mm, input the values as shown in the figure. Click "Reference Point" to set the reference point. The subsequent four calibration points all require aligning the robot end center point (using the tool end point under the applied tool coordinate system) to this reference point.
+Se si desidera un movimento sincrono con il robot, nella posizione zero dell'asse esteso, cliccare Eaxis nell'area operativa per abilitare l'asse esteso. Creare un sistema di coordinate sul posizionatore, selezionare un punto, inserire la posizione cartesiana di quel punto in quel sistema di coordinate. Ad esempio, selezionare un punto lungo la direzione Y positiva, misurare Y=100mm, inserire i valori come mostrato, cliccare punto di riferimento per impostarlo. I successivi quattro punti di taratura dovranno essere tutti allineati con il centro dell'estremità del robot (usando il punto terminale dell'utensile nel sistema di coordinate utensile applicato) su questo punto di riferimento.
 
 .. image:: robot_peripherals/087.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑10 Two DOF L-type Positioner -- Reference Point Configuration
+.. centered:: Grafico 8.7‑10 Posizionatore a L a due gradi di libertà - Configurazione punto di riferimento
 
-Align the robot end center point (using the tool end point under the applied tool coordinate system) to this reference point and set Point 1. Click the operation area 'Eaxis' to jog the two axes a small distance, align the robot end center point to the reference point, and set Point 2. Continue jogging the two axes, align the robot end center point to the reference point, and set Point 3. Finally, continue jogging the two axes, align the robot end center point to the reference point, and set Point 4. Click "Calculate" to get the coordinate system result, then click "Save" and "Apply".
+Portare il centro dell'estremità del robot (usando il punto terminale dell'utensile nel sistema di coordinate utensile applicato) sul punto di riferimento, impostare punto 1. Cliccare Eaxis nell'area operativa, muovere leggermente i due assi, portare il centro dell'estremità del robot sul punto di riferimento, impostare punto 2. Continuare a muovere i due assi, portare il centro dell'estremità del robot sul punto di riferimento, impostare punto 3. Infine, continuare a muovere i due assi, portare il centro dell'estremità del robot sul punto di riferimento, impostare punto 4. Cliccare calcola, ottenere il risultato del sistema di coordinate, cliccare salva, applicare.
 
 .. image:: robot_peripherals/088.png
    :width: 3in
@@ -3298,31 +3339,31 @@ Align the robot end center point (using the tool end point under the applied too
    :width: 3in
    :align: center
 
-.. centered:: Figure 8.7‑11 Two DOF L-type Positioner Calibration
+.. centered:: Grafico 8.7‑11 Taratura posizionatore a L a due gradi di libertà
 
-**Single Degree of Freedom Positioner**: Consists of one rotating extended axis. Set the DH parameters to 0. Set the robot's position relative to the extended axis as *outside* the extended axis. If not calibrating, just click Save; at this point, the extended axis can only move asynchronously.
+**Posizionatore a singolo grado di libertà**: Composto da un asse di rotazione esteso, i parametri DH sono impostati a 0. Impostare la posizione del robot rispetto all'asse esteso come esterno all'asse esteso. Se non si effettua la taratura, cliccare semplicemente salva. In questo caso l'asse esteso può muoversi solo in modo asincrono.
 
 .. image:: robot_peripherals/092.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑12 Single DOF Positioner DH Parameter Configuration
+.. centered:: Grafico 8.7‑12 Configurazione parametri DH posizionatore a singolo grado di libertà
 
 .. image:: robot_peripherals/093.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑13 Single DOF Positioner -- Robot Position Relative to Extended Axis
+.. centered:: Grafico 8.7‑13 Posizionatore a singolo grado di libertà - Posizione robot rispetto all'asse esteso
 
-If synchronous movement with the robot is required, at the extended axis zero point, click the operation area 'Eaxis' to enable the extended axis. Establish a coordinate system on the positioner. Select a point and input its Cartesian pose in that coordinate system. Click "Reference Point" to set the reference point.
+Se si desidera un movimento sincrono con il robot, nella posizione zero dell'asse esteso, cliccare Eaxis nell'area operativa per abilitare l'asse esteso. Creare un sistema di coordinate sul posizionatore, selezionare un punto, inserire la posizione cartesiana di quel punto in quel sistema di coordinate, cliccare "Punto di riferimento" per impostarlo.
 
 .. image:: robot_peripherals/094.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.7‑14 Single DOF Positioner Reference Point Configuration
+.. centered:: Grafico 8.7‑14 Posizionatore a singolo grado di libertà - Configurazione punto di riferimento
 
-The subsequent four calibration points all require aligning the robot end center point (using the tool end point under the applied tool coordinate system) to this reference point. Align the robot end center point to this reference point and set Point 1. Click the operation area 'Eaxis' to jog the rotation axis a small distance, align the robot end center point to the reference point, and set Point 2. Continue jogging the rotation axis, align the robot end center point to the reference point, and set Point 3. Finally, continue jogging the rotation axis, align the robot end center point to the reference point, and set Point 4. Click "Calculate" to get the coordinate system result, then click "Save" and "Apply".
+I successivi quattro punti di taratura dovranno essere tutti allineati con il centro dell'estremità del robot (usando il punto terminale dell'utensile nel sistema di coordinate utensile applicato) su questo punto di riferimento. Portare il centro dell'estremità del robot (usando il punto terminale dell'utensile nel sistema di coordinate utensile applicato) sul punto di riferimento, impostare punto 1. Cliccare Eaxis nell'area operativa, muovere leggermente l'asse di rotazione, portare il centro dell'estremità del robot sul punto di riferimento, impostare punto 2. Continuare a muovere l'asse di rotazione, portare il centro dell'estremità del robot sul punto di riferimento, impostare punto 3. Infine, continuare a muovere l'asse di rotazione, portare il centro dell'estremità del robot sul punto di riferimento, impostare punto 4. Cliccare calcola, ottenere il risultato del sistema di coordinate, cliccare salva, applicare.
 
 .. image:: robot_peripherals/095.png
    :width: 3in
@@ -3340,377 +3381,377 @@ The subsequent four calibration points all require aligning the robot end center
    :width: 3in
    :align: center
 
-.. centered:: Figure 8.7‑15 Single DOF Positioner Calibration
+.. centered:: Grafico 8.7‑15 Taratura posizionatore a singolo grado di libertà
 
 .. important::
-   1. The extended axis coordinate system is calibrated based on the tool coordinate system and needs to be established on the basis of an already created tool coordinate system.
-   2. Extended axis systems generally use exaxis1~exaxis4. Applying exaxis0 means no extended axis coordinate system is used. When calibrating an extended axis coordinate system, first apply the extended axis coordinate system to exaxis0, then select another extended axis coordinate system for calibration and application.
+   1. Il sistema di coordinate assi estesi viene tarato sulla base dell'utensile, è necessario stabilire il sistema di coordinate dell'utensile prima di poter stabilire il sistema di coordinate assi estesi.
+   2. Per il sistema di coordinate assi estesi si utilizzano generalmente exaxis1~ exaxis4. Applicare exaxis0 significa nessun sistema di coordinate assi estesi. Durante la taratura del sistema di coordinate assi estesi, prima applicare il sistema di coordinate assi estesi a exaxis0, poi selezionare altri sistemi di coordinate assi estesi per la taratura e applicazione.
 
-Controller + PLC (UDP Communication)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Controller + PLC (comunicazione UDP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before using the extended axis UDP communication method, it is necessary to first establish the corresponding extended axis coordinate system, configure the corresponding extended axis solution under that coordinate system, and apply the established tool coordinate system during program teaching. The extended axis function is primarily used in conjunction with the welding machine function and the laser tracking sensor function.
+Prima di utilizzare il metodo di comunicazione UDP per assi estesi, è necessario stabilire il corrispondente sistema di coordinate assi estesi, configurare la corrispondente soluzione per assi estesi nel corrispondente sistema di coordinate, e applicare il sistema di coordinate dell'utensile stabilito durante la programmazione dell'insegnamento. La funzione degli assi estesi viene utilizzata principalmente in combinazione con la funzione saldatrice e la funzione del sensore di tracciamento laser.
 
 .. figure:: robot_peripherals/099.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑16 Extended Axis Coordinate System Application and Current Extended Axis Solution Display
+.. centered:: Grafico 8.7‑16 Applicazione sistema di coordinate assi estesi e visualizzazione soluzione corrente assi estesi
 
-When only needing to modify the current extended axis coordinate system, select the coordinate system in the Peripheral Extended Axis configuration interface to apply it. When needing to change the extended axis solution, enter the Extended Axis Coordinate System configuration interface to modify it.
+Quando è necessario modificare solo il sistema di coordinate assi estesi corrente, selezionare il sistema di coordinate nell'interfaccia di configurazione assi estesi periferiche per applicarlo. Quando è necessario cambiare la soluzione per assi estesi, è necessario accedere all'interfaccia di configurazione del sistema di coordinate assi estesi per modificarla.
 
-When the extended axis solution is "0 - Single Degree of Freedom Linear Slide", "1 - Two Degree of Freedom L-type Positioner", "2 - Three Degree of Freedom", "3 - Four Degree of Freedom", or "4 - Single Degree of Freedom Positioner", after successful UDP communication configuration, the interface displays "UDP Extended Axis" and "Positioning Completion Time Setting" content. When the extended axis solution is "5 - Two Degree of Freedom AGV", the interface displays "Two Degree of Freedom AGV Test" content.
+Quando la soluzione per assi estesi è "0-Guida lineare a singolo grado di libertà", "1-Posizionatore a L a due gradi di libertà", "2-Tre gradi di libertà", "3-Quattro gradi di libertà" e "4-Posizionatore a singolo grado di libertà", dopo il successo della configurazione della comunicazione UDP, vengono visualizzati i contenuti "Asse esteso UDP" e "Impostazione tempo completamento posizionamento". Quando la soluzione per assi estesi è "5-Carrello a due gradi di libertà", l'interfaccia visualizza il contenuto "Test carrello a due gradi di libertà".
 
-UDP Communication Configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione comunicazione UDP
++++++++++++++++++++++++++++++++++++++
 
 .. note::
    .. image:: robot_peripherals/100.png
       :height: 0.75in
       :align: left
 
-   Name: **Edit Button**
+   Nome: **Pulsante modifica**
 
-   Function: UDP communication parameter configuration
+   Funzione: Configurazione parametri comunicazione UDP
 
 .. note::
    .. image:: robot_peripherals/101.png
       :height: 0.75in
       :align: left
 
-   Name: **Load Button**
+   Nome: **Pulsante carica**
 
-   Function: Load UDP communication
+   Funzione: Caricamento comunicazione UDP
 
-**Step1**: Configure extended axis UDP communication parameters: Set IP Address, Port Number, Communication Cycle, Packet Loss Detection Cycle, Packet Loss Count, etc. The Reconnection Cycle and Reconnection Count can only be configured after the Communication Interruption Auto-reconnect switch is turned on.
+**Step1**: Configurare i parametri di comunicazione UDP per assi estesi: impostare indirizzo IP, numero di porta, ciclo di comunicazione, ciclo di rilevamento perdita pacchetti, numero di perdite pacchetti, ecc. Il ciclo e il numero di tentativi di riconnessione possono essere configurati solo dopo l'attivazione dell'interruttore di riconnessione automatica in caso di interruzione comunicazione.
 
-- IP Address: Custom IP address;
+- Indirizzo IP: indirizzo IP personalizzato;
 
-- Port Number: Define according to the actual situation;
+- Numero di porta: definito in base alla situazione effettiva;
 
-- Communication Cycle: Define according to the actual situation, unit ms;
+- Ciclo di comunicazione: definito in base alla situazione effettiva, unità ms;
 
-- Packet Loss Detection Communication Cycle: 10 ~ 1000 ms;
+- Ciclo di comunicazione per rilevamento perdita pacchetti: 10 ~ 1000 ms;
 
-- Packet Loss Count: 1 ~ 100;
+- Numero di perdite pacchetti: 1 ~ 100;
 
-- Communication Interruption Confirmation Duration: 0 ~ 500 ms;
+- Durata conferma interruzione comunicazione: 0 ~ 500 ms;
 
-- Power-off Restart Auto-reconnect: On/Off;
+- Riconnessione automatica dopo riavvio alimentazione: acceso/spento;
 
-- Communication Interruption Auto-reconnect: On/Off;
+- Riconnessione automatica in caso di interruzione comunicazione: acceso/spento;
 
-- Reconnection Cycle: 1 ~ 1000 ms;
+- Ciclo di riconnessione: 1 ~ 1000 ms;
 
-- Reconnection Count: 1 ~ 100;
+- Numero tentativi di riconnessione: 1 ~ 100;
 
 .. figure:: robot_peripherals/102.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑17 Extended Axis UDP Communication Parameter Configuration
+.. centered:: Grafico 8.7‑17 Configurazione parametri comunicazione UDP per assi estesi
 
 .. important::
-  1. After setting the Communication Disconnect Confirmation Duration, communication disconnect is confirmed and an error is reported only when the communication abnormality exceeds this duration.
-  2. After UDP communication is disconnected, a UDP disconnect error is triggered (can be reset). Click the Clear Warning Information button, and UDP communication will be re-established.
+  1. Dopo aver impostato la durata di conferma dell'interruzione della comunicazione, l'interruzione della comunicazione viene confermata e viene segnalato un errore solo quando l'anomalia della comunicazione supera tale durata;
+  2. Dopo l'interruzione della comunicazione UDP, viene attivato un errore di interruzione UDP (ripristinabile). È possibile cliccare il pulsante per cancellare i messaggi di avviso e la comunicazione UDP verrà ristabilita.
 
-**Step2**: After successful communication parameter configuration, click the "Load" button to establish UDP communication. After successful communication, the button in front of "UDP Communication Configuration" turns green. Check the extended axis status in the robot's various status views; the extended axis should be servoed and in position.
+**Step2**: Dopo il successo della configurazione dei parametri di comunicazione, cliccare il pulsante "Carica" per stabilire la comunicazione UDP. Dopo il successo della comunicazione, il pulsante davanti a "Configurazione comunicazione UDP" diventa verde. Controllare nello stato degli assi estesi nelle varie condizioni del robot che l'asse esteso è servoassistito e in posizione.
 
 .. figure:: robot_peripherals/103.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑18 Extended Axis UDP Communication Established
+.. centered:: Grafico 8.7‑18 Stabilimento comunicazione UDP per assi estesi
 
 .. figure:: robot_peripherals/104.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑19 Extended Axis Servo Ready
+.. centered:: Grafico 8.7‑19 Asse esteso servo in posizione
 
 .. important::
-  1. When UDP communication is not established, UDP extended axis number information cannot be configured or viewed.
-  2. Before loading extended axis UDP communication, be sure to first configure and apply an extended axis coordinate system other than number 0.
+  1. Se la comunicazione UDP non è stabilita, non è possibile configurare e visualizzare le informazioni sul numero dell'asse esteso UDP;
+  2. Prima di caricare la comunicazione UDP per assi estesi, assicurarsi di aver prima configurato e applicato un sistema di coordinate assi estesi diverso dal numero 0.
 
-UDP Extended Axis
-++++++++++++++++++++++++++++++
+Asse esteso UDP
+++++++++++++++++++++++++
 
 .. note::
    .. image:: robot_peripherals/100.png
       :height: 0.75in
       :align: left
 
-   Name: **Edit Button**
+   Nome: **Pulsante modifica**
 
-   Function: Extended axis parameter configuration
+   Funzione: Configurazione parametri asse esteso
 
 .. note::
    .. image:: robot_peripherals/105.png
       :height: 0.75in
       :align: left
 
-   Name: **Enable Button**
+   Nome: **Pulsante abilita**
 
-   Function: Extended axis enabled state. Clicking the button disables the extended axis.
+   Funzione: Stato abilitazione asse esteso, cliccare per disabilitare l'asse esteso
 
 .. note::
    .. image:: robot_peripherals/106.png
       :height: 0.75in
       :align: left
 
-   Name: **Disable Button**
+   Nome: **Pulsante disabilita**
 
-   Function: Extended axis disabled state. Clicking the button enables the extended axis.
+   Funzione: Stato disabilitazione asse esteso, cliccare per abilitare l'asse esteso
 
 .. note::
    .. image:: robot_peripherals/107.png
       :height: 0.75in
       :align: left
 
-   Name: **Homing Button**
+   Nome: **Pulsante ritorno a zero**
 
-   Function: Set extended axis homing method
+   Funzione: Impostazione metodo ritorno a zero asse esteso
 
 .. note::
    .. image:: robot_peripherals/108.png
       :height: 0.75in
       :align: left
 
-   Name: **Test Button**
+   Nome: **Pulsante test**
 
-   Function: Extended axis function test
+   Funzione: Test funzionalità asse esteso
 
-**Step1**: Select any extended axis number (currently only numbers 1, 2, 3, 4 are available). Click the "Edit" button behind the extended axis number to enter the detailed configuration interface. Set Axis Type, Axis Direction, Operating Speed, Acceleration, Positive Limit, Negative Limit, Lead, Encoder Resolution, Start Offset, Manufacturer, Model, and Mode. Click "Configure" to complete the configuration.
+**Step1**: Selezionare un numero qualsiasi di asse esteso (attualmente solo numeri 1, 2, 3, 4), cliccare il pulsante "Modifica" dietro al numero dell'asse esteso per accedere all'interfaccia di configurazione dettagliata. Impostare tipo asse, direzione asse, velocità di movimento, accelerazione, limite direzione positiva, limite direzione negativa, passo vite, risoluzione encoder, offset punto iniziale, produttore, modello e modalità, cliccare configura per completare la configurazione.
 
-- Axis Type: Linear Slide, Rotary Axis, Infinite Rotary Axis;
+- Tipo asse: guida lineare, asse rotante, asse rotante infinito;
 
-- Axis Direction: Positive / Negative;
+- Direzione asse: positiva/negativa;
 
-- Operating Speed: 0~2000 mm/s;
+- Velocità di movimento: 0~2000mm/s;
 
-- Acceleration: 0 ~ 2000 mm/s²;
+- Accelerazione: 0 ~ 2000 mm/s²;
 
-- Positive Limit: 0 ~ 50000;
+- Limite direzione positiva: 0 ~ 50000;
 
-- Negative Limit: -50000 ~ 0;
+- Limite direzione negativa: -50000 ~ 0;
 
-- Lead: 0~1000;
+- Passo vite: 0~1000;
 
-- Encoder Resolution: 0 ~ 10000000;
+- Risoluzione encoder: 0 ~ 10000000;
 
-- Start Offset: 0 ~ 10000 mm;
+- Offset punto iniziale: 0 ~ 10000mm;
 
-- Manufacturer: Hechuan, Huichuan, Panasonic;
+- Produttore: Hechuan, Inovance, Panasonic;
 
-- Model: Automatically matched model list based on the manufacturer;
+- Modello: elenco modelli corrispondente automaticamente in base al produttore;
 
-- Mode: Incremental System and Absolute Position System;
+- Modalità: sistema incrementale e sistema posizione assoluta;
 
 .. figure:: robot_peripherals/109.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑20 Extended Axis Parameter Configuration
+.. centered:: Grafico 8.7‑20 Configurazione parametri asse esteso
 
-**Step2**: After completing the extended axis parameter configuration, click the "Disable" button to enable the corresponding extended axis number. After successful enabling, the homing method can be set and the extended axis can be tested. When the extended axis is not enabled, the homing method setting and extended axis test cannot be performed.
+**Step2**: Dopo il completamento della configurazione dei parametri dell'asse esteso, cliccare il pulsante "Disabilita", abilitare il numero dell'asse esteso corrispondente. Dopo il successo dell'abilitazione, è possibile impostare il metodo di ritorno a zero e testare l'asse esteso. Quando l'asse esteso non è abilitato, non è possibile impostare il metodo di ritorno a zero né testare l'asse esteso.
 
 .. figure:: robot_peripherals/110.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑21 Extended Axis Enable/Disable
+.. centered:: Grafico 8.7‑21 Abilitazione/Disabilitazione asse esteso
 
-**Step3**: If the extended axis is not successfully enabled, the button to enter the settings interface is grayed out. After the extended axis is successfully enabled, click the "Homing" button to enter the homing method setting interface. Set the Homing Method, Homing Speed, and Zero Latch Speed. Click the "Set" button, and the extended axis will start homing. The homing status will be displayed in the blank area below the Axis Direction. When the "Homing Completed" prompt appears, it indicates successful extended axis zero point setting.
+**Step3**: Se l'asse esteso non è abilitato con successo, non è possibile accedere all'interfaccia di impostazione, il pulsante risulta inattivo (grigio). Dopo il successo dell'abilitazione dell'asse esteso, cliccare il pulsante "Ritorno a zero" per accedere all'interfaccia di impostazione del metodo di ritorno a zero. Impostare il metodo di ritorno a zero, la velocità di ricerca zero e la velocità di aggancio zero, cliccare il pulsante "Imposta", l'asse esteso inizia il ritorno a zero. Lo stato del ritorno a zero verrà visualizzato nello spazio vuoto sotto la direzione dell'asse. Quando appare il messaggio "Ritorno a zero completato", indica che l'impostazione dello zero dell'asse esteso è riuscita.
 
-- Homing Method: Current Position Homing, Negative Limit Homing, Positive Limit Homing;
+- Metodo ritorno a zero: ritorno a zero posizione corrente, ritorno a zero limite negativo, ritorno a zero limite positivo;
 
-- Homing Speed: 0~2000 mm/s;
+- Velocità ricerca zero: 0~2000mm/s;
 
-- Zero Latch Speed: 0~2000 mm/s;
+- Velocità aggancio zero: 0~2000mm/s;
 
 .. figure:: robot_peripherals/111.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑22 Homing Method Setting
+.. centered:: Grafico 8.7‑22 Impostazione metodo ritorno a zero
 
-**Step4**: If the extended axis is not successfully enabled, the button to enter the settings interface is grayed out. After the extended axis is successfully enabled and the homing method is set, click the "Test" button to enter the extended axis test interface. Set the Running Speed, Acceleration, and Maximum Distance to test the extended axis with forward rotation and reverse rotation. During rotation, you can click the "Stop" button to test if the extended axis can stop normally.
+**Step4**: Se l'asse esteso non è abilitato con successo, non è possibile accedere all'interfaccia di impostazione, il pulsante risulta inattivo (grigio). Dopo il successo dell'abilitazione dell'asse esteso e il completamento dell'impostazione del metodo di ritorno a zero, cliccare il pulsante "Test" per accedere all'interfaccia di test dell'asse esteso. Impostare velocità di movimento, accelerazione e distanza massima, eseguire test di rotazione in avanti e indietro sull'asse esteso. Durante la rotazione, è possibile cliccare il pulsante "Ferma" per verificare se l'asse esteso si ferma normalmente.
 
 .. figure:: robot_peripherals/112.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑23 Extended Axis Test
+.. centered:: Grafico 8.7‑23 Test asse esteso
 
-**Step5**: The extended axis is often used in conjunction with a laser sensor. In this case, the laser sensor is usually installed externally. The sensor reference point configuration needs to use the three-point calibration method instead of the previously used six-point calibration method. Align the tool center point to the bottom middle point of the right cross-section (the side closer to the camera) and set Point 1. Align the tool center point to the bottom middle point of the other cross-section (the left cross-section) and set Point 2. Move the tool center point to the top middle point of the right cross-section of the sensor and set Point 3. Calculate and save, then click Apply to complete the three-point calibration.
+**Step5**: L'asse esteso viene solitamente utilizzato in combinazione con il sensore laser. In questo caso il sensore laser viene solitamente installato esternamente. La configurazione del punto di riferimento del sensore richiede la taratura a tre punti, non il metodo a sei punti utilizzato in precedenza. Portare il centro dell'utensile sul punto centrale inferiore della sezione trasversale destra (lato vicino alla telecamera), impostare punto 1. Portare il centro dell'utensile sull'altra sezione, cioè il punto centrale inferiore della sezione trasversale sinistra, impostare punto 2. Portare il centro dell'utensile sul punto centrale del bordo superiore della sezione trasversale destra del sensore, impostare punto 3. Calcolare e salvare, cliccare applica per completare la taratura a tre punti.
 
 .. figure:: robot_peripherals/113.png
    :align: center
-   :width: 4in
+   :width: 6in
 
-.. centered:: Figure 8.7‑24 Sensor Three-Point Calibration
+.. centered:: Grafico 8.7‑24 Taratura a tre punti sensore
 
-**Step6**: In the "Teach Program" -> "Program Programming" interface, select the "Extended Axis" command from the peripheral instructions. Add instructions in the appropriate places according to the specific program teaching requirements.
+**Step6**: Nell'interfaccia "Programmazione insegnamento" -> "Programmazione programma" selezionare il comando "Asse esteso" nei comandi periferiche. In base alle esigenze specifiche della programmazione insegnamento, aggiungere i comandi nei punti appropriati.
 
 .. figure:: robot_peripherals/114.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑25 Extended Axis Command Editing
+.. centered:: Grafico 8.7‑25 Modifica comando asse esteso
 
-Extended Axes with Laser Tracking Welding Teaching Program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Programma insegnamento saldatura con tracciamento laser assistito da asse esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **N.**
+     - **Formato comando**
+     - **Commento**
 
    * - 1
-     - EXT_AXIS_PTP(1,1laserstart)
-     - #External axis moves to laser sensor start point
+     - EXT_AXIS_PTP(1,1,laserstart)
+     - #Movimento asse esterno punto iniziale sensore laser
 
    * - 2
      - PTP(laserstart,10,-1,0)
-     - #Robot moves to laser sensor start point
+     - #Movimento robot punto iniziale sensore laser
 
    * - 3
      - LTSearchStart(3,20,10,10000)
-     - #Start searching
+     - #Inizio ricerca posizione
 
    * - 4
      - LTSearchStop()
-     - #Stop searching
+     - #Fine ricerca posizione
 
    * - 5
      - EXT_AXIS_PTP(1,1,seamPos)
-     - #External axis moves to weld seam start point
+     - #Movimento asse esterno punto inizio saldatura
 
    * - 6
      - Lin(seamPos,20,-1,00,0)
-     - #Robot moves to weld seam start point
+     - #Movimento robot punto inizio saldatura
 
    * - 7
      - LTTrackOn()
-     - #Laser tracking on
+     - #Tracciamento laser
 
    * - 8
      - ARCStart(0,10000)
-     - #Welder arc start
+     - #Accensione arco saldatrice
 
    * - 9
      - EXT_AXIS_PTP(1,1,laserend)
-     - #External axis moves to weld seam end point
+     - #Movimento asse esterno punto fine saldatura
 
    * - 10
-     - Lin( laserend,10,-1,0,0)
-     - #Robot moves to weld seam end point
+     - Lin(laserend,10,-1,0,0)
+     - #Movimento robot punto fine saldatura
 
    * - 11
      - ARCEnd(0,10000)
-     - #Welder arc end
+     - #Spegnimento arco saldatrice
 
    * - 12
      - LTTrackOff
-     - #Laser tracking off
+     - #Disattivazione tracciamento laser
 
-Positioning Completion Time
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Tempo completamento posizionamento
++++++++++++++++++++++++++++++++++++++
 
-After the extended axis establishes UDP communication, input the time and click the "Configure" button to complete the setting. This configuration item is used to monitor the time when the extended axis motion stops.
+Dopo aver stabilito la comunicazione UDP per l'asse esteso, inserire il tempo, cliccare il pulsante "Configura" per completare l'impostazione. Questa configurazione viene utilizzata per monitorare il tempo di arresto del movimento dell'asse esteso.
 
 .. figure:: robot_peripherals/115.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑26 Positioning Completion Time Configuration
+.. centered:: Grafico 8.7‑26 Configurazione tempo completamento posizionamento
 
-Two-DOF Trolley Test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Test carrello a due gradi di libertà
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This content is displayed in the UDP communication interface only when the extended axis scheme is set to "5-Two-DOF Trolley" in the extended axis coordinate system configuration; otherwise, it cannot be viewed.
+Nella configurazione della soluzione per assi estesi nel sistema di coordinate assi estesi, quando la soluzione è "5-Carrello a due gradi di libertà", dopo l'accesso all'interfaccia di comunicazione UDP viene visualizzato questo contenuto, altrimenti non è possibile visualizzarlo.
 
 .. figure:: robot_peripherals/116.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑27 Interface for Extended Axis Scheme "5-Two-DOF Trolley"
+.. centered:: Grafico 8.7‑27 Interfaccia con soluzione assi estesi "5-Carrello a due gradi di libertà"
 
-.. important:: The two-DOF trolley by default uses extended axis numbers 1 and 2. After UDP communication is successful, check the servo ready status for extended axes 1 and 2 via the extended axis status in the robot's various status monitors.
+.. important:: Il carrello a due gradi di libertà utilizza per impostazione predefinita i numeri di asse esteso 1 e 2. Dopo il successo della comunicazione UDP, controllare nello stato degli assi estesi nelle varie condizioni del robot che gli assi estesi 1 e 2 sono servoassistiti e in posizione.
 
 .. figure:: robot_peripherals/117.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑28 Two-DOF Trolley Extended Axis Servo Ready
+.. centered:: Grafico 8.7‑28 Carrello a due gradi di libertà - Assi estesi servo in posizione
 
 .. note::
    .. image:: robot_peripherals/105.png
       :height: 0.75in
       :align: left
 
-   Name: **Enable Button**
-   
-   Function: Extended axis enabled state. Click the button to disable the extended axis.
+   Nome: **Pulsante abilita**
+
+   Funzione: Stato abilitazione asse esteso, cliccare per disabilitare l'asse esteso
 
 .. note::
    .. image:: robot_peripherals/106.png
       :height: 0.75in
       :align: left
 
-   Name: **Disable Button**
-   
-   Function: Extended axis disabled state. Click the button to enable the extended axis.
+   Nome: **Pulsante disabilita**
+
+   Funzione: Stato disabilitazione asse esteso, cliccare per abilitare l'asse esteso
 
 .. note::
    .. image:: robot_peripherals/107.png
       :height: 0.75in
       :align: left
 
-   Name: **Homing Button**
-   
-   Function: Home the extended axis at the current position.
+   Nome: **Pulsante ritorno a zero**
+
+   Funzione: Ritorno a zero posizione corrente asse esteso
 
 .. note::
    .. image:: robot_peripherals/108.png
       :height: 0.75in
       :align: left
 
-   Name: **Test Button**
-   
-   Function: Test the two-DOF trolley functionality.
+   Nome: **Pulsante test**
 
-**Step1**: After UDP communication is successful, click the "Disable" button to enable the extended axes corresponding to the two-DOF trolley. Check that extended axes 1 and 2 are servo enabled via the extended axis status in the robot's various status monitors.
+   Funzione: Test funzionalità carrello a due gradi di libertà
+
+**Step1**: Dopo il successo della comunicazione UDP, cliccare il pulsante "Disabilita" per abilitare gli assi estesi corrispondenti del carrello a due gradi di libertà. Controllare nello stato degli assi estesi nelle varie condizioni del robot che gli assi estesi 1 e 2 sono abilitati servo.
 
 .. figure:: robot_peripherals/118.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑29 Two-DOF Trolley Extended Axes Enabled
+.. centered:: Grafico 8.7‑29 Carrello a due gradi di libertà - Assi estesi abilitati
 
-**Step2**: After the extended axes are successfully enabled, click the "Homing" button to set the current position of the extended axes as home. If homing is successful, the test button becomes highlighted; otherwise, it remains grayed out.
+**Step2**: Dopo il successo dell'abilitazione degli assi estesi, cliccare il pulsante "Ritorno a zero" per impostare il ritorno a zero della posizione corrente degli assi estesi. Dopo il successo del ritorno a zero, il pulsante test diventa attivo (evidenziato), altrimenti rimane inattivo (grigio).
 
 .. figure:: robot_peripherals/119.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑30 Two-DOF Trolley Current Position Homing Successful
+.. centered:: Grafico 8.7‑30 Carrello a due gradi di libertà - Ritorno a zero posizione corrente riuscito
 
-**Step3**: After the two-DOF trolley's current position homing is successful, click the "Test" button to enter the interface. Select the motion mode, input parameters for motion testing, and click the "Stop" button during motion to test the stop function.
+**Step3**: Dopo il successo del ritorno a zero della posizione corrente del carrello a due gradi di libertà, cliccare il pulsante "Test" per accedere all'interfaccia. Selezionare la modalità di movimento, inserire i parametri per eseguire il test di movimento. Durante il movimento, cliccare il pulsante "Ferma" per testare la funzione di arresto.
 
-- Motion Mode: Linear / Arc;
+- Modalità movimento: linea/arco;
 
-- Distance: -5000~5000mm (Linear motion mode);
+- Distanza: -5000~5000mm (modalità movimento linea);
 
-- Radius: 1~5000mm (Linear motion mode);
+- Raggio: 1~5000mm (modalità movimento linea);
 
-- Angle: -360~360° (Arc motion mode);
+- Angolo: -360~360° (modalità movimento arco);
 
-- Speed: 1~100%
+- Velocità: 1~100%
 
 .. figure:: robot_peripherals/120.png
    :align: center
@@ -3720,658 +3761,654 @@ This content is displayed in the UDP communication interface only when the exten
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑31 Two-DOF Trolley Test
+.. centered:: Grafico 8.7‑31 Test carrello a due gradi di libertà
 
-Controller + Servo Drive (485 Communication)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Controller + azionamenti servo (comunicazione 485)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Hardware Wiring
-++++++++++++++++++++++++++++++++++++++
+Cablaggio hardware
++++++++++++++++++++++++++++
 
-Before using RS485 communication to control the servo extended axis, please first connect the RS485 communication interface of the servo drive to the RS485 communication interface on the robot control box. The electrical interface diagram for the Faro Robot Yizhizao control box is as follows:
+Prima di utilizzare la comunicazione RS485 per controllare gli assi estesi servo, collegare prima l'interfaccia di comunicazione RS485 dell'azionamento servo all'interfaccia di comunicazione RS485 della scatola di controllo del robot. Lo schema delle interfacce elettriche della scatola di controllo "Faro Robot Easy Manufacturing" è il seguente:
 
 .. figure:: robot_peripherals/122.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑32 Faro Robot Mini Control Box Electrical Interface Diagram
+.. centered:: Grafico 8.7‑32 Schema interfacce elettriche scatola di controllo mini robot Faro
 
-Taking the Dynatek servo drive model FD100-750C as an example, refer to the drive panel terminal diagram and the X3A-IN terminal definition of the FD100-750C. When configuring the robot to communicate with the FD100-750C servo extended axis, it is necessary to connect the 485-A0 terminal and 485-B0 terminal on the control box to pins 4 and 5 of the drive's X3A-IN terminal, respectively. (Please note: You might see a terminal marked "485" on the servo drive panel. This terminal is currently not available for user use. Do not connect your RS485 communication cable to this terminal). Additionally, if connecting multiple servo drives and this drive is the last in the chain, it is necessary to turn on the RS485 communication termination resistor dip switch (No. 2 dip switch) on the panel.
+Prendendo come esempio il modello di azionamento servo "Dinatech FD100-750C", facendo riferimento allo schema dei terminali del pannello di questo azionamento e alla definizione dei terminali X3A-IN del FD100-750C, quando si configura la comunicazione del robot con l'asse esteso servo FD100-750C, è necessario collegare i terminali 485-A0 e 485-B0 della scatola di controllo rispettivamente ai pin 4 e 5 del terminale X3A-IN dell'azionamento. (Si noti: sull'azionamento servo potrebbe essere visibile un connettore contrassegnato "485". Questo terminale non è attualmente disponibile per l'uso da parte dell'utente. Non collegare il cavo di comunicazione RS485 a questo terminale). Inoltre, se si collegano più azionamenti servo e l'azionamento è l'ultimo della catena, è necessario attivare l'interruttore a levetta della resistenza di terminazione della comunicazione RS485 sul pannello (levetta n. 2).
 
 .. figure:: robot_peripherals/123.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑33 FD100-750C Drive Panel
+.. centered:: Grafico 8.7‑33 Pannello azionamento FD100-750C
 
 .. figure:: robot_peripherals/124.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑34 FD100-750C X3A-IN Terminal Definition
+.. centered:: Grafico 8.7‑34 Definizione terminali X3A-IN FD100-750C
 
-Communication Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione comunicazione
++++++++++++++++++++++++++++++++++++
 
-After ensuring your RS485 communication cable is correctly connected and both the robot and servo extended axis are powered on normally, open the robot WebApp.
+Assicurarsi che il cavo di comunicazione RS485 sia collegato correttamente e che sia il robot che l'asse esteso servo siano alimentati normalmente, quindi aprire il WebApp del robot.
 
-Click on the image with the combination "Controller + Servo Drive" to enter the detailed configuration interface. In the servo drive configuration, select the number as "1" (Please note: When multiple servos are connected, this number is used to distinguish different servos, we will mention this number multiple times later), the manufacturer as "Dynatek", select the corresponding servo drive model, here the model is "FD00-750C", the software version is V1.0, fill in the resolution corresponding to the servo drive, here it is 131072, fill in the mechanical transmission ratio according to your mechanism model, here it is 15.45, and click the "Configure" button.
+Cliccare l'immagine della combinazione "Controller + azionamenti servo" per accedere all'interfaccia di configurazione dettagliata. Nella configurazione dell'azionamento servo, selezionare il numero "1" (si noti: quando si collegano più servo, questo numero viene utilizzato per distinguere i diversi servo, lo menzioneremo più volte in seguito), il produttore "Dinatech", selezionare il modello corrispondente dell'azionamento servo, qui il modello è "FD00-750C", la versione software è V1.0, inserire la risoluzione corrispondente all'azionamento servo, qui 131072, inserire il rapporto di trasmissione meccanica in base al modello del meccanismo, qui 15.45, cliccare il pulsante "Configura".
 
 .. figure:: robot_peripherals/125.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑35 Servo Drive Configuration
+.. centered:: Grafico 8.7‑35 Configurazione azionamento servo
 
-So far, we have completed the 485 communication configuration between the robot and the servo drive. You can view the real-time status information of the servo in the "Servo Status Bar" on the right side of the WebApp, as shown below:
+A questo punto abbiamo completato la configurazione della comunicazione 485 tra robot e azionamento servo. È possibile visualizzare le informazioni sullo stato in tempo reale del servo nella "Barra stato servo" a destra nel WebApp. Come mostrato di seguito:
 
 .. figure:: robot_peripherals/126.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑36 Servo Status Bar
+.. centered:: Grafico 8.7‑36 Barra stato servo
 
-Now you need to set the enable and homing method for the extended axis device in order, and then you can perform certain motion tests. Please follow this manual for the following test operations under safe conditions.
+Ora è necessario abilitare in sequenza il dispositivo asse esteso e impostare il metodo di ritorno a zero, dopodiché sarà possibile eseguire alcuni test di movimento. Seguire questo manuale per eseguire le seguenti operazioni di test, assicurandosi di farlo in condizioni di sicurezza.
 
-Configured Servo Drives
-++++++++++++++++++++++++++++++++++++++++++++++
+Azionamenti servo configurati
+++++++++++++++++++++++++++++++++++++
 
 .. note::
    .. image:: robot_peripherals/127.png
       :height: 0.75in
       :align: left
 
-   Name: **View Button**
-   
-   Function: Click to view servo drive configuration information.
+   Nome: **Pulsante visualizza**
+
+   Funzione: Cliccare per visualizzare le informazioni di configurazione dell'azionamento servo
 
 .. note::
    .. image:: robot_peripherals/105.png
       :height: 0.75in
       :align: left
 
-   Name: **Enable Button**
-   
-   Function: Servo drive enabled state. Click the button to disable the servo drive.
+   Nome: **Pulsante abilita**
+
+   Funzione: Stato abilitazione azionamento servo, cliccare per disabilitare l'azionamento servo
 
 .. note::
    .. image:: robot_peripherals/106.png
       :height: 0.75in
       :align: left
 
-   Name: **Disable Button**
-   
-   Function: Servo drive disabled state. Click the button to enable the servo drive.
+   Nome: **Pulsante disabilita**
+
+   Funzione: Stato disabilitazione azionamento servo, cliccare per abilitare l'azionamento servo
 
 .. note::
    .. image:: robot_peripherals/107.png
       :height: 0.75in
       :align: left
 
-   Name: **Homing Button**
-   
-   Function: Set the homing method for the servo drive.
+   Nome: **Pulsante ritorno a zero**
+
+   Funzione: Impostazione metodo ritorno a zero azionamento servo
 
 .. note::
    .. image:: robot_peripherals/108.png
       :height: 0.75in
       :align: left
 
-   Name: **Test Button**
-   
-   Function: Test the servo drive.
+   Nome: **Pulsante test**
+
+   Funzione: Test azionamento servo
 
 .. note::
    .. image:: robot_peripherals/128.png
       :height: 0.75in
       :align: left
 
-   Name: **Servo Error Clear Button**
-   
-   Function: When the servo drive indicates an error, click to clear it.
+   Nome: **Pulsante cancella errore servo**
 
-Servo Control Mode and Enable
-*****************************************
+   Funzione: Quando l'azionamento servo segnala un errore, cliccare per cancellare
 
-In "Configured Servo Drives", select the control mode as "Position Mode", select the corresponding servo number, and click the "Disable" button. This will first set the servo drive number. After successful setting, it sets the control mode. After the control mode is set successfully, the servo drive is enabled (Please note: After switching the control mode, you need to first disable the servo drive, then enable the servo drive again for the servo control mode switch to take effect. After the servo is enabled, switching the control mode will be disabled).
+Modalità controllo servo e abilitazione
+****************************************
+
+In "Azionamenti servo configurati", selezionare la modalità controllo come "Modalità posizione", selezionare il numero servo corrispondente, cliccare il pulsante "Disabilita". A questo punto verrà prima impostato il numero dell'azionamento servo, dopo il successo dell'impostazione verrà impostata la modalità controllo. Dopo il successo dell'impostazione della modalità controllo, l'azionamento servo verrà abilitato (si noti: dopo aver cambiato la modalità controllo, è necessario prima disabilitare l'azionamento servo, poi abilitarlo nuovamente affinché il cambio di modalità controllo del servo abbia effetto. Dopo il successo dell'abilitazione del servo, il cambio di modalità controllo verrà disabilitato).
 
 .. figure:: robot_peripherals/129.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑37 Servo Control Mode and Enable
+.. centered:: Grafico 8.7‑37 Modalità controllo servo e abilitazione
 
-After the servo is successfully enabled, check the "Servo" section in the robot's various status bars to observe the "Servo Enable" status light is on, indicating the servo drive is enabled. Click the "Enable" status button to disable the servo drive, and the "Servo Enable" status light turns off.
+Dopo il successo dell'abilitazione del servo, controllando nella barra "Servo" nelle varie condizioni del robot, è possibile osservare che la spia di stato "Servo abilitato" è accesa, indicando che l'azionamento servo è abilitato. Cliccare il pulsante di stato "Abilita" per disabilitare l'azionamento servo, la spia di stato "Servo abilitato" si spegne.
 
 .. figure:: robot_peripherals/130.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑38 Servo Drive Status Bar
+.. centered:: Grafico 8.7‑38 Barra stato azionamento servo
 
-Servo Homing
+Ritorno a zero servo
 ************************
 
-After the servo drive is successfully enabled, the "Homing" button becomes highlighted. Click the button to enter the setup interface. Select the homing mode as "Current Position Homing", homing speed as 5mm/s, and zero search speed as 1mm/s; click the "Set" button to complete the servo current position homing operation. In the "Servo" section of the robot's various status bars, you can observe that the current "Servo Position" is 0; (Please perform homing tests with "Negative Limit Homing" or "Positive Limit Homing" only after fully reading this manual).
+Dopo il successo dell'abilitazione dell'azionamento servo, il pulsante "Ritorno a zero" diventa attivo (evidenziato). Cliccare il pulsante per accedere all'interfaccia di impostazione. Selezionare la modalità ritorno a zero come "Ritorno a zero posizione corrente", velocità ritorno a zero 5mm/s, velocità aggancio zero 1mm/s; cliccare il pulsante "Imposta" per completare l'operazione di ritorno a zero della posizione corrente del servo. Nella barra "Servo" nelle varie condizioni del robot, è possibile osservare che la "Posizione servo" corrente è 0; (si prega di leggere completamente questo manuale prima di selezionare la modalità ritorno a zero come "Ritorno a zero limite negativo" o "Ritorno a zero limite positivo" per eseguire test di ritorno a zero).
 
 .. figure:: robot_peripherals/131.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑39 Servo Homing
+.. centered:: Grafico 8.7‑39 Ritorno a zero servo
 
-Servo Motion
-************************
+Movimento Servo
+***************
 
-Before actually controlling the servo motor motion, please first understand the "Position Mode" and "Speed Mode" of the servo motor. We remind you again:
+Prima di controllare effettivamente il movimento del motore servo, si prega di comprendere le "Modalità Posizione" e "Modalità Velocità" del motore servo. Si ricorda ancora:
 
-**Position Mode**: You can input a certain motion speed and target position parameter. The servo will move to the target position at the set speed and stop after reaching the target position.
+**Modalità Posizione**: È possibile inserire parametri di velocità di movimento e posizione target. Il servo si muoverà alla velocità impostata fino alla posizione target, dopodiché si fermerà.
 
-**Speed Mode**: You can input a certain target speed. The servo will continue to move at the target speed you set until you set the target speed to 0 or disable the servo motor;
+**Modalità Velocità**: È possibile inserire una velocità target. Il servo continuerà a muoversi alla velocità target impostata fino a quando non si imposta la velocità target a 0 o si disabilita il motore servo.
 
-When switching control modes, the "Current Control Mode" display will switch automatically (Please note: After switching the control mode, you need to first disable the servo, then enable the servo again for the servo control mode switch to take effect). If your servo is not currently in "Position Mode", please switch your servo to position mode. Enter the "Target Position" as 50mm and the run speed as 5mm/s. Under confirmed safe conditions, click the "Set" button. At this point, the servo motor will move according to the parameters you set. You can observe the servo's position, speed, etc., in real-time in the "Servo" section of the robot's various status bars.
+Quando si cambia la modalità di controllo, la visualizzazione della "Modalità controllo corrente" cambierà automaticamente (nota: dopo aver cambiato la modalità di controllo, è necessario prima disabilitare il servo, poi riabilitarlo affinché il cambio di modalità di controllo del servo abbia effetto). Se attualmente il servo non è in "Modalità Posizione", si prega di passarlo alla modalità posizione. Inserire la "Posizione target" a 50 mm, velocità di movimento 5 mm/s, in condizioni di sicurezza confermate, cliccare il pulsante "Imposta". A questo punto il motore servo si muoverà secondo i parametri impostati. È possibile osservare in tempo reale la posizione e la velocità del servo nella barra "Servo" nelle varie condizioni del robot.
 
 .. figure:: robot_peripherals/132.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑40 Servo Motion Debugging (Position Mode)
+.. centered:: Grafico 8.7‑40 Debug movimento servo (modalità posizione)
 
-Change the servo control mode to "Speed Mode". Click the "Enable" status button to disable the servo drive, then click the "Disable" status button. Now the servo is switched to speed mode (Please note: After the servo motor starts moving, it can only be stopped by setting the target speed to 0). Enter the target speed as 5mm/s and click the "Set" button. The servo motor will maintain motion at 5mm/s. Similarly, you can observe the servo's position, speed, etc., in real-time in the "Servo" section of the robot's various status bars.
+Cambiare la modalità di controllo del servo in "Modalità Velocità". Cliccare il pulsante di stato "Abilita" per disabilitare l'azionamento servo, poi cliccare il pulsante di stato "Disabilita". A questo punto il servo passa in modalità velocità (nota: quando il motore servo è in movimento, può essere fermato solo impostando la velocità target a 0). Inserire la velocità target a 5 mm/s, cliccare il pulsante "Imposta". Il motore servo continuerà a muoversi a 5 mm/s. Allo stesso modo, è possibile osservare in tempo reale la posizione e la velocità del servo nella barra "Servo" nelle varie condizioni del robot.
 
 .. figure:: robot_peripherals/133.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑41 Servo Motion Debugging (Speed Mode)
+.. centered:: Grafico 8.7‑41 Debug movimento servo (modalità velocità)
 
-Advanced Settings
-++++++++++++++++++++++++++++++++++
+Impostazioni Avanzate
+++++++++++++++++++++++++++++++++
 
-If the robot collides, the emergency stop is pressed, or other emergency situations occur, the extended axis can trigger an emergency stop and stop motion according to the set emergency stop deceleration. After the collision alarm is reset, commands can continue to be sent to resume extended axis operation. It is necessary to set the servo acceleration/deceleration and servo emergency stop acceleration/deceleration in the Advanced Settings, as shown below:
+Affinché l'asse esteso possa attivare l'arresto di emergenza in situazioni di emergenza come collisioni del robot o pressione del pulsante di arresto di emergenza, e fermarsi secondo la decelerazione di arresto di emergenza impostata, e dopo il ripristino dell'allarme di collisione possa continuare a ricevere comandi per riprendere il funzionamento, è necessario impostare nelle Impostazioni Avanzate l'accelerazione/decelerazione servo e l'accelerazione/decelerazione di arresto di emergenza servo, come mostrato di seguito:
 
 .. figure:: robot_peripherals/134.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.7‑42 Advanced Settings
+.. centered:: Grafico 8.7‑42 Impostazioni Avanzate
 
-Extended Axis Programming
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Programmazione Assi Estesi
+++++++++++++++++++++++++++
 
-In "Teaching Program" -> "Program Programming", create a new user program "testServo.lua" and select "Peripheral Instructions".
+In "Programmazione Insegnamento" -> "Programmazione Programma", creare un nuovo programma utente "testServo.lua", selezionare "Istruzione Periferica".
 
 .. figure:: robot_peripherals/135.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑43 Open Peripheral Instructions
+.. centered:: Grafico 8.7‑43 Apertura istruzione periferica
 
-Click "Extended Axis" to open the Add Extended Axis Instruction interface. Select the combination method as "Controller + Servo Drive (485)", set the control mode to "Position Mode", and click the "Add" button on the right. Scroll to the bottom of the Add Extended Axis Instruction interface and click the "Apply" button.
+Cliccare "Asse Esteso", aprire l'interfaccia di aggiunta istruzione asse esteso. Selezionare la combinazione "Controller + azionamento servo (485)", impostare la modalità controllo su "Modalità Posizione", cliccare il pulsante "Aggiungi" a destra. Scorrere fino in fondo all'interfaccia di aggiunta istruzione asse esteso, cliccare il pulsante "Applica".
 
 .. figure:: robot_peripherals/136.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑44 Set Extended Axis Control Mode
+.. centered:: Grafico 8.7‑44 Impostazione modalità controllo asse esteso
 
-Now, a set of instructions for switching the servo control mode appears in the "testServo.lua" program. You can switch the robot to automatic mode and execute this program.
+A questo punto nel programma "testServo.lua" appare un set di istruzioni per cambiare la modalità controllo servo. È possibile passare il robot in modalità automatica ed eseguire il programma.
 
 .. figure:: robot_peripherals/137.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑45 Set Servo Control Mode Program
+.. centered:: Grafico 8.7‑45 Programma impostazione modalità controllo servo
 
-How to control servo motion through a user program? Similarly, open the Add Extended Axis Instruction interface, as shown below, find the parameter configuration bar. Taking position mode as an example, enter the target position and run speed, click the "Add" button; scroll to the bottom of the Add Extended Axis Instruction interface, click the "Apply" button, and close the Add Extended Axis Instruction interface.
+Come controllare il movimento servo tramite un programma utente? Aprire nuovamente l'interfaccia di aggiunta istruzione asse esteso, come mostrato di seguito, trovare la barra di configurazione parametri. Prendendo come esempio la modalità posizione, inserire posizione target e velocità di movimento, cliccare il pulsante "Aggiungi"; scorrere fino in fondo all'interfaccia di aggiunta istruzione asse esteso, cliccare il pulsante "Applica", e chiudere l'interfaccia di aggiunta istruzione asse esteso.
 
 .. figure:: robot_peripherals/138.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑46 Add Position Mode Motion Instruction
+.. centered:: Grafico 8.7‑46 Aggiunta istruzione movimento modalità posizione
 
-The "testServo.lua" program adds a servo motion instruction: "AuxServoSetTargetPos(1,50,5)". The meanings of the three parameters in the instruction function are:
+Nel programma "testServo.lua" viene aggiunta l'istruzione movimento servo: "AuxServoSetTargetPos(1,50,5)". Il significato dei tre parametri nella funzione istruzione è:
 
-- 1: Servo number is 1.
-
-- 50: Target position.
-
-- 5: Target speed.
+- 1: Numero servo 1.
+- 50: Posizione target.
+- 5: Velocità target.
 
 .. figure:: robot_peripherals/139.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.7‑47 Position Mode Servo Motion Program
+.. centered:: Grafico 8.7‑47 Programma movimento servo modalità posizione
 
-Switch the robot to automatic mode and run the program. Now your servo will move to the 50mm position at a speed of 5mm/s.
+Portare il robot in modalità automatica, eseguire il programma. A questo punto il servo si muoverà alla velocità di 5 mm/s fino alla posizione di 50 mm.
 
-So far, we have completed the preliminary configuration and testing of RS485 controlled servo extended axes. You can write programs combining robot motion and servo motion according to the actual situation, such as the example program below.
+Finora abbiamo completato la configurazione e i test preliminari del controllo servo asse esteso via RS485. È possibile scrivere programmi che combinano il movimento del robot e il movimento servo in base alla situazione reale, come nell'esempio di programma qui sotto.
 
-Example Program for Coordinated Motion between Extended Axis and Robot
-***********************************************************************************************
+Esempio di programma di movimento coordinato asse esteso e robot
+****************************************************************
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **N.**
+     - **Formato Istruzione**
+     - **Commento**
 
    * - 1
      - AuxServoSetTargetPos(1,50,5)
-     - #Extended axis moves to reset point
+     - #Asse esteso si muove al punto di reset
 
    * - 2
      - if(GetDI(8,0) == 1) then
-     - #If CI0 input is valid
+     - #Se l'input CI0 è valido
 
    * - 3
      - AuxServoSetTargetPos(1,50,5)
-     - #Extended axis moves to 50mm
+     - #Asse esteso si muove a 50mm
 
    * - 4
      - PTP(testptp1,100,-1,0)
-     - #Robot moves to testptp1 point
+     - #Robot si muove al punto testptp1
 
    * - 5
      - elseif(GetDI(9,0) == 1) then
-     - #If CI1 input is valid
+     - #Se l'input CI1 è valido
 
    * - 6
      - AuxServoSetTargetPos(1,150,5)
-     - #Extended axis moves to 150mm
+     - #Asse esteso si muove a 150mm
 
    * - 7
      - PTP(testptp2,100,-1,0)
-     - #Robot moves to testptp2 point
+     - #Robot si muove al punto testptp2
 
    * - 8
      - else
-     - #If both CI0 and CI1 inputs are invalid
+     - #Se sia CI0 che CI1 non sono validi
 
    * - 9
      - AuxServoSetTargetPos(1,300,5)
-     - #Extended axis moves to 300mm
+     - #Asse esteso si muove a 300mm
 
    * - 10
      - PTP(testptp3,100,-1,0)
-     - #Robot moves to testptp3 point
+     - #Robot si muove al punto testptp3
 
    * - 11
      - end
-     - #End
+     - #Fine
 
-Summary
-++++++++++++++
+Riepilogo
++++++++++
 
-In summary, the key points for configuring RS485 communication between the collaborative robot and the servo extended axis are as follows:
+In sintesi, per configurare la comunicazione RS485 tra robot collaborativo e asse esteso servo, si devono notare i seguenti punti:
 
-1. Correctly connect the RS485 communication cable between the collaborative robot and the servo drive;
+1. Collegare correttamente il cavo di comunicazione RS485 tra il robot collaborativo e l'azionamento servo;
+2. Selezionare correttamente la modalità di controllo dell'asse esteso servo;
+3. Dopo aver cambiato la modalità di controllo, è necessario prima disabilitare, poi riabilitare il servo affinché il cambio di modalità di controllo abbia effetto.
 
-2. Correctly select the control mode for the servo extended axis;
+Sensore Laser a Linea
+-----------------------
 
-3. After switching the control mode, you must first disable the servo, then enable the servo again for the control mode switch to take effect.
+I robot collaborativi Faro vengono utilizzati in combinazione con sensori laser per identificare la posizione di caratteristiche come cordoni di saldatura, al fine di semplificare la programmazione e aumentare l'efficienza produttiva. Il robot collaborativo può adattarsi a sensori laser di tre produttori: Ruinu, Chuangxiang e Quanshi. Quando si utilizzano sensori diversi, è sufficiente caricare il corrispondente protocollo di comunicazione.
 
-Line Laser Sensor
----------------------------------------------
+Cablaggio Hardware
+~~~~~~~~~~~~~~~~~~~~~
 
-The F&R collaborative robot is used in conjunction with a laser sensor to identify feature positions such as welds, achieving the goals of simplified programming and improved production efficiency. The collaborative robot can be adapted to laser sensors from three manufacturers: Ruiniu, Chuangxiang, and Quanshi. When using different sensors, only the corresponding communication protocol needs to be loaded.
+Prima di utilizzare il sensore laser, è necessario installare il sensore laser in una posizione adeguata e collegare il cavo di rete del sensore laser direttamente o tramite uno switch a qualsiasi interfaccia RJ45 della scatola di controllo del robot.
 
-Hardware Connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Sensore
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before using the laser sensor, it needs to be installed in a suitable position. Connect the laser sensor's network cable directly or through a switch to any RJ45 interface on the robot control box.
-
-Sensor Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Please ensure your laser sensor and welding torch are fixedly installed on the robot end flange, the laser sensor is connected to the robot control box via a network cable, and the IP addresses of the laser sensor and the robot control box are on the same subnet. Turn on the power for both the robot and the sensor. The figure below shows the installation of a Ruiniu laser sensor.
+Assicurarsi che il sensore laser e la torcia siano fissati saldamente all'estremità del robot, che il sensore laser sia collegato alla scatola di controllo del robot tramite cavo di rete, e che il sensore laser e la scatola di controllo del robot abbiano indirizzi IP sulla stessa sottorete. Accendere il robot e il sensore. La figura seguente mostra l'installazione del sensore laser Ruinu.
 
 .. figure:: robot_peripherals/140.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑1 Laser Sensor Installation
+.. centered:: Grafico 8.8‑1 Installazione sensore laser
 
-In the communication configuration section, enter the sensor's IP address and port number, click the "Configure" button. The sampling period defaults to 25, select "Laser Plane Coordinate System" for the coordinate system, choose the corresponding communication protocol according to your sensor model, and click the "Load" button.
+Nella barra di configurazione comunicazione, inserire l'indirizzo IP e il numero di porta del sensore, cliccare il pulsante "Configura". Il periodo di campionamento predefinito è 25, selezionare il sistema di coordinate come "Sistema coordinate piano laser", scegliere il corrispondente protocollo di comunicazione in base al modello del sensore, cliccare il pulsante "Carica".
 
 .. figure:: robot_peripherals/141.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑2 Laser Sensor Configuration
+.. centered:: Grafico 8.8‑2 Configurazione sensore laser
 
-In the "Tracking Sensor Test" section, click "Open" and then "Close" the sensor sequentially, observing whether the sensor's laser turns on or off. If the laser turns on and off normally, it indicates that communication has been successfully established between the robot and the sensor. Otherwise, please check if parameters such as the IP address and port number are correct, and if the network connection between the sensor and the robot is proper.
+Nella barra "Test sensore tracciamento", cliccare in sequenza "Apri" e "Chiudi" il sensore, osservare se il laser del sensore si accende o si spegne. Se il laser si accende e si spegne normalmente, significa che la comunicazione tra robot e sensore è stata stabilita correttamente. Altrimenti, verificare che i parametri come indirizzo IP e numero di porta siano corretti e che la connessione di rete tra sensore e robot sia corretta.
 
 .. figure:: robot_peripherals/142.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑3 Laser Sensor Communication Test
+.. centered:: Grafico 8.8‑3 Test comunicazione sensore laser
 
-Sensor Calibration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Taratura Sensore
+~~~~~~~~~~~~~~~~~~
 
-Before using the laser sensor, it needs to be calibrated. The calibration accuracy directly affects the tracking accuracy of the laser sensor. Calibration methods for the laser sensor include the Five-Point Method, Six-Point Method, and Eight-Point Method. Taking the most commonly used Five-Point Method in welding applications as an example, the calibration principle is to first point the tool (welding torch) to a fixed calibration point (as shown in Figure 4), and then have the laser sensor irradiate and recognize this point from four different poses.
+Prima di utilizzare il sensore laser, è necessario tarare il sensore laser. La precisione della taratura influisce direttamente sulla precisione di tracciamento del sensore laser. I metodi di taratura del sensore laser includono il metodo a cinque punti, a sei punti e a otto punti. Prendendo come esempio il metodo a cinque punti, il più comune negli scenari di saldatura, il principio di taratura consiste prima nel puntare lo strumento (torcia) su un punto di taratura fisso (come in Figura 4), poi nel far illuminare e riconoscere quel punto dal sensore laser da quattro diverse orientazioni.
 
 .. note::
-  This calibration point must be accurately recognizable by the laser sensor; otherwise, precise calibration cannot be achieved.
+   Questo punto di taratura deve essere riconoscibile accuratamente dal sensore laser, altrimenti non è possibile una taratura precisa.
 
-Then, the sensor coordinate pose is calculated. The calibration process is described in detail below:
+Successivamente, si calcola la posa del sistema di coordinate del sensore. Di seguito viene descritto in dettaglio il processo di taratura:
 
 .. figure:: robot_peripherals/143.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑4 Laser Sensor Calibration Point
+.. centered:: Grafico 8.8‑4 Punto di taratura sensore laser
 
-**Step1**: Open the robot WebApp, navigate to "Initial" -> "Basic" -> "Tool Coordinate" to enter the Tool Coordinate System interface. Select an unused tool coordinate system, click to modify its name to "Welding Torch", set the tool type to "Tool", and the installation location to "End Flange".
+**Step1**: Aprire il WebApp del robot, cliccare in sequenza "Impostazioni Iniziali" -> "Base" -> "Coordinate Strumento" per accedere all'interfaccia del sistema di coordinate strumento. Selezionare un sistema di coordinate strumento non utilizzato, cliccare modifica, cambiare il nome in "Torcia", tipo strumento "Strumento", posizione installazione "Estremità".
 
 .. figure:: robot_peripherals/144.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑5 Setting the "Welding Torch" Coordinate System
+.. centered:: Grafico 8.8‑5 Impostazione sistema coordinate "Torcia"
 
-Select another unused coordinate system, change its name to "Laser Sensor", set the tool type to "Sensor", and the installation location to "End Flange".
+Selezionare nuovamente un sistema di coordinate non utilizzato, cambiare il nome in "Sensore Laser", selezionare tipo strumento "Sensore", posizione installazione "Estremità".
 
 .. figure:: robot_peripherals/145.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑6 Setting the "Laser Sensor" Coordinate System
+.. centered:: Grafico 8.8‑6 Impostazione sistema coordinate "Sensore Laser"
 
-**Step2**: Calibrate the tool coordinate system of the welding torch using the Six-Point Method: Select the "Welding Torch" coordinate system, click the modify button, and use the Six-Point Method to calibrate the welding torch tool coordinate system (for specific calibration methods, refer to the F&R documentation, which will not be detailed here).
+**Step2**: Tarare il sistema di coordinate strumento della torcia con il metodo a sei punti: selezionare il sistema di coordinate "Torcia", cliccare il pulsante modifica, utilizzare il metodo a sei punti per tarare il sistema di coordinate strumento della torcia (per il metodo di taratura specifico, fare riferimento alla documentazione Faro, non verrà approfondito qui).
 
 .. figure:: robot_peripherals/146.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑7 "Welding Torch" Coordinate System Calibration
+.. centered:: Grafico 8.8‑7 Taratura sistema coordinate "Torcia"
 
-**Step3**: In the "Tool Coordinate System Settings", select the 0th coordinate system (Base Coordinate System), default name "toolcoord0", click "Apply" to switch the current coordinate system to the base coordinate system.
+**Step3**: In "Impostazione Sistema Coordinate Strumento", selezionare il sistema di coordinate numero 0 (sistema di base), nome predefinito "toolcoord0", cliccare "Applica", cambiare il sistema di coordinate corrente in quello di base.
 
 .. figure:: robot_peripherals/147.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑8 Sensor Calibration Step 1
+.. centered:: Grafico 8.8‑8 Step 1 taratura sensore
 
-**Step4**: Select the previously set "Laser Sensor" coordinate system again (do not click "Apply"), click the "Edit" button, select the tool type as "Sensor", confirm the sensor is fixed on the "Robot End Flange", and select the calibration method as "Five-Point Method".
+**Step4**: Selezionare nuovamente il sistema di coordinate "Sensore Laser" precedentemente impostato (senza cliccare "Applica"), cliccare il pulsante "Modifica", selezionare tipo strumento "Sensore", sensore fissato su "Estremità robot", metodo di taratura selezionare "Metodo a 5 punti".
 
 .. figure:: robot_peripherals/148.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑9 Sensor Calibration Step 2
+.. centered:: Grafico 8.8‑9 Step 2 taratura sensore
 
-**Step5**: Jog the robot so that the tip of the welding torch aligns with the calibration point, select the "Welding Torch" coordinate system, click "Apply", then click "Set Point 1", as shown in Figure 13.
+**Step5**: Trascinare il robot in modo che la punta della torcia sia allineata con il punto di taratura. Selezionare il sistema di coordinate "Torcia", cliccare "Applica", cliccare "Imposta punto 1", come in Figura 13.
 
 .. figure:: robot_peripherals/149.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑10 Sensor Calibration Step 3
+.. centered:: Grafico 8.8‑10 Step 3 taratura sensore
 
 .. figure:: robot_peripherals/150.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑11 Sensor Calibration Step 4
+.. centered:: Grafico 8.8‑11 Step 4 taratura sensore
 
-**Step6**: Select the 0th coordinate system ("toolcoord0") again; then select the "Sensor" coordinate system (do not click "Apply"), and you can continue with the calibration.
+**Step6**: Selezionare nuovamente il sistema di coordinate numero 0 ("toolcoord0"); quindi selezionare il sistema di coordinate "Sensore" (senza cliccare "Applica"), per procedere con la taratura.
 
 .. figure:: robot_peripherals/147.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑12 Sensor Calibration Step 5
+.. centered:: Grafico 8.8‑12 Step 5 taratura sensore
 
 .. figure:: robot_peripherals/145.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑13 Sensor Calibration Step 6
+.. centered:: Grafico 8.8‑13 Step 6 taratura sensore
 
-**Step7**: Move the laser sensor position so that the laser beam just scans the calibration point, click "Set Point 2"; at this time, the sensor output value at the corresponding sequence number on the left will display the current sensor data. If the data is normal, it indicates the current calibration point was successful; otherwise, recalibration is needed.
+**Step7**: Spostare la posizione del sensore laser in modo che il laser scandisca esattamente il punto di taratura, cliccare "Imposta punto 2"; a questo punto, nella posizione corrispondente al numero sequenziale dei valori di output del sensore a sinistra verranno visualizzati i dati correnti del sensore. Se i dati sono normali, significa che il punto di taratura corrente è riuscito, altrimenti è necessario ripetere la taratura.
 
 .. figure:: robot_peripherals/151.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑14 Sensor Calibration Step 7
+.. centered:: Grafico 8.8‑14 Step 7 taratura sensore
 
 .. figure:: robot_peripherals/152.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑15 Sensor Calibration Step 8
+.. centered:: Grafico 8.8‑15 Step 8 taratura sensore
 
-**Step8**: Sequentially make the laser irradiate the calibration point from three more different poses, and click "Set Point 3", "Set Point 4", and "Set Point 5" respectively. Finally, ensuring the data for each point is normal, click the "Calculate" button.
+**Step8**: Far illuminare il punto di taratura con il laser da altre tre diverse orientazioni, cliccare rispettivamente "Imposta punto 3", "Imposta punto 4" e "Imposta punto 5". Infine, assicurandosi che i dati di ogni punto siano normali, cliccare il pulsante "Calcola".
 
 .. figure:: robot_peripherals/153.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑16 Sensor Calibration Step 9
+.. centered:: Grafico 8.8‑16 Step 9 taratura sensore
 
-**Step9**: At this point, the WebApp displays the sensor calibration result and accuracy. Click the "Apply" button to complete the laser sensor calibration. If the calibration accuracy is too poor, you can choose to click the "Cancel" button and recalibrate.
+**Step9**: A questo punto sul WebApp vengono visualizzati i risultati della taratura del sensore e la precisione di taratura. Cliccare il pulsante "Applica" per completare la taratura del sensore laser. Se la precisione di taratura è troppo bassa, è possibile scegliere di cliccare il pulsante "Annulla" e ripetere la taratura.
 
 .. figure:: robot_peripherals/154.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑17 Sensor Calibration Accuracy
+.. centered:: Grafico 8.8‑17 Precisione taratura sensore
 
-Laser Sensor Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Applicazione Sensore Laser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before using the laser sensor, first apply the "Welding Torch" tool coordinate system as the current tool coordinate system.
+Prima di utilizzare il sensore laser, applicare il sistema di coordinate strumento "Torcia" al sistema di coordinate strumento corrente.
 
 .. figure:: robot_peripherals/144.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑18 Apply Welding Torch Coordinate System
+.. centered:: Grafico 8.8‑18 Applicazione sistema coordinate torcia
 
-Laser Sensor Teaching Points
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Punti di Insegnamento Sensore Laser
+++++++++++++++++++++++++++++++++++++++
 
-Jog the robot so that the laser sensor beam points to the desired weld seam point for teaching. In the WebApp, select the sensor as "Laser Sensor", enter the sensor point name as "laserPt", and click the "Add" button. Create a new user program "testLaser.lua", create a PTP motion command, select "laserPt" as the target point, and execute this instruction step by step. At this point, the welding torch will move to the point previously indicated by the laser sensor.
+Trascinare il robot in modo che il raggio del sensore laser punti al punto di saldatura che si desidera insegnare. Nel WebApp selezionare il sensore come "Sensore Laser", inserire il nome del punto sensore come "laserPt", cliccare il pulsante "Aggiungi". Creare un nuovo programma utente "testLaser.lua", creare un'istruzione di movimento PTP, punto target selezionare "laserPt", eseguire l'istruzione passo dopo passo. A questo punto la torcia si sposterà al punto precedentemente indicato dal sensore laser.
 
 .. figure:: robot_peripherals/155.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑19 Laser Sensor Weld Seam Point
+.. centered:: Grafico 8.8‑19 Punto cordone sensore laser
 
 .. figure:: robot_peripherals/156.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑20 Teaching Sensor Point
+.. centered:: Grafico 8.8‑20 Insegnamento punto sensore
 
 .. figure:: robot_peripherals/157.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑21 Welding Torch Pointing to Weld Seam Point
+.. centered:: Grafico 8.8‑21 Torcia punta al punto cordone
 
-Laser Seam Finding + Tracking
-++++++++++++++++++++++++++++++++++++++++++++++++
+Ricerca Posizione Laser + Tracciamento
++++++++++++++++++++++++++++++++++++++++++
 
-The collaborative robot, working with the laser sensor, requires the following steps to complete the laser seam finding + laser tracking function:
+Per completare la funzione di ricerca posizione laser + tracciamento laser con il robot collaborativo e il sensore laser, sono necessari i seguenti passaggi:
 
-(1) The robot moves to a point outside the weld seam;
-(2) Start laser seam finding, and the robot moves towards the weld seam position carrying the laser sensor;
-(3) The laser sensor identifies the weld seam, and the robot moves the welding torch to the identified weld seam start point;
-(4) Laser tracking begins, and simultaneously the robot moves towards the weld seam end point, with the laser sensor recording the position in real time during the movement;
-(5) The welding torch moves along the positions recorded by the laser sensor, achieving the tracking effect.
+(1) Il robot si sposta in un punto all'esterno del cordone;
+(2) Inizia la ricerca posizione laser e il robot, portando il sensore laser, si sposta verso la posizione del cordone;
+(3) Il sensore laser identifica il cordone, il robot porta la torcia al punto di riconoscimento del cordone;
+(4) Inizia il tracciamento laser, contemporaneamente il robot si sposta verso la fine del cordone, il sensore laser registra la posizione in tempo reale durante il movimento;
+(5) La torcia si muove lungo le posizioni registrate dal sensore laser, ottenendo l'effetto di tracciamento.
 
-Before debugging seam finding and tracking, please ensure the sensor is correctly installed, the "Welding Torch" tool coordinate system is correctly calibrated, and the laser sensor is also correctly calibrated. Assuming the green line in the figure is the weld seam to be welded, to make the robot automatically find the welding start point A and automatically weld to point B, the following instructions need to be written:
+Prima del debug di ricerca e tracciamento, assicurarsi che il sensore sia installato correttamente, che il sistema di coordinate strumento "Torcia" sia tarato correttamente e che il sensore laser sia stato tarato correttamente. Supponendo che la linea verde nella figura sia il cordone da saldare, per far sì che il robot trovi automaticamente il punto di inizio saldatura A e saldi automaticamente fino al punto B, è necessario scrivere le istruzioni come segue:
 
 .. figure:: robot_peripherals/158.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑22 Sensor Installation
+.. centered:: Grafico 8.8‑22 Installazione sensore
 
-Writing Seam Finding Instructions
-****************************************************************
+Scrittura Istruzioni Ricerca Posizione
+***************************************
 
-Create a new user program "laserTrack.lua", select "Welding Instructions". Click "Laser Tracking", and the laser tracking instruction addition page will pop up.
+Creare un nuovo programma utente "laserTrack.lua", selezionare "Istruzione Saldatura". Cliccare "Tracciamento Laser", apparirà la pagina di aggiunta istruzioni tracciamento laser.
 
 .. figure:: robot_peripherals/159.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑23 Laser Tracking Instruction
+.. centered:: Grafico 8.8‑23 Istruzione tracciamento laser
 
-Find the "Seam Finding Command", select the coordinate system name as "Laser Sensor", direction select "+x" indicating the robot carrying the laser sensor moves from the current position along the "+x" direction of the "Welding Torch" coordinate system while searching for the weld seam. "Speed" is the moving speed for the laser sensor seam finding, Length is the maximum seam finding length for the laser sensor. If the robot exceeds this length without finding the weld seam, it will report an error. Maximum Seam Finding Time is similar to the length; if this time is exceeded without finding the weld seam, the robot reports an error. Please input the above parameters correctly according to the actual scenario. Click the "Seam Finding Start" and "Seam Finding End" instructions sequentially, and click the "Apply" button.
+Trovare "Comando Ricerca", selezionare il nome del sistema di coordinate come "Sensore Laser", direzione selezionare "+x" per indicare che il robot, portando il sensore laser, si muoverà dalla posizione corrente lungo la direzione "+x" del sistema di coordinate "Torcia" mentre cerca il cordone. "Velocità" è la velocità di movimento della ricerca posizione del sensore laser, "Lunghezza" è la lunghezza massima di ricerca del sensore laser. Quando la distanza di ricerca del robot supera questa lunghezza senza trovare il cordone, il robot segnalerà un errore. "Tempo massimo ricerca" è simile alla lunghezza, superato questo tempo senza trovare il cordone, il robot segnalerà un errore. Inserire correttamente i parametri sopra menzionati in base alla scena reale. Cliccare in sequenza le istruzioni "Inizio Ricerca" e "Fine Ricerca", poi cliccare il pulsante "Applica".
 
 .. figure:: robot_peripherals/160.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑24 Adding Seam Finding Instructions
+.. centered:: Grafico 8.8‑24 Aggiunta istruzioni ricerca
 
-At this point, the corresponding laser seam finding start and end instructions will be added to "laserTrack.lua".
+A questo punto in "laserTrack.lua" verranno aggiunte le corrispondenti istruzioni di inizio e fine ricerca laser.
 
 .. figure:: robot_peripherals/161.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑25 Seam Finding Program
+.. centered:: Grafico 8.8‑25 Programma ricerca
 
-Writing Instruction to Move to Seam Finding Point
-***********************************************************************
+Scrittura Istruzione Movimento al Punto Ricerca
+************************************************
 
-Add a Linear (LIN) point-to-point motion instruction, with the target point being "seamPos", which is the laser sensor seam finding point.
+Aggiungere un'istruzione di movimento lineare LIN, punto target "seamPos", ovvero il punto di ricerca del sensore laser.
 
-.. note:: The "seamPos" point is an internal point in the robot system dedicated for laser sensor seam finding. There is no need to teach this point manually; after laser sensor seam finding, the seam finding point information is automatically stored in the "seamPos" point.
+.. note:: "seamPos" è il nome interno del sistema robot dedicato al punto di ricerca del sensore laser. Non è necessario insegnare questo punto. Dopo la ricerca del sensore laser, le informazioni del punto di ricerca verranno automaticamente memorizzate nel punto "seamPos".
 
-Offset can be set for the seam finding point. The offset type can be "Base Coordinate System Offset", "Tool Coordinate System Offset", or "Laser Raw Data Offset".
+È possibile impostare un offset per il punto di ricerca. Il tipo di offset può essere "Offset sistema di base", "Offset sistema coordinate strumento" o "Offset dati grezzi laser".
 
 .. figure:: robot_peripherals/162.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑26 Seam Finding Offset Options
+.. centered:: Grafico 8.8‑26 Opzioni offset ricerca
 
-When the seam finding offset function is enabled, offset parameters can be set. "dx" represents the offset distance along the x-direction of the selected coordinate system, "drx" represents the rotation angle around the x-axis of the selected coordinate system. Click the "Add" button, then click the "Apply" button.
+Quando si attiva la funzione di offset ricerca, è possibile impostare i parametri di offset. "dx" indica la distanza di offset lungo la direzione x del sistema di coordinate selezionato, "drx" indica l'angolo di rotazione attorno all'asse x del sistema di coordinate selezionato. Cliccare il pulsante "Aggiungi", poi il pulsante "Applica".
 
 .. figure:: robot_peripherals/163.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑27 Seam Finding Offset Parameter Settings
+.. centered:: Grafico 8.8‑27 Impostazione parametri offset ricerca
 
-At this point, the instruction to move to the seam finding point will be added to "testTrack.lua", as shown in Figure 32.
+A questo punto in "testTrack.lua" verrà aggiunta l'istruzione di movimento al punto di ricerca, come in Figura 32.
 
 .. figure:: robot_peripherals/164.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑28 Seam Finding Offset Program
+.. centered:: Grafico 8.8‑28 Programma offset ricerca
 
-Writing Laser Tracking Instructions
-****************************************************
+Scrittura Istruzioni Tracciamento Laser
+*****************************************
 
-Open the "Laser Tracking" instruction addition page again, click the "Start Tracking" and "Stop Tracking" buttons sequentially, and finally click the "Apply" button at the bottom of the page.
+Aprire nuovamente la pagina di aggiunta istruzioni "Tracciamento Laser", cliccare in sequenza i pulsanti "Inizia Tracciamento" e "Ferma Tracciamento", infine cliccare il pulsante "Applica" in fondo alla pagina.
 
 .. figure:: robot_peripherals/165.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑29 Laser Tracking Start and Stop
+.. centered:: Grafico 8.8‑29 Inizio e fine tracciamento laser
 
-The user program "testTrack.lua" at this stage:
+Il programma utente "testTrack.lua" a questo punto:
 
 .. figure:: robot_peripherals/166.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑30 Laser Tracking Program
+.. centered:: Grafico 8.8‑30 Programma tracciamento laser
 
-Writing Seam Finding Start Point and Tracking End Point Instructions
-************************************************************************************************
+Scrittura Istruzioni Punto Inizio Ricerca e Punto Fine Tracciamento
+********************************************************************
 
-Before starting laser seam finding, a seam finding start point needs to be specified. The robot first moves to the seam finding start point, then performs seam finding along a certain direction and speed. Teach the seam finding start point "seamStartPt" near where the laser sensor beam is close to the weld seam start point A. Pay attention to matching the seam finding start point with the seam finding direction to ensure the robot can find the weld seam position within the set distance and maximum seam finding time.
+Prima dell'inizio della ricerca laser, è necessario specificare un punto di inizio ricerca. Il robot si sposta prima al punto di inizio ricerca, poi procede con la ricerca lungo una certa direzione e velocità. Insegnare il punto di inizio ricerca "seamStartPt" vicino al punto di inizio A del cordone nella zona del raggio del sensore laser. Fare attenzione ad abbinare il punto di inizio ricerca e la direzione di ricerca, assicurandosi che il robot possa trovare la posizione del cordone entro la distanza e il tempo massimo di ricerca impostati.
 
 .. figure:: robot_peripherals/167.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑31 Seam Finding Start Point
+.. centered:: Grafico 8.8‑31 Punto inizio ricerca
 
-Teach the tracking end point "trackEndPt" at the end of the weld seam.
+Insegnare il punto di fine tracciamento "trackEndPt" alla fine del cordone.
 
 .. figure:: robot_peripherals/168.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑32 Seam Finding End Point
+.. centered:: Grafico 8.8‑32 Punto fine ricerca
 
-Add the above two points to the "testTrack.lua" user program. The final user program is as follows:
+Aggiungere i due punti sopra al programma utente "testTrack.lua". Il programma utente finale è il seguente:
 
 .. figure:: robot_peripherals/169.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑33 Seam Finding and Tracking Program
+.. centered:: Grafico 8.8‑33 Programma ricerca tracciamento
 
-Writing Welding Related Instructions
-***************************************************
+Scrittura Istruzioni Relative alla Saldatura
+********************************************
 
-Finally, add welding instructions between the welding seam finding point "seampos" and "trackEndPt". The final program is as follows:
+Infine, aggiungere le istruzioni di saldatura tra il punto di ricerca saldatura "seampos" e "trackEndPt". Il programma finale è il seguente:
 
 .. figure:: robot_peripherals/170.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑34 Seam Finding, Tracking, and Welding Program
+.. centered:: Grafico 8.8‑34 Programma saldatura ricerca tracciamento
 
-Execute the above program. The robot will carry the laser sensor to start the seam finding movement from the seam finding start point. After finding the weld seam, the robot immediately moves to the weld seam start point and executes the arc starting operation. After successful arc starting, the robot moves towards the weld seam end point and tracks the weld seam trajectory during the movement. The robot stops welding upon reaching the weld seam end point.
+Eseguendo il programma sopra, il robot porterà il sensore laser dal punto di inizio ricerca per iniziare il movimento di ricerca. Dopo aver trovato il cordone, il robot si sposterà immediatamente al punto di inizio del cordone ed eseguirà l'operazione di accensione arco. Dopo il successo dell'accensione arco, il robot si sposterà verso la fine del cordone e durante il movimento traccerà la traiettoria del cordone. Quando il robot raggiunge la fine del cordone, la saldatura si interrompe.
 
-Laser Trajectory Recording + Trajectory Replay
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione Traiettoria Laser + Riproduzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The workflow for laser trajectory recording + trajectory replay is:
+Il flusso di lavoro per la registrazione traiettoria laser + riproduzione traiettoria è:
 
-(1) The robot carries the laser sensor to move along a segment of the weld seam, and the laser sensor records the weld seam position trajectory data in real time during the movement;
-(2) After the trajectory recording is completed, the robot moves to the starting point of the recorded trajectory;
-(3) The robot performs trajectory replay motion along the trajectory recorded by the laser sensor.
+(1) Il robot, portando il sensore laser, si muove lungo un tratto di traiettoria del cordone. Il sensore laser registra in tempo reale i dati della posizione traiettoria del cordone durante il movimento;
+(2) Dopo il completamento della registrazione traiettoria, il robot si sposta al punto di inizio della traiettoria registrata;
+(3) Il robot esegue il movimento di riproduzione traiettoria lungo la traiettoria registrata dal sensore laser.
 
-Writing Robot Trajectory Recording Instructions
-****************************************************************
+Scrittura Istruzione Registrazione Traiettoria Robot
+*****************************************************
 
-Create a new user program "testRecord.lua", click "Laser Recording" to open the laser recording instruction addition page, find "Weld Seam Data Recording", select "Start Recording", click the "Add" button, select "Stop Recording", click the "Add" button again; finally click the "Apply" button.
+Creare un nuovo programma utente "testRecord.lua". Cliccare "Registrazione Laser" per aprire la pagina di aggiunta istruzioni registrazione laser. Trovare "Registrazione Dati Cordone", selezionare "Inizia Registrazione", cliccare il pulsante "Aggiungi", selezionare "Ferma Registrazione", cliccare nuovamente il pulsante "Aggiungi"; infine cliccare il pulsante "Applica".
 
 .. figure:: robot_peripherals/171.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑35 Laser Recording
+.. centered:: Grafico 8.8‑35 Registrazione laser
 
 .. figure:: robot_peripherals/172.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑36 Start Recording and Stop Recording
+.. centered:: Grafico 8.8‑36 Inizia e ferma registrazione
 
-At this point, the trajectory recording start and stop instructions appear on the page.
+A questo punto nella pagina compaiono le istruzioni di inizio e fine registrazione traiettoria.
 
 .. figure:: robot_peripherals/173.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑37 Trajectory Recording Program
+.. centered:: Grafico 8.8‑37 Programma registrazione traiettoria
 
-Assuming the green line segment AB in the figure is the weld seam, make the laser irradiate the weld seam start point A and the weld seam end point B respectively, and teach the trajectory recording start point "recordStartPt" and end point "recordEndPt".
+Supponendo che il segmento verde AB nella figura sia il cordone, far illuminare rispettivamente il laser sul punto di inizio A e sul punto intermedio B del cordone, e insegnare il punto di inizio registrazione traiettoria "recordStartPt" e il punto di fine "recordEndPt".
 
 .. figure:: robot_peripherals/174.png
    :align: center
@@ -4381,397 +4418,396 @@ Assuming the green line segment AB in the figure is the weld seam, make the lase
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑38 Trajectory Recording Start and End Points
+.. centered:: Grafico 8.8‑38 Punto inizio e fine registrazione traiettoria
 
-Add two Linear (LIN) motion instructions to "testRecord.lua", for moving to the trajectory recording start point "recordStartPt" and end point "recordEndPt" respectively. Adjust the instruction order so that the robot performs the following operations: first move to the "recordStartPt" point, start trajectory recording, robot moves to the "recordEndPt" point, stop trajectory recording.
+In "testRecord.lua" aggiungere due istruzioni di movimento lineare (LIN), rispettivamente movimento al punto di inizio registrazione traiettoria "recordStartPt" e al punto di fine "recordEndPt". Regolare la posizione delle istruzioni in modo che il robot esegua le seguenti operazioni: prima si sposta al punto "recordStartPt", inizia la registrazione traiettoria, il robot si sposta al punto "recordEndPt", ferma la registrazione traiettoria.
 
 .. figure:: robot_peripherals/176.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑39 Trajectory Recording Program
+.. centered:: Grafico 8.8‑39 Programma registrazione traiettoria
 
-Writing Instruction for Robot to Move to Trajectory Recording Start Point
-*********************************************************************************************
+Scrittura Istruzione Movimento Robot al Punto Inizio Registrazione Traiettoria
+******************************************************************************
 
-Click "Laser Recording" to open the laser recording instruction addition page, find the "Move to Weld Seam Point" section, select the motion mode as PTP, input a certain motion speed, click "Move to Start Point", then click the "Apply" button.
+Cliccare "Registrazione Laser" per aprire la pagina di aggiunta istruzioni registrazione laser. Trovare la barra "Movimento al Punto Cordone", selezionare modalità movimento PTP, inserire una velocità di movimento, cliccare "Movimento all'Inizio", cliccare il pulsante "Applica".
 
 .. figure:: robot_peripherals/177.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑40 Move to Trajectory Start Point
+.. centered:: Grafico 8.8‑40 Movimento al punto inizio traiettoria
 
-The "testRecord.lua" user program at this stage is as follows:
+Il programma utente "testRecord.lua" a questo punto è il seguente:
 
 .. figure:: robot_peripherals/178.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑41 Move to Trajectory Start Point Program
+.. centered:: Grafico 8.8‑41 Programma movimento al punto inizio traiettoria
 
-Writing Laser Sensor Trajectory Replay Instructions
-********************************************************************
+Scrittura Istruzione Riproduzione Traiettoria Sensore Laser
+************************************************************
 
-Click "Laser Recording" to open the laser recording instruction addition page, find "Weld Seam Data Recording", select "Trajectory Replay", click the "Add" button, click the "Laser Tracking Replay" button, and finally click the "Apply" button.
+Cliccare "Registrazione Laser" per aprire la pagina di aggiunta istruzioni registrazione laser. Trovare "Registrazione Dati Cordone", selezionare "Riproduzione Traiettoria", cliccare il pulsante "Aggiungi", cliccare il pulsante "Tracciamento Laser Riproduzione", infine cliccare il pulsante "Applica".
 
 .. figure:: robot_peripherals/179.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑42 Trajectory Replay
+.. centered:: Grafico 8.8‑42 Riproduzione traiettoria
 
-The program after addition is as follows:
+Il programma dopo l'aggiunta è il seguente:
 
 .. figure:: robot_peripherals/180.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑43 Trajectory Replay Program
+.. centered:: Grafico 8.8‑43 Programma riproduzione traiettoria
 
-Writing Welding Related Instructions
-************************************************************
+Scrittura Istruzioni Relative alla Saldatura
+********************************************
 
-Finally, add welding start and welding end instructions before the trajectory replay starts and after it ends:
+Infine, aggiungere le istruzioni di inizio e fine saldatura prima dell'inizio e dopo la fine della riproduzione traiettoria:
 
 .. figure:: robot_peripherals/181.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.8‑44 Trajectory Recording and Replay Welding Program
+.. centered:: Grafico 8.8‑44 Programma saldatura registrazione riproduzione traiettoria
 
-Execute the above program. The robot will first carry the laser sensor to move along the weld seam trajectory and record the entire trajectory. Then the robot moves to the start point of the recorded trajectory. The robot starts the arc and begins welding along the trajectory recorded by the laser sensor. When the robot completes the trajectory replay, the welding arc is extinguished, completing the welding.
+Eseguendo il programma sopra, il robot porterà prima il sensore laser lungo la traiettoria del cordone, registrando l'intera traiettoria. Poi il robot si sposterà al punto di inizio della traiettoria registrata, accenderà l'arco e inizierà a saldare lungo la traiettoria registrata dal sensore laser. Quando la riproduzione traiettoria del robot è completata, l'arco di saldatura si spegne, completando la saldatura.
 
-Laser Sensor Adaptation Controller Peripheral Open Protocol
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Adattamento del Sensore Laser al Protocollo Aperto Periferiche Controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: If you need to use "Open Protocol Connection" and "Control Laser Sensor", then in the sensor tracking configuration, select "Peripheral Open Protocol" for the "Protocol Type" option. If using the original scheme, select "Adapted Device", and configure and load the laser peripheral in the tracking sensor interface.
+**Step1**: Se si desidera utilizzare "Connessione Protocollo Aperto" e "Controllo Sensore Laser", nella configurazione del sensore di tracciamento, nell'opzione "Tipo Protocollo" selezionare "Protocollo Aperto Periferiche". Se si utilizza la soluzione originale, selezionare "Dispositivo Adattato" e configurare e caricare la periferica laser nell'interfaccia del sensore di tracciamento.
 
 .. figure:: robot_peripherals/182.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑45 "Open Protocol Connection" and "Control Laser Sensor" Configuration Interface
+.. centered:: Grafico 8.8‑45 Interfaccia configurazione "Connessione Protocollo Aperto" e "Controllo Sensore Laser"
 
-**Step2**: Click "Peripheral Open Protocol" to enter the interface. In the "Open Protocol Settings", upload the peripheral open protocol corresponding to the laser sensor. After successful upload, select the protocol number and the uploaded file name, click Configure. Then, in the Device Operation and Status section, run the uploaded laser sensor protocol to establish a connection with the corresponding laser sensor.
+**Step2**: Cliccare "Protocollo Aperto Periferiche" per accedere all'interfaccia. In "Impostazioni Protocollo Aperto", caricare il protocollo aperto periferiche corrispondente al sensore laser. Dopo il caricamento con successo, selezionare il numero del protocollo e il nome del file caricato, cliccare configura. Nel controllo periferica e stato, eseguire il sensore laser caricato per stabilire la connessione con il corrispondente sensore laser.
 
 .. figure:: robot_peripherals/183.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.8‑46 Laser Sensor Connection Establishment
+.. centered:: Grafico 8.8‑46 Stabilimento connessione sensore laser
 
-Polishing
+Smerigliatura
 ---------------
 
-In the "Initial" -> "Peripherals" -> "Polishing" interface, polishing can currently be used via adapted devices or the peripheral open protocol.
+Nell'interfaccia "Impostazioni Iniziali" -> "Periferiche" -> "Smerigliatura", è attualmente possibile utilizzare la smerigliatura tramite dispositivi adattati o protocollo aperto periferiche.
 
 .. figure:: robot_peripherals/184.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.9-1 Polishing Status Configuration Page
+.. centered:: Grafico 8.9-1 Pagina configurazione stato smerigliatura
 
-Adapted Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dispositivo Adattato
+~~~~~~~~~~~~~~~~~~~~~
 
-**Communication Configuration and Loading**: Configure communication information, including IP address, port, sampling period, and communication protocol. Establish communication with the polishing device using the Load/Unload buttons.
+**Configurazione Comunicazione e Caricamento**: Configurare le informazioni di comunicazione, è necessario configurare indirizzo IP, porta, periodo di campionamento e protocollo di comunicazione. Stabilire la comunicazione con il dispositivo di smerigliatura tramite i pulsanti carica/scarica.
 
 .. figure:: robot_peripherals/185.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.9-2 Communication Configuration and Loading
+.. centered:: Grafico 8.9-2 Configurazione comunicazione e caricamento
 
-**Device Functions**: Operations such as device enabling, error clearing, and force sensor zeroing can be performed.
+**Funzione Dispositivo**: È possibile eseguire operazioni come abilitazione dispositivo, cancellazione errori e azzeramento sensore di forza.
 
 .. figure:: robot_peripherals/186.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.9-3 Device Functions
+.. centered:: Grafico 8.9-3 Funzione dispositivo
 
-**Parameter Configuration**: Parameters such as the polishing device's rotation speed, contact force, extension distance, and control mode can be set. After successful setting, the corresponding data and status are displayed in the right "Polish" status feedback column.
+**Configurazione Parametri**: È possibile impostare velocità di rotazione, forza di contatto, distanza di estensione e modalità di controllo del dispositivo di smerigliatura. Dopo l'impostazione riuscita, i dati e lo stato corrispondenti vengono visualizzati nella barra di feedback stato "Polish" a destra.
 
 .. figure:: robot_peripherals/187.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.9-4 Parameter Configuration
+.. centered:: Grafico 8.9-4 Configurazione parametri
 
 .. figure:: robot_peripherals/188.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.9-5 Parameter Configuration
+.. centered:: Grafico 8.9-5 Configurazione parametri
 
-Peripheral Open Protocol
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protocollo Aperto Periferiche
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Peripheral Open Protocol" to enter the interface. In the "Open Protocol Settings", upload the peripheral open protocol corresponding to the polishing device. After successful upload, select the protocol number and the uploaded file name, click Configure. Then, in the Device Operation and Status section, run the uploaded polishing peripheral open protocol to establish a connection with the corresponding polishing device.
+Cliccare "Protocollo Aperto Periferiche" per accedere all'interfaccia. In "Impostazioni Protocollo Aperto", caricare il protocollo aperto periferiche corrispondente alla smerigliatura. Dopo il caricamento con successo, selezionare il numero del protocollo e il nome del file caricato, cliccare configura. Nel controllo periferica e stato, eseguire il protocollo aperto periferiche di smerigliatura caricato per stabilire la connessione con il corrispondente dispositivo di smerigliatura.
 
 .. figure:: robot_peripherals/189.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.9‑6 Polishing Device Connection establishment
+.. centered:: Grafico 8.9‑6 Stabilimento connessione sensore laser
 
-Auxiliary Sensors
+Sensore Ausiliario
 -------------------
 
-In the "Initial" -> "Peripherals" -> "Auxiliary Sensors" interface, it is currently available for use with adapted devices. The custom protocol function is not yet open.
+Nell'interfaccia "Impostazioni Iniziali" -> "Periferiche" -> "Sensore Ausiliario", è attualmente possibile utilizzare tramite dispositivo adattato. La funzione protocollo personalizzato non è ancora disponibile.
 
 .. figure:: robot_peripherals/190.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.10‑1 Auxiliary Sensors--Adapted Devices
+.. centered:: Grafico 8.10‑1 Sensore ausiliario -- Dispositivo adattato
 
-Adapted Devices
-~~~~~~~~~~~~~~~~~~~
+Dispositivo Adattato
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Adapted Devices" to enter the auxiliary sensor configuration interface.
+Cliccare "Dispositivo Adattato" per accedere all'interfaccia di configurazione del sensore ausiliario.
 
-The configuration information for auxiliary sensors includes manufacturer, type, software version, and mounting location. Users can configure the corresponding auxiliary sensor information according to specific production requirements.
+Le informazioni di configurazione del sensore ausiliario sono divise in produttore, tipo, versione software e posizione di montaggio. L'utente può configurare le informazioni del sensore ausiliario corrispondente in base alle specifiche esigenze produttive.
 
-If users need to change the configuration, they can first select the corresponding auxiliary sensor number, click the "Clear" button to clear the corresponding configuration, and then reconfigure according to requirements.
+Se l'utente ha bisogno di modificare la configurazione, può prima selezionare il numero corrispondente del sensore ausiliario, cliccare il pulsante "Cancella" per cancellare le informazioni corrispondenti, e riconfigurare in base alle esigenze;
 
 .. figure:: robot_peripherals/191.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.10‑2 Auxiliary Sensors--Adapted Devices
+.. centered:: Grafico 8.10‑2 Sensore ausiliario -- Dispositivo adattato
 
-Combined Devices (SmartTool + Force Sensor Combination)
----------------------------------------------------------------------------------
+Dispositivo Combinato (Combinazione SmartTool + Sensore di Forza)
+--------------------------------------------------------------------
 
-In the "Initial" -> "Peripherals" -> "Combined Devices" interface, it is currently available for use with adapted devices. The custom protocol is not yet open.
+Nell'interfaccia "Impostazioni Iniziali" -> "Periferiche" -> "Dispositivo Combinato", è attualmente possibile utilizzare tramite dispositivo adattato. Il protocollo personalizzato non è ancora disponibile.
 
 .. figure:: robot_peripherals/192.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.11-1 Combined Devices
+.. centered:: Grafico 8.11-1 Dispositivo combinato
 
-Adapted Devices
-~~~~~~~~~~~~~~~~~~~
+Dispositivo Adattato
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Adapted Devices" to enter the configuration interface.
+Cliccare "Dispositivo Adattato" per accedere all'interfaccia di configurazione.
 
-The configuration information is divided into manufacturer, type, software version, and mounting location. Different manufacturers correspond to different types. The current manufacturer is FR.
+Le informazioni di configurazione sono divise in produttore, tipo, versione software e posizione di montaggio. Produttori diversi corrispondono a tipi diversi. Il produttore attuale è FR.
 
-Users can configure the corresponding device information according to specific production requirements. After successful configuration, the device information table is displayed. If users need to change the configuration, they can first select the corresponding number, click the "Clear" button to clear the corresponding information, and then reconfigure the device information according to requirements.
+L'utente può configurare le informazioni del dispositivo corrispondente in base alle specifiche esigenze produttive. Dopo il successo della configurazione, viene visualizzata una tabella delle informazioni del dispositivo. Se l'utente ha bisogno di modificare la configurazione, può prima selezionare il numero corrispondente, cliccare il pulsante "Cancella" per cancellare le informazioni corrispondenti, e riconfigurare le informazioni del dispositivo in base alle esigenze.
 
 .. important::
-  Before clicking to clear the configuration, the corresponding device should be in an inactive state.
+  Prima di cliccare per cancellare la configurazione, il dispositivo corrispondente deve essere in stato non attivato.
 
 .. image:: robot_peripherals/193.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.11‑2 Adapted Devices
+.. centered:: Grafico 8.11‑2 Dispositivo adattato
 
 FR
 ++++++++++
 
-The type corresponding to FR is "SmartTool" used in combination with a force sensor. The collaborative robot can be adapted to three types of force sensors: XJC, NSR, and GZCX. When using different sensors, only the corresponding communication protocol needs to be loaded, as follows:
+Il tipo corrispondente a FR è "SmartTool" utilizzato in combinazione con il sensore di forza. Il robot collaborativo può adattarsi a tre tipi di sensori di forza: Xinjingcheng, NSR e Gangzhichuangxin. Quando si utilizzano sensori diversi, è sufficiente caricare il corrispondente protocollo di comunicazione. Nello specifico:
 
-- SmartTool + XJC-6F-D82 (XJC).
+- SmartTool + XJC-6F-D82 (Xinjingcheng).
 - SmartTool + NSR-FT Sensor A (NSR).
-- SmartTool + GZCX-6F-75A (GZCX).
+- SmartTool + GZCX-6F-75A (Gangzhichuangxin).
 
-1. Hardware Installation
+1. Installazione hardware
 
-1) Disassemble the SmartTool handle, take out the middle fixture, and install it on the robot end. After the fixture is installed, reassemble the SmartTool handle. After successful reassembly, connect the cable to the robot end.
+1) Smontare la maniglia SmartTool, estrarre il dispositivo intermedio, installarlo sull'estremità del robot. Dopo l'installazione del dispositivo, rimontare la maniglia SmartTool. Dopo il montaggio, collegare il cavo di connessione all'estremità del robot.
 
 .. image:: robot_peripherals/194.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 8.11‑3 Installing the Middle Fixture of the SmartTool Handle
+.. centered:: Grafico 8.11‑3 Installazione dispositivo intermedio maniglia SmartTool
 
 .. image:: robot_peripherals/195.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 8.11‑4 SmartTool Handle Installed Successfully
+.. centered:: Grafico 8.11‑4 Maniglia SmartTool installata con successo
 
-2) After the SmartTool handle is installed, mount the force sensor (using GZCX as an example) to the end of the SmartTool handle, and connect the cable to the SmartTool handle.
+2) Dopo l'installazione della maniglia SmartTool, installare il sensore di forza (prendendo come esempio Gangzhichuangxin) all'estremità della maniglia SmartTool, e collegare il cavo di connessione alla maniglia SmartTool.
 
 .. image:: robot_peripherals/196.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 8.11‑5 GZCX Force Sensor Installed at the End of the SmartTool Handle
+.. centered:: Grafico 8.11‑5 Sensore di forza Gangzhichuangxin installato all'estremità della maniglia SmartTool
 
-2. Device Configuration
+2. Configurazione dispositivo
 
-.. important:: Please ensure that your SmartTool handle is securely installed on the robot end and correctly connected to the robot end, and that the force sensor is securely installed on the end of the SmartTool handle and correctly connected to the SmartTool handle.
+.. important:: Assicurarsi che la maniglia SmartTool sia fissata saldamente all'estremità del robot e collegata correttamente all'estremità del robot, e che il sensore di forza sia fissato saldamente all'estremità della maniglia SmartTool e collegato correttamente alla maniglia SmartTool.
 
-1) Configure the SmartTool handle (refer to Welding Handle Key Function Configuration).
+1) Configurare la maniglia SmartTool (fare riferimento alla configurazione delle funzioni dei pulsanti della maniglia di saldatura).
 
-2) After configuring the SmartTool handle key functions, set the manufacturer to "FR", select the "Type", "Software Version", and "Mounting Location" information, and click the "Configure" button.
+2) Dopo il completamento della configurazione delle funzioni dei pulsanti della maniglia SmartTool, configurare il produttore come "FR", selezionare le informazioni "Tipo", "Versione software" e "Posizione di montaggio", cliccare il pulsante "Configura";
 
 .. image:: robot_peripherals/197.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.11‑6 FR Device Information Configuration Interface
+.. centered:: Grafico 8.11‑6 Interfaccia configurazione informazioni dispositivo FR
 
-3) After successfully configuring the device information, select the configured force sensor, click the "Activate" button to activate the force sensor. After successful activation, click the "Zero Calibration" button to zero the force sensor, and view the table data.
+3) Dopo il successo della configurazione delle informazioni del dispositivo, selezionare il sensore di forza configurato, cliccare il pulsante "Attiva" per attivare il sensore di forza. Dopo l'attivazione con successo, cliccare il pulsante "Correzione zero" per azzerare il sensore di forza, visualizzare i dati della tabella;
 
 .. image:: robot_peripherals/198.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.11‑7 Force Sensor Zero Calibration
+.. centered:: Grafico 8.11‑7 Azzeramento sensore di forza
 
-4) According to the current end installation, configure the load data in the "Load" interface, and configure the tool coordinate data, tool type, and installation position in the "Tool Coordinate" interface.
+4) In base all'installazione corrente dell'estremità, configurare i dati del carico nell'interfaccia "Carico", e configurare i dati del sistema di coordinate strumento, tipo strumento e posizione di installazione nell'interfaccia "Coordinate Strumento".
 
 .. image:: robot_peripherals/199.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.11‑8 "End Load" Configuration
+.. centered:: Grafico 8.11‑8 Configurazione "Carico estremità"
 
 .. image:: robot_peripherals/200.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 8.11‑9 "Tool Coordinate" Configuration
+.. centered:: Grafico 8.11‑9 Configurazione "Coordinate Strumento"
 
-3. Application
+3. Applicazione
 
-After the device information is successfully configured, it can independently implement the SmartTool button functions and force sensor functions, such as measuring the magnitude and direction of force, and auxiliary drag locking based on the force sensor.
+Dopo il successo della configurazione delle informazioni del dispositivo, è possibile realizzare indipendentemente le funzioni dei pulsanti SmartTool e le funzioni del sensore di forza, ad esempio: misurare l'entità della forza e la direzione della forza, e il blocco dell'assistenza al trascinamento basato sul sensore di forza.
 
 .. image:: robot_peripherals/201.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 8.11‑10 Measuring Force Magnitude and Direction
+.. centered:: Grafico 8.11‑10 Misurazione entità forza e direzione forza
 
-Array Suction Cups
-----------------------------------
+Ventosa a Matrice
+-----------------
 
-Overview
+Panoramica
 ~~~~~~~~~~~~~~~~~~~~~~
+L'installazione di una ventosa a matrice sull'estremità del robot può aiutare il robot a distribuire rapidamente stazioni di presa materiali per diversi scenari, permettendo di personalizzare il numero e la disposizione delle ventose per materiali di diverse dimensioni e forme, migliorando l'efficienza e la stabilità del lavoro.
 
-Installing array suction cups on the robot end can help quickly deploy material grasping workstations for different scenarios. The number and layout of suction cups can be customized for materials of different sizes and shapes, improving work efficiency and stability.
+Il robot collaborativo supporta una matrice di ventose composta da un massimo di 20 ventose. È possibile controllare individualmente la presa e il rilascio di una specifica ventosa nella matrice, o controllare l'azione sincrona di tutte le ventose nella matrice attualmente collegata. Ogni ventosa supporta la configurazione del numero slave da 1 a 20, basata sul software DynamicLAB.
 
-The collaborative robot supports an array of up to 20 suction cups. Individual suction cups can be controlled for grasping and releasing, or the entire connected array can be controlled to act synchronously. Each suction cup supports configuration of station numbers from 1 to 20, configured based on DynamicLAB software.
-
-Hardware Description
+Descrizione Hardware
 +++++++++++++++++++++++++++++++++++++++++++
 
-The collaborative robot communicates with and controls the suction cup array via an Ethernet to 485 module. The WebApp generates the communication protocol for the array suction cups. The protocol sends control data to the Ethernet to 485 module via TCP/IP. The module then sends the received control data to each suction cup via 485, thus achieving control of the array suction cups (the control data format is ModbusRTU protocol format).
+Il robot collaborativo comunica e controlla la matrice di ventose tramite un modulo Ethernet a 485. Sulla WebApp viene generato un protocollo di comunicazione per la ventosa a matrice. Il protocollo invia i dati di controllo via TCP/IP al modulo Ethernet a 485, che a sua volta invia i dati di controllo ricevuti via 485 a ciascuna ventosa, realizzando così il controllo della ventosa a matrice (il formato dei dati di controllo sopra menzionato è il formato del protocollo ModbusRTU).
 
-The Ethernet to 485 module acts as the server for Ethernet communication and the master for 485 communication. Each suction cup in the array is a 485 communication slave station, and each suction cup should be configured with a different slave station number.
+Tra questi, il modulo Ethernet a 485 è il server per la comunicazione Ethernet e il master per la comunicazione 485. Ogni ventosa nella matrice è uno slave per la comunicazione 485, e ogni ventosa dovrebbe essere configurata con un numero slave diverso.
 
 .. figure:: robot_peripherals/202.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.12-1 Collaborative Robot Suction Cup Array Gripper Application
+.. centered:: Grafico 8.12-1 Applicazione pinza a matrice ventosa robot collaborativo
 
-The Ethernet to 485 module usually has two TCP Server ports corresponding to multiple 485 slave ports. Taking CH9121 as an example, its TCP Server port 1 corresponds to 485 slave ports 1-10, and TCP Server port 2 corresponds to 485 slave ports 11-20. The robot establishes two TCP communications with the Ethernet to 485 module, ultimately controlling 20 suction cups respectively.
+Il modulo Ethernet a 485 ha solitamente due porte TCPServer corrispondenti a più porte slave 485. Prendendo come esempio CH9121, la sua porta TCPServer 1 corrisponde alle porte slave 485 1-10, la porta TCPServer 2 corrisponde alle porte slave 485 11-20. Il robot stabilisce due comunicazioni TCP con il modulo Ethernet a 485, controllando infine rispettivamente 20 ventose.
 
-The aforementioned Ethernet to 485 module needs to be configured as follows:
+Il suddetto modulo Ethernet a 485 deve essere configurato come segue:
 
-- ① Ethernet end configured as TCP Server, IP address: 192.168.58.10, Port 1 number: 50001, Port 2 number: 50002;
-- ② 485 end configured with baud rate 115200, data bits 8, stop bits 1, no parity. The Ethernet to 485 module usually comes with a debugging software where the above configuration can be performed. The following figure shows the configuration tool page for the CH9121 model Ethernet to 485 module:
+- ① Lato Ethernet configurato come TCPServer, indirizzo IP: 192.168.58.10, numero porta per la porta 1: 50001, numero porta per la porta 2: 50002;
+- ② Lato 485 configurato con baud rate 115200, bit dati 8, bit stop 1, nessuna parità. Il modulo Ethernet a 485 è solitamente dotato di un software di debug, è possibile effettuare la configurazione sopra nel software di debug. La figura seguente è la pagina dello strumento di configurazione per il modulo Ethernet a 485 modello CH9121:
 
-.. .. figure:: robot_peripherals/203.png
-..    :align: center
-..    :width: 6in
+.. figure:: robot_peripherals/203.png
+   :align: center
+   :width: 6in
 
-.. .. centered:: Figure 8.12-2 Ethernet to 485 Module Debugging Tool
+.. centered:: Grafico 8.12-2 Strumento di debug modulo Ethernet a 485
 
-Function Configuration
+Configurazione Funzione
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open the WebApp, click sequentially "Initial" -> "Peripherals" -> "Array Suction Cups"; The control modes for array suction cups are Unicast Mode and Broadcast Mode:
+Aprire WebApp, cliccare in sequenza "Impostazioni Iniziali" -> "Periferiche" -> "Ventosa a Matrice"; le modalità di controllo della ventosa a matrice sono due: modalità unicast e modalità broadcast:
 
-**Unicast Mode**: The communication protocol includes control content for each suction cup, allowing independent control of each suction cup in the array.
+**Modalità Unicast**: Il protocollo di comunicazione include il contenuto di controllo della comunicazione per ciascuna ventosa, permettendo il controllo indipendente di ogni ventosa nella matrice.
 
-**Broadcast Mode**: Generates a communication protocol for all suction cups in the array, allowing synchronous control of grasping and releasing for all suction cups in the array, but cannot control a single suction cup individually.
+**Modalità Broadcast**: Genera un protocollo di comunicazione per tutte le ventose nella matrice, permettendo di controllare sincronamente la presa e il rilascio di tutte le ventose nella matrice, ma non di controllare singolarmente una specifica ventosa.
 
-Depending on the actual scenario, you can configure only Unicast Mode, or configure both modes simultaneously (allowing both individual control of specific suction cups and synchronous control of all suction cups).
+In base allo scenario reale di lavoro, è possibile configurare solo la modalità unicast, o configurare entrambe le modalità contemporaneamente (potendo così controllare singolarmente una ventosa e controllare sincronamente tutte le ventose).
 
 .. figure:: robot_peripherals/204.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-3 Array Suction Cup Control Mode
+.. centered:: Grafico 8.12-3 Modalità controllo ventosa a matrice
 
-Unicast Mode Configuration
+Configurazione Modalità Unicast
 ++++++++++++++++++++++++++++++++++
 
-Open the WebApp, click sequentially "Initial" -> "Peripherals" -> "Array Suction Cups" -> "Unicast Mode". There are two methods for configuring the Unicast Mode protocol: "Auto Configuration" and "Manual Configuration":
+Aprire WebApp, cliccare in sequenza "Impostazioni Iniziali" -> "Periferiche" -> "Ventosa a Matrice" -> "Modalità Unicast". I metodi di configurazione del protocollo in modalità unicast sono due: "Configurazione Automatica" e "Configurazione Manuale":
 
 .. figure:: robot_peripherals/205.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-4 Unicast Configuration Mode
+.. centered:: Grafico 8.12-4 Modalità configurazione unicast
 
-**Auto Configuration**: Upload an existing protocol file directly to the robot controller. The existing protocol file may come from: ① Downloaded from another robot that has already configured and debugged the array suction cups; ② Written by technical personnel according to the actual scenario (users writing protocol files can achieve more flexible and efficient suction cup control). If multiple devices use the same array suction cups, using Auto Configuration to directly upload the protocol can improve deployment speed.
+**Configurazione Automatica**: Caricare direttamente nel controller del robot un file di protocollo esistente. Il file di protocollo esistente può provenire da: ① Download da un robot che ha già configurato e collaudato una ventosa a matrice; ② Scritto dal personale tecnico in base allo scenario reale (l'utente può scrivere un file di protocollo per un controllo più flessibile ed efficiente delle ventose). Se più dispositivi utilizzano la stessa ventosa a matrice, il caricamento diretto del protocollo tramite configurazione automatica può accelerare la distribuzione.
 
-**Manual Configuration**: Configure the communication protocol for each suction cup according to the slave ID and vacuum level of the suction cups in the array. The manual configuration steps are as follows:
+**Configurazione Manuale**: Configurare il protocollo di comunicazione per ciascuna ventosa in base al numero slave ID e al vuoto nella matrice. I passi operativi per la configurazione manuale sono:
 
-Select slave station number 1, input the maximum vacuum, minimum vacuum, grasp timeout time (timeout is not yet open), and click the "Configure" button. At this time, a suction cup protocol with protocol number 1 appears in the "Device Operation and Status" column, and the "Manual Configuration" and "Slave Station Number" labels will display all currently configured slave station numbers.
+Selezionare il numero slave 1, inserire il vuoto massimo, il vuoto minimo, il tempo di timeout di presa (il tempo di timeout non è ancora disponibile), cliccare il pulsante "Configura". A questo punto, nella barra "Controllo Dispositivo e Stato" appare il protocollo ventosa con numero protocollo 1. Contemporaneamente, sull'etichetta "Configurazione Manuale" e "Numero Slave" vengono visualizzati tutti i numeri slave attualmente configurati.
 
 .. figure:: robot_peripherals/206.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-5 Configuring Unicast Suction Cup
+.. centered:: Grafico 8.12-5 Configurazione ventosa unicast
 
-Repeat the above steps to configure suction cups for multiple slave station numbers as needed. Each time a suction cup is configured, the robot system automatically updates the suction cup communication protocol content corresponding to "Protocol Number: 1", supporting up to 20 suction cups. After all suction cups are configured, click the "Connect" button in the "Protocol Number 1" box. The communication between the robot and the suction cups starts running, and the "Run Status" indicator lights up (Note: Please complete the configuration of all slave station number suction cups first, then click the "Connect" button. Configuring suction cup slaves after communication is established is invalid).
+Ripetere i passi sopra. È possibile configurare ventose con più numeri slave secondo necessità. Ogni configurazione di una ventosa, il sistema robot aggiorna automaticamente il contenuto del protocollo di comunicazione della ventosa corrispondente al "Numero Protocollo: 1", supportando un massimo di 20 ventose. Dopo il completamento della configurazione di tutte le ventose, nella casella "Numero Protocollo 1" cliccare il pulsante "Connetti", la comunicazione tra robot e ventose inizia a funzionare, la spia "Stato Esecuzione" si accende (nota: configurare prima tutte le ventose con numero slave, poi cliccare il pulsante "Connetti"; dopo l'avvio della comunicazione, la configurazione di ventose slave aggiuntive non ha effetto).
 
-After the communication between the robot and the suction cups is successfully established, a list of operation boxes for all configured suction cup slave stations appears in the "Device Operation and Status" column; In the operation box page corresponding to each slave station number suction cup, suction cup control and status monitoring can be performed (including "Suction Status", "Current Vacuum", "Suction Cup Pressure", etc.). The suction cup slave station IDs configured in the figure below are 2 and 11 respectively.
+Dopo il successo della comunicazione tra robot e ventose, nella barra "Controllo Dispositivo e Stato" appare un elenco di caselle operative per tutte le ventose slave configurate; nella pagina della casella operativa corrispondente a ciascun numero slave è possibile controllare la ventosa e monitorarne lo stato (inclusi "Stato Presa", "Vuoto Corrente", "Pressione Ventosa", ecc.). Nella figura seguente, i numeri slave delle ventose configurate sono rispettivamente 2 e 11.
 
 .. figure:: robot_peripherals/207.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-6 Unicast Suction Cup Connection
+.. centered:: Grafico 8.12-6 Connessione ventosa unicast
 
-Click the "Suction" button in the upper right corner of the control box for slave station number 1 suction cup, and the suction cup will execute the "Set Vacuum Suction" action. At this time, the "Suction" button becomes the "Release" button. Click this button again, and the suction cup will execute the release action. When the suction cup performs the above actions, the corresponding status items such as "Suction Status" and "Current Vacuum" will display the suction cup's status in real time.
+Nell'angolo in alto a destra della casella di controllo della ventosa con numero slave 1, cliccare il pulsante "Aspira", la ventosa esegue l'azione "Aspirazione con vuoto impostato". A questo punto il pulsante "Aspira" diventa "Rilascia". Cliccando nuovamente il pulsante, la ventosa esegue l'azione di rilascio. Quando la ventosa esegue le azioni sopra, le voci di stato corrispondenti come "Stato Presa", "Vuoto Corrente" visualizzeranno in tempo reale lo stato della ventosa.
 
-.. note:: Note: After configuring the suction cup protocol and completing the connection, you need to click the "Suction" button once to activate the suction cup. This can also test whether the communication between the robot and the suction cup is normal.
+.. note:: Nota: Dopo aver configurato il protocollo della ventosa e completato la connessione, è necessario cliccare una volta il pulsante "Aspira" per attivare la ventosa, testando contemporaneamente se la comunicazione tra robot e ventosa è normale.
 
-If the connection between the robot and the suction cup fails, the suction cup control box will not be displayed, and the run status indicator in "Protocol Number: 1" will be off.
+Se la connessione tra robot e ventosa fallisce, la casella di controllo della ventosa non viene visualizzata e la spia dello stato di esecuzione in "Numero Protocollo: 1" si spegne.
 
-.. note:: Note: If the physical communication connection between the suction cup and the Ethernet to 485 module is disconnected and then reconnected during use, it may cause the protocol to fail to establish a connection. In this case, you can unplug and replug the network cable of the Ethernet to 485 module and try to connect again.
+.. note:: Nota: Se durante l'uso la connessione fisica di comunicazione tra la ventosa e il modulo Ethernet a 485 si interrompe e poi si ricollega, potrebbe verificarsi una situazione in cui il protocollo non può stabilire la connessione. In questo caso, è possibile scollegare e ricollegare il cavo di rete del modulo Ethernet a 485, quindi riprovare a connettere.
 
 .. figure:: robot_peripherals/208.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-7 Robot and Suction Cup Connection Failed
+.. centered:: Grafico 8.12-7 Connessione fallita tra robot e ventosa
 
-Unicast Mode Protocol Download
+Download Protocollo Modalità Unicast
 ++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Download" button in "Manual Configuration" to download the suction cup protocol to the local computer. The suction cup protocol is a cyclically executed LUA program. The program executes the following steps in each cycle:
+Nella "Configurazione Manuale", cliccare il pulsante "Download" per scaricare il protocollo ventosa sul computer locale. Il protocollo ventosa è un programma LUA che viene eseguito ciclicamente. Il programma esegue i seguenti passi in ogni ciclo:
 
-- ① Read suction cup control data from the robot;
-- ② Write control data to the suction cup via socket;
-- ③ Read status data from the suction cup via socket;
-- ④ Feedback suction cup status data to the robot;
+- ① Legge i dati di controllo della ventosa dal robot;
+- ② Scrive i dati di controllo nella ventosa tramite socket;
+- ③ Legge i dati di stato dalla ventosa tramite socket;
+- ④ Restituisce i dati di stato della ventosa al robot;
 
-The suction cup communication protocol cyclically executes to achieve communication control between the robot and the suction cups. In the communication protocol, users can customize the cycle period, control data register address, and status data register address, and can modify the protocol content according to the actual situation. The following is a suction cup communication protocol code example:
+Il protocollo di comunicazione della ventosa viene eseguito ciclicamente per realizzare il controllo di comunicazione tra robot e ventosa. Nel protocollo di comunicazione, l'utente può personalizzare il periodo del ciclo, l'indirizzo del registro dei dati di controllo e l'indirizzo del registro dei dati di stato, e modificare il contenuto del protocollo in base alla situazione reale. Di seguito un esempio di codice per un protocollo di comunicazione della ventosa:
 
-Suction Cup Protocol Program Example:
+Esempio di programma protocollo ventosa:
 
 .. code-block:: console
     :linenos:
 
-    local id = 1
-    local ctrlValues = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    local id = 1 
+    local ctrlValues = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} 
     local realTimeState = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     local suckerConfig = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    clearSuckerState()
+    clearSuckerState() 
     socket1 = TCPClientConnect('192.168.58.10', 50001, 500, 10, 2, 3)
     socket2 = TCPClientConnect('192.168.58.10', 50002, 500, 10, 2, 3)
     suckerConfig[1] = 30
@@ -4779,388 +4815,388 @@ Suction Cup Protocol Program Example:
     suckerConfig[3] = 100
     ModbusRTUOverTCPWriteMultiReg(socket1, 0, 0x0501, 3, suckerConfig)
     ModbusRTUOverTCPWriteMultiReg(socket2, 0, 0x0501, 3, suckerConfig)
-    sleep_ms(10)
+    sleep_ms(10) 
     while(1) do
       setAllCtrl,ctrlValues[1],ctrlValues[2],ctrlValues[3],ctrlValues[4],ctrlValues[5],ctrlValues[6],ctrlValues[7],ctrlValues[8],ctrlValues[9], ctrlValues[10], ctrlValues[11], ctrlValues[12],ctrlValues[13],ctrlValues[14],ctrlValues[15],ctrlValues[16],ctrlValues[17],ctrlValues[18],ctrlValues[19], ctrlValues[20] = getSuckerCtrlState()
-      if(setAllCtrl ~= 0) then
-        ModbusRTUOverTCPWriteSingleReg(socket1, 0, 0x0500, setAllCtrl)
-        ModbusRTUOverTCPWriteSingleReg(socket2, 0, 0x0500, setAllCtrl)
-        ctrlValues = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-        sleep_ms(1)
-      else
-        ModbusRTUOverTCPWriteSingleReg(socket1, 2, 0x0500, ctrlValues[2])
+      if(setAllCtrl ~= 0) then 
+        ModbusRTUOverTCPWriteSingleReg(socket1, 0, 0x0500, setAllCtrl) 
+        ModbusRTUOverTCPWriteSingleReg(socket2, 0, 0x0500, setAllCtrl) 
+        ctrlValues = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} 
+        sleep_ms(1) 
+      else 
+        ModbusRTUOverTCPWriteSingleReg(socket1, 2, 0x0500, ctrlValues[2]) 
         ModbusRTUOverTCPWriteSingleReg(socket2, 11, 0x0500, ctrlValues[11])
-      end
-      suckerState, pressValue, error, default1, default2 = ModbusRTUOverTCPReadReg(socket1, 2, 0x0600, 3)
+      end 
+      suckerState, pressValue, error, default1, default2 = ModbusRTUOverTCPReadReg(socket1, 2, 0x0600, 3) 
       realTimeState[1] = suckerState
-      realTimeState[2] = pressValue
-      realTimeState[3] = error
-      ctrlState, maxPress, minPress, time, default2 = ModbusRTUOverTCPReadReg(socket1, 2, 0x0500, 4)
-      realTimeState[4] = ctrlState
-      realTimeState[5] = maxPress
-      realTimeState[6] = minPress
-      realTimeState[7] = time
-      setSuckerRealtimeState(2, realTimeState)
-      suckerState, pressValue, error, default1, default2 = ModbusRTUOverTCPReadReg(socket2, 11, 0x0600, 3)
+      realTimeState[2] = pressValue 
+      realTimeState[3] = error 
+      ctrlState, maxPress, minPress, time, default2 = ModbusRTUOverTCPReadReg(socket1, 2, 0x0500, 4) 
+      realTimeState[4] = ctrlState 
+      realTimeState[5] = maxPress 
+      realTimeState[6] = minPress 
+      realTimeState[7] = time 
+      setSuckerRealtimeState(2, realTimeState) 
+      suckerState, pressValue, error, default1, default2 = ModbusRTUOverTCPReadReg(socket2, 11, 0x0600, 3) 
       realTimeState[1] = suckerState
-      realTimeState[2] = pressValue
-      realTimeState[3] = error
-      ctrlState, maxPress, minPress, time, default2 = ModbusRTUOverTCPReadReg(socket2, 11, 0x0500, 4)
-      realTimeState[4] = ctrlState
-      realTimeState[5] = maxPress
-      realTimeState[6] = minPress
-      realTimeState[7] = time
-      setSuckerRealtimeState(11, realTimeState)
-      local stopFlag = GetOpenLUAStopFlag(id)
-      if(stopFlag ~= 0) then
-        TCPClientDisconnect(socket1)
-        TCPClientDisconnect(socket2)
-        clearSuckerState()
-        break
-      end
-      sleep_ms(100)
-    end
+      realTimeState[2] = pressValue 
+      realTimeState[3] = error 
+      ctrlState, maxPress, minPress, time, default2 = ModbusRTUOverTCPReadReg(socket2, 11, 0x0500, 4) 
+      realTimeState[4] = ctrlState 
+      realTimeState[5] = maxPress 
+      realTimeState[6] = minPress 
+      realTimeState[7] = time 
+      setSuckerRealtimeState(11, realTimeState) 
+      local stopFlag = GetOpenLUAStopFlag(id) 
+      if(stopFlag ~= 0) then 
+        TCPClientDisconnect(socket1) 
+        TCPClientDisconnect(socket2) 
+        clearSuckerState() 
+        break 
+      end 
+      sleep_ms(100) 
+    end 
 
-The above protocol uses the `getSuckerCtrlState()` instruction to obtain suction cup control data, uses the `ModbusRTUOverTCPWriteSingleReg()` instruction to write control data to the suction cups via communication, uses the `ModbusRTUOverTCPReadReg()` instruction to read the status data of the suction cups, and then uses the `setSuckerRealtimeState()` instruction to feedback the suction cup status data to the robot. The detailed definitions of these instructions are as follows:
+Il protocollo sopra ottiene i dati di controllo della ventosa tramite l'istruzione getSuckerCtrlState(), e scrive i dati di controllo nella ventosa tramite comunicazione con l'istruzione ModbusRTUOverTCPWriteSingleReg(). Legge i dati di stato della ventosa tramite l'istruzione ModbusRTUOverTCPReadReg(), poi restituisce i dati di stato della ventosa al robot tramite setSuckerRealtimeState(). Le definizioni dettagliate delle suddette istruzioni sono le seguenti:
 
-.. centered:: Table 8.12-1 getSuckerCtrlState() Return Values
+.. centered:: Tabella 8.12-1 Valore restituito da getSuckerCtrlState()
 
-.. list-table::
+.. list-table:: 
    :widths: 10 10 20 40
    :header-rows: 0
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Type**
-     - **Variable Name**
-     - **Description**
+   * - **N.**
+     - **Tipo**
+     - **Nome Variabile**
+     - **Descrizione**
 
    * - 1
      - int
      - setAllCtrl
-     - Broadcast mode control data: 1-Suction at max vacuum; 2-Suction at set vacuum, i.e., suction cup vacuum maintained between max and min vacuum; 3-Stop suction
+     - Dati controllo modalità broadcast: 1-aspira con vuoto massimo; 2-aspira con vuoto impostato, ovvero il vuoto della ventosa rimane tra il vuoto massimo e minimo; 3-interrompi aspirazione
 
    * - 2 ~ 21
      - int
      - ctrlValues[i]
-     - Suction cup control data corresponding to slave station numbers 1 ~ 20: 1-Suction at max vacuum; 2-Suction at set vacuum, i.e., suction cup vacuum maintained between max and min vacuum; 3-Stop suction
+     - Dati controllo ventosa corrispondenti ai numeri slave 1 ~ 20: 1-aspira con vuoto massimo; 2-aspira con vuoto impostato, ovvero il vuoto della ventosa rimane tra il vuoto massimo e minimo; 3-interrompi aspirazione
 
-.. centered:: Table 8.12-2 ModbusRTUOverTCPWriteSingleReg() Detailed Parameters
+.. centered:: Tabella 8.12-2 Parametri dettagliati ModbusRTUOverTCPWriteSingleReg()
 
-.. list-table::
+.. list-table:: 
    :widths: 10 10 20 40
    :header-rows: 0
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Type**
-     - **Variable Name**
-     - **Description**
+   * - **N.**
+     - **Tipo**
+     - **Nome Variabile**
+     - **Descrizione**
 
    * - 1
      - int
      - socket
-     - Socket handle
+     - Handle socket
 
    * - 2
      - int
      - slaveID
-     - Slave station number 0-20; 0-Broadcast; 1~20-Slave station number
+     - Numero slave 0-20; 0-broadcast; 1~20-numero slave
 
    * - 3
      - uint16_t
      - regAddr
-     - Write register address
+     - Indirizzo registro scrittura
 
    * - 4
      - uint16_t
      - data
-     - Data to write
+     - Dati da scrivere
 
-.. centered:: Table 8.12-3 ModbusRTUOverTCPWriteMultiReg() Detailed Parameters
+.. centered:: Tabella 8.12-3 Parametri dettagliati ModbusRTUOverTCPWriteMultiReg()
 
-.. list-table::
+.. list-table:: 
    :widths: 10 10 20 40
    :header-rows: 0
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Type**
-     - **Variable Name**
-     - **Description**
+   * - **N.**
+     - **Tipo**
+     - **Nome Variabile**
+     - **Descrizione**
 
    * - 1
      - int
      - socket
-     - Socket handle
+     - Handle socket
 
    * - 2
      - int
      - slaveID
-     - Slave station number 0-20; 0-Broadcast; 1~20-Slave station number
+     - Numero slave 0-20; 0-broadcast; 1~20-numero slave
 
    * - 3
      - uint16_t
      - regStartAddr
-     - Start address for writing multiple registers
+     - Indirizzo inizio registri scrittura multipla
 
    * - 4
      - int
      - num
-     - Number of registers to write
+     - Numero registri da scrivere
 
    * - 5
      - uint16_t[]
      - data
-     - Array of data content to write
+     - Array contenuto dati da scrivere
 
-.. centered:: Table 8.12-4 ModbusRTUOverTCPReadReg() Detailed Parameters
+.. centered:: Tabella 8.12-4 Parametri dettagliati ModbusRTUOverTCPReadReg()
 
-.. list-table::
+.. list-table:: 
    :widths: 10 10 20 40
    :header-rows: 0
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Type**
-     - **Variable Name**
-     - **Description**
+   * - **N.**
+     - **Tipo**
+     - **Nome Variabile**
+     - **Descrizione**
 
    * - 1
      - int
      - socket
-     - Socket handle
+     - Handle socket
 
    * - 2
      - int
      - slaveID
-     - Slave station number 0-20; 0-Broadcast; 1~20-Slave station number
+     - Numero slave 0-20; 0-broadcast; 1~20-numero slave
 
    * - 3
      - uint16_t
      - regStartAddr
-     - Start address for reading multiple registers
+     - Indirizzo inizio registri lettura multipla
 
    * - 4
      - int
      - num
-     - Number of registers to read
+     - Numero registri da leggere
 
-.. centered:: Table 8.12-5 ModbusRTUOverTCPReadReg() Return Values
+.. centered:: Tabella 8.12-5 Valore restituito da ModbusRTUOverTCPReadReg()
 
-.. list-table::
+.. list-table:: 
    :widths: 10 10 20 40
    :header-rows: 0
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Type**
-     - **Variable Name**
-     - **Description**
+   * - **N.**
+     - **Tipo**
+     - **Nome Variabile**
+     - **Descrizione**
 
    * - 1
      - int
      - suckState
-     - Suction cup current status: 0-Object released or suction cup started successfully; 1-Workpiece detected, object adsorbed; 2-No object adsorbed; 3-Object detached
+     - Stato corrente ventosa: 0-rilascia oggetto o avvio ventosa riuscito; 1-rilevato pezzo, oggetto aspirato; 2-nessun oggetto aspirato; 3-oggetto distaccato
 
    * - 2
      - float
      - pressValue
-     - Current vacuum/pressure
+     - Vuoto/pressione corrente
 
    * - 3
      - int
      - err
-     - Error code: 0-Normal; Others: Abnormal
+     - Codice errore: 0-normale; altro: anomalia
 
-.. centered:: Table 8.12-6 setSuckerRealtimeState() Detailed Parameters
+.. centered:: Tabella 8.12-6 Parametri dettagliati setSuckerRealtimeState()
 
-.. list-table::
+.. list-table:: 
    :widths: 10 10 20 40
    :header-rows: 0
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Type**
-     - **Variable Name**
-     - **Description**
+   * - **N.**
+     - **Tipo**
+     - **Nome Variabile**
+     - **Descrizione**
 
    * - 1
      - int
      - slaveID
-     - Slave ID
+     - ID slave
 
    * - 2
      - int[]
      - states
-     - states[1]: Current status 0-Object released or suction cup started successfully; 1-Workpiece detected, object adsorbed; 2-No object adsorbed; 3-Object detached.
-        states[2]: Current vacuum/pressure;
-        states[3]: Wait register value;
-        states[4]: Control status;
-        states[5]: Maximum vacuum;
-        states[6]: Minimum vacuum;
-        state[7]: Timeout time;
-        states[8~10]: Reserved.
+     - states[1]: stato corrente 0-rilascia oggetto o avvio ventosa riuscito; 1-rilevato pezzo, oggetto aspirato; 2-nessun oggetto aspirato; 3-oggetto distaccato.
+        states[2]: vuoto/pressione corrente;
+        states[3]: valore registro attesa;
+        states[4]: stato controllo;
+        states[5]: vuoto massimo;
+        states[6]: vuoto minimo;
+        state[7]: tempo timeout;
+        states[8~10]: riservati.
 
-Broadcast Mode
+Modalità Broadcast
 ++++++++++++++++++++++++++++++++++
 
-The collaborative robot can control all connected suction cups to act simultaneously through Broadcast Mode.
+Il robot collaborativo può controllare simultaneamente tutte le ventose collegate tramite modalità broadcast.
 
-.. note:: Note: Unicast Mode must be configured first before configuring Broadcast Mode.
+.. note:: Nota: È necessario prima configurare la modalità unicast, poi configurare la modalità broadcast.
 
-Open the WebApp, click sequentially "Initial" -> "Peripherals" -> "Array Suction Cups", first complete the configuration of all required suction cup slave stations in Unicast Mode (configure only, do not establish communication protocol connection).
+Aprire WebApp, cliccare in sequenza "Impostazioni Iniziali" -> "Periferiche" -> "Ventosa a Matrice", prima configurare in modalità unicast tutte le ventose slave necessarie (solo configurazione, senza stabilire connessione protocollo comunicazione).
 
-Click "Broadcast Mode", input the "Maximum Vacuum", "Minimum Vacuum", "Grasp Timeout Time" (timeout is not yet open) for the suction cups in the "Parameter Configuration", and click the "Configure" button. At this time, the broadcast mode communication protocol appears in the "Device Operation and Status" box. In broadcast mode, setting the vacuum parameters takes effect for every connected suction cup.
+Cliccare "Modalità Broadcast", in "Configurazione Parametri" inserire "Vuoto Massimo", "Vuoto Minimo", "Tempo Timeout Presa" (il tempo timeout non è ancora disponibile) della ventosa, cliccare il pulsante "Configura". A questo punto, nella casella "Controllo Dispositivo e Stato" appare il protocollo di comunicazione modalità broadcast. In modalità broadcast, i parametri di vuoto impostati hanno effetto su ogni ventosa collegata.
 
 .. figure:: robot_peripherals/209.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-8 Broadcast Mode Parameter Configuration
+.. centered:: Grafico 8.12-8 Configurazione parametri modalità broadcast
 
-Click the "Connect" button in the "Protocol Number 1" operation box. The "Run Status" indicator lights up, indicating that communication has been established between the robot and the array suction cups. After successful connection, the operation box list for all connected suction cups is displayed in the "Device Operation and Status" column.
+Nella casella operativa "Numero Protocollo 1" cliccare il pulsante "Connetti", la spia "Stato Esecuzione" si accende, indicando che la comunicazione tra robot e ventosa a matrice è stata stabilita. Dopo il successo della connessione, l'elenco di tutte le caselle operative delle ventose collegate viene visualizzato nella barra "Controllo Dispositivo e Stato".
 
-Click "Start" in "Parameter Configuration" -> "One-key Suction", and each suction cup in the array suction cups will perform the "Set Vacuum Suction" action. Click "Stop", and each suction cup in the array suction cups will stop the suction action.
+In "Configurazione Parametri" -> "Aspirazione Unica" cliccare "Inizia", ogni ventosa nella matrice di ventose esegue l'azione "Aspirazione con vuoto impostato". Cliccare "Ferma", ogni ventosa nella matrice di ventose interrompe l'azione di aspirazione.
 
 .. figure:: robot_peripherals/210.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-9 Broadcast Mode Communication Established
+.. centered:: Grafico 8.12-9 Stabilimento comunicazione modalità broadcast
 
-Downloading the protocol file in Broadcast Mode is the same as in Unicast Mode. The protocol files downloaded from both locations can be uploaded to the robot via the "Auto Configuration" in the Unicast Mode page.
+Il download del file di protocollo in modalità broadcast è identico all'operazione in modalità unicast. Entrambi i file di protocollo scaricati possono essere caricati nel robot tramite "Configurazione Automatica" nella pagina modalità unicast.
 
-Array Suction Cup LUA Program Application
+Applicazione Programma LUA Ventosa a Matrice
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Adding array suction cup control, status acquisition, and other instructions to the robot LUA program, combined with robot motion instructions, can flexibly and conveniently implement material grasping and handling applications.
+Aggiungendo istruzioni di controllo ventosa a matrice, acquisizione stato, ecc., nel programma LUA del robot, in combinazione con le istruzioni di movimento del robot, è possibile realizzare flessibilmente e convenientemente applicazioni di presa e movimentazione materiali.
 
-Open the WebApp, click sequentially "Teach Program" -> "Program Programming", and create a new LUA program "testSucker.lua".
+Aprire WebApp, cliccare in sequenza "Programmazione Insegnamento" -> "Programmazione Programma", creare un nuovo programma LUA "testSucker.lua".
 
 .. figure:: robot_peripherals/211.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-10 Create New "testSucker.lua" Program
+.. centered:: Grafico 8.12-10 Creazione programma "testSucker.lua"
 
-Select the instruction type as "Peripheral Instruction", and click the "Suction Cup" button in the peripheral instructions. At this time, the "Sucker" array suction cup instruction addition page appears on the right side of the WebApp.
+Selezionare il tipo di istruzione "Istruzione Periferica", nelle istruzioni periferiche cliccare il pulsante "Ventosa". A questo punto, nella parte destra di WebApp appare la pagina di aggiunta istruzioni "Sucker" per ventosa a matrice.
 
 .. figure:: robot_peripherals/212.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-11 Array Suction Cup Instruction Addition
+.. centered:: Grafico 8.12-11 Aggiunta istruzione ventosa a matrice
 
-Suction Cup Control Instruction Addition
+Aggiunta Istruzione Controllo Ventosa
 +++++++++++++++++++++++++++++++++++++++++++
 
-Writing suction cup control instructions in the LUA program allows for suction control and release control of the suction cups. Unicast Mode and Broadcast Mode controls have different logical effects.
+Scrivendo istruzioni di controllo ventosa nel programma LUA, è possibile controllare l'aspirazione e il rilascio della ventosa. Le modalità unicast e broadcast hanno effetti logici di controllo diversi.
 
-Unicast Mode Control Instruction Addition
+Aggiunta Istruzione Controllo Modalità Unicast
 ***********************************************************
 
-Unicast Mode control can control single or multiple suction cups based on the starting slave station address and quantity, and can set different control states for each suction cup.
+Il controllo in modalità unicast può controllare una o più ventose in base all'indirizzo slave iniziale e alla quantità, e può impostare stati di controllo diversi per ciascuna ventosa.
 
-In the suction cup instruction addition page, click "Suction Cup Control Instruction", select the control mode as "Unicast Mode", input the slave station number as 1, the write quantity as 2, and the suction states as "1,2". Click the "Add" button to add a Unicast Mode suction cup control instruction in the "Program Preview".
+Nella pagina di aggiunta istruzioni ventosa, cliccare "Istruzione Controllo Ventosa", selezionare modalità controllo "Modalità Unicast", inserire numero slave 1, quantità scrittura 2, stato aspirazione "1,2". Cliccare il pulsante "Aggiungi", aggiungendo così un'istruzione di controllo ventosa in modalità unicast in "Anteprima Programma".
 
 .. figure:: robot_peripherals/213.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-12 Add Suction Cup Control Instruction
+.. centered:: Grafico 8.12-12 Aggiunta istruzione controllo ventosa
 
-The meanings of the parameters in the suction cup control instruction are as follows:
+Il significato dei parametri nell'istruzione di controllo ventosa è il seguente:
 
-- **Slave Station Number**: The starting slave station number for Unicast Mode control of suction cups.
-- **Write Quantity**: The number of suction cups to control starting from the starting slave station number in Unicast Mode.
-- **Suction States**: In Unicast Mode, starting from the starting slave station number, the control state flag for each suction cup (1-Suction at max vacuum; 2-Suction at set vacuum, i.e., suction cup vacuum maintained between max and min vacuum; 3-Stop suction); The control state flags for each suction cup are separated by ",", and the number of control flags must match the number of suction cups to be controlled; If you want to control two suction cups, with control operations being "Suction at max vacuum" and "Suction at set vacuum" respectively, then the input for this item is "1,2".
+- **Numero Slave**: Numero slave iniziale per il controllo ventosa in modalità unicast.
+- **Quantità Scrittura**: Numero di ventose da controllare a partire dal numero slave iniziale in modalità unicast.
+- **Stato Aspirazione**: Flag di stato di controllo per ciascuna ventosa a partire dal numero slave iniziale in modalità unicast (1-aspira con vuoto massimo; 2-aspira con vuoto impostato, ovvero il vuoto della ventosa rimane tra vuoto massimo e minimo; 3-interrompi aspirazione); i flag di stato di controllo per ciascuna ventosa sono separati da "," e il numero di flag di controllo deve corrispondere al numero di ventose da controllare; per controllare due ventose, con operazioni rispettivamente "Aspirazione con vuoto massimo" e "Aspirazione con vuoto impostato", il contenuto di input è "1,2".
 
-Click the "Apply" button. At this time, a suction cup control instruction is added to the "testSucker.lua" program. Switch the robot to automatic mode and execute this LUA program. The robot will control the two suction cups with slave station numbers 1 and 2 to perform suction actions at maximum vacuum and set vacuum respectively.
+Cliccare il pulsante "Applica". A questo punto nel programma "testSucker.lua" viene aggiunta un'istruzione di controllo ventosa. Portare il robot in modalità automatica, eseguire il programma LUA. Il robot controllerà le due ventose con numeri slave 1 e 2 rispettivamente per eseguire azioni di aspirazione con vuoto massimo e vuoto impostato.
 
 .. figure:: robot_peripherals/214.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-13 Add Suction Cup Instruction in LUA Program
+.. centered:: Grafico 8.12-13 Aggiunta istruzione ventosa in programma LUA
 
-Adding Broadcast Mode Control Commands
+Aggiunta Istruzione Controllo Modalità Broadcast
 ***********************************************************
 
-The suction state set by the broadcast mode control command takes effect on all currently connected suction cups.
+Lo stato di aspirazione impostato dall'istruzione di controllo in modalità broadcast ha effetto su tutte le ventose attualmente collegate.
 
-Click "Suction Cup Control Command", select the control mode as "Broadcast Mode", and enter the suction state as 1 (suction with maximum vacuum). Click the "Add" button.
+Cliccare "Istruzione Controllo Ventosa", selezionare modalità controllo "Modalità Broadcast", inserire stato aspirazione 1 (aspira con vuoto massimo). Cliccare il pulsante "Aggiungi".
 
 .. figure:: robot_peripherals/215.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-14 Adding a Broadcast Control Command
+.. centered:: Grafico 8.12-14 Aggiunta istruzione controllo broadcast
 
-Click the "Apply" button. At this point, a broadcast mode suction cup control command is added to the "testSucker.lua" file. Switch the robot to automatic mode and execute this program, then all connected suction cups will start the suction action with maximum vacuum.
+Cliccare il pulsante "Applica". A questo punto in "testSucker.lua" viene aggiunta un'istruzione di controllo ventosa in modalità broadcast. Portare il robot in modalità automatica, eseguire il programma. Tutte le ventose collegate inizieranno l'azione di aspirazione con vuoto massimo.
 
 .. figure:: robot_peripherals/216.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-15 Adding a Broadcast Control Command in the LUA Program
+.. centered:: Grafico 8.12-15 Aggiunta istruzione controllo broadcast in programma LUA
 
-Adding Suction Cup Status Acquisition Command
+Aggiunta Istruzione Acquisizione Stato Ventosa
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click "Get Suction Cup Status", select the slave station number of the suction cup whose status you want to obtain, then click the "Add" and "Apply" buttons sequentially. This adds a command "GetSuckerState(1)" to get the suction cup status in "testSucker.lua".
+Cliccare "Ottieni Stato Ventosa", selezionare il numero slave della ventosa di cui ottenere lo stato, cliccare in sequenza "Aggiungi", "Applica". In "testSucker.lua" viene così aggiunta un'istruzione per ottenere lo stato della ventosa "GetSuckerState(1)".
 
 .. figure:: robot_peripherals/217.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-16 Adding the Get Suction Cup Status Command
+.. centered:: Grafico 8.12-16 Aggiunta istruzione ottenimento stato ventosa
 
-The GetSuckerState() command returns 3 values, as follows:
+L'istruzione GetSuckerState() restituisce 3 valori, rispettivamente:
 
-- **state**: The current state of the suction cup: 0-Object released or suction cup started successfully; 1-Workpiece detected, object adsorbed; 2-No object adsorbed; 3-Object detached.
-- **pressValue**: Current vacuum/pressure value;
-- **err**: Error code: 0-Normal; Others: Abnormal.
+- **state**: Stato corrente ventosa: 0-rilascia oggetto o avvio ventosa riuscito; 1-rilevato pezzo, oggetto aspirato; 2-nessun oggetto aspirato; 3-oggetto distaccato.
+- **pressValue**: Vuoto/pressione corrente;
+- **err**: Codice errore: 0-normale; altro: anomalia.
 
-In "testSucker.lua", use three variables to receive the return values of the GetSuckerState() function. Use Lua variable queries to display the above information in the WebApp Variable Query Display Area.
+In "testSucker.lua", utilizzare tre variabili per ricevere i valori restituiti dalla funzione GetSuckerState(). E tramite la query variabili Lua, visualizzare le informazioni sopra nell'area di visualizzazione query variabili di WebApp.
 
 .. figure:: robot_peripherals/218.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-17 Program for Getting Suction Cup Status
+.. centered:: Grafico 8.12-17 Programma ottenimento stato ventosa
 
-Adding Wait for Suction Cup Adsorption Status Command
+Aggiunta Istruzione Attesa Stato Aspirazione Ventosa
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In practical applications of array suction cups, it is often necessary to wait for the suction cup to complete suction (release) before executing the next action. The collaborative robot provides a command to wait for the suction cup action to complete. This command ends execution when the suction cup reaches the set state; otherwise, it blocks and waits for the suction cup action to complete within the set timeout period.
+Nelle applicazioni pratiche della ventosa a matrice, spesso è necessario attendere il completamento dell'aspirazione (rilascio) della ventosa prima di eseguire l'azione successiva. Il robot collaborativo fornisce un'istruzione di attesa completamento azione ventosa. Quando la ventosa raggiunge lo stato impostato, l'esecuzione dell'istruzione termina, altrimenti rimane in attesa bloccante del completamento dell'azione ventosa entro il tempo timeout impostato.
 
-On the array suction cup command addition page, click "Wait for Suction Cup Adsorption Status", select the corresponding suction cup slave station number 1, select the control mode as "Workpiece detected, object adsorbed", and enter the timeout time as 10000ms. Click the "Add" button.
+Nella pagina di aggiunta istruzioni ventosa a matrice, cliccare "Attesa Stato Aspirazione Ventosa", selezionare il numero slave corrispondente alla ventosa 1, selezionare modalità controllo "Rilevato pezzo, oggetto aspirato", inserire tempo timeout 10000 ms. Cliccare il pulsante "Aggiungi".
 
 .. figure:: robot_peripherals/219.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-18 Adding the Wait for Suction Cup Status Command
+.. centered:: Grafico 8.12-18 Aggiunta istruzione attesa stato ventosa
 
-Click the "Apply" button. A command to wait for the suction cup to adsorb an object is added to "testSucker.lua".
+Cliccare il pulsante "Applica". In "testSucker.lua" viene aggiunta un'istruzione di attesa che la ventosa aspiri un oggetto.
 
 .. figure:: robot_peripherals/220.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.12-19 Adding Wait for Suction Cup to Adsorb Object in LUA Program
+.. centered:: Grafico 8.12-19 Aggiunta attesa aspirazione oggetto in programma LUA
 
-Application Example
+Esempio Applicazione
 ++++++++++++++++++++++++++++++++++
 
-Example LUA program for suction cup handling control:
+Esempio programma LUA controllo movimentazione ventosa:
 
 .. code-block:: console
   :linenos:
@@ -5234,25 +5270,25 @@ Example LUA program for suction cup handling control:
   end
   end 
 
-CNC Function Package Based on FOCAS (For Linux Systems Only)
---------------------------------------------------------------------------------------------------
+Pacchetto Funzionalità CNC basato su FOCAS (utilizzabile solo su sistema Linux)
+--------------------------------------------------------------------------------
 
-Overview
+Panoramica
 ~~~~~~~~~~~~~
 
-To automate the loading and unloading process in machine tool processing, a CNC function package based on FOCAS communication has been developed, enabling communication interaction and coordinated motion between the collaborative robot and the CNC machine tool.
+Per realizzare un processo automatizzato di carico e scarico nella lavorazione delle macchine utensili, è stato sviluppato un pacchetto funzionalità CNC basato sulla comunicazione FOCAS, che consente l'interazione comunicativa e il movimento coordinato tra robot collaborativo e macchina utensile CNC.
 
-As shown in the figure, FOCAS communication is based on Ethernet. By connecting the robot control box network port to the embedded network port of the machine tool with an Ethernet cable, FOCAS communication between the robot and the machine tool can be established, enabling CNC control and machine tool status monitoring from the robot side.
+Come mostrato in figura, la comunicazione FOCAS è basata su Ethernet. Collegando tramite cavo di rete la porta di rete della scatola di controllo del robot e la porta di rete integrata nella macchina utensile, è possibile stabilire la comunicazione FOCAS tra robot e macchina utensile, realizzando il controllo CNC e il monitoraggio dello stato della macchina utensile dal lato robot.
 
 .. figure:: robot_peripherals/221.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.13‑1 FOCAS Communication Topology Diagram Between Robot and CNC
+.. centered:: Grafico 8.13‑1 Diagramma topologico comunicazione FOCAS tra robot e CNC
 
-The functions currently supported by the control box's CNC function package based on FOCAS communication for machine tool control and status feedback are shown in the table.
+Attualmente, le funzioni di controllo della macchina utensile e feedback dello stato supportate dal pacchetto funzionalità CNC basato su FOCAS nella scatola di controllo sono mostrate nella tabella.
 
-.. centered:: Table 8.13-1 Supported Functions of the FOCAS-based CNC Function Package
+.. centered:: Tabella 8.13-1 Tabella funzioni supportate dal pacchetto funzionalità CNC basato su FOCAS
 
 .. list-table:: 
    :widths: 15 40 100
@@ -5260,62 +5296,62 @@ The functions currently supported by the control box's CNC function package base
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Function Name**
-     - **Description**
+   * - **N.**
+     - **Nome Funzione**
+     - **Spiegazione**
    * - 1
-     - Machine Tool Type
-     - Status Feedback
+     - Tipo macchina utensile
+     - Feedback stato
    * - 2
-     - FOCAS Communication Status
-     - Status Feedback
+     - Stato comunicazione FOCAS
+     - Feedback stato
    * - 3
-     - Auto Mode Operation
-     - Control, Status Feedback
+     - Funzionamento modalità automatica
+     - Controllo, feedback stato
    * - 4
-     - Alarm Status
-     - Status Feedback
+     - Stato allarme
+     - Feedback stato
    * - 5
-     - Safety Door
-     - Status Feedback
+     - Porta di sicurezza
+     - Feedback stato
    * - 6
-     - Chuck
-     - Control, Status Feedback
+     - Mandrino
+     - Controllo, feedback stato
    * - 7
-     - Emergency Stop
-     - Control, Status Feedback
-  
-Related Operation Instructions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     - Arresto di emergenza
+     - Controllo, feedback stato
 
-Establishing FOCAS Communication
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Istruzioni Operative Correlate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-FOCAS communication is based on Ethernet. It requires forming a local area network (LAN) connecting the robot, CNC machine tool, and PC to achieve physical link connection, and finally establishing FOCAS communication through the robot's open protocol.
+Stabilimento Comunicazione FOCAS
++++++++++++++++++++++++++++++++++
 
-Network Configuration
-**************************************************
+La comunicazione FOCAS è basata su Ethernet. È necessario formare una rete locale tra robot, macchina utensile CNC e computer PC per realizzare il collegamento fisico, e stabilire infine la comunicazione FOCAS tramite il protocollo aperto del robot.
 
-**Step1**: First, change the IP address of the PC to the same subnet as the robot control box. The robot control box's IP address is "192.168.58.2".
+Configurazione Rete
+*************************
 
-If no switch is used for networking, you can use the two built-in network ports on the robot control box for networking. The operation is as follows: Log in to the robot's WebAPP, go to System Settings -> General Settings -> Network Settings, set the IP address of Port 0 to: 192.168.58.2; set the IP address of Port 1 to 192.168.57.2. Simultaneously, set WebAPP to use Port 0 and WebRecovery to use Port 1, as shown in the figure. After completing all settings, click Set Network.
+**Step1**: Prima di tutto, modificare l'indirizzo IP del computer PC in modo che sia sulla stessa sottorete della scatola di controllo del robot. L'indirizzo IP della scatola di controllo del robot è "192.168.58.2".
+
+Se non si dispone di uno switch per la creazione della rete, è possibile utilizzare le due porte di rete integrate nella scatola di controllo del robot per creare la rete. Operare come segue: accedere al WebAPP del robot, in Impostazioni Sistema -> Impostazioni Generali -> Impostazioni Rete, impostare l'indirizzo IP della porta di rete 0 su: 192.168.58.2; impostare l'indirizzo IP della porta di rete 1 su 192.168.57.2. Contemporaneamente, impostare WebAPP sulla porta di rete 0, WebRecovery sulla porta di rete 1, come mostrato in figura. Dopo aver completato tutte le impostazioni, cliccare Imposta Rete.
 
 .. figure:: robot_peripherals/222.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.13‑2 Robot Network Configuration Diagram
+.. centered:: Grafico 8.13‑2 Diagramma configurazione rete robot
 
-**Step2**: Then restart the control box and connect it to the PC via the Port 0 network port, then log in to the robot WebApp. Also, configure the IP address of the CNC machine tool that needs communication to be in the same subnet as the PC and the robot control box, i.e., 192.168.58.xx, and change the machine tool's port to 8193. This completes all network configuration.
+**Step2**: Riavviare quindi la scatola di controllo e collegarsi al computer PC tramite la porta di rete 0, accedere al WebApp del robot. Contemporaneamente, configurare l'indirizzo IP della macchina utensile CNC che necessita di comunicazione in modo che sia sulla stessa sottorete del computer PC e della scatola di controllo del robot, cioè 192.168.58.xx, e modificare la porta della macchina utensile su 8193. Ciò completa tutte le configurazioni di rete.
 
-Open Protocol File Configuration
-**************************************************
+Configurazione File Protocollo Aperto
+**********************************************************
 
-**Step1**: Then proceed with the peripheral open protocol configuration. First, you need to create a new lua file named starting with `CtrlDev_CNC` as the open protocol file for establishing FOCAS communication, such as `CtrlDev_CNC_demo.lua`.
+**Step1**: Successivamente, configurare il protocollo aperto periferiche. Prima di tutto, è necessario creare un file lua che inizi con CtrlDev_CNC come nome per il file di protocollo aperto per stabilire la comunicazione FOCAS, ad esempio CtrlDev_CNC_demo.lua.
 
-This file needs to set the Open Protocol ID and use the `CNCComSet` function to establish or disconnect the connection with the CNC. The parameter descriptions for the `CNCComSet` function are shown in the table below. Example code is as follows.
+In questo file è necessario impostare l'ID del protocollo aperto e stabilire o interrompere la connessione con il CNC tramite la funzione CNCComSet. La spiegazione dei parametri della funzione CNCComSet è mostrata nella tabella seguente. Il codice di esempio è il seguente.
 
-.. centered:: Table 8.13-2 CNCComSet Function Parameter Description Table
+.. centered:: Tabella 8.13-2 Tabella spiegazione parametri funzione CNCComSet
 
 .. list-table:: 
    :widths: 15 40 100
@@ -5323,68 +5359,68 @@ This file needs to set the Open Protocol ID and use the `CNCComSet` function to 
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Parameter Name**
-     - **Description**
+   * - **N.**
+     - **Nome Funzione**
+     - **Spiegazione**
    * - 1
-     - Machine Tool Manufacturer
-     - 0-Invalid 1-Machine Tool (FOCAS)
+     - Produttore macchina utensile
+     - 0-non valido 1-macchina utensile (FOCAS)
    * - 2
-     - Communication Command
-     - 1-Establish Connection 1001-Disconnect
+     - Comando comunicazione
+     - 1-stabilire connessione 1001-interrompere connessione
    * - 3
-     - Machine Tool IP Address
+     - Indirizzo IP macchina utensile
      - --
    * - 4
-     - Machine Tool Port Number
+     - Numero porta macchina utensile
      - --
 
-Open protocol example code for establishing FOCAS connection:
+Codice di esempio protocollo aperto stabilimento connessione comunicazione FOCAS:
 
 .. code-block:: console
     :linenos:
 
-    local id = 1      --Open LUA Protocol ID
-    --FOCAS Disconnect
+    local id = 1      --ID protocollo LUA aperto
+    --Interruzione connessione FOCAS
     CNCComSet(1, 1001, '192.168.57.100', 8193)
     sleep_ms(1000)
-    --FOCAS Establish Connection
+    --Stabilimento connessione FOCAS
     CNCComSet(1, 1, '192.168.57.100', 8193)
     sleep_ms(1000)
     while(1) do
     sleep_ms(5000)
     end
 
-**Step2**: After writing the open protocol lua file, select the just-created `CtrlDev_CNC_fanuc.lua` file and upload it. Select the ID set in the file, choose the uploaded open protocol file from the dropdown, and click Configure.
+**Step2**: Dopo aver completato la scrittura del file lua del protocollo aperto, selezionare il file CtrlDev_CNC_fanuc.lua appena creato e caricarlo, selezionare l'ID impostato nel file, selezionare dall'elenco a discesa il file di protocollo aperto caricato e cliccare configura.
 
 .. figure:: robot_peripherals/223.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.13‑3 Open Protocol File Upload and Configuration
+.. centered:: Grafico 8.13‑3 Caricamento e configurazione file protocollo aperto
 
-**Step3**: Then check that all communication links are normal and confirm the CNC machine tool is powered on. Click the Connect button in the open protocol. You can confirm whether the connection with the machine tool is established through the CNC -> FOCAS Communication Status in the status feedback panel on the right (Red light: Connection established; Gray: Connection disconnected), as shown in the figure.
+**Step3**: Controllare quindi che tutti i collegamenti di comunicazione siano normali e confermare che la macchina utensile CNC sia accesa. Cliccare il pulsante di connessione nel protocollo aperto. Tramite la barra di feedback stato a destra CNC -> Stato comunicazione FOCAS, è possibile confermare se la connessione con la macchina utensile è stata stabilita (luce rossa: connessione stabilita; grigio: connessione interrotta), come mostrato in figura.
 
 .. figure:: robot_peripherals/224.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.13‑4 FOCAS Communication Connection Established
+.. centered:: Grafico 8.13‑4 Stabilimento connessione comunicazione FOCAS
 
-CNC Status Feedback Description
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Spiegazione Feedback Stato CNC
+++++++++++++++++++++++++++++++++++
 
-The status feedback of the CNC machine tool is displayed on the CNC icon in the peripheral status feedback area on the far right of the WebAPP, as shown in the figure. Clicking it will display all current statuses of the machine tool, including equipment manufacturer, machine tool type, FOCAS communication status, alarm flag, machine tool operation status, machine door switch status, machine chuck status, and machine emergency stop status.
+Il feedback dello stato della macchina utensile CNC viene visualizzato nell'icona della forma CNC nella barra di feedback stato periferiche all'estrema destra del WebAPP, come mostrato in figura. Cliccando si visualizza l'intero stato corrente della macchina utensile, inclusi produttore del dispositivo, tipo macchina utensile, stato comunicazione FOCAS, flag allarme, stato di funzionamento/lavorazione della macchina utensile, stato apertura/chiusura porta macchina utensile, stato mandrino macchina utensile, stato arresto di emergenza macchina utensile.
 
 .. figure:: robot_peripherals/225.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.13‑5 CNC Status Feedback Panel
+.. centered:: Grafico 8.13‑5 Barra feedback stato CNC
 
-The meanings of the status feedback indicator lights for CNC are shown in the table below.
+Il significato delle luci indicatrici per ciascuno stato di feedback CNC è mostrato nella tabella seguente.
 
-.. centered:: Table 8.13-3 Meanings of CNC Status Feedback Indicator Lights
+.. centered:: Tabella 8.13-3 Tabella significato luci icone feedback stato CNC
 
 .. list-table:: 
    :widths: 15 40 100
@@ -5392,57 +5428,57 @@ The meanings of the status feedback indicator lights for CNC are shown in the ta
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Function Name**
-     - **Description**
+   * - **N.**
+     - **Nome Funzione**
+     - **Spiegazione**
    * - 1
-     - FOCAS Communication Status
-     - Gray-Communication disconnected Red-Communication normal
+     - Stato comunicazione FOCAS
+     - Grigio-comunicazione interrotta Rosso-comunicazione normale
    * - 2
-     - Alarm Flag
-     - Gray-No alarm Red-Alarm exists
+     - Flag allarme
+     - Grigio-nessun allarme Rosso-allarme presente
    * - 3
-     - Machine Tool Operation Status
-     - Gray-Stopped Green-Running
+     - Stato funzionamento/lavorazione macchina utensile
+     - Grigio-ferma Verde-in funzione
    * - 4
-     - Machine Door Status
-     - Gray-Door closed Green-Door open
+     - Stato apertura/chiusura porta macchina utensile
+     - Grigio-porta chiusa Verde-porta aperta
    * - 5
-     - Machine Chuck Status
-     - Gray-Loosened Green-Clamped
+     - Stato mandrino macchina utensile
+     - Grigio-allentato Verde-serrati
    * - 6
-     - Machine Emergency Stop Status
-     - Gray-E-stop inactive Green-E-stop active
+     - Stato arresto di emergenza macchina utensile
+     - Grigio-arresto di emergenza non valido Verde-arresto di emergenza effettivo
 
-CNC Control Description
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Spiegazione Feedback Stato CNC
+++++++++++++++++++++++++++++++++++
 
-The control for the CNC machine tool is located in the Peripheral Open Protocol. After the FOCAS communication connection is completed, click the upper right corner of the configured peripheral open protocol to open the CNC control page, as shown in the figure.
+Il controllo della macchina utensile CNC si trova nel protocollo aperto periferiche. Dopo aver completato la connessione di comunicazione FOCAS, cliccando nell'angolo in alto a destra del protocollo aperto periferiche configurato, si apre la pagina di controllo CNC, come mostrato in figura.
 
-.. note:: The control buttons include Door Control (Open, Close), Chuck Control (Clamp, Loosen), Start/Stop Control (Run, Stop), and Emergency Stop Control (E-stop, Inactive). All control signals are edge-triggered.
+.. note:: I pulsanti di controllo includono controllo porta (apri porta, chiudi porta), controllo mandrino (serra, allenta), controllo avvio/arresto (avvia, ferma), controllo arresto di emergenza (arresto di emergenza, non valido). Tutti i segnali di controllo sono triggerati dal bordo del segnale.
 
 .. figure:: robot_peripherals/226.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.13‑6 CNC Control Page
+.. centered:: Grafico 8.13‑6 Pagina controllo CNC
 
-CNC Teach Program Description
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Spiegazione Programma Insegnamento CNC
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The CNC function package supports calling control commands in teach programs and obtaining machine tool status in real time. Navigate sequentially to "Teach Program" -> "Program Programming" -> "Peripheral Commands" -> "CNC" to see all supported CNC teach commands, as shown in the figure.
+Il pacchetto funzionalità CNC supporta la chiamata di istruzioni di controllo nel programma di insegnamento e l'acquisizione in tempo reale dello stato della macchina utensile. Aprendo in sequenza "Programmazione Insegnamento" -> "Programmazione Programma" -> "Istruzione Periferica" -> "CNC", è possibile vedere tutte le istruzioni di insegnamento CNC supportate, come mostrato in figura.
 
 .. figure:: robot_peripherals/227.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.13‑7 CNC Teach Commands
+.. centered:: Grafico 8.13‑7 Istruzioni insegnamento CNC
 
-.. note:: The control commands correspond one-to-one with the CNC controls and are all edge signal effective, meaning that after a start command is executed, a stop command must be executed before the next start command will take effect.
+.. note:: Le istruzioni di controllo corrispondono una a una con il controllo CNC e sono tutte efficaci come segnali di bordo, cioè dopo l'esecuzione del comando di avvio, è necessario eseguire l'arresto prima che il successivo comando di avvio diventi effettivo.
 
-"Get Current Machine Tool Status" is a Lua function. This function returns 9 parameters, whose meanings are shown in the table below.
+"Acquisizione stato corrente macchina utensile" è una funzione lua. Il valore restituito da questa funzione è di 9 parametri, il cui significato è mostrato nella tabella seguente.
 
-.. centered:: Table 8.13-4 Return Value Description for "Get Current Machine Tool Status"
+.. centered:: Tabella 8.13-4 Tabella spiegazione valori restituiti da "Acquisizione stato corrente macchina utensile"
 
 .. list-table:: 
    :widths: 15 40 100
@@ -5450,40 +5486,40 @@ The CNC function package supports calling control commands in teach programs and
    :align: center
    :class: sheet-center
 
-   * - **No.**
-     - **Name**
-     - **Meaning**
+   * - **N.**
+     - **Nome**
+     - **Significato**
    * - 1
-     - Equipment Manufacturer
-     - 0-Invalid 1-Other-Reserved
+     - Produttore dispositivo
+     - 0-non valido 1-altro-riservato
    * - 2
-     - FOCAS Communication Status
-     - 0-Communication normal Other-Communication disconnected
+     - Stato comunicazione FOCAS
+     - 0-comunicazione normale altro-comunicazione interrotta
    * - 3
-     - Machine Tool Model (string)
+     - Modello macchina utensile(string)
      - '15' : Series 150/150i '16' : Series 160/160i '18' : Series 180/180i '21' : Series 210/210i '30' : Series 300i '31' : Series 310i '32' : Series 320i '0' : Series 0i 
    * - 4
-     - Machine Tool Type (string)
+     - Modello macchina utensile(string)
      - '15' : Series 150/150i '16' : Series 160/160i '18' : Series 180/180i '21' : Series 210/210i '30' : Series 300i '31' : Series 310i '32' : Series 320i '0' : Series 0i 
    * - 5
-     - Machine Tool Operation Status
-     - 0-Stopped 1-Running
+     - Stato funzionamento macchina utensile
+     - 0-ferma 1-in funzione
    * - 6
-     - Machine Tool Emergency Stop Status
-     - 0-E-stop active Other-E-stop inactive
+     - Stato arresto di emergenza macchina utensile
+     - 0-arresto di emergenza effettivo altro-arresto di emergenza non valido
    * - 7
-     - Machine Tool Alarm Status
-     - 0-No alarm Other-Alarm exists
+     - Stato allarme macchina utensile
+     - 0-nessun allarme altro-allarme presente
    * - 8
-     - Machine Tool Door Status
-     - 0-Door open 1-Door closed
+     - Stato porta macchina utensile
+     - 0-porta aperta 1-porta chiusa
    * - 9
-     - Machine Tool Chuck Status
-     - 0-Loosened 1-Clamped
+     - Stato mandrino macchina utensile
+     - 0-allentato 1-serrati
 
-A Lua teach program example is written for the robot loading/unloading process. This example program includes controlling the CNC door (close, open), operation (run, stop), chuck (loosen, clamp), and uses the obtained CNC current status as judgment conditions to set the robot's movement between three points: safety point, pick point, and place point, as shown in the code.
+Prendendo come esempio il processo di carico e scarico del robot, è stato scritto un esempio di programma di insegnamento lua. Questo programma di esempio include il controllo della chiusura e apertura della porta CNC, avvio, arresto, allentamento e serraggio del mandrino CNC, e utilizza l'acquisizione dello stato corrente del CNC come condizione di giudizio, impostando il movimento del robot in tre punti: punto di sicurezza, punto di prelievo materiale, punto di posizionamento materiale, come mostrato nel codice.
 
-Example Lua Teach Program for Coordinated Motion between Robot and CNC:
+Esempio programma di insegnamento lua movimento coordinato robot e CNC:
 
 .. code-block:: console
     :linenos:
@@ -5517,15 +5553,15 @@ Example Lua Teach Program for Coordinated Motion between Robot and CNC:
          end
     end
 
-Virtual Wall Configuration Based on Force Sensor
---------------------------------------------------------------------------------
+Configurazione Parete Virtuale basata su Sensore di Forza
+---------------------------------------------------------
 
-The virtual wall function based on the force sensor allows setting virtual walls to limit the robot's workspace and avoid direct collision contact.
+La funzione di parete virtuale basata su sensore di forza consente di impostare manualmente una parete virtuale per limitare lo spazio di lavoro del robot, evitando collisioni dirette.
 
-Force Sensor Installation and Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installazione e Configurazione Sensore di Forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Taking the "Kunwei" sensor as an example, during installation, the coordinate system direction of the force sensor must be consistent with the end flange coordinate system, as shown in Figure 1 (In Figure 1, red indicates the X+ direction of the end flange coordinate system, green indicates the Y+ direction, and blue indicates the Z+ direction);
+**Step1**: Prendendo come esempio il sensore "Kunwei", durante l'installazione è necessario che la direzione del sistema di coordinate del sensore di forza sia coerente con il sistema di coordinate della flangia terminale, come mostrato in Figura 1 (in Figura 1, il rosso indica la direzione X+ del sistema di coordinate della flangia terminale, il verde indica la direzione Y+ del sistema di coordinate della flangia terminale, il blu indica la direzione Z+ del sistema di coordinate della flangia terminale);
 
 .. figure:: robot_peripherals/228.png
    :align: center
@@ -5535,36 +5571,36 @@ Force Sensor Installation and Configuration
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑1 Force Sensor Installation
+.. centered:: Grafico 8.14‑1 Installazione sensore di forza
 
-**Step2**: Under the "Initial" -> "Peripherals" -> "Force Sensor" menu bar, click "Adapted Devices" to enter the force sensor device configuration interface.
+**Step2**: Nel menu "Impostazioni Iniziali" -> "Periferiche" -> "Sensore di Forza", cliccare "Dispositivo Adattato" per accedere all'interfaccia di configurazione del dispositivo sensore di forza.
 
-The force sensor configuration information includes manufacturer, type, software version, and mounting location. Users can configure the corresponding force sensor information according to specific production needs. If users need to change the configuration, they can first select the corresponding number, click the "Clear" button to clear the corresponding information, and reconfigure according to requirements; the specific operation is shown in the figure.
+Le informazioni di configurazione del sensore di forza sono divise in produttore, tipo, versione software e posizione di montaggio. L'utente può configurare le informazioni del sensore di forza corrispondente in base alle specifiche esigenze produttive. Se l'utente ha bisogno di modificare la configurazione, può prima selezionare il numero corrispondente, cliccare il pulsante "Cancella" per cancellare le informazioni corrispondenti, e riconfigurare in base alle esigenze. Le operazioni specifiche sono mostrate in figura.
 
-**Step3**: Select the configured force sensor number, click the "Reset" button. After the page pops up indicating the command was sent successfully, click the "Activate" button. Check the activation status in the force sensor information table to determine if activation was successful. Additionally, the force sensor will have initial values. Users can choose "Zero Calibration" and "Remove Zero" according to usage needs. Force sensor zero calibration requires ensuring the force sensor is level and vertically downward, and the robot has no configured load.
+**Step3**: Selezionare il numero del sensore di forza configurato, cliccare il pulsante "Reset". Dopo la comparsa del messaggio di successo dell'invio del comando sulla pagina, cliccare il pulsante "Attiva". È possibile controllare lo stato di attivazione nella tabella delle informazioni del sensore di forza per determinare se l'attivazione è riuscita. Inoltre, il sensore di forza avrà un valore iniziale. L'utente può scegliere "Correzione Zero" e "Rimuovi Zero" in base alle esigenze d'uso. La correzione zero del sensore di forza richiede che il sensore di forza sia orizzontale e verticale verso il basso, e che il robot non abbia carico configurato.
 
 .. figure:: robot_peripherals/016.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑2 Force Sensor Configuration and Activation
+.. centered:: Grafico 8.14‑2 Configurazione e attivazione sensore di forza
 
 .. figure:: robot_peripherals/017.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑3 Force Sensor Activation
+.. centered:: Grafico 8.14‑3 Attivazione sensore di forza
 
-Virtual Wall Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Parete Virtuale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To use the force sensor for assisted dragging, a dragging handle needs to be installed under the force sensor, and a tool coordinate system needs to be configured. The specific operation is shown in Figure 4. At this point, the method for detecting the interference zone uses the set tool coordinate system position as a reference; if not set, the end flange is used as the reference.
+Per l'assistenza al trascinamento tramite il sensore di forza, è necessario installare una maniglia di trascinamento sotto il sensore di forza e configurare il sistema di coordinate dello strumento. Le operazioni specifiche sono mostrate in Figura 4. In questo caso, il metodo di rilevamento dell'area di interferenza utilizza come riferimento la posizione del sistema di coordinate dello strumento impostato; se non impostato, utilizza come riferimento la flangia terminale.
 
-**Step1**: Under the "Initial" -> "Safety" -> "Interference Zone" menu bar, click "Single" to enter the interference zone configuration function interface;
+**Step1**: Nel menu "Impostazioni Iniziali" -> "Sicurezza" -> "Area di Interferenza", cliccare "Singolo" per accedere all'interfaccia della funzione di configurazione dell'area di interferenza;
 
-**Step2**: It is necessary to configure the interference method and the operation upon entering the interference zone; click "Cube Interference" to enter the configuration interface, set the operation upon entering the interference zone during dragging to "Do Not Restrict Dragging", and the operation upon entering during motion can be set as needed;
+**Step2**: È necessario configurare il metodo di interferenza e l'operazione di ingresso nell'area di interferenza; cliccare "Interferenza Cubo" per accedere all'interfaccia di configurazione, configurare l'ingresso nell'area di interferenza trascinamento come "Nessuna limitazione al trascinamento", l'ingresso nell'area di interferenza movimento può essere configurato entrambi;
 
-**Step3**: According to requirements, the parameter configuration can be modified. The detection method is divided into two types: "Command Position" and "Feedback Position". The interference zone mode is divided into two types: "Interference Within Range" and "Interference Outside Range". The reference coordinate system is selected as "Base Coordinate". Set according to actual use. Detailed operations are shown in the figure;
+**Step3**: In base alle esigenze, è possibile modificare la configurazione dei parametri. Il metodo di rilevamento è diviso in due tipi: "Posizione Istruzione" e "Posizione Feedback", la modalità area di interferenza è divisa in "Interferenza all'interno dell'area" e "Interferenza all'esterno dell'area" due tipi, selezionare il sistema di coordinate di riferimento come "Sistema di Base", impostare in base all'uso effettivo. Le operazioni dettagliate sono mostrate in figura;
 
 .. figure:: robot_peripherals/230.png
    :align: center
@@ -5574,568 +5610,572 @@ To use the force sensor for assisted dragging, a dragging handle needs to be ins
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑4 Installing Dragging Handle and Setting Tool Coordinate System
+.. centered:: Grafico 8.14‑4 Installazione maniglia di trascinamento e impostazione sistema coordinate strumento
 
 .. figure:: robot_peripherals/232.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑5 Virtual Wall Parameter Configuration
+.. centered:: Grafico 8.14‑5 Configurazione parametri parete virtuale
 
-**Step4**: The interference zone mode under parameter configuration is divided into two types: "Interference Within Range" and "Interference Outside Range";
+**Step4**: La modalità area di interferenza sotto la configurazione dei parametri è divisa in due tipi: "Interferenza all'interno dell'area" e "Interferenza all'esterno dell'area";
 
 .. figure:: robot_peripherals/233.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑6 Interference Within Range
+.. centered:: Grafico 8.14‑6 Interferenza all'interno dell'area
 
 .. figure:: robot_peripherals/234.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑7 Interference Outside Range
+.. centered:: Grafico 8.14‑7 Interferenza all'esterno dell'area
 
-**Step5**: Establish the interference zone. The specific operation is shown in Figure 7 and Figure 8; it is recommended to set the interference area as large as possible when selecting "Interference Outside Range".
+**Step5**: Creare un'area di interferenza. Le operazioni specifiche sono mostrate in Figura 7 e Figura 8; si consiglia, quando si seleziona "Interferenza all'esterno dell'area", di impostare l'area di interferenza il più ampia possibile.
 
 .. figure:: robot_peripherals/235.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑8 Establishing Interference Zone Using Two-Point Method
+.. centered:: Grafico 8.14‑8 Creazione area di interferenza metodo due punti
 
 .. figure:: robot_peripherals/236.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑9 Establishing Interference Zone Using Center Point + Side Length Method
+.. centered:: Grafico 8.14‑9 Creazione area di interferenza metodo punto centrale + lunghezza lato
 
-Force Sensor Assisted Dragging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Assistenza al Trascinamento con Sensore di Forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Under the "Application" -> "Tool App" menu, click "Drag Lock" to enter the force sensor assisted locking function interface;
+**Step1**: Nel menu "Applicazione Ausiliaria" -> "Applicazione Strumento", cliccare "Blocco Trascinamento" per accedere all'interfaccia della funzione di blocco assistenza al trascinamento con sensore di forza;
 
-**Step2**: Set the parameters as shown in the figure below to enable the virtual wall function based on the force sensor. The specific effect is: approaching the virtual wall, resistance increases; moving away from the virtual wall, the force sensor assisted dragging function works normally.
+**Step2**: Impostare i parametri come mostrato in figura per realizzare la funzione di parete virtuale basata su sensore di forza. L'effetto specifico è: avvicinandosi alla parete virtuale, la resistenza aumenta; allontanandosi dalla parete virtuale, la funzione di assistenza al trascinamento basata su sensore di forza funziona normalmente.
 
 .. figure:: robot_peripherals/237.png
    :align: center
    :width: 4in
-
+  
 .. figure:: robot_peripherals/238.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑10 Parameter Settings for Force Sensor Assisted Dragging
+.. centered:: Grafico 8.14‑10 Impostazione parametri assistenza al trascinamento con sensore di forza
 
-Specific functions of the parameters:
+Funzione specifica dei parametri:
 
-**Adaptive Selection**: Enable when assembly is needed; dragging becomes heavier after enabling;
+**Selezione Adattativa**: Attivare quando necessario per il montaggio, dopo l'attivazione il trascinamento diventa più pesante;
 
-**Inertia Parameter**: Adjusts the feel during dragging; operate with caution under the guidance of technical personnel.
+**Parametro Inerzia**: Regola la sensazione durante il trascinamento, operare con cautela sotto la guida del personale tecnico.
 
-**Damping Parameter**:
+**Parametri Smorzamento**:
 
--  Translational Direction: Recommended parameter range [100-200];
--  Rotational Direction: Recommended parameter range [3-10], with the RZ direction range being [0.1-5];
--  Effect: When dragging with the sensor, increasing damping makes dragging difficult, decreasing damping makes dragging the robot too easy (recommended not to set it too small);
--  Overall Damping Parameter Range: Translational XYZ: [100-1000]; Rotational RX, RY: [3-50], RZ: [2-10];
--  Maximum Drag Force is 50, Maximum Drag Speed is 180.
+-  Direzione traslazionale: Si consiglia di impostare i parametri tra [100-200];
 
-**Stiffness Parameter**: Set all to 0;
+-  Direzione rotazionale: Si consiglia di impostare i parametri tra [3-10], con il parametro per la direzione RZ compreso tra [0.1-5];
 
-**Drag Force Threshold**: Translational XYZ is [5-10]; Rotational RX, RY, RZ is [0.5-5];
+-  Effetto: Durante il trascinamento assistito dal sensore, aumentare lo smorzamento rende il trascinamento difficile, diminuirlo rende il trascinamento del robot troppo facile (si consiglia di non impostarlo troppo basso);
 
-**Maximum Drag Force**: 50;
+-  Intervallo complessivo parametri smorzamento: Traslazione XYZ: [100-1000]; Rotazione RX, RY: [3-50], RZ: [2-10];
 
-**Maximum Drag Speed**: 180;
+-  Forza massima trascinamento 50, velocità massima trascinamento 180.
 
-Six-Axis Force and Joint Impedance Hybrid Dragging Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Parametri Rigidezza**: Tutti impostati a 0;
 
-Overview
-++++++++++++++++++++++++++++++++++++++++
+**Soglia Forza Trascinamento**: Traslazione XYZ [5-10]; Rotazione RX, RY, RZ [0.5-5];
 
-The six-axis force and joint impedance hybrid dragging function utilizes the force sensor to perceive external forces, allowing the robot to perform assisted dragging in drag mode. Different dragging experiences can be achieved by adjusting the gain coefficients. Joint impedance uses impedance control to limit the drag force.
+**Forza Massima Trascinamento**: 50;
 
-Force Sensor Installation Configuration and Zeroing Operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+**Velocità Massima Trascinamento**: 180;
 
-1. Force Sensor Installation Configuration
+Funzione Trascinamento Ibrido a Sei Assi di Forza e Impedenza Articolare
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For detailed operations on force sensor installation configuration, refer to the section above: Virtual Wall Configuration Based on Force Sensor.
+Panoramica
+++++++++++
 
-2. Force Sensor Zeroing
+La funzione di trascinamento ibrido a sei assi di forza e impedenza articolare utilizza il sensore di forza per percepire la forza esterna. Il robot in modalità trascinamento esegue un'assistenza al trascinamento, e regolando il coefficiente di guadagno si ottengono esperienze di trascinamento diverse. L'impedenza articolare utilizza il controllo di impedenza per limitare la forza di trascinamento.
 
-To facilitate dragging the robot, a drag handle needs to be installed below the sensor, as shown in Figure 1.
+Installazione, Configurazione e Operazione di Azzeramento del Sensore di Forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1. Installazione e configurazione del sensore di forza
+
+Per le operazioni dettagliate di installazione e configurazione del sensore di forza, vedere sopra: Configurazione Parete Virtuale basata su Sensore di Forza.
+
+2. Azzeramento del sensore di forza
+
+Per facilitare il trascinamento del robot, è necessario installare una maniglia di trascinamento sotto il sensore, come mostrato in Figura 1.
 
 .. figure:: robot_peripherals/239.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑11 Drag Handle
+.. centered:: Grafico 8.14‑11 Maniglia di trascinamento
 
-**Step1**: Set the tool coordinate system according to the actual handle length, as shown in Figure 2.
+**Step1**: In base alla lunghezza effettiva della maniglia, impostare il sistema di coordinate dello strumento, come mostrato in Figura 2.
 
-**Step2**: Under the "Initial" -> "Basic" -> "Load" menu, click "Sensor" to enter the Force/Torque Sensor Load interface.
+**Step2**: Nel menu "Impostazioni Iniziali" -> "Base" -> "Carico", cliccare "Sensore" per accedere all'interfaccia del carico sensore di forza/coppia.
 
-Using the drag button, adjust the robot end effector to face horizontally downwards. Then, click "Load" -> "Sensor Identification" to enter the interface, find the "Record Initial Position" button in the "Sensor Auto Zeroing" section. Then, switch the robot mode to automatic mode and click the "Auto Zero" button. After the program finishes running, the sensor zeroing is complete. Detailed operations are shown in the figures.
+Tramite il pulsante di trascinamento, regolare l'estremità del robot in orizzontale verso il basso. Cliccare in sequenza "Carico" -> "Identificazione Sensore" per accedere all'interfaccia, trovare il pulsante "Registra Posizione Iniziale" nella barra "Azzeramento Automatico Sensore". Quindi, passare il robot in modalità automatica, cliccare il pulsante "Azzeramento Automatico". Dopo il completamento dell'esecuzione del programma, il lavoro di azzeramento del sensore è completato. Le operazioni dettagliate sono mostrate in figura.
 
 .. figure:: robot_peripherals/231.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑12 Tool Coordinate System Setup
+.. centered:: Grafico 8.14‑12 Impostazione sistema coordinate strumento
 
 .. figure:: robot_peripherals/240.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑13 Force/Torque Sensor Auto Zeroing
+.. centered:: Grafico 8.14‑13 Azzeramento automatico sensore forza/coppia
 
-Six-Axis Force and Joint Impedance Hybrid Dragging
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Trascinamento Ibrido a Sei Assi di Forza e Impedenza Articolare
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1. Assisted Dragging
+1. Assistenza al trascinamento
 
-**Step1**: Under the "Application" -> "Tool App" menu, click "Drag Lock" to enter the drag lock function interface.
+**Step1**: Nel menu "Applicazione Ausiliaria" -> "Applicazione Strumento", cliccare "Blocco Trascinamento" per accedere all'interfaccia della funzione di blocco trascinamento.
 
-**Step2**: In the "Six-Axis Force and Joint Impedance Hybrid Dragging" section, set the Control Status to "On", the Impedance Enable Status to "Off", set the Drag Gain, the End Linear Speed to 1000 mm/s, the Angular Speed Limit to 100 °/s, then click the "Apply" button to enable the function. The specific configuration is shown in Figure 4.
+**Step2**: Nella barra "Trascinamento Ibrido a Sei Assi di Forza e Impedenza Articolare", impostare lo stato di controllo su "Attiva", stato di attivazione impedenza su "Disattiva", impostare il guadagno di trascinamento, velocità lineare terminale su 1000 mm/s, limite velocità angolare su 100°/s, poi cliccare il pulsante "Applica", la funzione viene attivata. La configurazione specifica è mostrata in Figura 4.
 
-**Step3**: Switch the robot mode to drag mode to drag the robot. The specific effect is: dragging the robot end effector feels easy and provides a good experience; dragging the robot joints feels heavy.
+**Step3**: Passare il robot in modalità trascinamento per trascinare il robot. L'effetto specifico è: trascinando l'estremità del robot, il trascinamento è leggero, esperienza buona; trascinando l'articolazione del robot, il trascinamento è pesante.
 
 .. figure:: robot_peripherals/241.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑14 Configuration Parameters for Six-Axis Force Assisted Dragging
+.. centered:: Grafico 8.14‑14 Parametri di configurazione assistenza al trascinamento a sei assi di forza
 
-2. Joint Impedance Control
+2. Controllo impedenza articolare
 
-The role of impedance control is to limit the drag force and drag position. Its default status is "Off".
+La funzione del controllo impedenza è limitare la forza e la posizione di trascinamento. Il suo stato predefinito è "Disattiva".
 
-The specific operation is shown in Figure 5. Set the Impedance Enable Status to "On", then set the Damping Coefficient and Stiffness Coefficient as shown in Figure 5. The function of the Stiffness Coefficient is currently not available.
+Le operazioni specifiche sono mostrate in Figura 5. Impostare lo stato di attivazione impedenza su "Attiva", quindi impostare i coefficienti di smorzamento e rigidità come mostrato in Figura 5. Tra questi, la funzione del coefficiente di rigidità non è ancora disponibile.
 
 .. figure:: robot_peripherals/242.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.14‑15 Configuration Parameters for Joint Impedance
+.. centered:: Grafico 8.14‑15 Parametri di configurazione impedenza articolare
 
-Specific functions of the parameters:
+Funzione specifica dei parametri:
 
-- **Control Status**: After enabling, this function can be used in drag mode.
+- **Stato Controllo**: Dopo l'attivazione, in modalità trascinamento è possibile utilizzare questa funzione.
+  
+- **Attivazione Impedenza**: Dopo l'attivazione, è necessario configurare i parametri di rigidità e smorzamento. La funzione è limitare la forza e la posizione di trascinamento.
+  
+- **Guadagno Trascinamento**: Si consiglia di impostare il parametro tra [0-5]. Impostato a 0, il robot non può essere trascinato. Impostato a 1, l'effetto di trascinamento non migliora. Maggiore di 1, il trascinamento è leggero, esperienza di trascinamento buona. Più alto è il parametro, più facile è il trascinamento.
+  
+- **Guadagno Rigidità**: Impostato a 0, la funzione è tornare alla posizione iniziale prima del trascinamento dopo il trascinamento.
+  
+- **Guadagno Smorzamento**: La funzione è limitare la forza di trascinamento. Parametri per gli assi 1-3 nell'intervallo [0-0.5], assi 4-5 nell'intervallo [0-0.1]; asse 6 nell'intervallo [0-0.05].
+  
+- **Velocità Lineare Terminale**: 1000 mm/s, quando si supera il limite di velocità lineare terminale, il robot passa in modalità manuale e segnala sovraccarico TCP.
+  
+- **Limite Velocità Angolare**: 100°/s, quando si supera il limite di velocità angolare, il robot passa in modalità manuale e segnala sovraccarico TCP.
 
-- **Impedance Enable**: After enabling, stiffness and damping parameters need to be configured. Its role is to limit the drag force and drag position.
+Funzione di Tracciamento Laser a Punto Fisso con Asse Esteso
+-------------------------------------------------------------
 
-- **Drag Gain**: Recommended parameter range [0-5]. Setting the parameter to 0 makes the robot undraggable. Setting to 1 shows no improvement in dragging effect. Setting greater than 1 makes dragging light and provides a good experience. The larger the parameter, the easier the dragging.
-
-- **Stiffness Gain**: Set to 0. Its role is to return to the initial position before dragging after dragging.
-
-- **Damping Gain**: Its role is to limit the drag force. Parameter range for axes 1-3 is [0-0.5], for axes 4-5 is [0-0.1]; for axis 6 it is [0-0.05].
-
-- **End Linear Speed**: 1000 mm/s. When the end linear speed limit is exceeded, the robot switches mode to manual mode and prompts TCP overspeed.
-
-- **Angular Speed Limit**: 100 °/s. When the angular speed limit is exceeded, the robot switches mode to manual mode and prompts TCP overspeed.
-
-Extended Axis with Laser Point Tracking Function
---------------------------------------------------------------------------------------------------
-
-Robot Extended Axis with Laser Point Tracking System Composition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Composizione del Sistema di Tracciamento Laser a Punto Fisso con Asse Esteso del Robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: robot_peripherals/243.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑1 Robot Extended Axis with Laser Point Tracking System Composition
+.. centered:: Grafico 8.15‑1 Composizione sistema di tracciamento laser a punto fisso con asse esteso del robot
 
-In the system, (a) is the computer, (b) is the robot and its control box, (c) is the positioner and drive equipment, (d) is the weld seam tracking laser sensor, (e) is the welder and supporting equipment.
+Nel sistema, (a) è il computer, (b) è il robot e la sua scatola di controllo, (c) è il posizionatore e il dispositivo di azionamento, (d) è il sensore laser di tracciamento cordoni, (e) è la saldatrice e le apparecchiature associate.
 
 .. figure:: robot_peripherals/244.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 8.15‑2 Peripheral Installation Diagram
+.. centered:: Grafico 8.15‑2 Schema installazione periferiche
 
-The weld seam tracking laser sensor and welding torch (b) are installed on the end flange of the robot (a), and the positioner (c) is fixedly installed outside the robot.
+Il sensore laser di tracciamento cordoni e la torcia (b) sono installati sulla flangia terminale del robot (a), il posizionatore (c) è fissato all'esterno del robot.
 
-Extended Axis Communication Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Comunicazione Asse Esteso
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The communication methods between the robot and the extended axis include using UDP or RS485.
+I metodi di comunicazione tra robot e asse esteso includono l'uso di UDP o RS485.
 
 .. figure:: robot_peripherals/074.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑3 Extended Axis Configuration Page
+.. centered:: Grafico 8.15‑3 Pagina configurazione asse esteso
 
-Click "Initial" -> "Peripherals" -> "Extended Axis" on the robot operation interface to enter the extended axis configuration page. Taking connecting the robot to a PLC via UDP communication as an example, click the "UDP Communication" icon to enter the UDP communication extended axis configuration page.
+Nell'interfaccia operativa del robot, cliccare "Impostazioni Iniziali" -> "Periferiche" -> "Asse Esteso" per accedere alla pagina di configurazione dell'asse esteso. Prendendo come esempio il collegamento del robot a un PLC tramite comunicazione UDP, cliccare l'icona "Comunicazione UDP" per accedere alla pagina di configurazione dell'asse esteso con comunicazione UDP.
 
 .. figure:: robot_peripherals/110.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑4 UDP Communication Configuration Interface
+.. centered:: Grafico 8.15‑4 Interfaccia configurazione comunicazione UDP
 
-On the UDP communication extended axis configuration page, you can select the corresponding extended axis number, connect and configure UDP communication parameters (address, port, cycle, packet loss detection, etc.), and the extended axis positioning completion time.
+Nella pagina di configurazione dell'asse esteso con comunicazione UDP, è possibile selezionare il numero corrispondente dell'asse esteso, connettere e configurare i parametri di comunicazione UDP (indirizzo, porta, ciclo, rilevamento perdita pacchetti, ecc.), e il tempo di completamento del posizionamento dell'asse esteso.
 
-The extended axis configuration content is not the focus of this function introduction. For detailed configuration, refer to the corresponding part of the user manual.
+Il contenuto della configurazione dell'asse esteso non è il focus di questa introduzione funzionale. Per la configurazione dettagliata, fare riferimento al relativo manuale utente.
 
-Weld Seam Tracking Laser Sensor Connection Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Connessione Sensore Laser di Tracciamento Cordoni
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Connect the weld seam tracking laser sensor through the following configuration page:
+Collegare il sensore laser di tracciamento cordoni tramite la seguente pagina di configurazione:
 
 .. figure:: robot_peripherals/245.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑5 Laser Sensor Connection and Configuration Page
+.. centered:: Grafico 8.15‑5 Pagina connessione e configurazione sensore laser
 
-Click "Initial" -> "Peripherals" -> "Line Laser Sensor" -> "Adapted Devices" to enter the configuration page. The configuration page includes "Sensor Configuration", "Communication Configuration and Loading", "Base Calculation". Click "Sensor Configuration" to set the sensor input filter parameters. Click "Communication Configuration and Loading" to input the corresponding communication parameters to connect the laser sensor.
+Cliccare "Impostazioni Iniziali" -> "Periferiche" -> "Sensore Laser a Linea", "Dispositivo Adattato" per accedere alla pagina di configurazione. La pagina di configurazione include "Configurazione Sensore", "Configurazione Comunicazione e Caricamento", "Calcolo Riferimento". Cliccando "Configurazione Sensore" è possibile impostare i parametri di filtraggio dell'input del sensore, cliccando "Configurazione Comunicazione e Caricamento" è possibile inserire i corrispondenti parametri di comunicazione per collegare il sensore laser.
 
-The laser sensor configuration content is not the focus of this function introduction. For detailed configuration, refer to the corresponding part of the user manual.
+Il contenuto della configurazione del sensore laser non è il focus di questa introduzione funzionale. Per la configurazione dettagliata, fare riferimento al relativo manuale utente.
 
-Welder Connection Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Connessione Saldatrice
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Configure the welder through the following configuration page:
+Configurare la saldatrice tramite la seguente pagina di configurazione:
 
 .. figure:: robot_peripherals/246.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑6 Welder Configuration Page
+.. centered:: Grafico 8.15‑6 Pagina configurazione saldatrice
 
-Welder communication can use IO communication or RS485 communication. Click "Initial", "Peripherals", "Welder" to enter the configuration and connection interface, where you can configure modules such as "Control Type", "Signal Corresponding IO", "Welding Process Parameters", "Welder Debugging", etc.
+La comunicazione della saldatrice può utilizzare comunicazione IO o comunicazione RS485. Cliccare "Impostazioni Iniziali", "Periferiche", "Saldatrice" per accedere all'interfaccia di configurazione e connessione, dove è possibile configurare moduli come "Tipo Controllo", "IO Segnale Corrispondente", "Parametri Processo Saldatura", "Debug Saldatrice", ecc.
 
-The welder configuration content is not the focus of this function introduction. For detailed configuration, refer to the corresponding part of the user manual.
+Il contenuto della configurazione della saldatrice non è il focus di questa introduzione funzionale. Per la configurazione dettagliata, fare riferimento al relativo manuale utente.
 
-Tool Coordinate System and Laser Sensor Coordinate System Calibration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Taratura Sistema Coordinate Strumento e Sistema Coordinate Sensore Laser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After installing the welding torch on the robot end, calibrate the extrinsic parameters between the welding torch and the laser sensor:
+Dopo aver installato la torcia sull'estremità del robot, tarare i parametri esterni della torcia e del sensore laser:
 
 .. figure:: robot_peripherals/247.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑7 Tool Coordinate System Configuration Page
+.. centered:: Grafico 8.15‑7 Pagina configurazione sistema coordinate strumento
 
-Click "Initial", "Basic", "Coordinate System", "Tool" to enter the tool coordinate system setup page.
+Cliccare "Impostazioni Iniziali", "Base", "Coordinate", "Strumento" per accedere alla pagina di impostazione del sistema di coordinate dello strumento.
 
 .. figure:: robot_peripherals/248.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑8 Selecting the 6-Point Method to Calibrate the Welding Torch
+.. centered:: Grafico 8.15‑8 Selezione metodo a 6 punti per taratura torcia
 
-Select an empty coordinate system, select the tool type as "Tool", and choose the 6-point method to calibrate the welding torch tool.
+Selezionare un sistema di coordinate vuoto, selezionare tipo strumento "Strumento", selezionare il metodo a 6 punti per la taratura della torcia.
 
 .. figure:: robot_peripherals/148.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑9 Selecting the 5-Point Method to Calibrate the Laser Sensor
+.. centered:: Grafico 8.15‑9 Selezione metodo a 5 punti per taratura sensore laser
 
-Select an empty coordinate system, select the tool type as "Sensor", and choose the 5-point method to calibrate the laser sensor.
+Selezionare un sistema di coordinate vuoto, selezionare tipo strumento "Sensore", selezionare il metodo a 5 punti per la taratura del sensore laser.
 
-The tool coordinate system and laser sensor coordinate system calibration content is not the focus of this function introduction. For detailed calibration methods, refer to the corresponding part of the user manual.
+Il contenuto della taratura del sistema di coordinate dello strumento e del sistema di coordinate del sensore laser non è il focus di questa introduzione funzionale. Per i metodi di taratura dettagliati, fare riferimento al relativo manuale utente.
 
-Extended Axis and Laser Point Tracking Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di Tracciamento Laser a Punto Fisso con Asse Esteso
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Extended axis and laser point tracking are divided into two methods: laser data with transformation executes a "record first, then replay" tracking strategy, and laser data without transformation executes a "record while replaying" tracking strategy.
+Il tracciamento laser a punto fisso con asse esteso si divide in due metodi: con trasformazione dei dati laser esegue la strategia di tracciamento "prima registra poi riproduce", senza trasformazione dei dati laser esegue la strategia di tracciamento "registra e riproduce contemporaneamente".
 
-Extended Axis Coordinate System Calibration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Taratura Sistema Coordinate Asse Esteso
++++++++++++++++++++++++++++++++++++++++++++++
 
-Calibrating the extended axis coordinate system is required when using the extended axis coordinate system to achieve synchronized laser tracking between the extended axis and the robot.
+Per utilizzare il sistema di coordinate dell'asse esteso per realizzare il tracciamento laser sincrono tra asse esteso e robot, è necessario tarare il sistema di coordinate dell'asse esteso.
 
 .. figure:: robot_peripherals/077.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑10 Extended Axis Coordinate System Setup Page
+.. centered:: Grafico 8.15‑10 Pagina impostazione sistema coordinate asse esteso
 
-Click "Initial" -> "Peripherals" -> "Extended Axis" to enter the extended axis coordinate system setup interface. Select the extended axis number that needs to be set, click the edit button, select "4-Single DOF Positioner" and save.
+Cliccare "Impostazioni Iniziali" -> Periferiche -> "Asse Esteso" per accedere all'interfaccia di impostazione del sistema di coordinate dell'asse esteso. Selezionare il numero dell'asse esteso da impostare, cliccare il pulsante modifica, selezionare "4-Posizionatore a singolo grado di libertà" e salvare.
 
 .. figure:: robot_peripherals/249.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑11 Extended Axis Calibration Page
+.. centered:: Grafico 8.15‑11 Pagina taratura asse esteso
 
-When calibrating the extended axis, pay attention to select "Robot Position Relative to Extended Axis" as "Outside Extended Axis". For the case of a positioner, select the 4-point method for calibration.
+Durante la taratura dell'asse esteso, fare attenzione a selezionare "Posizione robot rispetto all'asse esteso" come "Esterno all'asse esteso". Per il caso del posizionatore, selezionare il metodo a 4 punti per la taratura.
 
-The extended axis calibration content is not the focus of this function introduction. For detailed calibration methods, refer to the corresponding part of the user manual.
+Il contenuto della taratura dell'asse esteso non è il focus di questa introduzione funzionale. Per i metodi di taratura dettagliati, fare riferimento al relativo manuale utente.
 
-Synchronized Laser Tracking of Extended Axis and Robot
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Tracciamento Laser Sincrono Asse Esteso e Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Laser Data with Transformation Method
+Metodo con Trasformazione Dati Laser
 ****************************************************
 
-Synchronized laser tracking of the extended axis and robot in the base coordinate system does not require external axis calibration. Other function settings and composition are consistent with synchronized tracking in the extended axis coordinate system.
+Il tracciamento laser sincrono tra asse esteso e robot nel sistema di base non richiede la taratura dell'asse esterno. Le altre impostazioni e componenti sono coerenti con il tracciamento sincrono nel sistema di coordinate dell'asse esteso.
 
-First, configure the laser tracking data, setting the laser tracker data to the type with transformation.
+Prima eseguire la configurazione dei dati di tracciamento laser, impostando i dati del tracciatore laser come dati con tipo di trasformazione.
 
 .. figure:: robot_peripherals/250.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑12 Setting Laser Data to Type with Transformation
+.. centered:: Grafico 8.15‑12 Impostazione tipo dati laser con trasformazione
 
-Click "Initial", "Peripherals", "Tracking", "Sensor", click "Sensor Configuration" in the page dropdown, and adjust "Data Processing" to the data type with transformation.
+Cliccare "Impostazioni Iniziali", "Periferiche", "Tracciamento", "Sensore", nella pagina a discesa cliccare "Configurazione Sensore", regolare "Elaborazione Dati" su dati con tipo di trasformazione.
 
 .. figure:: robot_peripherals/251.png
    :align: center
    :width: 6in
+ 
+.. centered:: Grafico 8.15‑13 Pagina funzione tracciamento laser
 
-.. centered:: Figure 8.15‑13 Laser Tracking Function Page
-
-This function is implemented through a combination of multi-functional modules. The main functional modules are included within the "Laser Tracking" function. Click "Teach Program" -> "Program Programming" -> "Laser Tracking" to enter the laser tracking page, or click "Laser Record" to directly enter the recording page.
+Questa funzione viene realizzata tramite la combinazione di moduli multifunzionali. I moduli funzionali principali sono contenuti nella funzione "Tracciamento Laser". Cliccare "Programmazione Insegnamento" -> "Programmazione Programma" -> "Tracciamento Laser" per accedere alla pagina del tracciamento laser, oppure cliccare "Registrazione Laser" per accedere direttamente alla pagina di registrazione.
 
 .. figure:: robot_peripherals/252.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.15‑14 Adding the Start Recording Laser Data Instruction
+.. centered:: Grafico 8.15‑14 Aggiunta istruzione inizio registrazione dati laser
 
-Add the start recording laser data instruction after the extended axis moves to the welding start point.
+Dopo che l'asse esteso si è spostato al punto di inizio saldatura, aggiungere l'istruzione di inizio registrazione dati laser.
 
 .. figure:: robot_peripherals/253.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.15‑15 Adding the Stop Recording Laser Data Instruction
+.. centered:: Grafico 8.15‑15 Aggiunta istruzione fine registrazione dati laser
 
-Add the stop recording laser data instruction after the extended axis moves to the welding end point.
+Dopo che l'asse esteso si è spostato al punto di fine saldatura, aggiungere l'istruzione di fine registrazione dati laser.
 
-After the robot finishes recording the movement trajectory of the weld seam during the extended axis motion in place, the extended axis can be returned to the welding start point to prepare for synchronized tracking welding.
+Dopo che il robot ha registrato sul posto la traiettoria del movimento del cordone durante il movimento dell'asse esteso, è possibile far tornare l'asse esteso al punto di inizio saldatura, preparandosi per iniziare il tracciamento sincrono della saldatura.
 
-At the beginning of welding, the welding torch needs to be moved to the starting point position of the laser sensor recorded data. Add the Move to Welding Point instruction:
+All'inizio della saldatura, è necessario spostare la torcia nella posizione di inizio dei dati registrati dal sensore laser. Aggiungere l'istruzione di movimento al punto di saldatura:
 
 .. figure:: robot_peripherals/254.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.15‑16 Adding the Move to Welding Point Instruction
+.. centered:: Grafico 8.15‑16 Aggiunta istruzione movimento al punto di saldatura
 
-Click "Teach Program" -> "Program Programming" -> "Laser Record" button, select "Move to Welding Point", set the motion mode and speed, click the "Start Point" button and apply.
+Cliccare "Programmazione Insegnamento" -> "Programmazione Programma" -> "Registrazione Laser", selezionare "Movimento al punto di saldatura", impostare modalità di movimento e velocità di movimento, cliccare il pulsante "Inizio" e applicare.
 
 .. figure:: robot_peripherals/255.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.15‑17 Adding the Trajectory Replay Instruction for Recorded Laser Data
+.. centered:: Grafico 8.15‑17 Aggiunta istruzione riproduzione traiettoria dati registrati laser
 
-In the "Laser Tracking" page, select the "Data Record" -> "Trajectory Replay" instruction, click "Add" and apply. In the instruction, the waiting time defaults to 0ms, and the speed is the ratio of the replay speed to the recording speed, recommended to be greater than 50%.
+Nella pagina "Tracciamento Laser", selezionare l'istruzione "Registrazione Dati" -> "Riproduzione Traiettoria", cliccare "Aggiungi" e applicare. Nell'istruzione, il tempo di attesa predefinito è 0 ms, la velocità è il rapporto tra la velocità di riproduzione e la velocità di registrazione, si consiglia di essere superiore al 50%.
 
-Adding an extended axis motion instruction after the "Trajectory Replay" instruction enables synchronized motion of the extended axis and robot laser tracking.
+Aggiungendo un'istruzione di movimento dell'asse esteso dopo l'istruzione "Riproduzione Traiettoria", è possibile realizzare il movimento sincrono tra asse esteso e tracciamento laser del robot.
 
-The following is a typical LUA program for extended axis with laser data transformation point tracking:
+Di seguito un tipico programma LUA per tracciamento laser a punto fisso con asse esteso e dati con trasformazione:
 
 .. figure:: robot_peripherals/256.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑18 Example Program for Extended Axis with Laser Data Transformation Point Tracking
+.. centered:: Grafico 8.15‑18 Programma di esempio tracciamento a punto fisso con asse esteso e dati laser con trasformazione
 
-The robot executes the "record first, then replay" process. It first records the changing trajectory of the workpiece weld seam during extended axis motion, and then during welding, the extended axis and trajectory replay are executed synchronously.
+Il robot esegue il processo "prima registra poi riproduce", prima registrando la traiettoria di cambiamento del cordone del pezzo durante il movimento dell'asse esteso, poi durante la saldatura l'asse esteso e la riproduzione della traiettoria vengono eseguiti sincronamente.
 
-Laser Data without Transformation Method
+Metodo senza Trasformazione Dati Laser
 ****************************************************
 
-Using the laser data without transformation method for point tracking does not require calibration of the extended axis coordinate system.
+L'utilizzo del metodo senza trasformazione dei dati laser per il tracciamento a punto fisso non richiede la taratura del sistema di coordinate dell'asse esteso.
 
-Set the laser tracking sensor data to the type without transformation.
+Impostare i dati del sensore di tracciamento laser come tipo senza trasformazione.
 
 .. figure:: robot_peripherals/257.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.15‑19 Setting Laser Data to Type without Transformation
+.. centered:: Grafico 8.15‑19 Impostazione tipo dati laser senza trasformazione
 
-Click "Initial" -> "Peripherals" -> "Line Laser Sensor", click "Sensor Configuration" in the page dropdown, and adjust "Data Processing" to the data type without transformation.
+Cliccare "Impostazioni Iniziali" -> "Periferiche" -> "Sensore Laser a Linea", nella pagina a discesa cliccare "Configurazione Sensore", regolare "Elaborazione Dati" su dati senza trasformazione.
 
 .. figure:: robot_peripherals/251.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.15‑20 Laser Tracking Function Page
+.. centered:: Grafico 8.15‑20 Pagina funzione tracciamento laser
 
-Click "Teach Program" -> "Program Programming" -> "Laser Tracking" to enter the laser tracking page, or click "Laser Record" to directly enter the recording page.
+Cliccare "Programmazione Insegnamento" -> "Programmazione Programma" -> "Tracciamento Laser" per accedere alla pagina del tracciamento laser, oppure cliccare "Registrazione Laser" per accedere direttamente alla pagina di registrazione.
 
 .. figure:: robot_peripherals/258.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.15‑21 Adding the Record While Replaying Instruction
+.. centered:: Grafico 8.15‑21 Aggiunta istruzione registra e riproduce contemporaneamente
 
-In the "Laser Record" page, select the "Record While Replaying" instruction, click "Add" and apply. In the instruction, you can choose "Delay Time" or "Delay Distance" (distance is recommended). The compensation sensitivity coefficient is adjusted according to the actual sensor laser data; a lower value means lower adjustment sensitivity and better anti-interference. The replay speed defaults to 100%.
+Nella pagina "Registrazione Laser", selezionare l'istruzione "Registra e Riproduce Contemporaneamente", cliccare "Aggiungi" e applicare. Nell'istruzione, è possibile scegliere "Tempo di Ritardo" o "Distanza di Ritardo" (si consiglia di scegliere la distanza), il coefficiente di sensibilità di compensazione viene regolato in base ai dati laser effettivi del sensore, un valore più basso indica una minore sensibilità di regolazione e una migliore resistenza alle interferenze, la velocità di riproduzione predefinita è 100%.
 
-Adding an extended axis motion instruction after the "Record While Replaying" instruction enables synchronized motion of the extended axis and robot laser tracking.
+Aggiungendo un'istruzione di movimento dell'asse esteso dopo l'istruzione "Registra e Riproduce Contemporaneamente", è possibile realizzare il movimento sincrono tra asse esteso e tracciamento laser del robot.
 
-The following is a typical LUA program for extended axis with laser data without transformation point tracking:
+Di seguito un tipico programma LUA per tracciamento laser a punto fisso con asse esteso e dati senza trasformazione:
 
 .. figure:: robot_peripherals/259.png
    :align: center
    :width: 5in
 
-.. centered:: Figure 8.15‑22 Example Program for Extended Axis with Laser Data without Transformation Point Tracking
+.. centered:: Grafico 8.15‑22 Programma di esempio tracciamento a punto fisso con asse esteso e dati laser senza trasformazione
 
-After aligning the welding torch with the offset from the front-mounted laser, the robot's extended axis moves and executes the "record while replaying" process. The front-mounted laser tracker first records the changing trajectory of the workpiece weld seam during extended axis motion, and then adjusts at the welding torch after the set delay distance or time.
+Dopo aver allineato l'offset della torcia rispetto al laser anteriore, il robot si muove con l'asse esteso ed esegue il processo "registra e riproduce contemporaneamente". Il tracciatore laser anteriore prima registra la traiettoria di cambiamento del cordone del pezzo durante il movimento dell'asse esteso, e dopo la distanza o il tempo di ritardo impostati, regola nella posizione della torcia.
 
-Laser Seam Finding Point Position Acquisition Function
------------------------------------------------------------
+Funzione di Acquisizione Posizione Punto di Ricerca Laser
+---------------------------------------------------------
 
-Robot Laser Seam Finding Point Position Acquisition System Composition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Composizione del Sistema di Acquisizione Posizione Punto di Ricerca Laser del Robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: robot_peripherals/260.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.16‑1 Robot Laser Seam Finding Point Position Acquisition System Topology Diagram
-.. centered:: In the system, (a) is the computer, (b) is the robot and its control box, (c) is the laser sensor.
+.. centered:: Grafico 8.16‑1 Diagramma topologico composizione sistema di acquisizione posizione punto di ricerca laser del robot
+.. centered:: Nel sistema, (a) è il computer, (b) è il robot e la sua scatola di controllo, (c) è il sensore laser.
 
-Laser Sensor Communication Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Comunicazione Sensore Laser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open WebApp, click sequentially "Initial" -> "Peripherals" -> "Line Laser Sensor" to configure the sensor communication.
+Aprire WebApp, cliccare in sequenza "Impostazioni Iniziali" -> "Periferiche" -> "Sensore Laser a Linea", configurare la comunicazione del sensore.
 
 .. figure:: robot_peripherals/245.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.16‑2 Sensor Communication Configuration
+.. centered:: Grafico 8.16‑2 Configurazione comunicazione sensore
 
-Laser Seam Finding Point Position Acquisition Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di Acquisizione Posizione Punto di Ricerca Laser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The operation process for acquiring the laser seam finding point position is as follows:
+Il flusso operativo per acquisire la posizione del punto di ricerca laser è il seguente:
 
-**Step 1**: Before laser seam finding, first designate the seam finding start points "seamStartPt1", "seamStartPt2". Then click "Teach Program", "Program Programming", select "Point to Point", and move the laser sensor's beam close to the seam finding start point 1 "seamStartPt1" near the start of weld seam 1.
+**Step 1**: Prima della ricerca laser, specificare prima i punti di inizio ricerca "seamStartPt1", "seamStartPt2", poi cliccare "Programmazione Insegnamento", "Programmazione Programma", selezionare "Punto a Punto", far sì che il raggio del sensore laser si avvicini al punto di inizio ricerca 1 "seamStartPt1" vicino al punto di inizio del cordone 1.
 
 .. figure:: robot_peripherals/261.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.16‑3 Adding the Move to Seam Finding Start Point 1 Instruction
+.. centered:: Grafico 8.16‑3 Aggiunta istruzione movimento al punto di inizio ricerca 1
 
-**Step 2**: In the instruction type, click "Seam Finding Start", then select the calibrated sensor coordinate system, set the seam finding direction, speed, length, and maximum seam finding time, and click the "Add" button. Then click "Seam Finding End", and click the "Add" button.
+**Step 2**: Nel tipo di istruzione, cliccare "Inizio Ricerca", selezionare il sistema di coordinate del sensore tarato, impostare direzione di ricerca, velocità, lunghezza e tempo massimo di ricerca, cliccare il pulsante "Aggiungi". Poi cliccare "Fine Ricerca", cliccare il pulsante "Aggiungi".
 
 .. figure:: robot_peripherals/262.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.16‑4 Adding the Seam Finding Start Instruction
+.. centered:: Grafico 8.16‑4 Aggiunta istruzione inizio ricerca
 
-**Step 3**: Select "Sensor Point Acquisition Motion", select the calibrated "Laser Sensor" for the coordinate system name, select "PTP" or "LIN" for the motion mode, set the debugging speed and choose whether to "Configure Pose", click the "Add" button, then click the "Apply" button to add it to the LUA program.
+**Step 3**: Selezionare "Movimento Acquisizione Punto Sensore", nome sistema di coordinate selezionare il "Sensore Laser" tarato, modalità movimento selezionare "PTP" o "LIN", impostare velocità di debug e selezionare "Configurare Posa", cliccare il pulsante "Aggiungi", cliccare il pulsante "Applica" per aggiungere al programma LUA.
 
 .. figure:: robot_peripherals/263.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.16‑5 Adding the Sensor Point Acquisition Motion Instruction
+.. centered:: Grafico 8.16‑5 Aggiunta istruzione movimento acquisizione punto sensore
 
-**Step 4**: In the "Program Programming" interface, click the "Switch Mode" button, change the variable "pos" to "pos1", and delete the move to seam finding point instruction.
+**Step 4**: Nell'interfaccia "Programmazione Programma", cliccare il pulsante "Cambia Modalità", cambiare la variabile "pos" in "pos1", e cancellare l'istruzione di movimento al punto di ricerca.
 
 .. figure:: robot_peripherals/264.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.16‑6 Program Programming Switch Mode
+.. centered:: Grafico 8.16‑6 Programmazione programma cambio modalità
 
 .. figure:: robot_peripherals/265.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.16‑7 Modifying the Acquire Laser Seam Finding Point Program
+.. centered:: Grafico 8.16‑7 Modifica programma acquisizione punto di ricerca laser
 
-**Step 5**: Follow Steps 1-4 to perform seam finding for the second weld seam and acquire the laser seam finding point position.
+**Step 5**: Seguire i passi Step1-Step4 per eseguire la ricerca del secondo cordone, acquisendo la posizione del punto di ricerca laser.
 
 .. figure:: robot_peripherals/266.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 8.16‑8 Second Weld Seam Seam Finding Point Acquisition
+.. centered:: Grafico 8.16‑8 Acquisizione punto di ricerca secondo cordone
 
-DARU DFC Force Control Polishing Head Application
------------------------------------------------------------
+Applicazione Testa Smerigliatrice con Controllo Forza DFC Daru
+---------------------------------------------------------------
 
-Overview
+Panoramica
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Installing the DFC polishing head on the robot end-effector helps the robot quickly deploy grinding, polishing, and deburring tasks in different scenarios. It allows customizing the force control magnitude for workpieces of different sizes and shapes, improving the precision and effectiveness of grinding work.
+L'installazione di una testa smerigliatrice DFC sull'estremità del robot può aiutare il robot a distribuire rapidamente stazioni di lavoro per smerigliatura, lucidatura, rimozione sbavature in diversi scenari, permettendo di personalizzare l'entità del controllo forza per pezzi di diverse dimensioni e forme, migliorando la precisione e l'effetto del lavoro di smerigliatura.
 
-Hardware Description
+Descrizione Hardware
 +++++++++++++++++++++++++++++
-The collaborative robot communicates with and controls the DARU DFC polishing head via Ethernet. The WebApp generates the DARU DFC polishing head communication protocol, which sends control data to the DARU force control controller module via TCP/IP. The module then sends the received control data to the DFC force control actuator, thereby achieving control of the polishing head. The force control controller module acts as the server for Ethernet communication and can connect to polishing head actuators on two channels.
+Il robot collaborativo comunica e controlla la testa smerigliatrice DFC Daru tramite Ethernet. Sulla WebApp viene generato un protocollo di comunicazione per la testa smerigliatrice DFC Daru. Il protocollo invia i dati di controllo via TCP/IP al modulo controller di controllo forza Daru, che a sua volta invia i dati di controllo ricevuti all'attuatore di controllo forza DFC, realizzando così il controllo della testa smerigliatrice. Il modulo controller di controllo forza è il server per la comunicazione Ethernet, in grado di collegare due canali di attuatori testa smerigliatrice.
 
 .. figure:: robot_peripherals/267.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑1 Collaborative Robot DARU DFC Polishing Head Application
+.. centered:: Grafico 8.17‑1 Applicazione testa smerigliatrice DFC Daru robot collaborativo
 
-The force control controller module requires the following configuration: Ethernet port configured with IP address: 192.168.58.88, port number: 2000.
+Il modulo controller di controllo forza deve essere configurato come segue: lato Ethernet configurato con indirizzo IP: 192.168.58.88, numero porta: 2000.
 
-Function Configuration
+Configurazione Funzione
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open the WebApp, click sequentially on "Initial Setup", "Peripherals", "Polishing". The control types for the polishing head are Pre-adapted Devices and Peripheral Open Protocol:
-Pre-adapted Devices: Automatically generates and loads the open protocol for adapted polishing head device types, no user programming required.
-Peripheral Open Protocol: Users write the open protocol for the polishing head to be adapted using Lua to achieve communication control.
+Aprire WebApp, cliccare in sequenza "Impostazioni Iniziali", "Periferiche", "Smerigliatura"; i tipi di controllo della testa smerigliatrice sono due: dispositivo adattato e protocollo aperto periferiche:
+Dispositivo adattato: genera e carica automaticamente un protocollo aperto per i tipi di dispositivi testa smerigliatrice già adattati, senza bisogno di scrittura da parte dell'utente.
+Protocollo aperto periferiche: l'utente scrive tramite lua il protocollo aperto per il dispositivo testa smerigliatrice da adattare per realizzare il controllo di comunicazione.
 
 .. figure:: robot_peripherals/268.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑2 Polishing Control Types
+.. centered:: Grafico 8.17‑2 Tipo controllo smerigliatrice
 
-Pre-adapted Device Configuration
+Configurazione Dispositivo Adattato
 +++++++++++++++++++++++++++++++++++++++
 
-Open the WebApp, click sequentially on "Initial Setup", "Peripherals", "Polishing Head", "Pre-adapted Devices". In the device status, select "DARU DFC Polishing Head" for the type, then click "Configure". This will automatically load the embedded peripheral open protocol "CtrlDev_DARUDFCPOLISH.lua".
+Aprire WebApp, cliccare in sequenza "Impostazioni Iniziali", "Periferiche", "Testa Smerigliatrice", "Dispositivo Adattato". Nello stato del dispositivo, selezionare tipo "Testa smerigliatrice DFC Daru", cliccare "Configura", verrà automaticamente caricato il protocollo aperto periferiche integrato "CtrlDev_DARUDFCPOLISH.lua"
 
 .. figure:: robot_peripherals/269.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑3 DARU DFC Device Peripheral Open Protocol Auto-loading
-
-With the hardware connection confirmed correct, the open protocol can be started. When the run status is green and the communication status feedback in the Polish status on the right shows "Connection Established", it indicates successful communication between the robot and the polishing head controller. Parameters can then be configured to set the polishing head channel for force control and the set force value. The open protocol will cyclically send the set value, channel, and the robot's current rx, ry, rz to the polishing head, as shown in Figure 2-3. Additionally, the Polish status feedback will also display the current force feedback value and force limit warning from the polishing head in real-time. When a warning occurs, an alarm reminder will also appear in the upper right corner of the page, as shown in Figure 2-4.
+.. centered:: Grafico 8.17‑3 Caricamento automatico protocollo aperto periferiche dispositivo DFC Daru
+ 
+In condizioni di collegamento corretto del collegamento hardware, è possibile avviare il protocollo aperto. Quando lo stato di esecuzione è verde e lo stato di comunicazione nel feedback stato Polish a destra è connessione stabilita, significa che il robot ha stabilito con successo la comunicazione con il controller della testa smerigliatrice. A questo punto, tramite la configurazione dei parametri, è possibile configurare il canale della testa smerigliatrice che necessita di impostazione del controllo forza e l'entità della forza impostata. Il protocollo aperto invierà ciclicamente il valore impostato, il canale, gli rx, ry, rz correnti del robot alla testa smerigliatrice, come mostrato in Figura 2-3. Inoltre, il feedback stato Polish visualizzerà in tempo reale il valore di controllo forza e l'allarme di superamento limite di controllo forza feedback dalla testa smerigliatrice. Quando viene generato un allarme, anche l'angolo in alto a destra della pagina effettuerà una segnalazione di allarme, come mostrato in Figura 2-4.
 
 .. figure:: robot_peripherals/270.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑4 DFC Polishing Head Page Settings and Status Feedback
+.. centered:: Grafico 8.17‑4 Impostazioni pagina e feedback stato testa smerigliatrice DFC
 
 .. figure:: robot_peripherals/271.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑5 DFC Polishing Head Force Control Limit Exceeded Alarm
+.. centered:: Grafico 8.17‑5 Allarme superamento limite controllo forza testa smerigliatrice DFC
 
-Peripheral Open Protocol Download
+Download Protocollo Aperto Periferiche
 +++++++++++++++++++++++++++++++++++++++
 
-Click the "Download" button in "Peripheral Open Protocol" to download the protocol to the local computer. The peripheral open protocol is a cyclically executed LUA program. In each cycle, the program performs the following steps:
+In "Protocollo Aperto Periferiche", cliccare il pulsante "Download" per scaricare il protocollo sul computer locale. Il protocollo aperto periferiche è un programma LUA che viene eseguito ciclicamente. Il programma esegue i seguenti passi in ogni ciclo:
 
-① Read control data for the DFC polishing head from the robot;
+① Legge i dati di controllo della testa smerigliatrice DFC dal robot;
 
-② Write control data to the DFC polishing head via socket;
+② Scrive i dati di controllo nella testa smerigliatrice DFC tramite socket;
 
-③ Read status data from the DFC polishing head via socket;
+③ Legge i dati di stato dalla testa smerigliatrice DFC tramite socket;
 
-④ Feedback DFC polishing head status data to the robot;
+④ Restituisce i dati di stato della testa smerigliatrice DFC al robot;
 
-The communication protocol executes cyclically to achieve communication control between the robot and the polishing head. Within the communication protocol, users can customize the cycle period, the server port to connect to, and the IP address.
+Il protocollo di comunicazione viene eseguito ciclicamente per realizzare il controllo di comunicazione tra robot e testa smerigliatrice. Nel protocollo di comunicazione, l'utente può personalizzare il periodo del ciclo, la porta del server e l'IP a cui connettersi.
 
-Below is a sample communication protocol code for the DARU DFC polishing head:
+Di seguito un esempio di codice del protocollo di comunicazione per la testa smerigliatrice DFC Daru:
 
 .. code-block:: 
     :linenos:
@@ -6184,68 +6224,68 @@ Below is a sample communication protocol code for the DARU DFC polishing head:
         end    
     end
 
-DFC Polishing Head LUA Program Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Applicazione Programma LUA Testa Smerigliatrice DFC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Adding DFC force control configuration, channel switching, status acquisition instructions, etc., to the robot LUA program, combined with robot motion instructions, enables flexible and convenient implementation of polishing applications.
-Open the WebApp, click sequentially on "Teach Program", "Program Programming", and create a new LUA program "testDFC.lua".
+Aggiungendo istruzioni di configurazione controllo forza DFC, cambio canale, acquisizione stato, ecc., nel programma LUA del robot, in combinazione con le istruzioni di movimento del robot, è possibile realizzare flessibilmente e convenientemente applicazioni di smerigliatura.
+Aprire WebApp, cliccare in sequenza "Programmazione Insegnamento", "Programmazione Programma", creare un nuovo programma LUA "testDFC.lua".
 
 .. figure:: robot_peripherals/272.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑6 Create New "testDFC.lua" Program
+.. centered:: Grafico 8.17‑6 Creazione programma "testDFC.lua"
 
-Select the instruction type as "Peripheral Instruction", and click the "Polishing Device" button in the peripheral instructions. The "Polish" polishing instruction addition page will then appear on the right side of the WebApp. Select "DARU DFC Polishing Head" for the device type.
+Selezionare il tipo di istruzione "Istruzione Periferica", nelle istruzioni periferiche cliccare il pulsante "Dispositivo Smerigliatrice". A questo punto, nella parte destra di WebApp appare la pagina di aggiunta istruzioni "Polish" per smerigliatura, tipo dispositivo selezionare "Testa smerigliatrice DFC Daru".
 
 .. figure:: robot_peripherals/273.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑7 Polishing Head Instruction Addition
+.. centered:: Grafico 8.17‑7 Aggiunta istruzione testa smerigliatrice
 
-Polishing Head Control Instruction Addition
-++++++++++++++++++++++++++++++++++++++++++++
+Aggiunta Istruzione Controllo Testa Smerigliatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Writing polishing head control instructions in the LUA program allows force control setting and channel selection for the DFC.
+Scrivendo istruzioni di controllo testa smerigliatrice nel programma LUA, è possibile impostare il controllo forza e la selezione del canale per DFC.
 
-In the polishing device instruction addition page, click "Set DFC", select the polishing head channel mode as "2", and the set force as "10". Click the "Add" button to add the polishing head setting instruction in the "Program Preview".
+Nella pagina di aggiunta istruzioni dispositivo smerigliatrice, cliccare "Imposta DFC", selezionare modalità canale testa smerigliatrice "2", forza impostata "10". Cliccare il pulsante "Aggiungi", aggiungendo così un'istruzione di impostazione testa smerigliatrice in "Anteprima Programma".
 
 .. figure:: robot_peripherals/274.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑8 Add Polishing Head Control Instruction
+.. centered:: Grafico 8.17‑8 Aggiunta istruzione controllo testa smerigliatrice
+ 
+Aggiunta Istruzione Acquisizione Stato Testa Smerigliatrice
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Polishing Head Status Acquisition Instruction Addition
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Click "Get DFC Data", then click "Add" and "Apply" buttons sequentially. This adds an instruction "GetDFCState()" to "testDFC.lua" for acquiring polishing head data.
+Cliccare "Ottieni Dati DFC", cliccare in sequenza "Aggiungi", "Applica". In "testDFC.lua" viene così aggiunta un'istruzione per ottenere i dati della testa smerigliatrice "GetDFCState()".
 
 .. figure:: robot_peripherals/275.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑9 Add Get Polishing Head Status Instruction
+.. centered:: Grafico 8.17‑9 Aggiunta istruzione ottenimento stato testa smerigliatrice
 
-The GetDFCState() instruction returns 2 values, as follows:
+L'istruzione GetDFCState () restituisce 2 valori, rispettivamente:
 
-**DFCwarn**: Force control limit exceeded warning 0-Normal 1-Alarm;
+**DFCwarn**: Allarme superamento limite controllo forza 0-normale 1-allarme;
 
-**force**: Force feedback value.
+**force**: Valore feedback controllo forza.
 
-In "testDFC.lua", use three variables to receive the return values of the GetDFCState() function. Use Lua variable query to display the above information in the WebApp variable query display area.
+In "testDFC.lua", utilizzare tre variabili per ricevere i valori restituiti dalla funzione GetDFCState (). E tramite la query variabili Lua, visualizzare le informazioni sopra nell'area di visualizzazione query variabili di WebApp.
 
 .. figure:: robot_peripherals/276.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 8.17‑10 Get Polishing Head Status Program
+.. centered:: Grafico 8.17‑10 Programma ottenimento stato testa smerigliatrice
 
-Application Example
+Esempio Applicazione
 +++++++++++++++++++++++++++++++++++++++
 
-The following is a LUA program example for DFC polishing head control and monitoring:
+Di seguito un esempio di programma LUA per il controllo e il monitoraggio della testa smerigliatrice DFC:
 
 .. code-block:: 
     :linenos:

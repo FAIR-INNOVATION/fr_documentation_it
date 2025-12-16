@@ -1,200 +1,200 @@
-Weld
+Saldatura
 ======================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
-    
-Setting Welding Process Curve Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Impostazione dei parametri della curva di processo di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetProcessParam(id, startCurrent, startVoltage, startTime, weldCurrent, weldVoltage, endCurrent, endVoltage, endTime)``"
-    "Description", "Set weld process profile parameters"
-    "Mandatory parameters", "
-    - ``id``: Welding process number (1-99)
-    - ``startCurrent``: Arc starting current (A)
-    - ``startVoltage``: startVoltage Arc-starting voltage (V)
-    - ``startTime``: startTime Arc start time (ms)
-    - ``weldCurrent``: weldCurrent Welding current (A)
-    - ``weldVoltage``: weldVoltage Welding voltage (V)
-    - ``endCurrent``: endCurrent Arc recovery current (A)
-    - ``endVoltage``: endVoltage Arc charging voltage (V)
-    - ``endTime``: endTime closing time (ms)
+    "Prototipo", "``WeldingSetProcessParam(id, startCurrent, startVoltage, startTime, weldCurrent, weldVoltage, endCurrent, endVoltage, endTime)``"
+    "Descrizione", "Imposta i parametri della curva di processo di saldatura"
+    "Parametri obbligatori", "
+    - ``id``: Numero del processo di saldatura (1-99)
+    - ``startCurrent``: Corrente di inizio arco (A)
+    - ``startVoltage``: Tensione di inizio arco (V)
+    - ``startTime``: Tempo di inizio arco (ms)
+    - ``weldCurrent``: Corrente di saldatura (A)
+    - ``weldVoltage``: Tensione di saldatura (V)
+    - ``endCurrent``: Corrente di fine arco (A)
+    - ``endVoltage``: Tensione di fine arco (V)
+    - ``endTime``: Tempo di fine arco (ms)
     "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-   
-Obtaining Welding Process Curve Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+Recupero dei parametri della curva di processo di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingGetProcessParam(id)``"
-    "Description", "Get welding process curve parameters"
-    "Mandatory parameters", "
-    - ``id``: Welding process number (1-99)
+    "Prototipo", "``WeldingGetProcessParam(id)``"
+    "Descrizione", "Recupera i parametri della curva di processo di saldatura"
+    "Parametri obbligatori", "
+    - ``id``: Numero del processo di saldatura (1-99)
     "
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``startCurrent``: arc starting current (A)
-    - ``startVoltage``: Arc starting voltage (V)
-    - ``startTime``: start time (ms)
-    - ``weldCurrent``: welding current (A)
-    - ``weldVoltage``: welding voltage (V)
-    - ``endCurrent``: arc closing current (A)
-    - ``endVoltage``: arc closing voltage (V)
-    - ``endTime``: arc closing time (ms)
-    " 
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``startCurrent``: Corrente di inizio arco (A)
+    - ``startVoltage``: Tensione di inizio arco (V)
+    - ``startTime``: Tempo di inizio arco (ms)
+    - ``weldCurrent``: Corrente di saldatura (A)
+    - ``weldVoltage``: Tensione di saldatura (V)
+    - ``endCurrent``: Corrente di fine arco (A)
+    - ``endVoltage``: Tensione di fine arco (V)
+    - ``endTime``: Tempo di fine arco (ms)
+    "
 
-Setting of welding current and output analog correspondences
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della relazione tra corrente di saldatura e uscita analogica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: python SDK-v2.0.5
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetCurrentRelation(currentMin, currentMax, outputVoltageMin, outputVoltageMax)``"
-    "Description", "Setting the welding current to correspond to the output analog"
-    "Mandatory parameters", "- ``currentMin``: Welding current - analog output linear relationship left point current value (A)
-    - ``currentMax``: Welding current - analog output linear relationship right point current value (A)
-    - ``outputVoltageMin``: analog output voltage value (V) at the left point of the welding current-analog output linear relationship.
-    - ``outputVoltageMax``: analog output voltage value (V) at the point on the right side of the weld current-analog output linear relationship.
-    - ``AOIndex``: analog output port for welding current"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeldingSetCurrentRelation(currentMin, currentMax, outputVoltageMin, outputVoltageMax)``"
+    "Descrizione", "Imposta la relazione tra corrente di saldatura e uscita analogica"
+    "Parametri obbligatori", "- ``currentMin``: Valore di corrente al punto sinistro della relazione lineare corrente di saldatura-uscita analogica (A)
+    - ``currentMax``: Valore di corrente al punto destro della relazione lineare corrente di saldatura-uscita analogica (A)
+    - ``outputVoltageMin``: Valore di tensione di uscita analogica al punto sinistro della relazione lineare corrente di saldatura-uscita analogica (V)
+    - ``outputVoltageMax``: Valore di tensione di uscita analogica al punto destro della relazione lineare corrente di saldatura-uscita analogica (V)
+    - ``AOIndex``: Porta di uscita analogica per la corrente di saldatura"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the welding voltage and output analog correspondence
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della relazione tra tensione di saldatura e uscita analogica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: python SDK-v2.0.5
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetVoltageRelation(weldVoltageMin, weldVoltageMax, outputVoltageMin, outputVoltageMax)``"
-    "Description", "Setting the weld voltage to correspond to the output analog"
-    "Mandatory parameters", "- ``weldVoltageMin``: Welding voltage - analog output linear relationship left point welding voltage value (A)
-    - ``weldVoltageMax``: Welding voltage - analog output linear relationship right point welding voltage value (A)
-    - ``outputVoltageMin``: analog output voltage value (V) at the left point of the welding voltage-analog output linear relationship.
-    - ``outputVoltageMax``: analog output voltage value (V) at the point on the right side of the weld voltage-analog output linear relationship.
-    - ``AOIndex``: welding voltage analog output port"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeldingSetVoltageRelation(weldVoltageMin, weldVoltageMax, outputVoltageMin, outputVoltageMax)``"
+    "Descrizione", "Imposta la relazione tra tensione di saldatura e uscita analogica"
+    "Parametri obbligatori", "- ``weldVoltageMin``: Valore di tensione di saldatura al punto sinistro della relazione lineare tensione di saldatura-uscita analogica (A)
+    - ``weldVoltageMax``: Valore di tensione di saldatura al punto destro della relazione lineare tensione di saldatura-uscita analogica (A)
+    - ``outputVoltageMin``: Valore di tensione di uscita analogica al punto sinistro della relazione lineare tensione di saldatura-uscita analogica (V)
+    - ``outputVoltageMax``: Valore di tensione di uscita analogica al punto destro della relazione lineare tensione di saldatura-uscita analogica (V)
+    - ``AOIndex``: Porta di uscita analogica per la tensione di saldatura"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Acquiring the correspondence between welding current and output analog quantity
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Recupero della relazione tra corrente di saldatura e uscita analogica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: python SDK-v2.0.5
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingGetCurrentRelation()``"
-    "Description", "Get weld current to output analog correspondence"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``currentMin``: welding current - analog output linear relationship left point current value (A)
-    - ``currentMax``: welding current - analog output linear relationship right point current value (A)
-    - ``outputVoltageMin``: analog output voltage value at the left point of the welding current-analog output linear relationship (V)
-    - ``outputVoltageMax``: analog output voltage value (V) at the point on the right side of the weld current-analog output linear relationship.
-    - ``AOIndex``: welding voltage analog output port"
+    "Prototipo", "``WeldingGetCurrentRelation()``"
+    "Descrizione", "Recupera la relazione tra corrente di saldatura e uscita analogica"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``currentMin``: Valore di corrente al punto sinistro della relazione lineare corrente di saldatura-uscita analogica (A)
+    - ``currentMax``: Valore di corrente al punto destro della relazione lineare corrente di saldatura-uscita analogica (A)
+    - ``outputVoltageMin``: Valore di tensione di uscita analogica al punto sinistro della relazione lineare corrente di saldatura-uscita analogica (V)
+    - ``outputVoltageMax``: Valore di tensione di uscita analogica al punto destro della relazione lineare corrente di saldatura-uscita analogica (V)
+    - ``AOIndex``: Porta di uscita analogica per la corrente di saldatura"
 
-Getting welding voltage and output analog correspondence
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Recupero della relazione tra tensione di saldatura e uscita analogica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: python SDK-v2.0.5
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingGetVoltageRelation()``"
-    "Description", "Get weld voltage to output analog correspondence"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``weldVoltageMin``: Welding voltage - analog output linear relationship left point welding voltage value (V)
-    - ``weldVoltageMax``: Welding voltage - analog output linear relationship of the right point welding voltage value (V)
-    - ``outputVoltageMin``: Analog output voltage value at the left point of the welding voltage-analog output linear relationship (V)
-    - ``outputVoltageMax``: Analog output voltage value (V) at the right point of the weld current-analog output linear relationship
-    - ``AOIndex``: welding voltage analog output port"
+    "Prototipo", "``WeldingGetVoltageRelation()``"
+    "Descrizione", "Recupera la relazione tra tensione di saldatura e uscita analogica"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``weldVoltageMin``: Valore di tensione di saldatura al punto sinistro della relazione lineare tensione di saldatura-uscita analogica (V)
+    - ``weldVoltageMax``: Valore di tensione di saldatura al punto destro della relazione lineare tensione di saldatura-uscita analogica (V)
+    - ``outputVoltageMin``: Valore di tensione di uscita analogica al punto sinistro della relazione lineare tensione di saldatura-uscita analogica (V)
+    - ``outputVoltageMax``: Valore di tensione di uscita analogica al punto destro della relazione lineare corrente di saldatura-uscita analogica (V)
+    - ``AOIndex``: Porta di uscita analogica per la tensione di saldatura"
 
-Setting the welding current
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della corrente di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: python SDK-v2.0.5
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetCurrent(ioType, current, AOIndex, blend)``"
-    "Description", "Setting the welding current"
-    "Mandatory parameters", "- ``ioType``: type 0 - controller IO; 1 - extended IO
-    - ``current``: Welding current value (A)
-    - ``AOIndex``: Analog output port (0-1) of the welding current control box
-    - ``blend``: smooth or not 0 - not smooth, 1 - smooth"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeldingSetCurrent(ioType, current, AOIndex, blend)``"
+    "Descrizione", "Imposta la corrente di saldatura"
+    "Parametri obbligatori", "- ``ioType``: Tipo 0-IO del controllore; 1-IO esteso
+    - ``current``: Valore della corrente di saldatura (A)
+    - ``AOIndex``: Porta di uscita analogica del cabinet di controllo della corrente di saldatura (0-1)
+    - ``blend``: Smoothing 0-disabilitato, 1-abilitato"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the welding voltage
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della tensione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: python SDK-v2.0.5
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetVoltage(ioType, voltage, AOIndex, blend)``"
-    "Description", "Set weld voltage"
-    "Mandatory parameters", "- ``ioType``: type 0 - controller IO; 1 - extended IO
-    - ``voltage``: Welding voltage value (V)
-    - ``AOIndex``: Analog output port (0-1) of the welding current control box
-    - ``blend``: smooth or not 0 - not smooth, 1 - smooth"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeldingSetVoltage(ioType, voltage, AOIndex, blend)``"
+    "Descrizione", "Imposta la tensione di saldatura"
+    "Parametri obbligatori", "- ``ioType``: Tipo 0-IO del controllore; 1-IO esteso
+    - ``voltage``: Valore della tensione di saldatura (V)
+    - ``AOIndex``: Porta di uscita analogica del cabinet di controllo della corrente di saldatura (0-1)
+    - ``blend``: Smoothing 0-disabilitato, 1-abilitato"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting Oscillation Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionchanged:: python SDK-v2.0.5
-    
+Impostazione dei parametri di oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionchanged:: python SDK-v2.1.2
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveSetPara(weaveNum, weaveType, weaveFrequency, weaveIncStayTime, weaveRange, weaveLeftRange, weaveRightRange. additionalStayTime, weaveLeftStayTime, weaveRightStayTime, weaveCircleRadio, weaveStationary, weaveYawAngle=0)``"
-    "Description", "Setting swing parameters"
-    "Mandatory parameters", "- ``weaveNum``: Pendulum welding parameter configuration number
-    - ``weaveType``: type of oscillation 0-planar triangular oscillation; 1-vertical L-shaped triangular oscillation; 2-clockwise circular oscillation; 3-counterclockwise circular oscillation; 4-planar sinusoidal oscillation; 5-vertical L-shaped sinusoidal oscillation; 6-vertical triangular oscillation; 7-vertical sinusoidal oscillation.
-    - ``weaveFrequency``: swing frequency (Hz)
-    - ``weaveIncStayTime``: wait mode 0-cycle without wait time; 1-cycle with wait time mandatory parameter
-    - ``weaveRange``: swing range (mm)
-    - ``weaveLeftRange``:  vertical triangle swing left chord length(mm)
-    - ``weaveRightRange``:  vertical triangle swing right chord length(mm)
-    - ``additionalStayTime``:  vertical triangle swing vertical triangle point residence time(mm)
-    - ``weaveLeftStayTime``: wave left stay time (ms)
-    - ``weaveRightStayTime``: wave right stay time (ms)
-    - ``weaveCircleRadio``: Circle swing-back ratio (0-100%)
-    - ``weaveStationary``: swing position wait, 0 - position continues to move during wait time; 1 - position is stationary during wait time"
-    "Default parameters", "- ``weaveYawAngle``: azimuth angle of the swing direction (rotation around the swing Z-axis) in °, default 0
-    - ``weaveRotAngle``: Swing direction azimuth (rotation around the X-axis of the swing), unit °, default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeaveSetPara(weaveNum, weaveType, weaveFrequency, weaveIncStayTime, weaveRange, weaveLeftRange, weaveRightRange, additionalStayTime, weaveLeftStayTime, weaveRightStayTime, weaveCircleRadio, weaveStationary, weaveYawAngle, weaveRotAngle)``"
+    "Descrizione", "Imposta i parametri di oscillazione"
+    "Parametri obbligatori", "- ``weaveNum``: Numero di configurazione dei parametri di saldatura oscillante
+    - ``weaveType``: Tipo di oscillazione 0-Oscillazione triangolare piana; 1-Oscillazione triangolare a L verticale; 2-Oscillazione circolare in senso orario; 3-Oscillazione circolare in senso antiorario; 4-Oscillazione sinusoidale piana; 5-Oscillazione sinusoidale a L verticale; 6-Oscillazione triangolare verticale; 7-Oscillazione sinusoidale verticale
+    - ``weaveFrequency``: Frequenza di oscillazione (Hz)
+    - ``weaveIncStayTime``: Modalità di attesa 0-Il periodo non include il tempo di attesa; 1-Il periodo include il tempo di attesa
+    - ``weaveRange``: Ampiezza di oscillazione (mm)
+    - ``weaveLeftRange``: Lunghezza della corda sinistra per l'oscillazione triangolare verticale (mm)
+    - ``weaveRightRange``: Lunghezza della corda destra per l'oscillazione triangolare verticale (mm)
+    - ``additionalStayTime``: Tempo di permanenza al punto triangolare verticale per l'oscillazione triangolare verticale (mm)
+    - ``weaveLeftStayTime``: Tempo di permanenza a sinistra (ms)
+    - ``weaveRightStayTime``: Tempo di permanenza a destra (ms)
+    - ``weaveCircleRadio``: Rapporto di ritorno per l'oscillazione circolare (0-100%)
+    - ``weaveStationary``: Attesa in posizione di oscillazione, 0-La posizione continua a muoversi durante il tempo di attesa; 1-La posizione è statica durante il tempo di attesa"
+    "Parametri predefiniti", "- ``weaveYawAngle``: Angolo di direzione dell'oscillazione (rotazione attorno all'asse Z di oscillazione), unità°, predefinito 0
+    - ``weaveRotAngle``: Angolo di direzione dell'oscillazione (rotazione attorno all'asse X di oscillazione), unità°, predefinito 0"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Example code for setting welding parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per l'impostazione dei parametri di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.WeldingSetProcessParam(1, 177, 27, 1000, 178, 28, 176, 26, 1000)
     robot.WeldingSetProcessParam(2, 188, 28, 555, 199, 29, 133, 23, 333)
@@ -258,262 +258,262 @@ Example code for setting welding parameters
         time.sleep(1)
     robot.CloseRPC()
 
-Instant setup of swing parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione immediata dei parametri di oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveOnlineSetPara (weaveNum, weaveType, weaveFrequency, weaveIncStayTime, weaveRange, weaveLeftStayTime, weaveRightStayTime. weaveCircleRadio, weaveStationary)``"
-    "Description", "Set swing parameters on the fly"
-    "Mandatory parameters", "- ``weaveNum``: Pendulum welding parameter configuration number
-    - ``weaveType``: type of oscillation 0-planar triangular oscillation; 1-vertical L-shaped triangular oscillation; 2-clockwise circular oscillation; 3-counterclockwise circular oscillation; 4-planar sinusoidal oscillation; 5-vertical L-shaped sinusoidal oscillation; 6-vertical triangular oscillation; 7-vertical sinusoidal oscillation.
-    - ``weaveFrequency``: swing frequency (Hz)
-    - ``weaveIncStayTime``: wait mode 0-cycle without wait time; 1-cycle with wait time mandatory parameter
-    - ``weaveRange``: swing range (mm)
-    - ``weaveLeftStayTime``: wave left stay time (ms)
-    - ``weaveRightStayTime``: wave right stay time (ms)
-    - ``weaveCircleRadio``: Circle swing-back ratio (0-100%)
-    - ``weaveStationary``: swing position wait, 0 - position continues to move during wait time; 1 - position is stationary during wait time"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeaveOnlineSetPara (weaveNum, weaveType, weaveFrequency, weaveIncStayTime, weaveRange, weaveLeftStayTime, weaveRightStayTime, weaveCircleRadio, weaveStationary)``"
+    "Descrizione", "Imposta immediatamente i parametri di oscillazione"
+    "Parametri obbligatori", "- ``weaveNum``: Numero di configurazione dei parametri di saldatura oscillante
+    - ``weaveType``: Tipo di oscillazione 0-Oscillazione triangolare piana; 1-Oscillazione triangolare a L verticale; 2-Oscillazione circolare in senso orario; 3-Oscillazione circolare in senso antiorario; 4-Oscillazione sinusoidale piana; 5-Oscillazione sinusoidale a L verticale; 6-Oscillazione triangolare verticale; 7-Oscillazione sinusoidale verticale
+    - ``weaveFrequency``: Frequenza di oscillazione (Hz)
+    - ``weaveIncStayTime``: Modalità di attesa 0-Il periodo non include il tempo di attesa; 1-Il periodo include il tempo di attesa
+    - ``weaveRange``: Ampiezza di oscillazione (mm)
+    - ``weaveLeftStayTime``: Tempo di permanenza a sinistra (ms)
+    - ``weaveRightStayTime``: Tempo di permanenza a destra (ms)
+    - ``weaveCircleRadio``: Rapporto di ritorno per l'oscillazione circolare (0-100%)
+    - ``weaveStationary``: Attesa in posizione di oscillazione, 0-La posizione continua a muoversi durante il tempo di attesa; 1-La posizione è statica durante il tempo di attesa"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-The detection parameters of unexpected interruption of robot welding arc were obtained
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Recupero dei parametri di rilevamento dell'interruzione accidentale dell'arco di saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingGetCheckArcInterruptionParam()``"
-    "Description", "The detection parameters of unexpected interruption of robot welding arc were obtained"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode 
-    - ``checkEnable``: Whether to enable detection. 0: Indicates that the function is disabled. 1- Enable
-    - ``arcInterruptTimeLength``:Arc break confirmation time (ms)"
+    "Prototipo", "``WeldingGetCheckArcInterruptionParam()``"
+    "Descrizione", "Recupera i parametri di rilevamento dell'interruzione accidentale dell'arco di saldatura del robot"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``checkEnable``: Abilitazione del rilevamento; 0-disabilitato; 1-abilitato
+    - ``arcInterruptTimeLength``: Durata di conferma dell'interruzione dell'arco (ms)"
 
-Set the detection parameters of robot welding arc unexpected interruption
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione dei parametri di rilevamento dell'interruzione accidentale dell'arco di saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetCheckArcInterruptionParam(checkEnable, arcInterruptTimeLength)``"
-    "Description", "Set the detection parameters of robot welding arc unexpected interruption"
-    "Mandatory parameters", "- ``checkEnable``: Whether to enable detection. 0: Indicates that the function is disabled. 1- Enable
-    - ``arcInterruptTimeLength``:Arc break confirmation time (ms)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingSetCheckArcInterruptionParam(checkEnable, arcInterruptTimeLength)``"
+    "Descrizione", "Imposta i parametri di rilevamento dell'interruzione accidentale dell'arco di saldatura del robot"
+    "Parametri obbligatori", "- ``checkEnable``: Abilitazione del rilevamento; 0-disabilitato; 1-abilitato
+    - ``arcInterruptTimeLength``: Durata di conferma dell'interruzione dell'arco (ms)"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Obtain the robot welding interrupt recovery parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Recupero dei parametri di ripristino dell'interruzione di saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingGetReWeldAfterBreakOffParam()``"
-    "Description", "Obtain the robot welding interrupt recovery parameters"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode 
-    - ``enable``: Whether to enable recovery from welding interruption
-    - ``length``: weld overlap distance (mm)
-    - ``velocity``: Percentage of robot return to rearcing point (0-100)
-    - ``moveType``: The way the robot moves to the rearcing point; 0-LIN; 1-PTP"
+    "Prototipo", "``WeldingGetReWeldAfterBreakOffParam()``"
+    "Descrizione", "Recupera i parametri di ripristino dell'interruzione di saldatura del robot"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``enable``: Abilitazione del ripristino dell'interruzione di saldatura
+    - ``length``: Distanza di sovrapposizione della saldatura (mm)
+    - ``velocity``: Velocità percentuale del robot per tornare al punto di riaccensione (0-100)
+    - ``moveType``: Modalità di movimento del robot al punto di riaccensione; 0-LIN; 1-PTP"
 
-Set the robot welding interrupt recovery parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione dei parametri di ripristino dell'interruzione di saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetReWeldAfterBreakOffParam(enable, length, velocity, moveType)``"
-    "Description", "Set the robot welding interrupt recovery parameters"
-    "Mandatory parameters", "- ``enable``:Whether to enable recovery from welding interruption
-    - ``length``: weld overlap distance (mm)
-    - ``velocity``: Percentage of robot return to rearcing point (0-100)
-    - ``moveType``: The way the robot moves to the rearcing point; 0-LIN; 1-PTP"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingSetReWeldAfterBreakOffParam(enable, length, velocity, moveType)``"
+    "Descrizione", "Imposta i parametri di ripristino dell'interruzione di saldatura del robot"
+    "Parametri obbligatori", "- ``enable``: Abilitazione del ripristino dell'interruzione di saldatura
+    - ``length``: Distanza di sovrapposizione della saldatura (mm)
+    - ``velocity``: Velocità percentuale del robot per tornare al punto di riaccensione (0-100)
+    - ``moveType``: Modalità di movimento del robot al punto di riaccensione; 0-LIN; 1-PTP"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Set welder control mode to expand DO port
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della porta DO estesa per la modalità di controllo della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetWeldMachineCtrlModeExtDoNum(DONum)``"
-    "Description", "Set welder control mode to extend DO port"
-    "Mandatory parameters", "- ``DONum``: welder control mode DO port (0-127)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``SetWeldMachineCtrlModeExtDoNum(DONum)``"
+    "Descrizione", "Imposta la porta DO estesa per la modalità di controllo della saldatrice"
+    "Parametri obbligatori", "- ``DONum``: Porta DO per la modalità di controllo della saldatrice (0-127)"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the welder control mode
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della modalità di controllo della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetWeldMachineCtrlMode(mode)``"
-    "Description", "Set welder control mode"
-    "Mandatory parameters", "- ``mode``: welder control mode; 0 - unitary"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``SetWeldMachineCtrlMode(mode)``"
+    "Descrizione", "Imposta la modalità di controllo della saldatrice"
+    "Parametri obbligatori", "- ``mode``: Modalità di controllo della saldatrice; 0-unitario"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Welding Start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio della saldatura
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ARCStart(ioType, arcNum, timeout)``"
-    "Description", "Welding Start"
-    "Required Parameters", "- ``ioType``: io type 0 - controller IO; 1 - extended IO
-    - ``arcNum``: Welder profile number
-    - ``timeout``: timeout for starting an arc"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ARCStart(ioType, arcNum, timeout)``"
+    "Descrizione", "Inizia la saldatura"
+    "Parametri obbligatori", "- ``ioType``: Tipo di IO 0-IO del controllore; 1-IO esteso
+    - ``arcNum``: Numero del file di configurazione della saldatrice
+    - ``timeout``: Tempo di timeout per l'accensione dell'arco"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-End of welding
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine della saldatura
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``ARCEnd(ioType, arcNum, timeout)``"
-    "Description", "End of welding"
-    "Mandatory parameters", "- ``ioType``: type 0 - controller IO; 1 - extended IO
-    - ``arcNum``: Welder profile number
-    - ``timeout``: timeout for starting an arc"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ARCEnd(ioType, arcNum, timeout)``"
+    "Descrizione", "Termina la saldatura"
+    "Parametri obbligatori", "- ``ioType``: Tipo 0-IO del controllore; 1-IO esteso
+    - ``arcNum``: Numero del file di configurazione della saldatrice
+    - ``timeout``: Tempo di timeout per l'accensione dell'arco"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-swing start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio dell'oscillazione
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveStart(weaveNum)``"
-    "Description", "Swing Start"
-    "Mandatory parameters", "- ``weaveNum``: type 0 - controller IO; 1 - extended IO"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeaveStart(weaveNum)``"
+    "Descrizione", "Inizia l'oscillazione"
+    "Parametri obbligatori", "- ``weaveNum``: Numero di configurazione dei parametri di saldatura oscillante"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-end of swing (math.)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine dell'oscillazione
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveEnd(weaveNum)``"
-    "description", "end of swing"
-    "Mandatory parameter", "- ``weaveNum``: Pendulum welding parameter configuration number"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WeaveEnd(weaveNum)``"
+    "Descrizione", "Termina l'oscillazione"
+    "Parametri obbligatori", "- ``weaveNum``: Numero di configurazione dei parametri di saldatura oscillante"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Positive wire feed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Alimentazione del filo in avanti
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetForwardWireFeed(ioType, wireFeed)``"
-    "Description", "Positive Wire Feed"
-    "Mandatory parameters", "- ``ioType``: 0 - controller IO; 1 - extended IO
-    - ``wireFeed``: wire feed control 0 - stop wire feed; 1 - wire feed."
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetForwardWireFeed(ioType, wireFeed)``"
+    "Descrizione", "Alimentazione del filo in avanti"
+    "Parametri obbligatori", "- ``ioType``: 0-IO del controllore; 1-IO esteso
+    - ``wireFeed``: Controllo dell'alimentazione del filo 0-arresta l'alimentazione; 1-alimenta"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Reverse wire feed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Alimentazione del filo all'indietro
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetReverseWireFeed(ioType, wireFeed)``"
-    "Description", "Reverse Wire Feed"
-    "Mandatory parameters", "- ``ioType``: 0 - controller IO; 1 - extended IO
-    - ``wireFeed``: wire feed control 0 - stop wire feed; 1 - wire feed."
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetReverseWireFeed(ioType, wireFeed)``"
+    "Descrizione", "Alimentazione del filo all'indietro"
+    "Parametri obbligatori", "- ``ioType``: 0-IO del controllore; 1-IO esteso
+    - ``wireFeed``: Controllo dell'alimentazione del filo 0-arresta l'alimentazione; 1-alimenta"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-aspiration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Alimentazione del gas
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAspirated(ioType, airControl)``"
-    "Description", "Air delivery"
-    "Mandatory parameters", "- ``ioType``: 0 - controller IO; 1 - extended IO
-    - ``airControl``: air delivery control 0 - stop air delivery; 1 - air delivery"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAspirated(ioType, airControl)``"
+    "Descrizione", "Alimentazione del gas"
+    "Parametri obbligatori", "- ``ioType``: 0-IO del controllore; 1-IO esteso
+    - ``airControl``: Controllo dell'alimentazione del gas 0-arresta l'alimentazione; 1-alimenta"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Set the robot to resume welding after welding interruption
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione del robot per riprendere la saldatura dopo un'interruzione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingStartReWeldAfterBreakOff()``"
-    "Description", "Set the robot to resume welding after welding interruption"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingStartReWeldAfterBreakOff()``"
+    "Descrizione", "Imposta il robot per riprendere la saldatura dopo un'interruzione"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Set the robot to exit welding after welding interruption
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione del robot per uscire dalla saldatura dopo un'interruzione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingAbortWeldAfterBreakOff()``"
-    "Description", "Set the robot to exit welding after welding interruption"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingAbortWeldAfterBreakOff()``"
+    "Descrizione", "Imposta il robot per uscire dalla saldatura dopo un'interruzione"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Sample code for robot welding control
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il controllo della saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.SetForwardWireFeed(0, 1)
     time.sleep(1)
@@ -542,46 +542,46 @@ Sample code for robot welding control
     robot.WeldingAbortWeldAfterBreakOff()
     robot.CloseRPC()
 
-Segmented welding startup
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvio della saldatura segmentata
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
-    
+
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``SegmentWeldStart(startDesePos, endDesePos, startJPos, endJPos, weldLength, noWeldLength, weldIOType, arcNum, weldTimeout, isWeave. weaveNum,tool,user,vel=20.0, acc=0.0, ovl=100.0, blendR=-1.0,exaxis_pos=[0.0, 0.0, 0.0, 0.0], search=0, offset_flag=0, offset_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0])``"
-    "Description", "Segmented Welding Initiation"
-    "Mandatory parameters", "- ``startDesePos``: Initial Cartesian position in [mm][°].
-    - ``endDesePos``: target Cartesian position in [mm][°].
-    - ``startJPos``: initial joint position in [°]. 
-    - ``endJPos``: target joint position in [°]  
-    - ``weldLength``: weld length in [mm] 
-    - ``noWeldLength``: non-weld length in [mm] 
-    - ``weldIOType``: weld IO type (0-control box IO; 1-expansion IO) arcNum welder profile number 
-    - ``timeout``: timeout for arc extinguishing 
-    - ``isWeave``: welded False -- not welded 
-    - ``weaveNum``: Pendulum welding parameter configuration number 
-    - ``tool``: tool number, [0 to 14]
-    - ``user``: artifact number, [0 to 14]"
-    "Default parameters", "- ``vel``: percentage of speed, [0~100] default 20.0
-    - ``acc``: acceleration [0~100] Not open Default 0.0
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0
-    - ``blendR``: [-1.0] - motion in place (blocking), [0~1000] - smoothing radius (non-blocking), unit [mm] default -1.0
-    - ``exaxis_pos``: external axis 1 position ~ external axis 4 position Default [0.0,0.0,0.0,0.0]
-    - ``search``: [0] - no wire seek, [1] - wire seek
-    - ``offset_flag``: [0] - no offset, [1] - offset in workpiece/base coordinate system, [2] - offset in tool coordinate system Default 0
-    - ``offset_pos``: position offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Prototipo", "``SegmentWeldStart(startDesePos,  endDesePos, startJPos, endJPos, weldLength, noWeldLength, weldIOType, arcNum, weldTimeout, isWeave,weaveNum,tool,user,vel=20.0, acc=0.0, ovl=100.0, blendR=-1.0,exaxis_pos=[0.0, 0.0, 0.0, 0.0],  search=0, offset_flag=0, offset_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0])``"
+    "Descrizione", "Avvia la saldatura segmentata"
+    "Parametri obbligatori", "- ``startDesePos``: Posizione cartesiana iniziale, unità [mm][°]
+    - ``endDesePos``: Posizione cartesiana target, unità [mm][°]
+    - ``startJPos``: Posizione giunto iniziale, unità [°]
+    - ``endJPos``: Posizione giunto target, unità [°]
+    - ``weldLength``: Lunghezza della saldatura, unità [mm]
+    - ``noWeldLength``: Lunghezza non saldata, unità [mm]
+    - ``weldIOType``: Tipo di IO per la saldatura (0-IO del cabinet di controllo; 1-IO esteso) arcNum Numero del file di configurazione della saldatrice
+    - ``timeout``: Tempo di timeout per lo spegnimento dell'arco
+    - ``isWeave``: Saldatura False-non saldare
+    - ``weaveNum``: Numero di configurazione dei parametri di saldatura oscillante
+    - ``tool``: Numero dello strumento, [0~14]
+    - ``user``: Numero del pezzo, [0~14]"
+    "Parametri predefiniti", "- ``vel``: Percentuale di velocità, [0~100] predefinito 20.0
+    - ``acc``: Accelerazione [0~100] non ancora disponibile predefinito 0.0
+    - ``ovl``: Fattore di scala della velocità, [0~100] predefinito 100.0
+    - ``blendR``: [-1.0]-movimento fino alla posizione (bloccante), [0~1000]-raggio di smoothing (non bloccante), unità [mm] predefinito -1.0
+    - ``exaxis_pos``: Posizione asse esterno 1 ~ Posizione asse esterno 4 predefinito [0.0,0.0,0.0,0.0]
+    - ``search``: [0]-nessuna ricerca del filo, [1]-ricerca del filo
+    - ``offset_flag``: [0]-nessun offset, [1]-offset nel sistema di coordinate del pezzo/base, [2]-offset nel sistema di coordinate dello strumento predefinito 0
+    - ``offset_pos``: Quantità di offset di posizione, unità [mm][°] predefinito [0.0,0.0,0.0,0.0,0.0,0.0]"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode"
 
-Sample robot segment welding code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la saldatura segmentata del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.WeldingSetCurrent(1, 230, 0, 0)
     robot.WeldingSetVoltage(1, 24, 0, 1)
@@ -595,63 +595,63 @@ Sample robot segment welding code
     print(f"SegmentWeldStart rtn is {rtn}")
     robot.CloseRPC()
 
-Simulated swing start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio dell'oscillazione in simulazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveStartSim(weaveNum)``"
-    "Description", "Simulation of swing start"
-    "Mandatory parameters", "- ``weaveNum``: swing parameter number"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``WeaveStartSim(weaveNum)``"
+    "Descrizione", "Inizia l'oscillazione in simulazione"
+    "Parametri obbligatori", "- ``weaveNum``: Numero dei parametri di oscillazione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-End of simulation swing
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine dell'oscillazione in simulazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveEndSim(weaveNum)``"
-    "description", "end of simulation swing"
-    "Mandatory parameters", "- ``weaveNum``: swing parameter number"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``WeaveEndSim(weaveNum)``"
+    "Descrizione", "Termina l'oscillazione in simulazione"
+    "Parametri obbligatori", "- ``weaveNum``: Numero dei parametri di oscillazione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Start trajectory detection warning (no movement)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio del rilevamento di preallarme della traiettoria (senza movimento)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveInspectStart(weaveNum)``"
-    "Description", "Start Trajectory Detection Warning (No Movement)"
-    "Mandatory parameters", "- ``weaveNum``: swing parameter number"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``WeaveInspectStart(weaveNum)``"
+    "Descrizione", "Inizia il rilevamento di preallarme della traiettoria (senza movimento)"
+    "Parametri obbligatori", "- ``weaveNum``: Numero dei parametri di oscillazione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-End trajectory detection warning (no movement)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine del rilevamento di preallarme della traiettoria (senza movimento)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveInspectEnd(weaveNum)``"
-    "Description", "End Trajectory Detection Warning (No Movement)"
-    "Mandatory parameters", "- ``weaveNum``: swing parameter number"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``WeaveInspectEnd(weaveNum)``"
+    "Descrizione", "Termina il rilevamento di preallarme della traiettoria (senza movimento)"
+    "Parametri obbligatori", "- ``weaveNum``: Numero dei parametri di oscillazione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Wobble start
+Inizio della variazione graduale dell'oscillazione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
@@ -659,22 +659,22 @@ Wobble start
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveChangeStart(weaveNum)``"
-    "Description", "Wobble start"
-    "Mandatory parameters", "- ``weaveChangeFlag``: Swing number 1- Variable swing parameters; 2- Variable swing parameters + welding speed
-    - ``weaveNum``: Swing number
-    - ``velStart``: Welding start speed, (cm/min)
-    - ``velEnd``: Welding end speed, (cm/min)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeaveChangeStart(weaveChangeFlag, weaveNum, velStart, velEnd)``"
+    "Descrizione", "Inizia la variazione graduale dell'oscillazione"
+    "Parametri obbligatori", "- ``weaveChangeFlag``: Numero dell'oscillazione 1-cambia parametri di oscillazione; 2-cambia parametri di oscillazione + velocità di saldatura
+    - ``weaveNum``: Numero dell'oscillazione
+    - ``velStart``: Velocità di inizio saldatura, (cm/min)
+    - ``velEnd``: Velocità di fine saldatura, (cm/min)"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Robot swing gradient welding code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la saldatura con variazione graduale dell'oscillazione del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     p1Desc = [228.879, -503.594, 453.984, -175.580, 8.293, 171.267]
     p1Joint = [102.700, -85.333, 90.518, -102.365, -83.932, 22.134]
@@ -704,7 +704,7 @@ Robot swing gradient welding code example
     robot.ARCEnd(1, 0, 10000)
     robot.CloseRPC()
 
-Wobble end
+Fine della variazione graduale dell'oscillazione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.9-3.7.9
 
@@ -712,134 +712,134 @@ Wobble end
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeaveChangeEnd()``"
-    "Description", "Wobble end"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeaveChangeEnd()``"
+    "Descrizione", "Termina la variazione graduale dell'oscillazione"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Extended IO-Configuration Welder Gas Detection Signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetAirControlExtDoNum(DONum)``"
-    "Description", "Extended IO-Configuration Welder Gas Detection Signal"
-    "Mandatory parameters", "
-    - ``DONum``: gas detection signal extension DO number
-    "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-  
-Extended IO-Configuration of welder arc start signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetArcStartExtDoNum(DONum)``"
-    "Description", "Extended IO-Configuration Welder Arc Start Signal"
-    "Mandatory parameters", "
-    - ``DONum``: gas detection signal extension DO number
-    "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-        
-Extended IO-Configuration of the welder's reverse wire feed signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetWireReverseFeedExtDoNum(DONum)``"
-    "Description", "Extended IO-Configuration Welder Reverse Wire Feed Signal"
-    "Mandatory parameters", "
-    - ``DONum``: gas detection signal extension DO number
-    "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-        
-Extended IO-Configuration of the welder's forward wire feed signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetWireForwardFeedExtDoNum(DONum)``"
-    "Description", "Extended IO-Configure welder positive wire feed signal"
-    "Mandatory parameters", "
-    - ``DONum``: gas detection signal extension DO number
-    "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-        
-Extended IO-Configuration of the welder's arc start success signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetArcDoneExtDiNum(DINum)``"
-    "Description", "Extended IO-Configuration Welder Arc Start Success Signal"
-    "Mandatory parameters", "
-    - ``DINum``: Welder Ready Signal Expansion DI Number
-    "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-        
-Extended IO-Configuration Welder Ready Signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetArcDoneExtDiNum(DINum)``"
-    "Description", "Extended IO-Configuration Welder Ready Signal"
-    "Mandatory parameters", "
-    - ``DINum``: Welder Ready Signal Expansion DI Number
-    "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-        
-Extended IO-Configuration Weld Interrupt Recovery Signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetExtDIWeldBreakOffRecover(reWeldDINum, abortWeldDINum)``"
-    "description", "Extended IO-Configuration Weld Interrupt Recovery Signal"
-    "Mandatory parameters", "
-    - ``reWeldDINum``: Weld signal extension DI number for resumption of welding after a weld interruption
-    - ``abortWeldDINum``: exit weld signal extension DI number after weld interruption
-    "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-
-Example code for setting up extended IO solder signals
+IO esteso - Configurazione del segnale di rilevamento del gas della saldatrice
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
 
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetAirControlExtDoNum(DONum)``"
+    "Descrizione", "IO esteso - Configura il segnale di rilevamento del gas della saldatrice"
+    "Parametri obbligatori", "
+    - ``DONum``: Numero DO esteso per il segnale di rilevamento del gas
+    "
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+IO esteso - Configurazione del segnale di accensione dell'arco della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetArcStartExtDoNum(DONum)``"
+    "Descrizione", "IO esteso - Configura il segnale di accensione dell'arco della saldatrice"
+    "Parametri obbligatori", "
+    - ``DONum``: Numero DO esteso per il segnale di rilevamento del gas
+    "
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+IO esteso - Configurazione del segnale di alimentazione del filo all'indietro della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetWireReverseFeedExtDoNum(DONum)``"
+    "Descrizione", "IO esteso - Configura il segnale di alimentazione del filo all'indietro della saldatrice"
+    "Parametri obbligatori", "
+    - ``DONum``: Numero DO esteso per il segnale di rilevamento del gas
+    "
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+IO esteso - Configurazione del segnale di alimentazione del filo in avanti della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetWireForwardFeedExtDoNum(DONum)``"
+    "Descrizione", "IO esteso - Configura il segnale di alimentazione del filo in avanti della saldatrice"
+    "Parametri obbligatori", "
+    - ``DONum``: Numero DO esteso per il segnale di rilevamento del gas
+    "
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+IO esteso - Configurazione del segnale di accensione dell'arco riuscita della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetArcDoneExtDiNum(DINum)``"
+    "Descrizione", "IO esteso - Configura il segnale di accensione dell'arco riuscita della saldatrice"
+    "Parametri obbligatori", "
+    - ``DINum``: Numero DI esteso per il segnale di pronto della saldatrice
+    "
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+IO esteso - Configurazione del segnale di pronto della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetArcDoneExtDiNum(DINum)``"
+    "Descrizione", "IO esteso - Configura il segnale di pronto della saldatrice"
+    "Parametri obbligatori", "
+    - ``DINum``: Numero DI esteso per il segnale di pronto della saldatrice
+    "
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+IO esteso - Configurazione del segnale di ripristino dell'interruzione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetExtDIWeldBreakOffRecover(reWeldDINum, abortWeldDINum)``"
+    "Descrizione", "IO esteso - Configura il segnale di ripristino dell'interruzione di saldatura"
+    "Parametri obbligatori", "
+    - ``reWeldDINum``: Numero DI esteso per il segnale di ripresa della saldatura dopo l'interruzione
+    - ``abortWeldDINum``: Numero DI esteso per il segnale di uscita dalla saldatura dopo l'interruzione
+    "
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+Esempio di codice per l'impostazione del segnale di saldatura IO esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     rtn = robot.SetArcStartExtDoNum(10)
     print(f"SetArcStartExtDoNum rtn is {rtn}")
@@ -858,109 +858,109 @@ Example code for setting up extended IO solder signals
     print(f"SetWireSearchExtDIONum rtn is {rtn}")
     robot.CloseRPC()
 
-Arc tracking control
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllo del tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.9-3.7.9
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ArcWeldTraceControl(flag,delaytime, isLeftRight, klr, tStartLr, stepMaxLr, sumMaxLr, isUpLow, kud, tStartUd, stepMaxUd, sumMaxUd. axisSelect, referenceType, referSampleStartUd, referSampleCountUd, referenceCurrent, offsetType, offsetParameter)``"
-    "Description", "Arc tracking control"
-    "Mandatory parameters", "- ``flag``: switch, 0-off; 1-on
-    - ``delayTime``: lag time in ms
-    - ``isLeftRight``: left-right deviation compensation 0 - off, 1 - on
-    - ``klr``: left/right adjustment factor (sensitivity)
-    - ``tStartLr``: left and right start compensation time cyc
-    - ``stepMaxLr``: Maximum compensation in mm for each left and right step.
-    - ``sumMaxLr``: total maximum compensation left and right mm
-    - ``isUpLow``: up and down deviation compensation 0 - off, 1 - on
-    - ``kud``: upward and downward adjustment factor (sensitivity)
-    - ``tStartUd``: up and down start compensation time cyc
-    - ``stepMaxUd``: Maximum compensation per step up and down mm
-    - ``sumMaxUd``: total maximum compensation up and down
-    - ``axisSelect``: upper and lower coordinate system selection, 0 - swing; 1 - tool; 2 - base
-    - ``referenceType``: upper and lower reference current setting mode, 0 - feedback; 1 - constant
-    - ``referSampleStartUd``: upper and lower reference current sampling start count (feedback), cyc
-    - ``referSampleCountUd``: upper and lower reference current sample cycle count (feedback), cyc
-    - ``referenceCurrent``: upper and lower reference currents mA
-    - ``offsetType``: bias tracking type, 0- no bias; 1- Sampling; 2- percent
-    - ``offsetParameter``: bias parameter; Sampling (offset sampling start time, default sampling cycle); Percentage (offset percentage (-100 ~ 100))"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``ArcWeldTraceControl(flag,delaytime, isLeftRight, klr, tStartLr, stepMaxLr, sumMaxLr, isUpLow, kud, tStartUd, stepMaxUd, sumMaxUd, axisSelect, referenceType, referSampleStartUd, referSampleCountUd, referenceCurrent, offsetType, offsetParameter)``"
+    "Descrizione", "Controllo del tracciamento dell'arco"
+    "Parametri obbligatori", "- ``flag``: Interruttore, 0-off; 1-on
+    - ``delayTime``: Tempo di ritardo, unità ms
+    - ``isLeftRight``: Compensazione deviazione sinistra-destra 0-disabilitata, 1-abilitata
+    - ``klr``: Coefficiente di regolazione sinistra-destra (sensibilità)
+    - ``tStartLr``: Tempo di inizio compensazione sinistra-destra cyc
+    - ``stepMaxLr``: Compensazione massima per ciclo sinistra-destra mm
+    - ``sumMaxLr``: Compensazione totale massima sinistra-destra mm
+    - ``isUpLow``: Compensazione deviazione alto-basso 0-disabilitata, 1-abilitata
+    - ``kud``: Coefficiente di regolazione alto-basso (sensibilità)
+    - ``tStartUd``: Tempo di inizio compensazione alto-basso cyc
+    - ``stepMaxUd``: Compensazione massima per ciclo alto-basso mm
+    - ``sumMaxUd``: Compensazione totale massima alto-basso
+    - ``axisSelect``: Selezione sistema coordinate alto-basso, 0-oscillazione; 1-strumento; 2-base
+    - ``referenceType``: Metodo di impostazione corrente di riferimento alto-basso, 0-feedback; 1-costante
+    - ``referSampleStartUd``: Conteggio inizio campionamento corrente di riferimento alto-basso (feedback), cyc
+    - ``referSampleCountUd``: Conteggio cicli campionamento corrente di riferimento alto-basso (feedback), cyc
+    - ``referenceCurrent``: Corrente di riferimento alto-basso mA
+    - ``offsetType``: Tipo di tracciamento offset, 0-nessun offset; 1-campionamento; 2-percentuale
+    - ``offsetParameter``: Parametro offset; campionamento (tempo di inizio campionamento offset, predefinito campiona un ciclo); percentuale (percentuale offset (-100 ~ 100))"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Arc tracking AI passband selection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``ArcWeldTraceExtAIChannelConfig(channel)``"
-    "Description", "Arc Tracking AI Passband Selection"
-    "Mandatory parameters", "- ``channel``: arc tracking AI passband selection, [0-3]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
-
-Arc tracking + multi-layer multi-channel compensation on
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "prototype", "``ArcWeldTraceReplayStart()``"
-    "Description", "Arc Tracking + Multi-Layer Multi-Channel Compensation On"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Arc Tracking + Multi-Layer Multi-Channel Compensation Off
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``ArcWeldTraceReplayEnd()``"
-    "Description", "Arc Tracking + Multi-Layer Multi-Channel Compensation Shutdown"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Offset Coordinate Change - Multi-layer Multi-pass Welding
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``MultilayerOffsetTrsfToBase(pointo, pointX, pointZ, dx, dy, db)``"
-    "Description", "Offset Coordinate Change - Multi-Layer Multi-Pass Welding"
-    "Mandatory parameters", "- ``pointo``: datum Cartesian orientation
-    - ``pointX``: Cartesian position of point X in the offset direction from the reference point X.
-    - ``pointZ``: Cartesian position of point Z in the direction of offset from datum Z.
-    - ``dx``: x-direction offset (mm)
-    - ``dz``: z-direction offset (mm)
-    - ``dry``: offset around the y-axis (°)"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode 
-    - ``offset``: the offset of the result of the calculation"
-
-Example code for multi-layer multi-pass welding arc tracking
+Selezione canale AI banda passante per il tracciamento dell'arco
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
 
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ArcWeldTraceExtAIChannelConfig(channel)``"
+    "Descrizione", "Selezione canale AI banda passante per il tracciamento dell'arco"
+    "Parametri obbligatori", "- ``channel``: Selezione canale AI banda passante per il tracciamento dell'arco,[0-3]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+Avvio del tracciamento dell'arco + compensazione multi-strato/multi-passo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ArcWeldTraceReplayStart()``"
+    "Descrizione", "Avvio del tracciamento dell'arco + compensazione multi-strato/multi-passo"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+Fine del tracciamento dell'arco + compensazione multi-strato/multi-passo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ArcWeldTraceReplayEnd()``"
+    "Descrizione", "Fine del tracciamento dell'arco + compensazione multi-strato/multi-passo"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+
+Trasformazione coordinate offset - Saldatura multi-strato/multi-passo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``MultilayerOffsetTrsfToBase(pointo, pointX, pointZ, dx, dy, db)``"
+    "Descrizione", "Trasformazione coordinate offset - Saldatura multi-strato/multi-passo"
+    "Parametri obbligatori", "- ``pointo``: Posizione cartesiana del punto di riferimento
+    - ``pointX``: Posizione cartesiana del punto nella direzione di offset X dal punto di riferimento
+    - ``pointZ``: Posizione cartesiana del punto nella direzione di offset Z dal punto di riferimento
+    - ``dx``: Quantità di offset direzione x (mm)
+    - ``dz``: Quantità di offset direzione z (mm)
+    - ``dry``: Quantità di offset rotazione attorno all'asse y (°)"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``offset``: Risultato calcolato dell'offset"
+
+Esempio di codice per il tracciamento dell'arco in saldatura multi-strato/multi-passo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     mulitilineorigin1_joint = [-24.090, -63.501, 84.288, -111.940, -93.426, 57.669]
     mulitilineorigin1_desc = [-677.559, 190.951, -1.205, 1.144, -41.482, -82.577]
@@ -1040,75 +1040,75 @@ Example code for multi-layer multi-pass welding arc tracking
     print(f"MoveJ return: {error}")
     robot.CloseRPC()
 
-Selection of AI channels for current feedback in arc tracking welding machines
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Selezione canale AI per il feedback della corrente della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ArcWeldTraceAIChannelCurrent(channel)``"
-    "Description", "Selection of AI channels for current feedback in arc tracking welding machines"
-    "Mandatory parameters", "- ``channel``: Passage 0- Expand AI0; 1- Expand AI1; 2- Expand AI2; 3- Expand AI3; 4- Control Box AI0 5- Control Box AI1"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``ArcWeldTraceAIChannelCurrent(channel)``"
+    "Descrizione", "Selezione canale AI per il feedback della corrente della saldatrice nel tracciamento dell'arco"
+    "Parametri obbligatori", "- ``channel``: Canale; 0-AI esteso0; 1-AI esteso1; 2-AI esteso2; 3-AI esteso3; 4-AI cabinet di controllo0; 5-AI cabinet di controllo1"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Selection of AI channel for voltage feedback of arc tracking welding machine
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Selezione canale AI per il feedback della tensione della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ArcWeldTraceAIChannelVoltage(channel)``"
-    "Description", "Selection of AI channel for voltage feedback of arc tracking welding machine"
-    "Mandatory parameters", "- ``channel``: Passage 0- Expand AI0; 1- Expand AI1; 2- Expand AI2; 3- Expand AI3; 4- Control Box AI0 5- Control Box AI1"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``ArcWeldTraceAIChannelVoltage(channel)``"
+    "Descrizione", "Selezione canale AI per il feedback della tensione della saldatrice nel tracciamento dell'arco"
+    "Parametri obbligatori", "- ``channel``: Canale; 0-AI esteso0; 1-AI esteso1; 2-AI esteso2; 3-AI esteso3; 4-AI cabinet di controllo0; 5-AI cabinet di controllo1"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Current feedback conversion parameters of arc tracking welding machine
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Parametri di conversione per il feedback della corrente della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ArcWeldTraceCurrentPara(AILow, AIHigh, currentLow, currentHigh)``"
-    "Description", "Current feedback conversion parameters of arc tracking welding machine"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``AILow``: Lower limit of AI channel, default value 0V, range [0-10V]
-    - ``AIHigh``: AI channel upper limit, default value 10V, range [0-10V]
-    - ``currentLow``: The lower limit of the AI channel corresponds to the current value of the welding machine. The default value is 0V, and the range is [0-200V]
-    - ``currentHigh``: The upper limit of the AI channel corresponds to the current value of the welding machine. The default value is 100V, and the range is [0-200V]"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``ArcWeldTraceCurrentPara(AILow, AIHigh, currentLow, currentHigh)``"
+    "Descrizione", "Parametri di conversione per il feedback della corrente della saldatrice nel tracciamento dell'arco"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "- ``AILow``: Limite inferiore canale AI, valore predefinito 0V, intervallo [0-10V]
+    - ``AIHigh``: Limite superiore canale AI, valore predefinito 10V, intervallo [0-10V]
+    - ``currentLow``: Valore di corrente della saldatrice corrispondente al limite inferiore del canale AI, valore predefinito 0V, intervallo [0-200V]
+    - ``currentHigh``: Valore di corrente della saldatrice corrispondente al limite superiore del canale AI, valore predefinito 100V, intervallo [0-200V]"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Voltage feedback conversion parameters of arc tracking welding machine
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Parametri di conversione per il feedback della tensione della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ArcWeldTraceVoltagePara(AILow, AIHigh, voltageLow, voltageHigh)``"
-    "Description", "Voltage feedback conversion parameters of arc tracking welding machine"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``AILow``: Lower limit of AI channel, default value 0V, range [0-10V]
-    - ``AIHigh``: AI channel upper limit, default value 10V, range [0-10V]
-    - ``voltageLow``: The lower limit of the AI channel corresponds to the welding machine voltage value. The default value is 0V, and the range is [0-200V]
-    - ``voltageHigh``: The upper limit of the AI channel corresponds to the voltage value of the welding machine. The default value is 100V, and the range is [0-200V]"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``ArcWeldTraceVoltagePara(AILow, AIHigh, voltageLow, voltageHigh)``"
+    "Descrizione", "Parametri di conversione per il feedback della tensione della saldatrice nel tracciamento dell'arco"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "- ``AILow``: Limite inferiore canale AI, valore predefinito 0V, intervallo [0-10V]
+    - ``AIHigh``: Limite superiore canale AI, valore predefinito 10V, intervallo [0-10V]
+    - ``voltageLow``: Valore di tensione della saldatrice corrispondente al limite inferiore del canale AI, valore predefinito 0V, intervallo [0-200V]
+    - ``voltageHigh``: Valore di tensione della saldatrice corrispondente al limite superiore del canale AI, valore predefinito 100V, intervallo [0-200V]"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Example arc tracking code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
 
     safetydescPose = [-504.043,275.181,40.908,-28.002,-42.025,-14.044]
@@ -1122,8 +1122,8 @@ Example arc tracking code
     robot.MoveJ(joint_pos=safetyjointPos, tool=1, user=0, vel=20, acc=100)
     robot.WeldingSetCurrentRelation(0, 495, 1, 10, 0)
     robot.WeldingSetVoltageRelation(10, 45, 1, 10, 1)
-    robot.WeldingSetVoltage(0, 25, 1, 0)
-    robot.WeldingSetCurrent(0, 260, 0, 0)
+    robot.WeldingSetVoltage(0, 25, 1, 0)  # ----Imposta tensione
+    robot.WeldingSetCurrent(0, 260, 0, 0)  # ----Imposta corrente
     rtn = robot.ArcWeldTraceAIChannelCurrent(4)
     print("ArcWeldTraceAIChannelCurrent rtn is", rtn)
     rtn = robot.ArcWeldTraceAIChannelVoltage(5)
@@ -1142,29 +1142,29 @@ Example arc tracking code
     robot.ArcWeldTraceControl(0, 0, 1, 0.08, 5, 5, 300, 1, 0.06, 4, 4, 300, 1, 0, 4, 1, 10, 0, 0)
     robot.MoveJ(joint_pos=safetyjointPos, tool=1, user=0, vel=20, acc=100)
 
-Setting Up the Weld Wire Seek Expansion IO Port
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della porta IO estesa per la ricerca del filo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetWireSearchExtDIONum(searchDoneDINum, searchStartDONum)``"
-    "Description", "Setting up the Weld Wire Seeker Expansion IO Port"
-    "Mandatory parameter", "- ``searchDoneDINum``: weld wire seek success DO port (0-127)
-    - ``searchStartDONum``: wire seek start/stop control DO port (0-127)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``SetWireSearchExtDIONum(searchDoneDINum, searchStartDONum)``"
+    "Descrizione", "Imposta la porta IO estesa per la ricerca del filo"
+    "Parametri obbligatori", "- ``searchDoneDINum``: Porta DO per ricerca del filo riuscita (0-127)
+    - ``searchStartDONum``: Porta DO per controllo avvio/arresto ricerca del filo (0-127)"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice
+++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     toolCoord = [0, 0, 200, 0, 0, 0]
     robot.SetToolCoord(1, toolCoord, 0, 0, 1, 0)
@@ -1245,102 +1245,102 @@ code example
     error = robot.PointsOffsetDisable()
     robot.CloseRPC()
 
-Welding wire position finding start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio della ricerca del filo
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WireSearchStart(refPos,searchVel,searchDis,autoBackFlag,autoBackVel,autoBackDis,offectFlag)``"
-    "Description", "Welding wire seek start"
-    "Mandatory parameters", "- ``refPos``: 1 - reference point 0 - contact point
-    - ``searchVel``: search velocity %
-    - ``searchDis``: search distance mm
-    - ``autoBackFlag``: autoBackFlag, 0 - not auto; - auto
-    - ``autoBackVel``: Automatic Back Velocity %
-    - ``autoBackDis``: automatic back distance mm
-    - ``offectFlag``: 1 - seek with offset; 0 - teach point seek"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WireSearchStart(refPos,searchVel,searchDis,autoBackFlag,autoBackVel,autoBackDis,offectFlag)``"
+    "Descrizione", "Inizia la ricerca del filo"
+    "Parametri obbligatori", "- ``refPos``: 1-punto di riferimento 0-punto di contatto
+    - ``searchVel``: Velocità di ricerca %
+    - ``searchDis``: Distanza di ricerca mm
+    - ``autoBackFlag``: Flag ritorno automatico, 0-non automatico; -automatico
+    - ``autoBackVel``: Velocità di ritorno automatico %
+    - ``autoBackDis``: Distanza di ritorno automatico mm
+    - ``offectFlag``: 1-ricerca con offset; 0-ricerca nel punto insegnato"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-End of wire position finding
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine della ricerca del filo
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WireSearchEnd(refPos,searchVel,searchDis,autoBackFlag,autoBackVel,autoBackDis,offectFlag)``"
-    "Description", "Welding wire seek end"
-    "Mandatory parameters", "- ``refPos``: 1 - reference point 2 - contact point
-    - ``searchVel``: search velocity %
-    - ``searchDis``: search distance mm
-    - ``autoBackFlag``: autoBackFlag, 0 - not auto; - auto
-    - ``autoBackVel``: Automatic Back Velocity %
-    - ``autoBackDis``: automatic back distance mm
-    - ``offectFlag``: 1 - seek with offset; 2 - teach point seek"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WireSearchEnd(refPos,searchVel,searchDis,autoBackFlag,autoBackVel,autoBackDis,offectFlag)``"
+    "Descrizione", "Termina la ricerca del filo"
+    "Parametri obbligatori", "- ``refPos``: 1-punto di riferimento 2-punto di contatto
+    - ``searchVel``: Velocità di ricerca %
+    - ``searchDis``: Distanza di ricerca mm
+    - ``autoBackFlag``: Flag ritorno automatico, 0-non automatico; -automatico
+    - ``autoBackVel``: Velocità di ritorno automatico %
+    - ``autoBackDis``: Distanza di ritorno automatico mm
+    - ``offectFlag``: 1-ricerca con offset; 2-ricerca nel punto insegnato"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Calculate the wire finding offset
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo dell'offset della ricerca del filo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetWireSearchOffset(seamType, method,varNameRef,varNameRes)``"
-    "Description", "Calculate the welding wire seek offset"
-    "Mandatory parameters", "- ``seamType``: weld type
-    - ``method``: method of calculation
-    - ``varNameRef``: datums 1-6, “#” denotes a pointless variable
-    - ``varNameRes``: Contacts 1-6, “#” for dotless variables"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``offsetFlag``: 0 - the offset is superimposed directly on the instruction point; 1 - the offset requires a coordinate transformation of the instruction point
-    - ``offset``: offset position [x, y, z, a, b, c]"
+    "Prototipo", "``GetWireSearchOffset(seamType, method,varNameRef,varNameRes)``"
+    "Descrizione", "Calcola l'offset della ricerca del filo"
+    "Parametri obbligatori", "- ``seamType``: Tipo di giunto
+    - ``method``: Metodo di calcolo
+    - ``varNameRef``: Punto di riferimento 1-6, # indica nessuna variabile punto
+    - ``varNameRes``: Punto di contatto 1-6, # indica nessuna variabile punto"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``offsetFlag``: 0-l'offset si somma direttamente al punto di comando; 1-l'offset richiede una trasformazione di coordinate per il punto di comando
+    - ``offset``: Posizione offset [x, y, z, a, b, c]"
 
-Waiting for wire seek to complete
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attesa del completamento della ricerca del filo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WireSearchWait(varname)``"
-    "Description", "Waiting for wire seek to complete."
-    "Mandatory parameters", "- ``varName``: contact name “RES0” ~ “RES99”"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``WireSearchWait(varname)``"
+    "Descrizione", "Attende il completamento della ricerca del filo"
+    "Parametri obbligatori", "- ``varName``: Nome del punto di contatto “RES0” ~ “RES99”"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Wire seek contact points written to database
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura del punto di contatto della ricerca del filo nel database
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetPointToDatabase(varName,pos)``"
-    "Description", "Welding wire seeker contact points written to database"
-    "Mandatory parameters", "- ``varName``: contact name “RES0” ~ “RES99”
-    - ``pos``: contact point data [x, y, x, a, b, c]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode" 
+    "Prototipo", "``SetPointToDatabase(varName,pos)``"
+    "Descrizione", "Scrive il punto di contatto della ricerca del filo nel database"
+    "Parametri obbligatori", "- ``varName``: Nome del punto di contatto “RES0” ~ “RES99”
+    - ``pos``: Dati del punto di contatto [x, y, x, a, b, c]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Example of robot wire locating code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la ricerca del filo del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     toolCoord = [0, 0, 200, 0, 0, 0]
     robot.SetToolCoord(1, toolCoord, 0, 0, 1, 0)
@@ -1418,77 +1418,77 @@ Example of robot wire locating code
     error = robot.PointsOffsetDisable()
     robot.CloseRPC()
 
-Set the welding voltage to start gradually
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione dell'inizio della variazione graduale della tensione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetVoltageGradualChangeStart(IOType, voltageStart, voltageEnd, AOIndex, blend)``"
-    "Description", "Set the welding voltage to start gradually"
-    "Mandatory parameters", "- ``IOType``: Control type 0- Control Box IO 1- Digital Communication Protocol (UDP) 2- Digital Communication Protocol (ModbusTCP)
-    - ``voltageStart``: Initial welding voltage (V)
-    - ``voltageEnd``: Termination welding voltage (V)
-    - ``AOIndex``: The AO port number of the control box (0-1)
-    - ``blend``: Whether smooth 0- Not smooth; 1- Smooth"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingSetVoltageGradualChangeStart(IOType, voltageStart, voltageEnd, AOIndex, blend)``"
+    "Descrizione", "Imposta l'inizio della variazione graduale della tensione di saldatura"
+    "Parametri obbligatori", "- ``IOType``: Tipo di controllo; 0-IO cabinet di controllo; 1-Protocollo di comunicazione digitale (UDP);2-Protocollo di comunicazione digitale (ModbusTCP)
+    - ``voltageStart``: Tensione di saldatura iniziale (V)
+    - ``voltageEnd``: Tensione di saldatura finale (V)
+    - ``AOIndex``: Numero porta AO cabinet di controllo (0-1)
+    - ``blend``: Smoothing 0-disabilitato; 1-abilitato"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Set the welding voltage gradient to end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della fine della variazione graduale della tensione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetVoltageGradualChangeEnd()``"
-    "Description", "Set the welding voltage gradient to end"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingSetVoltageGradualChangeEnd()``"
+    "Descrizione", "Imposta la fine della variazione graduale della tensione di saldatura"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Set the welding current to start gradually
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione dell'inizio della variazione graduale della corrente di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetCurrentGradualChangeStart(IOType, currentStart, currentEnd, AOIndex, blend)``"
-    "Description", "Set the welding current to start gradually"
-    "Mandatory parameters", "- ``IOType``: Control type 0- Control Box IO 1- Digital Communication Protocol (UDP) 2- Digital Communication Protocol (ModbusTCP)
-    - ``currentStart``: Initial welding current (A)
-    - ``currentEnd``: Termination welding current (A)
-    - ``AOIndex``: The AO port number of the control box (0-1)
-    - ``blend``: Whether smooth 0- Not smooth; 1- Smooth"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingSetCurrentGradualChangeStart(IOType, currentStart, currentEnd, AOIndex, blend)``"
+    "Descrizione", "Imposta l'inizio della variazione graduale della corrente di saldatura"
+    "Parametri obbligatori", "- ``IOType``: Tipo di controllo; 0-IO cabinet di controllo; 1-Protocollo di comunicazione digitale (UDP);2-Protocollo di comunicazione digitale (ModbusTCP)
+    - ``currentStart``: Corrente di saldatura iniziale (A)
+    - ``currentEnd``: Corrente di saldatura finale (A)
+    - ``AOIndex``: Numero porta AO cabinet di controllo (0-1)
+    - ``blend``: Smoothing 0-disabilitato; 1-abilitato"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Set the welding current to gradually end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione della fine della variazione graduale della corrente di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WeldingSetCurrentGradualChangeEnd()``"
-    "Description", "Set the welding current to gradually end"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``WeldingSetCurrentGradualChangeEnd()``"
+    "Descrizione", "Imposta la fine della variazione graduale della corrente di saldatura"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Robot welding current voltage gradient code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la variazione graduale di corrente e tensione di saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     startdescPose = [-484.707, 276.996, -14.013, -37.657, -40.508, -1.548]
     startjointPos = [-45.421, -75.673, 93.627, -104.302, -87.938, 6.005]
@@ -1500,8 +1500,8 @@ Robot welding current voltage gradient code example
     offdese = [0, 0, 0, 0, 0, 0]
     robot.WeldingSetCurrentRelation(0, 495, 1, 10, 0)
     robot.WeldingSetVoltageRelation(10, 45, 1, 10, 1)
-    robot.WeldingSetVoltage(0, 25, 1, 0)
-    robot.WeldingSetCurrent(0, 260, 0, 0)
+    robot.WeldingSetVoltage(0, 25, 1, 0)  # ----Imposta tensione
+    robot.WeldingSetCurrent(0, 260, 0, 0)  # ----Imposta corrente
     robot.MoveJ(joint_pos=safejointPos, tool=1, user=0, vel=5, acc=100)
     rtn = robot.WeldingSetCurrentGradualChangeStart(0, 260, 220, 0, 0)
     print("WeldingSetCurrentGradualChangeStart rtn is", rtn)
@@ -1521,7 +1521,7 @@ Robot welding current voltage gradient code example
     robot.WeldingSetCurrentGradualChangeEnd()
     robot.WeldingSetVoltageGradualChangeEnd()
 
-Set custom swing parameters
+Impostazione dei parametri di oscillazione personalizzata
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1529,45 +1529,45 @@ Set custom swing parameters
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``CustomWeaveSetPara(id, pointNum, point, stayTime, frequency, incStayType, stationary)``"
-    "Description", "Set custom swing parameters"
-    "Mandatory parameters", "- ``id``：Custom swing number: 0-2
-    - ``pointNum``：The number of swing points is 0-10
-    - ``point``：Move endpoint data x,y,z
-    - ``stayTime``：The swing residence time is ms
-    - ``frequency``：Swing frequency Hz
-    - ``incStayType``：Waiting mode: 0-cycle does not contain waiting time; The 1-cycle contains the waiting time
-    - ``stationary``：Swing position waiting: 0- continue to move within the waiting time; 1 -The position is stationary during the waiting time"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``CustomWeaveSetPara(id, pointNum, point, stayTime, frequency, incStayType, stationary)``"
+    "Descrizione", "Imposta i parametri di oscillazione personalizzata"
+    "Parametri obbligatori", "- ``id``: Numero dell'oscillazione personalizzata: 0-2
+    - ``pointNum``: Numero di punti dell'oscillazione 0-10
+    - ``point``: Dati dei punti di movimento x,y,z
+    - ``stayTime``: Tempo di permanenza dell'oscillazione ms
+    - ``frequency``: Frequenza di oscillazione Hz
+    - ``incStayType``: Modalità di attesa: 0-Il periodo non include il tempo di attesa; 1-Il periodo include il tempo di attesa
+    - ``stationary``: Attesa in posizione di oscillazione: 0-Il movimento continua durante il tempo di attesa; 1-La posizione è statica durante il tempo di attesa"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
 
-Gets custom swing parameters
-+++++++++++++++++++++++++++++++++++++++++++++
+Recupero dei parametri di oscillazione personalizzata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``CustomWeaveGetPara(id)``"
-    "Description", "Gets custom swing parameters"
-    "Mandatory parameters", "- ``id``：Custom swing number: 0-2"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode 
-    - ``pointNum``：The number of swing points is 0-10
-    - ``point``：Move endpoint data x,y,z
-    - ``stayTime``：The swing residence time is ms
-    - ``frequency``：Swing frequency Hz
-    - ``incStayType``：Waiting mode: 0-cycle does not contain waiting time; The 1-cycle contains the waiting time
-    - ``stationary``：Swing position waiting: 0- continue to move within the waiting time; 1 -The position is stationary during the waiting time"
+    "Prototipo", "``CustomWeaveGetPara(id)``"
+    "Descrizione", "Recupera i parametri di oscillazione personalizzata"
+    "Parametri obbligatori", "- ``id``: Numero dell'oscillazione personalizzata: 0-2"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``pointNum``: Numero di punti dell'oscillazione 0-10
+    - ``point``: Dati dei punti di movimento x,y,z
+    - ``stayTime``: Tempo di permanenza dell'oscillazione ms
+    - ``frequency``: Frequenza di oscillazione Hz
+    - ``incStayType``: Modalità di attesa: 0-Il periodo non include il tempo di attesa; 1-Il periodo include il tempo di attesa
+    - ``stationary``: Attesa in posizione di oscillazione: 0-Il movimento continua durante il tempo di attesa; 1-La posizione è statica durante il tempo di attesa"
 
-Custom swing parameter code example
+Esempio di codice per i parametri di oscillazione personalizzata
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Connessione al controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     point = [0.0] * 30
     point[0] = -3.0

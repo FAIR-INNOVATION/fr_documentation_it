@@ -1,13 +1,13 @@
-Robot brief introduction
-===========================
+Introduzione al Robot
+=================================
 
-.. toctree:: 
+.. toctree::
 	:maxdepth: 5
 
-Basic parameters
-------------------
+Parametri Base
+-----------------------
 
-.. centered:: Table 2.1-1 Basic parameters of robotics
+.. centered:: Tabella 2.1-1 Parametri base del robot
 
 .. figure:: installation/017.png
 	:align: center
@@ -18,186 +18,115 @@ Basic parameters
 	:width: 8in
 
 .. important::
-  When the FR series robot performs attitude or coordinate system transformation, the angle rotation sequence calculated by the homogeneous transformation matrix is "ZYX" of the floating coordinate system.
+  Nella serie FR dei robot, quando si eseguono trasformazioni di posa o di sistemi di coordinate, l'ordine di rotazione degli angoli per il calcolo della matrice di trasformazione omogenea è "ZYX" per il sistema di coordinate mobile.
 
-Motion
-------------------
+Campo di Movimento
+----------------------------------------
 
-Robotic arm installation space:
+Spazio di installazione del braccio robotico:
 
-The installation of the robot body requires a space of 3m × 3m × 2m (length × width × height) to meet the motion under the maximum wingspan of the robot; if the user increases the end load by itself, make sure that there is a minimum 500mm gap in the installation space.
+L'installazione del corpo del robot richiede uno spazio di 3m×3m×2m (lunghezza×larghezza×altezza) per soddisfare il movimento del robot alla massima apertura del braccio. Se l'utente aumenta autonomamente il carico all'estremità, assicurarsi che lo spazio di installazione lasci un minimo di 500 mm di spazio libero.
 
-.. note:: 
-	The height space is affected by the height of the installation base, where 2m refers to the distance above the installation reference plane
+.. note::
+	Lo spazio in altezza è influenzato dall'altezza della base di installazione; qui 2m si riferisce alla distanza sopra il piano di riferimento di installazione.
 
-Control cabinet installation space:
+Spazio di installazione della cabina di controllo:
 
-1. The control box should be placed in easy operation to prevent water flooding, 0.6m-1.5m from the ground.
+1. La scatola di controllo deve essere posizionata in una posizione facile da operare, protetta da allagamenti e rischio di folgorazione, a una distanza dal suolo tra 0,6 m e 1,5 m.
 
-2. The cabinet must be far away from the heat source.
+2. Il contenitore deve essere lontano da fonti di calore.
 
-3. On one side of the control box's heavy load line, there should be no obstruction within 150mm, and the remaining side shall be not covered within 100mm, which is convenient for heat dissipation and extraction.
+3. Il lato della scatola di controllo con i cavi ad alta potenza deve avere un'area libera di almeno 150 mm senza ostacoli, gli altri lati devono avere almeno 100 mm senza ostacoli, per facilitare la dissipazione del calore e l'inserimento/rimozione.
 
 .. figure:: installation/018.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.1-1 FR3 model collaboration robot movement range
+.. centered:: Grafico 2.2-1 Campo di movimento robot collaborativo modello FR3
 
 .. figure:: installation/103.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.2-2 FR3-WML model collaboration robot movement range
+.. centered:: Grafico 2.2-2 Campo di movimento robot collaborativo modello FR3-WML
 
 .. figure:: installation/104.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.2-3 FR3-WMS model collaboration robot movement range
+.. centered:: Grafico 2.2-3 Campo di movimento robot collaborativo modello FR3-WMS
 
 .. figure:: installation/105.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.2-4 FR3-C model collaboration robot movement range
+.. centered:: Grafico 2.2-4 Campo di movimento robot collaborativo modello FR3-C
 
 .. figure:: installation/019.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.1-5 FR5 model collaboration robot movement range
+.. centered:: Grafico 2.2-5 Campo di movimento robot collaborativo modello FR5
 
 .. figure:: installation/020.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.1-6 FR10 model collaboration robot movement range
+.. centered:: Grafico 2.2-6 Campo di movimento robot collaborativo modello FR10
 
 .. figure:: installation/021.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.1-7 FR16 model collaboration robot movement range
+.. centered:: Grafico 2.2-7 Campo di movimento robot collaborativo modello FR16
 
 .. figure:: installation/022.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.1-8 FR20 model collaboration robot movement range
+.. centered:: Grafico 2.2-8 Campo di movimento robot collaborativo modello FR20
 
 .. figure:: installation/068.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.1-9 FR30 model collaboration robot movement range
+.. centered:: Grafico 2.2-9 Campo di movimento robot collaborativo modello FR30
 
 .. figure:: installation/124.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.1-10 FR30L model collaboration robot movement range
+.. centered:: Grafico 2.2-10 Campo di movimento robot collaborativo modello FR30L
 
-Robot coordinate system
-------------------------------------
+Sistema di Coordinate del Robot
+---------------------------------------------
 
 .. figure:: installation/023.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.3-1 Robot DH parameter coordinate system
+.. centered:: Grafico 2.3-1 Sistema di coordinate parametri DH del robot
 
 .. figure:: installation/024.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.3-2 French -endframe coordinate system
+.. centered:: Grafico 2.3-2 Sistema di coordinate della flangia terminale del robot
 
-Robot Denavit–Hartenberg parameters
-------------------------------------
+Parametri DH del Robot
+----------------------------------
 
-Denavit–Hartenberg parameters are used to calculate kinematics and dynamics of FR series collaborative robots.
+I parametri DH sono utilizzati per calcolare la cinematica e la dinamica dei robot collaborativi della serie FR.
 
 .. figure:: installation/063.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 2.4-1 FR series collaborative robots Denavit–Hartenberg parameters
+.. centered:: Grafico 2.4-1 Parametri DH dei robot collaborativi serie FR
 
-The Denavit–Hartenberg parameters of FR series collaborative robots are shown as below.
+I parametri DH dei robot collaborativi serie FR sono mostrati di seguito:
 
-.. centered:: Table 2.4-1 FR3 model collaboration robot Denavit–Hartenberg parameter
-
-.. list-table::
-    :widths: 70 50 50 50 50 70 50 120
-    :header-rows: 0
-    :class: no-padding sheet-center
-
-    * - **Kinematics**
-      - **theta[rad]**
-      - **a[mm]**
-      - **d[mm]**
-      - **alpha[rad]**
-      - **Dynamics**
-      - **Mass[kg]**
-      - **Center of Mass[mm]**
-
-    * - Joint1
-      - 0
-      - 0
-      - 140
-      - π/2
-      - link1
-      - 2.24
-      - [-0.05, -15.92, 2.26]
-    
-    * - Joint2
-      - 0
-      - -280
-      - 0
-      - 0
-      - link2
-      - 4.94
-      - [139.49, 0, 99.54]
-
-    * - Joint3
-      - 0
-      - -240
-      - 0
-      - 0
-      - link3
-      - 2.29
-      - [58.99, 0.08, 12.99]
-    
-    * - Joint4
-      - 0
-      - 0
-      - 102
-      - π/2
-      - link4
-      - 1.56
-      - [0.05, -2.33, 14.67]
-    
-    * - Joint5
-      - 0
-      - 0
-      - 102
-      - -π/2
-      - link5
-      - 1.56
-      - [-0.05, 2.33, 14.67]
-    
-    * - Joint6
-      - 0
-      - 0
-      - 100
-      - 0
-      - link6
-      - 0.36
-      - [-0.55, -1.11, -20.05]
-
-
-.. centered:: Table 2.4-2 FR3-WMS model collaboration robot Denavit–Hartenberg parameter
+.. centered:: Tabella 2.4-1 Tabella parametri DH robot collaborativo FR3
 
 .. list-table::
    :widths: 70 50 50 50 50 70 50 120
@@ -205,702 +134,779 @@ The Denavit–Hartenberg parameters of FR series collaborative robots are shown 
    :align: center
    :class: no-padding sheet-center
 
-   * - **Kinematics**
-     - **theta [rad]**
-     - **a[mm]**
-     - **d[mm]**
-     - **alpha [rad]**
-     - **Dynamics**
-     - **Mass [kg]**
-     - **Center of Mass[m]**
-
-   * - Joint1
-     - 0
-     - 140
-     - 0
-     - π/2
-     - Link1
-     - 1.66
-     - [-0.06，-13.58，1.68]
-
-   * - Joint2
-     - 0
-     - 0
-     - -280
-     - 0
-     - Link2
-     - 3.68
-     - [140.11，0，101.71]
-
-   * - Joint3
-     - 0
-     - 0
-     - -240
-     - 0
-     - Link3
-     - 1.81
-     - [63.49，0.1，10.94]
-
-   * - Joint4
-     - 0
-     - 102
-     - 0
-     - π/2
-     - Link4
-     - 1.18
-     - [0.07，-2.18，12.48]
-
-   * - Joint5
-     - 0
-     - 102
-     - 0
-     - -π/2
-     - Link5
-     - 1.18
-     - [-0.07，2.18，12.48]
-
-   * - Joint6
-     - 0
-     - 100
-     - 0
-     - 0
-     - Link6
-     - 0.28
-     - [1.81，1.33，-20.41]
-
-.. centered:: Table 2.4-3 FR3-WMSL model collaboration robot Denavit–Hartenberg parameter
-
-.. list-table::
-   :widths: 70 50 50 50 50 70 50 120
-   :header-rows: 0
-   :align: center
-   :class: no-padding sheet-center
-
-   * - **Kinematics**
-     - **theta [rad]**
-     - **a[mm]**
-     - **d[mm]**
-     - **alpha [rad]**
-     - **Dynamics**
-     - **Mass [kg]**
-     - **Center of Mass[m]**
-
-   * - Joint1
-     - 0
-     - 140
-     - 0
-     - π/2
-     - Link1
-     - 1.54
-     - [-0.01，-14.27，1.37]
-
-   * - Joint2
-     - 0
-     - 0
-     - -425
-     - 0
-     - Link2
-     - 3.49
-     - [212.5，0，101.43]
-
-   * - Joint3
-     - 0
-     - 0
-     - -395
-     - 0
-     - Link3
-     - 2
-     - [114.17，0.08，9.92]
-
-   * - Joint4
-     - 0
-     - 102
-     - 0
-     - π/2
-     - Link4
-     - 1.17
-     - [0.07，-2.18，12.48]
-
-   * - Joint5
-     - 0
-     - 102
-     - 0
-     - -π/2
-     - Link5
-     - 1.17
-     - [-0.07，2.18，12.48]
-
-   * - Joint6
-     - 0
-     - 100
-     - 0
-     - 0
-     - Link6
-     - 0.28
-     - [1.9，1.6，-20.08]
-
-.. centered:: Table 2.4-4 FR3-C model collaboration robot Denavit–Hartenberg parameter
-
-.. list-table::
-   :widths: 70 50 50 50 50 70 50 120
-   :header-rows: 0
-   :align: center
-   :class: no-padding sheet-center
-
-   * - **Kinematics**
-     - **theta [rad]**
-     - **a[mm]**
-     - **d[mm]**
-     - **alpha [rad]**
-     - **Dynamics**
-     - **Mass [kg]**
-     - **Center of Mass[m]**
-
-   * - Joint1
-     - 0
-     - 140
-     - 0
-     - π/2
-     - Link1
-     - 1.69
-     - [-0.16，-13.99，1.53]
-
-   * - Joint2
-     - 0
-     - 0
-     - -280
-     - 0
-     - Link2
-     - 3.73
-     - [140，0，101.34]
-
-   * - Joint3
-     - 0
-     - 0
-     - -240
-     - 0
-     - Link3
-     - 1.84
-     - [63.24，0.08，11.04]
-
-   * - Joint4
-     - 0
-     - 102
-     - 0
-     - π/2
-     - Link4
-     - 1.2
-     - [0.1，-2.03，12.55]
-
-   * - Joint5
-     - 0
-     - 102
-     - 0
-     - -π/2
-     - Link5
-     - 1.2
-     - [-0.1，2.03，12.55]
-
-   * - Joint6
-     - 0
-     - 100
-     - 0
-     - 0
-     - Link6
-     - 0.53
-     - [1.48，1.54，-17.9]
-
-.. centered:: Table 2.4-5 FR5 model collaboration robot Denavit–Hartenberg parameter
-
-.. list-table::
-    :widths: 70 50 50 50 50 70 50 120
-    :header-rows: 0
-    :class: no-padding sheet-center
-
-    * - **Kinematics**
-      - **theta[rad]**
-      - **a[mm]**
-      - **d[mm]**
-      - **alpha[rad]**
-      - **Dynamics**
-      - **Mass[kg]**
-      - **Center of Mass[mm]**
-
-    * - Joint1
-      - 0
-      - 0
-      - 152
-      - π/2
-      - link1
-      - 4.64
-      - [-0.19, -18.28, 2.26]
-    
-    * - Joint2
-      - 0
-      - -425
-      - 0
-      - 0
-      - link2
-      - 10.08
-      - [212.47, 0, 121.2]
-
-    * - Joint3
-      - 0
-      - -395
-      - 0
-      - 0
-      - link3
-      - 2.71
-      - [122.62, 0.17, 12.59]
-    
-    * - Joint4
-      - 0
-      - 0
-      - 102
-      - π/2
-      - link4
-      - 1.56
-      - [0.05, -2.33, 14.68]
-    
-    * - Joint5
-      - 0
-      - 0
-      - 102
-      - -π/2
-      - link5
-      - 1.56
-      - [-0.05, 2.33, 14.68]
-    
-    * - Joint6
-      - 0
-      - 0
-      - 100
-      - 0
-      - link6
-      - 0.36
-      - [0.93, 0.81, -20.05]
-
-.. centered:: Table 2.4-6 FR5L model collaboration robot Denavit–Hartenberg parameter
-
-.. list-table::
-   :widths: 70 50 50 50 50 70 50 120
-   :header-rows: 0
-   :align: center
-   :class: no-padding sheet-center
-
-   * - **运动学**
+   * - **Cinematica**
      - **theta[rad]**
      - **a[mm]**
      - **d[mm]**
      - **alpha[rad]**
-     - **动力学**
-     - **Mass[kg]**
-     - **Center of Mass[mm]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
 
-   * - Joint1
+   * - Giunto1
+     - 0
+     - 0
+     - 140
+     - π/2
+     - Collegamento1
+     - 1,98
+     - [-0,05, -15,92, 2,26]
+
+   * - Giunto2
+     - 0
+     - -280
+     - 0
+     - 0
+     - Collegamento2
+     - 3,4445
+     - [139,49, 0, 99,54]
+
+   * - Giunto3
+     - 0
+     - -240
+     - 0
+     - 0
+     - Collegamento3
+     - 1,437
+     - [58,99, 0,08, 12,99]
+
+   * - Giunto4
+     - 0
+     - 0
+     - 102
+     - π/2
+     - Collegamento4
+     - 0,871
+     - [0,05, -2,33, 14,67]
+
+   * - Giunto5
+     - 0
+     - 0
+     - 102
+     - -π/2
+     - Collegamento5
+     - 0,805
+     - [-0,05, 2,33, 14,67]
+
+   * - Giunto6
+     - 0
+     - 0
+     - 100
+     - 0
+     - Collegamento6
+     - 0,261
+     - [-0,05, -1,11, -20,05]
+
+.. centered:: Tabella 2.4-2 Tabella parametri DH robot collaborativo FR3-WMS
+
+.. list-table::
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
+
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
+
+   * - Giunto1
+     - 0
+     - 140
+     - 0
+     - π/2
+     - Collegamento1
+     - 1,66
+     - [-0,06, -13,58, 1,68]
+
+   * - Giunto2
+     - 0
+     - 0
+     - -280
+     - 0
+     - Collegamento2
+     - 3,68
+     - [140,11, 0, 101,71]
+
+   * - Giunto3
+     - 0
+     - 0
+     - -240
+     - 0
+     - Collegamento3
+     - 1,81
+     - [63,49, 0,1, 10,94]
+
+   * - Giunto4
+     - 0
+     - 102
+     - 0
+     - π/2
+     - Collegamento4
+     - 1,18
+     - [0,07, -2,18, 12,48]
+
+   * - Giunto5
+     - 0
+     - 102
+     - 0
+     - -π/2
+     - Collegamento5
+     - 1,18
+     - [-0,07, 2,18, 12,48]
+
+   * - Giunto6
+     - 0
+     - 100
+     - 0
+     - 0
+     - Collegamento6
+     - 0,28
+     - [1,81, 1,33, -20,41]
+
+.. centered:: Tabella 2.4-3 Tabella parametri DH robot collaborativo FR3-WML
+
+.. list-table::
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
+
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
+
+   * - Giunto1
+     - 0
+     - 140
+     - 0
+     - π/2
+     - Collegamento1
+     - 1,54
+     - [-0,01, -14,27, 1,37]
+
+   * - Giunto2
+     - 0
+     - 0
+     - -425
+     - 0
+     - Collegamento2
+     - 3,49
+     - [212,5, 0, 101,43]
+
+   * - Giunto3
+     - 0
+     - 0
+     - -395
+     - 0
+     - Collegamento3
+     - 2
+     - [114,17, 0,08, 9,92]
+
+   * - Giunto4
+     - 0
+     - 102
+     - 0
+     - π/2
+     - Collegamento4
+     - 1,17
+     - [0,07, -2,18, 12,48]
+
+   * - Giunto5
+     - 0
+     - 102
+     - 0
+     - -π/2
+     - Collegamento5
+     - 1,17
+     - [-0,07, 2,18, 12,48]
+
+   * - Giunto6
+     - 0
+     - 100
+     - 0
+     - 0
+     - Collegamento6
+     - 0,28
+     - [1,9, 1,6, -20,08]
+
+.. centered:: Tabella 2.4-4 Tabella parametri DH robot collaborativo FR3-C
+
+.. list-table::
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
+
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
+
+   * - Giunto1
+     - 0
+     - 140
+     - 0
+     - π/2
+     - Collegamento1
+     - 1,69
+     - [-0,16, -13,99, 1,53]
+
+   * - Giunto2
+     - 0
+     - 0
+     - -280
+     - 0
+     - Collegamento2
+     - 3,73
+     - [140, 0, 101,34]
+
+   * - Giunto3
+     - 0
+     - 0
+     - -240
+     - 0
+     - Collegamento3
+     - 1,84
+     - [63,24, 0,08, 11,04]
+
+   * - Giunto4
+     - 0
+     - 102
+     - 0
+     - π/2
+     - Collegamento4
+     - 1,2
+     - [0,1, -2,03, 12,55]
+
+   * - Giunto5
+     - 0
+     - 102
+     - 0
+     - -π/2
+     - Collegamento5
+     - 1,2
+     - [-0,1, 2,03, 12,55]
+
+   * - Giunto6
+     - 0
+     - 100
+     - 0
+     - 0
+     - Collegamento6
+     - 0,53
+     - [1,48, 1,54, -17,9]
+
+.. centered:: Tabella 2.4-5 Tabella parametri DH robot collaborativo FR5
+
+.. list-table::
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
+
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
+
+   * - Giunto1
+     - 0
+     - 0
+     - 152
+     - π/2
+     - Collegamento1
+     - 4,64
+     - [-0,19, -18,28, 2,26]
+
+   * - Giunto2
+     - 0
+     - -425
+     - 0
+     - 0
+     - Collegamento2
+     - 10,08
+     - [212,47, 0, 121,2]
+
+   * - Giunto3
+     - 0
+     - -395
+     - 0
+     - 0
+     - Collegamento3
+     - 2,71
+     - [122,62, 0,17, 12,59]
+
+   * - Giunto4
+     - 0
+     - 0
+     - 102
+     - π/2
+     - Collegamento4
+     - 1,56
+     - [0,05, -2,33, 14,68]
+
+   * - Giunto5
+     - 0
+     - 0
+     - 102
+     - -π/2
+     - Collegamento5
+     - 1,56
+     - [-0,05, 2,33, 14,68]
+
+   * - Giunto6
+     - 0
+     - 0
+     - 100
+     - 0
+     - Collegamento6
+     - 0,36
+     - [0,93, 0,81, -20,05]
+
+.. centered:: Tabella 2.4-6 Tabella parametri DH robot collaborativo FR5-WML
+
+.. list-table::
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
+
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
+
+   * - Giunto1
      - 0
      - 180
      - 0
      - π/2
-     - Link1
-     - 11.49
-     - [-0.16, -28.51, 4.16]
+     - Collegamento1
+     - 11,49
+     - [-0,16, -28,51, 4,16]
 
-   * - Joint2
+   * - Giunto2
      - 0
      - 0
      - -970
      - 0
-     - Link2
-     - 21.3
-     - [642.59, 0.04, 165.62]
+     - Collegamento2
+     - 21,3
+     - [642,59, 0,04, 165,62]
 
-   * - Joint3
+   * - Giunto3
      - 0
      - 0
-     - -8160
+     - -816
      - 0
-     - Link3
-     - 4.61
-     - [321.39, 0.16, 52.76]
+     - Collegamento3
+     - 4,61
+     - [321,39, 0,16, 52,76]
 
-   * - Joint4
+   * - Giunto4
      - 0
      - 159
      - 0
      - π/2
-     - Link4
-     - 1.66
-     - [0.21, -3.06, 13.07]
+     - Collegamento4
+     - 1,66
+     - [0,21, -3,06, 13,07]
 
-   * - Joint5
+   * - Giunto5
      - 0
      - 114
      - 0
      - -π/2
-     - Link5
-     - 1.66
-     - [-0.21, 3.06, 13.07]
+     - Collegamento5
+     - 1,66
+     - [-0,21, 3,06, 13,07]
 
-   * - Joint6
+   * - Giunto6
      - 0
      - 160
      - 0
      - 0
-     - Link6
-     - 0.36
-     - [1.45, 1.09, -19.98]
+     - Collegamento6
+     - 0,36
+     - [1,45, 1,09, -19,98]
 
-.. centered:: Table 2.4-7 FR10 model collaboration robot Denavit–Hartenberg parameter
-
-.. list-table::
-    :widths: 70 50 50 50 50 70 50 120
-    :header-rows: 0
-    :class: no-padding sheet-center
-
-    * - **Kinematics**
-      - **theta[rad]**
-      - **a[mm]**
-      - **d[mm]**
-      - **alpha[rad]**
-      - **Dynamics**
-      - **Mass[kg]**
-      - **Center of Mass[mm]**
-
-    * - Joint1
-      - 0
-      - 0
-      - 180
-      - π/2
-      - link1
-      - 11.97
-      - [-0.10, -26.12, 4.04]
-    
-    * - Joint2
-      - 0
-      - -700
-      - 0
-      - 0
-      - link2
-      - 19.59
-      - [480.27, 0.01, 164.68]
-
-    * - Joint3
-      - 0
-      - -586
-      - 0
-      - 0
-      - link3
-      - 3.7
-      - [211.22, 0.11, 54.21]
-    
-    * - Joint4
-      - 0
-      - 0
-      - 159
-      - π/2
-      - link4
-      - 1.69
-      - [0.12, -3, 12.18]
-    
-    * - Joint5
-      - 0
-      - 0
-      - 114
-      - -π/2
-      - link5
-      - 1.69
-      - [-0.12, 3, 12.18]
-    
-    * - Joint6
-      - 0
-      - 0
-      - 106
-      - 0
-      - link6
-      - 0.35
-      - [1.24, 0.85, -20.34]
-
-.. centered:: Table 2.4-8 FR16 model collaboration robot Denavit–Hartenberg parameter
+.. centered:: Tabella 2.4-7 Tabella parametri DH robot collaborativo FR10
 
 .. list-table::
-    :widths: 70 50 50 50 50 70 50 120
-    :header-rows: 0
-    :class: no-padding sheet-center
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
 
-    * - **Kinematics**
-      - **theta[rad]**
-      - **a[mm]**
-      - **d[mm]**
-      - **alpha[rad]**
-      - **Dynamics**
-      - **Mass[kg]**
-      - **Center of Mass[mm]**
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
 
-    * - Joint1
-      - 0
-      - 0
-      - 180
-      - π/2
-      - link1
-      - 11.97
-      - [-0.10, -26.12, 4.04]
-    
-    * - Joint2
-      - 0
-      - -520
-      - 0
-      - 0
-      - link2
-      - 18.18
-      - [364.4, 0.01, 163.09]
+   * - Giunto1
+     - 0
+     - 0
+     - 180
+     - π/2
+     - Collegamento1
+     - 11,97
+     - [-0,10, -26,12, 4,04]
 
-    * - Joint3
-      - 0
-      - -400
-      - 0
-      - 0
-      - link3
-      - 3.22
-      - [135.03, 0.12, 55.58]
-    
-    * - Joint4
-      - 0
-      - 0
-      - 159
-      - π/2
-      - link4
-      - 1.69
-      - [0.12, -3, 12.18]
-    
-    * - Joint5
-      - 0
-      - 0
-      - 114
-      - -π/2
-      - link5
-      - 1.69
-      - [-0.12, 3, 12.18]
-    
-    * - Joint6
-      - 0
-      - 0
-      - 106
-      - 0
-      - link6
-      - 0.35
-      - [1.24, 0.85, -20.34]
+   * - Giunto2
+     - 0
+     - -700
+     - 0
+     - 0
+     - Collegamento2
+     - 19,59
+     - [480,27, 0,01, 164,68]
 
-.. centered:: Table 2.4-9 FR20 model collaboration robot Denavit–Hartenberg parameter
+   * - Giunto3
+     - 0
+     - -586
+     - 0
+     - 0
+     - Collegamento3
+     - 3,7
+     - [211,22, 0,11, 54,21]
 
-.. list-table::
-    :widths: 70 50 50 50 50 70 50 120
-    :header-rows: 0
-    :class: no-padding sheet-center
+   * - Giunto4
+     - 0
+     - 0
+     - 159
+     - π/2
+     - Collegamento4
+     - 1,69
+     - [0,12, -3, 12,18]
 
-    * - **Kinematics**
-      - **theta [rad]**
-      - **a[mm]**
-      - **d[mm]**
-      - **alpha [rad]**
-      - **Dynamics**
-      - **Mass [kg]**
-      - **Center of Mass[m]**
+   * - Giunto5
+     - 0
+     - 0
+     - 114
+     - -π/2
+     - Collegamento5
+     - 1,69
+     - [-0,12, 3, 12,18]
 
-    * - Joint1
-      - 0
-      - 0
-      - 215
-      - π/2
-      - link1
-      - 20.79
-      - [-0.19, -36.57, 5.68]
-    
-    * - Joint2
-      - 0
-      - -1000
-      - 0
-      - 0
-      - link2
-      - 42.84
-      - [605.25, 0.06, 202.94]
+   * - Giunto6
+     - 0
+     - 0
+     - 106
+     - 0
+     - Collegamento6
+     - 0,35
+     - [1,24, 0,85, -20,34]
 
-    * - Joint3
-      - 0
-      - -716
-      - 0
-      - 0
-      - link3
-      - 9.88
-      - [262.84, 0.22, 43.08]
-    
-    * - Joint4
-      - 0
-      - 0
-      - 166
-      - π/2
-      - link4
-      - 4.64
-      - [0.23, -2.28, 18.42]
-    
-    * - Joint5
-      - 0
-      - 0
-      - 138
-      - -π/2
-      - link5
-      - 4.64
-      - [-0.23, 2.28, 18.42]
-    
-    * - Joint6
-      - 0
-      - 0
-      - 120
-      - 0
-      - link6
-      - 0.6
-      - [-2.11, -1.96, -20.38]
-
-.. centered:: Table 2.4-10 FR30 model collaboration robot Denavit–Hartenberg parameter
+.. centered:: Tabella 2.4-8 Tabella parametri DH robot collaborativo FR16
 
 .. list-table::
-    :widths: 70 50 50 50 50 70 50 120
-    :header-rows: 0
-    :class: no-padding sheet-center
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
 
-    * - **Kinematics**
-      - **theta [rad]**
-      - **a[mm]**
-      - **d[mm]**
-      - **alpha [rad]**
-      - **Dynamics**
-      - **Mass [kg]**
-      - **Center of Mass[m]**
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
 
-    * - Joint1
-      - 0
-      - 0
-      - 215
-      - π/2
-      - link1
-      - 20.64
-      - [-0.22, -37.39, 5.59]
-    
-    * - Joint2
-      - 0
-      - -700
-      - 0
-      - 0
-      - link2
-      - 36.37
-      - [440.73, 0.05, 198.7]
+   * - Giunto1
+     - 0
+     - 0
+     - 180
+     - π/2
+     - Collegamento1
+     - 11,97
+     - [-0,10, -26,12, 4,04]
 
-    * - Joint3
-      - 0
-      - -536
-      - 0
-      - 0
-      - link3
-      - 8.41
-      - [185.64, 0.25, 45.82]
-    
-    * - Joint4
-      - 0
-      - 0
-      - 166
-      - π/2
-      - link4
-      - 4.64
-      - [0.23, -2.29, 18.60]
-    
-    * - Joint5
-      - 0
-      - 0
-      - 138
-      - -π/2
-      - link5
-      - 4.64
-      - [-0.23, 2.29, 18.60]
-    
-    * - Joint6
-      - 0
-      - 0
-      - 120
-      - 0
-      - link6
-      - 0.6
-      - [-2.11, -1.96, -20.38]
+   * - Giunto2
+     - 0
+     - -520
+     - 0
+     - 0
+     - Collegamento2
+     - 18,18
+     - [364,4, 0,01, 163,09]
 
-.. centered:: Table 2.4-11 FR30L model collaboration robot Denavit–Hartenberg parameter
+   * - Giunto3
+     - 0
+     - -400
+     - 0
+     - 0
+     - Collegamento3
+     - 3,22
+     - [135,03, 0,12, 55,58]
+
+   * - Giunto4
+     - 0
+     - 0
+     - 159
+     - π/2
+     - Collegamento4
+     - 1,69
+     - [0,12, -3, 12,18]
+
+   * - Giunto5
+     - 0
+     - 0
+     - 114
+     - -π/2
+     - Collegamento5
+     - 1,69
+     - [-0,12, 3, 12,18]
+
+   * - Giunto6
+     - 0
+     - 0
+     - 106
+     - 0
+     - Collegamento6
+     - 0,35
+     - [1,24, 0,85, -20,34]
+
+.. centered:: Tabella 2.4-9 Tabella parametri DH robot collaborativo FR20
 
 .. list-table::
-    :widths: 70 50 50 50 50 70 50 120
-    :header-rows: 0
-    :class: no-padding sheet-center
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
 
-    * - **Kinematics**
-      - **theta [rad]**
-      - **a[mm]**
-      - **d[mm]**
-      - **alpha [rad]**
-      - **Dynamics**
-      - **Mass [kg]**
-      - **Center of Mass[m]**
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
 
-    * - Joint1
-      - 0
-      - 0
-      - 215
-      - π/2
-      - Link1
-      - 27.85
-      - [-0.18, -26.29, 14.57]
+   * - Giunto1
+     - 0
+     - 0
+     - 215
+     - π/2
+     - Collegamento1
+     - 20,79
+     - [-0,19, -36,57, 5,68]
 
-    * - Joint2
-      - 0
-      - -1000
-      - 0
-      - 0
-      - Link2
-      - 50.43
-      - [580.62, 0.04, 223.34]
+   * - Giunto2
+     - 0
+     - -1000
+     - 0
+     - 0
+     - Collegamento2
+     - 42,84
+     - [605,25, 0,06, 202,94]
 
-    * - Joint3
-      - 0
-      - -716
-      - 0
-      - 0
-      - Link3
-      - 9.88
-      - [262.84, 0.22, 43.08]
+   * - Giunto3
+     - 0
+     - -716
+     - 0
+     - 0
+     - Collegamento3
+     - 9,88
+     - [262,84, 0,22, 43,08]
 
-    * - Joint4
-      - 0
-      - 0
-      - 166
-      - π/2
-      - Link4
-      - 4.64
-      - [0.23, -2.28, 18.42]
+   * - Giunto4
+     - 0
+     - 0
+     - 166
+     - π/2
+     - Collegamento4
+     - 4,64
+     - [0,23, -2,28, 18,42]
 
-    * - Joint5
-      - 0
-      - 0
-      - 138
-      - -π/2
-      - Link5
-      - 4.64
-      - [-0.23, 2.28, 18.42]
+   * - Giunto5
+     - 0
+     - 0
+     - 138
+     - -π/2
+     - Collegamento5
+     - 4,64
+     - [-0,23, 2,28, 18,42]
 
-    * - Joint6
-      - 0
-      - 0
-      - 120
-      - 0
-      - Link6
-      - 0.6
-      - [-2.11, -1.96, -20.38]
+   * - Giunto6
+     - 0
+     - 0
+     - 120
+     - 0
+     - Collegamento6
+     - 0,6
+     - [-2,11, -1,96, -20,38]
 
-DH parameter download
+.. centered:: Tabella 2.4-10 Tabella parametri DH robot collaborativo FR30
+
+.. list-table::
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
+
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
+
+   * - Giunto1
+     - 0
+     - 0
+     - 215
+     - π/2
+     - Collegamento1
+     - 20,64
+     - [-0,22, -37,39, 5,59]
+
+   * - Giunto2
+     - 0
+     - -700
+     - 0
+     - 0
+     - Collegamento2
+     - 36,37
+     - [440,73, 0,05, 198,7]
+
+   * - Giunto3
+     - 0
+     - -536
+     - 0
+     - 0
+     - Collegamento3
+     - 8,41
+     - [185,64, 0,25, 45,82]
+
+   * - Giunto4
+     - 0
+     - 0
+     - 166
+     - π/2
+     - Collegamento4
+     - 4,64
+     - [0,23, -2,29, 18,60]
+
+   * - Giunto5
+     - 0
+     - 0
+     - 138
+     - -π/2
+     - Collegamento5
+     - 4,64
+     - [-0,23, 2,29, 18,60]
+
+   * - Giunto6
+     - 0
+     - 0
+     - 120
+     - 0
+     - Collegamento6
+     - 0,6
+     - [-2,11, -1,96, -20,38]
+
+.. centered:: Tabella 2.4-11 Tabella parametri DH robot collaborativo FR30L
+
+.. list-table::
+   :widths: 70 50 50 50 50 70 50 120
+   :header-rows: 0
+   :align: center
+   :class: no-padding sheet-center
+
+   * - **Cinematica**
+     - **theta[rad]**
+     - **a[mm]**
+     - **d[mm]**
+     - **alpha[rad]**
+     - **Dinamica**
+     - **Massa[kg]**
+     - **Centro di Massa[mm]**
+
+   * - Giunto1
+     - 0
+     - 0
+     - 215
+     - π/2
+     - Collegamento1
+     - 27,85
+     - [-0,18, -26,29, 14,57]
+
+   * - Giunto2
+     - 0
+     - -1000
+     - 0
+     - 0
+     - Collegamento2
+     - 50,43
+     - [580,62, 0,04, 223,34]
+
+   * - Giunto3
+     - 0
+     - -716
+     - 0
+     - 0
+     - Collegamento3
+     - 9,88
+     - [262,84, 0,22, 43,08]
+
+   * - Giunto4
+     - 0
+     - 0
+     - 166
+     - π/2
+     - Collegamento4
+     - 4,64
+     - [0,23, -2,28, 18,42]
+
+   * - Giunto5
+     - 0
+     - 0
+     - 138
+     - -π/2
+     - Collegamento5
+     - 4,64
+     - [-0,23, 2,28, 18,42]
+
+   * - Giunto6
+     - 0
+     - 0
+     - 120
+     - 0
+     - Collegamento6
+     - 0,6
+     - [-2,11, -1,96, -20,38]
+
+Tabella Parametri DH
 ------------------------------------
-    :download:`FR Robots DH Transformation <../_static/_doc/FR Robots DH Transformation.xlsx>`
+    :download:`Parametri DH robot collaborativo FR <../_static/_doc/FR Robots DH Transformation.xlsx>`

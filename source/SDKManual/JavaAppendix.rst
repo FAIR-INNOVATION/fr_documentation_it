@@ -1,70 +1,70 @@
-Appendix
-=================
+Appendice
+=========
 
 .. toctree:: 
     :maxdepth: 5
 
-Source Code Download
+Download Codice Sorgente
 ------------------------------------------------
 
-Find the "Downloads" section in the FAIRINO documentation (https://fairino-doc-en.readthedocs.io/latest/), click the "Java SDK" button, and then click "FAIRINO Java SDK" on the right-hand page. Wait for the browser to complete the download.
+Nel sito della documentazione Faro (https://fairino-doc-it.readthedocs.io/latest/), trovare il modulo "Scarica Materiali", cliccare sul pulsante "Java SDK", nella pagina a destra cliccare su "FAIRINOJavaSDK", attendere il completamento del download dal browser.
 
 .. image:: image/019.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.1‑1 Java SDK Source Code Download
+.. centered:: Figura 16.1‑1 Download codice sorgente Java SDK
 
-Extract the compressed package. The file directory is as shown in the figure, which includes:
+Scompattare l'archivio compresso, la struttura delle cartelle è mostrata in figura, dove:
 
-fairino_Java_SDK_maven: Source code (.java) and library files (.jar) compiled in a Windows system environment.
+fairino_Java_SDK_maven: Codice sorgente (.java) e file di libreria (.jar) compilati da compilatore in ambiente sistema Windows;
 
 .. image:: image/020.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 16.1‑2 Java SDK File Directory
+.. centered:: Figura 16.1‑2 Struttura directory file Java SDK
 
-Enter the fairino_Java_SDK_maven folder, which contains the following directories:
+Entrare nella cartella fairino_Java_SDK_maven, contiene le directory come mostrato in figura, dove:
 
-- lib: Dependency JAR files used in the source code;
-- src: Java SDK source code files;
-- target: Library files (.jar) generated from the Java SDK source code;
+- lib: File jar delle dipendenze utilizzate nel codice sorgente;
+- src: File del codice sorgente Java SDK;
+- target: File di libreria (.jar) generati dal codice sorgente Java SDK;
 
 .. image:: image/021.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.1‑3 Java SDK Source Code and Library File Directory
+.. centered:: Figura 16.1‑3 Directory codice sorgente e file di libreria Java SDK
 
-Windows Platform Source Code Compilation
+Compilazione Codice Sorgente su Piattaforma Windows
 -------------------------------------------------------------
-① Install and configure the build tool—Maven
+① Installare e configurare lo strumento di build – Maven
 
-Maven download and installation website: Welcome to Apache Maven – Maven
+Sito per scaricare e installare Maven: Welcome to Apache Maven – Maven
 
-After installation and configuration, the terminal will display the following information when you enter `maven --version`:
+Dopo installazione e configurazione, come mostrato sotto, digitando `maven --version` nel terminale verranno visualizzate le seguenti informazioni
 
 .. image:: image/022.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑1 Maven Installation and Configuration
+.. centered:: Figura 16.2‑1 Installazione e configurazione Maven
 
-② Open a terminal in the Java SDK source code directory and enter `mvn package` to generate the library files (.jar).
+② Aprire il terminale nella directory del codice sorgente Java SDK, digitare `mvn package`, per generare i file di libreria (.jar),
 
 .. image:: image/023.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑2 Compiling Java SDK into Library Files
+.. centered:: Figura 16.2‑2 Compilazione Java SDK in file di libreria
  
-③ Locate the "target" folder in the source code directory and find the compiled `fairino-jar-with-dependencies.jar` and `fairino.jar` files, as shown in the figure.
+③ Nella directory del codice sorgente, trovare la cartella "target", e al suo interno trovare i file fairino-jar-with-dependencies.jar e fairino.jar ottenuti dalla compilazione, come mostrato in figura
 
 .. image:: image/024.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑3 Generated JAR Files
+.. centered:: Figura 16.2‑3 File jar generati
 
-④ To use the collaborative robot Java SDK, first open the project in IntelliJ IDEA, then navigate to File -> Project Structure -> Libraries, and add the .jar files generated in the previous step. Use `import fairino.*;` in your files to utilize the generated .jar files.
+④ Per utilizzare il Java SDK del robot collaborativo, prima in un progetto IDEA, fare clic in sequenza su File->Project Structure->Libraries, aggiungere il file .jar generato nel passaggio precedente. Nel file, utilizzare `import fairino.*;` per utilizzare il file .jar generato.

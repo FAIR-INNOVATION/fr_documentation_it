@@ -1,129 +1,139 @@
-WebAPP program use
-======================
+Utilizzo del Programma Robot WebAPP
+====================================
 
 .. toctree::
     :maxdepth: 5
 
-Setting the default job program to load automatically on boot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Impostazione Caricamento Automatico Programma di Lavoro Predefinito all'Avvio
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LoadDefaultProgConfig(flag,program_name)``"
-    "Description", "Sets the default job program to be automatically loaded on boot"
-    "Required parameters","- ``flag``: 1-automatically load the default program on power-up, 0-don't automatically load the default program
-    - ``program_name``: the name of the job program and its path, e.g. “/fruser/movej.lua”, where “/fruser/” is the fixed path."
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LoadDefaultProgConfig(flag,program_name)``"
+    "Descrizione", "Imposta il caricamento automatico all'avvio del programma di lavoro predefinito"
+    "Parametri Richiesti", "- ``flag``：1-Carica automaticamente il programma predefinito all'avvio, 0-Non caricare automaticamente il programma predefinito
+    - ``program_name``：Nome e percorso del programma di lavoro, ad es. /fruser/movej.lua, dove /fruser/ è il percorso fisso per QX, /usr/local/etc/controller/lua/ è il percorso fisso per LA"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Load the specified job program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Caricare il Programma di Lavoro Specificato
+++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ProgramLoad(program_name)``"
-    "Description", "Load the specified job program."
-    "Mandatory parameters", "- ``program_name``: name of the job program and path, e.g. “/fruser/movej.lua”, where “/fruser/” is a fixed path"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ProgramLoad(program_name)``"
+    "Descrizione", "Carica il programma di lavoro specificato"
+    "Parametri Richiesti", "- ``program_name``：Nome e percorso del programma di lavoro, ad es. /fruser/movej.lua, dove /fruser/ è il percorso fisso per QX, /usr/local/etc/controller/lua/ è il percorso fisso per LA"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Get the name of the loaded job program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere il Nome del Programma di Lavoro Attualmente Caricato
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetLoadedProgram()``"
-    "Description", "Get the name of the loaded job program"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``program_name``: the name of the loaded operating program."
+    "Prototipo", "``GetLoadedProgram()``"
+    "Descrizione", "Ottiene il nome del programma di lavoro attualmente caricato"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore Successo-0 Fallimento- errcode
+    - ``program_name``：Nome del programma di lavoro caricato"
 
-Get the line number of the current robot job program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere il Numero di Riga di Esecuzione del Programma di Lavoro Corrente del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetCurrentLine()``"
-    "Description", "Get the execution line number of the current robot job program"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``line_num``: the line number of the current robot job program execution"
+    "Prototipo", "``GetCurrentLine()``"
+    "Descrizione", "Ottiene il numero di riga di esecuzione del programma di lavoro corrente del robot"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore Successo-0 Fallimento- errcode
+    - ``line_num``：Numero di riga di esecuzione del programma di lavoro corrente del robot"
 
-Run the currently loaded job program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Eseguire il Programma di Lavoro Attualmente Caricato
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ProgramRun()``"
-    "Description", "Run the currently loaded job program"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ProgramRun()``"
+    "Descrizione", "Esegue il programma di lavoro attualmente caricato"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Suspend the currently running job program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Mettere in Pausa il Programma di Lavoro Corrente in Esecuzione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ProgramPause()``"
-    "Description", "Suspend the currently running job program."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ProgramPause()``"
+    "Descrizione", "Mette in pausa il programma di lavoro corrente in esecuzione"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Resuming a currently suspended program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Riprendere il Programma di Lavoro Corrente in Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ProgramResume()``"
-    "Description", "Resume the currently suspended job program"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ProgramResume()``"
+    "Descrizione", "Riprende il programma di lavoro corrente in pausa"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Terminate the currently running job program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Terminare il Programma di Lavoro Corrente in Esecuzione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ProgramStop()``"
-    "Description", "Terminate the currently running job program."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ProgramStop()``"
+    "Descrizione", "Termina il programma di lavoro corrente in esecuzione"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Obtaining robot job program execution status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere lo Stato di Esecuzione del Programma di Lavoro del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetProgramState()``"
-    "Description", "Get robot job program execution status"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``state``: state of execution of the robot's operating program, 1 - program stopped or no program running, 2 - program running, 3 - program suspended"
+    "Prototipo", "``GetProgramState()``"
+    "Descrizione", "Ottiene lo stato di esecuzione del programma di lavoro del robot"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore Successo-0 Fallimento- errcode
+    - ``state``: Stato di esecuzione del programma di lavoro del robot, 1-Programma fermo o nessun programma in esecuzione, 2-Programma in esecuzione, 3-Programma in pausa"
 
-Robot LUA program operation code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice per Operazioni sui Programmi LUA del Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     program_name = "/fruser/test0610.lua"
     loaded_name = ""
@@ -148,73 +158,74 @@ Robot LUA program operation code example
     time.sleep(1)
     robot.CloseRPC()
 
-Download Lua files
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scaricare File Lua
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.2
 
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-    
-    "Prototype", "``LuaDownLoad(fileName, savePath)``"
-    "Description", "Download Lua File"
-    "Mandatory parameter", "- ``fileName``: the name of the lua file to be downloaded, e.g. “test.lua”"
-    - ``savePath``: the local path to save the file, e.g. “D://Down/”"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Deleting Lua files
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.2
-
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LuaDelete(fileName)``"
-    "Description", "Deleting Lua files."
-    "Required Parameters", "- ``fileName``: the name of the lua file to be deleted, “test.lua”"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LuaDownLoad(fileName, savePath)``"
+    "Descrizione", "Scarica un file Lua"
+    "Parametri Richiesti", "- ``fileName``：Nome del file Lua da scaricare, es. “test.lua”
+    - ``savePath``：Percorso locale per salvare il file, es. “D://Down/”"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Get the names of all current lua files
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Eliminare File Lua
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.2
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetLuaList()``"
-    "Description", "Get the names of all current lua files"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``lua_num``: number of lua files
-    - ``luaNames``: list of lua file names"
+    "Prototipo", "``LuaDelete(fileName)``"
+    "Descrizione", "Elimina un file Lua"
+    "Parametri Richiesti", "- ``fileName``：Nome del file Lua da eliminare, es. “test.lua”"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
-Uploading Lua files
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere i Nomi di Tutti i File Lua Correnti
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.2
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LuaUpload(filePath)``"
-    "Description", "Uploading a Lua file"
-    "Mandatory parameter", "- ``filePath``: full path name of the uploaded file e.g. D://test/test.lua"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - errorStr(lua file exists error returned)"
+    "Prototipo", "``GetLuaList()``"
+    "Descrizione", "Ottiene i nomi di tutti i file Lua correnti"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore Successo-0 Fallimento- errcode
+    - ``lua_num``：Numero di file Lua
+    - ``luaNames``：Lista dei nomi dei file Lua"
 
-Robot LUA file upload and download code examples
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Caricare File Lua
++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.2
+
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``LuaUpload(filePath)``"
+    "Descrizione", "Carica un file Lua"
+    "Parametri Richiesti", "- ``filePath``：Percorso completo del file da caricare, es. D://test/test.lua"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore Successo-0 Fallimento- errcode
+    - errorStr (restituito se il file Lua contiene errori)"
+
+Esempio di Codice per Caricamento/Scaricamento File Lua del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     rtn,lua_num,luaNames = robot.GetLuaList()
     print(f"res is:{rtn}")

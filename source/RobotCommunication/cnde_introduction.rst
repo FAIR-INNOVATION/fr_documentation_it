@@ -1,23 +1,23 @@
-Introduction to CNDE
-=======================
+Introduzione a CNDE
+===========================
 
-Collaborative robot configurable network data exchange protocol (CNDE) is a way for the client to control the robot and obtain the feedback status of the robot through UDP communication.
+Il protocollo configurabile di scambio dati di rete per robot collaborativi (di seguito CNDE) è un metodo tramite il quale un client controlla il robot e ottiene il suo stato di feedback attraverso la comunicazione UDP.
 
-Table 1-1 shows all the states of the robot that can be obtained by CNDE. The client can arbitrarily select several required states from the table and make the robot perform state feedback according to the set feedback period.
+La Tabella 1-1 mostra l'insieme di tutti gli stati del robot ottenibili tramite CNDE. Il client può selezionare qualsiasi numero di stati necessari dalla tabella e far sì che il robot fornisca il feedback degli stati in base al periodo di feedback impostato.
 
-Similarly, the client can also select the required combination of robot control functions from Table 1-2 for robot control operation. The communication data between the client and the robot CNDE should be in the specified frame format, and the communication port of the robot CNDE is 20006.
+Allo stesso modo, il client può selezionare le combinazioni di funzioni di controllo del robot necessarie dalla Tabella 1-2 per eseguire operazioni di controllo del robot. I dati di comunicazione CNDE tra client e robot devono seguire un formato di frame specifico, e la porta di comunicazione CNDE del robot è 20006.
 
-There are four main steps to use the CNDE function of robot:
+L'utilizzo della funzione CNDE del robot comprende principalmente i seguenti quattro passaggi:
 
-①Configuration of input and output data content: the client sends an input and output configuration command to the robot, in which the command content is in the form of a series of control or state function names such as "std_DI_box,cfg_DI_box, motion_queue_len", and the robot records and recognizes these names and then feeds back the corresponding function data types such as "UINT8,UINT8,INT32" to the client, which indicates that the configuration is successful.
+① Configurazione del contenuto dei dati di input e output: Il client invia un comando di configurazione di input e output al robot, in cui il contenuto del comando include nomi di funzioni di controllo o stato come "std_DI_box, cfg_DI_box, motion_queue_len", ecc. Dopo aver registrato e riconosciuto questi nomi, il robot risponde al client con i tipi di dati corrispondenti, ad esempio "UINT8, UINT8, INT32", indicando che la configurazione è riuscita.
 
-②Start the CNDE data output of the robot: the client sends a command to start the CNDE data output to the robot, and the robot starts to send the robot state data to the client through UDP in the form of byte array (Little Endian) according to the configured period.
+② Avvio dell'output dei dati CNDE del robot: Il client invia un comando di avvio dell'output dei dati CNDE al robot, e il robot inizia a inviare i dati di stato al client via UDP sotto forma di array di byte (modalità little-endian) secondo il periodo configurato.
 
-③Analyze the robot state data: the client receives the state data fed back by the robot circularly, and analyzes the data according to the data types fed back by the robot during output configuration and the byte length corresponding to each data type in Table 1-3 to obtain the actual value of each state. The output data of robot CNDE can support up to 4096 bytes, The CNDE output period ranges from 1 ms to 200ms.
+③ Analisi dei dati di stato del robot: Il client riceve ciclicamente i dati di stato inviati dal robot e li analizza in base ai tipi di dati restituiti durante la configurazione dell'output e alla lunghezza in byte corrispondente a ciascun tipo di dati nella Tabella 1-3, ottenendo i valori effettivi di ciascuno stato. L'output dei dati CNDE del robot supporta un massimo di 4096 byte, e il periodo di output CNDE configurabile è compreso tra 1 e 200 ms.
 
-④Sending robot control data: the client groups the control data according to the data types fed back by the robot during input configuration and the byte length corresponding to each data type in Table 1-3, and sends it to the robot through UDP communication. After receiving the control data, the robot performs data analysis and robot control operations. The CNDE input of the robot supports 256 recipes, and the client can configure multiple input recipes as needed. When sending the input data to the robot, it is necessary to specify the recipe number corresponding to the current data.
+④ Invio dei dati di controllo al robot: Il client impacchetta i dati di controllo in base ai tipi di dati restituiti durante la configurazione dell'input e alla lunghezza in byte corrispondente a ciascun tipo di dati nella Tabella 1-3, e li invia al robot tramite comunicazione UDP. Il robot, dopo aver ricevuto i dati di controllo, li analizza e esegue le operazioni di controllo. L'input CNDE del robot supporta 256 ricette. Il client può configurare prima più ricette di input secondo necessità e, quando invia dati di input al robot, deve specificare il numero della ricetta corrispondente ai dati correnti.
 
-.. centered:: Table 1-1 Robot Output Configuration Function
+.. centered:: Tabella 1-1 Funzioni di configurazione dell'output del robot
 
 .. list-table::
    :widths: 20 40 80
@@ -25,195 +25,195 @@ There are four main steps to use the CNDE function of robot:
    :align: center
    :class: sheet-center
 
-   * - **Name**
-     - **Data type**
-     - **Description**
+   * - **Nome**
+     - **Tipo di dato**
+     - **Descrizione**
 
    * - std_DI_box
      - UINT8
-     - Control box standard DI input (bit0 ~ bit7 indicates DI0 ~ DI7)
+     - Input standard DI del quadro di controllo (bit0 ~ bit7 rappresentano DI0 ~ DI7)
 
    * - cfg_DI_box
      - UINT8
-     - Control box configurable CI input (bit0 ~ bit7 indicates CI0 ~ CI7)
+     - Input CI configurabile del quadro di controllo (bit0 ~ bit7 rappresentano CI0 ~ CI7)
 
    * - cfg_DI_tool
      - UINT8
-     - Configurable tool DI inputs (bit0 ~ bit2 indicates toolDI0 ~ toolDI1)
+     - Input DI dello strumento configurabile del quadro di controllo (bit0 ~ bit2 rappresentano toolDI0 ~ toolDI1)
 
    * - std_AI0_box
      - DOUBLE
-     - Control box analog input AI0(0 ~ 4095)
+     - Input analogico AI0 del quadro di controllo (0 ~ 4095)
 
    * - std_AI1_box
      - DOUBLE
-     - Control box analog input AI1(0 ~ 4095)
+     - Input analogico AI1 del quadro di controllo (0 ~ 4095)
 
    * - std_AI_tool
      - DOUBLE
-     - Analog input of end tool tool_AI0(0 ~ 4095)
+     - Input analogico dello strumento terminale tool_AI0 (0 ~ 4095)
 
    * - run_up_time
      - DOUBLE
-     - Statistics of Robot Boot Time (s)
+     - Statistica del tempo di accensione del robot (s)
 
    * - target_joint_pos
      - DOUBLE_6
-     - Target position of joint 1-6 (°)
+     - Posizione target giunto 1-6 (°)
 
    * - target_joint_vel
      - DOUBLE_6
-     - Target speed of joints 1-6 (°/s)
+     - Velocità target giunto 1-6 (°/s)
 
    * - target_joint_acc
      - DOUBLE_6
-     - Target acceleration of joints 1-6 (°/s2)
+     - Accelerazione target giunto 1-6 (°/s²)
 
    * - target_joint_current
      - DOUBLE_6
-     - Joint 1-6 target current (A)
+     - Corrente target giunto 1-6 (A)
 
    * - target_joint_torque
      - DOUBLE_6
-     - Target torque of joints 1-6 (Nm)
+     - Coppia target giunto 1-6 (Nm)
 
    * - actual_joint_pos
      - DOUBLE_6
-     - Current position of joints 1-6 (°)
+     - Posizione corrente giunto 1-6 (°)
 
    * - actual_joint_vel
      - DOUBLE_6
-     - Current speed of joints 1-6 (°/s)
+     - Velocità corrente giunto 1-6 (°/s)
 
    * - actual_joint_current
      - DOUBLE_6
-     - Current current of joints 1-6 (A)
+     - Corrente corrente giunto 1-6 (A)
 
    * - actual_joint_torque
      - DOUBLE_6
-     - Joint 1-6 target torque (Nm)
+     - Coppia corrente giunto 1-6 (Nm)
 
    * - actual_TCP_pos
      - DOUBLE_6
-     - Current position of tool DKR(mm)
+     - Posizione corrente strumento DKR (mm)
 
    * - actual_TCP_vel
      - DOUBLE_6
-     - Current tool speed DKR(mm/s)
+     - Velocità corrente strumento DKR (mm/s)
 
    * - actual_TCP_force
      - DOUBLE_6
-     - Tool resultant force DKR(mm/s2)
+     - Forza risultante strumento DKR (N)
 
    * - target_TCP_pos
      - DOUBLE_6
-     - Tool target position DKR(mm)
+     - Posizione target strumento DKR (mm)
 
    * - target_TCP_vel
      - DOUBLE_6
-     - Tool target speed DKR(mm/s)
+     - Velocità target strumento DKR (mm/s)
 
    * - std_DO_box
      - UINT8
-     - Standard DO output of control box (bit0 ~ bit7 indicates DO0 ~ DO7)
+     - Output standard DO del quadro di controllo (bit0 ~ bit7 rappresentano DO0 ~ DO7)
 
    * - cfg_DO_box
      - UINT8
-     - Control box configurable with CO output (bit0 ~ bit7 indicates CO0 ~ CO7)
+     - Output CO configurabile del quadro di controllo (bit0 ~ bit7 rappresentano CO0 ~ CO7)
 
    * - cfg_DO_tool
      - UINT8
-     - Standard tool DO output (bit0 ~ bit1 indicates toolDO0 ~ toolDO1)
+     - Output standard DO dello strumento del quadro di controllo (bit0 ~ bit1 rappresentano toolDO0 ~ toolDO1)
 
    * - std_AO0_box
      - DOUBLE
-     - Control box analog AO0 (0.0 ~ 4095.0)
+     - Output analogico AO0 del quadro di controllo (0.0 ~ 4095.0)
 
    * - std_AO1_box
      - DOUBLE
-     - Control box analog AO1 (0.0 ~ 4095.0)
+     - Output analogico AO1 del quadro di controllo (0.0 ~ 4095.0)
 
    * - std_AO_tool
      - DOUBLE
-     - Tool analog AO1 (0.0 ~ 4095.0)
+     - Output analogico AO1 dello strumento (0.0 ~ 4095.0)
 
    * - robot_mode
      - UINT8
-     - Robot mode (0- automatic; 1- Manual)
+     - Modalità robot (0-automatico; 1-manuale)
 
    * - collision_level
      - UINT8_6
-     - Joint 1-6 collision grade (1-10)
+     - Livello di collisione giunto 1-6 (1 ~ 10)
 
    * - speed_scaling_man
      - DOUBLE
-     - Manual mode speed percentage (0 ~ 100)
+     - Percentuale velocità modalità manuale (0 ~ 100)
 
    * - speed_scaling_auto
      - DOUBLE
-     - Automatic mode speed percentage (0 ~ 100)
+     - Percentuale velocità modalità automatica (0 ~ 100)
 
    * - program_state
      - UINT8
-     - Robot program running state (1- stop; 2- in motion; 3- pause; 4- Drag)
+     - Stato esecuzione programma robot (1-fermo; 2-in movimento; 3-in pausa; 4-trascinamento)
 
    * - line_number
      - INT32
-     - Current program running line number
+     - Numero riga programma corrente in esecuzione
 
    * - payload
      - DOUBLE
-     - Load mass (kg)
+     - Massa del carico (kg)
 
    * - pay_cog
      - DOUBLE_3
-     - Load centroid (x,y,z)(mm)
+     - Centro di massa del carico (x,y,z) (mm)
 
    * - motion_queue_len
      - INT32
-     - Current motion queue length
-
+     - Lunghezza attuale coda movimento
+   
    * - ft_sensor_data
      - DOUBLE_6
-     - Force sensor raw data
+     - Dati grezzi sensore di forza
 
    * - main_code
      - INT32
-     - Main fault code
+     - Codice errore principale
 
    * - sub_code
      - INT32
-     - Sub fault code
+     - Codice errore secondario
 
    * - emergency_stop
      - UINT8
-     - Emergency stop status
+     - Stato arresto di emergenza
 
    * - motion_done
      - INT32
-     - Motion completion status
+     - Stato completamento movimento
 
    * - timestamp_us
      - UINT64
-     - Robot system time (us)
-  
+     - Tempo di sistema robot (µs)
+
    * - output_BIT_reg_8xX
      - UINT8_X
-     - BIT-type robot output registers (8xX indicates the number of registers, if you need 16 BIT-type output registers, the actual name is "output_BIT_reg_8x2", and the robot can support up to 128 bit-type output registers)
+     - Registro di output robot tipo BIT (8xX indica il numero di registri, se servono 16 registri di output tipo BIT, il nome effettivo è: "output_BIT_reg_8x2". Il robot supporta massimo 128 registri di output tipo BIT)
 
    * - output_INT_reg_X
      - INT32_X
-     - INT robot output registers (X represents the number of registers. If you need 16 INT output registers, the actual name is "output_INT_reg_16", and the robot can support up to 64 INT output registers)
+     - Registro di output robot tipo INT (X indica il numero di registri, se servono 16 registri di output tipo INT, il nome effettivo è: "output_INT_reg_16". Il robot supporta massimo 64 registri di output tipo INT)
 
    * - output_DOUBLE_reg_X
      - DOUBLE_X
-     - DOUBLE robot output register (X represents the number of registers, if you need 16 DOUBLE output registers, the actual name is "output_DOUBLE_reg_16", and the robot can support up to 64 DOUBLE output registers)
+     - Registro di output robot tipo DOUBLE (X indica il numero di registri, se servono 16 registri di output tipo DOUBLE, il nome effettivo è: "output_DOUBLE_reg_16". Il robot supporta massimo 64 registri di output tipo DOUBLE)
 
    * - ft_sensor_data
      - DOUBLE_6
-     - Force sensor data
+     - Dati sensore di forza
 
-.. centered:: Table 1-2 Configuration Functions of Robot Input Control
+.. centered:: Tabella 1-2 Funzioni di configurazione del controllo in input del robot
 
 .. list-table::
    :widths: 20 40 80
@@ -221,71 +221,71 @@ There are four main steps to use the CNDE function of robot:
    :align: center
    :class: sheet-center
 
-   * - **Name**
-     - **Data type**
-     - **Description**
+   * - **Nome**
+     - **Tipo di dato**
+     - **Descrizione**
 
    * - speed_mask
      - UINT8
-     - Global speed setting mask: 0-disable; 1- enable
+     - Maschera impostazione velocità globale: 0-non attiva; 1-attiva
 
    * - speed
      - UINT8
-     - Set the global speed (0-100)
+     - Imposta velocità globale (0-100)
 
    * - std_DO_mask
      - UINT8
-     - Control box standard DO output control mask (bit0 ~ bit7 indicates DO0 ~ DO7)
+     - Maschera controllo output DO standard del quadro di controllo (bit0 ~ bit7 rappresentano DO0 ~ DO7)
 
    * - std_DO_box
      - UINT8
-     - Control box standard DO output (bit0 ~ bit7 indicates DO0 ~ DO7)
+     - Output DO standard del quadro di controllo (bit0 ~ bit7 rappresentano DO0 ~ DO7)
 
    * - cfg_DO_mask
      - UINT8
-     - Control box configurable CO output mask (bit0 ~ bit7 indicates CO0 ~ CO7)
+     - Maschera controllo output CO configurabile del quadro di controllo (bit0 ~ bit7 rappresentano CO0 ~ CO7)
 
    * - cfg_DO_box
      - UINT8
-     - Control box Configurable with CO output (bit0 ~ bit7 indicates CO0 ~ CO7)
+     - Output CO configurabile del quadro di controllo (bit0 ~ bit7 rappresentano CO0 ~ CO7)
 
    * - cfg_DO_tool_mask
      - UINT8
-     - Control box standard tool DO output control mask (bit0 ~ bit1 indicates toolDO0 ~ toolDO1)
+     - Maschera controllo output DO standard dello strumento del quadro di controllo (bit0 ~ bit1 rappresentano toolDO0 ~ toolDO1)
 
    * - cfg_DO_tool
      - UINT8
-     - Control box standard tool DO output (bit0 ~ bit1 indicates toolDO0 ~ toolDO1)
+     - Output DO standard dello strumento del quadro di controllo (bit0 ~ bit1 rappresentano toolDO0 ~ toolDO1)
 
    * - std_AO_mask
      - UINT8
-     - Robot analog output control mask (bit0 ~ bit1 indicates control box AO0 ~ AO1；; Bit2 stands for tool AO0)
+     - Maschera controllo output analogico del robot (bit0 ~ bit1 rappresentano AO0 ~ AO1 del quadro di controllo; bit2 rappresenta AO0 dello strumento)
 
    * - std_AO0_box
      - DOUBLE
-     - Control box analog AO0 (0.0 ~ 4095.0)
+     - Output analogico AO0 del quadro di controllo (0.0 ~ 4095.0)
 
    * - std_AO1_box
      - DOUBLE
-     - Control box analog AO1 (0.0 ~ 4095.0)
+     - Output analogico AO1 del quadro di controllo (0.0 ~ 4095.0)
 
    * - std_AO0_tool
      - DOUBLE
-     - Tool analog AO1 (0.0 ~ 4095.0)
+     - Output analogico AO1 dello strumento (0.0 ~ 4095.0)
 
    * - input_BIT_reg_8xX
      - UINT8_X
-     - BIT-type robot input registers (8xX indicates the number of registers, if you need 16 BIT-type input registers, the actual name is "input_BIT_reg_8x2", and the robot can support up to 128 bit-type registers)
+     - Registro di input robot tipo BIT (8xX indica il numero di registri, se servono 16 registri di input tipo BIT, il nome effettivo è: "input_BIT_reg_8x2". Il robot supporta massimo 128 registri tipo BIT)
 
    * - input_INT_reg_X
      - INT32_X
-     - INT robot input registers (X represents the number of registers, if you need 16 INT input registers, the actual name is "input_INT_reg_16", and the robot can support up to 64 INT registers)
+     - Registro di input robot tipo INT (X indica il numero di registri, se servono 16 registri di input tipo INT, il nome effettivo è: "input_INT_reg_16". Il robot supporta massimo 64 registri tipo INT)
   
    * - input_DOUBLE_reg_X
      - DOUBLE_X
-     - DOUBLE robot input register (X represents the number of registers, if you need 16 DOUBLE input registers, the actual name is "input_DOUBLE_reg_16", and the robot can support up to 64 DOUBLE registers)
+     - Registro di input robot tipo DOUBLE (X indica il numero di registri, se servono 16 registri di input tipo DOUBLE, il nome effettivo è: "input_DOUBLE_reg_16". Il robot supporta massimo 64 registri tipo DOUBLE)
 
-.. centered:: Table 1-3 Correspondence between Data Types and Byte Length
+.. centered:: Tabella 1-3 Corrispondenza tipi di dati e lunghezza in byte
 
 .. list-table::
    :widths: 60 40
@@ -293,8 +293,8 @@ There are four main steps to use the CNDE function of robot:
    :align: center
    :class: sheet-center
 
-   * - **Data type**
-     - **Byte length**
+   * - **Tipo di dato**
+     - **Lunghezza in byte**
 
    * - UINT8
      - 1

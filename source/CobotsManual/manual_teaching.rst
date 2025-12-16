@@ -1,36 +1,36 @@
-Robot manual teaching
-========================
+Insegnamento manuale del robot
+=================================
 
-Manual teaching and recording of teaching points
------------------------------------------------------
+Insegnamento manuale e registrazione dei punti di insegnamento
+--------------------------------------------------------------------------------
 
-Manual teaching includes two methods:
+L'insegnamento manuale comprende due modalità:
 
-- 1. Press and hold the end drag button to perform drag teaching;
-- 2. Perform jog in 3D simulated robot - 3D object operation.
+- 1. Premere e tenere premuto il pulsante di trascinamento finale per eseguire l'insegnamento per trascinamento;
+- 2. Utilizzare il controllo del robot in 3D -> Operazioni sugli oggetti 3D per eseguire il movimento puntuale.
 
-After teaching to the target position, you can save the teaching point in "Robot supporting functions - Point Name". When saving the teaching point, the coordinate system of the teaching point is the coordinate system of the current robot application.
+Dopo aver insegnato il punto di destinazione, è possibile salvare il punto di insegnamento in "Funzioni robotiche" -> "Registrazione punti di insegnamento". Quando il punto di insegnamento viene salvato, il sistema di coordinate del punto di insegnamento sarà quello del sistema di coordinate attualmente utilizzato dal robot.
 
 .. image:: teaching_pendant_software/056.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 4.1-1 Manual teaching
+.. centered:: Diagramma 4.1‑1 Insegnamento manuale
 
-View teaching point information
-----------------------------------
+Visualizzare le informazioni del punto di insegnamento
+-----------------------------------------------------------------
 
-Click "Program - Points" to display all saved teaching point information. The current point mode is divided into "System mode" and "Point table mode".
+Cliccando su "Programma di insegnamento" -> "Punti di insegnamento" si visualizzano tutte le informazioni sui punti di insegnamento salvati. La modalità attuale dei punti è suddivisa in "Modalità sistema" e "Modalità tabella dei punti".
 
-In this interface, you can import and export teaching point files. After selecting a teaching point, click the "Delete" button to delete the point information. The teaching point x, y, z, rx, ry, rz and v values ​​can be modified. Enter the modified value, check the blue checkbox on the left, and click Modify above to modify the teaching point information.
+In questa interfaccia è possibile importare ed esportare i file dei punti di insegnamento. Selezionando un punto di insegnamento e cliccando sul pulsante "Elimina", il punto selezionato sarà rimosso. I valori dei punti di insegnamento x, y, z, rx, ry, rz e v possono essere modificati. Inserisci i valori modificati, seleziona la casella di controllo sulla sinistra e clicca su "Modifica" in alto per aggiornare le informazioni del punto di insegnamento.
 
-Click the "Start Run" button to perform a single-point operation of the local teaching point and move the robot to the position of the point. In addition, users can search for teaching points by name.
+Cliccando sul pulsante "Inizia esecuzione", il robot eseguirà il movimento verso il punto di insegnamento selezionato. Inoltre, gli utenti possono cercare i punti di insegnamento tramite il nome.
 
 .. image:: points/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 4.2-1 Teaching management interface
+.. centered:: Diagramma 4.2‑1 Interfaccia di gestione dei punti di insegnamento
 
 .. important:: 
-   The modified values of the teaching points x, y, z, rx, ry, rz should not exceed the working range of the robot.
+    I valori modificati per i punti di insegnamento x, y, z, rx, ry, rz non devono superare il campo di lavoro del robot.

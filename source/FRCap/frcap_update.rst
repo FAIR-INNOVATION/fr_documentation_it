@@ -1,10 +1,10 @@
-Version update instructions
-==================================
+Note di Aggiornamento della Versione
+===================================================
 
-Frcapsys-v1.0.0 update content:
+Contenuti dell'aggiornamento di Frcapsys-v1.0.0:
 
-- Initial Release;
+- Prima versione rilasciata;
 
-- Frcapsys background environment and related interfaces;
+- Ambiente di backend Frcapsys e relative interfacce;
 
-- FrcapTools management tool.
+- Strumento di gestione FRCapTools.

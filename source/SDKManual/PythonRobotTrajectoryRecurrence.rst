@@ -1,71 +1,71 @@
-Trajectory recurrence
-====================================================================
+Riproduzione Traiettoria Robot
+==================================
 
 .. toctree::
     :maxdepth: 5
 
-Setting Track Recording Parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Impostazione Parametri Registrazione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetTPDParam(name, period_ms, type=1,di_choose=0, do_choose=0)``"
-    "Description", "Setting parameters for track logging"
-    "Mandatory parameters", "- ``name``: track name;
-    - ``period_ms``: sampling period, fixed value, 2ms or 4ms or 8ms;"
-    "Default parameters", "- ``type``: data type, 1-joint position;
-    - ``di_choose``: DI choose, bit0~bit7 corresponds to control box DI0~DI7, bit8~bit9 corresponds to end DI0~DI1, 0-no choose, 1-choose Default 0.
-    - ``do_choose``: DO choose, bit0~bit7 corresponds to control box DO0~DO7, bit8~bit9 corresponds to end DO0~DO1, 0-no choose, 1-choose Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetTPDParam(name, period_ms, type=1,di_choose=0, do_choose=0)``"
+    "Descrizione", "Imposta i parametri di registrazione della traiettoria"
+    "Parametri Obbligatori", "- ``name``：Nome traiettoria；
+    - ``period_ms``：Periodo di campionamento, valore fisso, 2ms o 4ms o 8ms;"
+    "Parametri Predefiniti", "- ``type``：Tipo dati, 1-posizione giunto；
+    - ``di_choose``：Selezione DI, bit0~bit7 corrispondono a DI0~DI7 del pannello di controllo, bit8~bit9 corrispondono a DI0~DI1 terminale, 0-non selezionare, 1-selezionare, default 0;
+    - ``do_choose``：Selezione DO, bit0~bit7 corrispondono a DO0~DO7 del pannello di controllo, bit8~bit9 corrispondono a DO0~DO1 terminale, 0-non selezionare, 1-selezionare, default 0"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Start Track Recording
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Inizio Registrazione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetTPDStart(name, period_ms, type=1,di_choose=0, do_choose=0)``"
-    "Description", "Start Track Record"
-    "Mandatory parameters", "- ``name``: track name;
-    - ``period_ms``: sampling period, fixed value, 2ms or 4ms or 8ms;"
-    "Default parameters", "- ``type``: number datatype, 1-joint position default 1;
-    - ``di_choose``: DI choose, bit0~bit7 corresponds to control box DI0~DI7, bit8~bit9 corresponds to end DI0~DI1, 0-no choose, 1-choose Default 0.
-    - ``do_choose``: DO choose, bit0~bit7 corresponds to control box DO0~DO7, bit8~bit9 corresponds to end DO0~DO1, 0-no choose, 1-choose Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetTPDStart(name, period_ms, type=1,di_choose=0, do_choose=0)``"
+    "Descrizione", "Inizia la registrazione della traiettoria"
+    "Parametri Obbligatori", "- ``name``：Nome traiettoria；
+    - ``period_ms``：Periodo di campionamento, valore fisso, 2ms o 4ms o 8ms；"
+    "Parametri Predefiniti", "- ``type``：Tipo dati, 1-posizione giunto, default 1;
+    - ``di_choose``：Selezione DI, bit0~bit7 corrispondono a DI0~DI7 del pannello di controllo, bit8~bit9 corrispondono a DI0~DI1 terminale, 0-non selezionare, 1-selezionare, default 0;
+    - ``do_choose``：Selezione DO, bit0~bit7 corrispondono a DO0~DO7 del pannello di controllo, bit8~bit9 corrispondono a DO0~DO1 terminale, 0-non selezionare, 1-selezionare, default 0"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Stop Track Recording
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Arresto Registrazione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetWebTPDStop()``"
-    "Description", "Stop Track Record"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetWebTPDStop()``"
+    "Descrizione", "Arresta la registrazione della traiettoria"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Deleting track records
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Eliminazione Registrazione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetTPDDelete(name)``"
-    "Description", "Delete Track Record"
-    "Mandatory parameters", "- ``name``: track name"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetTPDDelete(name)``"
+    "Descrizione", "Elimina la registrazione della traiettoria"
+    "Parametri Obbligatori", "- ``name``: Nome traiettoria"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice
++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con controller robot, restituisce oggetto robot se connesso
     robot = Robot.RPC('192.168.58.2')
     type = 1
     name = "tpd2025"
@@ -83,53 +83,53 @@ code example
     robot.DragTeachSwitch(0)
     robot.CloseRPC()
 
-Trajectory preloading
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Precaricamento Traiettoria
++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LoadTPD(name)``"
-    "Description", "Trajectory Preloading"
-    "Mandatory parameters", "- ``name``: track name"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LoadTPD(name)``"
+    "Descrizione", "Precaricamento traiettoria"
+    "Parametri Obbligatori", "- ``name``: Nome traiettoria"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Trajectory Reproduction
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Riproduzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveTPD(name,blend,ovl)``"
-    "Description", "Trajectory Reproduction"
-    "Mandatory parameters", "- ``name``: track name
-    - ``blend``: smooth or not, 0 - not smooth, 1 - smooth
-    - ``ovl``: velocity scaling factor, range [0 to 100]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveTPD(name,blend,ovl)``"
+    "Descrizione", "Riproduzione traiettoria"
+    "Parametri Obbligatori", "- ``name``: Nome traiettoria
+    - ``blend``：Smussamento, 0-non smussato, 1-smussato
+    - ``ovl``：Fattore di scala velocità, intervallo [0~100]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Get the starting position of the trajectory
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere Posa Iniziale Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetTPDStartPose(name)``"
-    "Description", "Get trajectory start position"
-    "Mandatory parameters", "- ``name``: track name"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``desc_pose=[x,y,z,rx,ry,rz]``: trajectory start position"
+    "Prototipo", "``GetTPDStartPose(name)``"
+    "Descrizione", "Ottiene la posa iniziale della traiettoria"
+    "Parametri Obbligatori", "- ``name``: Nome traiettoria"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "- Codice errore Successo-0 Fallimento- errore
+    - ``desc_pose=[x,y,z,rx,ry,rz]``：Posa iniziale traiettoria"
 
-Example of robot TPD trajectory recording code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Registrazione Traiettoria TPD Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con controller robot, restituisce oggetto robot se connesso
     robot = Robot.RPC('192.168.58.2')
     type = 1
     name = "tpd2025"
@@ -151,189 +151,189 @@ Example of robot TPD trajectory recording code
     robot.SetTPDDelete(name)
     robot.CloseRPC()
 
-Trajectory preprocessing
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Pre-elaborazione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``LoadTrajectoryJ(name,ovl,opt=1)``"
-    "description", "trajectory preprocessing"
-    "Mandatory parameters", "- ``name``: track name, e.g., /fruser/traj/trajHelix_aima_1.txt.
-    - ``ovl``: percentage of speed scaling, range [0~100];"
-    "Default parameter", "- ``opt``: 1-control point, default 1"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LoadTrajectoryJ(name,ovl,opt=1)``"
+    "Descrizione", "Pre-elaborazione traiettoria"
+    "Parametri Obbligatori", "- ``name``: Nome traiettoria, es: /fruser/traj/trajHelix_aima_1.txt;
+    - ``ovl``：Percentuale scala velocità, intervallo [0~100];"
+    "Parametri Predefiniti", "- ``opt``：1-punto di controllo, default 1"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Trajectory Reproduction
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Riproduzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveTrajectoryJ()``"
-    "Description", "Trajectory Reproduction"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveTrajectoryJ()``"
+    "Descrizione", "Riproduzione traiettoria"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Getting the starting position of the trajectory
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``GetTrajectoryStartPose(name)``"
-    "Description", "Get trajectory starting position"
-    "Mandatory parameters", "``name``: track name"
-    "Default parameters", "NULL"      
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``desc_pose=[x,y,z,rx,ry,rz]``: trajectory start position"
-
-Get track point number
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "prototype", "``GetTrajectoryPointNum()``"
-    "Description", "Get track point number"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``pnum``: track point number"
-
-Setting the speed of the trajectory in operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetTrajectoryJSpeed(ovl)``"
-    "Description", "Sets the speed of the trajectory as it runs."
-    "Mandatory parameter", "``ovl``: speed scaling percentage, range [0~100]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Setting the force and torque during trajectory operation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetTrajectoryJForceTorque(ft)``"
-    "Description", "Setting the force and torque in the trajectory run"
-    "Mandatory parameters", "``ft=[fx,fy,fz,tx,ty,tz]``: units N and Nm"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Setting the force along the x-direction in the trajectory run
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetTrajectoryJForceFx(fx)``"
-    "Description", "Set the force along the x-direction in the trajectory run"
-    "Mandatory parameter", "``ft``: force in x direction, in N"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Setting the force along the y-direction in the trajectory run
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetTrajectoryJForceFx(fy)``"
-    "Description", "Set the force along the y-direction in the trajectory run"
-    "Mandatory parameter", "``fy``: force along y direction in N"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Setting the force along the z-direction in a trajectory run
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetTrajectoryJForceFx(fz)``"
-    "Description", "Set the force along the z-direction in the trajectory run"
-    "Mandatory parameter", "``fz``: force along the z-direction, in N"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Setting the torque around the x-axis in a trajectory run
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetTrajectoryJTorqueTx(tx)``"
-    "Description", "Set the torque around the x-axis for the trajectory run"
-    "Mandatory parameter", "``tx``: torque around x-axis in Nm"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Setting the torque around the y-axis in trajectory operation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "prototype", "``SetTrajectoryJTorqueTx(ty)``"
-    "Description", "Set the torque around the y-axis for the trajectory run"
-    "Mandatory parameter", "``ty``: torque around y-axis in Nm"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Setting the torque around the z-axis in trajectory operation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``SetTrajectoryJTorqueTx(tz)``"
-    "Description", "Sets the torque around the z-axis for the trajectory run"
-    "Mandatory parameter", "``tz``: torque around z-axis in Nm"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Upload trace J file
+Ottenere Posa Iniziale Traiettoria
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetTrajectoryStartPose(name)``"
+    "Descrizione", "Ottiene la posa iniziale della traiettoria"
+    "Parametri Obbligatori", "``name``: Nome traiettoria"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "- Codice errore Successo-0 Fallimento- errore
+    - ``desc_pose=[x,y,z,rx,ry,rz]``：Posa iniziale traiettoria"
+
+Ottenere Numero Punti Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetTrajectoryPointNum()``"
+    "Descrizione", "Ottiene il numero dei punti della traiettoria"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "- Codice errore Successo-0 Fallimento- errore
+    - ``pnum``：Numero punti traiettoria"
+
+Impostazione Velocità durante Esecuzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJSpeed(ovl)``"
+    "Descrizione", "Imposta la velocità durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "``ovl``: Percentuale scala velocità, intervallo [0~100]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Impostazione Forza e Coppia durante Esecuzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJForceTorque(ft)``"
+    "Descrizione", "Imposta forza e coppia durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "``ft=[fx,fy,fz,tx,ty,tz]``: Unità N e Nm"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Impostazione Forza lungo direzione X durante Esecuzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJForceFx(fx)``"
+    "Descrizione", "Imposta la forza lungo la direzione X durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "``fx``: Forza lungo direzione X, unità N"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Impostazione Forza lungo direzione Y durante Esecuzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJForceFy(fy)``"
+    "Descrizione", "Imposta la forza lungo la direzione Y durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "``fy``: Forza lungo direzione Y, unità N"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Impostazione Forza lungo direzione Z durante Esecuzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJForceFz(fz)``"
+    "Descrizione", "Imposta la forza lungo la direzione Z durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "``fz``: Forza lungo direzione Z, unità N"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Impostazione Coppia attorno asse X durante Esecuzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJTorqueTx(tx)``"
+    "Descrizione", "Imposta la coppia attorno all'asse X durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "``tx``: Coppia attorno asse X, unità Nm"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Impostazione Coppia attorno asse Y durante Esecuzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJTorqueTy(ty)``"
+    "Descrizione", "Imposta la coppia attorno all'asse Y durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "``ty``: Coppia attorno asse Y, unità Nm"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Impostazione Coppia attorno asse Z durante Esecuzione Traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetTrajectoryJTorqueTz(tz)``"
+    "Descrizione", "Imposta la coppia attorno all'asse Z durante l'esecuzione della traiettoria"
+    "Parametri Obbligatori", "- ``tz``: Coppia attorno asse Z, unità Nm"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
+
+Caricamento File Traiettoria J
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``TrajectoryJUpLoad(filePath)``"
-    "Description", "Upload trace J file"
-    "Mandatory parameter", "- ``filePath``:Full path name of the uploaded trajectory file，C://test/testJ.txt"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``TrajectoryJUpLoad(filePath)``"
+    "Descrizione", "Carica il file traiettoria J"
+    "Parametri Obbligatori", "- ``filePath``: Percorso completo del file traiettoria da caricare, C://test/testJ.txt"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Delete the track J file
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Eliminazione File Traiettoria J
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``TrajectoryJDelete(filePath)``"
-    "Description", "Delete the track J file"
-    "Mandatory parameter", "- ``filePath``:Removes the full pathname of the trace file,C://test/testJ.txt"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``TrajectoryJDelete(filePath)``"
+    "Descrizione", "Elimina il file traiettoria J"
+    "Parametri Obbligatori", "- ``filePath``: Percorso completo del file traiettoria da eliminare, C://test/testJ.txt"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Robot trajectory J file reproduction code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Riproduzione File Traiettoria J Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con controller robot, restituisce oggetto robot se connesso
     robot = Robot.RPC('192.168.58.2')
     rtn = robot.TrajectoryJUpLoad("D://zUP/traj.txt")
     print(f"Upload TrajectoryJ A {rtn}")
@@ -371,50 +371,50 @@ Robot trajectory J file reproduction code example
     print(f"MoveTrajectoryJ rtn is: {rtn}")
     robot.CloseRPC()
 
-Trajectory preprocessing(Trajectory foresight)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pre-elaborazione Traiettoria (Anticipazione Traiettoria)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LoadTrajectoryLA(name, mode, errorLim, type, precision, vamx, amax, jmax, flag)``"
-    "Description", "Trajectory preprocessing(Trajectory foresight)"
-    "Mandatory parameter", "- ``name``:track file name
-    - ``mode``: sampling mode, 0- No sampling; 1- equal data interval sampling; 2- Equal error limit sampling
-    - ``errorLim``: error limitation, effective using straight line fitting
-    - ``type``: smooth mode, 0-Bessel smooth
-    - ``precision``: smoothing accuracy, effective when using Bessel smoothing
-    - ``vamx``: set maximum speed, mm/s
-    - ``amax``: set maximum acceleration, mm/s2
-    - ``jmax``: maximum acceleration, mm/s3
-    - ``flag``: Uniform speed forward opening switch 0- No opening; 1- Start"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LoadTrajectoryLA(name, mode, errorLim, type, precision, vamx, amax, jmax, flag)``"
+    "Descrizione", "Pre-elaborazione traiettoria (Anticipazione traiettoria)"
+    "Parametri Obbligatori", "- ``name``: Nome file traiettoria
+    - ``mode``：Modalità campionamento, 0-non campionare; 1-campionamento a intervalli dati uguali; 2-campionamento con limitazione errore
+    - ``errorLim``: Limite errore, effettivo con interpolazione lineare
+    - ``type``: Metodo smussamento, 0-smussamento Bezier
+    - ``precision``: Precisione smussamento, effettiva con smussamento Bezier
+    - ``vamx``: Velocità massima impostata, mm/s
+    - ``amax``: Accelerazione massima impostata, mm/s2
+    - ``jmax``: Massima derivate accelerazione impostata, mm/s3
+    - ``flag``: Interruttore attivazione anticipazione velocità costante 0-non attivare; 1-attivare"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Trajectory reproduction(Trajectory foresight)
+Riproduzione Traiettoria (Anticipazione Traiettoria)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.0
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveTrajectoryLA()``"
-    "Description", "Trajectory reproduction(Trajectory foresight)"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveTrajectoryLA()``"
+    "Descrizione", "Riproduzione traiettoria (Anticipazione traiettoria)"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Restituito", "Codice errore Successo-0 Fallimento- errore"
 
-Code example for trajectory reproduction
+Esempio Codice Riproduzione Traiettoria (Anticipazione Traiettoria)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # A connection is established with the robot controller and a robot object is returned if the connection is successful
+    # Stabilisce connessione con controller robot, restituisce oggetto robot se connesso
     robot = Robot.RPC('192.168.58.2')
     rtn = robot.TrajectoryJUpLoad("D://zUP/traj.txt")
     print(f"Upload TrajectoryJ A {rtn}")

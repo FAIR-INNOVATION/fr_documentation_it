@@ -1,72 +1,72 @@
-IO
+IO Robot
 ============
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Setting the control box digital output
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Uscite Digitali Box Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetDO(id, status, smooth=0, block=0)``"
-    "Description", "Setting the control box digital outputs"
-    "Mandatory parameters", "- ``id``: io number, range [0~15];
-    - ``status``: 0 - off, 1 - on;"
-    "Default Parameters", "- ``smooth``: 0-not smooth, 1-smooth Default 0;
-    - ``block``:0-blocking, 1-non-blocking Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetDO(id, status, smooth=0, block=0)``"
+    "Descrizione", "Imposta uscite digitali box controllo"
+    "Parametri Obbligatori", "-  ``id``:numero io, range [0~15];
+    - ``status``:0-spento, 1-acceso;"
+    "Parametri Predefiniti", "- ``smooth``:0-nessun smoothing, 1-smoothing default 0;
+    - ``block``:0-bloccante, 1-non bloccante default 0"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Setting Tool Digital Outputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Uscite Digitali Utensile
+++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetToolDO (id, status, smooth=0, block=0)``"
-    "Description", "Setting the digital output of the tool"
-    "Mandatory parameters", "- ``id``: io number, range [0~1];
-    - ``status``: 0 - off, 1 - on;"
-    "Default Parameters", "- ``smooth``: 0-not smooth, 1-smooth;
-    - ``block``: 0-blocking, 1-non-blocking."
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetToolDO(id, status, smooth=0, block=0)``"
+    "Descrizione", "Imposta uscite digitali utensile"
+    "Parametri Obbligatori", "-  ``id``:numero io, range [0~1];
+    - ``status``:0-spento, 1-acceso;"
+    "Parametri Predefiniti", "- ``smooth``:0-nessun smoothing, 1-smoothing;
+    - ``block``:0-bloccante, 1-non bloccante."
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Setting the control box analog output
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Uscite Analogiche Box Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAO(id,value,block=0)``"
-    "Description", "Setting the control box analog output"
-    "Mandatory parameters", "- ``id``: io number, range [0~1];
-    - ``value``: percentage of current or voltage value in the range [0 to 100%] corresponding to current value [0 to 20 mA] or voltage [0 to 10 V];"
-    "Default parameters", "- ``block``:[0]-blocking, [1]-non-blocking Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAO(id,value,block=0)``"
+    "Descrizione", "Imposta uscite analogiche box controllo"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0~1];
+    - ``value``:percentuale valore corrente o tensione, range [0~100%] corrisponde corrente [0~20mA] o tensione [0~10V];"
+    "Parametri Predefiniti", "- ``block``:[0]-bloccante, [1]-non bloccante default 0"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Setting Tool Analog Outputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Uscite Analogiche Utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetToolAO(id,value,block=0)``"
-    "Description", "Setup Tool Analog Output"
-    "Mandatory parameters", "- ``id``: io number, range [0];
-    - ``value``: percentage of current or voltage value in the range [0 to 100%] corresponding to current value [0 to 20 mA] or voltage [0 to 10 V];"
-    "Default parameters", "- ``block``:[0]-blocking, [1]-non-blocking Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetToolAO(id,value,block=0)``"
+    "Descrizione", "Imposta uscite analogiche utensile"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0];
+    - ``value``:percentuale valore corrente o tensione, range [0~100%] corrisponde corrente [0~20mA] o tensione [0~10V];"
+    "Parametri Predefiniti", "- ``block``:[0]-bloccante, [1]-non bloccante default 0"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Set digital, analog output code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Impostazione Uscite Digitali/Analogiche
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     status = 1
     smooth = 0  
@@ -94,106 +94,106 @@ Set digital, analog output code example
         time.sleep(0.03)
     robot.CloseRPC()
 
-Getting control box digital inputs
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Ingressi Digitali Box Controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetDI(id, block=0)``"
-    "Description", "Get control box digital inputs"
-    "Mandatory parameters", "- ``id``: io number, range [0~15];"
-    "Default Parameters", "- ``block``: 0-blocking, 1-non-blocking Default 0"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``di``: 0-low level, 1-high level"
+    "Prototipo", "``GetDI(id, block=0)``"
+    "Descrizione", "Ottiene ingressi digitali box controllo"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0~15];"
+    "Parametri Predefiniti", "- ``block``:0-bloccante, 1-non bloccante default 0"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``di``: 0-livello basso, 1-livello alto"
 
-Get Tool Digital Inputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Ingressi Digitali Utensile
+++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetToolDI(id, block=0)``"
-    "Description", "Get Tool Digital Inputs"
-    "Mandatory parameters", "- ``id``: io number, range [0~1];"
-    "Default Parameters", "- ``block``: 0-blocking, 1-non-blocking Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode
-    - ``di``: 0 - low level, 1 - high level"
+    "Prototipo", "``GetToolDI(id, block=0)``"
+    "Descrizione", "Ottiene ingressi digitali utensile"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0~1];"
+    "Parametri Predefiniti", "- ``block``:0-bloccante, 1-non bloccante default 0"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode
+    - ``di``: 0-livello basso, 1-livello alto"
 
-Getting Control Box Analog Inputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Ingressi Analogici Box Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAI(id, block = 0)``"
-    "Description", "Get control box analog inputs"
-    "Mandatory parameters", "- ``id``: io number, range [0~1];"
-    "Default Parameters","- ``block``:0-blocking, 1-non-blocking Default 0 "
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``value``: Percentage of input current or voltage value, range [0~100] corresponding to current value [0~20mA] or voltage [0~10V]."
+    "Prototipo", "``GetAI(id, block = 0)``"
+    "Descrizione", "Ottiene ingressi analogici box controllo"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0~1];"
+    "Parametri Predefiniti", "- ``block``:0-bloccante, 1-non bloccante default 0 "
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``value``: Percentuale valore corrente o tensione input, range [0~100] corrisponde corrente [0~20mA] o tensione [0~10V]"
 
-Get Tool Analog Inputs
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Ingressi Analogici Utensile
++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetToolAI (id, block = 0)``"
-    "Description", "Get end analog input"
-    "Mandatory parameters", "- ``id``: io number, range [0];"
-    "Default Parameters", "- ``block``: 0-blocking, 1-non-blocking Default 0"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``value``: Percentage of input current or voltage value, range [0~100] corresponding to current value [0~20mA] or voltage [0~10V]."
+    "Prototipo", "``GetToolAI(id, block = 0)``"
+    "Descrizione", "Ottiene ingressi analogici terminale"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0];"
+    "Parametri Predefiniti", "- ``block``:0-bloccante, 1-non bloccante default 0"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``value``: Percentuale valore corrente o tensione input, range [0~100] corrisponde corrente [0~20mA] o tensione [0~10V]"
 
-Obtain the status of the button for recording the end point of the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Pulsante Registrazione Punto Terminale Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAxlePointRecordBtnState()``"
-    "Description", "Obtain the status of the button for recording the end point of the robot"
-    "Mandatory parameters", "NULL"
-    "Default Parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``buttonstatus``: Button status: 0- Press, 1- release"
+    "Prototipo", "``GetAxlePointRecordBtnState()``"
+    "Descrizione", "Ottiene stato pulsante registrazione punto terminale robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``buttonstatus``: Stato pulsante, 0-premuto, 1-rilasciato"
 
-Obtain the DO output status at the end of the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Uscite DO Terminale Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetToolDO()``"
-    "Description", "Obtain the DO output status at the end of the robot"
-    "Mandatory parameters", "NULL"
-    "Default Parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``do_state``: DO output status: do0 to do1 correspond to bit1 to bit2, starting from bit0"
+    "Prototipo", "``GetToolDO()``"
+    "Descrizione", "Ottiene stato uscite DO terminale robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``do_state``: Stato uscite DO, do0~do1 corrisponde bit1~bit2, da bit0 inizio"
 
-Obtain the DO output status of the robot controller
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Uscite DO Controller Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetDO()``"
-    "Description", "Obtain the DO output status of the robot controller"
-    "Mandatory parameters", "NULL"
-    "Default Parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``do_state_h``: DO output status: co0 to co7 correspond to bit0 to bit7. do_state_l DO output status: do0 to do7 correspond to bit0 to bit7"
+    "Prototipo", "``GetDO()``"
+    "Descrizione", "Ottiene stato uscite DO controller robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``do_state_h``: Stato uscite DO, co0~co7 corrisponde bit0~bit7 do_state_l Stato uscite DO, do0~do7 corrisponde bit0~bit7"
 
-Get the robot DI, DO status code examples
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Stato DI, DO Robot
++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     block = 0 
     error,di = robot.GetDI(0, block)
@@ -213,91 +213,91 @@ Get the robot DI, DO status code examples
     print(f"DO state low : {do_state_l}")
     robot.CloseRPC()
 
-Waiting for control box digital inputs
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere Ingressi Digitali Box Controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``WaitDI(id,status,maxtime,opt)``"
-    "Description", "Waiting for control box digital input"
-    "Mandatory parameters", "- ``id``: io number, range [0~15];
-    - ``status``: 0-off, 1-on;
-    - ``maxtime``: maximum waiting time in [ms];
-    - ``opt``: post timeout policy, 0-program stops and prompts for timeout, 1-ignore timeout prompts program to continue execution, 2-always wait"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitDI(id,status,maxtime,opt)``"
+    "Descrizione", "Attende ingressi digitali box controllo"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0~15];
+    - ``status``:0-spento, 1-acceso;
+    - ``maxtime``:tempo attesa massimo, unità [ms];
+    - ``opt``:strategia dopo timeout, 0-programma ferma e indica timeout, 1-ignora timeout indica programma continua esecuzione, 2-attesa continua"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Waiting for control box with multiple digital inputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere Ingressi Digitali Multipli Box Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``WaitMultiDI(mode,id,status,maxtime,opt)``"
-    "Description", "Waiting for control box with multiple digital inputs"
-    "Mandatory parameters", "- ``mode``: [0]-multiple with, [1]-multiple or;
-    - ``id``: io number, bit0~bit7 correspond to DI0~DI7, bit8~bit15 correspond to CI0~CI7;
-    - ``status``: bit0~bit7 corresponds to DI0~DI7 status, bit8~bit15 corresponds to the status of CI0~CI7 status bits [0]-off, [1]-on;
-    - ``maxtime``: maximum waiting time in [ms];
-    - ``opt``: post-timeout policy, 0-program stops and prompts for timeout, 1-ignores timeout prompting program to continue execution, 2-always waits."
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitMultiDI(mode,id,status,maxtime,opt)``"
+    "Descrizione", "Attende ingressi digitali multipli box controllo"
+    "Parametri Obbligatori", "- ``mode``:[0]-AND multiplo, [1]-OR multiplo;
+    - ``id``:numero io, bit0~bit7 corrisponde DI0~DI7, bit8~bit15 corrisponde CI0~CI7;
+    - ``status``:bit0~bit7 corrisponde stato DI0~DI7, bit8~bit15 corrisponde stato bit CI0~CI7 [0]-spento, [1]-acceso;
+    - ``maxtime``:tempo attesa massimo, unità [ms];
+    - ``opt``:strategia dopo timeout, 0-programma ferma e indica timeout, 1-ignora timeout indica programma continua esecuzione, 2-attesa continua."
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Waiting for tool digital inputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere Ingressi Digitali Utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``WaitToolDI(id,status,maxtime,opt)``"
-    "Description", "Waiting for end digital input"
-    "Mandatory parameters", "- ``id``: io number, range [0~1];
-    - ``status``: 0-off, 1-on;
-    - ``maxtime``: maximum waiting time in [ms];
-    - ``opt``: post timeout policy, 0-program stops and prompts for timeout, 1-ignore timeout prompts program to continue execution, 2-always wait"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitToolDI(id,status,maxtime,opt)``"
+    "Descrizione", "Attende ingressi digitali terminale"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0~1];
+    - ``status``:0-spento, 1-acceso;
+    - ``maxtime``:tempo attesa massimo, unità [ms];
+    - ``opt``:strategia dopo timeout, 0-programma ferma e indica timeout, 1-ignora timeout indica programma continua esecuzione, 2-attesa continua"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Waiting for control box analog inputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere Ingressi Analogici Box Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``WaitAI(id,sign,value,maxtime,opt)``"
-    "Description", "Waiting for control box analog input"
-    "Mandatory parameters", "- ``id``: io number, range [0~1];
-    - ``sign``: 0 - greater than, 1 - less than
-    - ``value``: percentage of input current or voltage value, range [0~100] corresponding to current value [0~20mA] or voltage [0~10V];
-    - ``maxtime``: maximum waiting time in [ms];
-    - ``opt``: post timeout policy, 0-program stops and prompts for timeout, 1-ignore timeout prompts program to continue execution, 2-always wait"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitAI(id,sign,value,maxtime,opt)``"
+    "Descrizione", "Attende ingressi analogici box controllo"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0~1];
+    - ``sign``:0-maggiore, 1-minore
+    - ``value``:percentuale valore corrente o tensione input, range [0~100] corrisponde corrente [0~20mA] o tensione [0~10V];
+    - ``maxtime``:tempo attesa massimo, unità [ms];
+    - ``opt``:strategia dopo timeout, 0-programma ferma e indica timeout, 1-ignora timeout indica programma continua esecuzione, 2-attesa continua"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Waiting for tool analog inputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere Ingressi Analogici Utensile
+++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``WaitToolAI(id,sign,value,maxtime,opt)``"
-    "Description", "Waiting for end analog input"
-    "Mandatory parameters", "- ``id``: io number, range [0];
-    - ``sign``: 0 - greater than, 1 - less than
-    - ``value``: percentage of input current or voltage value, range [0~100] corresponding to current value [0~20mA] or voltage [0~10V];
-    - ``maxtime``: maximum waiting time in [ms];
-    - ``opt``: post timeout policy, 0-program stops and prompts for timeout, 1-ignore timeout prompts program to continue execution, 2-always wait"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitToolAI(id,sign,value,maxtime,opt)``"
+    "Descrizione", "Attende ingressi analogici terminale"
+    "Parametri Obbligatori", "- ``id``:numero io, range [0];
+    - ``sign``:0-maggiore, 1-minore
+    - ``value``:percentuale valore corrente o tensione input, range [0~100] corrisponde corrente [0~20mA] o tensione [0~10V];
+    - ``maxtime``:tempo attesa massimo, unità [ms];
+    - ``opt``:strategia dopo timeout, 0-programma ferma e indica timeout, 1-ignora timeout indica programma continua esecuzione, 2-attesa continua"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Waiting control box digital, analog input signal code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Attesa Segnali Input Digitali/Analogici Box Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     status = 1
     smooth = 0
@@ -351,113 +351,113 @@ Waiting control box digital, analog input signal code example
     print(f"WaitDI over; rtn is: {rtn}")
     robot.CloseRPC()
 
-Setting whether the output is reset after the control box DO stop/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Reset Uscite DO Box Controllo dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetOutputResetCtlBoxDO(resetFlag)``"
-    "Description", "Sets whether or not the output is reset after a control box DO stop/pause"
-    "Mandatory parameters", "- ``resetFlag``: 0-no reset; 1-reset"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetOutputResetCtlBoxDO(resetFlag)``"
+    "Descrizione", "Imposta reset uscite DO box controllo dopo stop/pausa"
+    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Setting whether the output is reset after the control box AO stop/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Reset Uscite AO Box Controllo dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetOutputResetCtlBoxDO(resetFlag)``"
-    "Description", "Sets whether the outputs are reset after a control box AO stop/pause"
-    "Mandatory parameter", "- ``resetFlag``: 0-no reset; 1-reset"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetOutputResetCtlBoxAO(resetFlag)``"
+    "Descrizione", "Imposta reset uscite AO box controllo dopo stop/pausa"
+    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Sets whether the output is reset after the end tool DO stops/pause.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Reset Uscite DO Utensile Terminale dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetOutputResetAxleDO(resetFlag)``"
-    "Description", "Sets whether the output is reset after the end tool DO stops/pauses"
-    "Mandatory parameter", "- ``resetFlag``: 0 - no reset; 1 - reset"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetOutputResetAxleDO(resetFlag)``"
+    "Descrizione", "Imposta reset uscite DO utensile terminale dopo stop/pausa"
+    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Set whether the output is reset after the end tool AO stops/pauses
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Reset Uscite AO Utensile Terminale dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetOutputResetAxleAO(resetFlag)``"
-    "Description", "Sets whether the output is reset after the end tool AO stops/pauses"
-    "Mandatory parameter", "- ``resetFlag``: 0-no reset; 1-reset"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetOutputResetAxleAO(resetFlag)``"
+    "Descrizione", "Imposta reset uscite AO utensile terminale dopo stop/pausa"
+    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Sets whether the outputs are reset after an extended DO stop/pause.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Reset Uscite DO Estese dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetOutputResetExtDO (resetFlag)``"
-    "Description", "Sets whether the output is reset after an extended DO stop/pause"
-    "Mandatory parameter", "- ``resetFlag``: 0-no reset; 1-reset"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetOutputResetExtDO(resetFlag)``"
+    "Descrizione", "Imposta reset uscite DO estese dopo stop/pausa"
+    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Sets whether the output is reset after the expansion AO stops/pause.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Reset Uscite AO Estese dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetOutputResetExtAO (resetFlag)``"
-    "Description", "Sets whether the output is reset after an extended AO stop/pause"
-    "Mandatory parameter", "- ``resetFlag``: 0-no reset; 1-reset"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetOutputResetExtAO(resetFlag)``"
+    "Descrizione", "Imposta reset uscite AO estese dopo stop/pausa"
+    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Sets whether the output is reset after the SmartTool is stopped/paused.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Reset Uscite SmartTool dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetOutputResetSmartToolDO(resetFlag)``"
-    "Description", "Sets whether the output is reset after a SmartTool stop/pause"
-    "Mandatory parameter", "- ``resetFlag``: to reset or not to reset, 0 - no reset, 1 - reset"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetOutputResetSmartToolDO(resetFlag)``"
+    "Descrizione", "Imposta reset uscite SmartTool dopo stop/pausa"
+    "Parametri Obbligatori", "- ``resetFlag``：reset o meno, 0-nessun reset, 1-reset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode "
 
-Set the LUA program to stop/pause after the output reset code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio Codice Reset Output dopo Stop/Pausa Programma LUA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     for i in range(16):
         robot.SetDO(i, 1, 0, 0)

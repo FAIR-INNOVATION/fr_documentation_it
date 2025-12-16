@@ -1,116 +1,116 @@
-WebAPP program use
-================================
+Uso Programmi WebAPP Robot
+==========================
 
 .. toctree:: 
     :maxdepth: 5
 
-Set Default Program to Load Automatically on Startup
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Caricamento Automatico Programma Lavoro Predefinito all'Avvio
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Set default program to load automatically on startup
-    * @param  [in] flag  0-Do not load default program on startup, 1-Load default program on startup
-    * @param  [in] program_name Program name and path, e.g. "/fruser/movej.lua", where "/fruser/" is the fixed path
-    * @return  Error code
+    * @brief  Imposta il caricamento automatico del programma lavoro predefinito all'avvio
+    * @param  [in] flag  0-non carica automaticamente programma predefinito all'avvio, 1-carica automaticamente programma predefinito all'avvio
+    * @param  [in] program_name  Nome programma lavoro e percorso, es. "/fruser/movej.lua", dove "/fruser/" è percorso fisso QX, "/usr/local/etc/controller/lua/" è percorso fisso LA
+    * @return  Codice errore
     */
     errno_t  LoadDefaultProgConfig(uint8_t flag, char program_name[64]);
 
-Load Specified Program
-+++++++++++++++++++++++++++++++++++
+Caricare Programma Lavoro Specificato
+++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Load specified program
-    * @param  [in] program_name Program name and path, e.g. "/fruser/movej.lua", where "/fruser/" is the fixed path
-    * @return  Error code
+    * @brief  Carica il programma lavoro specificato
+    * @param  [in] program_name  Nome programma lavoro e percorso, es. "/fruser/movej.lua", dove "/fruser/" è percorso fisso QX, "/usr/local/etc/controller/lua/" è percorso fisso LA
+    * @return  Codice errore
     */
     errno_t  ProgramLoad(char program_name[64]);
 
-Get Loaded Program Name
-+++++++++++++++++++++++++++++++++++
+Ottenere Nome Programma Lavoro già Caricato
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get loaded program name
-    * @param  [out] program_name Program name and path, e.g. "/fruser/movej.lua", where "/fruser/" is the fixed path
-    * @return  Error code
+    * @brief  Ottiene il nome del programma lavoro già caricato
+    * @param  [out] program_name  Nome programma lavoro e percorso, es. "/fruser/movej.lua", dove "/fruser/" è percorso fisso QX, "/usr/local/etc/controller/lua/" è percorso fisso LA
+    * @return  Codice errore
     */
     errno_t  GetLoadedProgram(char program_name[64]);  
 
-Get Current Program Execution Line Number
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Numero di Linea di Esecuzione del Programma Lavoro Corrente del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get current program execution line number
-    * @param  [out] line  Line number
-    * @return  Error code
+    * @brief  Ottiene il numero di linea di esecuzione del programma lavoro corrente del robot
+    * @param  [out] line  Numero linea
+    * @return  Codice errore
     */   
     errno_t  GetCurrentLine(int *line);
 
-Run Currently Loaded Program
-+++++++++++++++++++++++++++++++++++
+Eseguire Programma Lavoro Attualmente Caricato
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Run currently loaded program
-    * @return  Error code
+    * @brief  Esegue il programma lavoro attualmente caricato
+    * @return  Codice errore
     */
     errno_t  ProgramRun();
 
-Pause Currently Running Program
-+++++++++++++++++++++++++++++++++++
+Mettere in Pausa Programma Lavoro Attualmente in Esecuzione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Pause currently running program
-    * @return  Error code
+    * @brief  Mette in pausa il programma lavoro attualmente in esecuzione
+    * @return  Codice errore
     */ 
     errno_t  ProgramPause();
 
-Resume Currently Paused Program
-+++++++++++++++++++++++++++++++++++
+Riprendere Programma Lavoro Attualmente in Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Resume currently paused program
-    * @return  Error code
+    * @brief  Riprende il programma lavoro attualmente in pausa
+    * @return  Codice errore
     */ 
     errno_t  ProgramResume();  
 
-Stop Currently Running Program
-+++++++++++++++++++++++++++++++++++
+Terminare Programma Lavoro Attualmente in Esecuzione
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Stop currently running program
-    * @return  Error code
+    * @brief  Termina il programma lavoro attualmente in esecuzione
+    * @return  Codice errore
     */ 
     errno_t  ProgramStop();    
 
-Get Program Execution State
-+++++++++++++++++++++++++++++++++++
+Ottenere Stato di Esecuzione Programma Lavoro Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get program execution state
-    * @param  [out]  state 1-Program stopped or no program running, 2-Program running, 3-Program paused
-    * @return  Error code
+    * @brief  Ottiene lo stato di esecuzione del programma lavoro del robot
+    * @param  [out]  state 1-programma fermo o nessun programma in esecuzione, 2-programma in esecuzione, 3-programma in pausa
+    * @return  Codice errore
     */
     errno_t  GetProgramState(uint8_t *state);
 
-Robot LUA Program Operation Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Operazioni su Programmi LUA Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -151,69 +151,65 @@ Robot LUA Program Operation Code Example
       return 0;
     }
 
-Download Lua File
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Scaricare File Lua
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Download Lua file
-    * @param [in] fileName Lua file name to download, e.g. "test.lua"
-    * @param [in] savePath Local path to save file, e.g. "D://Down/"
-    * @return Error code
+    * @brief Scarica file Lua
+    * @param [in] fileName Nome file lua da scaricare, es.: "test.lua"
+    * @param [in] savePath Percorso locale per salvare il file, es.: "D://Down/"
+    * @return Codice errore
     */
     errno_t LuaDownLoad(std::string fileName, std::string savePath);
 
-Delete Lua File
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Eliminare File Lua
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Delete Lua file
-    * @param [in] fileName Lua file name to delete, e.g. "test.lua"
-    * @return Error code
+    * @brief Elimina file Lua
+    * @param [in] fileName Nome file lua da eliminare, es.: "test.lua"
+    * @return Codice errore
     */
     errno_t LuaDelete(std::string fileName);
 
-Get All Current Lua File Names
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Ottenere Nomi di Tutti i File Lua Correnti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get all current Lua file names
-    * @param [out] luaNames List of Lua file names
-    * @return Error code
+    * @brief Ottiene i nomi di tutti i file Lua attuali
+    * @param [out] luaNames Lista nomi file lua
+    * @return Codice errore
     */
     errno_t GetLuaList(std::list<std::string>* luaNames);
 
-Upload Lua File
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Caricare File Lua
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Upload Lua file
-    * @param [in] filePath Local Lua file path name
-    * @return Error code
+    * @brief Carica file Lua
+    * @param [in] filePath Percorso nome file lua locale
+    * @return Codice errore
     */
     errno_t LuaUpload(std::string filePath);
 
-Robot LUA File Upload/Download Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Caricamento e Scaricamento File LUA Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:

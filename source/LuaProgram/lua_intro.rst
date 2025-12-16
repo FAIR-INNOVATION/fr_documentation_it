@@ -1,6 +1,6 @@
-FR LUA Programming Script
+Programmazione di script FRLUA
 =======================================
 
-PDF Download
+Download PDF
 ------------------
-    :download:`FRLua programming script user manual <../_static/_doc/FRLua programming script user manual.pdf>`
+    :download:`Manuale utente per la programmazione di script FRLUA <../_static/_doc/FRLua programming script user manual.pdf>`

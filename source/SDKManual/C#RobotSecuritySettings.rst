@@ -1,67 +1,67 @@
-Robot Safety Settings
-==================================
+Impostazioni Sicurezza Robot
+============================================
 
 .. toctree:: 
     :maxdepth: 5
 
-Set collision level
-++++++++++++++++++++++++++
+Impostare Livello Collisione
+++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set collision level
-    * @param  [in]  mode  0-level, 1-percentage
-    * @param  [in]  level Collision threshold, level corresponds to range [], percentage corresponds to range [0~1]
-    * @param  [in]  config 0-do not update configuration file, 1-update configuration file
-    * @return  Error code
+    * @brief Impostare Livello Collisione
+    * @param  [in]  mode  0-livello, 1-percentuale
+    * @param  [in]  level Soglia collisione, livello corrisponde range[], percentuale corrisponde range[0~1]
+    * @param  [in]  config 0-non aggiornare file configurazione, 1-aggiornare file configurazione
+    * @return   Codice errore
     */
-    int SetAnticollision(int mode, double[] level, int config);
- 
-Set collision post-strategy
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+    int SetAnticollision(int mode, double[] level, int config); 
+
+Impostare Strategia Post-Collisione
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Set collision post-strategy
-    * @param  [in] strategy  0 - Pause on error; 1 - Continue running; 2 - Stop on error; 3 - Torque mode; 4 - Oscillation response mode; 5 - Collision rebound mode
-    * @param  [in] safeTime  safe stop time [1000 - 2000]ms
-    * @param  [in] safeDistance  Safe stop distance [1-150] mm
-    * @param  [in] safeVel  TCP safe stop speed [50-250] mm/s
-    * @param  [in] safetyMargin  j1-j6 safety factor [1-10]
-    * @return Error code
+    * @brief  Impostare Strategia Post-Collisione
+    * @param  [in] strategy  0-segnala errore e pausa; 1-continua esecuzione; 2-segnala errore e arresto; 3-modalità coppia gravità; 4-modalità risposta oscillazione; 5-modalità rimbalzo collisione
+    * @param  [in] safeTime  Tempo arresto sicuro [1000 - 2000]ms
+    * @param  [in] safeDistance  Distanza arresto sicuro [1-150]mm
+    * @param  [in] safeVel  Velocità arresto sicuro TCP [50-250]mm/s
+    * @param  [in] safetyMargin  Coefficiente sicurezza j1-j6 [1-10]
+    * @return   Codice errore
     */
     int SetCollisionStrategy(int strategy, int safeTime, int safeDistance, int safeVel,int[] safetyMargin);
 
-Custom collision detection threshold function start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Funzione Soglia Rilevamento Collisione Personalizzata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Custom collision detection threshold function starts, sets the collision detection threshold for the joint end and TCP end
-    * @param  [in] flag 1-only joint detection enabled; 2-only TCP detection enabled; 3-joint and TCP detection enabled simultaneously
-    * @param  [in] jointDetectionThreshould Joint collision detection threshold j1-j6
-    * @param  [in] tcpDetectionThreshould TCP collision detection threshold, xyzabc
-    * @param  [in] block 0-non-blocking; 1-blocking
-    * @return  Error code
+    * @brief  Inizio Funzione Soglia Rilevamento Collisione Personalizzata, impostare soglia rilevamento collisione lato articolare e TCP
+    * @param  [in] flag 1-solo rilevamento articolare attivo; 2-solo rilevamento TCP attivo; 3-rilevamento articolare e TCP simultaneamente attivo
+    * @param  [in] jointDetectionThreshould Soglia rilevamento collisione articolare j1-j6
+    * @param  [in] tcpDetectionThreshould Soglia rilevamento collisione TCP, xyzabc
+    * @param  [in] block 0-non bloccante; 1-bloccante
+    * @return   Codice errore
     */
     int CustomCollisionDetectionStart(int flag, double[] jointDetectionThreshould, double[] tcpDetectionThreshould, int block);
 
-Custom collision detection threshold function disabled
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Funzione Soglia Rilevamento Collisione Personalizzata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Custom collision detection threshold function disabled
-    * @return Error code
+    * @brief  Fine Funzione Soglia Rilevamento Collisione Personalizzata
+    * @return   Codice errore
     */
-    int CustomCollisionDetectionEnd();
+    int CustomCollisionDetectionEnd()
 
-Robot collision level settings code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Impostazione Livello Collisione Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -103,46 +103,46 @@ Robot collision level settings code example
         Console.WriteLine($"CustomCollisionDetectionEnd rtn is {rtn}");
     }
 
-Set positive limit
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Limite Positivo
+++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Set positive limit
-    * @param  [in] limit Six joint positions, units in deg
-    * @return  Error code
+    * @brief  Impostare Limite Positivo
+    * @param  [in] limit Sei posizioni articolari, unità deg
+    * @return   Codice errore
     */
-    int SetLimitPositive(double[] limit);
- 
-Set negative limit
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    int SetLimitPositive(double[] limit); 
+
+Impostare Limite Negativo
+++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Set negative limit
-    * @param  [in] limit Six joint positions, units in deg
-    * @return  Error code
+    * @brief  Impostare Limite Negativo
+    * @param  [in] limit Sei posizioni articolari, unità deg
+    * @return   Codice errore
     */
-    int SetLimitNegative(double[] limit);
- 
-Get joint soft limit angles
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    int SetLimitNegative(double[] limit); 
+
+Ottenere Angoli Limiti Software Articolari
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get joint soft limit angles
-    * @param  [in] flag 0-block, 1-non-block
-    * @param  [out] negative  Negative limit angle, in degrees
-    * @param  [out] positive  Positive limit angle, in degrees
-    * @return  Error code
+    * @brief  Ottenere Angoli Limiti Software Articolari
+    * @param  [in] flag 0-bloccante, 1-non bloccante	 
+    * @param  [out] negative  Angoli limite negativo, unità deg
+    * @param  [out] positive  Angoli limite positivo, unità deg
+    * @return   Codice errore
     */
     int GetJointSoftLimitDeg(byte flag, ref double[] negative, ref double[] positive);
 
-Robot limit setting code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Impostazione Limiti Robot
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -160,33 +160,34 @@ Robot limit setting code example
         Console.WriteLine($"pos limit deg:{pos_deg[0]},{pos_deg[1]},{pos_deg[2]},{pos_deg[3]},{pos_deg[4]},{pos_deg[5]}");
     }
 
-Set robot collision detection method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Metodo Rilevamento Collisione Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set robot collision detection method
-    * @param  [in] method Collision detection method: 0-current mode; 1-dual encoder; 2-current and dual encoder enabled simultaneously
-    * @param [in] thresholdMode Collision level threshold mode; 0 - fixed collision level threshold mode; 1 - custom collision detection threshold 
-    * @return  Error code
+    * @brief Impostare Metodo Rilevamento Collisione Robot
+    * @param  [in] method Metodo rilevamento collisione: 0-modalità corrente; 1-doppio encoder; 2-corrente e doppio encoder simultaneamente attivi
+    * @param [in] thresholdMode Modalità soglia livello collisione; 0-modalità soglia fissa livello collisione; 1-soglia rilevamento collisione personalizzata
+    * @return   Codice errore
     */
-    int SetCollisionDetectionMethod(int method, int thresholdMode=0);
+    int SetCollisionDetectionMethod(int method,int thresholdMode=0);
 
-Set collision detection start/stop in static mode
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Impostare Inizio/Arresto Rilevamento Collisione Statica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set collision detection start/stop in static mode
-    * @param  [in] status 0-disabled; 1-enabled
-    * @return  Error code
+    * @brief Impostare Inizio/Arresto Rilevamento Collisione Statica
+    * @param  [in] status 0-arresto; 1-inizio
+    * @return   Codice errore
     */
     int SetStaticCollisionOnOff(int status);
 
-Code example for setting the robot collision detection method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Impostazione Metodo Rilevamento Collisione Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -201,21 +202,21 @@ Code example for setting the robot collision detection method
         Console.WriteLine($"SetStaticCollisionOnOff Off rtn is {rtn}");
     }
 
-Joint Torque Power Detection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rilevamento Potenza Coppia Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Joint Torque Power Detection
-    * @param  [in] status 0-off; 1-on
-    * @param  [in] power Set maximum power (W)
-    * @return Error code
+    * @brief Rilevamento Potenza Coppia Articolare
+    * @param  [in] status 0-arresto; 1-inizio
+    * @param  [in] power Impostare potenza massima(W)
+    * @return   Codice errore
     */
     int SetPowerLimit(int status, double power);
 
-Joint torque power detection code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Rilevamento Potenza Coppia Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 

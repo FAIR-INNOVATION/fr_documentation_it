@@ -1,627 +1,630 @@
-Coding
-===============
+Programmazione
+===================
 
 .. toctree:: 
    :maxdepth: 6
- 
-Introduction
-~~~~~~~~~~~~~~
 
-Click the command on the left to add a program node to the program tree. When the program is running, the currently executed program node is highlighted in green.
+Introduzione
+~~~~~~~~~~~~~~~~~~~~
 
-In manual mode, click the first icon on the right side of the node to make the robot execute the instruction alone, and the second icon is to edit the content of the node.
+Fare clic sui comandi a sinistra per aggiungere nodi al programma al programma. Durante l'esecuzione del programma, il nodo attualmente in esecuzione è evidenziato in verde.
+
+In modalità manuale, fare clic sulla prima icona a destra del nodo per eseguire singolarmente quel comando, la seconda icona è per modificare il contenuto del nodo.
 
 .. image:: coding/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.1-1 Program tree interface
+.. centered:: Figura 9.1-1 Interfaccia dell'Albero del Programma
 
-Click "⇄" to switch modes, and the teaching program text can be changed to the editing state.
+Fare clic su "⇄" per commutare la modalità, passando il programma di insegnamento in stato di modifica.
 
 .. image:: coding/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.1-2 Teaching program editing status
+.. centered:: Figura 9.1‑2 Stato di Modifica del Programma di Insegnamento
 
-The icons to the right of the program name are described as follows:
+Le icone a destra del nome del programma sono spiegate di seguito:
 
 .. note:: 
    .. image:: coding/003.png
       :height: 0.75in
       :align: left
 
-   name: **Expand/Zoom**
+   Nome: **Espandi/Comprimi**
    
-   effect: Expand/zoom the program tree interface
+   Funzione: Espande/comprime l'interfaccia dell'albero del programma
 
 .. note:: 
    .. image:: coding/004.png
       :height: 0.75in
       :align: left
 
-   name: **Add teaching points**
+   Nome: **Aggiungi Punto di Insegnamento Locale**
    
-   effect: Add a local teaching point to the current program
+   Funzione: Aggiunge un punto di insegnamento locale al programma corrente
 
 .. note:: 
    .. image:: coding/005.png
       :height: 0.75in
       :align: left
 
-   name: **Rename**
+   Nome: **Rinomina**
    
-   effect: Rename the current program
+   Funzione: Rinomina il programma corrente
 
-Tool bar
-~~~~~~~~~~
+Barra degli Strumenti
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Modify the program tree using the toolbar at the bottom of the program tree.
+Utilizzare la barra degli strumenti nella parte superiore dell'albero del programma per modificare l'albero del programma.
 
 .. note:: 
    .. image:: coding/006.png
       :height: 0.75in
       :align: left
 
-   name: **Open**
+   Nome: **Apri**
    
-   effect: Open user program file
+   Funzione: Apre un file programma utente
 
 .. note:: 
    .. image:: coding/007.png
       :height: 0.75in
       :align: left
 
-   name: **New build**
+   Nome: **Nuovo**
    
-   effect: Select a template to create a new program file
+   Funzione: Crea un nuovo file programma utilizzando un modello
    
 .. note:: 
    .. image:: coding/008.png
       :height: 0.75in
       :align: left
 
-   name: **Import**
+   Nome: **Importa**
    
-   effect: Import the file into the user program folder
+   Funzione: Importa un file nella cartella dei programmi utente
 
 .. note:: 
    .. image:: coding/009.png
       :height: 0.75in
       :align: left
 
-   name: **Export**
+   Nome: **Esporta**
    
-   effect: Export user program files to a local point.
+   Funzione: Esporta il file programma utente in locale.
 
 .. note:: 
    .. image:: coding/010.png
       :height: 0.75in
       :align: left
 
-   name: **Save**
+   Nome: **Salva**
    
-   effect: Save file edits
+   Funzione: Salva le modifiche al file
 
 .. note:: 
    .. image:: coding/011.png
       :height: 0.75in
       :align: left
 
-   name: **Save as**
+   Nome: **Salva con nome**
    
-   effect: Rename the file and store it in the user program or template program folder.
+   Funzione: Rinomina il file e lo salva nella cartella dei programmi utente o dei programmi modello.
 
 .. note:: 
    .. image:: coding/012.png
       :height: 0.75in
       :align: left
 
-   name: **Copy**
+   Nome: **Copia**
    
-   effect: Duplicates a node and allows it to be used for other operations (eg: paste it elsewhere in the program tree).
+   Funzione: Copia un nodo, consentendo di utilizzarlo per altre operazioni (ad esempio, incollarlo in un'altra posizione dell'albero del programma).
 
 .. note:: 
    .. image:: coding/013.png
       :height: 0.75in
       :align: left
 
-   name: **Paste**
+   Nome: **Incolla**
    
-   effect: Allows you to paste previously cut or copied nodes.
+   Funzione: Consente di incollare un nodo precedentemente tagliato o copiato.
 
 .. note:: 
    .. image:: coding/014.png
       :height: 0.75in
       :align: left
 
-   name: **To cut**
+   Nome: **Taglia**
    
-   effect: Cuts a node and allows it to be used for other operations (eg: paste it elsewhere in the program tree).
+   Funzione: Taglia un nodo, consentendo di utilizzarlo per altre operazioni (ad esempio, incollarlo in un'altra posizione dell'albero del programma).
 
 .. note:: 
    .. image:: coding/015.png
       :height: 0.75in
       :align: left
 
-   name: **Delete**
+   Nome: **Elimina**
    
-   effect: Deletes a node from the program tree.
+   Funzione: Elimina un nodo dall'albero del programma.
 
 .. note:: 
    .. image:: coding/016.png
       :height: 0.75in
       :align: left
 
-   name: **Move up**
+   Nome: **Sposta su**
    
-   effect: Move the node up.
+   Funzione: Sposta il nodo verso l'alto.
 
 .. note:: 
    .. image:: coding/017.png
       :height: 0.75in
       :align: left
 
-   name: **Move down**
+   Nome: **Sposta giù**
    
-   effect: Move the node down.
+   Funzione: Sposta il nodo verso il basso.
 
 .. note:: 
    .. image:: coding/018.png
       :height: 0.75in
       :align: left
 
-   name: **Toggle edit mode**
+   Nome: **Commuta Modalità Modifica**
    
-   effect:The program tree mode and lua editing mode switch each other.
+   Funzione: Passa dalla modalità albero del programma alla modalità modifica Lua e viceversa.
 
-The icons on the top right are described as follows:
+Le icone in alto a destra sono spiegate di seguito:
 
 .. note:: 
    .. image:: coding/240.png
       :height: 0.75in
       :align: left
 
-   name: **Programming add/edit**
+   Nome: **Aggiungi/Modifica Comando Programma**
    
-   effect: Add/edit the contents of the current program command
+   Funzione: Aggiunge/Modifica il contenuto del comando del programma corrente
 
 .. note:: 
    .. image:: coding/241.png
       :height: 0.75in
       :align: left
 
-   name: **Robot Model**
+   Nome: **Modello Robot**
    
-   effect: Return to the robot 3D model interface
+   Funzione: Ritorna all'interfaccia del modello 3D del robot
 
 .. note:: 
    .. image:: coding/242.png
       :height: 0.75in
       :align: left
 
-   name: **NewDofile subroutine**
+   Nome: **Interfaccia Sottoprogramma NewDofile**
    
-   effect: When there is a NewDofile instruction in the current program command, click to enter and select the subroutine name to view the subroutine content.
+   Funzione: Quando esiste un'istruzione NewDofile nel comando del programma corrente, fare clic per selezionare il nome del sottoprogramma e visualizzarne il contenuto.
 
 .. note:: 
    .. image:: coding/243.png
       :height: 0.75in
       :align: left
 
-   name: **Modbus TCP Settings**
+   Nome: **Configurazione Modbus TCP**
    
-   effect: Configure Modbus TCP communication parameters
+   Funzione: Configura i parametri della comunicazione Modbus TCP
 
 .. note:: 
    .. image:: coding/244.png
       :height: 0.75in
       :align: left
 
-   name: **Current program backup**
+   Nome: **Backup Programma di Insegnamento Corrente**
    
-   effect: Record the changes made to the current program
+   Funzione: Registra le modifiche al programma corrente
 
 .. note:: 
    .. image:: coding/245.png
       :height: 0.75in
       :align: left
 
-   name: **Local teaching point**
+   Nome: **Punti di Insegnamento Locali**
    
-   effect: Applies only to the teaching points of the current program
+   Funzione: Punti di insegnamento applicabili solo al programma corrente
 
-Program command
-~~~~~~~~~~~~~~~~~~
+Comandi del Programma
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The left side is mainly for adding program commands. Click the icon above each keyword to enter the detailed interface of adding program commands on the right. There are two main operations for adding program commands to files:
+Il lato sinistro è principalmente per l'aggiunta di comandi del programma. Fare clic sull'icona sopra ciascuna parola chiave per accedere all'interfaccia dettagliata di aggiunta comandi a destra. Le operazioni per aggiungere comandi al file si dividono principalmente in due tipi:
 
-- 1. Open the relevant command and click the Apply button to add the command to the program.
-- 2. click the "Add" button first, at this time the command is not saved in the program file, and you need to click "Apply" again to save the command in the file. 
+- 1. Aprire l'istruzione pertinente, fare clic sul pulsante "Applica" per aggiungere immediatamente l'istruzione al programma;
+- 2. Fare prima clic sul pulsante "Aggiungi", a questo punto il comando non è ancora salvato nel file del programma, è necessario fare clic su "Applica" per salvare il comando nel file.
 
-The second method often occurs when multiple commands of the same type are issued. We add an add button and display the content of the added command to this type of command. Click the Add button to add a command, and the added command displays all the added commands. , click "Apply" to save the added command to the opened file on the right.
+Il secondo metodo si presenta spesso in situazioni in cui devono essere inviate più istruzioni dello stesso tipo. Per questo tipo di comandi, abbiamo aggiunto il pulsante "Aggiungi" e la funzione di visualizzazione dei contenuti delle istruzioni già aggiunte. Fare clic sul pulsante "Aggiungi" per aggiungere un'istruzione. La sezione "Istruzioni aggiunte" mostra tutte le istruzioni già aggiunte. Fare clic su "Applica" per salvare le istruzioni aggiunte nel file aperto a destra.
 
-Logic Command Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia Istruzioni Logiche
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/019.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4 Logic Command Interface
+.. centered:: Figura 9.4 Interfaccia Istruzioni Logiche
 
-While command
-++++++++++++++++
+Comando Ciclo
++++++++++++++++++++++++++
 
-Select the loop scenario of the While command, the scenario is as follows:
+Fare clic sull'icona "Ciclo" per accedere all'interfaccia di modifica del comando While.
 
-- Always loop
-- Limited number of cycles: Enter the number of loops and variable name
-- Loop while expression is true: Click the input box to pop up the expression editor and select the corresponding expression according to the usage scenario
+Selezionare lo scenario di ciclo per il comando While. Gli scenari sono i seguenti:
+
+- Cicla sempre
+- Ciclo per numero limitato di volte: inserire il numero di cicli e il nome della variabile
+- Cicla mentre l'espressione è vera: fare clic sul campo di immissione per aprire l'editor di espressioni, selezionare l'espressione appropriata in base alla situazione d'uso
 
 .. image:: coding/020.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-1-1 While command interface
+.. centered:: Figura 9.4-1-1 Interfaccia Istruzione While
 
 .. image:: coding/236.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-1-2 While command - Always loop
+.. centered:: Figura 9.4-1-2 Istruzione While - Cicla Sempre
 
 .. image:: coding/237.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-1-3 While command - Limited number of cycles
+.. centered:: Figura 9.4-1-3 Istruzione While - Ciclo a Numero Limitato
 
 .. image:: coding/238.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-1-4 While command - Expression Editor
+.. centered:: Figura 9.4-1-4 Istruzione While - Editor di Espressioni
 
 .. image:: coding/239.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-1-5 While command - Loop while expression is true
+.. centered:: Figura 9.4-1-5 Istruzione While - Cicla mentre l'Espressione è Vera
 
-For ease of operation, you can enter any do content and edit other instructions in the program to insert them instead.
+Per comodità operativa, è possibile inserire arbitrariamente contenuti in "do", e successivamente modificare il programma inserendo altre istruzioni per sostituirle.
 
-if…else command
-++++++++++++++++
+Comando Decisione
++++++++++++++++++++++++++
 
-Click the "if...else" button to enter the if...else command editing interface.
+Fare clic sul pulsante "Decisione" per accedere all'interfaccia di modifica del comando if…else.
 
-This command contains the following buttons:
+Questo comando include i seguenti pulsanti:
 
-- Add else if: When there is no "else" expression, click this button to add an "else if" expression
-- Delete else if: When an "else if" expression exists, click this button to delete the "else if" expression.
-- Add else: Click this button to add an "else" expression
-- Delete else: Click this button to delete the "else" expression
+- Aggiungi else if: quando non esiste un'espressione "else", fare clic su questo pulsante per aggiungere un'espressione "else if"
+- Rimuovi else if: quando esiste un'espressione "else if", fare clic su questo pulsante per eliminare l'espressione "else if"
+- Aggiungi else: fare clic su questo pulsante per aggiungere un'espressione "else"
+- Rimuovi else: fare clic su questo pulsante per eliminare l'espressione "else"
 
-After clicking the corresponding button to add, click the input box to pop up the expression editor and select the corresponding expression according to the usage scenario. After adding, click "Add" and "Apply".
+Dopo aver aggiunto tramite il pulsante corrispondente, fare clic sul campo di immissione per aprire l'editor di espressioni e selezionare l'espressione appropriata in base alla situazione d'uso. Dopo aver completato l'aggiunta, fare clic su "Aggiungi" e "Applica".
 
-This instruction requires a certain programming foundation. If you need help, please contact us.
+Questa istruzione richiede una certa conoscenza di programmazione. Per assistenza, contattarci.
 
 .. image:: coding/021.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-2 if…else command interface
+.. centered:: Figura 9.4-2 Interfaccia Istruzione if…else
 
-Goto command
-++++++++++++++++
+Comando Salto
++++++++++++++++++++++++++
 
-Click the "Goto" button to enter the Goto command editing interface.
+Fare clic sul pulsante "Salto" per accedere all'interfaccia di modifica del comando Goto.
 
-The Goto instruction is a jump instruction, enter the statement in the input box on the right, and click "Add" and "Apply" after editing. (This instruction requires a certain programming foundation, if you need help, please contact us)
+L'istruzione Goto è un'istruzione di salto. Inserire l'istruzione nel campo di immissione a destra. Dopo la modifica, fare clic su "Aggiungi" e "Applica". (Questa istruzione richiede una certa conoscenza di programmazione. Per assistenza, contattarci)
 
 .. image:: coding/022.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-3 Goto command interface
+.. centered:: Figura 9.4-3 Interfaccia Istruzione Goto
 
-Wait command
-++++++++++++++++
+Comando Attesa
++++++++++++++++++++++++++
 
-Click the "Wait" icon to enter the Wait command editing interface.
+Fare clic sull'icona "Attesa" per accedere all'interfaccia di modifica del comando Wait.
 
-This instruction is a delay instruction, which is divided into three parts: "WaitMs", "WaitDI" and "WaitAI".
+Questa istruzione è un'istruzione di ritardo, divisa in tre parti: "WaitMs", "WaitDI" e "WaitAI".
 
-"WaitTime" command delay waiting time unit is milliseconds, input the number of milliseconds to wait, click "Add", "Apply".
+L'istruzione "WaitTime" ha un'unità di tempo di attesa in millisecondi. Inserire il numero di millisecondi da attendere, quindi fare clic su "Aggiungi" e "Applica".
 
 .. image:: coding/023.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-4 WaitTime command interface
+.. centered:: Figura 9.4-4 Interfaccia Istruzione WaitTime
 
-"WaitDI" command, that is, single DI waiting, select the IO port number to be waited for, wait state, wait maximum time and wait timeout processing method, and click "Add" and "Apply".
+L'istruzione "WaitDI", ovvero attesa DI singolo, selezionare il numero della porta IO da attendere, lo stato di attesa, il tempo massimo di attesa e la modalità di gestione del timeout di attesa, quindi fare clic su "Aggiungi" e "Applica".
 
 .. image:: coding/024.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-5 WaitDI command interface
+.. centered:: Figura 9.4-5 Interfaccia Istruzione WaitDI
 
-"WaitMultiDI" command, that is, multi-DI waiting, first select the multi-DI establishment conditions, then check the DI port and status that need to wait, and finally set the maximum waiting time and waiting timeout processing method, click "Add" and "Apply".
+L'istruzione "WaitMultiDI", ovvero attesa multi DI, prima selezionare la condizione di soddisfacimento dei multi DI, poi selezionare le porte DI e lo stato da attendere, infine impostare il tempo massimo di attesa e la modalità di gestione del timeout di attesa, quindi fare clic su "Aggiungi" e "Applica".
 
 .. image:: coding/025.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-6 WaitMultiDI command interface
+.. centered:: Figura 9.4-6 Interfaccia Istruzione WaitMultiDI
 
-"WaitAI" command, select the analog quantity to be waited for, the value, the maximum waiting time and the waiting timeout processing method, and click "Add" and "Apply".
+L'istruzione "WaitAI", selezionare l'analogico da attendere, il valore, il tempo massimo di attesa e la modalità di gestione del timeout di attesa, quindi fare clic su "Aggiungi" e "Applica".
 
 .. image:: coding/026.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-7 WaitAI command interface
+.. centered:: Figura 9.4-7 Interfaccia Istruzione WaitAI
 
-Pause command
-++++++++++++++++
+Comando Pausa
++++++++++++++++++++++++++
 
-Click the "Pause" icon to enter the Pause command editing interface.
+Fare clic sull'icona "Pausa" per accedere all'interfaccia di modifica del comando Pause.
 
-This instruction is a pause instruction. Insert this instruction into the program. When the program executes this instruction, the robot will be in a pause state. If you want to continue running, click the "Pause/Resume" button in the control area.
+Questa istruzione è un'istruzione di pausa. Inserendo questa istruzione nel programma, quando il programma la esegue, il robot si mette in pausa. Per continuare l'esecuzione, fare clic sul pulsante "Pausa/Riprendi" nell'area di controllo.
 
 .. image:: coding/027.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-8 Pause command interface
+.. centered:: Figura 9.4-8 Interfaccia Istruzione Pause
 
-Dofile command
-++++++++++++++++
+Comando Sottoprogramma
+++++++++++++++++++++++++++++++++++
 
-Click the "Dofile" icon to enter the Dofile command editing interface.
+Fare clic sull'icona "Sottoprogramma" per accedere all'interfaccia di modifica del comando Dofile.
 
-The Dofile command calls the internal program of the controller. When using the Dofile command, the called subroutine needs to be saved, and the main program does not need to be saved again if it has not changed. The Dofile command supports two-level calls, and two parameter settings need to be paid attention to. One is the level of the call, and the other is the ID number of the call. In principle, the same ID number cannot appear in the same program.
+L'istruzione Dofile chiama programmi interni al controller. Per usare l'istruzione Dofile, è necessario salvare il sottoprogramma chiamato, mentre il programma principale, se non modificato, non deve essere salvato nuovamente. L'istruzione Dofile supporta chiamate di secondo livello. Prestare attenzione a due parametri: il livello della chiamata e l'ID della chiamata. In linea di principio, nello stesso programma non devono apparire ID duplicati.
 
 .. image:: coding/028.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-9 Dofile command interface
+.. centered:: Figura 9.4-9 Interfaccia Istruzione Dofile
 
-Var command
-++++++++++++++++
+Comando Variabili
+++++++++++++++++++++++++++++++++++
 
-Click the "Var" icon to enter the Var command editing interface.
+Fare clic sull'icona "Variabili" per accedere all'interfaccia di modifica del comando Var.
 
-This command is a variable system command, which is divided into two parts: Lua variable definition, variable query and Sys variable renaming, getting value, and setting value. Lua variable definition can declare a variable and assign an initial value, and cooperate with while, if-else and other commands Use the Lua variable query command to query the value of the input variable name in real time and display it in the status bar. The number of Sys variables is fixed, and you can rename them, get variable values, and set variable values. The values stored in this variable will not be cleared when the system is turned off.
+Questa istruzione riguarda il sistema delle variabili, diviso in due parti: definizione di variabili Lua, query di variabili, e ridenominazione, acquisizione del valore e impostazione del valore delle variabili Sys. La definizione di variabili Lua può dichiarare una variabile e assegnarle un valore iniziale, da utilizzare in combinazione con istruzioni come while, if-else, ecc. L'istruzione di query di variabili Lua può interrogare in tempo reale il valore del nome della variabile inserito, visualizzandolo nella barra di stato. Il numero di variabili Sys è fisso. È possibile rinominarle, acquisirne il valore e impostarne il valore. Il valore memorizzato in queste variabili non viene azzerato allo spegnimento del sistema.
 
 .. image:: coding/029.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.4-10 Var command interface
+.. centered:: Figura 9.4-10 Interfaccia Istruzione Var
 
-.. important:: Variable names must start with letters or underscores, not numbers or other special characters.
+.. important:: I nomi delle variabili devono iniziare con una lettera o un trattino basso, non possono iniziare con un numero o altri caratteri speciali.
 
-Motion command interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia Istruzioni di Movimento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/030.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5 Motion command interface
+.. centered:: Figura 9.5 Interfaccia Istruzioni di Movimento
 
-PTP command
-++++++++++++++++
+Comando Punto a Punto (PTP)
+++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "PTP" icon to enter the PTP command editing interface.
+Fare clic sull'icona "Punto a Punto" per accedere all'interfaccia di modifica del comando PTP.
 
-You can choose the point to be reached, and the smooth transition time setting can realize that the movement from this point to the next point is continuous. Whether to set the offset, you can choose to offset based on the base coordinate system and based on the tool coordinates, and pop up x, y, z, rx, ry, rz offset settings, PTP specific path is the optimal path automatically planned by the motion controller, click "Add" and "Apply" to save this command.
+È possibile selezionare il punto da raggiungere. L'impostazione del tempo di transizione smooth permette che il movimento da questo punto al successivo sia continuo. L'impostazione dello spostamento permette di scegliere se spostare in base al sistema di coordinate della base o al sistema di coordinate dell'utensile, e apre la finestra per impostare gli spostamenti x, y, z, rx, ry, rz. Il percorso specifico PTP è il percorso ottimale pianificato automaticamente dal controllore di movimento. Fare clic su "Aggiungi" e "Applica" per salvare questa istruzione.
 
 .. image:: coding/031.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-1 PTP command interface
+.. centered:: Figura 9.5-1 Interfaccia Istruzione PTP
 
-Lin command
-++++++++++++++++
+Comando Lineare (LIN)
+++++++++++++++++++++++++++++++
 
-Click the "Lin" icon to enter the Lin command editing interface.
+Fare clic sull'icona "Linea" per accedere all'interfaccia di modifica del comando Lin.
 
-The function of this command is similar to the "PTP" command, but the path of the point reached by this command is a straight line.
+Questa istruzione è simile all'istruzione "PTP", ma il percorso per raggiungere il punto con questa istruzione è lineare.
 
 .. image:: coding/032.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-2 Lin command interface
+.. centered:: Figura 9.5-2 Interfaccia Istruzione Lin
 
-.. important:: When the selection point name is "seamPos", the straight line command is applied in the welding scene using the laser sensor. Due to the accumulated operating error during welding, "whether to offset" and "offset amount" are added.
+.. important:: Quando si seleziona il nome del punto come "seamPos", il comando lineare viene utilizzato nello scenario di saldatura con sensore laser. A causa dell'errore accumulato durante l'esecuzione nella saldatura, vengono aggiunti "Spostamento abilitato" e "Quantità di spostamento".
 
-   **Whether to offset**: No, base coordinate system offset, tool coordinate system offset, laser original data offset;
+   **Spostamento abilitato**: No, Spostamento sistema base, Spostamento sistema utensile, Spostamento dati grezzi laser;
 
-   **Offset**: Δx, Δy, Δz, Δrx, Δry, Δrz, range: -300~300;
+   **Quantità di spostamento**: ∆x, ∆y, ∆z, ∆rx, ∆ry, ∆rz, intervallo: -300~300;
 
    .. image:: coding/033.png
       :width: 6in
       :align: center
 
-   .. centered:: Figure 9.5-2-1 Lin command interface(Welding scene)
+   .. centered:: Figura 9.5-2-1 Interfaccia Istruzione Lin (Scenario Saldatura)
 
-LIN command joint	overspeed processing function
-*****************************************************************
+Funzione di Gestione Sovraccarico Articolare Istruzione LIN
+*******************************************************************************
 
-When using the Cartesian space linear motion command LIN, the constrained condition is the linear velocity, but the actual operation is affected by the workspace, and the angular velocity of the joint may have exceeded the limit when the linear velocity requirement is met. This function implements an optional handling strategy to deal with joint overspeed during LIN movements.
+Quando si utilizza l'istruzione di movimento lineare nello spazio cartesiano LIN, la condizione vincolante per la pianificazione è la velocità lineare. Tuttavia, durante l'esecuzione effettiva, a causa dello spazio di lavoro, mentre si soddisfa il requisito di velocità lineare, la velocità angolare delle articolazioni potrebbe già superare il limite. Questa funzione implementa strategie di gestione opzionali per affrontare situazioni di sovraccarico articolare durante il movimento LIN.
 
-**Step1**: Click the Linear Motion Command button;
+**Passo 1**: Fare clic sul pulsante dell'istruzione di movimento lineare;
 
 .. image:: coding/034.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-1 Click the Linear Motion Command button
+.. centered:: Figura 9.5-3-1 Fare clic sul pulsante istruzione movimento lineare
 
-**Step2**: Select the linear motion command target waypoint;
+**Passo 2**: Selezionare il punto obiettivo per l'istruzione di movimento lineare;
 
 .. image:: coding/035.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-2 Select the linear motion target waypoint
+.. centered:: Figura 9.5-3-2 Selezionare il punto obiettivo movimento lineare
 
-**Step3**: Turn on the joint overspeed protection switch;
+**Passo 3**: Attivare l'interruttore di protezione sovraccarico articolare;
 
 .. image:: coding/036.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-3 Turn on the joint overspeed protection switch button
+.. centered:: Figura 9.5-3-3 Attivare il pulsante interruttore protezione sovraccarico articolare
 
-**Step4**: Select the joint overspeed treatment strategy (first two options is not for joint overspeed treatment);
+**Passo 4**: Selezionare la strategia di gestione sovraccarico articolare (selezionare segnalazione errore o riduzione adattiva; altre opzioni sono strategie predefinite senza protezione);
 
 .. image:: coding/037.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-4 Joint overspeed treatment strategies
+.. centered:: Figura 9.5-3-4 Strategie di Gestione Sovraccarico Articolare
 
-**Step5**: Set the processing option and processing parameters, then click the Add button to add the Lua command;
+**Passo 5**:
+   Impostare la strategia di gestione e i relativi parametri, quindi fare clic sul pulsante Aggiungi per aggiungere l'istruzione Lua;
 
-   Under the adaptive speed reduction strategy, the deceleration threshold is the percentage of the linear velocity reduction value relative to the set linear velocity, and when the deceleration value exceeds the set threshold, the robot will report an error and stop.
+   Con la strategia di riduzione adattiva, la soglia di riduzione è la percentuale della riduzione di velocità lineare rispetto alla velocità lineare impostata. Quando la riduzione supera la soglia impostata, il robot si ferma con un errore.
 
 .. image:: coding/038.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-5 Joint overspeed treatment strategy selection and setting
+.. centered:: Figura 9.5-3-5 Selezione e Impostazione Strategia Gestione Sovraccarico Articolare
 
-**Step6**: The added Lua command is shown in the figure;
+**Passo 6**: L'istruzione Lua aggiunta ha la forma mostrata in figura;
 
 .. image:: coding/039.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-6 lua command
+.. centered:: Figura 9.5-3-6 Istruzione Lua
 
-**Joint overspeed protection begins**:JointOverSpeedProtectStart(a,b);
-   a: strategy type number(same as the order of drop-down box)
+**Inizio Protezione Sovraccarico**: JointOverSpeedProtectStart（a, b）;
+   a: Numero strategia (riferimento ordine menu a tendina)
 
-   b: threshold(0~100)
+   b: Percentuale soglia (0~100, efficace solo per riduzione adattiva)
 
-**Joint overspeed protection ends**:JointOverSpeedProtectEnd();
+**Fine Protezione Sovraccarico**: JointOverSpeedProtectEnd（）;
 
-.. note:: For the “singularity crossing” motion protection, please refer to the description of the singularity crossing function in automatic mode.
-   
-Angular velocity adjustable function
-**********************************************
+.. note:: Per la protezione movimento "Attraversamento Punti Singolari", fare riferimento alla spiegazione della funzione di attraversamento punti singolari in modalità automatica.
 
-This function can be used when encountering a workpiece that requires corner welding during the welding process, or when a specific linear line is planned (a quick transition is required when the attitude change is large and the position change is small, but the linear speed cannot be accelerated).
+Funzione Velocità Angolare Regolabile in Punti di Transizione Posizione Angolo Rivestimento
+***********************************************************************************************************
 
-**Step1**:Set the tool coordinate system to calibrate the tool size and attitude of the welding gun.
+Quando si incontrano pezzi che richiedono saldatura angolare con rivestimento durante la saldatura, o in una pianificazione lineare specifica (con grandi variazioni di orientamento e piccoli cambiamenti di posizione, ma che richiede una transizione rapida senza aumentare la velocità lineare), è possibile utilizzare questa funzione.
 
-.. note:: The values on the interface are examples only, and the actual tool status shall prevail.
+**Passo 1**: Impostare il sistema di coordinate dell'utensile, calibrare le dimensioni e l'orientamento della torcia saldatrice.
+
+.. note:: I valori nell'interfaccia sono solo esempi; fare riferimento allo stato effettivo dell'utensile.
 
 .. image:: coding/246.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.5-3-7 Impostare Sistema Coordinate Utensile
+
+**Passo 2**: Fare clic su "Programma di Insegnamento", selezionare "Programmazione", e sotto "Istruzioni di Movimento" selezionare "Linea".
+
+.. image:: coding/032.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-7 Sets the tool coordinate system
+.. centered:: Figura 9.5-3-8 Interfaccia Impostazioni Istruzione Linea
 
-**Step2**:Click on "Program", select "Coding", and select " LIN" in the "Motion Command" category.
-
-.. image:: coding/247.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 9.5-3-8 Straight line command setting interface
-
-**Step3**:Set the starting point of each straight line of wrapping angle welding as the transition point, turn on the "The transition point angular velocity is adjustable" button, and set the maximum acceleration percentage (the default maximum angular velocity of 100% is 360°/s).
+**Passo 3**: Impostare il punto iniziale di ogni segmento lineare della saldatura angolare come punto di transizione, attivare il pulsante "Velocità angolare punti transizione regolabile", impostare la percentuale massima di accelerazione (la velocità angolare massima predefinita al 100% è 360°/s).
 
 .. image:: coding/248.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-9 Transition point angular velocity adjustment parameter configuration interface
+.. centered:: Figura 9.5-3-9 Interfaccia Configurazione Parametri Regolazione Velocità Angolare Punti Transizione
 
-**Step4**:Click the "Add" button to generate a LIN command with the adjustment of the transition attitude angular velocity.
+**Passo 4**: Fare clic sul pulsante "Aggiungi" per generare un'istruzione lineare che includa la regolazione della velocità angolare di orientamento nella transizione.
 
 .. image:: coding/249.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-10 Add a transition point linear motion command
+.. centered:: Figura 9.5-3-10 Aggiungere Istruzione Movimento Lineare con Punto di Transizione
 
-**Step5**:The robot completes the attitude transition at the starting point, normally executes the linear command movement to the end point of the section, closes the "The transition point angular velocity is adjustable" button, and adds a termination waypoint.
+**Passo 5**: Il robot completa la transizione di orientamento nel punto di partenza, esegue normalmente l'istruzione lineare per raggiungere la fine del segmento, disattivare il pulsante "Velocità angolare punti transizione regolabile", aggiungere il punto di terminazione del percorso.
 
 .. image:: coding/250.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-11  Inserts the end point of the line
+.. centered:: Figura 9.5-3-11 Inserire Punto Finale Linea
 
-**Step6**:Click the "Apply" button to generate the corresponding LUA command.
+**Passo 6**: Fare clic sul pulsante "Applica" per generare la corrispondente istruzione LUA.
 
 .. image:: coding/251.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-3-12 Generate a straight LUA instruction with transition points
+.. centered:: Figura 9.5-3-12 Generare Istruzione LUA Lineare con Punti di Transizione
 
-A complete set of corner wrapping welds usually has more than one transition point, and in the case of corner wrapping shown in Figure 7, there are two attitude transition points with small position change and large attitude change during the welding process. 
+Una saldatura angolare completa di solito ha più punti di transizione. Nell'angolo mostrato in Figura 7, ci sono due punti di transizione di orientamento con piccoli cambiamenti di posizione ma grandi variazioni di orientamento durante la saldatura.
 
-Point 1 is the starting point of the first section of welding, and point 2 is the end point of the first section of welding; 
+Il punto 1 è l'inizio del primo segmento di saldatura, il punto 2 è la fine del primo segmento di saldatura;
 
-Point 3 is the starting point of the second section of welding, and point 4 is the end point of the second section of welding; 
+Il punto 3 è l'inizio del secondo segmento di saldatura, il punto 4 è la fine del secondo segmento di saldatura;
 
-Point 5 is the starting point of the third section of welding, and point 6 is the end point of the third section of welding. 
+Il punto 5 è l'inizio del terzo segmento di saldatura, il punto 6 è la fine del terzo segmento di saldatura.
 
-The attitude transition occurs from the end point of the previous section of welding to the starting point of the next section of welding, so it is necessary to add the attitude angular velocity adjustment instruction at the starting point of the next section of welding, so that the maximum linear velocity remains unchanged during the transition of the wrapping angle attitude, and the maximum angular velocity is increased, so that the process of wrapping angle welding process runs.
+La transizione di orientamento avviene dalla fine del segmento di saldatura precedente all'inizio del segmento successivo, quindi è necessario aggiungere un'istruzione di regolazione della velocità angolare di orientamento all'inizio del segmento di saldatura successivo. In questo modo, durante la transizione di orientamento nell'angolo, la velocità lineare massima rimane invariata, mentre la velocità angolare massima aumenta, rendendo fluido il processo di saldatura angolare.
 
 .. image:: coding/252.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.5-3-13 Example of a wrapping welding process
+.. centered:: Figura 9.5-3-13 Esempio Processo Saldatura Angolare
 
-Arc command
-++++++++++++++++
+Comando Arco (ARC)
+++++++++++++++++++++++++
 
-Click the "Arc" icon to enter the Arc command editing interface.
+Fare clic sull'icona "Arco" per accedere all'interfaccia di modifica del comando Arc.
 
-The "Arc" command is an arc motion, which includes three points. The first point is the starting point of the arc, the second point is the middle transition point of the arc, and the third point is the end point.
+L'istruzione "Arc" è un movimento ad arco, composto da tre punti: il primo è il punto iniziale dell'arco, il secondo è il punto di transizione intermedio dell'arco, il terzo è il punto finale.
 
-Both the transition point and the end point can be set to offset, and you can choose to base coordinate system offset Shift and offset based on tool coordinates, and pop up x, y, z, rx, ry, rz offset settings, and the end point can set a smooth transition radius to achieve continuous motion effect.
+Sia il punto di transizione che il punto finale consentono di impostare se applicare uno spostamento. È possibile scegliere uno spostamento basato sul sistema di coordinate della base o sul sistema di coordinate dell'utensile, che apre la finestra per impostare gli spostamenti x, y, z, rx, ry, rz. Il punto finale può avere impostato un raggio di transizione smooth, per ottenere un effetto di movimento continuo.
 
 .. important::
-   For circular motion, you need to add PTP or Lin command to move to the starting point first.
+   Il movimento ad arco richiede prima di aggiungere un'istruzione PTP o Lin per raggiungere il punto iniziale.
 
 .. image:: coding/040.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-4 Arc command interface
+.. centered:: Figura 9.5-4 Interfaccia Istruzione Arc
 
-Circle command
-++++++++++++++++
+Comando Cerchio Completo (CIRCLE)
+++++++++++++++++++++++++++++++++++++++++
 
-Click the "Circle" icon to enter the Circle command editing interface.
+Fare clic sull'icona "Cerchio" per accedere all'interfaccia di modifica del comando Circle.
 
-The cooperative robot can carry out the circle trajectory movement by adding the circle command. Before adding the circle command, it is necessary to teach three path points on the circle trajectory. Suppose that the three path points on the circle trajectory are "P1", "P2" and "P3" respectively, where "P1" is the starting point of the circle trajectory, "P2" and "P3" are the middle point 1 and 2 of the circle trajectory.Move the robot to the above three points and add the names of the teaching points as "P1", "P2" and "P3" respectively.
+Il robot collaborativo può eseguire traiettorie circolari complete aggiungendo l'istruzione cerchio. Prima di aggiungere l'istruzione cerchio, è necessario avere tre punti di percorso sulla traiettoria circolare pre-insegnati. Supponiamo che i tre punti di percorso sulla traiettoria circolare siano "P1", "P2", "P3", dove "P1" è il punto di partenza della traiettoria circolare, "P2" e "P3" sono rispettivamente il punto intermedio 1 e il punto intermedio 2 della traiettoria circolare. Spostare il robot in questi tre punti e aggiungere i nomi dei punti di insegnamento come "P1", "P2", "P3".
 
 .. important::
-   For full circle trajectory motion, you need to add PTP or Lin command to move to the starting point first.
+   Il movimento a traiettoria circolare richiede prima di aggiungere un'istruzione PTP o Lin per raggiungere il punto iniziale.
 
 .. image:: coding/042.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.5-5 Circle trajectory
+.. centered:: Figura 9.5-5 Traiettoria Cerchio
 
 .. image:: coding/043.png
    :width: 3in
@@ -635,327 +638,324 @@ The cooperative robot can carry out the circle trajectory movement by adding the
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.5-6 Teaching "P1", "P2" and "P3"
+.. centered:: Figura 9.5-6 Insegnare i punti "P1", "P2", "P3"
 
-Circle command addition
-**********************************************
+Aggiunta Istruzione Cerchio
+*****************************************
 
-**Step1**: Create a new user program "testCircle.lua" and click the "Circle" button to open the page of adding circle commands.
+**Passo 1**: Creare un nuovo programma utente "testCircle.lua", fare clic sul pulsante "Cerchio" per aprire la pagina di aggiunta istruzione cerchio.
 
 .. image:: coding/046.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-7 Add the circle command button
+.. centered:: Figura 9.5-7 Pulsante Aggiungi Istruzione Cerchio
 
-**Step2**: In the full circle instruction adding page, select the starting point motion mode and the starting point as "P1".
+**Passo 2**: Nella pagina di aggiunta istruzione cerchio, selezionare il modo di movimento del punto iniziale e il punto iniziale come "P1".
 
 .. image:: coding/050.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-8 Starting point motion mode and starting point "P1"
+.. centered:: Figura 9.5-8 Modo Movimento Punto Iniziale e Punto Iniziale "P1"
 
-**Step3**: Select "Middle point 1" as the "P2" point in the circle command addition page, and click "Next".
+**Passo 3**: Nella pagina di aggiunta istruzione cerchio, selezionare "Punto intermedio 1 cerchio" come punto "P2".
 
 .. image:: coding/047.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-9 Middle Point 1 of the Circle
+.. centered:: Figura 9.5-9 Punto Intermedio 1 Cerchio
 
-**Step4**: Select "Middle point 2" as the "P3" point, and click the "Add" button and the "Apply" button in turn.
+**Passo 4**: Selezionare "Punto intermedio 2 cerchio" come punto "P3", fare clic successivamente sui pulsanti "Aggiungi" e "Applica".
 
 .. image:: coding/048.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-10 The middle point 2 of the circle
+.. centered:: Figura 9.5-10 Punto Intermedio 2 Cerchio
 
-**Step5**: At this time, "testCircle.lua" has added the circle movement command.
+**Passo 5**: A questo punto, a "testCircle.lua" è stata aggiunta l'istruzione di movimento cerchio.
 
 .. image:: coding/049.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-11 Circle movement command addition
+.. centered:: Figura 9.5-11 Aggiunta Istruzione Movimento Cerchio
 
-Switch the robot to automatic mode, start the program on the premise of ensuring safety, and the robot will move according to the circle trajectory shown in Figure 1.
+Passare il robot in modalità automatica e, garantita la sicurezza, avviare il programma. Il robot si muoverà secondo la traiettoria circolare.
 
-Circle trajectory offset
-**********************************************
+Spostamento Traiettoria Cerchio
+*****************************************
 
-The circular motion of the cooperative robot supports the offset of the positions of the middle point 1 and the middle point 2 of the circular trajectory, and the offset types include the following two types:
+Il movimento cerchio del robot collaborativo supporta lo spostamento dei punti intermedi 1 e 2 della traiettoria circolare. I tipi di spostamento includono i seguenti due:
 
-**The middle points of the two trajectories of the circle have the same offset:** the middle point 1 (P2) and the middle point 2 (P3) of the circle are offset by the same offset ∆(dx, dy, dz, drx, dry, drz).
+**Stesso spostamento per entrambi i punti intermedi della traiettoria circolare**: Il punto intermedio 1 della traiettoria circolare (punto "P2") e il punto intermedio 2 della traiettoria circolare (punto "P3") vengono spostati utilizzando lo stesso spostamento ∆(dx, dy, dz, drx, dry, drz).
 
-**The middle points of the two trajectories of the circle have different offsets:** the middle point 1 (P2) and the middle point 2 (P3) of the circle adopt two different offsets ∆1 (dx1, dy1, dz1, drx1, dry1, drz1) and ∆2 (dx2, dy2, dz2, drx2, dry2, drz2) respectively.
+**Spostamento diverso per i due punti intermedi della traiettoria circolare**: Il punto intermedio 1 della traiettoria circolare (punto "P2") e il punto intermedio 2 della traiettoria circolare (punto "P3") vengono spostati utilizzando due spostamenti diversi ∆1(dx1, dy1, dz1, drx1, dry1, drz1) e ∆2(dx2, dy2, dz2, drx2, dry2, drz2).
 
-The following demonstrates the usage of "same offset" and "different offset" respectively.
+Di seguito vengono dimostrati rispettivamente gli usi di "stesso spostamento" e "spostamento diverso".
 
-(1) Same offset
+1. Stesso spostamento
 
-Open the circle command addition page, select "Same Offset" for Offset Type, and also select the starting point motion mode and starting point as "P1", and the middle point 1 of the full circle as "P2".
+Come mostrato, aprire la pagina di aggiunta istruzione cerchio, selezionare "Tipo di spostamento" come "Stesso spostamento", selezionare allo stesso modo il modo di movimento del punto iniziale e il punto iniziale come "P1", il punto intermedio 1 cerchio come punto "P2".
 
 .. image:: coding/051.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-12 Same offset of the circle
+.. centered:: Figura 9.5-12 Cerchio Stesso Spostamento
 
-Select P3 for the middle point 2 of the circle, and select Base Coordinate Offset for Offset.
+Selezionare il punto intermedio 2 cerchio come "P3", e "Spostamento abilitato" come "Spostamento sistema base".
 
-.. note:: 
-   Note: you can select Tool Coordinate Offset according to the actual work situation.
+.. note:: È possibile scegliere "Spostamento sistema utensile" in base alla situazione lavorativa effettiva.
 
-Enter the offset dx as 10mm, and then click the Add button and the Apply button at the bottom of the page.
+Inserire lo spostamento dx di 10 mm, fare clic successivamente sui pulsanti "Aggiungi" e "Applica" in fondo alla pagina.
 
 .. image:: coding/052.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-13 Setting Offset
+.. centered:: Figura 9.5-13 Impostare Spostamento
 
-At this time, a full circle starting point is "P1", and the two intermediate points "P2" and "P3" are offset by 10mm along the X-axis direction of the base coordinate system. The full circle instruction has been added to the "testCircle.lua" program.
+A questo punto, un'istruzione cerchio con punto iniziale "P1", e entrambi i punti intermedi "P2" e "P3" spostati di 10 mm lungo la direzione X del sistema di coordinate della base è stata aggiunta al programma "testCircle.lua".
 
 .. image:: coding/053.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-14 Same Offset Program for Circle
+.. centered:: Figura 9.5-14 Programma Cerchio Stesso Spostamento
 
-Switch the robot to the automatic mode, and start the program under the condition of ensuring safety. The actual motion trajectory of the robot passes through the circles of "P1", "P2" and "P3", where "P2" is the point where the original "P2" is offset by 10mm in the X direction, and "P3" is the point where the original "P3" is offset by 10mm in the X direction.
+Passare il robot in modalità automatica e, garantita la sicurezza, avviare il programma. Nella traiettoria di movimento effettiva del robot, il cerchio che passa per "P1", "P2" e "P3" avrà "P2" come il punto originale "P2" spostato di 10 mm lungo X, e "P3" come il punto originale "P3" spostato di 10 mm lungo X.
 
 .. image:: coding/054.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.5-15 Track with the same offset X10mm
+.. centered:: Figura 9.5-15 Traiettoria Stesso Spostamento X 10mm
 
-(2) Different offset
+2. Spostamento diverso
 
-Open the circle command adding page, select "Different Offsets" for Offset Type, and also select the starting point motion mode and starting point as "P1", and the middle point 1 of the full circle as "P2", and select "Base coordinate offset" for "Offset".
+Aprire la pagina di aggiunta istruzione cerchio, selezionare "Tipo di spostamento" come "Spostamento diverso", selezionare allo stesso modo il modo di movimento del punto iniziale e il punto iniziale come "P1", il punto intermedio 1 cerchio come punto "P2", "Spostamento abilitato" selezionato come "Spostamento sistema base".
 
 .. note:: 
-   Note: you can select "Tool coordinate offset" according to the actual work situation.
+   È possibile scegliere "Spostamento sistema utensile" in base alla situazione lavorativa effettiva.
 
-Enter the offset dy as 10mm.
+Inserire lo spostamento dy di 10 mm.
 
 .. image:: coding/055.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-16 Different offsets
+.. centered:: Figura 9.5-16 Spostamento Diverso
 
-Select P3 for the middle point 2 of the circle, and select Base Coordinate Offset for Offset
+Selezionare il punto intermedio cerchio come "P3", "Spostamento abilitato" selezionato come "Spostamento sistema base".
 
-.. note:: 
-   Note: you can select Tool Coordinate Offset according to the actual work situation.
+.. note:: È possibile scegliere "Spostamento sistema utensile" in base alla situazione lavorativa effettiva.
 
-Enter the offset dx as 10mm, and then click the Add button and the Apply button at the bottom of the page.
+Inserire lo spostamento dx di 10 mm, fare clic successivamente sui pulsanti "Aggiungi" e "Applica" in fondo alla pagina.
 
 .. image:: coding/056.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-17 Offset of middle point 2 is set with different offsets
+.. centered:: Figura 9.5-17 Impostare Spostamento Punto Intermedio 2 Spostamento Diverso
 
-At this time, an command that the middle point "P2" of the circle is shifted by 10mm along the Y direction of the base coordinate system and "P3" is shifted by 10mm along the X axis direction of the base coordinate system has been added to the "testCircle.lua" program; Of course, a linear motion command needs to be added before the circle motion command to make the robot move to the starting point of the circle.
+A questo punto, un'istruzione cerchio con punto iniziale "P1", punto intermedio "P2" spostato di 10 mm lungo la direzione Y del sistema di coordinate della base e "P3" spostato di 10 mm lungo la direzione X del sistema di coordinate della base è stata aggiunta al programma "testCircle.lua".
 
 .. image:: coding/057.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-18 Program for Two Different Offset Points of Circle
+.. centered:: Figura 9.5-18 Programma Cerchio Due Punti Spostamento Diverso
 
-Switch the robot to the automatic mode, and start the program under the condition of ensuring safety. The actual motion trajectory of the robot passes through the circles of "P1", "P2" and "P3", where "P2" is the point where the original "P2" is offset by 10mm in the Y direction, and "P3" is the point where the original P3 is offset by 10mm in the X direction.
+Passare il robot in modalità automatica e, garantita la sicurezza, avviare il programma. Nella traiettoria di movimento effettiva del robot, il cerchio che passa per "P1", "P2'" e "P3'" avrà "P2'" come il punto originale "P2" spostato di 10 mm lungo Y, e "P3'" come il punto originale "P3" spostato di 10 mm lungo X.
 
 .. image:: coding/058.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.5-19 Two trajectory points of the circle are offset from the trajectory respectively
+.. centered:: Figura 9.5-19 Traiettoria Due Punti Traiettoria Cerchio Spostati Separatamente
 
-Spiral command
-++++++++++++++++
+Comando Spirale (SPIRAL)
+++++++++++++++++++++++++++++++++++++++++
 
-Click the "Spiral" icon to enter the Spiral command editing interface.
+Fare clic sull'icona "Spirale" per accedere all'interfaccia di modifica del comando Spiral.
 
-The "Spiral" command is a spiral motion, which includes three points, which form a circle. On the third point setting page, there are several parameters including the number of spiral turns, attitude correction angle, radius increment and rotation axis direction increment. Setting, the number of helix circles is the number of motion circles of the helix, the attitude correction angle is the attitude at the end of the helix and the attitude of the first point of the helix, the radius increment is the increment of the radius of each circle, and the direction of the rotation axis is increased. The amount is the increment in the direction of the screw axis. set up
-Whether to offset, the offset takes effect on the trajectory of the entire helix.
+L'istruzione "Spiral" è un movimento a spirale, composto da tre punti che formano un cerchio. Nella pagina di impostazione del terzo punto, sono inclusi i parametri: numero di giri, angolo di correzione dell'orientamento, incremento del raggio e incremento della direzione dell'asse di rotazione. Il numero di giri indica il numero di giri della spirale. L'angolo di correzione dell'orientamento corregge l'orientamento alla fine della spirale rispetto all'orientamento del primo punto della spirale. L'incremento del raggio è l'incremento del raggio per ogni giro. L'incremento della direzione dell'asse di rotazione è l'incremento nella direzione dell'asse della spirale. L'impostazione dello spostamento si applica all'intera traiettoria della spirale.
 
 .. image:: coding/059.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-20 Spiral command interface
+.. centered:: Figura 9.5-20 Interfaccia Istruzione Spiral
 
-N-Spiral command
-++++++++++++++++
+Comando Nuova Spirale (N-SPIRAL)
+++++++++++++++++++++++++++++++++++++++++
 
-Click the "N-Spiral" icon to enter the N-Spiral command editing interface.
+Fare clic sull'icona "Nuova Spirale" per accedere all'interfaccia di modifica del comando N-Spiral.
 
-The "N-Spiral" command is an optimized version of the spiral motion. This command only needs one point plus the configuration of various parameters to realize the spiral motion. The robot takes the current position as the starting point, and the user sets the debugging speed, whether to offset, the number of spiral turns, the spiral inclination, the initial radius, the radius increment, the rotation axis direction increment and the rotation direction. The number of spiral turns is the helix. The number of motion circles, the helix inclination is the angle between the Z axis of the tool and the horizontal direction, the attitude correction angle is the attitude at the end of the helix and the attitude of the first point of the helix, the initial radius is the radius of the first circle, and the radius increment That is, the increment of the radius of each circle, the increment in the direction of the rotation axis is the increment in the direction of the screw axis, and the direction of rotation is clockwise and counterclockwise.
+L'istruzione "N-Spiral" è un movimento a spirale versione ottimizzata. Questa istruzione richiede solo un punto più la configurazione di vari parametri per realizzare il movimento a spirale. Il robot utilizza la posizione corrente come punto di partenza. L'utente imposta la velocità di debug, lo spostamento abilitato, il numero di giri della spirale, l'angolo di inclinazione della spirale, il raggio iniziale, l'incremento del raggio, l'incremento della direzione dell'asse di rotazione e la direzione di rotazione. Il numero di giri indica il numero di giri della spirale. L'angolo di inclinazione della spirale è l'angolo tra l'asse Z dell'utensile e la direzione orizzontale. L'angolo di correzione dell'orientamento corregge l'orientamento alla fine della spirale rispetto all'orientamento del primo punto della spirale. Il raggio iniziale è la dimensione del raggio del primo giro. L'incremento del raggio è l'incremento del raggio per ogni giro. L'incremento della direzione dell'asse di rotazione è l'incremento nella direzione dell'asse della spirale. La direzione di rotazione può essere oraria o antioraria.
 
 .. image:: coding/060.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-21 N-Spiral command interface
+.. centered:: Figura 9.5-21 Interfaccia Istruzione N-Spiral
 
-Uniform Speed Per Helix Circle Setting Function
-*****************************************************
+Funzione Impostazione Velocità Costante per Ogni Giro della Spirale
+*********************************************************************************************
 
-Overview
+Panoramica
 """"""""""""""
-When using the helical motion command, the operating speed of the helical motion can be set, ensuring the speed of each circle maintains the set operating speed.
+Quando si utilizza l'istruzione di movimento a spirale, è possibile impostare la velocità di esecuzione del movimento a spirale, in modo che ogni giro mantenga la velocità di esecuzione impostata.
 
-Operation Process
+Procedura Operativa
 """"""""""""""""""""""""""""
-**Step1**: Select the teaching point that executes the helical motion. This manual uses "P0" as the name of the teaching point.
+**Passo 1**: Selezionare il punto di insegnamento per eseguire il movimento a spirale. Questo manuale utilizza "P0" come nome del punto di insegnamento.
 
-**Step2**: Click the "Teach Program" -> "Program Programming" button, select the "New Helix" command. In the "Speed Mode", select "Physical Speed", and set the speed value and acceleration value. This speed value is the actual operating speed of the helix. Set parameters such as "Number of Helix Circles", "Helix Inclination Angle", "Initial Radius", "Radius Increment", "Rotation Axis Direction Increment", and "Rotation Direction" according to actual needs, as shown in Figure 2-1.
+**Passo 2**: Fare clic su "Programma di Insegnamento" -> pulsante "Programmazione", selezionare l'istruzione "Nuova Spirale", in "Modalità Velocità" selezionare "Velocità Fisica", e impostare il valore di velocità e il valore di accelerazione. Questo valore di velocità è la velocità di esecuzione effettiva della spirale. Impostare i parametri "Numero giri spirale", "Angolo inclinazione spirale", "Raggio iniziale", "Incremento raggio", "Incremento direzione asse rotazione" e "Direzione rotazione" secondo necessità, come mostrato in Figura 2-1.
 
 .. image:: coding/492.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-21-1 New Helix Parameter Settings
+.. centered:: Figura 9.5-21-1 Impostazione Parametri Nuova Spirale
 
-**Step3**: Add the motion command, generate the Lua program and run it to achieve the helical motion function at the set speed, as shown in Figure 2-2.
+**Passo 3**: Aggiungere l'istruzione di movimento, generare il programma Lua ed eseguirlo per realizzare la funzione di esecuzione della spirale alla velocità impostata, come mostrato in Figura 2-2.
 
 .. image:: coding/493.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-21-2 Typical Program for Running Helix at Set Speed
+.. centered:: Figura 9.5-21-2 Programma Tipico per Eseguire Spirale a Velocità Impostata
 
-H-Spiral command
-+++++++++++++++++++
+Comando Spirale Orizzontale (H-SPIRAL)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "H-Spiral" icon to enter the H-Spiral command editing interface.
+Fare clic sull'icona "Spirale Orizzontale" per accedere all'interfaccia di modifica del comando H-Spiral.
 
-The "H-Spiral" command is a horizontal space spiral motion. This command is set after the single-segment motion (straight line) command. 
+L'istruzione "H-Spiral" è un movimento a spirale nello spazio orizzontale. Questa istruzione viene impostata dopo un'istruzione di movimento singolo (linea).
 
-   - Spiral radius: 0~100mm
-   - Helix angular speed: 0~2rev/s
-   - Direction of rotation: spiral clockwise/counterclockwise
-   - Helix inclination angle: 0~40°
+   - Raggio spirale: 0~100 mm
+   - Velocità angolare spirale: 0~2 giri/s
+   - Direzione rotazione: spirale oraria/antioraria
+   - Angolo inclinazione spirale: 0~40°
 
 .. image:: coding/061.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-22 H-Spiral command interface
+.. centered:: Figura 9.5-22 Interfaccia Istruzione H-Spiral
 
-Spline command
-++++++++++++++++
+Comando Spline
+++++++++++++++++++++++++++
 
-Click the "Spline" icon to enter the Spline command editing interface.
+Fare clic sull'icona "Spline" per accedere all'interfaccia di modifica del comando Spline.
 
-The command is divided into three parts: the start of the spline group, the spline segment and the end of the spline group. The start of the spline group is the start mark of the spline movement. The spline segment includes SPL, SLIN and SCIRC segments. Click the corresponding icon to enter the command Add interface, the end of spline group is the end sign of spline movement.
+Questa istruzione è divisa in tre parti: inizio gruppo spline, segmento spline e fine gruppo spline. L'inizio gruppo spline è il segnale di inizio del movimento spline. Il segmento spline include segmenti SPL, SLIN e SCIRC. Fare clic sull'icona corrispondente per accedere all'interfaccia di aggiunta istruzioni. La fine gruppo spline è il segnale di fine del movimento spline.
 
 .. image:: coding/062.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-23 Spline command interface
+.. centered:: Figura 9.5-23 Interfaccia Istruzione Spline
 
-N-Spline command
-+++++++++++++++++++
+Comando Nuova Spline (N-SPLINE)
+++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "N-Spline" icon to enter the N-Spline command editing interface.
+Fare clic sull'icona "Nuova Spline" per accedere all'interfaccia di modifica del comando N-Spline.
 
-This instruction is an optimization instruction for the Spline instruction algorithm, and will replace the existing Spline instruction in the future. 
+Questa istruzione è una versione ottimizzata dell'algoritmo dell'istruzione Spline e sostituirà in futuro l'attuale istruzione Spline.
 
-This instruction is divided into three parts: the start of the multi-point trajectory, the segment of the multi-point trajectory and the end of the multi-point trajectory. The start mark, the multi-point track segment is to set each track point.
+Questa istruzione è divisa in tre parti: inizio traiettoria multi-punto, segmento traiettoria multi-punto e fine traiettoria multi-punto. L'inizio traiettoria multi-punto è il segnale di inizio del movimento a traiettoria multi-punto. Il segmento traiettoria multi-punto consiste nell'impostare i vari punti della traiettoria.
 
-Click the icon to enter the point adding interface, the end of the multi-point track is the end mark of the multi-point track movement, here you can set the control mode and debugging speed.
+Fare clic sull'icona per accedere all'interfaccia di aggiunta punti. La fine traiettoria multi-punto è il segnale di fine del movimento a traiettoria multi-punto. Qui è possibile impostare la modalità di controllo e la velocità di debug.
 
-- Control mode: arc transition point/given path point
-- Global average connection time: integer, greater than 10, default value is 2000
+- Modalità controllo: punto transizione arco / punto percorso dato
+- Tempo medio transizione globale: intero, maggiore di 10, valore predefinito 2000
 
 .. image:: coding/063.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-24 N-Spline command interface
+.. centered:: Figura 9.5-24 Interfaccia Istruzione N-Spline
 
-Weave command
-++++++++++++++++
+Comando Oscillazione (WEAVE)
+++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Weave" icon to enter the Weave command editing interface. The "Weave" command consists of two parts.
+Fare clic sull'icona "Oscillazione" per accedere all'interfaccia di modifica del comando Weave. L'istruzione "Weave" include due parti:
 
-- Select the weaving number with configured parameters, click "Start Weaving" and "Stop Weaving" and apply to add related commands to the program.
+- Selezionare il numero di oscillazione con i parametri configurati, fare clic su "Inizia oscillazione saldatura" e "Ferma oscillazione saldatura" e applicare per aggiungere le relative istruzioni al programma.
 
 .. image:: coding/064.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-25 Weave command interface
+.. centered:: Figura 9.5-25 Interfaccia Istruzione Weave
 
-- Click "Configuration and Test" to select the weaving type according to the usage scenario and configure the weaving parameters. After the configuration is completed, the weaving trajectory can be tested by pressing the start weaving test and stop weaving test buttons. The current swing types are:
+- Fare clic su "Configura e Testa", è possibile selezionare il tipo di oscillazione in base allo scenario d'uso, configurare i parametri dell'oscillazione saldatura. Dopo aver completato la configurazione, è possibile testare la traiettoria di oscillazione tramite i pulsanti inizia test oscillazione saldatura e ferma test oscillazione saldatura. Attualmente i tipi di oscillazione sono:
 
-   - Triangular wave swing (LIN/ARC)
-   - Vertical L-shaped triangular wave swing (LIN/ARC)
-   - Circular Oscillation - Clockwise (LIN)
-   - Circular Oscillation - Counterclockwise (LIN)
-   - Sine wave swing (LIN/ARC)
-   - Vertical L-shaped sine wave swing (LIN/ARC)
-   - Vertical welding triangle swing
+   - Oscillazione onda triangolare (LIN/ARC)
+   - Oscillazione onda triangolare L verticale (LIN/ARC)
+   - Oscillazione circolare - oraria (LIN)
+   - Oscillazione circolare - antioraria (LIN)
+   - Oscillazione onda sinusoidale (LIN/ARC)
+   - Oscillazione onda sinusoidale L verticale (LIN/ARC)
+   - Oscillazione triangolare saldatura verticale
 
 .. image:: coding/065.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-26 Weave configuration and testing command interface
+.. centered:: Figura 9.5-26 Interfaccia Istruzione Configura e Testa Weave
 
-Slope serration weave function
-**********************************
+Funzione Oscillazione a Zigzag Inclinato
+***************************************************
 
-This function allows the end of the robot tool to generate slope serration weave trajectory in Cartesian space. The weave is superimposed on the linear trajectory, and the azimuth parameter (unit deg) defines the azimuth angle of the swing welding on the specified welding plane; 
+L'uso della funzione di oscillazione a zigzag inclinato consente all'estremità dell'utensile del robot di formare una traiettoria di oscillazione a zigzag inclinata nello spazio cartesiano. L'oscillazione a zigzag inclinato si sovrappone alla pianificazione lineare. La quantità di inclinazione è controllata dal parametro angolo azimutale. L'inclinazione dell'angolo azimutale sul piano di oscillazione specificato (unità deg);
 
-When the value is positive, the left endpoint is skewed in the forward direction, and when it is negative, the right endpoint is skewed in the forward direction; If it is 90deg or -90deg, it can weave in the forward direction.
+Quando il valore è positivo, l'estremità sinistra si inclina nella direzione di avanzamento; quando è negativo, l'estremità destra si inclina nella direzione di avanzamento; se è 90 deg o -90 deg, è possibile oscillare lungo la direzione di avanzamento.
 
 .. image:: coding/066.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.5-26-1 Swing azimuth effect
+.. centered:: Figura 9.5-26-1 Effetto Angolo Azimutale Oscillazione
 
-**Step1**:Edit to set up basic linear motion.
+**Passo 1**: Impostare il movimento lineare di base.
 
 .. image:: coding/067.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.5-26-2 Example of a basic linear motion LUA program
+.. centered:: Figura 9.5-26-2 Esempio Programma Lua Movimento Lineare Base
 
-**Step2**:Add weave command in motion command block.
+**Passo 2**: Fare clic per aggiungere l'istruzione di oscillazione.
 
 .. image:: coding/068.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.5-26-3 Add weave command
+.. centered:: Figura 9.5-26-3 Fare clic per Aggiungere Istruzione Oscillazione
 
-**Step3**:Click the "Configure" button, select "Triangular wave swing" or "Sine wave swing" from the drop-down box, imput desired azimuth angle in "Swing direction azimuth" box and click "Apply".
+**Passo 3**: Nella pagina di configurazione parametri istruzione oscillazione, fare clic sul pulsante "Configura", nel menu a tendina "Tipo oscillazione" selezionare "Oscillazione onda triangolare" o "Oscillazione onda sinusoidale", inserire il corrispondente "Angolo azimutale direzione oscillazione", fare clic su "Applica".
 
 .. image:: coding/069.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-26-4 Weave parameter configuration
+.. centered:: Figura 9.5-26-4 Configurazione Parametri Oscillazione
 
-**Step4**:Click the "Start Swing" button to add the swing command above the linear motion; Click the "Stop Swing" button to add the swing command below the linear motion.
+**Passo 4**: Fare clic sul pulsante "Inizia oscillazione" per aggiungere l'istruzione di oscillazione sopra il movimento lineare; fare clic sul pulsante "Ferma oscillazione" per aggiungere l'istruzione di oscillazione sotto il movimento lineare.
 
 .. image:: coding/070.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.5-26-5 Add the lua program after the swing command
+.. centered:: Figura 9.5-26-5 Programma Lua dopo Aggiunta Istruzione Oscillazione
 
-**Step5**:Click "Start Running"buttom, and the end trajectory of the robot is shown in the figure.
+**Passo 5**: Fare clic su "Inizia esecuzione", la traiettoria dell'estremità del robot è mostrata in figura.
 
 .. image:: coding/071.png
    :width: 3in
@@ -965,750 +965,747 @@ When the value is positive, the left endpoint is skewed in the forward direction
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.5-26-6 Zigzag weave (left) slope serration weave (right)
+.. centered:: Figura 9.5-26-6 Oscillazione a Zigzag (sinistra) Oscillazione a Zigzag Inclinato (destra)
 
-TPD command
-++++++++++++++++
+Comando Riproduzione Traiettoria (TPD)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "TPD" button to enter the TPD command editing interface.
+Fare clic sul pulsante "Riproduzione Traiettoria" per accedere all'interfaccia di modifica del comando TPD.
 
-In this command, the user first needs to have a recorded track.
+In questa istruzione, l'utente deve prima avere una traiettoria registrata.
 
-About track recording: Before preparing to record the track, first save the starting point of the track. When the robot is in the dragging mode, input the file name, select the period (assuming the value is x, that is, record a point every x milliseconds, it is recommended to record a point every 4 milliseconds), the point starts recording, and the user can drag the robot to specify Movement, after the recording is completed, click to stop recording, and the previous movement track of the robot can be saved. When a movement cannot be fully recorded, a
-A reminder that the number of recording points exceeds the limit is displayed, and the user needs to record the exercise in several times.
+Sulla registrazione traiettoria: Prima di iniziare a registrare la traiettoria, salvare prima il punto di partenza della traiettoria. Con il robot in modalità trascinamento, inserire il nome del file, selezionare il periodo (supponendo un valore x, cioè registrare un punto ogni x millisecondi, si consiglia di registrare un punto ogni 4 millisecondi), fare clic su inizia registrazione. L'utente può trascinare il robot per eseguire il movimento desiderato secondo necessità. Al termine della registrazione, fare clic su ferma registrazione per salvare la traiettoria di movimento del robot precedente. Se un movimento non può essere completamente registrato, verrà visualizzato un messaggio che indica il superamento del limite di punti di registrazione. L'utente dovrà dividere il movimento in più sessioni di registrazione.
 
-When programming, first use the PTP instruction to reach the starting point of the corresponding trajectory, then select the trajectory in the TPD trajectory reproduction instruction, select whether it is smooth, set the debugging speed, and click "Add" and "Apply" in sequence to insert the program. The trajectory loading command is mainly used to pre-read the trajectory file and extract it into a trajectory command, which is better applied to the conveyor belt tracking scene.
+Durante la programmazione, prima utilizzare un'istruzione PTP per raggiungere il punto iniziale della traiettoria corrispondente, poi nell'istruzione TPD riproduzione traiettoria selezionare la traiettoria, selezionare se applicare smooth, impostare la velocità di debug, fare clic successivamente su "Aggiungi", "Applica" per inserire il programma. L'istruzione di caricamento traiettoria è principalmente utilizzata per leggere in anticipo il file di traiettoria, estrarlo in istruzioni di traiettoria, applicandosi meglio agli scenari di inseguimento del nastro trasportatore.
 
 .. note:: 
-   For the detailed operation of TPD, please refer to the teaching programming (TPD) function operation instruction module.
+   Per le operazioni dettagliate su TPD, fare riferimento al modulo di spiegazione operativa della funzione di programmazione di insegnamento (TPD).
 
 .. image:: coding/073.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-27 TPD command interface
+.. centered:: Figura 9.5-27 Interfaccia Istruzione TPD
 
-Offset command
-++++++++++++++++
+Comando Spostamento Punto (OFFSET)
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Offset" icon to enter the Offset command editing interface.
+Fare clic sull'icona "Spostamento Punto" per accedere all'interfaccia di modifica del comando Offset.
 
-This command is an overall offset command. Input each offset, add the opening command and closing command to the program, and the motion command between the start and close will be offset based on the base coordinates (or workpiece coordinates).
+Questa istruzione è un'istruzione di spostamento globale. Inserendo i vari spostamenti e aggiungendo le istruzioni di attivazione e disattivazione al programma, i movimenti tra l'inizio e la fine verranno spostati in base al sistema di coordinate della base (o del pezzo).
 
 .. image:: coding/074.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-28 Offset command interface
+.. centered:: Figura 9.5-28 Interfaccia Istruzione Offset
 
-ServoCart command
-++++++++++++++++++++
+Comando Servo (SERVOCART)
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "ServoC" icon to enter the ServoCart command editing interface.
+Fare clic sull'icona "Servo" per accedere all'interfaccia di modifica del comando ServoCart.
 
-ServoCart servo control (Cartesian space motion) command, which can control the robot motion through absolute pose control or based on the current pose offset.
+L'istruzione ServoCart controllo servo (movimento spazio cartesiano) consente di controllare il movimento del robot attraverso il controllo della posizione/orientamento assoluta o lo spostamento basato sulla posizione/orientamento corrente.
 
 .. image:: coding/075.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-29 ServoCart command interface
+.. centered:: Figura 9.5-29 Interfaccia Istruzione ServoCart
 
-Absolute pose control program example:
+Esempio programma controllo posizione/orientamento assoluta:
 
 .. image:: coding/076.png
    :width: 6in
    :align: center
 
-In this example, x, y, z, rx, ry, rz (Cartesian position) are the current position of the robot. In addition, the user can control the movement of the robot by reading the trajectory data file and sending the trajectory data through socket communication.
+In questo esempio, x, y, z, rx, ry, rz (posizione cartesiana) sono ottenuti dalla posizione corrente del robot. Inoltre, l'utente può controllare il movimento del robot leggendo file di dati di traiettoria, inviando dati di traiettoria tramite comunicazione socket, ecc.
 
-Example of control program based on current pose offset (base coordinate offset):
+Esempio programma controllo spostamento basato sulla posizione/orientamento corrente (spostamento sistema base):
 
 .. image:: coding/077.png
    :width: 6in
    :align: center
 
-Trajctory command
-+++++++++++++++++++
+Comando Traiettoria (TRAJECTORY)
+++++++++++++++++++++++++++++++++++++++
 
-Click the "Trajctory" icon to enter the Trajctory command editing interface.
+Fare clic sull'icona "Traiettoria" per accedere all'interfaccia di modifica del comando Trajectory.
 
 .. image:: coding/078.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-30 Trajctory command interface
+.. centered:: Figura 9.5-30 Interfaccia Istruzione Trajectory
 
-TrajctoryJ command
-++++++++++++++++++++
+Comando TraiettoriaJ
+++++++++++++++++++++++++++++++++
 
-Click the "TrajctoryJ" icon to enter the TrajctoryJ command editing interface.
+Clicca sull'icona "TraiettoriaJ" per accedere all'interfaccia di modifica dei comandi TrajectoryJ.
 
-1. Trajectory file import function: select a local computer file to import to the robot control system.
+Le istruzioni Trajectory e TrajectoryJ sono interfacce universali che consentono alla fotocamera di fornire direttamente le traiettorie, soddisfacendo l'esigenza di importare nel sistema file di punti traiettoria discreti con formato fisso esistente, permettendo al robot di muoversi secondo la traiettoria del file importato.
 
-2. Track preloading: select the imported track file and load it by command.
-
-3. Trajectory movement: Send the robot movement through the combination command of the preloaded trajectory file and the selected debugging speed.
-
-4. Print the track point number: print the track point number during the robot running track, so as to check the progress of the current movement.
+1. Funzione di importazione file traiettoria: Seleziona file dal computer locale per importarli nel sistema di controllo del robot.
+2. Precaricamento traiettoria: Carica le istruzioni selezionando file di traiettoria già importati.
+3. Movimento traiettoria: Combina le istruzioni con la velocità di debug selezionata utilizzando il file di traiettoria precaricato per far muovere il robot.
+4. Stampa numero punto traiettoria: Durante l'esecuzione della traiettoria da parte del robot, stampa il numero del punto traiettoria per visualizzare lo stato di avanzamento del movimento corrente.
 
 .. image:: coding/079.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-31 TrajctoryJ command interface
+.. centered:: Grafico 9.5-31 Interfaccia istruzione TrajectoryJ
 
-DMP command
+Comando DMP
 ++++++++++++++++
 
-Click the "DMP" icon to enter the DMP command editing interface.
+Clicca sull'icona "DMP" per accedere all'interfaccia di modifica dei comandi DMP.
 
-DMP is a trajectory imitation learning method that requires prior planning of reference trajectories. In the command editing interface. , select the teaching point as the new starting point, click "Add" and "Apply" to save the command. The DMP specific path is a new trajectory that mimics the reference trajectory with a new starting point.
+DMP è un metodo di apprendimento per imitazione di traiettorie che richiede una traiettoria di riferimento pre-programmata. Nell'interfaccia di modifica comandi, seleziona il punto di insegnamento come nuovo punto di partenza, clicca su "Aggiungi", "Applica" per salvare l'istruzione. Il percorso DMP specifico è la nuova traiettoria che imita la traiettoria di riferimento dal nuovo punto di partenza.
 
 .. image:: coding/080.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-32 DMP command interface
+.. centered:: Grafico 9.5-32 Interfaccia istruzione DMP
 
-WPTrsf command
-++++++++++++++++
+Comando trasformazione pezzo
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "WPTrsf" icon to enter the WPTrsf command editing interface.
+Clicca sull'icona "Trasformazione pezzo" per accedere all'interfaccia di modifica comandi WPTrsf.
 
-Select the workpiece coordinate system to be automatically converted, and click "Add" and "Apply" to save the instruction. This instruction realizes automatic conversion of points in the workpiece coordinate system when executing internal PTP and LIN instructions. Use the example area to show and prompt the correct combination of instructions. After adding specific instructions, you can adjust the combination according to the actual scene.
+Seleziona il sistema di coordinate del pezzo da trasformare automaticamente, clicca su "Aggiungi", "Applica" per salvare l'istruzione. Questa istruzione realizza la conversione automatica dei punti nel sistema di coordinate del pezzo durante l'esecuzione delle istruzioni PTP e LIN interne. L'area di esempio mostra e suggerisce la combinazione corretta di utilizzo delle istruzioni; le istruzioni specifiche possono essere adattate in base allo scenario effettivo dopo l'aggiunta.
 
 .. image:: coding/081.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-33 WPTrsf command interface
+.. centered:: Grafico 9.5-33 Interfaccia istruzione WPTrsf
 
-Tool conversion command
-++++++++++++++++++++++++++++++
+Comando trasformazione utensile
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Tool conversion" icon to enter the ToolTrsf command editing interface.
+Clicca sull'icona "Trasformazione utensile" per accedere all'interfaccia di modifica comandi ToolTrsf.
 
-After adding PTP and Lin instructions, select the tool coordinate system to be automatically converted, click "Add" and "Apply" to save the instruction, and the Cartesian coordinates of the points in the instruction will be automatically converted according to the currently set workpiece coordinate system.
+Dopo aver aggiunto le istruzioni PTP e LIN, seleziona il sistema di coordinate dell'utensile da trasformare automaticamente, clicca su "Aggiungi", "Applica" per salvare l'istruzione. Le coordinate cartesiane dei punti nell'istruzione vengono convertite automaticamente in base al sistema di coordinate del pezzo attualmente impostato.
 
-.. note:: The usage example area shows and prompts the correct combination of instructions. After adding specific instructions, you can adjust the combination according to the actual scenario.
+.. note:: L'area di esempio mostra e suggerisce la combinazione corretta di utilizzo delle istruzioni; le istruzioni specifiche possono essere adattate in base allo scenario effettivo dopo l'aggiunta.
 
 .. image:: coding/276.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.5-34 ToolTrsf command interface
+.. centered:: Grafico 9.5-34 Interfaccia istruzione ToolTrsf
 
-Control command interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni di controllo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/082.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6 Control command interface
+.. centered:: Grafico 9.6 Interfaccia istruzioni di controllo
 
-IO command
-++++++++++++++++
+Comando I/O digitale
+++++++++++++++++++++++++++++++
 
-Click the "IO" icon to enter the IO command editing interface.
+Clicca sull'icona "I/O digitale" per accedere all'interfaccia di modifica comandi IO.
 
-The "IO" command is divided into two parts: setting IO (SetDO/SPLCSetDO) and getting IO (GetDI/SPLCGetDI).
+Le istruzioni "IO" sono divise in due parti: impostazione IO (SetDO/SPLCSetDO) e acquisizione IO (GetDI/SPLCGetDI).
 
-"SetDO/SPLCSetDO" This command can set the specified output DO state, including 16 digital outputs of the control box and 2 digital outputs of the tool. The state option "False" is closed, "True" is open, and whether to block the option selects "blocked". "Indicates that the DO state is set after the movement stops, and selecting the "non-blocking" option means that the DO state is set during the last movement. Selecting "Break" for the smooth trajectory option means setting the DO state after the smooth transition radius ends, and selecting "Serious" means setting the DO state during the smooth transition radius movement. When this instruction is added in the auxiliary thread, whether the application thread needs to select yes, and other places use this instruction to select no. Click "Add", "Apply".
+"SetDO/SPLCSetDO": Questa istruzione può impostare lo stato dell'output DO specificato, inclusi 16 output digitali della scatola di controllo e 2 output digitali dell'utensile. L'opzione di stato "False" significa chiuso, "True" significa aperto. L'opzione di blocco "Bloccante" indica che lo stato DO viene impostato dopo l'arresto del movimento, mentre "Non bloccante" indica che lo stato DO viene impostato durante il movimento precedente. L'opzione traiettoria liscia "Break" indica che lo stato DO viene impostato dopo il completamento del raggio di transizione liscio, "Serious" indica che lo stato DO viene impostato durante il movimento del raggio di transizione liscio. Quando questa istruzione viene aggiunta in un thread ausiliario, "Applica thread" deve essere impostato su Sì, altrimenti su No in altri contesti. Clicca su "Aggiungi", "Applica".
 
 .. image:: coding/083.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-1 SetDO command interface
+.. centered:: Grafico 9.6-1 Interfaccia istruzione SetDO
 
-In the "GetDI/SPLCGetDI" command, select the value of the port number you want to get, whether to block or not, select "block" to get the DI status after the movement stops, and select the "non-blocking" option to get the DI state during the last movement. When this instruction is added in the auxiliary thread, whether the application thread needs to select yes, and other places use this instruction to select no. After selection, click the "Add" and "Apply" buttons.
+Nell'istruzione "GetDI/SPLCGetDI", seleziona il valore numerico della porta che desideri acquisire. L'opzione di blocco "Bloccante" indica che lo stato DI viene acquisito dopo l'arresto del movimento, mentre "Non bloccante" indica che lo stato DI viene acquisito durante il movimento precedente. Quando questa istruzione viene aggiunta in un thread ausiliario, "Applica thread" deve essere impostato su Sì, altrimenti su No in altri contesti. Dopo la selezione, clicca su "Aggiungi", "Applica".
 
 .. image:: coding/084.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-2 GetDI command interface
+.. centered:: Grafico 9.6-2 Interfaccia istruzione GetDI
 
-AI command
-++++++++++++++++
+Comando AI analogico
+++++++++++++++++++++++++++++++
 
-Click the "AI" icon to enter the AI command editing interface.
+Clicca sull'icona "AI analogico" per accedere all'interfaccia di modifica comandi AI.
 
-In this instruction, it is divided into two functions: setting analog output (SetAO/SPLCSetAO) and obtaining analog input (GetAI/SPLCGetAI).
+Questa istruzione include due funzioni: impostazione output analogico (SetAO/SPLCSetAO) e acquisizione input analogico (GetAI/SPLCGetAI).
 
-"SetAO/SPLCSetAO" select the analog output that needs to be set, input the value that needs to be set, the range is 0-10, whether to block or not select "block" means to set the AO state after the movement stops, select "non-block" means to set the AO state after the last movement Set the AO state in the process. When this instruction is added in the auxiliary thread, whether the application thread needs to select yes, and other places use this instruction to select no. Click "Add", "Apply".
+"SetAO/SPLCSetAO": Seleziona l'output analogico da impostare, inserisci il valore da impostare (range 0-10). L'opzione di blocco "Bloccante" indica che lo stato AO viene impostato dopo l'arresto del movimento, mentre "Non bloccante" indica che lo stato AO viene impostato durante il movimento precedente. Quando questa istruzione viene aggiunta in un thread ausiliario, "Applica thread" deve essere impostato su Sì, altrimenti su No in altri contesti. Clicca su "Aggiungi", "Applica".
 
 .. image:: coding/085.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-3 SetAO command interface
+.. centered:: Grafico 9.6-3 Interfaccia istruzione SetAO
 
-"GetAI/SPLCGetAI" selects the analog input that needs to be obtained, whether to block or not selects "blocked" to obtain the AI state after the movement stops, and selects the "non-blocked" option to obtain the AI state during the last movement. When this instruction is added in the auxiliary thread, whether the application thread needs to select yes, and other places use this instruction to select no. Click "Add", "Apply".
+"GetAI/SPLCGetAI": Seleziona l'input analogico da acquisire. L'opzione di blocco "Bloccante" indica che lo stato AI viene acquisito dopo l'arresto del movimento, mentre "Non bloccante" indica che lo stato AI viene acquisito durante il movimento precedente. Quando questa istruzione viene aggiunta in un thread ausiliario, "Applica thread" deve essere impostato su Sì, altrimenti su No in altri contesti. Clicca su "Aggiungi", "Applica".
 
 .. image:: coding/086.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-4 GetAI command interface
+.. centered:: Grafico 9.6-4 Interfaccia istruzione GetAI
 
-Vir-IO command
-++++++++++++++++
+Comando I/O virtuale
+++++++++++++++++++++++++++++++
 
-Click the "Vir-IO" icon to enter the Vir-IO command editing interface.
+Clicca sull'icona "I/O virtuale" per accedere all'interfaccia di modifica comandi Vir-IO.
 
-This command is a virtual IO control command, which can realize the setting of the simulated external DI and AI status, and obtain the simulated DI and AI status.
+Questa istruzione è un comando di controllo I/O virtuale che può impostare lo stato DI e AI esterni simulati e acquisire lo stato DI e AI simulati.
 
 .. image:: coding/087.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-5 Vir-IO command interface
+.. centered:: Grafico 9.6-5 Interfaccia istruzione Vir-IO
 
-Aux-IO command
-++++++++++++++++
+Comando I/O esteso
+++++++++++++++++++++++++++++++
 
-Click the "Aux-IO" icon to enter the Aux-IO command editing interface.
+Clicca sull'icona "I/O esteso" per accedere all'interfaccia di modifica comandi Aux-IO.
 
-Aux-IO is the instruction function for the robot to communicate with the PLC to control the external expansion IO. It is necessary for the robot to establish UDP communication with the PLC. On the basis of the original 16-channel input and output, 128-channel input and output can be expanded. The usage of this command is the same as that mentioned above. IO usage is similar. There are certain technical difficulties in using this function, please contact us for consultation beforehand.
+Aux-IO è una funzione di istruzione per il controllo di I/O estesi esterni attraverso la comunicazione tra robot e PLC, che richiede l'instaurazione di comunicazione UDP tra robot e PLC. Oltre ai 16 ingressi/uscite originali, è possibile estendere fino a 128 ingressi/uscite. L'uso di questa istruzione è simile a quello dell'I/O universale descritto in precedenza. L'uso di questa funzione presenta una certa difficoltà tecnica; contattateci per consulenza.
 
 .. image:: coding/088.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-6 Aux-IO command interface
+.. centered:: Grafico 9.6-6 Interfaccia istruzione Aux-IO
 
-MoveDO command
-++++++++++++++++
+Comando DO movimento
+++++++++++++++++++++++++++++++
 
-Click the "MoveDO" icon to enter the MoveDO command editing interface.
+Clicca sull'icona "DO movimento" per accedere all'interfaccia di modifica comandi MoveDO.
 
-This instruction is divided into continuous output mode and single output mode.
+Questa istruzione è divisa in modalità output continuo e modalità output singolo.
 
-- Continuous output mode: During linear motion, the DO signal function is continuously output according to the set interval.
+- Modalità output continuo: Implementa la funzione di output continuo di segnali DO durante il movimento lineare, in base all'intervallo impostato.
 
 .. image:: coding/089.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-7 MoveDO command continuous output interface
+.. centered:: Grafico 9.6-7 Interfaccia output continuo istruzione MoveDO
 
-- Single output mode: There are two options: constant speed segment output and free configuration. The setting time is output after the movement starts, and the reset time is output before the movement ends, ranging from [0, 1000].
+- Modalità output singolo: È possibile scegliere tra output a sezione di velocità costante e configurazione libera. Tempo di impostazione output dopo l'inizio del movimento, tempo di reset output prima della fine del movimento, range [0, 1000].
 
 .. image:: coding/090.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-8 MoveDO instruction single output interface
+.. centered:: Grafico 9.6-8 Interfaccia output singolo istruzione MoveDO
 
-MoveAO command
-++++++++++++++++
+Comando AO movimento
+++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "MoveAO" icon to enter the MoveAO command editing interface.
+Clicca sull'icona "AO movimento" per accedere all'interfaccia di modifica comandi MoveAO.
 
-1. Summary
+1. Panoramica
 
-When used in conjunction with motion commands, this instruction can output AO signals proportionally based on real-time TCP speed during the motion process.
+Questa istruzione, utilizzata insieme alle istruzioni di movimento, consente di emettere segnali AO proporzionalmente in base alla velocità TCP in tempo reale durante il movimento.
 
-2. Description of Motion AO Command
+2. Descrizione istruzione AO movimento
 
-The motion AO command is located in the teaching simulation program teaching command editing area, and the icon is Control Command-Motion AO.
+L'istruzione AO movimento si trova nell'area di modifica delle istruzioni di insegnamento simulato - programmi di insegnamento, con l'icona corrispondente al comando di controllo - AO movimento.
 
 .. image:: coding/091.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-9 Motion AO Instruction
+.. centered:: Grafico 9.6-9 Istruzione AO movimento
 
 .. image:: coding/092.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-10 Details of Motion AO Instructions
+.. centered:: Grafico 9.6-10 Dettaglio istruzione AO movimento
 
-- AO number: dropdown list selection, Ctrl-AO0 corresponds to control box AO0, Ctrl-AO1 corresponds to control box AO1, and End AO0 corresponds to end AO0.
-
-- Maximum TCP speed: The maximum TCP speed value of the robot; Function: Proportional to real-time TCP speed.
-
-- Maximum TCP speed AO percentage: The AO percentage corresponding to the maximum TCP speed value of the robot; Function: Set the upper limit value of AO output.
-
-- Dead zone compensation value AO percentage: When there is a dead zone in the proportional valve, this parameter can be set to ensure AO output; Function: Set the lower limit value of AO output.
+- Numero AO: Selezione a discesa, Ctrl-AO0 corrisponde ad AO0 della scatola di controllo, Ctrl-AO1 corrisponde ad AO1 della scatola di controllo, End-AO0 corrisponde ad AO0 terminale.
+  
+- Velocità TCP massima: Valore della velocità TCP massima del robot; Funzione: crea una proporzione con la velocità TCP in tempo reale.
+  
+- Percentuale AO velocità TCP massima: Percentuale AO corrispondente al valore di velocità TCP massima del robot; Funzione: imposta il valore superiore dell'output AO.
+  
+- Percentuale AO compensazione zona morta: Quando la valvola proporzionale presenta una zona morta, è possibile impostare questo parametro per garantire l'output AO; Funzione: imposta il valore inferiore dell'output AO.
 
 .. important:: 
-   Calculation formula:Output AO percentage=Real time TCP speed/Set maximum TCP speed * Set maximum TCP speed AO percentage.
+   Formula di calcolo: Percentuale output AO = velocità TCP in tempo reale / velocità TCP massima impostata * percentuale AO velocità TCP massima impostata.
 
-   The accompanying motion commands for this command are as follows:PTP/LIN/ARC/CIRCLE/SPLINE/NSPLINE/SERVOJ.
+   Le istruzioni di movimento compatibili con questa istruzione sono: PTP/LIN/ARC/CIRCLE/SPLINE/NSPLINE/SERVOJ.
 
-ToolList command
-+++++++++++++++++++
+Comando sistema di coordinate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "ToolList" icon to enter the ToolList command editing interface.
+Clicca sull'icona "Sistema di coordinate" per accedere all'interfaccia di modifica comandi ToolList.
 
-Select the tool coordinate system name and click "Apply" to add this command to the program. When the program runs this statement, the tool coordinate system of the robot will be set.
+Seleziona il nome del sistema di coordinate dell'utensile, clicca su "Applica" per aggiungere questa istruzione al programma. Quando il programma esegue questa istruzione, verrà impostato il sistema di coordinate dell'utensile del robot.
 
 .. image:: coding/093.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-11 ToolList command interface
+.. centered:: Grafico 9.6-11 Interfaccia istruzione ToolList
 
-Mode command
-++++++++++++++++
+Comando cambio modalità
+++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Mode" icon to enter the Mode command editing interface.
+Clicca sull'icona "Cambio modalità" per accedere all'interfaccia di modifica comandi Mode.
 
-This command can switch the robot to manual mode, and is usually added at the end of a program so that the user can automatically switch the robot to manual mode and drag the robot after the program runs.
+Questa istruzione può commutare il robot in modalità manuale, solitamente aggiunta alla fine di un programma, in modo che dopo il completamento dell'esecuzione del programma, il robot passi automaticamente in modalità manuale per essere trascinato.
 
 .. image:: coding/094.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-12 Mode command interface
+.. centered:: Grafico 9.6-12 Interfaccia istruzione Mode
 
-Collision command
-++++++++++++++++++++
+Comando livello collisione
+++++++++++++++++++++++++++++++
 
-Click the "Collision" icon to enter the Collision command editing interface.
+Clicca sull'icona "Livello collisione" per accedere all'interfaccia di modifica comandi Collision.
 
-This command is used to set the collision level. Through this command, the collision level of each axis can be adjusted in real time during program operation, and the application scenario can be deployed more flexibly.
+Questa istruzione imposta il livello di collisione, consentendo di regolare in tempo reale il livello di collisione di ciascun asse durante l'esecuzione del programma, per una distribuzione più flessibile degli scenari applicativi.
 
 .. image:: coding/095.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-13 Collision command interface
+.. centered:: Grafico 9.6-13 Interfaccia istruzione Collision
 
-Acc command
-++++++++++++++++
+Comando accelerazione
+++++++++++++++++++++++++++++++
 
-Click the "Acc" icon to enter the Acc command editing interface.
+Clicca sull'icona "Accelerazione" per accedere all'interfaccia di modifica comandi Acc.
 
-The Acc command is to realize the function that the acceleration of the robot can be set separately. By adjusting the acceleration scaling factor of the motion command, the acceleration and deceleration time can be increased or decreased, and the takt time of the robot action can be adjusted.
+L'istruzione Acc realizza la funzione di impostazione separata dell'accelerazione del robot. Regolando il fattore di scala dell'accelerazione dell'istruzione di movimento, è possibile aumentare o diminuire il tempo di accelerazione/decelerazione, consentendo la regolazione del tempo del ciclo di movimento del robot.
 
 .. image:: coding/096.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.6-14 Acc command interface
+.. centered:: Grafico 9.6-14 Interfaccia istruzione Acc
 
-Peripheral Command Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni periferiche
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/097.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.7 Peripheral Command Interface
+.. centered:: Grafico 9.7 Interfaccia istruzioni periferiche
 
-Gripper command
-++++++++++++++++++
+Comando pinza
+++++++++++++++++
 
-Click the "Gripper" icon to enter the Gripper command editing interface.
+Clicca sull'icona "Pinza" per accedere all'interfaccia di modifica comandi Gripper.
 
-In this command, it is divided into the gripper motion control command and the gripper activation/reset command. In the gripper control command, the number of the gripper that has been configured and activated is displayed. The user can edit through the edit box, or slide the slider to The required value is used to complete the setting of jaw opening and closing, opening and closing speed and opening and closing torque. Blocking means that the gripper moves in parallel with the previous movement command. Click the "Add" and "Apply" buttons to save the set value to the teaching file. The gripper reset/activation command displays the number of the grippers that have been configured, and the reset/activation command can be added to the program.
+In questa istruzione, sono incluse le istruzioni di controllo movimento pinza e le istruzioni di attivazione/reset pinza. Nelle istruzioni di controllo pinza, viene visualizzato il numero della pinza configurata e attivata. L'utente può impostare l'apertura/chiusura, la velocità di apertura/chiusura e la coppia di apertura/chiusura della pinza tramite la casella di modifica o il cursore, con valori in percentuale. L'opzione di blocco: selezionando "Bloccante" significa che il movimento della pinza aspetta il completamento dell'istruzione di movimento precedente; selezionando "Non bloccante" significa che il movimento della pinza è parallelo all'istruzione di movimento precedente. Cliccando su "Aggiungi", "Applica", i valori impostati vengono salvati nel file di insegnamento. Le istruzioni di reset/attivazione pinza mostrano i numeri delle pinze già configurate e consentono di aggiungere istruzioni di reset/attivazione al programma.
 
 .. image:: coding/098.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.7-1 Gripper command interface
+.. centered:: Grafico 9.7-1 Interfaccia istruzione Gripper
 
-Spray command
-++++++++++++++++
+Comando pistola a spruzzo
+++++++++++++++++++++++++++++++++
 
-Click the "Spray" icon to enter the Spray command editing interface.
+Clicca sull'icona "Pistola a spruzzo" per accedere all'interfaccia di modifica comandi Spray.
 
-This command is a spraying-related command, which controls the spray gun to "start spraying", "stop spraying", "start cleaning the gun" and "stop the light gun". When editing the program command, it is necessary to confirm that the peripherals of the spray gun have been configured. For details, see the chapter on peripherals of the robot.
+Questa istruzione riguarda i comandi relativi alla verniciatura, controllando la pistola a spruzzo per "Iniziare verniciatura", "Fermare verniciatura", "Iniziare pulizia pistola" e "Fermare pulizia pistola". Durante la modifica di questo comando di programma, assicurarsi che la pistola a spruzzo periferica sia configurata; fare riferimento al capitolo sulle periferiche del robot.
 
 .. image:: coding/099.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.7-2 Spray command interface
+.. centered:: Grafico 9.7-2 Interfaccia istruzione Spray
 
-EAxis command
-++++++++++++++++
+Comando asse esterno
+++++++++++++++++++++++++++++++++
 
-Click the "EAxis" icon to enter the EAxis command editing interface., Select the combination mode: 
+Clicca sull'icona "Asse esterno" per accedere all'interfaccia di modifica comandi EAxis. Seleziona la modalità combinata:
 
-- Controller + servo drive (485)
+- Controller + azionamento servo (485)
 - Controller + PLC (UDP)
 
-Select controller + PLC(UDP),this command is used in combination with the PTP command for scenarios using external axes, and can decompose the movement of a point in space in the X-axis direction to the movement of external axes. Select the external axis number, select synchronous motion mode, select the point to be reached, and click "Add" and "Apply" to save the command.
+Selezionando Controller + PLC (UDP), questa istruzione è per scenari che utilizzano assi esterni, combinata con l'istruzione PTP, può scomporre il movimento nella direzione X di un punto nello spazio nel movimento dell'asse esterno. Seleziona il numero dell'asse esterno, scegli la modalità movimento come sincrona, seleziona il punto da raggiungere, clicca su "Aggiungi", "Applica" per salvare questa istruzione.
 
 .. image:: coding/100.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.7-3 EAxis command interface
+.. centered:: Grafico 9.7-3 Interfaccia istruzione EAxis
 
-Select controller + servo drive(485),This command can configure the extended axis parameters. Set different parameters according to different control modes. The zero point of the configured expansion axis can be set.
+Selezionando Controller + azionamento servo (485), questa istruzione può configurare i parametri dell'asse esteso. Imposta parametri diversi in base alle diverse modalità di controllo. Per gli assi estesi già configurati, è possibile impostare il punto zero.
 
 .. image:: coding/101.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 3.7-4 Servo command interface
+.. centered:: Grafico 9.7-4 Interfaccia istruzione asse esteso
 
-Convey command
-++++++++++++++++
+Comando nastro trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Convey" icon to enter the Convey command editing interface.
+Clicca sull'icona "Nastro trasportatore" per accedere all'interfaccia di modifica comandi Convey.
 
-This command includes four commands: position real-time detection, IO real-time detection, tracking on and tracking off. See Robot Peripherals chapter for details.
+Questa istruzione include quattro comandi: rilevamento posizione in tempo reale, rilevamento IO in tempo reale, avvio tracciamento e arresto tracciamento. Fare riferimento al capitolo sulle periferiche del robot.
 
 .. image:: coding/102.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.7-5 Conveyor command interface
+.. centered:: Grafico 9.7-5 Interfaccia istruzione Conveyor
 
-Polish command
-++++++++++++++++
+Comando apparecchiatura levigatura
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Polishing" icon to enter the Polish command editing interface.
+Clicca sull'icona "Apparecchiatura levigatura" per accedere all'interfaccia di modifica comandi Polish.
 
-This command can set the rotation speed, contact force, extension distance and control mode of the grinding equipment.
+Questa istruzione può impostare la velocità di rotazione, la forza di contatto, la distanza di estensione e la modalità di controllo dell'apparecchiatura di levigatura.
 
 .. image:: coding/103.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.7-6 Polish command interface
+.. centered:: Grafico 9.7-6 Interfaccia istruzione Polish
 
-Welding command interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni saldatura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/104.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8 Welding command interface 
+.. centered:: Grafico 9.8 Interfaccia istruzioni saldatura
 
-Weld command
-++++++++++++++++
+Comando saldatura
+++++++++++++++++++++++++++++++++
 
-Click the "Weld" icon to enter the Weld command editing interface.
+Clicca sull'icona "Saldatura" per accedere all'interfaccia di modifica comandi Weld.
 
-This command is mainly used for welding machine peripherals. Before adding this command, please confirm whether the welding machine configuration is completed in the user peripherals. For details, see the chapter on robot peripherals.
+Questa istruzione è principalmente utilizzata per le periferiche del saldatore. Prima di aggiungere questa istruzione, verificare che la configurazione del saldatore nelle periferiche utente sia completata; fare riferimento al capitolo sulle periferiche del robot.
 
-- welding voltage range: 0~700V
-- welding current range: 0~1000A
+- Intervallo tensione saldatura: 0~700V 
+- Intervallo corrente saldatura: 0~1000A
 
-.. important:: When configuring the output AO, welding current, and welding voltage, you need to select the I/O type. If you select controller I/O, you need to select the corresponding output AO.
+.. important:: Quando si configurano l'output AO, la corrente di saldatura e la tensione di saldatura, è necessario selezionare il tipo I/O. Se si seleziona I/O controller, è necessario selezionare l'AO output corrispondente.
 
 .. image:: coding/105.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-1 Weld command interface
+.. centered:: Grafico 9.8-1 Interfaccia istruzione Weld
 
-Segment command
-++++++++++++++++
+Comando saldatura a segmenti
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Segment" icon to enter the Segment command editing interface.
+Clicca sull'icona "Saldatura a segmenti" per accedere all'interfaccia di modifica comandi Segment.
 
-The collaborative robot can perform segment welding operations by adding segment welding instructions. Before adding segment welding instructions, you need to select the segment welding mode and teach the starting point and end point. The segment welding mode is divided into unchanged posture and changing posture. The robot considers whether to change the posture during the welding trajectory according to the selected segment welding mode.
+Il robot collaborativo può eseguire operazioni di saldatura a segmenti aggiungendo istruzioni di saldatura a segmenti. Prima di aggiungere istruzioni di saldatura a segmenti, è necessario selezionare la modalità di saldatura a segmenti e insegnare i punti di inizio e fine. Le modalità di saldatura a segmenti includono "senza cambiare orientamento" e "cambiando orientamento". Il robot considera se cambiare l'orientamento durante il percorso di saldatura in base alla modalità di saldatura a segmenti selezionata.
 
-Teach the starting point "segment01" and the end point "segment02", and confirm the starting point and end point of the welding trajectory, as shown in the figure below.
+Insegnare il punto iniziale "segment01" e il punto finale "segment02", confermando la posizione di inizio e fine del percorso di saldatura, come mostrato di seguito.
 
 .. image:: coding/106.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.8-2-1 Starting point “segment01”
+.. centered:: Grafico 9.8-2-1 Punto iniziale "segment01"
 
 .. image:: coding/107.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.8-2-2 Starting point “segment02”
+.. centered:: Grafico 9.8-2-2 Punto finale "segment02"
 
-Segment welding command added
-********************************
+Aggiunta istruzione saldatura a segmenti
+********************************************************
 
-**Step1**: Create a new user program "testSegment1.lua", click the "Segment Welding" button, and open the segment welding instruction adding page.
+**Step1**: Creare un nuovo programma utente "testSegment1.lua", cliccare sul pulsante "Saldatura a segmenti" per aprire la pagina di aggiunta istruzioni di saldatura a segmenti.
 
 .. image:: coding/108.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-3 Add segment welding command button
+.. centered:: Grafico 9.8-2-3 Pulsante aggiunta istruzione saldatura a segmenti
 
-**Step2**: On the segment welding instruction adding page, select "segment01" as the "start point" and "segment02" as the "end point".
+**Step2**: Nella pagina di aggiunta istruzioni di saldatura a segmenti, selezionare "Punto iniziale" come "segment01", selezionare "Punto finale" come "segment02".
 
 .. image:: coding/109.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-4 Starting point and end point of segment welding
+.. centered:: Grafico 9.8-2-4 Punto iniziale e finale saldatura a segmenti
 
-**Step3**: Configure the debugging speed, execution length, non-execution length, functional mode, swing selection and rounding rules, and click the "Add" button and the "Apply" button in sequence.
+**Step3**: Configurare la velocità di debug, lunghezza di esecuzione, lunghezza di non esecuzione, modalità funzionale, selezione oscillazione e regola di arrotondamento, quindi cliccare in sequenza sui pulsanti "Aggiungi" e "Applica".
 
-**Step4**: At this time, "testSegment1.lua" has added segment welding motion instructions, as shown in Figure5.
+**Step4**: A questo punto, "testSegment1.lua" ha aggiunto l'istruzione di movimento per saldatura a segmenti.
 
 .. image:: coding/110.png
-   :width: 4in
+   :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-5 Addition of segment welding motion instructions
+.. centered:: Grafico 9.8-2-5 Aggiunta istruzione movimento saldatura a segmenti
 
-Changes in segment welding motion trajectory and attitude
-************************************************************
+Variazione orientamento traiettoria saldatura a segmenti
+****************************************************************
 
-The segment welding mode of the collaborative robot can be selected for the segment welding movement. The mode types include the following two types;
+Il movimento di saldatura a segmenti del robot collaborativo può selezionare la modalità di saldatura a segmenti, i tipi di modalità includono i seguenti due tipi;
 
-**No change in posture**:The robot always maintains the posture of the starting point of the welding trajectory during the welding trajectory.
+**Senza cambiare orientamento**: Il robot mantiene sempre l'orientamento del punto iniziale del percorso di saldatura durante l'esecuzione del percorso di saldatura.
 
-**Changing posture**:During the welding trajectory process, the robot calculates the Cartesian pose and joint position of each segment of the trajectory, and changes its posture during the segment welding operation.
+**Cambiando orientamento**: Il robot calcola la posa cartesiana e la posizione articolare di ogni segmento del percorso durante il processo di saldatura a segmenti, cambiando orientamento durante l'esecuzione della saldatura a segmenti.
 
-The following demonstrates the usage of "no change posture" and "change posture" respectively.
+Di seguito vengono dimostrati rispettivamente l'uso di "senza cambiare orientamento" e "cambiando orientamento".
 
-1. Do not change posture
+1. Senza cambiare orientamento
    
-Open the segment welding instruction adding page, select "No change in attitude" for "segment welding mode", also select "start point" as "segment01", "end point" as "segment02", set the execution length to 100, non-execution Set the length to 50, select other relevant configurations and save the program.
+Aprire la pagina di aggiunta istruzioni di saldatura a segmenti, selezionare "Senza cambiare orientamento" in "Modalità saldatura a segmenti", selezionare ugualmente "Punto iniziale" come "segment01", "Punto finale" come "segment02", impostare la lunghezza di esecuzione a 100, la lunghezza di non esecuzione a 50, selezionare altre configurazioni pertinenti e salvare il programma.
 
 .. image:: coding/111.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-6 Segment welding mode without changing attitude
+.. centered:: Grafico 9.8-2-6 Modalità saldatura a segmenti senza cambiare orientamento
 
-2. Change posture
+2. Cambiando orientamento
    
-Open the segment welding instruction adding page, select "Change Attitude" for "Segment Welding Mode", also select "Start Point" as "segment01", "End Point" as "segment02", set the execution length to 100, and the non-execution length. Set it to 50, select other relevant configurations and save the program.
+Aprire la pagina di aggiunta istruzioni di saldatura a segmenti, selezionare "Cambiando orientamento" in "Modalità saldatura a segmenti", selezionare ugualmente "Punto iniziale" come "segment01", "Punto finale" come "segment02", impostare la lunghezza di esecuzione a 100, la lunghezza di non esecuzione a 50, selezionare altre configurazioni pertinenti e salvare il programma.
 
 .. image:: coding/112.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-7 Changing attitude segment welding mode
+.. centered:: Grafico 9.8-2-7 Modalità saldatura a segmenti cambiando orientamento
 
-3. Section welding operation type
+3. Tipi di esecuzione saldatura a segmenti
 
-Running program, robot segment welding operation conditions are divided into the following types:
+Durante l'esecuzione del programma, la situazione di esecuzione della saldatura a segmenti del robot è divisa nei seguenti casi:
 
-1) If the function mode selects the first segment to execute the function, and the swing selects the execution segment to swing, the rounding rule will not round. Then the robot performs swing motion at 100mm and linear motion at 50mm alternately, and stops when it reaches the end point;
+1) Se la modalità funzionale seleziona la funzione di esecuzione del primo segmento, la selezione oscillazione sceglie l'oscillazione del segmento di esecuzione, la regola di arrotondamento non arrotonda. Allora il robot esegue alternativamente movimento oscillatorio di 100mm e movimento lineare di 50mm, fermandosi al punto finale;
 
 .. image:: coding/113.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-8 The first section executes the swing function without rounding
+.. centered:: Grafico 9.8-2-8 Funzione oscillazione primo segmento eseguito senza arrotondamento
 
-2) If the function mode selects the first segment to not execute the function, the swing selection does not execute the segment swing, and the rounding rules do not round. Then the robot performs swing motion for 50mm and linear motion for 100mm alternately, and stops when it reaches the end point;
+2) Se la modalità funzionale seleziona la funzione di non esecuzione del primo segmento, la selezione oscillazione sceglie la non oscillazione del segmento di esecuzione, la regola di arrotondamento non arrotonda. Allora il robot esegue alternativamente movimento oscillatorio di 50mm e movimento lineare di 100mm, fermandosi al punto finale;
 
 .. image:: coding/114.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-9 The first section does not execute the swing function and does not round
+.. centered:: Grafico 9.8-2-9 Funzione non oscillazione primo segmento non eseguito senza arrotondamento
 
-3) If the function mode selects the first segment to perform the function, the swing selects the execution segment to swing, and the rounding rules are rounded. Then the robot performs swing motion at 100mm and linear motion at 50mm alternately. After the last period of the overall cycle, if the remaining distance is less than 150mm, it will stop swinging;
+3) Se la modalità funzionale seleziona la funzione di esecuzione del primo segmento, la selezione oscillazione sceglie l'oscillazione del segmento di esecuzione, la regola di arrotondamento arrotonda. Allora il robot esegue alternativamente movimento oscillatorio di 100mm e movimento lineare di 50mm, dopo il completamento dell'ultimo ciclo complessivo, se la distanza residua è inferiore a 150mm, l'oscillazione si interrompe;
 
 .. image:: coding/115.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-10 The first section performs circular rounding of the swing function
+.. centered:: Grafico 9.8-2-10 Funzione oscillazione primo segmento eseguito con arrotondamento ciclo
 
-4) If the function mode selects the first segment to perform the function, and the swing selects not to execute the segment swing, the rounding rules are rounded. Then the robot performs swing motion at 50mm and linear motion at 100mm alternately. After the last period of the overall cycle, if the remaining distance is less than 150mm, it will stop swinging;
+4) Se la modalità funzionale seleziona la funzione di esecuzione del primo segmento, la selezione oscillazione sceglie la non oscillazione del segmento di esecuzione, la regola di arrotondamento arrotonda. Allora il robot esegue alternativamente movimento oscillatorio di 50mm e movimento lineare di 100mm, dopo il completamento dell'ultimo ciclo complessivo, se la distanza residua è inferiore a 150mm, l'oscillazione si interrompe;
 
 .. image:: coding/116.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-11 The first section does not perform circular rounding of the swing function
+.. centered:: Grafico 9.8-2-11 Funzione non oscillazione primo segmento non eseguito con arrotondamento ciclo
 
-5) If the function mode selects the first segment to execute the function, the swing selects the execution segment to swing, and the rounding rule is single segment rounding. Then the robot performs swing motion at 100mm and linear motion at 50mm alternately. After the last cycle, if the next segment is 100mm, swing planning is performed and the remaining distance is less than 100mm, the swing will stop; if the next segment is 50mm, linear motion planning is performed and the remaining distance is If it is less than 50mm, the movement will stop;
+5) Se la modalità funzionale seleziona la funzione di esecuzione del primo segmento, la selezione oscillazione sceglie l'oscillazione del segmento di esecuzione, la regola di arrotondamento arrotonda singolo segmento. Allora il robot esegue alternativamente movimento oscillatorio di 100mm e movimento lineare di 50mm, dopo il completamento dell'ultimo ciclo, se il segmento successivo è la pianificazione dell'oscillazione di 100mm e la distanza residua è inferiore a 100mm, l'oscillazione si interrompe; se il segmento successivo è la pianificazione del movimento lineare di 50mm e la distanza residua è inferiore a 50mm, il movimento si interrompe;
 
 .. image:: coding/117.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-12 The first section performs single-section rounding of the swing function
+.. centered:: Grafico 9.8-2-12 Funzione oscillazione primo segmento eseguito con arrotondamento singolo segmento
 
-6) If the function mode selects the first segment to perform the function, the swing selects not to execute segment swing, and the rounding rule is single segment rounding. Then the robot performs swing motion at 50mm and linear motion at 100mm alternately. After the last cycle, if the next segment is 50mm, swing planning is performed and the remaining distance is less than 50mm, then the swing is stopped; if the next segment is 100mm, linear motion planning is performed and the remaining distance is Less than 100mm, the movement stops.
+6) Se la modalità funzionale seleziona la funzione di esecuzione del primo segmento, la selezione oscillazione sceglie la non oscillazione del segmento di esecuzione, la regola di arrotondamento arrotonda singolo segmento. Allora il robot esegue alternativamente movimento oscillatorio di 50mm e movimento lineare di 100mm, dopo il completamento dell'ultimo ciclo, se il segmento successivo è la pianificazione dell'oscillazione di 50mm e la distanza residua è inferiore a 50mm, l'oscillazione si interrompe; se il segmento successivo è la pianificazione del movimento lineare di 100mm e la distanza residua è inferiore a 100mm, il movimento si interrompe.
 
 .. image:: coding/118.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-2-13 The first section does not perform single-section rounding of the swing function
+.. centered:: Grafico 9.8-2-13 Funzione non oscillazione primo segmento non eseguito con arrotondamento singolo segmento
 
-4. Posture contrast
+4. Confronto orientamenti
    
-When configuring different segment welding modes, the posture of the robot during welding trajectory operation will also be different. The posture comparison during operation is as follows:
+Quando si configurano diverse modalità di saldatura a segmenti, anche l'orientamento del robot durante l'esecuzione del percorso di saldatura sarà diverso. Di seguito il confronto degli orientamenti durante l'esecuzione:
 
 .. image:: coding/119.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.8-2-14 Initial posture of welding trajectory
+.. centered:: Grafico 9.8-2-14 Orientamento iniziale percorso saldatura
 
 .. image:: coding/120.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.8-2-15 The posture does not change during operation
+.. centered:: Grafico 9.8-2-15 Orientamento senza cambiamento durante l'esecuzione
 
 .. image:: coding/121.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.8-2-16 Change of attitude during operation
+.. centered:: Grafico 9.8-2-16 Orientamento con cambiamento durante l'esecuzione
 
-Actual scene of segment welding
-*************************************
-
-In the actual test environment, the robot needs to be equipped with a welding gun and other configurations, and perform welding operations on the welding plate according to the created segment welding instructions. The actual scene diagram is as follows:
+Scenario reale saldatura a segmenti
+********************************************************
+In un ambiente di test reale, il robot deve essere dotato di configurazioni come la torcia di saldatura. In base alle istruzioni di saldatura a segmenti create, esegue operazioni di saldatura sulla piastra di saldatura. L'immagine dello scenario reale è la seguente:
 
 .. image:: coding/122.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.8-2-17 Actual scene of segment welding
+.. centered:: Grafico 9.8-2-17 Scenario reale saldatura a segmenti
 
-Laser command
-++++++++++++++++
+Comando tracciamento laser
+++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Laser" icon to enter the Laser command editing interface.
+Clicca sull'icona "Tracciamento laser" per accedere all'interfaccia di modifica comandi Laser.
 
-This command includes three parts: laser command, tracking command and positioning command. Before adding this command, please confirm whether the laser tracking sensor in the user peripheral has been configured successfully. See Robot Peripherals chapter for details.
+Questa istruzione include tre parti: comando laser, comando tracciamento e comando ricerca posizione. Prima di aggiungere questa istruzione, verificare che il sensore di tracciamento laser nelle periferiche utente sia configurato correttamente. Fare riferimento al capitolo sulle periferiche del robot.
 
-In the sensor loading module, after displaying the corresponding "sensor command" interface according to the function selection, configure the sensor command:
+Nel modulo di caricamento sensore, in base alla funzione selezionata, viene visualizzata l'interfaccia "Comando sensore" corrispondente per configurare il comando sensore:
 
-**Ruiniu/CXZK**: Enter the weld type, range: 0~49 integer
+**Ruini/Chuangxiang**: Inserire il tipo di saldatura, intervallo: intero 0~49
 
 .. image:: coding/123.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-3-1 Laser command interface
+.. centered:: Grafico 9.8-3-1 Interfaccia istruzione Laser (tipo saldatura)
 
-**Quanshi**: Enter the task number, range: 0~255 integer
+**Quanshi**: Inserire il numero del compito, intervallo: intero 0~255
 
 .. image:: coding/124.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-3-2 Laser command interface
+.. centered:: Grafico 9.8-3-2 Interfaccia istruzione Laser (numero compito)
 
-LT-Rec command
-++++++++++++++++
+Comando registrazione laser
+++++++++++++++++++++++++++++++++++++++++++
 
-Click the "LT-Rec" icon to enter the LT-Rec command editing interface.
+Clicca sull'icona "Registrazione laser" per accedere all'interfaccia di modifica comandi LT-Rec.
 
-This command realizes the function of taking out the starting point and end point of laser tracking recording, so that the robot can automatically move to the starting point position, which is suitable for the occasion where the movement starts from the outside of the workpiece and laser tracking recording is performed. At the same time, the host computer can obtain the information of the starting point and end point in the recorded data. for follow-up exercise.
+Questa istruzione realizza la funzione di estrazione del punto iniziale e finale della registrazione del tracciamento laser, consentendo al robot di muoversi automaticamente alla posizione iniziale. È adatta per scenari in cui il robot inizia il movimento dall'esterno del pezzo e registra il tracciamento laser. Allo stesso tempo, il computer superiore può acquisire le informazioni sui punti iniziali e finali nei dati registrati, per i successivi movimenti.
 
-Realize the adjustable function of laser tracking and reproduction speed, so that the robot can record at a very fast speed, and then reproduce according to the normal welding speed, which can improve the working efficiency.
+Realizza la funzione di velocità regolabile per la riproduzione del tracciamento laser, consentendo al robot di registrare ad alta velocità e quindi riprodurre alla normale velocità di saldatura, migliorando l'efficienza operativa.
 
 .. image:: coding/125.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-4 LT-Rec command interface
+.. centered:: Grafico 9.8-4 Interfaccia istruzione LT-Rec
 
-W-Search command
-++++++++++++++++
+Comando ricerca posizione filo saldatura
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "W-Search" icon to enter the W-Search command editing interface.
+Clicca sull'icona "Ricerca posizione filo saldatura" per accedere all'interfaccia di modifica comandi W-Search.
 
-This command is a welding wire positioning command, including three commands of start of positioning, end of positioning and calculation of offset. This command is generally used in welding scenes and requires the combination of welding machine and robot IO and motion commands.
+Questa istruzione è per la ricerca della posizione del filo di saldatura, includendo le istruzioni di inizio ricerca, fine ricerca e calcolo offset. È generalmente utilizzata in scenari di saldatura, richiedendo la combinazione di I/O del saldatore con le istruzioni di movimento del robot.
 
 .. image:: coding/126.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-5 W-Search command interface
+.. centered:: Grafico 9.8-5 Interfaccia istruzione W-Search
 
-In writing a program, usually first set the start command of the search, and then add two LIN instructions to determine the direction of the search. After the search is successful, obtain the calculated offset, and pass the offset through the overall offset command. To take effect into the real welding motion command, the program example is as follows.
+Nella scrittura del programma, di solito si imposta prima l'istruzione di inizio ricerca, poi si aggiungono due istruzioni LIN per determinare la direzione di ricerca. Dopo il successo della ricerca, si acquisisce l'offset calcolato, applicando questo offset attraverso l'istruzione di offset globale alle istruzioni di movimento di saldatura effettive. Esempio di programma come segue.
 
 .. image:: coding/127.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.8-5-1 W-Search example(1D)
+.. centered:: Grafico 9.8-5-1 Esempio W-Search (1D)
 
-Weld-Trc command
-++++++++++++++++++
+Comando tracciamento ad arco
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Weld-Trc" icon to enter the Weld-Trc command editing interface.
+Clicca sull'icona "Tracciamento ad arco" per accedere all'interfaccia di modifica comandi Weld-Trc.
 
-This command realizes the robot seam tracking and uses the deviation detection of the welding seam to compensate the trajectory, and the arc sensor can be used to detect the seam deviation.
+Questa istruzione realizza la compensazione della traiettoria del robot per il tracciamento della saldatura utilizzando il rilevamento della deviazione della saldatura, è possibile utilizzare un sensore ad arco per rilevare la deviazione della saldatura.
 
-**Step1**: Upper and lower compensation reference current setting method: feedback, set the upper and lower reference current start counting and the upper and lower reference current counting
+**Step1**: Modalità di impostazione corrente di riferimento compensazione alto/basso: feedback, impostare conteggio inizio corrente di riferimento alto/basso e conteggio corrente di riferimento alto/basso
 
 .. image:: coding/128.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-6-1 Weld-Trc command interface-Feedback
+.. centered:: Grafico 9.8-6-1 Interfaccia istruzione Weld-Trc - feedback
 
-**Step2**:Upper and lower compensation reference current setting method: constant, set the upper and lower reference current
+**Step2**: Modalità di impostazione corrente di riferimento compensazione alto/basso: costante, impostare corrente di riferimento alto/basso
 
 .. image:: coding/129.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-6-2 Weld-Trc command interface-constant
+.. centered:: Grafico 9.8-6-2 Interfaccia istruzione Weld-Trc - costante
 
-**Step3**:Left and right compensation parameter interactive page
+**Step3**: Pagina interazione parametri compensazione sinistra/destra
 
 .. image:: coding/130.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-6-3 Weld-Trc command interface-left and right compensation parameters
+.. centered:: Grafico 9.8-6-3 Interfaccia istruzione Weld-Trc - parametri compensazione sinistra/destra
 
-Robot arc tracking system composition
-+++++++++++++++++++++++++++++++++++++++
+Costituzione sistema tracciamento ad arco robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-During arc tracking welding, the welding machine feeds the real-time welding current signal to PLC, and then the PLC feeds back to the robot through UDP communication. The robot can compensate the welding trajectory position according to the real-time feedback welding current value to achieve arc tracking effect. There are two ways to feedback the current signal between the welding machine and the PLC:
+Durante il processo di saldatura con tracciamento ad arco del robot collaborativo, il saldatore invia in tempo reale il segnale di corrente di saldatura al PLC, che a sua volta lo comunica al robot tramite comunicazione UDP; il robot compensa la posizione della traiettoria di saldatura in base al valore di corrente di saldatura in tempo reale, realizzando l'effetto di tracciamento ad arco. Esistono due modi per il feedback del segnale di corrente tra saldatore e PLC:
 
-①CANopen or other bus communication: If your welder supports CANopen, EtherCAT, ModbusTCP and other bus communication protocols (such as MEGMEET A2 series, etc.), the PLC and the welder can communicate data directly through the relevant communication protocols, and the corresponding welding current signal can be directly transmitted to the PLC through communication. The PLC then feeds back to the robot through UDP communication.
+① Comunicazione bus CANopen o altro: se il saldatore supporta protocolli di comunicazione bus come CANopen, EtherCAT, ModbusTCP (ad esempio, Aotai NBC-500RP, Megmeet serie A2, ecc.), il PLC e il saldatore possono comunicare direttamente tramite i relativi protocolli di comunicazione, i corrispondenti segnali di corrente di saldatura possono essere trasmessi direttamente al PLC tramite comunicazione, quindi inviati dal PLC al robot tramite comunicazione UDP.
 
 .. image:: coding/277.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-6-4 Topology diagram of robot arc tracking system (PLC communicates with welding machine bus)
-.. centered:: a-computer;b-Robot and control box;c-PLC and bus communication module; d-welder
+.. centered:: Grafico 9.8-6-4 Schema topologico costituzione sistema tracciamento ad arco robot (comunicazione bus PLC e saldatore)
+.. centered:: a-computer; b-robot e scatola di controllo; c-PLC e modulo comunicazione bus; d-saldatore
 
-②Analog IO: PLC can also directly collect the analog signal, and then convert the analog signal into the current value with a certain conversion relationship to feed back to the robot; If your welding machine has a real-time welding current analog output channel, you can directly connect the channel to the PLC analog input module; If your welding machine does not have a real-time welding current analog output channel, you can connect an external Hall current sensor. The sensor collects the real-time welding current signal, converts the welding current signal into an analog signal, and outputs the welding current signal to the PLC analog input module.
+② Analogico I/O: il PLC può anche acquisire direttamente segnali analogici, convertendo poi i segnali analogici in valori di corrente con una certa relazione di conversione per inviarli al robot; se il saldatore ha un canale di output analogico per la corrente di saldatura in tempo reale, è possibile collegare direttamente questo canale al modulo di input analogico del PLC; se il saldatore non ha un canale di output analogico per la corrente di saldatura in tempo reale, è possibile collegare un sensore di corrente a effetto Hall, che acquisisce il segnale di corrente di saldatura in tempo reale e lo converte in segnale analogico per inviarlo al modulo di input analogico del PLC.
 
 .. image:: coding/278.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-6-5 Topology diagram of robot arc tracking system (PLC acquisition of analog signals)
-.. centered:: a-computer; b-Robot and control box; c-PLC and analog input module; d-welder and Hall current sensor
+.. centered:: Grafico 9.8-6-5 Schema topologico costituzione sistema tracciamento ad arco robot (acquisizione segnale analogico PLC)
+.. centered:: a-computer; b-robot e scatola di controllo; c-PLC e modulo input analogico; d-saldatore e sensore corrente Hall
 
-Welding machine model and setting
-**************************************
+Modelli saldatore e impostazioni
+****************************************
 
-.. centered:: Table 9.8-1 Verified welding machine model
+.. centered:: Tabella 9.8-1 Modelli saldatore e impostazioni
 
 .. list-table::
    :widths: 70
    :header-rows: 0
    :align: center
 
-   * - **Verified welding machine model**
+   * - **Modelli saldatore attualmente testati e compatibili**
 
-   * - MEGMEET ArtsenII CM350
+   * - Saldatore Megmeet ArtsenII CM350
   
-.. centered:: Table 9.8-2 Welding machine function setting
+.. centered:: Tabella 9.8-2 Impostazioni funzioni saldatore
 
 .. list-table::
    :widths: 100 100
    :header-rows: 0
    :align: center
 
-   * - **Function number**
-     - **Set the parameters**
+   * - **Numero funzione**
+     - **Parametro impostazione**
 
    * - F18
      - 20
@@ -1716,1648 +1713,1648 @@ Welding machine model and setting
    * - F19
      - 56
 
-PLC model and settings
-**************************************
-
-.. centered:: Table 9.8-3 Verified PLC models
+Modelli PLC e impostazioni
+****************************************
+.. centered:: Tabella 9.8-3 Modelli PLC e impostazioni
 
 .. list-table::
    :widths: 70
    :header-rows: 0
    :align: center
 
-   * - **Verified PLC models**
+   * - **Modelli PLC attualmente testati e compatibili**
 
-   * - INOVANCE Easy521
+   * - Inovance Easy521
   
-.. centered:: Table 9.8-4 PLC key settings
+.. centered:: Tabella 9.8-4 Impostazioni chiave PLC
 
 .. list-table::
    :widths: 70 70
    :header-rows: 0
    :align: center
 
-   * - **Settings**
-     - **Set the contents**
+   * - **Voce impostazione**
+     - **Contenuto impostazione**
 
-   * - Communication protocols
+   * - Protocollo comunicazione
      - CANOPEN
 
-   * - Feedback current sampling source
-     - Feedback data from welding machine
+   * - Origine campionamento corrente feedback
+     - Dati feedback CANOPEN saldatore
 
-   * - Synchronization period
+   * - Periodo sincronizzazione
      - 2ms
 
-:download:`Annex:PLC Program <../_static/_doc/MEGMEET PLC PROGRAME.zip>`
+:download:`Allegato: Programma PLC <../_static/_doc/MEGMEET PLC PROGRAME.zip>`
 
-Arc tracking function
-**************************************
+Funzione tracciamento ad arco
+*********************************************
 
-**1）Introduction to the arc tracing feature**
+**1) Introduzione parametri interfaccia funzione**
 
 .. image:: coding/279.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.8-7-1 Typical arc tracing scenario
+.. centered:: Grafico 9.8-7-1 Scenario tipico tracciamento ad arco
 
-Typical scenarios for the arc tracing function include: a. welding the workpiece (the weld groove is at a right or acute angle), b. the welding gun, e. weld center line. 
+Lo scenario tipico della funzione tracciamento ad arco include: a. pezzo da saldare (cavo di saldatura ad angolo retto o acuto), b. torcia di saldatura, e è la linea centrale del cavo.
 
-The arc tracking function can tracing the welding groove through the collected welding current information and the swing parameters: c. up and down (depth) direction tracking and d. left and right (center line) direction tracking.
+La funzione tracciamento ad arco può realizzare, attraverso le informazioni di corrente di saldatura acquisite e i parametri di oscillazione impostati sul robot, il tracciamento della saldatura nella direzione: c. alto/basso (profondità) e d. sinistra/destra (centro).
 
-**2）Communication Configuration**
+**2) Configurazione comunicazione**
 
-Open WebApp and click "Initial", "Peripheral" and "Welder" in turn.
+Aprire WebApp, cliccare in sequenza su "Impostazioni iniziali", "Configurazione periferiche utente", "Configurazione saldatore".
 
 .. image:: coding/280.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.8-7-2 Open welding config
+.. centered:: Grafico 9.8-7-2 Apertura configurazione saldatore
 
-The control type is selected as "Digital communication protocol". Since the robot communicates with PLC through UDP, UDP communication parameters need to be configured. The meanings of each parameter are as follows:
+Selezionare il tipo di controllo come "Protocollo comunicazione digitale", configurare i parametri comunicazione UDP, il significato dei vari parametri è il seguente:
 
-**IP address**:IP address of PLC for UDP communication;
+**Indirizzo IP**: Indirizzo IP del lato PLC per la comunicazione UDP;
 
-**Port number**:PLC UDP communication port number;
+**Numero porta**: Numero porta comunicazione UDP lato PLC;
 
-**Communication cycle**:The cycle of UDP communication between the robot and the PLC, the default is 2ms;
+**Periodo comunicazione**: Periodo di comunicazione UDP tra robot e PLC, predefinito 2ms;
 
-**Packet loss detection cycle and Packet loss times**:When the number of lost packets in the packet loss detection period exceeds the specified value, the robot reports an error message indicating UDP Packet loss Exception and automatically cuts off the communication;
+**Periodo rilevamento perdita pacchetti, numero perdite pacchetti**: Quando il numero di pacchetti persi entro il periodo di rilevamento supera il valore impostato, il robot segnala l'errore "Eccezione perdita pacchetti comunicazione UDP", interrompendo automaticamente la comunicazione.
 
-**Communication interruption confirmation time**:The robot does not receive a complete PLC feedback packet within this period of time, which will report "UDP communication interruption" error alarm, and cut off UDP communication;
+**Durata conferma interruzione comunicazione**: Se il robot non riceve un pacchetto di dati di feedback completo dal PLC entro questa durata, segnala l'errore "Interruzione comunicazione UDP", interrompendo la comunicazione UDP.
 
-**Automatic reconnection after communication interruption**:Whether the robot automatically reconnects after detecting UDP communication interruption;
+**Riconnessione automatica interruzione comunicazione**: Indica se il robot tenta automaticamente la riconnessione dopo aver rilevato l'interruzione della comunicazione UDP;
 
-**Reconnection period and Num of reconnections**:After automatic reconnection of UDP communication interruption is enabled and UDP communication interruption is detected, the robot reconnects at the set period. When the reconnection times reach the maximum set value and the connection is not successful, the robot reports an error alarm of "UDP communication interruption" and disconnects the UDP communication at the same time.
+**Periodo riconnessione, numero riconnessioni**: Con la riconnessione automatica abilitata e dopo aver rilevato l'interruzione della comunicazione UDP, il robot tenta la riconnessione con il periodo impostato; quando il numero di tentativi raggiunge il massimo impostato senza successo, il robot segnala l'errore "Interruzione comunicazione UDP", interrompendo la comunicazione UDP.
 
-After configuring the above parameters, click the "Configure" and "Load" buttons successively.
+Dopo aver configurato i suddetti parametri, cliccare in sequenza sui pulsanti "Configura" e "Carica".
 
 .. image:: coding/281.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.8-7-3 Selecting the control type
+.. centered:: Grafico 9.8-7-3 Selezione tipo controllo
    
-**3）Arc Tracing Channel Configuration**
+**3) Configurazione canale**
 
-Click "Initial", "Base", "I/O setup" and "AI" successively, select the corresponding extended AI channel according to the actual configuration, and click "Apply" button.
+Cliccare in sequenza su "Impostazioni iniziali", "Base", "Impostazioni I/O", "AI", selezionare il canale AI esteso corrispondente in base alla configurazione effettiva, cliccare sul pulsante "Applica".
 
 .. note:: 
-   The UDP communication protocol between the robot and the PLC is shown in 8.5.5.Appendix 1: UDP communication protocol for robots. In the protocol, the PLC feedback data to the robot includes four analog input channels with serial numbers 70~73, corresponding to Aux-AI0~3 in Figure 4-4; 
-   
-   In the welding process, PLC collects real-time welding current signals and converts them into 0~4095 numerical signals and assign them to an analog input channel (default is "Aux-AI0"). The robot side collects the corresponding analog input channel values for arc tracking operations.
-   
-   If you need to change the arc tracking channel to "Aux-AI1", "Aux-AI2" or "Aux-AI3", you need to update the PLC program simultaneously and assign the real-time welding current collected to the corresponding analog input port.
+   Il protocollo di comunicazione UDP tra robot e PLC è descritto in "8.5.5 Allegato 1: Protocollo comunicazione UDP robot", i dati di feedback dal PLC al robot includono i 4 canali di input analogico con numeri da 70 a 73, corrispondenti ad Aux-AI0~3 in Figura 4-4;
+
+   Durante la saldatura, il PLC acquisisce il segnale di corrente di saldatura in tempo reale e lo converte in un segnale numerico 0~4095 assegnandolo a un canale di input analogico, predefinito come "Aux-AI0". Il robot acquisisce il valore del corrispondente canale di input analogico per le operazioni di tracciamento ad arco;
+
+   Se è necessario cambiare il canale di tracciamento ad arco in "Aux-AI1", "Aux-AI2" o "Aux-AI3", è necessario aggiornare contemporaneamente il programma lato PLC, assegnando la corrente di saldatura in tempo reale acquisita alla corrispondente porta di input analogico.
 
 .. image:: coding/282.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.8-7-4 Arc tracking channel configuration
+.. centered:: Grafico 9.8-7-4 Configurazione canale tracciamento ad arco
 
-**4）Introduction to the use of arc tracing function commands**
+**4) Introduzione all'uso delle istruzioni funzione**
 
-The arc tracking function can be adapted to the swing welding movement, inserting the arc tracking start command after the swing welding arc starts, and inserting the arc tracking end command before the swing welding arc extinguishing.
+La funzione di tracciamento ad arco può essere adattata al movimento di saldatura con oscillazione, inserendo l'istruzione di inizio tracciamento ad arco dopo l'accensione dell'arco nella saldatura oscillante e l'istruzione di fine tracciamento ad arco prima dello spegnimento dell'arco nella saldatura oscillante.
 
 .. image:: coding/283.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-7-5 Typical example of arc tracing
+.. centered:: Grafico 9.8-7-5 Esempio tipico programma tracciamento ad arco
 
-**5)Introduction to the parameters of the function interface**
+**5) Introduzione parametri interfaccia funzione**
 
-.. centered:: Table 9.8-5 Arc tracking up-down compensation module
-
-.. list-table::
-   :widths: 70 70 70
-   :header-rows: 0
-   :align: center
-
-   * - **The name of the parameter**
-     - **Meaning**
-     - **Description**
-
-   * - Arc tracking lag time
-     - The time for the feedback current to lag
-     - The default is 0ms, do not adjust it
-
-   * - Compensation for up-down deviations
-     - Up-down compensating switches
-     - You can choose to "on" or "off"
-
-   * - Up-down adjustment coefficients
-     - The coefficient of the relationship between the current and the compensation distance (adjustment sensitivity)
-     - The welding tends to be in a short-circuit transition state, and the current signal-to-noise ratio gradually decreases, so it is recommended to reduce the sensitivity
-
-   * - Up-down start compensating period
-     - The fastest periods to start the up-down compensation
-     - Associated with the swing frequency, it is better to open when the current tends to be stable for 3~4s after arcing. If the oscillation frequency is 1 Hz, the parameter can be 4, if the frequency is 2 Hz, the parameter can be 8, and so on
-
-   * - The maximum distance of up-down compensation each period
-     - The maximum distance of compensation per up-down compensation period
-     - According to the welding scene setting, the faster the weave frequency, the smaller the compensation distance
-
-   * - The maximum distance of compensation for the up-down totals
-     - The maximum cumulative distance of compensation for a single complete welding process
-     - According to the welding scene setting, the larger the weld deviation, the larger the setting
-
-   * - Up-down coordinate system selection
-     - The coordinate system in which the compensation value is compensated
-     - If there is a welding weave, select "Weave", otherwise select "Tool" or "Frame"
-
-   * - Up-down reference current setting method
-     - Selection of the reference current acquisition method
-     - You can choose "Feedback" by reading the feedback current, or "Constant" by filling in the current value directly
-
-   * - The up-down reference current samples start counting
-     - The number of periods for which the reference current is harvested with a delay
-     - Associated with the weave frequency, it is better to open when the current tends to be stable for 3~4s after arcing. If the weave frequency is 1 Hz, the parameter can be 4, if the frequency is 2 Hz, the parameter can be 8, and so on
-
-   * - Up-down reference current sampling counts
-     - Reference current feedback mode, the statistical period of collecting the reference current
-     - Default 1 CYC
-
-   * - Up-down reference currents
-     - Reference current constant mode, reference current value
-     - It can be filled in manually to achieve the desired compensation height
-
-.. centered:: Table 9.8-6 Arc tracking left-right compensation module
+.. centered:: Tabella 9.8-5 Modulo compensazione alto/basso tracciamento ad arco
 
 .. list-table::
    :widths: 70 70 70
    :header-rows: 0
    :align: center
 
-   * - **The name of the parameter**
-     - **Meaning**
-     - **Parameter description**
+   * - **Nome parametro**
+     - **Significato**
+     - **Note**
 
-   * - Arc tracking lag time
-     - The time for the feedback current to lag
-     - The default is 0ms, do not adjust it
+   * - Tempo ritardo tracciamento ad arco
+     - Tempo di ritardo corrente feedback
+     - Predefinito 0ms, non modificare
 
-   * - Compensation for left-right deviations
-     - Left-right compensation switches
-     - You can choose to "On" or "Off"
+   * - Compensazione deviazione alto/basso
+     - Interruttore compensazione alto/basso
+     - Scegliere "Attiva" o "Disattiva"
 
-   * - Left-right compensation coefficients
-     - The coefficient of the relationship between the current and the compensation distance (adjustment sensitivity)
-     - The welding tends to be in a short-circuit transition state, and the current signal-to-noise ratio gradually decreases, so it is recommended to reduce the sensitivity
+   * - Coefficiente regolazione alto/basso
+     - Coefficiente relazione corrente-distanza compensazione (regola sensibilità)
+     - Quando la saldatura tende a transizione cortocircuito, il rapporto segnale/rumore della corrente diminuisce gradualmente, si consiglia di ridurre la sensibilità
 
-   * - Left-right compensation start counting
-     - The fastest count to start left-right compensation function
-     - Associated with the weave frequency, it is better to start when the current tends to be stable for 3~4s after arcing. If the weave frequency is 1 Hz, the parameter can be 4, if the frequency is 2 Hz, the parameter can be 8, and so on
+   * - Tempo inizio compensazione alto/basso
+     - Periodo minimo per iniziare la compensazione alto/basso
+     - Correlato alla frequenza di oscillazione, è meglio iniziare dopo 3~4 secondi dall'accensione dell'arco, quando la corrente si stabilizza. Se la frequenza di oscillazione è 1Hz, il parametro può essere 4; se la frequenza è 2Hz, il parametro può essere 8, e così via
 
-   * - Left-right the maximum distance of compensation each time
-     - The maximum distance of compensation per compensation cycle
-     - According to the welding scene setting, the faster the swing frequency, the smaller the compensation distance
+   * - Quantità massima compensazione alto/basso per volta
+     - Quantità massima compensazione per ogni periodo compensazione alto/basso
+     - Impostare in base allo scenario di saldatura, maggiore frequenza di oscillazione richiede minore quantità compensazione
 
-   * - The maximum distance of compensation for the left -right totals
-     - The maximum cumulative distance of compensation for a single complete welding process
-     - According to the welding scene setting, the larger the weld deviation, the larger the setting
-     
-**6)Scope of application**
+   * - Quantità massima compensazione alto/basso totale
+     - Quantità massima accumulata compensazione in un intero processo di saldatura
+     - Impostare in base allo scenario di saldatura, maggiore deviazione della saldatura richiede impostazione corrispondentemente maggiore
 
-.. centered:: Table 9.8-7 Up-down compensation On, Left-right compensation Off
+   * - Selezione sistema coordinate alto/basso
+     - Sistema coordinate in cui viene applicato il valore compensazione
+     - Se esiste oscillazione di saldatura, scegliere "Oscillazione", altrimenti scegliere "Utensile" o "Base"
+
+   * - Modalità impostazione corrente riferimento alto/basso
+     - Selezione modalità ottenimento corrente riferimento
+     - Scegliere "Feedback" per ottenere tramite lettura corrente feedback; o "Costante" per inserire direttamente il valore corrente
+
+   * - Conteggio inizio campionamento corrente riferimento alto/basso
+     - Numero periodi ritardo per iniziare il campionamento corrente riferimento
+     - Correlato alla frequenza di oscillazione, è meglio iniziare dopo 3~4 secondi dall'accensione dell'arco, quando la corrente si stabilizza. Se la frequenza di oscillazione è 1Hz, il parametro può essere 4; se la frequenza è 2Hz, il parametro può essere 8, e così via
+
+   * - Conteggio campionamento corrente riferimento alto/basso
+     - Periodo statistico per il campionamento della corrente riferimento in modalità feedback
+     - Predefinito 1 ciclo
+
+   * - Corrente riferimento alto/basso
+     - Valore corrente riferimento in modalità costante
+     - Inserire manualmente per raggiungere l'altezza di compensazione desiderata
+
+.. centered:: Tabella 9.8-6 Modulo compensazione sinistra/destra tracciamento ad arco
+
+.. list-table::
+   :widths: 70 70 70
+   :header-rows: 0
+   :align: center
+
+   * - **Nome parametro**
+     - **Significato**
+     - **Spiegazione parametro**
+
+   * - Tempo ritardo tracciamento ad arco
+     - Tempo di ritardo corrente feedback
+     - Predefinito 0ms, non modificare
+
+   * - Compensazione deviazione sinistra/destra
+     - Interruttore compensazione sinistra/destra
+     - Scegliere "Attiva" o "Disattiva"
+
+   * - Coefficiente regolazione sinistra/destra
+     - Coefficiente relazione corrente-distanza compensazione (regola sensibilità)
+     - Quando la saldatura tende a transizione cortocircuito, il rapporto segnale/rumore della corrente diminuisce gradualmente, si consiglia di ridurre la sensibilità
+
+   * - Tempo inizio compensazione sinistra/destra
+     - Periodo minimo per iniziare la compensazione sinistra/destra
+     - Correlato alla frequenza di oscillazione, è meglio iniziare dopo 3~4 secondi dall'accensione dell'arco, quando la corrente si stabilizza. Se la frequenza di oscillazione è 1Hz, il parametro può essere 4; se la frequenza è 2Hz, il parametro può essere 8, e così via
+
+   * - Quantità massima compensazione sinistra/destra per volta
+     - Quantità massima compensazione per ogni periodo compensazione sinistra/destra
+     - Impostare in base allo scenario di saldatura, maggiore frequenza di oscillazione richiede minore quantità compensazione
+
+   * - Quantità massima compensazione sinistra/destra totale
+     - Quantità massima accumulata compensazione in un intero processo di saldatura
+     - Impostare in base allo scenario di saldatura, maggiore deviazione della saldatura richiede impostazione corrispondentemente maggiore
+
+**6) Campo di applicazione**
+
+.. centered:: Tabella 9.8-7 Compensazione alto/basso attiva, compensazione sinistra/destra disattiva
 
 .. list-table::
    :widths: 70 70
    :header-rows: 0
    :align: center
 
-   * - **Key parameters**
-     - **Parameter range**
+   * - **Parametro chiave**
+     - **Intervallo parametro**
 
-   * - Weave frequency Hz
-     - 0 (without welding swing), 0.5 to 2 (with weld swing)
+   * - Frequenza oscillazione Hz
+     - 0 (non utilizzare oscillazione saldatura), 0.5 a 2 (utilizzare oscillazione saldatura)
 
-   * - Weave amplitude mm
-     - 0 (without welding swing), 3 through 7 (with welding swing)
+   * - Ampiezza oscillazione mm
+     - 0 (non utilizzare oscillazione saldatura), 3 a 7 (utilizzare oscillazione saldatura)
 
-   * - Set the voltage V
+   * - Tensione impostata V
      - >17
 
-   * - Set the current A
+   * - Corrente impostata A
      - >160
   
-.. centered:: Table 9.8-8 Up-down compensation Off, Left-right compensation On
+.. centered:: Tabella 9.8-8 Compensazione alto/basso disattiva, compensazione sinistra/destra attiva
 
 .. list-table::
    :widths: 70 70
    :header-rows: 0
    :align: center
 
-   * - **Key parameters**
-     - **Parameter range**
+   * - **Parametro chiave**
+     - **Intervallo parametro**
 
-   * - Weave frequency Hz
-     - 0.5 to 2
+   * - Frequenza oscillazione Hz
+     - 0.5 a 2
 
-   * - Weave amplitude mm
-     - 3 to 7
+   * - Ampiezza oscillazione mm
+     - 3 a 7
 
-   * - Set the voltage V
+   * - Tensione impostata V
      - >17
 
-   * - Set the current A
+   * - Corrente impostata A
      - >160
   
-.. centered:: Table 9.8-9 Up-down compensation On, Left-right compensation On
+.. centered:: Tabella 9.8-9 Compensazione alto/basso e sinistra/destra entrambe attive
 
 .. list-table::
    :widths: 70 70
    :header-rows: 0
    :align: center
 
-   * - **Key parameters**
-     - **Parameter range**
+   * - **Parametro chiave**
+     - **Intervallo parametro**
 
-   * - Weave frequency Hz
-     - 0.5 to 2
+   * - Frequenza oscillazione Hz
+     - 0.5 a 2
 
-   * - Weave amplitude mm
-     - 3 to 7
+   * - Ampiezza oscillazione mm
+     - 3 a 7
 
-   * - Set the voltage V
+   * - Tensione impostata V
      - >19
 
-   * - Set the current A
+   * - Corrente impostata A
      - >210
 
-**7)Precautions**
+**7) Note**
 
-1) The left-right compensated arc tracking function can only be adapted to symmetrical triangle or sine weave based on line trajectory.
-2) The starting position of the welding to be able using the compensation function must be accurately above the weld (the axis of the welding gun is in the center of the fillet weld), and the welding gun should not be too close to the seam, otherwise there is a risk of hitting the welding gun.
-3) The material on both sides of the groove of the workpiece needs to be consistent.
-4) The coordinate size and attitude of the workpiece need to be accurately calibrated using the 6-point method.
-5) If the deviation between the set trajectory and the seam is larger, the maximum compensation distance each time and the total maximum compensation distance should be larger too.
-6) The deviation between the set trajectory and the end point of the weld should not be larger than 100mm/m, and too large the deviation may cause the welding wire or even the welding gun to hit the workpiece, so that the welding position deviates from the preset trajectory (the weave is not in place), resulting in the arc tracking function can not work normally.
-7) If a small set current and voltage is selected for welding, the compensate coefficient of arc tracking should be reduced accordingly to reduce the instability compensation caused by the burr of the feedback current.
-8)  When different coordinate systems are selected for arc tracking, the positive and negative signs of the up-down and left-right compensation coefficients may need to be adjusted, which can be judged by test welding in addition to the direction of the corresponding coordinate system. If the welding trajectory (left) is taught on an inclined plate, the welding trajectory (right) moves in the direction of descent based on the tilt gradient of the swing plane after arc tracking is enabled, and the height of the welding torch at the end is close to the starting point, then the sign of the adjustment coefficient is correct.
+1) La funzione di tracciamento ad arco con compensazione sinistra/destra può essere adattata solo a traiettorie lineari combinate con oscillazioni a onda triangolare o sinusoidale simmetrica.
+2) Utilizzando la funzione di compensazione, la posizione di inizio saldatura deve essere accuratamente sopra la saldatura (l'asse della torcia deve essere al centro della saldatura d'angolo), la torcia non deve essere troppo vicina alla saldatura, altrimenti c'è rischio di urto.
+3) I materiali su entrambi i lati del cavo del pezzo devono essere consistenti.
+4) Le dimensioni e l'orientamento del sistema di coordinate del pezzo devono essere calibrati con precisione utilizzando il metodo a 6 punti.
+5) Maggiore è la deviazione tra la traiettoria impostata e la saldatura, maggiore deve essere la quantità massima di compensazione per volta e quella totale.
+6) La deviazione del punto finale tra la traiettoria impostata e la saldatura non dovrebbe superare i 100mm/m. Una deviazione eccessiva potrebbe causare l'urto del filo di saldatura o addirittura della torcia contro il pezzo, facendo deviare la posizione di saldatura dalla traiettoria prevista (oscillazione insufficiente), impedendo alla funzione di tracciamento ad arco di funzionare normalmente.
+7) Quando si sceglie una corrente e tensione impostate più piccole per la saldatura, i coefficienti di regolazione alto/basso e sinistra/destra del tracciamento ad arco dovrebbero essere corrispondentemente ridotti, per diminuire la compensazione instabile causata dalla corrente di feedback frastagliata.
+8) Quando si selezionano diversi sistemi di coordinate per il tracciamento ad arco, potrebbe essere necessario regolare i segni positivi/negativi dei coefficienti di compensazione alto/basso e sinistra/destra. Oltre a giudicare in base alla direzione del sistema di coordinate corrispondente, si può anche determinare tramite prova di saldatura. Se dopo aver insegnato una traiettoria di saldatura oscillante su una lastra inclinata (figura sinistra), si attiva il tracciamento ad arco e la traiettoria di saldatura (figura destra) si muove nella direzione di discesa del gradiente di inclinazione del piano di oscillazione, mantenendo alla fine l'altezza della torcia simile a quella iniziale, allora i segni dei coefficienti di regolazione sono corretti.
 
 .. image:: coding/284.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-7-6 Set the tilt swing trajectory (left), weld trajectory when the symbol is correct (right)
+.. centered:: Grafico 9.8-7-6 Impostazione traiettoria oscillante inclinata (sinistra), traiettoria di saldatura quando i segni sono corretti (destra)
 
-Adjust command
-++++++++++++++++
+Comando regolazione orientamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Adjust" icon to enter the Adjust command editing interface.
+Clicca sull'icona "Regolazione orientamento" per accedere all'interfaccia di modifica comandi Adjust.
 
-This command adaptively adjusts the posture of the welding torch for the scene of welding tracking. After recording the three corresponding posture points, add the posture adaptive adjustment command according to the actual direction of the robot's movement. See Robot Peripherals chapter for details.
+Questa istruzione è per lo scenario di adattamento automatico dell'orientamento della torcia di saldatura nel tracciamento saldatura. Dopo aver registrato tre punti di orientamento corrispondenti, aggiungere l'istruzione di adattamento automatico dell'orientamento in base alla direzione di movimento effettiva del robot. Fare riferimento al capitolo sulle periferiche del robot.
 
 .. image:: coding/134.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.8-8 Adjust command interface
+.. centered:: Grafico 9.8-8 Interfaccia istruzione Adjust
 
-Force control command interface 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni controllo forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/135.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.9 Force control command interface
+.. centered:: Grafico 9.9 Interfaccia istruzioni controllo forza
 
-F/T command
-++++++++++++++++
+Comando set controllo forza
++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "F/T" icon to enter the F/T command editing interface.
+Clicca sull'icona "Set controllo forza" per accedere all'interfaccia di modifica comandi F/T.
 
-The command includes nine commands: FT_Guard (collision detection), FT_Control (constant force control), FT_Compliance (compliance control), FT_Spiral (spiral insertion), FT_Rot ​​(rotation insertion), FT_Lin (linear insertion), FT_FindSurface (surface positioning), FT_CalCenter (center positioning), FT_Click (click force detection), see the robot peripherals chapter for details.
+Questa istruzione include otto comandi: FT_Guard (rilevamento collisione), FT_Control (controllo forza costante), FT_Compliance (controllo cedevolezza), FT_Spiral (inserimento a spirale), FT_Rot (inserimento rotazione), FT_Lin (inserimento lineare), FT_FindSurface (posizionamento superficie), FT_CalCenter (posizionamento centro). Fare riferimento al capitolo sulle periferiche del robot.
 
 .. image:: coding/136.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.9-1 F/T command interface
+.. centered:: Grafico 9.9-1 Interfaccia istruzione F/T
 
-Torque command
-++++++++++++++++
+Comando registrazione coppia
+++++++++++++++++++++++++++++++++++
 
-Click the "Torque" icon to enter the Torque command editing interface.
+Clicca sull'icona "Registrazione coppia" per accedere all'interfaccia di modifica comandi Torque.
 
-This command is a torque recording command, which realizes the real-time torque recording collision detection function. Click the "Torque Record Start" button to continuously record the collision situation during the operation of the motion command, and the recorded real-time torque is used as the theoretical value of the collision detection judgment to reduce the probability of false alarms. When the set threshold range is exceeded, the collision detection duration is recorded. Click the "Torque Recording Stop" button to stop recording. Click "Torque Record Reset" to return the status to the default state.
+Questa istruzione è per la registrazione della coppia, realizzando la funzione di rilevamento collisione con registrazione in tempo reale della coppia. Cliccare sul pulsante "Avvia registrazione coppia" per registrare continuamente la situazione di collisione durante l'esecuzione delle istruzioni di movimento, la coppia in tempo reale registrata viene utilizzata come valore teorico per il giudizio di rilevamento collisione, riducendo la probabilità di falsi allarmi. Quando si supera l'intervallo di soglia impostato, viene registrata la durata del rilevamento collisione. Cliccare sul pulsante "Ferma registrazione coppia" per interrompere la registrazione. Cliccare su "Reset registrazione coppia" per ripristinare lo stato predefinito.
 
 .. image:: coding/137.png
    :width: 6in
-   :align: center
+   :align: center 
 
-.. centered:: Figure 9.9-2 Torque command interface
+.. centered:: Grafico 9.9-2 Interfaccia istruzione Torque
 
-Visual command interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni visione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/138.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.10 Visual command interface
+.. centered:: Grafico 9.10 Interfaccia istruzioni visione
 
-3D command
-++++++++++++++++
+Comando visione 3D
+++++++++++++++++++++++++++
 
-Click the "3D" icon to enter the 3D command editing interface.
+Clicca sull'icona "Visione 3D" per accedere all'interfaccia di modifica comandi 3D.
 
-This command generates commands for 3D vision program examples. Users can refer to the generated programs and communicate with other vision devices, including two program case references of camera calibration and camera capture.
+Questa istruzione genera esempi di programmi per visione 3D, gli utenti possono fare riferimento ai programmi generati per lavorare con altri dispositivi di visione, includendo due esempi di riferimento per calibrazione fotocamera e presa fotocamera.
 
 .. image:: coding/139.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.10-1 3D command interface
+.. centered:: Grafico 9.10-1 Interfaccia istruzione 3D
 
-Palletizing command interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni pallettizzazione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/140.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.11 Palletizing command interface
+.. centered:: Grafico 9.11 Interfaccia istruzioni pallettizzazione
 
-Pallet command
-++++++++++++++++
+Comando movimento matrice
+++++++++++++++++++++++++++++++++++
 
-Click the "Pallet" icon to enter the Pallet command editing interface.
+Clicca sull'icona "Movimento matrice" per accedere all'interfaccia di modifica comandi Pallet.
 
-This instruction generates instructions for the palletizing program, which is consistent with the matrix movement function in Section 3.9.6. For details, refer to that chapter.
+Questa istruzione genera programmi per pallettizzazione.
 
 .. image:: coding/141.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.11-1 Pallet command interface 
+.. centered:: Grafico 9.11-1 Interfaccia istruzione Pallet
 
-This function controls the regular movement of the manipulator by setting the three-point coordinates and the values of the row and column layer and layer height, which is suitable for common palletizing applications. The first step is to select the robot movement mode, "PTP" or "Line", the second step is to set the robot movement path, "head-to-tail walking method" or "bow walking method", the third step is to set the stacking method, "stack stacking" or "unstacking".
+Questa funzione controlla il movimento regolare del braccio robotico impostando tre coordinate di punti e valori come righe, colonne, strati e altezza strato, applicabile a scenari comuni di pallettizzazione. Primo passo: selezionare la modalità di movimento del robot, "PTP" o "Linea"; secondo passo: impostare il percorso di movimento del robot, "Percorso da testa a coda" o "Percorso a zigzag"; terzo passo: impostare la modalità di impilamento, "Accumulo" o "Scarico".
 
 .. image:: coding/142.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 4.11-2 Matrix move
+.. centered:: Grafico 9.11‑2 Movimento matrice
 
-The fourth step is to teach three points according to the path. The first point is the starting point of the first row, and the arm posture is determined by this point during the whole movement process. The second point is the end point of the first row, and the third point is the end point of the last row. The fifth step is to set the number of rows and columns. The sixth step is to set the number of layers and the height of each layer. The last step is to name the matrix motion program file, and a matrix movement program is generated successfully.
+Quarto passo: insegnare tre punti in base al percorso, il primo punto è l'inizio della prima riga, l'orientamento del braccio durante l'intero processo di movimento è determinato da questo punto; il secondo punto è la fine della prima riga; il terzo punto è la fine dell'ultima riga. Quinto passo: impostare il numero di righe e colonne; sesto passo: impostare il numero di strati e l'altezza di ogni strato.
 
 .. image:: coding/143.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 4.11-3 Matrix move
+.. centered:: Grafico 9.11‑3 Movimento matrice
 
-Communication command interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni comunicazione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/144.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.12 Communication command interface
+.. centered:: Grafico 9.12 Interfaccia istruzioni comunicazione
 
-Modbus command
+Comando Modbus
 ++++++++++++++++
 
-Click the "Mobus" icon to enter the Modbus command editing interface.
+Clicca sull'icona "Modbus" per accedere all'interfaccia di modifica comandi Modbus.
 
-The command function is a bus function based on the ModbusTCP protocol. The user can control the robot to communicate with the ModbusTCP client or server (the master station communicates with the slave station) through relevant instructions, and perform read and write operations on coils, discrete quantities, and registers.
+Questa funzione è per la comunicazione bus basata sul protocollo ModbusTCP. Gli utenti possono controllare la comunicazione tra robot e client o server ModbusTCP (comunicazione master e slave) tramite istruzioni correlate, eseguendo operazioni di lettura/scrittura su bobine, ingressi discreti, registri.
 
 .. image:: coding/145.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.12-1 modbus command master interface
+.. centered:: Grafico 9.12-1 Interfaccia istruzione modbus master
 
 .. image:: coding/146.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.12-2 modbus command slave interface
+.. centered:: Grafico 9.12-2 Interfaccia istruzione modbus slave
 
-For more operating functions of ModbusTCP, please contact us for consultation.
+Per ulteriori funzionalità operative su ModbusTCP, contattateci per consulenza.
 
-Xmlrpc command
+Comando Xmlrpc
 ++++++++++++++++
 
-Click the "Xmlroc" icon to enter the Xmlrpc command editing interface.
+Clicca sull'icona "Xmlrpc" per accedere all'interfaccia di modifica comandi Xmlrpc.
 
-XML-RPC is a remote procedure call method for transferring data between programs using xml over sockets. In this way, the robot controller can call the function (with parameters) in the remote program/service and obtain the returned structured data. The Robot Controller handles all the details of writing XML-RPC client messages and handling conversions between data types and XML.
+XML-RPC è un metodo di chiamata di procedura remota che utilizza XML per trasmettere dati tra programmi tramite socket. Con questo metodo, il controller del robot può richiamare funzioni (con parametri) in programmi/servizi remoti e ottenere dati strutturati restituiti. Il controller del robot si occupa di tutti i dettagli della scrittura dei messaggi client XML-RPC e della conversione tra tipi di dati e XML.
 
 .. image:: coding/147.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.12-3 Xmlrpc command interface
+.. centered:: Grafico 9.12-3 Interfaccia istruzione Xmlrpc
 
 .. important:: 
-   1) The controller acts as a client to connect to the remote custom port;
+  1) Il controller funge da client per connettersi a porte personalizzate remote;
 
-   2) The controller acts as a client to call the remote function;
+  2) Il controller come client richiama funzioni remote;
 
-   3) Support calling different remote functions;
+  3) Supporta la chiamata a diverse funzioni remote;
 
-   4) Support string array parameter input and character array result return, the number of array elements can be customized;
+  4) Supporta il passaggio di parametri array di stringhe e il ritorno di risultati array di caratteri, il numero di elementi dell'array è personalizzabile;
 
-   Support double-type array parameter input and double-type array result return, the number of array elements can be customized;
+  Supporta il passaggio di parametri array di tipo double e il ritorno di risultati array di tipo double, il numero di elementi dell'array è personalizzabile;
 
 ::
 
-   XmlrpcClientCall(serverUrl,methodName,tableType,param)
+   XmlrpcClientCall(serverUrl, methodName, tableType, param)
 
-   serverUrl server url, for example:"http://192.168.58.29:50000/RPC2"
+   serverUrl URL server, ad esempio: "http://192.168.58.29:50000/RPC2"
 
-   methodName Call function name, "example.add"
+   methodName Nome funzione chiamata, "example.add"
 
-   tableType 1-double array, 2-string array
+   tableType 1-array di tipo double, 2-array di tipo string
 
-   param call function parameters
+   param Parametri funzione chiamata
 
 ::
 
    XmlrpcClientCall(error, result)
 
-   error 0 - no error, 1 - error
+   error 0-nessun errore, 1-errore
 
-   result If the parameter is passed in as a double array, the result is a double array,
+   result Se i parametri passati sono array di tipo double, result è array di tipo double,
 
-   If the parameter is passed in as an array of string type, the result will be an array of string type
+   se i parametri passati sono array di tipo string, result è array di tipo string
 
-Auxiliary command interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interfaccia istruzioni ausiliarie
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: coding/148.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.13 Auxiliary command interface
+.. centered:: Grafico 9.13 Interfaccia istruzioni ausiliarie
 
-Thread command
-++++++++++++++++
+Comando thread ausiliario
+++++++++++++++++++++++++++++++++++++
 
-Click the "Thread" icon to enter the Thread command editing interface.
+Clicca sull'icona "Thread ausiliario" per accedere all'interfaccia di modifica dei comandi Thread.
 
-The Thread command is an auxiliary thread function. Users can define an auxiliary thread to run simultaneously with the main thread. The auxiliary thread mainly performs data interaction with external devices, supports socket communication, obtains robot DI status, robot DO status settings, and obtains robot status information. Thread data interaction, the data obtained by the main thread through the auxiliary thread is used to control the judgment of the robot's motion logic, the screenshot of the user program example:
+Il comando Thread è una funzione per thread ausiliari che consente all'utente di definire un thread ausiliario che viene eseguito contemporaneamente al thread principale. Il thread ausiliario interagisce principalmente con dispositivi esterni per lo scambio di dati, supporta la comunicazione socket, l'acquisizione dello stato DI del robot, l'impostazione dello stato DO del robot, l'acquisizione delle informazioni sullo stato del robot e lo scambio di dati con il thread principale. Il thread principale utilizza i dati acquisiti dal thread ausiliario per valutare la logica di controllo del movimento del robot. Screenshot di esempio del programma utente:
 
 .. image:: coding/149.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.13-1 Thread program example
+.. centered:: Grafico 9.13-1 Esempio programma Thread
 
-Function command
-++++++++++++++++
+Comando chiamata funzione
+++++++++++++++++++++++++++++++++++++++++++++
 
-Click the "Function" icon to enter the Function command editing interface.
+Clicca sull'icona "Chiamata funzione" per accedere all'interfaccia di modifica dei comandi Function.
 
-This command is to call the function interface function, provide the robot interface function to the customer to choose, and remind the customer of the parameters required by the function, which is convenient for the customer to write script commands, and more functions are being added one after another.
+Questa istruzione è un'interfaccia per la chiamata di funzioni, che fornisce all'utente le funzioni dell'interfaccia del robot da scegliere e avvisa l'utente sui parametri richiesti dalla funzione, facilitando la scrittura di istruzioni script. Ulteriori funzioni verranno aggiunte gradualmente.
 
 .. image:: coding/150.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.13-2 Function command interface
+.. centered:: Grafico 9.13-2 Interfaccia istruzione Function
 
-PT-Mode command
-++++++++++++++++
+Comando tabella punti
+++++++++++++++++++++++++++++++
 
-Click the "PT-Mode" icon to enter the PT-Mode command editing interface.
+Clicca sull'icona "Tabella punti" per accedere all'interfaccia di modifica dei comandi PT-Mode.
 
-This command is mainly used for mode switching between system mode and point table mode. Teaching points in different point tables can be applied by switching point tables.For details, see Chapter 11 - Points.
+Questa istruzione viene utilizzata principalmente per la commutazione tra la modalità di sistema e la modalità tabella punti, applicando i punti di insegnamento all'interno di diverse tabelle punti attraverso il cambio della tabella punti. Per i dettagli, fare riferimento al Capitolo 11 - Punti di insegnamento.
 
 .. image:: coding/151.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.13-3 PT-Mode command interface
+.. centered:: Grafico 9.13-3 Interfaccia istruzione tabella punti
 
-Teaching program is not saved for verification
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Verifica programma insegnamento non salvato
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On the program teaching page, after opening/creating a new program, if the teaching program is modified, the program is not saved.
+Nella pagina di insegnamento del programma, dopo aver aperto/creato un programma, se il programma insegnamento è stato modificato senza salvare.
 
-If you click "Open", "New", "Export", "Rename" and other related file operations, the "Do you want to save this program" pop-up box will be triggered, prompting "The current program has changed. Do you want to save the changes to this program?" ,As shown below.
+Se si clicca su "Apri", "Nuovo", "Esporta", "Rinomina" o altre operazioni sui file correlate, viene attivata una finestra di dialogo "Salvare questo programma?" con il messaggio "Il programma corrente è stato modificato, salvare le modifiche a questo programma?", come mostrato di seguito.
 
 .. image:: coding/152.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.14-1 The current page program does not save verification
+.. centered:: Grafico 9.14-1 Verifica programma pagina corrente non salvato
 
-**Step1**:Click the "Not Save" button, and the program will restore the unmodified data and continue to perform previous related file operations.
+**Step1**: Cliccare sul pulsante "Non salvare", il programma viene ripristinato ai dati precedenti le modifiche e continua l'esecuzione dell'operazione sui file precedente.
 
-**Step2**:Click the "Save" button, the unsaved Lua program is saved successfully, and the previous related file operations continue to be performed.
+**Step2**: Cliccare sul pulsante "Salva", il programma lua non salvato viene salvato con successo e continua l'esecuzione dell'operazione sui file precedente.
 
-If you leave the program teaching page and switch to other pages, the prompt "Do you want to save this program" will also be triggered, and you will still stay on the current teaching program page, as shown below.
+Quando si lascia la pagina di insegnamento del programma per passare ad altre pagine, viene attivato lo stesso prompt "Salvare questo programma?" e si rimane comunque nella pagina del programma insegnamento corrente, come mostrato di seguito.
 
 .. image:: coding/153.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.14-2 Switch page program does not save verification
+.. centered:: Grafico 9.14-2 Verifica programma non salvato durante cambio pagina
 
-**Step1**:Click the "Not Save" button to jump to the previously selected page.
+**Step1**: Cliccare sul pulsante "Non salvare" per passare alla pagina selezionata in precedenza.
 
-**Step2**:Click the "Save" button, and the unsaved Lua program is saved successfully and jumps to the previously selected page.
+**Step2**: Cliccare sul pulsante "Salva", il programma lua non salvato viene salvato con successo e si passa alla pagina selezionata in precedenza.
 
-Teaching program encryption
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Crittografia programma insegnamento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The teaching procedure is divided into a state of encryption and non-encryption. The encryption level is divided into first-level encryption and secondary encryption. Among them, the level of first-level encryption is the highest, and the secondary is second.
-All teaching programs are displayed and set in the form of program encryption information in "System Settings - Custom Information". Encryption level descriptions are provided to the right of the table.
+I programmi di insegnamento possono essere crittografati o non crittografati. Il livello di crittografia è diviso in crittografia di livello uno e crittografia di livello due, con il livello uno che offre la massima protezione, seguito dal livello due.
+Tutti i programmi di insegnamento vengono visualizzati e impostati sotto forma di tabella in "Impostazioni di sistema - Informazioni personalizzate". Sul lato destro della tabella è presente una spiegazione dei livelli di crittografia.
 
 .. image:: coding/154.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.15-1 Demonstration of teaching procedures
+.. centered:: Grafico 9.15-1 Crittografia programma insegnamento
 
-When the program is a first-level encryption state, after opening the program: the corresponding "export", "preservation", "existing as", "copy", "cut", "delete", "delete", "delete", "delete", "delete" The buttons such as "upward", "downward" and "editing mode switching" will be grayed.
-Click the icon to be invalid and it will prompt that the current program is in an encrypted state. The program "renamed" icon will hide. Add instruction bars and program editing areas are invisible and prompts to be locked in first-level encryption.
+Quando un programma è in stato di crittografia di livello uno, dopo averlo aperto:
+Le icone dei pulsanti corrispondenti nella barra delle operazioni come "Esporta", "Salva", "Salva con nome", "Copia", "Taglia", "Incolla", "Elimina", "Sposta su", "Sposta giù" e "Cambia modalità modifica" diventeranno grigie. Cliccare sulle icone non avrà effetto e verrà visualizzato un messaggio che informa che il programma corrente è in stato crittografato.
+L'icona "Rinomina" del programma verrà nascosta.
+La barra di aggiunta istruzioni e l'area di modifica del programma non saranno visibili e verrà visualizzato un messaggio che indica che è attiva la crittografia di livello uno.
 
 .. image:: coding/155.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.15-2 Program first-level encryption interface
+.. centered:: Grafico 9.15-2 Interfaccia programma crittografia livello uno
 
-When the program is second-level encryption, after opening the program on the "Program Demonstration" page: the corresponding "savings", "copy", "shear", "paste", "delete", "upper", "upper" in the operating bar The buttons such as the "Move" will turn ashes.
-Click the icon to be invalid and it will prompt that the current program is encrypted. The program "renamed" icon will hide. The adding instruction bar is not visible and prompts to be locked in a secondary encryption. The program editing area can browse the reading program normally.
+Quando un programma è in stato di crittografia di livello due, dopo averlo aperto nella pagina "Insegnamento programma":
+Le icone dei pulsanti corrispondenti nella barra delle operazioni come "Salva", "Copia", "Taglia", "Incolla", "Elimina", "Sposta su" e "Sposta giù" diventeranno grigie. Cliccare sulle icone non avrà effetto e verrà visualizzato un messaggio che informa che il programma corrente è in stato crittografato.
+L'icona "Rinomina" del programma verrà nascosta.
+La barra di aggiunta istruzioni non sarà visibile e verrà visualizzato un messaggio che indica che è attiva la crittografia di livello due.
+L'area di modifica del programma può essere visualizzata normalmente per leggere il programma.
 
 .. image:: coding/156.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.15-3 Program second-level encryption interface
+.. centered:: Grafico 9.15-3 Interfaccia programma crittografia livello due
 
-Both first -level encryption and second -level encryption can use the "export" function. Verification operations will be performed when importing.
-If the program of the same name is an encrypted file, the import operation will be interrupted and indicated that the coverage of the encryption program cannot be introduced.
+Sia la crittografia di livello uno che di livello due supportano la funzione "Esporta". Durante l'importazione verrà eseguita un'operazione di verifica; se esiste un programma con lo stesso nome che è un file crittografato, l'operazione di importazione verrà interrotta e verrà visualizzato un messaggio che informa che non è possibile importare e sovrascrivere un programma crittografato.
 
 .. image:: coding/157.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.15-4 Program import
+.. centered:: Grafico 9.15-4 Importazione programma
 
-Local teaching point
-~~~~~~~~~~~~~~~~~~~~~~~~
+Punti di insegnamento locali
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The local teaching point is bound to the current teaching program. When adding a program command, it can only be applied to the current teaching program and cannot be used in other teaching programs.
+I punti di insegnamento locali sono associati al programma di insegnamento corrente. Quando si aggiungono comandi di programma, possono essere applicati solo al programma di insegnamento corrente, non ad altri programmi di insegnamento.
 
-**Add**: Click the "Add Local Teaching Point" icon on the far right of the program file name to add local teaching points. (For detailed records of local teaching points, please refer to the teaching point records in robot operation)
+**Aggiungi**: Cliccare sull'icona "Aggiungi punto di insegnamento locale" all'estrema destra del nome del file del programma per aggiungere un punto di insegnamento locale. (Per i dettagli sui punti di insegnamento locali, consultare la registrazione dei punti di insegnamento nelle operazioni del robot)
 
 .. image:: coding/158.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.16-1 Add local teaching points
+.. centered:: Grafico 9.16-1 Aggiungi punto di insegnamento locale
 
-**Delete**: Click the serial number column of the table to select the local teaching point to be deleted, and then click the "Delete" icon in the upper right corner of the title of the local teaching point to delete the local teaching point.
+**Elimina**: Cliccare sulla colonna del numero di serie nella tabella per selezionare il punto di insegnamento locale da eliminare, quindi cliccare sull'icona "Elimina" in alto a destra del titolo dei punti di insegnamento locali per eliminare il punto di insegnamento locale.
 
 .. image:: coding/159.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.16-2 Delete local teaching point
+.. centered:: Grafico 9.16-2 Elimina punto di insegnamento locale
 
-**Run**: Click the "Start Running" icon in the data operation bar of the local teaching point table to perform a single-point operation of the local teaching point and move the robot to the position of this point.
+**Esegui**: Cliccare sull'icona "Avvia esecuzione" nella colonna delle operazioni dei dati della tabella dei punti di insegnamento locali per eseguire un singolo punto di insegnamento locale, spostando il robot nella posizione di quel punto.
 
 .. image:: coding/160.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.16-3 Run local teaching point
+.. centered:: Grafico 9.16-3 Esegui punto di insegnamento locale
 
-**Details**: Click the "Details" icon in the data operation bar of the local teaching point table to view the details of the local teaching point.
+**Dettagli**: Cliccare sull'icona "Dettagli" nella colonna delle operazioni dei dati della tabella dei punti di insegnamento locali per visualizzare i dettagli del punto di insegnamento locale.
 
 .. image:: coding/161.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.16-4 Local teaching point details
+.. centered:: Grafico 9.16-4 Dettagli punto di insegnamento locale
 
-Current program backup
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Backup programma corrente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After the user modifies the teaching program and clicks save, the "backup" function of the current program is triggered (the backup time is 1 year), and the initial content of the current program is saved and displayed on the right side, which is convenient for the user to compare the modified content.
-Users can view the corresponding program backup content by selecting a date, and click the "Delete" icon in the upper right corner to delete the current program backup content. The content of the current program backup can only be viewed, not modified.
+Dopo che l'utente modifica e salva un programma di insegnamento, viene attivata la funzione "Backup" del programma corrente (il periodo di backup è di 1 anno), salvando il contenuto iniziale del programma corrente e visualizzandolo a destra, facilitando il confronto delle modifiche apportate dall'utente.
+L'utente può selezionare una data per visualizzare il contenuto del backup del programma corrispondente e cliccare sull'icona "Elimina" in alto a destra per eliminare il contenuto del backup del programma corrente. Il contenuto del backup del programma corrente può essere solo visualizzato, non modificato.
 
 .. image:: coding/162.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.17 Current program backup
+.. centered:: Grafico 9.17 Backup programma corrente
 
-Modbus TCP Communication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Comunicazione Modbus TCP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ModbusTCP è un protocollo di comunicazione comunemente utilizzato nella produzione industriale. Il robot collaborativo Faro fornisce due modalità per comunicare con i vostri dispositivi: ModbusTCP master e ModbusTCP slave.
 
-ModbusTCP is a commonly used communication protocol in industrial production. Faao collaborative robots provide two ways to communicate with your device: ModbusTCP master and ModbusTCP slave.
+Il robot collaborativo supporta fino a 8 master ModbusTCP che comunicano contemporaneamente con dispositivi esterni, ciascuno dei quali supporta fino a 128 registri; lo slave ModbusTCP del robot collaborativo dispone di 128 bobine (coil), 128 ingressi discreti (discrete input), 64 registri di mantenimento (holding register) e 64 registri di input (input register) (i tipi di dati dei registri di mantenimento e di input includono tre tipi: senza segno, con segno e a virgola mobile). Inoltre, alcuni indirizzi dei registri di input dello slave ModbusTCP del robot sono dedicati a fornire informazioni come la posizione articolare corrente del robot, la velocità di movimento, ecc., mentre alcuni indirizzi dei registri delle bobine sono dedicati a controllare l'avvio del programma, l'arresto del programma, l'impostazione dei DO della scatola di controllo, ecc.
 
-The collaborative robot supports up to 8 ModbusTCP masters to communicate with external devices at the same time, and each master supports up to 128 registers; the collaborative robot ModbusTCP slave has 128 coils, 128 discrete inputs, 64 holding registers and 64 input registers (holding registers and input register data types include unsigned, signed and floating point types). At the same time, some ModbusTCP slave input register addresses of collaborative robots are dedicated to feedback information such as the current robot's joint position and movement speed, and some coil register addresses are dedicated to controlling the robot to start the program, stop the program, set the control box DO and other functions.
+Lo slave ModbusTCP del robot supporta la connessione con un solo master; il robot può funzionare contemporaneamente come master e slave per comunicare con diversi dispositivi. Di seguito viene descritto l'uso dettagliato.
 
-The robot ModbusTCP slave only supports establishing a connection with one master station. The robot can communicate with different devices as a master and a slave at the same time. The following is a detailed usage method.
- 
 ModbusTCP master
 +++++++++++++++++
 
-Before using the cooperative robot as the ModbusTCP master station to communicate with your equipment, please check the network connection between your equipment and the robot, and confirm that the network interfaces are in the same network segment.
+Prima di utilizzare il robot collaborativo come master ModbusTCP per comunicare con il vostro dispositivo, verificare la connessione di rete tra il vostro dispositivo e il robot e confermare che le interfacce di rete siano sulla stessa sottorete.
 
-There are several steps to use the robot ModbusTCP master station: 
+L'utilizzo del master ModbusTCP del robot comprende i seguenti passaggi:
 
-- Add the master station;
-- Add registers;
-- Communication test;
-- Writing user programs;
-- Run user programs.
+- Aggiunta di un master;
+- Aggiunta di registri;
+- Test di comunicazione;
+- Scrittura del programma utente;
+- Esecuzione del programma utente.
 
-Add ModbusTCP master
-***********************
+Aggiunta master ModbusTCP
+************************************
 
-Open the WebApp, click "Teaching" and "Program Teaching" in turn to create a new user program "testModbusMaster.lua".
+Aprire WebApp, cliccare in sequenza su "Insegnamento simulato", "Insegnamento programma", creare un nuovo programma utente "testModbusMaster.lua".
 
 .. image:: coding/163.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-1 Create ModbusTCP master station user program
+.. centered:: Grafico 9.18-1 Creazione programma utente master ModbusTCP
 
-Click "ModbusTCP Settings" button to open the ModbusTCP function configuration page.
+Cliccare sul pulsante "Impostazioni ModbusTCP" per aprire la pagina di configurazione della funzione ModbusTCP.
 
 .. image:: coding/164.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-2 Open ModbusTCP Settings
+.. centered:: Grafico 9.18-2 Apertura impostazioni ModbusTCP
 
-Click "Master settings" and "Add Modbus master station" in turn to finish adding a ModbusTCP master station.
+Cliccare in sequenza su "Impostazioni master", "Aggiungi master Modbus" per completare l'aggiunta di un master ModbusTCP.
 
 .. image:: coding/165.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-3 Add "ModbusTCP Master Station
+.. centered:: Grafico 9.18-3 Aggiunta "Master ModbusTCP"
 
-According to your equipment, enter the name, slave ip, port number, slave number, communication cycle, and timeout in turn. The specific meanings of the above parameters are as follows:
+Inserire in sequenza "Nome", "IP slave", "Porta", "Numero slave", "Periodo comunicazione" e "Tempo di timeout" in base alla situazione del vostro dispositivo. Il significato specifico di questi parametri è il seguente:
 
-**Name**:ModbusTCP master station name. Robots can create up to 8 master stations to connect with corresponding slave stations. Different master stations can be distinguished by unique names, such as PLC, camera, data acquisition card and FRRobot1;
+**Nome**: Nome del master ModbusTCP del robot. Il robot supporta la creazione di un massimo di 8 master per stabilire connessioni con slave corrispondenti; diversi master possono essere distinti impostando nomi univoci, come "PLC", "Fotocamera", "Scheda acquisizione dati", "FRRobot1", ecc.;
 
-**Slave IP**:the slave IP address to which the ModbusTCP master station of the robot is connected;
+**IP slave**: Indirizzo IP dello slave a cui il master ModbusTCP del robot deve connettersi;
 
-.. note:: The robot and slave equipment must be connected through the network cable first, and the IP addresses of the robot and slave equipment must be in the same network segment.
+.. note:: È necessario collegare prima il robot e il dispositivo slave tramite cavo di rete e assicurarsi che gli indirizzi IP del robot e del dispositivo slave siano sulla stessa sottorete.
 
-**Port number**:The port number of ModbusTCP slave station to be connected;
+**Porta**: Porta dello slave ModbusTCP a cui connettersi;
 
-**Slave station number**:ModbusTCP slave station number to be connected;
+**Numero slave**: Numero dello slave ModbusTCP a cui connettersi;
 
-**Communication period**: The period (ms) when the robot ModbusTCP master station inquires about the slave station status, which only affects the update speed of the slave station register data on the ModbusTCP Settings page, but does not affect the speed of reading or writing the ModbusTCP slave station register value in the lua program of the user.
+**Periodo comunicazione**: Periodo (ms) in cui il master ModbusTCP del robot interroga lo stato dello slave; questo periodo influisce solo sulla velocità di aggiornamento dei dati del registro slave nella pagina "Impostazioni ModbusTCP", non sulla velocità di lettura o scrittura dei valori del registro slave ModbusTCP nel programma lua dell'utente.
 
-**Timeout Period**: When using the ModbusTCP read/write interface for operations, if the system fails to establish a connection after exceeding the timeout period, it will report a Modbus not connected error. Unit: ms, valid range: 100-60000.
+**Tempo di timeout**: Quando si richiama l'interfaccia di lettura/scrittura ModbusTCP per un'operazione, se il sistema non riesce a connettersi entro il tempo di timeout, verrà segnalato un errore di mancata connessione Modbus. Unità: ms, intervallo valido: 100-60000.
 
 .. image:: coding/166.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-4 Setting ModbusTCP master station parameters
+.. centered:: Grafico 9.18-4 Impostazione parametri master ModbusTCP
 
-After the above parameters are correctly input, the ModbusTCP master station of the robot automatically establishes a connection with the configured slave station. After the connection is successful, the "Connection status" indicator on the page lights up.
+Dopo aver inserito correttamente i parametri di cui sopra, il master ModbusTCP del robot stabilisce automaticamente una connessione con lo slave configurato. Dopo il successo della connessione, l'indicatore di stato "Stato connessione" nella pagina si accende.
 
 .. note:: 
-   If you have confirmed that the relevant parameters of ModbusTCP master station are correctly configured, but the robot is not successfully connected with your equipment, please check the following configurations:
+   Se avete confermato di aver configurato correttamente i parametri relativi al master ModbusTCP, ma il robot non si è connesso con successo al vostro dispositivo, controllare le seguenti configurazioni:
    
-   ①The physical network connection between the robot and the slave equipment;
+   ① Connessione fisica di rete tra robot e dispositivo slave;
 
-   ②The IP addresses of the two network physical ports of the robot teaching device and the control box are different, please confirm whether they are connected to the correct network port;
+   ② Il robot ha due porte di rete fisiche (teach pendant e control box) con indirizzi IP diversi; assicurarsi di essere collegati alla porta di rete corretta;
 
-   ③Please confirm whether the network port of the robot and the network port of the slave station equipment are in the same network segment. If the IP address of the robot is 192.168.58.2, the IP address of the slave station equipment must be 192.168.58.0~192.168.58.255, and it cannot be the same as the IP address of the robot; 
+   ③ Confermare che la porta di rete del robot e la porta di rete del dispositivo slave siano sulla stessa sottorete, ad esempio, se l'indirizzo IP del robot è 192.168.58.2, l'indirizzo IP del dispositivo slave deve essere compreso tra 192.168.58.0 e 192.168.58.255 e non può essere uguale all'indirizzo IP del robot;
    
-   ④Check whether the port number of the slave equipment is the same as the set port number. (If the connection status indicator is flashing, it means that the register address in the master station is wrong. Please check whether the register type and address are correct)
+   ④ Verificare che la porta del dispositivo slave corrisponda alla porta impostata. Se l'indicatore di stato della connessione lampeggia, significa che ci sono errori negli indirizzi dei registri in questo master; controllare che il tipo e l'indirizzo del registro siano corretti.
 
 .. image:: coding/167.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-5 Connection status of Modbus TCP master station
+.. centered:: Grafico 9.18-5 Stato connessione master ModbusTCP
 
-At this point, we have completed the creation of a ModbusTCP master station for the robot. If you click "Add Modbus Master Station" again, you can create a new ModbusTCP master station (Figure 7). The robot can support up to 8 master stations to communicate with external devices at the same time. Double-click the "Delete" button in the upper right corner of the Modbus master station to delete the Modbus master station.
+A questo punto abbiamo completato la creazione di un master ModbusTCP del robot. Se cliccate nuovamente su "Aggiungi master Modbus", potrete creare un nuovo master ModbusTCP. Il robot supporta fino a 8 master che comunicano contemporaneamente con dispositivi esterni. Fare doppio clic sul pulsante "Elimina" in alto a destra del master Modbus per eliminare tale master Modbus.
 
 .. image:: coding/168.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-6 Add ModbusTCP master station again
+.. centered:: Grafico 9.18-6 Aggiunta successiva master ModbusTCP
 
-ModbusTCP master add register
-*******************************
+Aggiunta registri master ModbusTCP
+*******************************************
 
-Click the "Add master register" button to add a register for this master station.
+Cliccare sul pulsante "Aggiungi registro master" per aggiungere un registro a questo master.
 
 .. image:: coding/169.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-7 Add ModbusTCP master station register
+.. centered:: Grafico 9.18-7 Aggiunta registro master ModbusTCP
 
-Select the modbus register type, input address number and name of the master station in turn, and the meanings of each parameter are as follows:
+Selezionare in sequenza il tipo di registro master, inserire il numero di indirizzo e il nome. Il significato dei parametri è il seguente:
 
-**Type**:Register type, DI:discrete input; DO:coil; AI-unsigned:unsigned input register (0-65535); AI-signed:signed input register (-32768-32767); AI-float:float type input register (the data length of float type register is 32 bits, occupying two signed or unsigned registers); AO-unsigned:unsigned holding register (0-65535); AI-signed:signed holding register (-32768-32767); AI-float:float type holding register (the data length of float type register is 32 bits, occupying two signed or unsigned registers), among which the floating-point type registers in AI and AO are big-end display.
+**Tipo**: Tipo di registro; DI - ingresso discreto; DO - bobina; AI senza segno - registro di input senza segno (0-65535); AI con segno - registro di input con segno (-32768-32767); AI virgola mobile - registro di input a virgola mobile (i dati del registro a virgola mobile hanno una lunghezza di 32 bit, occupando due registri con segno o senza segno); AO senza segno - registro di mantenimento senza segno (0-65535); AO con segno - registro di mantenimento con segno (-32768-32767); AO virgola mobile - registro di mantenimento a virgola mobile (i dati del registro a virgola mobile hanno una lunghezza di 32 bit, occupando due registri con segno o senza segno); tra questi, i registri a virgola mobile in AI e AO vengono visualizzati in formato big-endian;
 
-**Address number**:The address of ModbusTCP slave register to be read or written;
+**Numero indirizzo**: Indirizzo del registro slave ModbusTCP da leggere o scrivere;
 
-**Name**: The alias of the register. The ModbusTCP master station of the robot can set up at most 128 different registers, and each register can be distinguished by different names according to the actual meaning, such as "Start", "Servo in Place" and "Liquid Level".
+**Nome**: Alias del registro. Il master ModbusTCP del robot può impostare un massimo di 128 registri diversi; ciascun registro può essere distinto impostando nomi diversi in base al significato effettivo, come "Inizio", "Servo pronto", "Livello liquido", ecc.
 
 .. image:: coding/170.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-8 Setting ModbusTCP master station register parameters
+.. centered:: Grafico 9.18-8 Impostazione parametri registro master ModbusTCP
 
-Click the "Add Master Register" button again to add another master register, and double-click the "Delete" button on the right side of the register to delete it, a register is added for each type. 
+Cliccando nuovamente sul pulsante "Aggiungi registro master" è possibile aggiungere un altro registro master; facendo doppio clic sul pulsante "Elimina" a destra del registro, è possibile eliminare tale registro. Di seguito viene mostrato un esempio in cui è stato aggiunto un registro per ciascun tipo.
 
-.. note:: If the master station connection status indicator flashes after adding the master station register, it means that the master station register address cannot be read. Please check whether the register type and address are correct.
+.. note:: Se, dopo aver aggiunto un registro master, l'indicatore di stato della connessione master lampeggia, significa che l'indirizzo del registro master non può essere letto; verificare che il tipo e l'indirizzo del registro siano corretti.
 
 .. image:: coding/171.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-9 Adding Multiple Master Station Registers
+.. centered:: Grafico 9.18-9 Aggiunta multipli registri master
 
-ModbusTCP master communication test
-************************************
+Test comunicazione master ModbusTCP
+***************************************
 
-Before the communication test, please check whether the "Cnnection status" indicator of ModbusTCP master station is always on. If the indicator is always on, it means that the current connection has been successful. 
+Prima del test di comunicazione, verificare che l'indicatore "Stato connessione" del master ModbusTCP sia acceso in modo costante; se l'indicatore è acceso, significa che la connessione corrente è riuscita.
 
-The robot Modbus master station register has an "address value" value box for displaying the current register value, in which the registers of DI (discrete input) and AI (input register) are read-only and the corresponding address values are gray non-editable value boxes. 
+I registri del master Modbus del robot hanno una casella di valore "Valore indirizzo" per visualizzare il valore corrente del registro. Tra questi, i registri di tipo DI (ingresso discreto) e AI (registro di input) sono di sola lettura e le corrispondenti caselle di valore indirizzo sono grigie e non modificabili.
 
-When the value of the corresponding address of the slave station changes, the robot master station displays the current value synchronously corresponding to the register address value. DO (coil) and AO (holding register) are readable and writable registers, so their addresses are white editable value boxes, which can be used to read the values of the corresponding registers of ModbusTCP slave stations or modify the values of the registers on the Modbus master station setting page of the robot.
+Quando il valore nell'indirizzo corrispondente dello slave cambia, il valore indirizzo del registro corrispondente del master del robot viene aggiornato per visualizzare il valore corrente. I registri DO (bobina) e AO (registro di mantenimento) sono registri leggibili e scrivibili, quindi le loro caselle di valore indirizzo sono bianche e modificabili; possono leggere i valori del registro corrispondente dello slave ModbusTCP e anche modificare il valore del registro nella pagina delle impostazioni del master Modbus del robot.
 
 .. image:: coding/172.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-10 Modbus master station address value
+.. centered:: Grafico 9.18-10 Valori indirizzo master Modbus
 
-1. Numerical monitoring of DI and AI type registers of master
+1. Monitoraggio valori registri master DI e AI
 
-On the external ModbusTCP slave device, set the address value of No.255 of DI (discrete input) register to 1, change the address value of No.257 of AI (input register) to No.123, change the address value of No.258 to -123, and change the address value of No.259 to 123.3. At this time, the address value of the corresponding register on the robot Modbus master station setting page will be displayed accordingly. 
+Sul dispositivo slave ModbusTCP esterno, impostare il valore dell'indirizzo 255 del registro DI (ingresso discreto) a 1, modificare il valore dell'indirizzo 257 del registro AI (registro di input) a 123, il valore dell'indirizzo 258 a -123 e il valore dell'indirizzo 259 a 123.3. In questo momento, il valore indirizzo del registro corrispondente nella pagina delle impostazioni del master Modbus del robot verrà visualizzato di conseguenza.
 
 .. note:: 
-   Because the register with address 259 is a floating-point register, it actually occupies two 16-bit registers 259 and 260 to store a floating-point number, so you can't set a separate register to operate the No.260 register of AI, otherwise a numerical error will occur.
+   Poiché il registro all'indirizzo 259 è un registro a virgola mobile, esso occupa effettivamente due registri a 16 bit (259 e 260) per memorizzare un numero in virgola mobile. Pertanto, non è possibile impostare separatamente un registro per operare sul registro AI 260, altrimenti si verificherebbe un errore di valore.
 
 .. image:: coding/173.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-11 Modbus master station displays the values of DI and AI registers
+.. centered:: Grafico 9.18-11 Visualizzazione valori registri DI e AI master Modbus
 
-2. Numerical writing of DO and AO type registers in the master
-   
-In the Modbus master station setting page of the robot, enter 1 in the No.255 address value input box of the DO (coil) type register named 'Start', and enter 65535,-32767 and 128.78 input boxes of the AO (holding register) named 'Target position A', 'Target position B' and 'Target position C' respectively.
+2. Scrittura valori registri master DO e AO
+
+Nella pagina delle impostazioni del master Modbus del robot, inserire 1 nella casella di input del valore dell'indirizzo 255 del registro DO (bobina) con nome "Inizio", e inserire rispettivamente 65535, -32768 e 128.78 nelle caselle di input dei valori degli indirizzi 260, 261 e 262 dei registri AO (registro di mantenimento) con nomi "Posizione obiettivo A", "Posizione obiettivo B" e "Posizione obiettivo C". In questo momento, i valori corrispondenti sono stati scritti negli indirizzi dei registri corrispondenti dello slave Modbus.
 
 .. image:: coding/174.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-12 Modbus master station writes DO and AO registers
+.. centered:: Grafico 9.18-12 Scrittura registri DO e AO master Modbus
 
-3. Numerical monitoring of DO and AO type registers of master
-If you change the values of DO (coil) and AO (holding register) in ModbusTCP slave station, the register address value of ModbusTCP master station setting page will not be updated immediately. You need to click the "Refresh" button in the upper right corner of master station configuration, and then the register address values of DO and AO on the page will be updated.
+3. Monitoraggio valori registri master DO e AO
+
+Quando si modificano i valori dei registri DO (bobina) e AO (registro di mantenimento) nello slave ModbusTCP, i valori degli indirizzi dei registri nella pagina delle impostazioni del master ModbusTCP non vengono aggiornati immediatamente; è necessario cliccare sul pulsante "Aggiorna" in alto a destra della configurazione del master. Solo allora i valori degli indirizzi dei registri DO e AO nella pagina verranno aggiornati.
 
 .. image:: coding/175.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-13 Refresh the DO and AO address values of ModbusTCP master station.
+.. centered:: Grafico 9.18-13 Aggiornamento valori indirizzi DO e AO master ModbusTCP
 
-Write ModbusTCP master program
-+++++++++++++++++++++++++++++++++
+Scrittura programma master ModbusTCP
++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click "Program" and "Communication command" in turn to open the communication command adding page.
+Cliccare in sequenza su "Istruzioni comunicazione" per aprire la pagina di aggiunta istruzioni di comunicazione.
 
 .. image:: coding/176.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-14  Open the communication command add page
+.. centered:: Grafico 9.18-14 Apertura pagina aggiunta istruzioni comunicazione
 
-Click "Modbus".
+Cliccare su "Modbus".
 
 .. image:: coding/177.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-15 Select Modbus
+.. centered:: Grafico 9.18-15 Selezione Modbus
 
-Click "Modbus_TCP".
+Cliccare su "Modbus_TCP".
 
 .. image:: coding/178.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-16 Select Modbus_TCP
+.. centered:: Grafico 9.18-16 Selezione Modbus_TCP
    
-Select "Master station (client)" to open the ModbusTCP master station command addition page.
+Selezionare "Master (client)" per aprire la pagina di aggiunta istruzioni master ModbusTCP.
 
 .. image:: coding/179.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-17 Selecting Master Station (Client)
+.. centered:: Grafico 9.18-17 Aggiunta istruzioni master ModbusTCP
 
-1. Write a single digital output DO (coil)
+1. Scrittura singola uscita digitale DO (bobina)
 
-Select "Modbus master name" as the master station ‘PLC’ added on the Modbus master station setting page before, with DO name as ‘Start’, register number as 1 and register value as 1, and click the "Write digital output" button. Finally, scroll to the bottom of the page and click the "Apply" button (Figure 21).
+Selezionare "Nome master Modbus" come il master "PLC" aggiunto in precedenza nella pagina delle impostazioni del master Modbus, nome DO come "Inizio", numero registri 1, valore registro 1, cliccare sul pulsante "Scrivi uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
 
 .. image:: coding/180.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-18 Adding Write Single Digital Output
+.. centered:: Grafico 9.18-18 Aggiunta scrittura singola uscita digitale
 
-At this time, the robot program "testModbusMaster.lua" has added an command for the Modbus master station of the robot to write a single digital output. Switch the robot to the automatic mode, click the start button, and the robot will write the address value of the coil register ‘Start’ corresponding to the master station "PLC" as 1.
+A questo punto, il programma robot "testModbusMaster.lua" ha aggiunto un'istruzione di scrittura singola uscita digitale del master Modbus del robot. Passare il robot in modalità automatica, cliccare sul pulsante di avvio, il robot scriverà il valore dell'indirizzo del registro bobina "Avvio" corrispondente al master "PLC" a 1.
 
 .. image:: coding/181.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-19 Writing a single coil lua program
+.. centered:: Grafico 9.18-19 Programma LUA scrittura singola bobina
 
-2. Write multiple digital outputs DO (coils)
+2. Scrittura multiple uscite digitali DO (bobina)
 
-Open the ModbusTCP master station command adding page, select Modbus master name as the master station ‘PLC’ added in the Modbus master station setting page before, the name of DO is ‘Start’, the number of registers is 5, and the register values are 1,0,1,0,1. the number of register values should correspond to the set number of registers, and multiple register values should be separated by English commas, and click the ‘Write digital output’ button. Finally, scroll to the bottom of the page and click the "Apply" button.
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, selezionare "Nome master Modbus" come il master "PLC" aggiunto in precedenza nella pagina delle impostazioni del master Modbus, nome DO come "Inizio", numero registri 5, valori registro 1,0,1,0,1, dove il numero di valori registro deve corrispondere al numero di registri impostato e i valori multipli devono essere separati da virgole inglesi, cliccare sul pulsante "Scrivi uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
 
 .. image:: coding/182.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-20 Configures writing multiple digital outputs
+.. centered:: Grafico 9.18-20 Configurazione scrittura multiple uscite digitali
 
-At this time, the robot program "testModbusMaster.lua" has added an command that the robot Modbus master station writes multiple digital outputs, so as to switch the robot to the automatic mode, click the start button, and the robot will write the values of the coil register ‘Start’ corresponding to the master station ‘PLC’ and the following four coils as 1, 0, 1, 0 and 1 respectively.
+A questo punto, il programma robot "testModbusMaster.lua" ha aggiunto un'istruzione di scrittura multiple uscite digitali del master Modbus del robot. Passare il robot in modalità automatica, cliccare sul pulsante di avvio, il robot scriverà rispettivamente i valori 1, 0, 1, 0, 1 nel registro bobina "Avvio" del master "PLC" e nei successivi 4 registri bobina.
    
 .. image:: coding/183.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-21 Programming multiple coils lua
+.. centered:: Grafico 9.18-21 Programma LUA scrittura multiple bobine
 
-3. Read a single digital output DO (coil)
+3. Lettura singola uscita digitale DO (bobina)
    
-Open the ModbusTCP master station command addition page, select "Modbus master name" as the master station "PLC" added in the Modbus master station setting page before, the DO name is "Start", the number of registers is 1, and the register value does not need to be filled in, and click "Read digital output". Finally, scroll to the bottom of the page and click the "Apply" button.
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, selezionare "Nome master Modbus" come il master "PLC" aggiunto in precedenza nella pagina delle impostazioni del master Modbus, nome DO come "Inizio", numero registri 1, non è necessario inserire il valore registro, cliccare su "Leggi uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
    
 .. image:: coding/184.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-22 Configuring Reading a Single Digital Output
+.. centered:: Grafico 9.18-22 Configurazione lettura singola uscita digitale
 
-At this time, the robot program "testModbusMaster.lua" has added an command for the robot Modbus master station to read a single digital output.
+A questo punto, il programma robot "testModbusMaster.lua" ha aggiunto un'istruzione di lettura singola uscita digitale del master Modbus del robot.
       
 .. image:: coding/185.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-23 Program for reading a single coil
+.. centered:: Grafico 9.18-23 Programma lettura singola bobina
 
-Usually, after reading the Modbus register, the read value is stored in a variable, so it is necessary to define a variable to store the read value. As shown in figure 29, click the "switch mode" Button to switch the robot lua program to an editable state, and write the variable "startValue" with added return value before the "ModbusMasterReadDO" command, and the value read after executing the program will be stored in "startValue".
+Di solito, dopo aver letto un registro Modbus, il valore letto viene memorizzato in una variabile; quindi, è necessario definire una variabile per memorizzare il valore letto. Cliccare sul pulsante "Cambia modalità" per passare il programma lua del robot in stato modificabile, scrivere e aggiungere la variabile di ritorno "startValue" prima dell'istruzione "ModbusMasterReadDO". Dopo l'esecuzione del programma, il valore letto verrà memorizzato in "startValue".
       
 .. image:: coding/186.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-24 Reading a single digital output into a variable
+.. centered:: Grafico 9.18-24 Memorizzazione lettura singola uscita digitale in variabile
 
-The register value of coil type is only 0 and 1, so different operations can be carried out by judging the different register values in robot programs. As shown in Figure 30, click the "Switch Mode" button to switch the robot teaching program to the non-editable mode, and add two joint motion commands to move to two different points "P1" and "P2" respectively.
+Il valore del registro di tipo bobina ha solo due valori: 0 e 1. Nel programma del robot, è possibile eseguire operazioni diverse giudicando in base al valore del registro. Cliccare sul pulsante "Cambia modalità" per passare il programma di insegnamento del robot in modalità non modificabile, aggiungere due istruzioni di movimento articolare per muoversi rispettivamente a due punti diversi "P1" e "P2".
       
 .. image:: coding/187.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-25 Add motion commands of different points
+.. centered:: Grafico 9.18-25 Aggiunta istruzioni movimento a punti diversi
 
-The program is switched to the editable mode again, and the judgment condition of the coil value "startValue" is written. When the value of "startValue" is 1, the robot moves to the point "P1", otherwise the robot moves to the point "P2".
+Passare nuovamente il programma in modalità modificabile e scrivere la condizione di giudizio per il valore bobina "startValue". Quando il valore di "startValue" è 1, il robot si muove al punto "P1", altrimenti si muove al punto "P2".
       
 .. image:: coding/188.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-26 Move to different points according to different coil values
+.. centered:: Grafico 9.18-26 Movimento a punti diversi in base al valore bobina
 
-Finally, switch the robot program to non-editable mode, switch the robot to automatic mode, and start the running program on the premise of confirming safety. The first two lines of the program set the DO value of the coil named "Start" to 1, so the robot will move to the "P1" point after executing the program.
+Infine, passare nuovamente il programma del robot in modalità non modificabile, passare il robot in modalità automatica e, dopo aver confermato la sicurezza, avviare il programma. Poiché le prime due righe di questo programma impostano entrambe il valore DO bobina con nome "Inizio" a 1, dopo l'esecuzione del programma, il robot si muoverà al punto "P1".
       
 .. image:: coding/189.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-27 Read the register value of a single coil and move it
+.. centered:: Grafico 9.18-27 Lettura valore singolo registro bobina e movimento
 
-4. Read multiple digital DO (coils)
+4. Lettura multiple uscite digitali DO (bobina)
 
-Open the ModbusTCP master station command adding page, select "Modbus master name" as the master station "PLC" added in the Modbus master station setting page, the name of DO is "Start", the number of registers is 6, and the register value does not need to be filled in, and click "Read digital output". Finally, scroll to the bottom of the page and click the "Apply" button (Figure 34).
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, selezionare "Nome master Modbus" come il master "PLC" aggiunto in precedenza nella pagina delle impostazioni del master Modbus, nome DO come "Inizio", numero registri 6, non è necessario inserire il valore registro, cliccare su "Leggi uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
       
 .. image:: coding/190.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-28 Configuring Reading Multiple Digital Outputs 
+.. centered:: Grafico 9.18-28 Configurazione lettura multiple uscite digitali
 
-At this time, the robot program "testModbusMaster.lua" has added an command that the robot Modbus master station reads multiple digital outputs.
+A questo punto, il programma robot "testModbusMaster.lua" ha aggiunto un'istruzione di lettura multiple uscite digitali del master Modbus del robot.
          
 .. image:: coding/191.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-29 Reading multiple digital output programs
+.. centered:: Grafico 9.18-29 Programma lettura multiple uscite digitali
 
-Click the "switch mode" button "" to switch the robot lua program to the editable state. Since the number of readings is six, it is necessary to write and add six return value variables "value1,value2,Value3,Value4, Value5,value6" before the "ModbusMasterReadDO" command, and the six register values read after the program execution will have the above six variables respectively.
+Cliccare sul pulsante "Cambia modalità" per passare il programma lua del robot in stato modificabile. Poiché il numero di letture è 6, è necessario scrivere e aggiungere 6 variabili di ritorno "value1,value2,value3,value4,value5,value6" prima dell'istruzione "ModbusMasterReadDO". Dopo l'esecuzione del programma, i 6 valori del registro letti verranno memorizzati rispettivamente nelle 6 variabili sopra indicate; allo stesso modo, è possibile giudicare i valori di "value1" ~ "value6" per far eseguire azioni diverse al robot.
          
 .. image:: coding/192.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-30 Reading Multiple Digital Outputs and Storing Variables
+.. centered:: Grafico 9.18-30 Memorizzazione lettura multiple uscite digitali in variabili
 
-5. Read DIgital input DI (discrete input)
+5. Lettura ingresso digitale DI (ingresso discreto)
 
-Open the ModbusTCP master station command addition page, select "Modbus master name" as the master station "PLC" previously added in the Modbus master station setting page, the DI name is "Servo arrive", the number of registers is 2, and click "Read digital input". Finally, scroll to the bottom of the page and click the "Apply" button (Figure 38).
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, selezionare "Nome master Modbus" come il master "PLC" aggiunto in precedenza nella pagina delle impostazioni del master Modbus, nome DI come "Servo pronto", numero registri 2, cliccare su "Leggi ingresso digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
          
 .. image:: coding/193.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-31 Configuring Read Digital Input
+.. centered:: Grafico 9.18-31 Configurazione lettura ingresso digitale
 
-At this time, the robot program "testModbusMaster.lua" has added an command for the Modbus master station to read digital input.
+A questo punto, il programma robot "testModbusMaster.lua" ha aggiunto un'istruzione di lettura ingresso digitale del master Modbus del robot.
             
 .. image:: coding/194.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-32 Reading digital input program commands
+.. centered:: Grafico 9.18-32 Istruzione programma lettura ingresso digitale
 
-Click the "Switch Mode" button "" to switch the robot lua program to an editable state, and write the return value variables "state1,state2" before the "ModbusMasterReadDO" command. The two digital input values read after executing the program will be stored in the variables "state1" and "state2" respectively, and you can control the robot to do different operations by judging the variable values.
+Cliccare sul pulsante "Cambia modalità" per passare il programma lua del robot in stato modificabile, scrivere le variabili di ritorno "state1,state2" prima dell'istruzione "ModbusMasterReadDO". Dopo l'esecuzione del programma, i due valori di ingresso digitale letti verranno memorizzati rispettivamente nelle variabili "state1" e "state2"; è possibile giudicare i valori delle variabili per controllare il robot nell'esecuzione di operazioni diverse.
             
 .. image:: coding/195.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-33 Reading digital input and storing variables
+.. centered:: Grafico 9.18-33 Memorizzazione lettura ingresso digitale in variabili
 
-6. Read and write analog input AI (input register) and analog output AO (holding register)
-The reading and writing operations of analog input AI (input register) and analog output AO (holding register) are basically the same as those of digital input DI (discrete input) and digital output DO (coil), but the difference is that the data range of the latter is only 0 or 1, while the data range of the former is larger, so the specific operations can refer to the programming of digital input and digital output, and only the reading input AI (Figure 41) and writing analog output AO are shown here.
+6. Operazioni di lettura/scrittura per ingressi analogici AI (registri di input) e uscite analogiche AO (registri di mantenimento)
+
+Le operazioni di lettura/scrittura per gli ingressi analogici AI (registri di input) e le uscite analogiche AO (registri di mantenimento) sono sostanzialmente le stesse di quelle per gli ingressi digitali DI (ingressi discreti) e le uscite digitali DO (bobine). La differenza è che l'intervallo di dati di questi ultimi è limitato a 0 o 1, mentre quello dei primi è più ampio. Pertanto, per le operazioni specifiche, fare riferimento alla scrittura dei programmi per ingressi digitali e uscite digitali. Qui vengono mostrati solo esempi di programma per la lettura dell'ingresso analogico AI e le operazioni di lettura/scrittura per l'uscita analogica AO.
             
 .. image:: coding/196.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-34 Reading analog input AI
+.. centered:: Grafico 9.18-34 Lettura ingresso analogico AI
             
 .. image:: coding/197.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-35 Read and write analog output AO
+.. centered:: Grafico 9.18-35 Lettura/scrittura uscita analogica AO
 
-7. Waiting for digital input
+7. Attesa ingresso digitale
 
-Open the ModbusTCP master station command addition page, find the "Wait for digital input to be set", that is, wait for DI discrete input setting, select the "servo in place" register with DI name as the configuration, the waiting status is "True" and the timeout time is 5000 ms. Click "Add" button, and finally click "Apply" button.
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, trovare "Impostazione attesa ingresso digitale", ovvero l'impostazione di attesa per l'ingresso discreto DI, selezionare il nome DI come il registro configurato "Servo pronto", stato di attesa "True", tempo di timeout 5000ms. Cliccare sul pulsante "Aggiungi", infine cliccare sul pulsante "Applica".
             
 .. image:: coding/198.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-36 Add the command of waiting for DI input
+.. centered:: Grafico 9.18-36 Aggiunta istruzione attesa ingresso DI
 
-At this time, the robot program "testModbusMaster.lua" has added an command that the robot Modbus master station waits for DIgital input DI. After starting the program, the robot will wait for the value of the "Servo arrive" register of the "PLC" master station to become true, that is, the value 1. Since the set timeout is 5s, when the "Servo arrive" signal is still 0 after the robot waits 5s, the robot program will report a timeout error and the program will stop.
+A questo punto, il programma robot "testModbusMaster.lua" ha aggiunto un'istruzione di attesa ingresso digitale DI del master Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro "Servo pronto" del master "PLC" diventi true, ovvero il valore numerico 1. Poiché il tempo di timeout impostato è di 5 secondi, se dopo 5 secondi di attesa il segnale "Servo pronto" è ancora 0, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
             
 .. image:: coding/199.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-37 Waiting for Digital Input DI Program
+.. centered:: Grafico 9.18-37 Programma attesa ingresso digitale DI
 
-8. Waiting for analog Input
+8. Attesa ingresso analogico
 
-Open the ModbusTCP master station command addition page, find "Waiting for analog input setting", that is, waiting for the setting of AI input register, select the configured "liquid level" register with AI name, waiting status of ">", register value of 255 and timeout time of 5000 ms.. Click "Add" button, and finally click "Apply" button.
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, trovare "Impostazione attesa ingresso analogico", ovvero l'impostazione di attesa per il registro di input AI, selezionare il nome AI come il registro configurato "Livello liquido", stato di attesa ">", valore registro 255, tempo di timeout 5000ms. Cliccare sul pulsante "Aggiungi", infine cliccare sul pulsante "Applica".
             
 .. image:: coding/200.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-38 Add Waiting for Analog Input
+.. centered:: Grafico 9.18-38 Aggiunta attesa ingresso analogico
 
-At this time, the robot program "testModbusMaster.lua" has added an command that the robot Modbus master station waits for the AI input register value. After starting the program, the robot will wait for the "Liquid level" register value of the "PLC" master station to be greater than 255. Since the set timeout is 5s, when the "Liquid level" signal is still less than 255 after the robot waits for 5s, the robot program will report a timeout error and the program will automatically stop running.
+A questo punto, il programma robot "testModbusMaster.lua" ha aggiunto un'istruzione di attesa valore registro di input AI del master Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro "Livello liquido" del master "PLC" sia maggiore di 255. Poiché il tempo di timeout impostato è di 5 secondi, se dopo 5 secondi di attesa il segnale "Livello liquido" non è ancora maggiore di 255, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
             
 .. image:: coding/201.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-39 Waiting for AI Input Register Program
+.. centered:: Grafico 9.18-39-1 Programma attesa registro di input AI
 
-Open the ModbusTCP Master command addition page, find the "Wait for Analog Input Setting" (i.e., wait for AI input register setting). Select the AI name as the configured "Liquid Level" register, set the wait condition to "=", the register value to 255, and the timeout to 5000ms. Click the "Add" button, and finally click the "Apply" button.
-
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, trovare "Impostazione attesa ingresso analogico", ovvero l'impostazione di attesa per il registro di input AI, selezionare il nome AI come il registro configurato "Livello liquido", stato di attesa "=", valore registro 255, tempo di timeout 5000ms. Cliccare sul pulsante "Aggiungi", infine cliccare sul pulsante "Applica".
+            
 .. image:: coding/494.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-39-2 Add Wait for Analog Input
+.. centered:: Grafico 9.18-39-2 Aggiunta attesa ingresso analogico
 
-At this point, a Modbus Master command to wait for the AI input register value has been added to the robot program "test.lua". After starting the program, the robot will continuously wait for the "Liquid Level" register value from the "PLC" master to equal 255. Since the timeout is set to 5s, if the "Liquid Level" signal still does not equal 255 after the robot waits for 5 seconds, the robot program will report a timeout error and automatically stop running.
+A questo punto, il programma robot "test.lua" ha aggiunto un'istruzione di attesa valore registro di input AI del master Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro "Livello liquido" del master "PLC" sia uguale a 255. Poiché il tempo di timeout impostato è di 5 secondi, se dopo 5 secondi di attesa il segnale "Livello liquido" non è ancora uguale a 255, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
 
 ModbusTCP slave
 ++++++++++++++++++
 
-Robot ModbusTCP slave station provides four types of registers: Digital input (coil), Digital output (discrete input), Analog input (holding register) and Analog output (input register). The digital input and analog input are mainly used for the robot to read the data of the external ModbusTCP master station to control the robot operation, while the digital output and analog output are mainly used for the robot to send data signals to the external ModbusTCP master station equipment, and the external master station equipment reads the relevant register values to control the equipment operation. In addition to the above-mentioned general input and output, the robot also provides some "Functional digital input (coils)" for the external master station equipment to control the robot's start-up program and stop-up program, and provides some input registers to display the current robot's state information, including the robot's current Cartesian position, the robot's current running state, etc. (please refer to Annex 1: ModbusTCP slave address mapping table). The use process of robot ModbusTCP slave station mainly includes: ①parameter configuration; ②Communication test; ③Programming.
+Lo slave ModbusTCP del robot fornisce quattro tipi di registri: uscite digitali universali (bobine), ingressi digitali universali (ingressi discreti), ingressi analogici universali (registri di mantenimento) e uscite analogiche universali (registri di input). Tra questi, gli ingressi digitali e analogici universali sono utilizzati principalmente dal robot per leggere i dati del master ModbusTCP esterno, controllando così le operazioni del robot; mentre le uscite digitali e analogiche universali sono utilizzate principalmente dal robot per inviare segnali dati al dispositivo master ModbusTCP esterno, che legge i valori dei registri corrispondenti per controllare il funzionamento del proprio dispositivo. Oltre agli ingressi/uscite universali di cui sopra, il robot fornisce anche alcuni "Ingressi digitali funzionali (bobine)" per consentire al dispositivo master esterno di controllare l'avvio del programma, l'arresto del programma, ecc., e alcuni registri di input per visualizzare le informazioni sullo stato corrente del robot, inclusa la posizione cartesiana corrente del robot, lo stato di esecuzione corrente del robot, ecc. (per la definizione specifica, consultare Allegato 1: Tabella mappatura indirizzi slave ModbusTCP). Il processo di utilizzo dello slave ModbusTCP del robot include principalmente: ① configurazione dei parametri; ② test di comunicazione; ③ scrittura del programma.
 
-ModbusTCP slave communication parameter configuration
-******************************************************
+Configurazione parametri comunicazione slave ModbusTCP
+*******************************************************************
 
-Open the WebApp, click "Teaching" and "Program Teaching" in turn to create a new user program "testModbusSlave.lua".
+Aprire WebApp, cliccare in sequenza su "Insegnamento simulato", "Insegnamento programma", creare un nuovo programma utente "testModbusSlave.lua".
             
 .. image:: coding/202.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-40 Create ModbusTCP slave station user program
+.. centered:: Grafico 9.18-40 Creazione programma utente slave ModbusTCP
 
-Click "ModbusTCP Settings" button to open the ModbusTCP function configuration page.
+Cliccare sul pulsante "Impostazioni ModbusTCP" per aprire la pagina di configurazione della funzione ModbusTCP.
             
 .. image:: coding/203.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-41 Open ModbusTCP Settings
+.. centered:: Grafico 9.18-41 Apertura impostazioni ModbusTCP
 
-Click "Slave Settings" in turn, and enter the IP, Port number and Slave station number of the robot slave station, where "IP" is the IP address of the robot slave station, FAIRINO cooperative robot has two network ports, the teaching device and the control box and the IP addresses of the two ports are different. Enter the correct IP address according to the network port where the external device is connected to the robot slave station (it is recommended that you use the network port on the control box).You have to restart robot after change the IP address, port number or slave station number of the robot ModbusTCP slave station,otherwise it won't take effect.
+Cliccare in sequenza su "Impostazioni slave", inserire l'IP, la porta e il numero slave dello slave del robot. "IP" è l'indirizzo IP dello slave del robot. Il robot collaborativo Faro ha due porte di rete (teach pendant e control box) con indirizzi IP diversi; inserire l'indirizzo IP corretto in base alla porta di rete a cui è collegato lo slave del dispositivo esterno (si consiglia di utilizzare la porta di rete sulla control box). Dopo aver modificato l'indirizzo IP, la porta o il numero slave dello slave ModbusTCP del robot, è necessario riavviare il robot per rendere effettive le modifiche.
             
 .. image:: coding/204.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-42 ModbusTCP slave settings
+.. centered:: Grafico 9.18-42 Impostazioni slave ModbusTCP
 
-After the parameters of ModbusTCP slave station are set and the robot is restarted, the external master station equipment can establish a connection with the robot slave station through the set parameters. After the connection is successful, the "Connection status" indicator light on the robot slave station setting page will light up.
+Dopo aver completato l'impostazione dei parametri dello slave ModbusTCP e aver riavviato il robot, il dispositivo master esterno può stabilire una connessione con lo slave del robot tramite i parametri impostati. Dopo il successo della connessione, l'indicatore di stato "Stato connessione" nella pagina delle impostazioni dello slave del robot si accenderà.
             
 .. image:: coding/205.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-43 slave station connection status indicator light
+.. centered:: Grafico 9.18-43 Indicatore stato connessione slave
 
-ModbusTCP slave communication test
-************************************
+Test comunicazione slave ModbusTCP
+*****************************************************************
 
-1. Digital input (coil)
+1. Ingresso digitale universale (bobina)
 
-The robot ModbusTCP slave station provides 128 coil registers, and their register addresses are 100~127.
+Lo slave ModbusTCP del robot fornisce 128 registri bobina, i cui indirizzi di registro sono 100~127.
 
-.. note:: Please refer to Annex I: ModbusTCP slave station address mapping table.
+.. note:: Per la definizione specifica, consultare Allegato 1: Tabella mappatura indirizzi slave ModbusTCP.
 
-Aliases can be set for the general registers of robot ModbusTCP slave stations as shown in Figure 52. Modify the name of the robot slave station coil register DI0 to be "A in place" and the name of DI1 to be "B in place". According to the address mapping table, the Modbus coil addresses of "A in place" and "B in place" are 100 and 101, respectively. Set the robot slave station coil register addresses 100 and 101 to 1 on the external ModbusTCP master station equipment, At this time, two register indicators on the monitoring page of the robot ModbusTCP slave station light up .
+I registri universali dello slave ModbusTCP del robot possono impostare alias. Modificare il nome del registro bobina DI0 dello slave del robot in "A pronto" e DI1 in "B pronto". Secondo la tabella di mappatura degli indirizzi, gli indirizzi Modbus bobina per "A pronto" e "B pronto" sono rispettivamente 100 e 101. Sul dispositivo master ModbusTCP esterno, impostare entrambi gli indirizzi dei registri bobina 100 e 101 dello slave del robot a 1. A questo punto, gli indicatori dei due registri nella pagina di monitoraggio dello slave ModbusTCP del robot si accenderanno.
             
 .. image:: coding/206.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-44 ModbusTCP slave station coil state monitoring
+.. centered:: Grafico 9.18-44 Monitoraggio stato bobina slave ModbusTCP
 
-2. Digital output (discrete input)
+2. Uscita digitale universale (ingresso discreto)
 
-The robot ModbusTCP slave station provides 128 discrete input registers, and their register addresses are 100~127.
+Lo slave ModbusTCP del robot fornisce 128 registri di ingresso discreto, i cui indirizzi di registro sono 100~127.
 
-.. note:: Please refer to Annex 1: ModbusTCP slave station address mapping table for specific definitions.
+.. note:: Per la definizione specifica, consultare Allegato 1: Tabella mappatura indirizzi slave ModbusTCP.
 
-Similarly, the robot ModbusTCP slave's discrete input register can also be set with aliases, as shown in Figure 53. Click "Digital Output (Discrete Input)" to modify the name of the robot slave's discrete input register DO0 as "A Start" and DO1 as "B Start". According to the address mapping table, the Modbus discrete input addresses of "A Start" and "B Start" are 100 and 101 respectively. Click "A Start" to correspond to the discrete input indicator light, which lights up, and the value of the corresponding register address 100 becomes 1, which can be read from the external ModbusTCP master station equipment.
+Anche i registri di ingresso discreto dello slave ModbusTCP del robot possono impostare alias. Cliccare su "Uscita digitale universale (ingresso discreto)", modificare il nome del registro di ingresso discreto DO0 dello slave del robot in "A avvio" e DO1 in "B avvio". Secondo la tabella di mappatura degli indirizzi, gli indirizzi Modbus di ingresso discreto per "A avvio" e "B avvio" sono rispettivamente 100 e 101. Cliccare sull'indicatore di ingresso discreto corrispondente a "A avvio", l'indicatore si accenderà, il valore dell'indirizzo del registro corrispondente 100 diventerà 1 e il dispositivo master ModbusTCP esterno potrà leggere il valore di questo registro.
 
 .. image:: coding/207.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-45 ModbusTCP slave discrete input control
+.. centered:: Grafico 9.18-45 Controllo ingresso discreto slave ModbusTCP
 
-3. Analog input (holding register)
+3. Ingresso analogico (registro di mantenimento)
 
-The robot provides 64 holding registers of unsigned, signed and float types, with the addresses of AI0~AI63 ranging from 100 to 195.
+Il robot fornisce un totale di 64 registri di mantenimento di tre tipi: senza segno, con segno e a virgola mobile. Gli indirizzi di AI0~AI63 sono 100~195
 
 .. note:: text
-   Please refer to Annex 1: ModbusTCP slave address mapping table for specific definitions, in which the data range of unsigned register is 0~65535, the data range of signed register is -32768~32767, and the float register is displayed at the big end.
+   Per la definizione specifica, consultare Allegato 1: Tabella mappatura indirizzi slave ModbusTCP. L'intervallo dei dati per i registri senza segno è 0~65535, per i registri con segno è -32768~32767 e i registri a virgola mobile vengono visualizzati in formato big-endian.
    
-   As shown in Figure 53, the names of AI0 and AI1 are changed to "voltage" and "current" respectively, and the addresses of the two registers are found to be 100 and 101 respectively from the ModbusTCP slave address mapping table. Therefore, when the connected master station equipment modifies the register address values of the holding registers 100 and 101, the register address values of "voltage" and "current" on the ModbusTCP slave station monitoring page of the robot are updated and displayed synchronously, and the robot's analog input is mainly used for reading the external master station equipment values.
+   Modificare i nomi di AI0 e AI1 rispettivamente in "Tensione" e "Corrente". Dalla tabella di mappatura degli indirizzi dello slave ModbusTCP, gli indirizzi dei due registri sono rispettivamente 100 e 101. Pertanto, quando il dispositivo master collegato modifica i valori degli indirizzi dei registri di mantenimento 100 e 101, la pagina di monitoraggio dello slave ModbusTCP del robot aggiornerà e visualizzerà di conseguenza i valori degli indirizzi dei registri "Tensione" e "Corrente". L'ingresso analogico del robot viene utilizzato principalmente per leggere segnali numerici dal dispositivo master esterno.
 
 .. image:: coding/208.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-46 ModbusTCP slave analog input monitoring
+.. centered:: Grafico 9.18-46 Monitoraggio ingresso analogico slave ModbusTCP
 
-4. Analog output (input register)
+4. Uscita analogica (registro di input)
 
-The robot provides 64 input registers of unsigned, signed and floating-point types, with the addresses of AO0~AO63 ranging from 100 to 195.
+Il robot fornisce un totale di 64 registri di input di tre tipi: senza segno, con segno e a virgola mobile. Gli indirizzi di AO0~AO63 sono 100~195
    
 .. note:: text
-   please refer to Annex 1: ModbusTCP slave address mapping table, in which the data range of unsigned register is 0~65535, the data range of signed register is -32768~32767, and the floating-point register is displayed at the big end.
+   Per la definizione specifica, consultare Allegato 1: Tabella mappatura indirizzi slave ModbusTCP. L'intervallo dei dati per i registri senza segno è 0~65535, per i registri con segno è -32768~32767 e i registri a virgola mobile vengono visualizzati in formato big-endian.
    
-   As shown in figure 55, the names of AO0 and AO1 are changed to "position A" and "position B" respectively, and the values of the input registers are 2000 and 1500 respectively. The addresses of the two registers are 100 and 101 respectively from the station address mapping table of ModbusTCP. Therefore, when the connected master station equipment reads the address values of the input registers 100 and 101, the set values can be obtained, and the simulated output of the robot slave station is mainly used for the robot to transfer to the external master station equipment.
+   Modificare i nomi di AO0 e AO1 rispettivamente in "Posizione obiettivo A" e "Posizione obiettivo B", i valori dei registri di input sono rispettivamente 2000 e 1500. Dalla tabella di mappatura degli indirizzi dello slave ModbusTCP, gli indirizzi dei due registri sono rispettivamente 100 e 101. Pertanto, quando il dispositivo master collegato legge i valori degli indirizzi dei registri di input 100 e 101, otterrà i valori impostati. L'uscita analogica dello slave del robot viene utilizzata principalmente per trasmettere segnali numerici al dispositivo master esterno.
 
 .. image:: coding/209.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-47 Modbus slave station modifies analog input
+.. centered:: Grafico 9.18-47 Modifica ingresso analogico slave Modbus
 
-ModbusTCP slave programming
-****************************
+Scrittura programma slave ModbusTCP
+********************************************
 
-Click "All" and "Communication command" in turn to open the communication command adding page.
+Cliccare in sequenza su "Tutti", "Istruzioni comunicazione" per aprire la pagina di aggiunta istruzioni di comunicazione.
 
 .. image:: coding/210.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-48 Open the communication command add page
+.. centered:: Grafico 9.18-48 Apertura pagina aggiunta istruzioni comunicazione
 
-Click "Modbus".
+Cliccare su "Modbus".
 
 .. image:: coding/211.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-49 Select Modbus
+.. centered:: Grafico 9.18-49 Selezione Modbus
 
-Click "Modbus_TCP".
+Cliccare su "Modbus_TCP".
 
 .. image:: coding/178.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-50 Select Modbus_TCP
+.. centered:: Grafico 9.18-50 Selezione Modbus_TCP
 
-Select "slave station" to open the ModbusTCP slave station command adding page (figure 60).
+Selezionare "Slave" per aprire la pagina di aggiunta istruzioni slave ModbusTCP.
 
 .. image:: coding/212.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-51 slave command addition
+.. centered:: Grafico 9.18-51 Aggiunta istruzioni slave ModbusTCP
 
-1. Write a single digital output DO (discrete input)
+1. Scrittura singola uscita digitale DO (ingresso discreto)
 
-Select the DO name as "A Start", the number of registers is 1 and the register value is 0, and click "Write Single Digital Output". Finally, scroll to the bottom of the page and click the "Apply" button (Figure 62).
+Selezionare il nome DO come "A avvio", numero registri 1, valore registro 0, cliccare su "Scrivi singola uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
 
 .. image:: coding/213.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-52 Adding Write Single Digital Output command 
+.. centered:: Grafico 9.18-52 Aggiunta istruzione scrittura singola uscita digitale
 
-At this time, the robot program "testModbusSlave.lua" has added an command for the robot Modbus slave station to write a single digital output, switch the robot to the automatic mode, click the start button, and the robot will write the address value of the corresponding digital output named "A Start" as 0.
+A questo punto, il programma robot "testModbusSlave.lua" ha aggiunto un'istruzione di scrittura singola uscita digitale dello slave Modbus del robot. Passare il robot in modalità automatica, cliccare sul pulsante di avvio, il robot scriverà il valore dell'indirizzo dell'uscita digitale corrispondente a "A avvio" a 0.
    
 .. image:: coding/214.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-53 Write a single digital output LUA program
+.. centered:: Grafico 9.18-53 Programma LUA scrittura singola uscita digitale
 
-2. Write multiple digital outputs DO (discrete input)
+2. Scrittura multiple uscite digitali DO (ingresso discreto)
 
-Open the ModbusTCP slave command addition page, find the "Digital Output Settings", select the DO name as "A Start", the number of registers is 5, and the register values are 1,0,1,0,1, where the number of register values corresponds to the set number of registers, and multiple register values are separated by English commas, and click "Write Digital Output". Finally, scroll to the bottom of the page and click the "Apply" button (Figure 65).
+Aprire la pagina di aggiunta istruzioni slave ModbusTCP, trovare "Impostazione uscita digitale", selezionare il nome DO come "A avvio", numero registri 5, valori registro 1,0,1,0,1, dove il numero di valori registro deve corrispondere al numero di registri impostato e i valori multipli devono essere separati da virgole inglesi, cliccare su "Scrivi uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
    
 .. image:: coding/215.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-54 Configures Writing Multiple Digital Outputs 
+.. centered:: Grafico 9.18-54 Configurazione scrittura multiple uscite digitali
 
-At this time, the robot program "testModbusSlave.lua" has added an command for the robot Modbus slave station to write multiple digital outputs. Switch the robot to the automatic mode, click the start button, and the robot will start the slave station "A" and write the values of its four discrete input registers as 1, 0, 1, 0 and 1 respectively.
+A questo punto, il programma robot "testModbusSlave.lua" ha aggiunto un'istruzione di scrittura multiple uscite digitali dello slave Modbus del robot. Passare il robot in modalità automatica, cliccare sul pulsante di avvio, il robot scriverà rispettivamente i valori 1, 0, 1, 0, 1 nel registro di ingresso discreto "A avvio" e nei successivi 4 registri di ingresso discreto.
       
 .. image:: coding/216.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-55 Write multiple digital output LUA programs
+.. centered:: Grafico 9.18-55 Programma LUA scrittura multiple uscite digitali
 
-3. Read a single digital output DO (discrete input)
+3. Lettura singola uscita digitale DO (ingresso discreto)
 
-Open the ModbusTCP master station command addition page, find "Digital Output Settings", the name of DO is "A Start", the number of registers is 1, and the register value does not need to be filled in. Click "Read Digital Output". Finally, scroll to the bottom of the page and click the "Apply" button (Figure 68).
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, trovare "Impostazione uscita digitale", nome DO come "A avvio", numero registri 1, non è necessario inserire il valore registro, cliccare su "Leggi uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
       
 .. image:: coding/217.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-56 Configuring Reading a Single Digital Output 
+.. centered:: Grafico 9.18-56 Configurazione lettura singola uscita digitale
 
-At this time, the robot program "testModbusSlave.lua" has added an command for the robot Modbus to read a single digital output from the station.
+A questo punto, il programma robot "testModbusSlave.lua" ha aggiunto un'istruzione di lettura singola uscita digitale dello slave Modbus del robot.
          
 .. image:: coding/218.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-57 Read a single digital output program
+.. centered:: Grafico 9.18-57 Programma lettura singola uscita digitale
 
-Usually, after reading the Modbus register, the read value is stored in a variable, so it is necessary to define a variable to store the read value. As shown in figure 70, click the "switch mode" button "" to switch the robot lua program to the editable state, and write the variable "AStartValue" with added return value before the "ModbusSlaveReadDO" command, and the value read after executing the program will be stored in "AStartValue".
+Di solito, dopo aver letto un registro Modbus, il valore letto viene memorizzato in una variabile; quindi, è necessario definire una variabile per memorizzare il valore letto. Cliccare sul pulsante "Cambia modalità" per passare il programma lua del robot in stato modificabile, scrivere e aggiungere la variabile di ritorno "AStartValue" prima dell'istruzione "ModbusSlaveReadDO". Dopo l'esecuzione del programma, il valore letto verrà memorizzato in "AStartValue".
          
 .. image:: coding/219.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-58 Reading a single digital output into a variable
+.. centered:: Grafico 9.18-58 Memorizzazione lettura singola uscita digitale in variabile
 
-The register value of coil type is only 0 and 1, so different operations can be carried out by judging the different register values in robot programs. As shown in Figure 71, click the "Switch Mode" button "" to switch the robot teaching program to the non-editable mode, and add two joint motion commands to move to two different points "P1" and "P2" respectively.
+Il valore del registro di tipo bobina ha solo due valori: 0 e 1. Nel programma del robot, è possibile eseguire operazioni diverse giudicando in base al valore del registro. Cliccare sul pulsante "Cambia modalità" per passare il programma di insegnamento del robot in modalità non modificabile, aggiungere due istruzioni di movimento articolare per muoversi rispettivamente a due punti diversi "P1" e "P2".
          
 .. image:: coding/220.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-59 Add motion commands of different points.
+.. centered:: Grafico 9.18-59 Aggiunta istruzioni movimento a punti diversi
 
-As shown in Figure 72, the program is switched to the editable mode again, and the judgment condition of the digital output value "AStartValue" is written. When the value of "AStartValue" is 1, the robot moves to the point "P1", otherwise the robot moves to the point "P2".
+Passare nuovamente il programma in modalità modificabile e scrivere la condizione di giudizio per il valore uscita digitale "AStartValue". Quando il valore di "AStartValue" è 1, il robot si muove al punto "P1", altrimenti si muove al punto "P2".
          
 .. image:: coding/221.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-60 Move to different points according to different digital output values
+.. centered:: Grafico 9.18-60 Movimento a punti diversi in base al valore uscita digitale
 
-Finally, switch the robot program to non-editable mode, switch the robot to automatic mode, and start the running program on the premise of confirming safety. As shown in figure 73, the second line of the program sets the DO value of the digital output named "A Start" to 1, so the robot will move to the "P1" point after executing the program.
+Infine, passare nuovamente il programma del robot in modalità non modificabile, passare il robot in modalità automatica e, dopo aver confermato la sicurezza, avviare il programma. Poiché la seconda riga di questo programma imposta il valore DO uscita digitale con nome "A avvio" a 1, dopo l'esecuzione del programma, il robot si muoverà al punto "P1".
          
 .. image:: coding/222.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-61 Read the register value of a single coil and move it
+.. centered:: Grafico 9.18-61 Lettura valore singolo registro bobina e movimento
 
-4. Read multiple digital outputs DO (discrete input)
+4. Lettura multiple uscite digitali DO (ingresso discreto)
 
-As shown in Figure 74, open the ModbusTCP master station command addition page, find the "Digital Output Settings", select the DO name as "A Start", the number of registers is 2, and the register value does not need to be filled in, and click "Read Digital Output". Finally, scroll to the bottom of the page and click the "Apply" button (Figure 75).
+Aprire la pagina di aggiunta istruzioni master ModbusTCP, trovare "Impostazione uscita digitale", selezionare il nome DO come "A avvio", numero registri 2, non è necessario inserire il valore registro, cliccare su "Leggi uscita digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
          
 .. image:: coding/223.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-62 Configures Reading Multiple Digital Outputs
+.. centered:: Grafico 9.18-62 Configurazione lettura multiple uscite digitali
 
-As shown in Figure 76, at this time, the robot program "testModbusSlave.lua" has added an command for the robot Modbus to read multiple digital outputs from the station.
+A questo punto, il programma robot "testModbusSlave.lua" ha aggiunto un'istruzione di lettura multiple uscite digitali dello slave Modbus del robot.
             
 .. image:: coding/224.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-63 Reading multiple digital output programs
+.. centered:: Grafico 9.18-63 Programma lettura multiple uscite digitali
 
-As shown in figure 77, click the "switch mode" button "" to switch the robot lua program to the editable state. Since the number of readings is two, it is necessary to write and add two return values "value1,value2" before the "ModbusSlaveReadDO" command, and the values of the two digital output registers read after executing the program will be stored in the above two variables respectively. Similarly, you can judge "value1" and "value2".
+Cliccare sul pulsante "Cambia modalità" per passare il programma lua del robot in stato modificabile. Poiché il numero di letture è 2, è necessario scrivere e aggiungere 2 variabili di ritorno "value1,value2" prima dell'istruzione "ModbusSlaveReadDO". Dopo l'esecuzione del programma, i 2 valori dei registri di uscita digitale letti verranno memorizzati rispettivamente nelle 2 variabili sopra indicate; allo stesso modo, è possibile giudicare i valori di "value1", "value6" per far eseguire azioni diverse al robot.
             
 .. image:: coding/225.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-64 Reading Multiple Digital Outputs and Storing Variables
+.. centered:: Grafico 9.18-64 Memorizzazione lettura multiple uscite digitali in variabili
 
-5. Read DIgital input DI (coil)
+5. Lettura ingresso digitale DI (bobina)
 
-As shown in Figure 78, open the ModbusTCP slave command addition page, find the "Digital Input Settings", select the DI name as "A in place" and the number of registers as 2, and click "Read Digital Input". Finally, scroll to the bottom of the page and click the "Apply" button (Figure 79).
+Aprire la pagina di aggiunta istruzioni slave ModbusTCP, trovare "Impostazione ingresso digitale", selezionare il nome DI come "A pronto", numero registri 2, cliccare su "Leggi ingresso digitale". Infine, scorrere fino alla fine della pagina e cliccare sul pulsante "Applica".
             
 .. image:: coding/226.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-65 Configuring Read Digital Input
+.. centered:: Grafico 9.18-65 Configurazione lettura ingresso digitale
 
-As shown in Figure 80, at this time, the robot program "testModbusSlave.lua" has added an command for the robot Modbus to read digital input from the station.
+A questo punto, il programma robot "testModbusSlave.lua" ha aggiunto un'istruzione di lettura ingresso digitale dello slave Modbus del robot.
                
 .. image:: coding/227.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-66 Reading digital input program commands
+.. centered:: Grafico 9.18-66 Istruzione programma lettura ingresso digitale
 
-As shown in Figure 81, click the "switch mode" button "" to switch the robot lua program to an editable state, and write the return value variable "AState,BState" before the "ModbusSlaveReadDI" command. The two digital input values read after executing the program will be stored in the variables "AState" and "BState" respectively, and you can control the robot to do different operations by judging the variable values.
+Cliccare sul pulsante "Cambia modalità" per passare il programma lua del robot in stato modificabile, scrivere le variabili di ritorno "AState,BState" prima dell'istruzione "ModbusSlaveReadDI". Dopo l'esecuzione del programma, i due valori di ingresso digitale letti verranno memorizzati rispettivamente nelle variabili "AState" e "BState"; è possibile giudicare i valori delle variabili per controllare il robot nell'esecuzione di operazioni diverse.
               
 .. image:: coding/228.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-67 Reading digital input program
+.. centered:: Grafico 9.18-67 Programma lettura ingresso digitale
 
-6. Read and write operations of analog output AO (input register) and analog input AI (hold register)
+6. Operazioni di lettura/scrittura per uscita analogica AO (registro di input) e ingresso analogico AI (registro di mantenimento)
 
-The reading and writing operations of analog output (input register) and analog input (holding register) are basically the same as those of digital output (discrete input) and digital input (coil), but the difference is that the data range of the latter is only 0 or 1, while the data range of the former is larger, so the specific operations can refer to the programming of digital output and digital input, and only the reading and writing operations of analog input (Figure 82) and analog output (Figure 83) are shown here.
+Le operazioni di lettura/scrittura per l'uscita analogica (registro di input) e l'ingresso analogico (registro di mantenimento) sono sostanzialmente le stesse di quelle per l'uscita digitale (ingresso discreto) e l'ingresso digitale (bobina). La differenza è che l'intervallo di dati di questi ultimi è limitato a 0 o 1, mentre quello dei primi è più ampio. Pertanto, per le operazioni specifiche, fare riferimento alla scrittura dei programmi per uscita digitale e ingresso digitale. Qui vengono mostrati solo esempi di programma per la lettura dell'ingresso analogico e le operazioni di lettura/scrittura per l'uscita analogica.
               
 .. image:: coding/229.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-68 Reading Analog Input
+.. centered:: Grafico 9.18-68 Lettura ingresso analogico
               
 .. image:: coding/230.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-69 Reading and writing analog output
+.. centered:: Grafico 9.18-69 Lettura/scrittura uscita analogica
 
-7. Waiting for digital input
+7. Attesa ingresso digitale
 
-As shown in Figure 84, open the ModbusTCP slave command addition page, find "Waiting for digital input settings", select the "A in place" register with DI name as configuration, the waiting status is "True", and the timeout time is 5000 ms. Click "Add" button, and finally click "Apply" button.
+Aprire la pagina di aggiunta istruzioni slave ModbusTCP, trovare "Impostazione attesa ingresso digitale", selezionare il nome DI come il registro configurato "A pronto", stato di attesa "True", tempo di timeout 5000ms. Cliccare sul pulsante "Aggiungi", infine cliccare sul pulsante "Applica".
               
 .. image:: coding/231.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-70 Add the command of waiting for digital input
+.. centered:: Grafico 9.18-70 Aggiunta istruzione attesa ingresso digitale
 
-As shown in Figure 85, at this time, the robot program "testModbusSlave.lua" has added an command that the robot Modbus slave station waits for digital input. After starting the program, the robot will wait for the value of the "A in place" coil register of the slave station to become true, that is, the value 1. Since the set timeout is 5s, when the "A in place" signal is still 0 after the robot waits for 5s, the robot program will report a timeout error and the program will automatically stop running.
+A questo punto, il programma robot "testModbusSlave.lua" ha aggiunto un'istruzione di attesa ingresso digitale dello slave Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro bobina "A pronto" dello slave diventi true, ovvero il valore numerico 1. Poiché il tempo di timeout impostato è di 5 secondi, se dopo 5 secondi di attesa il segnale "A pronto" è ancora 0, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
               
 .. image:: coding/232.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-71 Waiting for Digital Input Program
+.. centered:: Grafico 9.18-71 Programma attesa ingresso digitale
 
-8. Waiting for analog input
+8. Attesa ingresso analogico
 
-As shown in figure 86, open the ModbusTCP slave command addition page, and find the voltage register with the AI name selected for "Waiting for Analog Input Settings". The waiting state is ">", the register value is 255, and the timeout time is 5000 ms.. Click "Add" button, and finally click "Apply" button.
+Aprire la pagina di aggiunta istruzioni slave ModbusTCP, trovare "Impostazione attesa ingresso analogico", selezionare il nome AI come il registro configurato "Tensione", stato di attesa ">", valore registro 255, tempo di timeout 5000ms. Cliccare sul pulsante "Aggiungi", infine cliccare sul pulsante "Applica".
 
 .. image:: coding/233.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-72 Add an command to wait for analog input
+.. centered:: Grafico 9.18-72 Aggiunta istruzione attesa ingresso analogico
 
-As shown in Figure 87, at this time, the robot program "testModbusSlave.lua" has added an command that the robot Modbus slave station waits for the analog input value. After starting the program, the robot will wait for the slave station's "voltage" register value to be greater than 255. Since the set timeout time is 5s, when the robot waits for 5s and the "voltage" signal is still less than 255, the robot program will report a timeout error and the program will automatically stop running.
+A questo punto, il programma robot "testModbusSlave.lua" ha aggiunto un'istruzione di attesa valore ingresso analogico dello slave Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro "Tensione" dello slave sia maggiore di 255. Poiché il tempo di timeout impostato è di 5 secondi, se dopo 5 secondi di attesa il segnale "Tensione" non è ancora maggiore di 255, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
               
 .. image:: coding/234.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-73 Waiting for Analog Input Register Program
+.. centered:: Grafico 9.18-73 Programma attesa registro di input analogico
 
-Open the ModbusTCP Slave command addition page, find the "Wait for Analog Input Setting" (i.e., wait for AI input register setting). Select the AI name as the configured "Liquid Level" register, set the wait condition to "=", the register value to 255, and the timeout to 5000ms. Click the "Add" button, and finally click the "Apply" button.
-
+Aprire la pagina di aggiunta istruzioni slave ModbusTCP, trovare "Impostazione attesa ingresso analogico", ovvero l'impostazione di attesa per il registro di input AI, selezionare il nome AI come il registro configurato "Livello liquido", stato di attesa "=", valore registro 255, tempo di timeout 5000ms. Cliccare sul pulsante "Aggiungi", infine cliccare sul pulsante "Applica".
+            
 .. image:: coding/495.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-73-2 Add Wait for Analog Input
+.. centered:: Grafico 9.18-73-2 Aggiunta attesa ingresso analogico
 
-At this point, a Modbus Slave command to wait for the AI input register value has been added to the robot program "test.lua". After starting the program, the robot will continuously wait for the "Liquid Level" register value to equal 255. Since the timeout is set to 5s, if the "Liquid Level" signal still does not equal 255 after the robot waits for 5 seconds, the robot program will report a timeout error and automatically stop running.
+A questo punto, il programma robot "test.lua" ha aggiunto un'istruzione di attesa valore registro di input AI dello slave Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro "Livello liquido" sia uguale a 255. Poiché il tempo di timeout impostato è di 5 secondi, se dopo 5 secondi di attesa il segnale "Livello liquido" non è ancora uguale a 255, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
 
-ModbusTCP slave robot state feedback and control
-******************************************************
+Feedback stato robot e controllo slave ModbusTCP
+***************************************************************************
 
-The ModbusTCP slave input register addresses 310~473 of the cooperative robot are used to feed back the real-time status of the robot (see Annex 1: ModbusTCP slave address mapping table). You only need to read the value of the corresponding register with the master station equipment to obtain the corresponding real-time status data of the robot.
+Gli indirizzi dei registri di input 310~473 dello slave ModbusTCP del robot collaborativo vengono utilizzati per fornire feedback sullo stato in tempo reale del robot (per la definizione specifica degli indirizzi, consultare Allegato 1: Tabella mappatura indirizzi slave ModbusTCP). È sufficiente che il dispositivo master legga i valori dei registri corrispondenti per ottenere i dati sullo stato in tempo reale del robot.
 
-The coil register addresses 300~599 of ModbusTCP slave station of the cooperative robot are used for the master station equipment to control the robot (see Annex 1: ModbusTCP slave address mapping table). Taking coil address 502 as an example, this address function indicates "startup program".
+Gli indirizzi dei registri bobina 300~599 dello slave ModbusTCP del robot collaborativo vengono utilizzati dal dispositivo master per controllare il robot (per la definizione specifica degli indirizzi, consultare Allegato 1: Tabella mappatura indirizzi slave ModbusTCP). Prendendo come esempio l'indirizzo bobina 502, la funzione di questo indirizzo è "Avvia programma".
 
-When the robot is in automatic mode, the master station equipment sets the value of address 502 from 0 to 1, the robot automatically starts to run the currently configured program; Take the coil address 300 as an example. It is used to control the output of the robot control box DO0. When the external master station sets the coil address 300 from 0 to 1, the automatic output of the control box DO0 is valid. Similarly, when the external master station sets the coil address 300 from 1 to 0, the output of the control box DO0 is invalid. As shown in Figure 88, click "Function Digital Input (Coil)" on the ModbusTCP slave station setting page to monitor all current function digital inputs.
+Quando il robot è in modalità automatica, se il dispositivo master imposta il valore dell'indirizzo 502 da 0 a 1, il robot inizia automaticamente a eseguire il programma configurato; prendendo come esempio l'indirizzo bobina 300, esso viene utilizzato per controllare l'uscita DO0 della control box del robot. Quando il master esterno imposta l'indirizzo bobina 300 da 0 a 1, DO0 della control box produce automaticamente un'uscita valida; allo stesso modo, quando il master esterno imposta l'indirizzo bobina 300 da 1 a 0, l'uscita di DO0 della control box diventa non valida. Nella pagina delle impostazioni dello slave ModbusTCP, cliccare su "Ingresso digitale funzionale (bobina)" per monitorare tutti gli ingressi digitali funzionali correnti.
               
 .. image:: coding/235.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-74 Digital Input of Robot Slave Station Function
+.. centered:: Grafico 9.18-74 Ingresso digitale funzionale slave robot
                  
 .. image:: coding/434.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.18-74 Modbus TCP Slave station address mapping table
+.. centered:: Grafico 9.18-74 Tabella mappatura indirizzi slave Modbus
 
-Appendix 1: :download:`Modbus TCP Slave station address mapping table <../_static/_doc/ModbusTCP Slave station address mapping table.xlsx>`
+Appendix 1: :download:`Tabella mappatura indirizzi slave Modbus <../_static/_doc/ModbusTCP Slave station address mapping table.xlsx>`
 
-Robot Backgrounder Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Programmi in background robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Robot Backgrounder Function
-++++++++++++++++++++++++++++++++++
+Funzione programmi in background robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The robot background program is a control program used to process the logical relationship of signals in the process of running the robot in the foreground motion program, and the background is also running, and the two are independent of each other in the operation relationship.
+I programmi in background del robot sono programmi di controllo utilizzati per gestire le relazioni logiche dei segnali che possono essere eseguiti in background mentre il programma di movimento in primo piano è in esecuzione; i due sono indipendenti nella relazione di esecuzione.
 
-The background program can monitor the operating status of the foreground and at the same time send control signals to the foreground. The background program can also be connected with external devices through I/O communication to monitor and control the operation of robot peripheral equipment. Unlike the foreground teach-in, the background logic program can run commands, which cannot control any axis of motion. Therefore, it cannot be programmed with any robot axis motion commands. Only the logic control function and I/O communication function are retained.
+Il programma in background può monitorare lo stato di esecuzione del primo piano e inviare segnali di controllo al primo piano. Il programma in background può anche connettersi tramite comunicazione I/O con dispositivi esterni per monitorare e controllare i dispositivi periferici del robot. Il programma logico in background può eseguire istruzioni diverse dal programma di insegnamento in primo piano; non può controllare alcun asse di movimento. Pertanto, durante la programmazione, non deve contenere alcuna istruzione di movimento degli assi del robot. Conserva solo le funzioni di controllo logico e di comunicazione I/O.
 
-When using a background program, the program scans in a loop from start to finish. The running cycle is 1 millisecond, and a delay function can be added to the background program to control the running cycle. During the execution of the background program, it is not affected by emergency stop, pause, or alarm. 
+Quando si utilizza un programma in background, il programma viene eseguito ciclicmente dall'inizio alla fine. Il ciclo di esecuzione del programma in background nel sistema è di 1 millisecondo; è possibile aggiungere una funzione di ritardo nel programma in background per controllare il ciclo di esecuzione. Durante l'esecuzione del programma in background, non è influenzato da arresti di emergenza, pause o allarmi.
 
-.. note:: Run up to 8 background programs at the same time.
+.. note:: È possibile eseguire contemporaneamente un massimo di 8 programmi in background.
 
-A maximum of 8 programs can be executed at the same time as background logic, and an error alarm will be sent when the number of programs exceeds the maximum value.
+Dopo lo spegnimento dell'alimentazione, alla successiva accensione, il programma logico in background verrà caricato automaticamente ed eseguito in base allo stato impostato.
 
-When the power is cut off, the background logic program will be automatically loaded and run according to the set state the next time the power is turned on.
+Salvataggio programma in background robot
+****************************************************
 
-Save the robot background program
-************************************
+La creazione, modifica e salvataggio dei programmi in background possono essere eseguiti solo nell'interfaccia del programma in background.
 
-Backgrounder creation, editing, and saving can only be used in the Backgrounder interface.
+**Step1**: Aprire l'interfaccia del programma in background del robot. Aprire la pagina di insegnamento, cliccare in sequenza su "Programma insegnamento", "Programmazione programma". Selezionare l'istruzione del programma in background in alto a sinistra per accedere all'interfaccia del programma in background.
 
-**Step1**:Open the robot background program interface. Open the teaching page, click "Program", and then click "Coding". Select the command background program in the upper left corner to enter the background program interface.
-
-.. note:: The background program only contains logic judgment, assignment instructions, front-end control instructions, I/O interface instructions and Modbus communication instructions.
+.. note:: Il programma in background include solo istruzioni di giudizio logico, assegnazione, controllo in primo piano, interfacce I/O e istruzioni di comunicazione Modbus.
 
 .. image:: coding/253.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-1 The robot background program interface
+.. centered:: Grafico 9.19-1 Interfaccia programma in background
 
-**Step2**:In manual mode, open the background teach program file. Click "New" to create a new teaching program file, edit the program, and click "Save" to save the file. 
+**Step2**: In modalità manuale, aprire il file del programma di insegnamento in background. Cliccare su "Nuovo" per creare un nuovo file di programma di insegnamento, modificare il programma, cliccare su "Salva" per salvare il file.
 
-.. note:: The running cycle of the background program is 1 millisecond, and the provided delay function can be used in the program, as shown in the fourth line of the program in the following figure, to increase the delay of 1 second to control the running cycle.
+.. note:: Il ciclo di esecuzione del programma in background è di 1 millisecondo; all'interno del programma è possibile utilizzare la funzione di ritardo fornita, come nella riga 4 del programma seguente, aggiungere un ritardo di 1 secondo per controllare il ciclo di esecuzione.
 
 .. image:: coding/254.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-2 Save the robot background program
+.. centered:: Grafico 9.19-2 Creazione e salvataggio file programma in background
 
-Robot background program management
+Gestione programma in background robot
 ********************************************
 
-Successfully saved backgrounders can be created, paused, resumed, and deleted in the backgrounder management interface. The backgrounder management interface allows you to intuitively see the running status of all created backgrounders. Green is running, and red is paused.
+I programmi in background salvati con successo possono essere creati, sospesi, ripresi ed eliminati nell'interfaccia di gestione dei programmi in background. L'interfaccia di gestione dei programmi in background consente di visualizzare intuitivamente lo stato di esecuzione di tutti i programmi in background già creati. Il verde indica che è in esecuzione, il rosso indica lo stato di sospensione.
 
-**Step1**:Create a background program. Click the Background Program Management button, select the saved background program from the drop-down box, and click Start Run to run the corresponding background program.
+**Step1**: Creazione programma in background. Cliccare sul pulsante di gestione dei programmi in background, selezionare il programma in background già salvato tramite il menu a discesa, cliccare su "Inizia esecuzione" per eseguire il corrispondente programma in background.
 
 .. image:: coding/255.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-3 Start running the robot background program
+.. centered:: Grafico 9.19-3 Creazione programma in background
 
-**Step2**:Resume and pause the background program. In the background program management page, click Resume and Pause on the monitor to resume and pause the corresponding background program.Click Delete on the monitor program to delete the corresponding background program.
+**Step2**: Ripresa, sospensione programma in background. Nell'interfaccia di gestione dei programmi in background, cliccare sui pulsanti "Riprendi" e "Sospendi" per il programma di monitoraggio per riprendere e sospendere il corrispondente programma in background. Cliccare sul pulsante "Elimina" per eliminare il corrispondente programma in background.
 
 .. image:: coding/256.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-4 Pause、resume、delete the background program
+.. centered:: Grafico 9.19-4 Sospensione, ripresa, eliminazione programma in background
 
-Use of the robot user variables
-++++++++++++++++++++++++++++++++++++++
+Utilizzo variabili utente robot
++++++++++++++++++++++++++++++++++++
 
-.. note:: The new user variable function is applicable to the data interaction between the robot background program and the foreground program, or between different background programs.
+.. note:: Il robot collaborativo ha aggiunto la funzione variabili utente, applicabile per lo scambio di dati tra il programma in background e il programma in primo piano del robot, o tra diversi programmi in background.
 
-Robot user variable management
+Gestione variabili utente robot
 *************************************
 
-Before using user variables, you can rename them to your liking. Open the teach-in page, click "Program", "Coding", and "user variable management", which can be used in both the foreground program and the background program. Click on the variable name to change the variable name directly.
+Prima di utilizzare le variabili utente, è possibile rinominarle secondo le proprie preferenze. Aprire la pagina di insegnamento, cliccare in sequenza su "Programma insegnamento", "Programmazione programma", "Gestione variabili utente"; questa pagina può essere utilizzata sia nel programma in primo piano che in quello in background. Cliccare sul nome della variabile per modificarlo direttamente.
 
 .. image:: coding/257.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-5 Robot user variable management
+.. centered:: Grafico 9.19-5 Gestione variabili utente
 
-Robot user variable use
-*************************
+Utilizzo variabili utente robot
+*********************************************
 
-When user variables are used in foreground  and background programs, only the user variable read/write interface can be used.
+Quando si utilizzano variabili utente nei programmi in primo piano e in background, è possibile operare solo tramite le interfacce di lettura/scrittura delle variabili utente.
 
-**Step1**:In manual mode, open the teach-in program file. Open the teaching page, click "Program", click "Coding", and click "New" to create a new teaching program file.
+**Step1**: In modalità manuale, aprire il file del programma di insegnamento. Aprire la pagina di insegnamento, cliccare in sequenza su "Programma insegnamento", "Programmazione programma", cliccare su "Nuovo" per creare un nuovo file di programma di insegnamento.
 
 .. image:: coding/258.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-6 Create a new teach-in program file
+.. centered:: Grafico 9.19-6 Creazione file programma insegnamento
 
-**Step2**:Use the user variable read interface. Click the "Variable" command, select "User Variable", click the Get Variable Value drop-down box, select the user variable to be read, and click the "Add" and "Apply" buttons to write the user variable reading interface program.
+**Step2**: Utilizzo interfaccia lettura variabili utente. Cliccare sull'istruzione "Variabile", selezionare "Variabile utente", cliccare sul menu a discesa "Ottieni valore variabile", selezionare la variabile utente da leggere, cliccare sui pulsanti "Aggiungi", "Applica" per scrivere il programma dell'interfaccia di lettura variabili utente.
 
 .. image:: coding/259.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-7 Use the user variable read interface
+.. centered:: Grafico 9.19-7 Utilizzo interfaccia lettura variabili utente
 
-**Step3**:Use user variables to write interfaces. Click the "Variable" command, select "User Variable", click the Set Variable Value drop-down box, select the user variable to be set, and fill in the corresponding set value, which supports both constant and variable value. Click the Add and Apply buttons to write user variables and write interface programs.
+**Step3**: Utilizzo interfaccia scrittura variabili utente. Cliccare sull'istruzione "Variabile", selezionare "Variabile utente", cliccare sul menu a discesa "Imposta valore variabile", selezionare la variabile utente da impostare, inserire il valore corrispondente da impostare; questo valore supporta costanti e valori di variabile. Cliccare sui pulsanti "Aggiungi", "Applica" per scrivere il programma dell'interfaccia di scrittura variabili utente.
 
 .. image:: coding/260.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.19-8 Use the user variable write interface
+.. centered:: Grafico 9.19-8 Utilizzo interfaccia scrittura variabili utente
 
-XY horizontal constant
-~~~~~~~~~~~~~~~~~~~~~~~~
+Levigatura a forza costante orizzontale direzione XY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 +++++++++++++++
 
-The principle of lateral constant force grinding in the XY direction is as follows: Lateral constant force grinding refers to applying a grinding tool (such as a grinding wheel, grinding disc, etc.) with a constant force on a specified workpiece surface, and controlling the movement of the tool along the XY direction to maintain a constant grinding force at the contact point. 
+Il principio della levigatura a forza costante orizzontale direzione XY è il seguente: la levigatura a forza costante orizzontale si riferisce all'applicazione di una forza costante sullo strumento di levigatura (come mola, disco levigante, ecc.) sulla superficie specificata del pezzo, controllando il movimento dello strumento lungo le direzioni XY, mantenendo sempre una forza di levigatura costante nel punto di contatto.
 
-Operation process of lateral constant force grinding function in XY direction
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Flusso operativo funzione levigatura a forza costante orizzontale direzione XY
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To perform constant force grinding using a force sensor, it is necessary to install a grinding tool under the force sensor and configure the tool coordinate system. Click on the "Initial" -> "Base" -> "Coordinate" -> "TCP" button in sequence to enter the "Tool coordinate system settings" interface. Select the coordinate system to be set in the "Coordinate system name" (taking toolcoord 0 coordinate system as an example), and set it according to the size of the end tool.
+Per utilizzare il sensore di forza per la levigatura a forza costante, è necessario installare lo strumento di levigatura sotto il sensore di forza e configurare il sistema di coordinate dell'utensile. Cliccare in sequenza su "Impostazioni iniziali" -> "Base" -> "Sistema di coordinate" -> "Utensile" per accedere all'interfaccia "Impostazione sistema di coordinate utensile". In "Nome sistema coordinate" selezionare il sistema di coordinate da impostare (ad esempio, il sistema di coordinate toolcoord0), impostare in base alle dimensioni dell'utensile terminale.
 
 .. image:: coding/246.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.20-1 Set tool coordinate system
+.. centered:: Grafico 9.20-1 Impostazione sistema di coordinate utensile
 
-Force control reference coordinate system setting. In the web interface, click on "FT" -> "Reference coord.", select "Custom coordinates", and set each parameter to "0". When the force sensor is working, different reference coordinate systems will affect the magnitude of the external force obtained by the sensor.
+Impostazione sistema di coordinate di riferimento controllo forza. Nell'interfaccia web, cliccare in sequenza su "FT" -> "Sistema di coordinate di riferimento", selezionare "Sistema di coordinate personalizzato" e impostare tutti i parametri su "0". Durante il funzionamento del sensore di forza, diversi sistemi di coordinate di riferimento influenzeranno l'entità della forza esterna acquisita dal sensore.
 
 .. image:: coding/261.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.20-2 Set reference coordinate
+.. centered:: Grafico 9.20-2 Impostazione sistema di coordinate di riferimento
 
-Fix the flat plate to be polished in the robot workspace, and the plate should not shake. Place the end of the tool approximately perpendicular to the polishing plate and teach the starting and ending points.
+Fissare la lastra da levigare all'interno dello spazio di lavoro del robot; la lastra non deve oscillare. Posizionare approssimativamente l'utensile terminale perpendicolare alla lastra di levigatura, insegnare i punti iniziale e finale.
 
 .. image:: coding/262.png
    :width: 2in
    :align: center
 
-.. centered:: Figure 9.20-3 Polishing layout diagram
+.. centered:: Grafico 9.20-3 Schema layout levigatura
 
-Click on the "Program" -> "Coding" -> "F/T" button in sequence, and add the "FT_Control" instruction. The "FT_Control" command is a force controlled motion command that allows the robot to move around the set force.
+Cliccare in sequenza su "Programma insegnamento" -> "Programmazione programma" -> "Set controllo forza", aggiungere l'istruzione "FT_Control". L'istruzione "FT_Control" è un'istruzione di movimento con controllo forza, che consente al robot di muoversi attorno alla forza impostata.
 
 .. image:: coding/263.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.20-4 Add FT_Control command
+.. centered:: Grafico 9.20-4 Aggiunta istruzione controllo forza
 
 .. image:: coding/264.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.20-5 Example of FT_Control polishing instruction
+.. centered:: Grafico 9.20-5 Esempio istruzione levigatura controllo forza
 
-The specific function of parameters:
+Funzione specifica dei parametri:
 
-**Coordinate system name**:The name corresponding to setting the sensor coordinate system; 
+**Nome sistema coordinate**: Nome corrispondente al sistema di coordinate del sensore impostato;
 
-**Check the direction of force detection and set the detection threshold**:Select the direction of the control force. In horizontal polishing, check Fx and Fy and set the corresponding expected constant force; 
+**Seleziona direzione forza rilevamento**: Impostazione soglia di rilevamento: selezionare la direzione della forza di controllo; nella levigatura orizzontale, selezionare Fx, Fy e impostare la corrispondente forza costante desiderata;
 
-**PID parameters**:Set the PID proportional coefficients for force and torque, generally setting the F_P_gain to 0.001;
+**Parametri PID**: Impostare i coefficienti proporzionali PID per forza e coppia; generalmente impostare F_P_gain a 0.001;
 
-**Maximum adjustment distance**:corresponding to the maximum movement distance in the X, Y, and Z directions; 
+**Distanza massima regolazione**: Distanza massima di movimento corrispondente alle direzioni X, Y, Z;
 
-**Maximum adjustment angle**:corresponding to the maximum rotation angle of RX, RY, RZ; 
+**Angolo massimo regolazione**: Angolo massimo di rotazione corrispondente a RX, RY, RZ;
 
-**Grinding disc radius**:determined by the actual radius of the end grinding tool.
+**Raggio disco levigatura**: Determinato dal raggio effettivo dell'utensile di levigatura terminale.
 
-Automatic Singularity Avoidance Trajectory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione evasione automatica punti singolari traiettoria
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 +++++++++++++++
 
-When the robot encounters a singular range that cannot be passed by the robot in the LIN and ARC command tracks, the robot will report an error or prompt the next digit to be strange or a singular warning appears. 
-
-If you want to be able to reach the next waypoint that will pass through the singular range, you can use this function to avoid the singularity point through joint space or Cartesian space to reach the next target pose.
+Quando il robot incontra un intervallo singolare che non può attraversare durante le traiettorie delle istruzioni LIN e ARC, il robot segnala un errore, indicando che la posa successiva è singolare o appare un avviso di singolarità. Se si desidera raggiungere il punto di percorso successivo che passa attraverso l'intervallo singolare, è possibile utilizzare questa funzione per evitare i punti singolari nello spazio articolare o cartesiano per raggiungere la posa obiettivo successiva.
 
 .. image:: coding/265.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.21-1 A simple schematic diagram of a robot's singularity
+.. centered:: Grafico 9.21-1 Schema semplificato punti singolari robot
 
-The above figure is a schematic diagram of the robot singularity, the robot singularity includes three kinds of singularity: shoulder, elbow and wrist, and A is the 5 joint center WCP (Wrist Center Point), which is used to judge the shoulder singularity; B is the singular range of the shoulder, which resembles a cylinder, and its radius is the length of the robot DH parameter d4, and the robot enters the singular state when the WCP enters the cylinder B; C is the elbow singularity boundary of the robot, and the robot is in the elbow singularity state when J3=0 or 180°; D is the internal space, and it is in the wrist singular state when J5=0 or 180° at any position in the internal space.
+La figura sopra è uno schema semplificato dei punti singolari del robot. Le singolarità del robot includono tre tipi: spalla, gomito e polso. Nella figura, A è il centro dell'articolazione 5 WCP (Wrist Center Point), utilizzato per giudicare la singolarità della spalla; B è l'intervallo di singolarità della spalla, di forma simile a un cilindro, il cui raggio è la lunghezza del parametro DH d4 del robot; quando il WCP entra nel cilindro B, il robot entra in stato di singolarità; C è il confine di singolarità del gomito del robot; quando J3=0° o 180°, il robot è in stato di singolarità del gomito; D è lo spazio interno del robot; in qualsiasi posizione all'interno dello spazio interno, quando J5=0° o 180°, si trova in stato di singolarità del polso.
 
-.. note:: It should be noted that singularity is a motion characteristic determined by the physical structure of the robot, which should be avoided as much as possible during actual operation, and it will lead to changes in the terminal posture and speed and even configuration configuration when it is avoided by algorithms, and it is necessary to consider whether the side effects of avoidance affect the requirements before making a choice.
+.. note:: La singolarità è una caratteristica di movimento determinata dalla struttura fisica del robot; durante l'esecuzione effettiva, dovrebbe essere evitata il più possibile. L'evasione attraverso algoritmi comporta cambiamenti nella posa terminale, nella velocità e persino nella configurazione; è necessario valutare se gli effetti collaterali dell'evasione influiscono sui requisiti prima di scegliere.
 
-The trajectory automatically avoids the operation process of the singularity function
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Flusso operativo funzione evasione automatica punti singolari traiettoria
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In the new program, click Add Robot LIN/ARC type motion command.
+Nel nuovo programma creato, cliccare per aggiungere istruzioni di movimento del robot di tipo LIN/ARC.
 
 .. image:: coding/266.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.21-2 Add LIN/ARC LUA command
+.. centered:: Grafico 9.21-2 Aggiunta istruzioni movimento LIN/ARC
 
-2.Click the "LIN" command, select the waypoint of the robot singularity, and click the "Singularity Avoidance" button in the "Motion Protection" sub-option of the command parameter configuration interface.
+Cliccare sull'istruzione "Linea", selezionare i waypoint che attraversano i punti singolari del robot, nell'interfaccia di configurazione dei parametri dell'istruzione, nella sotto-opzione "Protezione movimento", cliccare sul pulsante "Evasione punto singolare".
 
 .. image:: coding/267.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.21-3 Turn on singularity avoidance switch
+.. centered:: Grafico 9.21-3 Attivazione funzione evasione punti singolari
 
-3.Singularity Avoidance parameters include Guard Mode, Shoulder Singularity, Elbow Singularity, and Wrist Singularity. Among them, the "protection mode" is divided into "joint mode" and "Cartesian mode", which means that the robot can cross the singular from the joint space or bypass the singular from the Cartesian space; The parameters of the "Singular Adjustment" specify the maximum deviation between the range of the determination of singularity and the singularity avoidance, which is mm for shoulder and elbow singularity units, and ° for wrist singular units.
+I parametri "Evasione punto singolare" includono "Modalità protezione", "Regolazione singolarità spalla", "Regolazione singolarità gomito" e parametri correlati a "Regolazione singolarità polso". Tra questi, "Modalità protezione" è divisa in "Modalità articolare" e "Modalità cartesiana", il che significa che il robot può attraversare la singolarità dallo spazio articolare o aggirarla dallo spazio cartesiano; i parametri "Regolazione singolarità" specificano l'intervallo per determinare la singolarità e la deviazione massima per l'evasione della singolarità; per spalla e gomito l'unità è mm, per il polso è °.
 
-.. note:: The joint space will select the nearest trajectory between the joints, so there will be no limit situation, and the joint limit may occur when the Cartesian space is avoided, so you need to pay attention to and adjust it during teaching.
+.. note:: Lo spazio articolare seleziona la traiettoria più breve tra le articolazioni, quindi non si verificano limiti di escursione; durante l'evasione nello spazio cartesiano possono verificarsi limiti articolari; prestare attenzione e regolare durante l'insegnamento.
 
-After selecting and setting the singularity avoidance parameters, you can click the "Add" button to add the command, and then click "Apply" to add the LUA command to the program.
+Dopo aver selezionato e impostato i parametri di evasione dei punti singolari, è possibile cliccare sul pulsante "Aggiungi" per aggiungere l'istruzione, quindi cliccare su "Applica" per aggiungere l'istruzione lua al programma.
 
 .. image:: coding/268.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.21-4 Configure singularity avoidance parameters and add the lua command
+.. centered:: Grafico 9.21-4 Configurazione parametri evasione punti singolari, aggiunta istruzione lua
 
-The teach-in completes a typical LIN singular avoidance movement lua procedure as follows:
+Dopo aver insegnato un tipico programma di movimento LIN con evasione singolarità, il programma lua è il seguente:
 
 .. image:: coding/269.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.21-5 lua program that contains singularity avoidance instructions
+.. centered:: Grafico 9.21-5 Programma lua contenente istruzione evasione punti singolari
 
-The effect of achieving avoidance is as follows, and the red is the trajectory line at the end of the robot:
+L'effetto di evasione realizzato è il seguente, la linea rossa è la traiettoria terminale del robot:
 
 .. image:: coding/270.png
    :width: 4in
@@ -3367,7 +3364,7 @@ The effect of achieving avoidance is as follows, and the red is the trajectory l
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.21-6 Example of a shoulder singular avoidance trajectory(top: Cartesian space, bottom: joint space)
+.. centered:: Grafico 9.21-6 Esempio traiettoria evasione singolarità spalla (sopra: spazio cartesiano, sotto: spazio articolare)
 
 .. image:: coding/272.png
    :width: 4in
@@ -3377,74 +3374,74 @@ The effect of achieving avoidance is as follows, and the red is the trajectory l
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.21-7 Example of an elbow singular avoidance trajectory(top: Cartesian space, bottom: joint space)
+.. centered:: Grafico 9.21-7 Esempio traiettoria evasione singolarità gomito (sopra: spazio cartesiano, sotto: spazio articolare)
 
 .. image:: coding/274.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.21-8  Example of a wrist singular avoidance trajectory (joint space)
+.. centered:: Grafico 9.21-8 Esempio traiettoria evasione singolarità polso (spazio articolare)
 
-6.If the start and end points of the movement are within the set singular range, when more than one singularity occurs during the movement, or even when two or more singular situations occur at the same time, the interface will display a pop-up window of "[Warning] Singular Pose" to indicate that the current singular situation cannot be avoided.
+Attualmente, questa funzione supporta l'evasione quando il movimento LIN/ARC attraversa un singolo tipo di punto singolare. Se i punti di inizio e fine del movimento si trovano all'interno dell'intervallo singolare impostato, o se durante il movimento si attraversa più di un tipo di singolarità o si verificano contemporaneamente due o più singolarità, l'interfaccia visualizzerà una finestra di avviso "[Avviso] Posa singolare", indicando che l'attuale situazione di singolarità non può essere evitata.
 
 .. image:: coding/275.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.21-9  The current singular situation cannot be avoided
+.. centered:: Grafico 9.21-9 Avviso situazione singolarità corrente non evitabile
 
-Singularity crossing function in automatic mode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione attraversamento punti singolari modalità automatica
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++
 
-When the robot executes LIN or ARC commands and passes through a singularity, its speed may fluctuate drastically, leading to unstable motion control and even potential damage to the equipment. By utilizing the singularity crossing function, the robot can smoothly pass through singularities. This manual takes the example of the LIN command passing through a wrist singularity to illustrate how to use the singularity crossing function in automatic mode.
+Quando il robot esegue istruzioni LIN o ARC e attraversa punti singolari, la velocità del robot subirà cambiamenti improvvisi, causando instabilità nel controllo del movimento e persino danni all'attrezzatura. Attraverso la funzione di attraversamento dei punti singolari, il robot può attraversare in modo fluido i punti singolari. Questo manuale utilizza un'istruzione LIN che attraversa una singolarità del polso come esempio per illustrare l'uso della funzione di attraversamento dei punti singolari in modalità automatica.
 
-Operation Flow
+Flusso operativo
 ++++++++++++++++
 
-1. Teach the robot to execute the LIN command with two motion control points (named wristlin1 and wristlin2 in this manual).
+1. Insegnare due punti di controllo movimento per l'esecuzione dell'istruzione LIN del robot (in questo manuale denominati rispettivamente wristlin1 e wristlin2).
 
-2. Click the “Program” button, then click “Coding”, select the “PTP” command under “Motion command”, and add the first motion point.
+2. Cliccare in sequenza su "Programma insegnamento" -> "Programmazione programma", selezionare l'istruzione "Da punto a punto" nelle "Istruzioni movimento", aggiungere il primo punto di movimento.
 
 .. image:: coding/285.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.22-1 Add the first motion point
+.. centered:: Grafico 9.22-1 Aggiunta primo punto di movimento
 
-3. Select the “LIN” command under “Motion command”, and add the second motion point. In the “Motion protection” section, select "Singularity Crossing," and set the adjustment ranges for shoulder singularity, elbow singularity, and wrist singularity.
+3. Selezionare l'istruzione "Linea" nelle "Istruzioni movimento", aggiungere il secondo punto di movimento, in "Protezione movimento" selezionare "Attraversamento punto singolare", e impostare rispettivamente gli intervalli di regolazione per la singolarità della spalla, del gomito e del polso.
 
 .. image:: coding/286.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.22-2 Set the singularity crossing parameters
+.. centered:: Grafico 9.22-2 Impostazione parametri attraversamento punti singolari
 
-4. Generate and run the Lua program. The typical LIN command program for singularity crossing in automatic mode.
+4. Generare e eseguire il programma lua; tipica istruzione LIN con attraversamento punti singolari in modalità automatica.
 
 .. image:: coding/287.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.22-3 Typical singularities crossing LIN instructions
+.. centered:: Grafico 9.22-3 Tipica istruzione LIN attraversamento punti singolari
 
-5. Observe the robot's motion results, and adjust the robot's movement speed and singularity settings range to achieve different motion accuracy and impact.
+5. Osservare il risultato del movimento del robot e regolare la velocità di movimento del robot e l'intervallo di impostazione delle singolarità per ottenere diverse precisioni e impatti.
 
-Precision Impact Table
-++++++++++++++++++++++++++++++++++
+Tabella comparativa precisione-impatto
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1. Wrist singularity is the most easily triggered singularity type for the robot. A table comparing the precision and impact of wrist singularity for LIN and ARC commands has been compiled. The comparison table for LIN and ARC commands are shown below, (〇 indicates that a collision warning was triggered).
+1. La singolarità del polso è il tipo di singolarità più facilmente attivato dal robot. Di seguito sono riassunte le tabelle comparative di precisione e impatto per le istruzioni LIN e ARC con singolarità del polso, dove le tabelle comparative per LIN/ARC sono le seguenti (〇 indica che è stato attivato un avviso di collisione).
    
-.. centered:: Table 9.22-3-1 Error of wrist singularity LIN command (Unit: mm）
+.. centered:: Tabella 9.22-3-1 Errore istruzione LIN singolarità polso (unità: mm)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3492,14 +3489,14 @@ Precision Impact Table
      - 1.39
      - 1.41  
    
-.. centered:: Table 9.22-3-2 Linear jerk of wrist singularity LIN command (Unit: m/s3)
+.. centered:: Tabella 9.22-3-2 Jerk lineare istruzione LIN singolarità polso (unità: m/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3547,14 +3544,14 @@ Precision Impact Table
      - 649.300
      - 953.300  
    
-.. centered:: Table 9.22-3-3 Angular jerk of wrist singularity LIN command (Unit: °/s³)
+.. centered:: Tabella 9.22-3-3 Jerk angolare istruzione LIN singolarità polso (unità:°/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3602,14 +3599,14 @@ Precision Impact Table
      - 177300
      - 256000
    
-.. centered:: Table 9.22-3-4 Error of wrist singularity ARC command (Unit: mm)
+.. centered:: Tabella 9.22-3-4 Errore istruzione ARC singolarità polso (unità: mm)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3657,14 +3654,14 @@ Precision Impact Table
      - 9.17
      - 9.22
    
-.. centered:: Table 9.22-3-5 Linear jerk of wrist singularity ARC command (Unit: m/s3)
+.. centered:: Tabella 9.22-3-5 Jerk lineare istruzione ARC singolarità polso (unità: m/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3712,14 +3709,14 @@ Precision Impact Table
      - 229.300
      - 117.500
    
-.. centered:: Table 9.22-3-6 Angular jerk of wrist singularity ARC command (Unit: °/s³)
+.. centered:: Tabella 9.22-3-6 Jerk angolare istruzione ARC singolarità polso (unità:°/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3767,16 +3764,16 @@ Precision Impact Table
      - 47280
      - 97160
 
-2. Since shoulder singularity and elbow singularity correspond to the robot's minimum and maximum working boundaries, respectively, precision cannot be used as an evaluation metric. Therefore, an impact comparison table for shoulder singularity is compiled, as shown in Tab, and an impact comparison table for elbow singularity is compiled, as shown below (where 〇 indicates that a collision warning was triggered).
+2. Poiché le singolarità della spalla e del gomito corrispondono rispettivamente al confine di lavoro minimo e massimo del robot, la precisione non può essere utilizzata come parametro di valutazione. Pertanto, di seguito sono riassunte le tabelle comparative dell'impatto per la singolarità della spalla e del gomito, dove 〇 indica che è stato attivato un avviso di collisione.
    
-.. centered:: Table 9.22-3-7 Linear jerk of shoulder singularity (Unit: m/s3)
+.. centered:: Tabella 9.22-3-7 Jerk lineare singolarità spalla (unità: m/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3808,14 +3805,14 @@ Precision Impact Table
      - 926.300
      - 1555.000	 
 
-.. centered:: Table 9.22-3-8 Angular jerk of shoulder singularity (Unit: °/s³)
+.. centered:: Tabella 9.22-3-8 Jerk angolare singolarità spalla (unità:°/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3847,14 +3844,14 @@ Precision Impact Table
      - 1495
      - 39280
 
-.. centered:: Table 9.22-3-9 Linear jerk of elbow singularity (Unit: m/s3)
+.. centered:: Tabella 9.22-3-9 Jerk lineare singolarità gomito (unità: m/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3886,14 +3883,14 @@ Precision Impact Table
      - 583.000
      - 758.600
 
-.. centered:: Table 9.22-3-10 Angular jerk of elbow singularity (Unit: °/s³)
+.. centered:: Tabella 9.22-3-10 Jerk angolare singolarità gomito (unità:°/s\ :sup:`3`)
 
 .. list-table::
-   :widths: 40 30 30 30 30 30 30
+   :widths: 35 20 20 20 20 20 20
    :header-rows: 0
    :class: sheet-center
 
-   * - **Range / Velocity**
+   * - **Intervallo singolarità/Velocità interfaccia**
      - **2**
      - **20**
      - **40**
@@ -3925,334 +3922,330 @@ Precision Impact Table
      - 35170
      - 46770
 
-Real-time forward trajectory planning function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione pianificazione traiettoria in tempo reale con lookahead
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++
 
-Real-time forward-looking trajectory planning is based on current and future path information, dynamically adjusting the robot's motion parameters such as speed and acceleration to ensure smoothness, continuity and accuracy of motion. By predicting the robot's future position and posture, forward-looking control can respond before the key points of the path, thereby avoiding unstable motion or trajectory errors due to sudden changes in speed and acceleration.
+La pianificazione traiettoria in tempo reale con lookahead si basa sulle informazioni del percorso corrente e futuro, regolando dinamicamente parametri di movimento come velocità e accelerazione del robot, per garantire la fluidità, continuità e precisione del movimento. Prevedendo la posizione e l'orientamento futuri del robot, il controllo con lookahead può rispondere prima dei punti chiave del percorso, evitando così movimenti irregolari o errori di traiettoria causati da cambiamenti improvvisi di velocità e accelerazione.
 
-Operation process
-++++++++++++++++++++++
+Flusso operativo
+++++++++++++++++++++++++++++++
 
-**Step1**: Prepare a trajectory point file in "txt" format, in which each trajectory point is represented by a Cartesian pose.
-
-**Step2**: Click the "Teaching Program"->"Programming" button in sequence, select the "Trajectory Forward" command in "Motion Command", and import and delete the trajectory file in "Command Configuration".
+**Step1**: Preparare un file di punti traiettoria in formato "txt", in cui ogni punto traiettoria è rappresentato da una posa cartesiana.
+   
+**Step2**: Cliccare in sequenza su "Programma insegnamento" -> "Programmazione programma", selezionare l'istruzione "Traiettoria lookahead" nelle "Istruzioni movimento", in "Configurazione istruzione" importare ed eliminare il file traiettoria.
 
 .. image:: coding/288.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.23-1 Import and delete trajectory files
+.. centered:: Grafico 9.23-1 Importazione ed eliminazione file traiettoria
 
-**Step3**: Select the trajectory file to run and add the "Trajectory Preload" command: 
-
-First, choose the fitting method for trajectory points in "Curve Fitting Method", including "Linear Connection", "Linear Fitting", "B-spline Curve", "Polynomial Optimization Method", etc. When selecting "Linear Fitting", additional error limits need to be set, which is not required for other methods. 
-
-Then set the smoothing method and smoothing precision. Finally, configure the maximum velocity, maximum acceleration and maximum jerk during operation. The "Uniform Motion" option can be enabled for constant velocity lookahead, which will make the robot perform lookahead at constant speed when activated.
+**Step3**: Selezionare il file traiettoria da eseguire, aggiungere l'istruzione "Precaricamento traiettoria": prima scegliere il metodo di adattamento ai punti traiettoria in "Metodo adattamento curva", inclusi "Collegamento linea", "Adattamento linea", "Curva B-spline", "Metodo ottimizzazione polinomiale", ecc. Quando si seleziona "Adattamento linea", è necessario impostare ulteriormente il limite di errore; altri metodi non richiedono questa impostazione; poi impostare il metodo di livellamento e la precisione di livellamento; infine impostare la velocità massima, l'accelerazione massima e il jerk massimo durante l'esecuzione, e selezionare se attivare il lookahead a velocità costante tramite "Movimento a velocità costante"; quando attivato, il robot eseguirà il lookahead a velocità costante.
 
 .. image:: coding/289.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.23-2 Setting "Linear Fitting" Parameters for Trajectory Preloading
+.. centered:: Grafico 9.23-2 Impostazione parametri precaricamento traiettoria "Adattamento linea"
 
 .. image:: coding/292.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.23-3 Setting Trajectory Preloading Parameters
+.. centered:: Grafico 9.23-3 Impostazione parametri precaricamento traiettoria
 
-**Step4**: Add the "Trajectory Motion" command and generate Lua program. The imported trajectory file can be processed with real-time lookahead trajectory planning by running the Lua program. A typical real-time lookahead trajectory planning program is shown below.
+**Step4**: Aggiungere l'istruzione "Movimento traiettoria" e generare il programma lua; eseguendo il programma lua è possibile eseguire la pianificazione traiettoria in tempo reale con lookahead sul file traiettoria importato. Il programma tipico per la pianificazione traiettoria in tempo reale con lookahead è mostrato di seguito.
 
 .. image:: coding/290.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.23-4 Typical Program for Real-time Lookahead Trajectory Planning (B-spline Curve)
+.. centered:: Grafico 9.23-4 Programma tipico pianificazione traiettoria in tempo reale con lookahead (curva B-spline)
 
-**Step 5**: For the "LoadTrajectory" command line in the lua program, click the edit button to modify the setting parameters to achieve different trajectory planning effects.
+**Step5**: Per la riga di comando "LoadTrajectory" nel programma lua, cliccare sul pulsante di modifica per modificare i parametri impostati, realizzando così effetti di pianificazione traiettoria diversi.
 
 .. image:: coding/291.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.23-5 Modify the setting parameters
+.. centered:: Grafico 9.23-5 Modifica parametri impostazione
 
-Swing amplitude monotonous gradual arc tracking function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di tracciamento ad arco con ampiezza di oscillazione monotona graduale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Swinging motion can realize two swinging amplitude switching modes: "sudden change" and "gradual change".
+Il movimento di oscillazione può realizzare due modalità di cambio dell'ampiezza di oscillazione: "brusco" e "graduale".
 
-The "sudden change" mode refers to the mode of directly switching the swinging parameters of the previous section with the swinging parameters of the next section. It can be realized by setting two adjacent swinging motions with different parameters, or by issuing a new swinging number in real time during the swinging motion (see the manual section corresponding to the function for details, which will not be repeated here).
+La modalità "brusco" si riferisce al passaggio diretto dai parametri di oscillazione del segmento precedente a quelli del segmento successivo, che può essere realizzato impostando due movimenti di oscillazione adiacenti ma con parametri diversi, oppure inviando in tempo reale un nuovo numero di oscillazione durante l'esecuzione del movimento di oscillazione (per i dettagli, vedere la sezione del manuale corrispondente, non verrà approfondito qui).
 
-The "gradual change" mode means that in the current swinging motion, the swinging amplitude set at the beginning gradually changes to the swinging amplitude set at the end.
+La modalità "graduale" si riferisce alla graduale variazione dell'ampiezza di oscillazione impostata all'inizio del segmento di oscillazione corrente fino all'ampiezza di oscillazione impostata alla fine del segmento.
 
-The swinging parameter gradual switching mode only supports the process of linear swinging.
+Il cambio graduale dei parametri di oscillazione è supportato solo durante l'oscillazione lineare.
 
-Introduction
-++++++++++++++
+Introduzione
++++++++++++++
 
-The swinging motion trajectory of monotonic gradual swinging amplitude is shown in the figure below.
+La traiettoria del movimento di oscillazione con ampiezza monotona graduale è mostrata nella figura seguente.
 
 .. image:: coding/293.png
    :width: 4in
    :align: center
 
-Among them, the blue line is the swing direction, a is the swing amplitude of the starting point, and b is the swing amplitude of the ending point. The swing amplitude gradually changes during the movement.
+Dove, la linea blu è la direzione del movimento di oscillazione, a è l'ampiezza di oscillazione del punto di partenza, b è l'ampiezza di oscillazione del punto finale, e l'ampiezza di oscillazione cambia gradualmente durante il movimento.
 
-.. note:: Please note that currently only the starting point and the end point are of the same type, the swing amplitude is different (from a to b), and the other parameters are consistent. It is recommended to check the swing parameters before executing the swing.
+.. note:: Notare che attualmente è supportata solo l'oscillazione graduale in cui il punto iniziale e il punto finale sono dello stesso tipo, con ampiezze diverse (da a a b) e gli altri parametri identici. Si consiglia di verificare i parametri di oscillazione prima dell'esecuzione.
 
-The operation process of setting a swing amplitude gradual swing is as follows:
+Il flusso operativo per impostare un segmento di oscillazione con ampiezza graduale è il seguente:
 
-**Step 1**: Click "Teaching Program", "Programming", select and click the "Swing" button under "Motion Instructions" to enter the swing instruction configuration page.
+**Step 1**: Cliccare su "Programma insegnamento", "Programmazione programma", selezionare e cliccare sul pulsante "Oscillazione" sotto "Istruzioni movimento" per accedere alla pagina di configurazione delle istruzioni di oscillazione.
 
 .. image:: coding/294.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.24-1 Click the swing function button
+.. centered:: Grafico 9.24-1 Cliccare sul pulsante funzione oscillazione
 
-**Step 2**: Select the swing parameter number at the start of the swing in the command editor, click "Start Swing" and then click the "Add" button.
+**Step 2**: Nell'editor delle istruzioni, selezionare il numero dei parametri di oscillazione all'inizio dell'oscillazione, cliccare su "Inizia oscillazione", quindi cliccare sul pulsante "Aggiungi".
    
 .. image:: coding/295.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.24-2 Add starting swing parameters
+.. centered:: Grafico 9.24-2 Aggiunta parametri oscillazione iniziali
 
-**Step 3**: Select the target number of the swing gradient, click "Swing gradient start", and click the "Add" button.
+**Step 3**: Selezionare il numero di destinazione per la transizione graduale dell'oscillazione, selezionare "Inizia transizione graduale oscillazione", cliccare sul pulsante "Aggiungi".
    
 .. image:: coding/296.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.24-3 Add gradual swing parameters
+.. centered:: Grafico 9.24-3 Aggiunta parametri oscillazione graduale
 
-**Step 4**: After adding the corresponding linear motion, click "Swing Gradient End" and click Add, then click "Stop Swing" and add, complete the setting of a gradual swing motion, and click "Apply" to add it to the LUA program.
+**Step 4**: Dopo aver aggiunto il corrispondente movimento lineare, selezionare "Fine transizione graduale oscillazione", cliccare su aggiungi, quindi selezionare "Ferma oscillazione" e aggiungere, completando l'impostazione di un segmento di movimento di oscillazione con ampiezza graduale. Cliccare su "Applica" per aggiungere al programma LUA.
    
 .. image:: coding/297.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.24-4 Implement a complete swing amplitude gradient motion LUA instruction
+.. centered:: Grafico 9.24-4 Istruzione LUA per implementare un movimento di oscillazione con ampiezza graduale completo
 
-Offset arc tracking function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di tracciamento ad arco con offset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-During the arc tracking welding process, the robot defaults to adjusting the welding gun swing center to track the workpiece groove center according to the current information to keep consistent, but some process requirements require that the welding gun swing center has a certain offset relative to the workpiece groove center.
+Durante il processo di saldatura con tracciamento ad arco, il robot regola di default il centro di oscillazione della torcia per mantenerlo in linea con il centro della scanalatura del pezzo. Tuttavia, alcuni processi richiedono che il centro di oscillazione della torcia abbia un certo offset rispetto al centro della scanalatura del pezzo.
    
 .. image:: coding/298.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.25-1 Typical scenarios of bias arc tracking
+.. centered:: Grafico 9.25-1 Scenario tipico tracciamento ad arco con offset
 
-Typical scenarios of the bias arc tracking function include: a. welding workpiece (welding groove is right angle or acute angle), b. welding gun, e. groove center line. The arc tracking function realizes the following for the welding groove: c. up and down (depth) direction tracking and d. left and right (center) direction tracking, f. left and right direction tracking offset distance.
+Lo scenario tipico della funzione di tracciamento ad arco con offset include: a. pezzo da saldare (scanalatura di saldatura ad angolo retto o acuto), b. torcia di saldatura, e. linea centrale della scanalatura. La funzione di tracciamento ad arco realizza il tracciamento della scanalatura di saldatura nelle direzioni: c. alto/basso (profondità) e d. sinistra/destra (centro), f. distanza di offset per il tracciamento direzione sinistra/destra.
 
-To realize bias arc tracking, two methods of setting left and right offsets can be selected, namely "sampling" and "percentage" adjustment methods.
+Per realizzare il tracciamento ad arco con offset, sono disponibili due modalità per impostare l'offset sinistra/destra: "campionamento" e "percentuale".
 
-Sampling bias arc tracking
-++++++++++++++++++++++++++++++++
+Tracciamento ad arco con offset tramite campionamento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The sampling method is to collect the left and right current values ​​during the swinging within a certain cycle as a reference after the swing welding arc is started, and compare the sampling current with the reference current in the subsequent welding process to obtain the tracking direction.
+Il metodo di campionamento consiste nel raccogliere i valori di corrente sinistra/destra durante un ciclo di oscillazione dopo l'accensione dell'arco nella saldatura oscillante, utilizzandoli come riferimento. Nelle successive fasi di saldatura, la corrente campionata viene confrontata con la corrente di riferimento per determinare la direzione di tracciamento.
 
-The sampling method requires teaching the swing welding starting position to the required offset, the offset shall not be greater than the swing amplitude, and the weld needs to cover the splicing groove.
+Il metodo di campionamento richiede che la posizione di inizio della saldatura oscillante sia impostata fino all'offset desiderato. L'offset non deve essere maggiore dell'ampiezza di oscillazione e la saldatura deve coprire la scanalatura di giunzione.
 
-The sampling bias instruction setting process is as follows:
+Il flusso di impostazione dell'istruzione di offset tramite campionamento è il seguente:
    
 .. image:: coding/299.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.25-2 Click the arc tracking command button
+.. centered:: Grafico 9.25-2 Cliccare sul pulsante istruzione tracciamento ad arco
 
-**Step 1**: Click "Teaching Program", "Programming", select and click the "Arc Tracking" button under "Welding Command" to enter the arc tracking command configuration page.
+**Step 1**: Cliccare su "Programma insegnamento", "Programmazione programma", selezionare e cliccare sul pulsante "Tracciamento ad arco" sotto "Istruzioni saldatura" per accedere alla pagina di configurazione delle istruzioni di tracciamento ad arco.
    
 .. image:: coding/300.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.25-3 Sampling bias arc tracking configuration page
+.. centered:: Grafico 9.25-3 Pagina di configurazione tracciamento ad arco con offset tramite campionamento
 
-**Step 2**: Bias arc tracking acts on left and right compensation. Click the "Left and Right Compensation" subpage, pull down and select "Sampling" in the bias mode, set the sampling start period (the sampling start period must be less than the left and right compensation start time), select "Start" for the instruction type, and click the Add button to generate the LUA instruction.
+**Step 2**: Il tracciamento ad arco con offset si applica alla compensazione sinistra/destra. Cliccare sulla sottopagina "Compensazione sinistra/destra", nel menu a discesa della modalità offset selezionare "Campionamento", impostare il ciclo di inizio campionamento (il ciclo di inizio campionamento deve essere inferiore al tempo di inizio compensazione sinistra/destra), selezionare il tipo di istruzione "Inizio", cliccare sul pulsante aggiungi per generare l'istruzione LUA.
    
 .. image:: coding/301.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.25-4 Add sampling bias arc tracking end instruction
+.. centered:: Grafico 9.25-4 Aggiunta istruzione fine tracciamento ad arco con offset tramite campionamento
 
-**Step 3**: After adding the swing motion instruction, click to select the arc tracking instruction type "End", and click Add to generate the corresponding LUA instruction.
+**Step 3**: Dopo aver aggiunto le istruzioni di movimento oscillante, cliccare per selezionare il tipo di istruzione di tracciamento ad arco "Fine", cliccare su aggiungi per generare la corrispondente istruzione LUA.
 
-Percentage bias arc tracking
-++++++++++++++++++++++++++++++++++++
+Tracciamento ad arco con offset percentuale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The percentage bias is to gain the input sampling current by percentage during the arc tracking process, so that the current of the left and right swing cycles will deviate, and the robot will automatically compensate for the deviation signal.
+L'offset percentuale consiste nell'applicare un guadagno percentuale alla corrente campionata durante il tracciamento ad arco, causando una deviazione nella corrente del ciclo di oscillazione sinistra/destra. Il robot compensa automaticamente il segnale deviato.
 
-.. note:: It should be noted that the smaller the swing amplitude and the larger the groove angle, the smaller the deviation of the left and right currents, and the smaller the adjustment percentage. It is recommended to debug with every 1% as the adjustment interval.
+.. note:: Notare che minore è l'ampiezza di oscillazione e maggiore è l'angolo della scanalatura, minore sarà la deviazione della corrente sinistra/destra e minore sarà la percentuale di regolazione. Si consiglia di effettuare il debug con intervalli di regolazione dell'1%.
 
-The percentage bias instruction setting process is as follows:
+Il flusso di impostazione dell'istruzione di offset percentuale è il seguente:
    
 .. image:: coding/299.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.25-5 Click the arc tracking command button
+.. centered:: Grafico 9.25-5 Cliccare sul pulsante istruzione tracciamento ad arco
 
-**Step 1**: Click "Teaching Program", "Programming", select and click the "Arc Tracking" button under "Welding Command" to enter the arc tracking command configuration page.
+**Step 1**: Cliccare su "Programma insegnamento", "Programmazione programma", selezionare e cliccare sul pulsante "Tracciamento ad arco" sotto "Istruzioni saldatura" per accedere alla pagina di configurazione delle istruzioni di tracciamento ad arco.
    
 .. image:: coding/302.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.25-6 Sampling bias arc tracking configuration page
+.. centered:: Grafico 9.25-6 Pagina di configurazione tracciamento ad arco con offset percentuale
 
-**Step 2**: Bias arc tracking acts on left and right compensation. Click the "Left and Right Compensation" subpage, pull down and select "Percent" in the bias mode, set the percentage value (positive value compensates the current gain of the first half cycle and the direction of the second half cycle, negative value is the opposite), select "Start" for the instruction type, and click the Add button to generate the LUA instruction.
+**Step 2**: Il tracciamento ad arco con offset si applica alla compensazione sinistra/destra. Cliccare sulla sottopagina "Compensazione sinistra/destra", nel menu a discesa della modalità offset selezionare "Percentuale", impostare il valore percentuale (un valore positivo aumenta la corrente nella prima metà del ciclo e compensa nella direzione della seconda metà del ciclo; un valore negativo fa il contrario), selezionare il tipo di istruzione "Inizio", cliccare sul pulsante aggiungi per generare l'istruzione LUA.
    
 .. image:: coding/303.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.25-7 Add percentage bias arc tracking end instruction
+.. centered:: Grafico 9.25-7 Aggiunta istruzione fine tracciamento ad arco con offset percentuale
 
-**Step 3**: After adding the swing motion instruction, click to select the arc tracking instruction type "End", and click Add to generate the corresponding LUA instruction.
+**Step 3**: Dopo aver aggiunto le istruzioni di movimento oscillante, cliccare per selezionare il tipo di istruzione di tracciamento ad arco "Fine", cliccare su aggiungi per generare la corrispondente istruzione LUA.
 
-The typical LUA program structure of a bias tracking is as follows:
+La struttura di un tipico programma LUA per il tracciamento con offset è la seguente:
    
 .. image:: coding/304.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.25-8 A typical bias arc tracking LUA program
+.. centered:: Grafico 9.25-8 Un tipico programma LUA per il tracciamento ad arco con offset
 
-Custom collision detection threshold function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di soglia di rilevamento collisione personalizzata
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
-++++++++
+Panoramica
+++++++++++++++++++++++++++
 
-The custom collision detection threshold function is a perfection of the current manual setting of the collision level function. If the current collision level setting does not meet the usage scenario, the user can set a custom collision detection threshold according to the actual situation. The collision detection threshold is divided into joint detection threshold and TCP detection threshold.
+La funzione di soglia di rilevamento collisione personalizzata è un miglioramento della funzione corrente di impostazione manuale del livello di collisione. Se l'impostazione corrente del livello di collisione non soddisfa lo scenario d'uso, l'utente può impostare una soglia di rilevamento collisione personalizzata in base alla situazione effettiva. Le soglie di rilevamento collisione sono divise in soglie di rilevamento articolari e soglie di rilevamento TCP.
 
-Function setting description
-++++++++++++++++++++++++++++
+Descrizione impostazione funzione
+++++++++++++++++++++++++++++++++++++++++++++++
 
-**Step1**: Click "Teaching Program", select "Programming", and open the corresponding interface.
+**Step1**: Cliccare su "Programma insegnamento", selezionare "Programmazione programma", aprire l'interfaccia corrispondente.
 
-**Step2**: Click the "New" button above, enter "example", select "empty.lua", and create a new lua script, as shown in Figure 1.
+**Step2**: Cliccare sul pulsante "Nuovo" in alto, inserire "example", selezionare "empty.lua", creare un nuovo script lua, come mostrato in figura.
    
 .. image:: coding/305.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.26-1 Create a new lua script
+.. centered:: Grafico 9.26-1 Creazione script lua
 
-Joint detection threshold function setting instructions
-*****************************************************************
+Descrizione impostazione funzione soglia di rilevamento articolare
+***********************************************************************************
 
-Parameter setting instructions
-""""""""""""""""""""""""""""""""""
+Descrizione impostazione parametri
+""""""""""""""""""""""""""""""""""""""""""""
 
-**Step1**: In the control command interface, select the "collision detection" function, as shown in Figure 2. Click "collision detection on", and select "joint only" under the detection status bar. According to actual needs, modify the input values ​​of J1-J6, the value range is, the unit is NM. In this mode, modifying the TCP threshold in the X-RZ direction does not take effect. According to actual needs, select "non-blocking" or "blocking" for blocking. Click the Add button to complete the opening instruction addition.
+**Step1**: Nell'interfaccia delle istruzioni di controllo, selezionare la funzione "Rilevamento collisione", come mostrato nella Figura 2. Cliccare su "Attiva rilevamento collisione", sotto la barra di stato rilevamento, selezionare "Solo articolare". In base alle esigenze effettive, modificare i valori di input per J1-J6, l'intervallo dei valori è, l'unità è NM. In questa modalità, la modifica delle soglie TCP per le direzioni X-RZ non ha effetto. In base alle esigenze effettive, selezionare se bloccare come "Non bloccante" o "Bloccante". Cliccare sul pulsante aggiungi, completare l'aggiunta dell'istruzione di attivazione.
 
-**Step2**: Click "collision detection off", click the Add button, and complete the closing instruction addition. The program preview interface is shown in Figure 3, click the "Apply" button to complete the function addition.
+**Step2**: Cliccare su "Disattiva rilevamento collisione", cliccare sul pulsante aggiungi, completare l'aggiunta dell'istruzione di disattivazione. L'interfaccia di anteprima del programma è mostrata nella Figura 3, cliccare sul pulsante "Applica" per completare l'aggiunta della funzione.
 
-.. note:: The custom collision detection threshold function is a set of instructions, which needs to be closed in time after opening.
+.. note:: La funzione di soglia di rilevamento collisione personalizzata è un insieme di istruzioni; dopo l'attivazione, è necessario disattivarla tempestivamente.
 
-**Step3**: In the collision detection function, add the corresponding motion instructions, as shown in Figure 4.
+**Step3**: All'interno della funzione di rilevamento collisione, aggiungere le corrispondenti istruzioni di movimento, come mostrato nella Figura 4.
    
 .. image:: coding/306.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-2 Joint detection threshold setting interface
+.. centered:: Grafico 9.26-2 Interfaccia impostazione soglia di rilevamento articolare
    
 .. image:: coding/307.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-3 Program preview interface
+.. centered:: Grafico 9.26-3 Interfaccia anteprima programma
    
 .. image:: coding/308.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-4 lua script program example interface
+.. centered:: Grafico 9.26-4 Interfaccia esempio script lua
 
-TCP detection threshold function setting instructions
-****************************************************************
+Descrizione impostazione funzione soglia di rilevamento TCP
+******************************************************************
 
-Parameter setting instructions
-""""""""""""""""""""""""""""""""""
+Descrizione impostazione parametri
+""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step1**: In the control command interface, select the "collision detection" function, as shown in Figure 5. Click "collision detection on", and select "TCP only" under the detection status bar. According to actual needs, modify the input value of the X-RZ direction, the value range is, and the unit is N. In this mode, modifying the joint threshold of J1-J6 does not take effect. According to actual needs, select "non-blocking" or "blocking" for blocking. Click the Add button to complete the opening instruction addition.
+**Step1**: Nell'interfaccia delle istruzioni di controllo, selezionare la funzione "Rilevamento collisione", come mostrato nella Figura 5. Cliccare su "Attiva rilevamento collisione", sotto la barra di stato rilevamento, selezionare "Solo TCP". In base alle esigenze effettive, modificare i valori di input per le direzioni X-RZ, l'intervallo dei valori è, l'unità è N. In questa modalità, la modifica delle soglie articolari per J1-J6 non ha effetto. In base alle esigenze effettive, selezionare se bloccare come "Non bloccante" o "Bloccante". Cliccare sul pulsante aggiungi, completare l'aggiunta dell'istruzione di attivazione.
 
-**Step2**: Click "collision detection off", click the Add button, and complete the closing instruction addition. The program preview interface is shown in Figure 6, click the "Apply" button to complete the function addition.
+**Step2**: Cliccare su "Disattiva rilevamento collisione", cliccare sul pulsante aggiungi, completare l'aggiunta dell'istruzione di disattivazione. L'interfaccia di anteprima del programma è mostrata nella Figura 6, cliccare sul pulsante "Applica" per completare l'aggiunta della funzione.
 
-.. note:: The custom collision detection threshold function is a set of instructions, which needs to be closed in time after opening.
+.. note:: La funzione di soglia di rilevamento collisione personalizzata è un insieme di istruzioni; dopo l'attivazione, è necessario disattivarla tempestivamente.
    
 .. image:: coding/309.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-5 TCP detection threshold setting interface
+.. centered:: Grafico 9.26-5 Interfaccia impostazione soglia di rilevamento TCP
    
 .. image:: coding/310.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-6 Program preview interface
+.. centered:: Grafico 9.26-6 Interfaccia anteprima programma
 
-**Step 3**: Add corresponding motion instructions in the collision detection function, as shown in Figure 7.
+**Step3**: All'interno della funzione di rilevamento collisione, aggiungere le corrispondenti istruzioni di movimento, come mostrato nella Figura 7.
    
 .. image:: coding/311.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-7 lua script program example interface
+.. centered:: Grafico 9.26-7 Interfaccia esempio script lua
 
-Joint and TCP detection threshold function setting instructions
-**********************************************************************
+Descrizione impostazione funzione soglia di rilevamento articolare e TCP
+***************************************************************************************
 
-Parameter setting instructions
-"""""""""""""""""""""""""""""""""""""
+Descrizione impostazione parametri
+""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: In the control instruction interface, select the "collision detection" function, as shown in Figure 8. Click "collision detection on", and select "joint and TCP" under the detection status bar. According to actual needs, modify the input values ​​of J1-J6 and X-RZ directions. The value range of J1-J6 is, the unit is NM; the input value of X-RZ direction is, the unit is N. According to actual needs, select "non-blocking" or "blocking" for blocking. Click the Add button to complete the instruction addition.
+**Step1**: Nell'interfaccia delle istruzioni di controllo, selezionare la funzione "Rilevamento collisione", come mostrato nella Figura 8. Cliccare su "Attiva rilevamento collisione", sotto la barra di stato rilevamento, selezionare "Articolare e TCP". In base alle esigenze effettive, modificare i valori di input per J1-J6 e le direzioni X-RZ. L'intervallo dei valori per J1-J6 è, l'unità è NM; i valori di input per le direzioni X-RZ sono, l'unità è N. In base alle esigenze effettive, selezionare se bloccare come "Non bloccante" o "Bloccante". Cliccare sul pulsante aggiungi, completare l'aggiunta dell'istruzione di attivazione.
    
 .. image:: coding/312.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-8 Joint and TCP detection threshold setting interface
+.. centered:: Grafico 9.26-8 Interfaccia impostazione soglia di rilevamento articolare e TCP
+ 
+**Step2**: Cliccare su "Disattiva rilevamento collisione", cliccare sul pulsante aggiungi, completare l'aggiunta dell'istruzione di disattivazione. L'interfaccia di anteprima del programma è mostrata nella Figura 9, cliccare sul pulsante "Applica" per completare l'aggiunta della funzione.
 
-**Step2**: Click "Close Collision Detection", click the Add button, and the closing command is added. The program preview interface is shown in Figure 9. Click the "Apply" button to complete the function addition.
-
-.. note:: The custom collision detection threshold function is a set of instructions, which needs to be closed in time after opening.
+.. note:: La funzione di soglia di rilevamento collisione personalizzata è un insieme di istruzioni; dopo l'attivazione, è necessario disattivarla tempestivamente.
    
 .. image:: coding/313.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.26-9 Program preview interface
+.. centered:: Grafico 9.26-9 Interfaccia anteprima programma
 
-**Step 3**: Add corresponding motion instructions in the collision detection function, as shown in Figure 10.
+**Step3**: All'interno della funzione di rilevamento collisione, aggiungere le corrispondenti istruzioni di movimento, come mostrato nella Figura 10.
    
 .. image:: coding/314.png
-   :width: 6in
+   :width: 4in
    :align: center
 
-.. centered:: Figure 9.26-10 lua script program example interface
+.. centered:: Grafico 9.26-10 Interfaccia esempio script lua
 
-Recommended settings for detection thresholds
-********************************************************
+Impostazioni consigliate per le soglie di rilevamento
+************************************************************************
 
-Joint detection thresholds
-"""""""""""""""""""""""""""""""""""
+Soglie di rilevamento articolare
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The recommended joint detection threshold is equivalent to setting the collision level to level 10. The larger the value, the less sensitive the collision detection. The value range is in NM. The data in the table is for reference only. The actual value needs to be adjusted according to the robot's running speed and load conditions.
+Le soglie di rilevamento articolare consigliate equivalgono all'impostazione del livello di collisione a 10. Valori più grandi rendono il rilevamento di collisione meno sensibile, l'intervallo dei valori è, l'unità è NM. I dati nella tabella sono solo a scopo di riferimento; i valori effettivi devono essere adattati in base alla velocità di esecuzione del robot e al carico.
 
-.. centered:: Table 9.26-1 Recommended joint thresholds
+.. centered:: Tabella 9.26-1 Soglie articolari consigliate
 
 .. list-table::
    :widths: 30 20 20 20 20 20 20
@@ -4260,7 +4253,7 @@ The recommended joint detection threshold is equivalent to setting the collision
    :class: sheet-center
    :align: center
 
-   * - **Robot Type**
+   * - **Tipo robot**
      - **J1**
      - **J2**
      - **J3**
@@ -4308,6 +4301,14 @@ The recommended joint detection threshold is equivalent to setting the collision
      - 0.3 
      - 0.3 
 
+   * - **FR5-WML**
+     - 0.6					
+     - 1
+     - 0.8 
+     - 0.3 
+     - 0.3 
+     - 0.3 
+
    * - **FR10**
      - 2.5					
      - 3.6
@@ -4340,12 +4341,12 @@ The recommended joint detection threshold is equivalent to setting the collision
      - 0.9
      - 0.9 
 
-TCP detection threshold
-""""""""""""""""""""""""""""
+Soglie di rilevamento TCP
+"""""""""""""""""""""""""""""""""""""
 
-The larger the TCP detection threshold, the less sensitive the collision detection. The value range is, and the unit is N. The data in the table is for reference only. The actual value needs to be adjusted according to the robot's running speed and load conditions.
+Valori più grandi per le soglie di rilevamento TCP rendono il rilevamento di collisione meno sensibile, l'intervallo dei valori è, l'unità è N. I dati nella tabella sono solo a scopo di riferimento; i valori effettivi devono essere adattati in base alla velocità di esecuzione del robot e al carico.
 
-.. centered:: Table 9.26-2 TCP detection threshold
+.. centered:: Tabella 9.26-2 Soglie di rilevamento TCP
 
 .. list-table::
    :widths: 30 20 20 20 20 20 20
@@ -4353,7 +4354,7 @@ The larger the TCP detection threshold, the less sensitive the collision detecti
    :class: sheet-center
    :align: center
 
-   * - **Robot Type**
+   * - **Tipo robot**
      - **X**
      - **Y**
      - **Z**
@@ -4401,6 +4402,14 @@ The larger the TCP detection threshold, the less sensitive the collision detecti
      - 20
      - 20
 
+   * - **FR5-WML**
+     - 300					
+     - 300
+     - 300
+     - 20 
+     - 20
+     - 20
+
    * - **FR10**
      - 500					
      - 500
@@ -4433,1392 +4442,1445 @@ The larger the TCP detection threshold, the less sensitive the collision detecti
      - 60
      - 60 
 
-T-Shape Velocity Characteristic Optimization + Blending Smoothing Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzionalità di ottimizzazione delle caratteristiche di velocità a T + blending smooth
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++
 
-Blending between two trajectory segments avoids frequent start-stop issues caused by complete stops, thereby improving robot motion efficiency. This function primarily performs blending between PTP, LIN, ARC, and CIRCLE instructions, achievable in two ways: using Lua instruction mode or motion configuration switch mode.
+Il blending tra due traiettorie evita i frequenti avvii e arresti dovuti a fermate complete, migliorando così l'efficienza del movimento del robot. Questa funzione si applica principalmente al blending tra istruzioni PTP, LIN, ARC e CIRCLE, che può essere realizzato in due modi: utilizzando istruzioni Lua o utilizzando l'interruttore di configurazione del movimento.
 
-Operation Procedures
+Flusso operativo
 ++++++++++++++++++++++++++++
 
-PTP-PTP Blending
+Blending PTP-PTP
 ***************************************
 
-Using Lua Instruction Mode
+Metodo istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select teaching points for PTP-PTP function execution. This manual uses "A0" to "A5" as teaching point names.
+**Step1**: Selezionare i punti di insegnamento per eseguire la funzione PTP-PTP. In questo manuale, "A0"~"A5" sono i nomi dei punti di insegnamento.
 
-**Step 2**: Click "Teach Program" → "Program Programming" button, select "Point-to-Point" in "Motion Instructions", choose teaching points in "Instruction Editing", set debug speed, select "Acceleration Smooth Mode" for motion protection, and configure "Smooth Transition" parameter at points requiring smoothing.
-
+**Step2**: Cliccare su "Programma insegnamento" -> "Programmazione programma", selezionare l'istruzione "Da punto a punto" nelle "Istruzioni movimento", nell'editor delle istruzioni selezionare il punto di insegnamento e impostare la velocità di debug, nella protezione movimento selezionare "Modalità accelerazione liscia", nei punti che richiedono levigatezza impostare il parametro "Raggio transizione liscia".
+   
 .. image:: coding/315.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-1 Blending Instruction Settings for Accelerated Smooth PTP Instructions
+.. centered:: Grafico 9.27-1 Impostazioni istruzione blending per PTP con accelerazione liscia
 
-**Step 3**: Add multiple PTP instructions, generate and run a Lua program to implement PTP-PTP blending. This mode uses optimized T-shape velocity motion only for instructions between AccSmoothStart() and AccSmoothEnd(), with original T-shape velocity for others.
-
+**Step3**: Aggiungere più istruzioni PTP, generare ed eseguire il programma Lua per realizzare la funzione di blending PTP-PTP. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), utilizzando il movimento a velocità a T originale per le altre istruzioni.
+   
 .. image:: coding/316.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-2 Typical PTP-PTP Blending Program in Lua Instruction Mode
+.. centered:: Grafico 9.27-2 Programma tipico per blending tra PTP-PTP con metodo istruzioni Lua
 
-Using Motion Configuration Switch Mode
+Metodo interruttore configurazione movimento
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Click "Initial Settings" → "Safety" → "Motion Configuration" button to enable the "Acceleration Smooth Mode" switch.
-
+**Step1**: Cliccare su "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento", attivare l'interruttore "Modalità accelerazione liscia".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-3 Acceleration Smooth Mode Configuration Switch Settings
+.. centered:: Grafico 9.27-3 Impostazioni interruttore configurazione modalità accelerazione liscia
 
-**Step 2**: Select teaching points for PTP-PTP function execution, using "A0" to "A5" as names.
+**Step2**: Selezionare i punti di insegnamento per eseguire la funzione PTP-PTP. In questo manuale, "A0"~"A5" sono i nomi dei punti di insegnamento.
 
-**Step 3**: Click "Teach Program" → "Program Programming" button, select "Point-to-Point" in "Motion Instructions", choose teaching points, set debug speed, select "None" for motion protection, and configure "Smooth Transition" parameter at points requiring smoothing.
+**Step3**: Cliccare su "Programma insegnamento" -> "Programmazione programma", selezionare l'istruzione "Da punto a punto" nelle "Istruzioni movimento", nell'editor delle istruzioni selezionare il punto di insegnamento e impostare la velocità di debug, nella protezione movimento selezionare "Nessuna", nei punti che richiedono levigatezza impostare il parametro "Raggio transizione liscia".
+   
+.. image:: coding/318.png
+   :width: 6in
+   :align: center
+
+.. centered:: Grafico 9.27-4 Impostazioni istruzione blending per PTP normale
+
+**Step4**: Aggiungere più istruzioni PTP, generare ed eseguire il programma Lua per realizzare la funzione di blending PTP-PTP. Il programma tipico è lo stesso del programma PTP-PTP normale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
+   
+.. image:: coding/319.png
+   :width: 4in
+   :align: center
+
+.. centered:: Grafico 9.27-5 Programma tipico per blending tra PTP-PTP con metodo interruttore configurazione
+
+Blending PTP-LIN
+***************************************
+
+Metodo istruzioni Lua
+""""""""""""""""""""""""""""""""""""""""""
+
+**Step1**: Selezionare i punti di insegnamento per eseguire la funzione PTP-LIN. In questo manuale, "A0"~"A5" sono i nomi dei punti di insegnamento.
+
+**Step2**: Cliccare su "Programma insegnamento" -> "Programmazione programma", selezionare l'istruzione "Da punto a punto" nelle "Istruzioni movimento", nell'editor delle istruzioni selezionare il punto di insegnamento e impostare la velocità di debug, nella protezione movimento selezionare "Modalità accelerazione liscia", nei punti che richiedono levigatezza impostare il parametro "Raggio transizione liscia".
+   
+.. image:: coding/315.png
+   :width: 6in
+   :align: center
+
+.. centered:: Grafico 9.27-6 Impostazioni istruzione blending per PTP con accelerazione liscia
+
+**Step3**: Aggiungere più istruzioni PTP e LIN, generare ed eseguire il programma Lua per realizzare la funzione di blending PTP-LIN. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), utilizzando il movimento a velocità a T originale per le altre istruzioni.
+   
+.. image:: coding/415.png
+   :width: 4in
+   :align: center
+
+.. centered:: Grafico 9.27-7 Programma tipico per blending tra PTP-LIN con metodo istruzioni Lua
+
+Metodo interruttore configurazione movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Step1**: Cliccare su "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento", attivare l'interruttore "Modalità accelerazione liscia".
+   
+.. image:: coding/317.png
+   :width: 6in
+   :align: center
+
+.. centered:: Grafico 9.27-8 Impostazioni interruttore configurazione modalità accelerazione liscia
+
+**Step2**: Selezionare i punti insegnati per la funzione PTP-PTP. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
+
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Da punto a punto" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/318.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-4 Blending Instruction Settings for Conventional PTP Instructions
+.. centered:: Grafico 9.27-4 Impostazioni dell'istruzione blending per l'istruzione PTP convenzionale
 
-**Step 4**: Add multiple PTP instructions, generate and run a Lua program to implement PTP-PTP blending. The typical program mirrors conventional PTP-PTP programs, applying optimized T-shape velocity motion to all instructions.
+**Step4**: Aggiungere più istruzioni PTP, generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-PTP. Il programma tipico è lo stesso del programma PTP-PTP convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/319.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-5 Typical PTP-PTP Blending Program Using Configuration Switch
+.. centered:: Grafico 9.27-5 Programma tipico che utilizza l'interruttore di configurazione per il blending tra PTP-PTP
 
-PTP-LIN Blending
+Blending PTP-LIN
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select teaching points for PTP-LIN function execution, using "A0" to "A5" as names.
+**Step1**: Selezionare i punti insegnati per la funzione PTP-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step 2**: Click "Teach Program" → "Program Programming" button, select "Point-to-Point" in "Motion Instructions", choose teaching points, set debug speed, select "Acceleration Smooth Mode", and configure "Smooth Transition" parameter.
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Da punto a punto" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/315.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-6 Blending Instruction Settings for Accelerated Smooth PTP Instructions
+.. centered:: Grafico 9.27-6 Impostazioni dell'istruzione blending per l'istruzione PTP con levigatezza accelerazione
 
-**Step 3**: Add multiple PTP and LIN instructions, generate Lua program to implement PTP-LIN blending. Only instructions between AccSmoothStart() and AccSmoothEnd() use optimized T-shape velocity.
+**Step3**: Aggiungere più istruzioni PTP e LIN, generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-LIN. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/415.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-7 Typical PTP-LIN Blending Program in Lua Mode
+.. centered:: Grafico 9.27-7 Programma tipico del metodo con istruzioni Lua per il blending tra PTP-LIN
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable "Acceleration Smooth Mode" in "Initial Settings" → "Safety" → "Motion Configuration".
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-8 Acceleration Smooth Mode Switch Configuration
+.. centered:: Grafico 9.27-8 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select teaching points for PTP-LIN, using "A0" to "A5".
+**Step2**: Selezionare i punti insegnati per la funzione PTP-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step 3**: Choose "Point-to-Point" instruction, set debug speed, select "None" for motion protection, configure "Smooth Transition".
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Da punto a punto" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/318.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-9 Blending Settings for Conventional PTP Instructions
+.. centered:: Grafico 9.27-9 Impostazioni dell'istruzione blending per l'istruzione PTP convenzionale
 
-**Step 4**: Add PTP and LIN instructions, run Lua program. All instructions use optimized T-shape velocity.
+**Step4**: Aggiungere più istruzioni PTP e LIN, generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-LIN. Il programma tipico è lo stesso del programma PTP-LIN convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/397.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-10 Typical PTP-LIN Blending Program via Configuration Switch
+.. centered:: Grafico 9.27-10 Programma tipico che utilizza l'interruttore di configurazione per il blending tra PTP-LIN
 
-PTP-ARC Blending
+Blending PTP-ARC
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select teaching points "A0" to "A8" for PTP-ARC blending.
+**Step1**: Selezionare i punti insegnati per la funzione PTP-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 2**: Insert "Point-to-Point" instruction, set "Acceleration Smooth Mode" and "Smooth Transition".
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Da punto a punto" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/315.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-11 Blending Settings for Accelerated Smooth PTP
+.. centered:: Grafico 9.27-11 Impostazioni dell'istruzione blending per l'istruzione PTP con levigatezza accelerazione
 
-**Step 3**: Add PTP and ARC instructions. Only AccSmoothStart/End-enclosed instructions use optimized velocity.
+**Step3**: Aggiungere più istruzioni PTP e ARC, generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-ARC. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/398.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-12 Typical PTP-ARC Blending Program in Lua Mode
+.. centered:: Grafico 9.27-12 Programma tipico del metodo con istruzioni Lua per il blending tra PTP-ARC
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode in motion configuration.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-13 Acceleration Smooth Mode Switch Setup
+.. centered:: Grafico 9.27-13 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select "A0" to "A8" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione PTP-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 3**: Configure "Point-to-Point" instruction with "Smooth Transition", motion protection "None".
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Da punto a punto" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/318.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-14 Blending Settings for Conventional PTP
+.. centered:: Grafico 9.27-14 Impostazioni dell'istruzione blending per l'istruzione PTP convenzionale
 
-**Step 4**: Generate program; all instructions use optimized T-shape velocity.
+**Step4**: Aggiungere più istruzioni PTP e ARC, generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-ARC. Il programma tipico è lo stesso del programma PTP-ARC convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/399.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-15 Typical PTP-ARC Blending via Configuration Switch
+.. centered:: Grafico 9.27-15 Programma tipico che utilizza l'interruttore di configurazione per il blending tra PTP-ARC
 
-PTP-CIRCLE Blending
+Blending PTP-CIRCLE
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select teaching points "A0" to "A8" for PTP-CIRCLE.
+**Step1**: Selezionare i punti insegnati per la funzione PTP-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 2**: Set up "Point-to-Point" instruction with acceleration smooth mode.
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Da punto a punto" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/315.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-16 Blending Settings for Accelerated Smooth PTP
+.. centered:: Grafico 9.27-16 Impostazioni dell'istruzione blending per l'istruzione PTP con levigatezza accelerazione
 
-**Step 3**: Add PTP and CIRCLE instructions, run between AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni PTP e CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-CIRCLE. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/400.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-17 Typical PTP-CIRCLE Blending in Lua Mode
+.. centered:: Grafico 9.27-17 Programma tipico del metodo con istruzioni Lua per il blending tra PTP-CIRCLE
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode switch.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-18 Acceleration Smooth Mode Configuration
+.. centered:: Grafico 9.27-18 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Choose "A0" to "A8" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione PTP-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 3**: Configure PTP instruction with "Smooth Transition", no motion protection.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Da punto a punto" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/318.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-19 Blending Settings for Conventional PTP
+.. centered:: Grafico 9.27-19 Impostazioni dell'istruzione blending per l'istruzione PTP convenzionale
 
-**Step 4**: Generate program for all-instruction optimized velocity.
+**Step4**: Aggiungere più istruzioni PTP e CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-CIRCLE. Il programma tipico è lo stesso del programma PTP-CIRCLE convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/401.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-20 PTP-CIRCLE Blending via Configuration Switch
+.. centered:: Grafico 9.27-20 Programma tipico che utilizza l'interruttore di configurazione per il blending tra PTP-CIRCLE
 
-LIN-PTP Blending
+Blending LIN-PTP
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A5" for LIN-PTP blending.
+**Step1**: Selezionare i punti insegnati per la funzione LIN-PTP. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step 2**: Insert "Linear" instruction, set "Acceleration Smooth Mode", "Transition Radius" and "Transition Mode".
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/402.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-21 Blending Settings for Accelerated Smooth LIN
+.. centered:: Grafico 9.27-21 Impostazioni dell'istruzione blending per l'istruzione PTP con levigatezza accelerazione
 
-**Step 3**: Add LIN and PTP instructions, run within AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni LIN e PTP, generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-PTP. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/403.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-22 Typical LIN-PTP Blending in Lua Mode
+.. centered:: Grafico 9.27-22 Programma tipico del metodo con istruzioni Lua per il blending tra LIN-PTP
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode in settings.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-23 Acceleration Smooth Mode Switch Setup
+.. centered:: Grafico 9.27-23 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select "A0" to "A5" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione LIN-PTP. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step 3**: Configure LIN instruction with transition parameters, no motion protection.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/404.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-24 Blending Settings for Conventional LIN
+.. centered:: Grafico 9.27-24 Impostazioni dell'istruzione blending per l'istruzione LIN convenzionale
 
-**Step 4**: Generate program for all-instruction optimized velocity.
+**Step4**: Generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-PTP. Il programma tipico è lo stesso del programma LIN-PTP convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/405.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-25 LIN-PTP Blending via Configuration Switch
+.. centered:: Grafico 9.27-25 Programma tipico che utilizza l'interruttore di configurazione per il blending tra LIN-PTP
 
-LIN-LIN Blending
+Blending LIN-LIN
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A5" for LIN-LIN blending.
+**Step1**: Selezionare i punti insegnati per la funzione LIN-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step 2**: Set up LIN instruction with acceleration smooth mode and transition parameters.
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/402.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-26 Blending Settings for Accelerated Smooth LIN
+.. centered:: Grafico 9.27-26 Impostazioni dell'istruzione blending per l'istruzione LIN con levigatezza accelerazione
 
-**Step 3**: Add multiple LIN instructions, run between AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni LIN e LIN, generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-LIN. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/416.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-27 Typical LIN-LIN Blending in Lua Mode
+.. centered:: Grafico 9.27-27 Programma tipico del metodo con istruzioni Lua per il blending tra LIN-LIN
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode switch.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-28 Acceleration Smooth Mode Configuration
+.. centered:: Grafico 9.27-28 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Choose "A0" to "A5" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione LIN-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step 3**: Configure LIN instruction with transition radius and mode.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/404.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-29 Blending Settings for Conventional LIN
+.. centered:: Grafico 9.27-29 Impostazioni dell'istruzione blending per l'istruzione LIN convenzionale
 
-**Step 4**: Generate program for optimized velocity across all instructions.
+**Step4**: Generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-LIN. Il programma tipico è lo stesso del programma LIN-LIN convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/417.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-30 LIN-LIN Blending via Configuration Switch
+.. centered:: Grafico 9.27-30 Programma tipico che utilizza l'interruttore di configurazione per il blending tra LIN-LIN
 
-LIN-ARC Blending
+Blending LIN-ARC
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A8" for LIN-ARC blending.
+**Step1**: Selezionare i punti insegnati per la funzione LIN-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 2**: Configure LIN instruction with acceleration smooth mode and transition parameters.
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/402.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-31 Blending Settings for Accelerated Smooth LIN
+.. centered:: Grafico 9.27-31 Impostazioni dell'istruzione blending per l'istruzione LIN con levigatezza accelerazione
 
-**Step 3**: Add LIN and ARC instructions within AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni LIN e ARC, generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-ARC. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/406.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-32 Typical LIN-ARC Blending in Lua Mode
+.. centered:: Grafico 9.27-32 Programma tipico del metodo con istruzioni Lua per il blending tra LIN-ARC
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode in settings.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-33 Acceleration Smooth Mode Switch Setup
+.. centered:: Grafico 9.27-33 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select "A0" to "A8" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione LIN-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 3**: Set LIN instruction with transition radius and mode, no motion protection.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/404.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-34 Blending Settings for Conventional LIN
+.. centered:: Grafico 9.27-34 Impostazioni dell'istruzione blending per l'istruzione LIN convenzionale
 
-**Step 4**: Generate program for all-instruction optimized velocity.
+**Step4**: Generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-LIN. Il programma tipico è lo stesso del programma LIN-LIN convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/407.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-35 LIN-ARC Blending via Configuration Switch
+.. centered:: Grafico 9.27-35 Programma tipico che utilizza l'interruttore di configurazione per il blending tra LIN-ARC
 
-LIN-CIRCLE Blending
+Blending LIN-CIRCLE
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A8" for LIN-CIRCLE blending.
+**Step1**: Selezionare i punti insegnati per la funzione LIN-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 2**: Configure LIN instruction with acceleration smooth mode and transition parameters.
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/402.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-36 Blending Settings for Accelerated Smooth LIN
+.. centered:: Grafico 9.27-36 Impostazioni dell'istruzione blending per l'istruzione LIN con levigatezza accelerazione
 
-**Step 3**: Add LIN and CIRCLE instructions between AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni LIN e CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-CIRCLE. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/408.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-37 Typical LIN-CIRCLE Blending in Lua Mode
+.. centered:: Grafico 9.27-37 Programma tipico del metodo con istruzioni Lua per il blending tra LIN-CIRCLE
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode switch.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-38 Acceleration Smooth Mode Configuration
+.. centered:: Grafico 9.27-38 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Choose "A0" to "A8" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione LIN-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A8".
 
-**Step 3**: Set LIN instruction with transition radius and mode, no motion protection.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Linea retta" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare i parametri "Raggio di transizione" e "Metodo di transizione" nei punti in cui è necessaria la levigatezza. Il metodo di transizione può essere "Transizione angolo" o "Transizione tangente interna".
 
 .. image:: coding/404.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-39 Blending Settings for Conventional LIN
+.. centered:: Grafico 9.27-39 Impostazioni dell'istruzione blending per l'istruzione LIN convenzionale
 
-**Step 4**: Generate program for optimized velocity across all instructions.
+**Step4**: Aggiungere più istruzioni LIN e CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending LIN-CIRCLE. Il programma tipico è lo stesso del programma LIN-ARC convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/409.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-40 LIN-CIRCLE Blending via Configuration Switch
+.. centered:: Grafico 9.27-40 Programma tipico che utilizza l'interruttore di configurazione per il blending tra LIN-CIRCLE
 
-ARC-PTP Blending
+Blending ARC-PTP
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A9" for ARC-PTP blending.
+**Step1**: Selezionare i punti insegnati per la funzione ARC-PTP. In questo manuale, i nomi dei punti insegnati sono "A0"~"A9".
 
-**Step 2**: Configure "Arc" instruction with acceleration smooth mode and "Smooth Transition".
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/410.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-41 Blending Settings for Accelerated Smooth ARC
+.. centered:: Grafico 9.27-41 Impostazioni dell'istruzione blending per l'istruzione ARC con levigatezza accelerazione
 
-**Step 3**: Add ARC and PTP instructions within AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni ARC e PTP, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-PTP. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/411.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-42 Typical ARC-PTP Blending in Lua Mode
+.. centered:: Grafico 9.27-42 Programma tipico del metodo con istruzioni Lua per il blending tra ARC-PTP
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode in settings.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-43 Acceleration Smooth Mode Switch Setup
+.. centered:: Grafico 9.27-43 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select "A0" to "A9" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione ARC-PTP. In questo manuale, i nomi dei punti insegnati sono "A0"~"A9".
 
-**Step 3**: Set Arc instruction with "Smooth Transition", no motion protection.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/418.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-44 Blending Settings for Conventional ARC
+.. centered:: Grafico 9.27-44 Impostazioni dell'istruzione blending per l'istruzione ARC convenzionale
 
-**Step 4**: Generate program for all-instruction optimized velocity.
+**Step4**: Aggiungere più istruzioni ARC e PTP, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-PTP. Il programma tipico è lo stesso del programma ARC-PTP convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/412.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-45 ARC-PTP Blending via Configuration Switch
+.. centered:: Grafico 9.27-45 Programma tipico che utilizza l'interruttore di configurazione per il blending tra ARC-PTP
 
-ARC-LIN Blending
+Blending ARC-LIN
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A9" for ARC-LIN blending.
+**Step1**: Selezionare i punti insegnati per la funzione ARC-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A9".
 
-**Step 2**: Configure Arc instruction with acceleration smooth mode and "Smooth Transition".
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/410.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-46 Blending Settings for Accelerated Smooth ARC
+.. centered:: Grafico 9.27-46 Impostazioni dell'istruzione blending per l'istruzione ARC con levigatezza accelerazione
 
-**Step 3**: Add ARC and LIN instructions between AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni ARC e LIN, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-LIN. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/413.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-47 Typical ARC-LIN Blending in Lua Mode
+.. centered:: Grafico 9.27-47 Programma tipico del metodo con istruzioni Lua per il blending tra ARC-LIN
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode switch.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-48 Acceleration Smooth Mode Configuration
+.. centered:: Grafico 9.27-48 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Choose "A0" to "A9" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione ARC-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A9".
 
-**Step 3**: Set Arc instruction with "Smooth Transition", no motion protection.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/419.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-49 Blending Settings for Conventional ARC
+.. centered:: Grafico 9.27-49 Impostazioni dell'istruzione blending per l'istruzione ARC convenzionale
 
-**Step 4**: Generate program for optimized velocity across all instructions.
+**Step4**: Aggiungere più istruzioni ARC e LIN, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-LIN. Il programma tipico è lo stesso del programma ARC-LIN convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/414.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-50 ARC-LIN Blending via Configuration Switch
+.. centered:: Grafico 9.27-50 Programma tipico che utilizza l'interruttore di configurazione per il blending tra ARC-LIN
 
-ARC-ARC Blending
+Blending ARC-ARC
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A12" for ARC-ARC blending.
+**Step1**: Selezionare i punti insegnati per la funzione ARC-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 2**: Configure Arc instruction with acceleration smooth mode and "Smooth Transition".
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/410.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-51 Blending Settings for Accelerated Smooth ARC
+.. centered:: Grafico 9.27-51 Impostazioni dell'istruzione blending per l'istruzione ARC con levigatezza accelerazione
 
-**Step 3**: Add multiple Arc instructions within AccSmoothStart/End.
+**Step3**: Aggiungere più istruzioni ARC, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-ARC. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
 
 .. image:: coding/420.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-52 Typical ARC-ARC Blending in Lua Mode
+.. centered:: Grafico 9.27-52 Programma tipico del metodo con istruzioni Lua per il blending tra ARC-ARC
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode in settings.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
 
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-53 Acceleration Smooth Mode Switch Setup
+.. centered:: Grafico 9.27-53 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select "A0" to "A12" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione ARC-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 3**: Set Arc instruction with "Smooth Transition", no motion protection.
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
 
 .. image:: coding/419.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-54 Blending Settings for Conventional ARC
+.. centered:: Grafico 9.27-54 Impostazioni dell'istruzione blending per l'istruzione ARC convenzionale
 
-**Step 4**: Generate program for all-instruction optimized velocity.
+**Step4**: Aggiungere più istruzioni ARC, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-ARC. Il programma tipico è lo stesso del programma ARC-ARC convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
 
 .. image:: coding/421.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-55 ARC-ARC Blending via Configuration Switch
+.. centered:: Grafico 9.27-55 Programma tipico che utilizza l'interruttore di configurazione per il blending tra ARC-ARC
 
-ARC-CIRCLE Blending
+Blending ARC-CIRCLE
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A12" for ARC-CIRCLE blending.
+**Step1**: Selezionare i punti insegnati per la funzione ARC-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 2**: Configure Arc instruction with acceleration smooth mode and "Smooth Transition".
-
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/410.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-56 Blending Settings for Accelerated Smooth ARC
+.. centered:: Grafico 9.27-56 Impostazioni dell'istruzione blending per l'istruzione ARC con levigatezza accelerazione
 
-**Step 3**: Add Arc and CIRCLE instructions between AccSmoothStart/End.
-
+**Step3**: Aggiungere più istruzioni ARC e CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-CIRCLE. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
+   
 .. image:: coding/422.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-57 Typical ARC-CIRCLE Blending in Lua Mode
+.. centered:: Grafico 9.27-57 Programma tipico del metodo con istruzioni Lua per il blending tra ARC-CIRCLE
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode switch.
-
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-58 Acceleration Smooth Mode Configuration
+.. centered:: Grafico 9.27-58 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Choose "A0" to "A12" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione ARC-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 3**: Set Arc instruction with "Smooth Transition", no motion protection.
-
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Arco" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/419.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-59 Blending Settings for Conventional ARC
+.. centered:: Grafico 9.27-59 Impostazioni dell'istruzione blending per l'istruzione ARC convenzionale
 
-**Step 4**: Generate program for optimized velocity across all instructions.
-
+**Step4**: Aggiungere più istruzioni ARC e CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending ARC-CIRCLE. Il programma tipico è lo stesso del programma ARC-CIRCLE convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
+   
 .. image:: coding/423.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-60 ARC-CIRCLE Blending via Configuration Switch
+.. centered:: Grafico 9.27-60 Programma tipico che utilizza l'interruttore di configurazione per il blending tra ARC-CIRCLE
 
-CIRCLE-PTP Blending
+Blending CIRCLE-PTP
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A9" for CIRCLE-PTP blending.
+**Step1**: Selezionare i punti insegnati per la funzione CIRCLE-PTP. In questo manuale, i nomi dei punti insegnati sono "A0"~"A9".
 
-**Step 2**: Configure "Full Circle" instruction with acceleration smooth mode and "Smooth Transition".
-
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/424.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-61 Blending Settings for Accelerated Smooth CIRCLE
+.. centered:: Grafico 9.27-61 Impostazioni dell'istruzione blending per l'istruzione CIRCLE con levigatezza accelerazione
 
-**Step 3**: Add CIRCLE and PTP instructions within AccSmoothStart/End.
-
+**Step3**: Aggiungere più istruzioni CIRCLE e PTP, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-PTP. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
+   
 .. image:: coding/425.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-62 Typical CIRCLE-PTP Blending in Lua Mode
+.. centered:: Grafico 9.27-62 Programma tipico del metodo con istruzioni Lua per il blending tra CIRCLE-PTP
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode in settings.
-
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-63 Acceleration Smooth Mode Switch Setup
+.. centered:: Grafico 9.27-63 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select "A0" to "A9" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione CIRCLE-PTP. In questo manuale, i nomi dei punti insegnati sono "A0"~"A9".
 
-**Step 3**: Set Full Circle instruction with "Smooth Transition", no motion protection.
-
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/426.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-64 Blending Settings for Conventional CIRCLE
+.. centered:: Grafico 9.27-64 Impostazioni dell'istruzione blending per l'istruzione CIRCLE convenzionale
 
-**Step 4**: Generate program for all-instruction optimized velocity.
-
+**Step4**: Aggiungere più istruzioni CIRCLE e PTP, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-PTP. Il programma tipico è lo stesso del programma CIRCLE-PTP convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
+   
 .. image:: coding/427.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-65 CIRCLE-PTP Blending via Configuration Switch
+.. centered:: Grafico 9.27-65 Programma tipico che utilizza l'interruttore di configurazione per il blending tra CIRCLE-PTP
 
-CIRCLE-LIN Blending
+Blending CIRCLE-LIN
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A12" for CIRCLE-LIN blending.
+**Step1**: Selezionare i punti insegnati per la funzione CIRCLE-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 2**: Configure Full Circle instruction with acceleration smooth mode and "Smooth Transition".
-
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/424.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-66 Blending Settings for Accelerated Smooth CIRCLE
+.. centered:: Grafico 9.27-66 Impostazioni dell'istruzione blending per l'istruzione CIRCLE con levigatezza accelerazione
 
-**Step 3**: Add CIRCLE and LIN instructions between AccSmoothStart/End.
-
+**Step3**: Aggiungere più istruzioni CIRCLE e LIN, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-LIN. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
+   
 .. image:: coding/428.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-67 Typical CIRCLE-LIN Blending in Lua Mode
+.. centered:: Grafico 9.27-67 Programma tipico del metodo con istruzioni Lua per il blending tra CIRCLE-LIN
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode switch.
-
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-68 Acceleration Smooth Mode Configuration
+.. centered:: Grafico 9.27-68 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Choose "A0" to "A12" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione CIRCLE-LIN. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 3**: Set Full Circle instruction with "Smooth Transition", no motion protection.
-
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/426.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-69 Blending Settings for Conventional CIRCLE
+.. centered:: Grafico 9.27-69 Impostazioni dell'istruzione blending per l'istruzione CIRCLE convenzionale
 
-**Step 4**: Generate program for optimized velocity across all instructions.
-
+**Step4**: Aggiungere più istruzioni CIRCLE e LIN, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-LIN. Il programma tipico è lo stesso del programma CIRCLE-LIN convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
+   
 .. image:: coding/429.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-70 CIRCLE-LIN Blending via Configuration Switch
+.. centered:: Grafico 9.27-70 Programma tipico che utilizza l'interruttore di configurazione per il blending tra CIRCLE-LIN
 
-CIRCLE-ARC Blending
+Blending CIRCLE-ARC
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A12" for CIRCLE-ARC blending.
+**Step1**: Selezionare i punti insegnati per la funzione CIRCLE-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 2**: Configure Full Circle instruction with acceleration smooth mode and "Smooth Transition".
-
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/424.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-71 Blending Settings for Accelerated Smooth CIRCLE
+.. centered:: Grafico 9.27-71 Impostazioni dell'istruzione blending per l'istruzione CIRCLE con levigatezza accelerazione
 
-**Step 3**: Add CIRCLE and Arc instructions within AccSmoothStart/End.
-
+**Step3**: Aggiungere più istruzioni CIRCLE e ARC, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-ARC. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
+   
 .. image:: coding/430.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-72 Typical CIRCLE-ARC Blending in Lua Mode
+.. centered:: Grafico 9.27-72 Programma tipico del metodo con istruzioni Lua per il blending tra CIRCLE-ARC
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode in settings.
-
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-73 Acceleration Smooth Mode Switch Setup
+.. centered:: Grafico 9.27-73 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Select "A0" to "A12" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione CIRCLE-ARC. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 3**: Set Full Circle instruction with "Smooth Transition", no motion protection.
-
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/426.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-74 Blending Settings for Conventional CIRCLE
+.. centered:: Grafico 9.27-74 Impostazioni dell'istruzione blending per l'istruzione CIRCLE convenzionale
 
-**Step 4**: Generate program for all-instruction optimized velocity.
-
+**Step4**: Aggiungere più istruzioni CIRCLE e ARC, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-ARC. Il programma tipico è lo stesso del programma CIRCLE-ARC convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
+   
 .. image:: coding/431.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-75 CIRCLE-ARC Blending via Configuration Switch
+.. centered:: Grafico 9.27-75 Programma tipico che utilizza l'interruttore di configurazione per il blending tra CIRCLE-ARC
 
-CIRCLE-CIRCLE Blending
+Blending CIRCLE-CIRCLE
 ***************************************
 
-Using Lua Instruction Mode
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Select "A0" to "A12" for CIRCLE-CIRCLE blending.
+**Step1**: Selezionare i punti insegnati per la funzione CIRCLE-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 2**: Configure Full Circle instruction with acceleration smooth mode and "Smooth Transition".
-
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/424.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-76 Blending Settings for Accelerated Smooth CIRCLE
+.. centered:: Grafico 9.27-76 Impostazioni dell'istruzione blending per l'istruzione CIRCLE con levigatezza accelerazione
 
-**Step 3**: Add multiple CIRCLE instructions within AccSmoothStart/End.
-
+**Step3**: Aggiungere più istruzioni CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-CIRCLE. Questo metodo utilizza il movimento a velocità a T ottimizzato solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza il movimento a velocità a T originale per le altre istruzioni.
+   
 .. image:: coding/432.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-77 Typical CIRCLE-CIRCLE Blending in Lua Mode
+.. centered:: Grafico 9.27-77 Programma tipico del metodo con istruzioni Lua per il blending tra CIRCLE-CIRCLE
 
-Using Motion Configuration Switch Mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Enable acceleration smooth mode switch.
-
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-78 Acceleration Smooth Mode Configuration
+.. centered:: Grafico 9.27-78 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step 2**: Choose "A0" to "A12" as teaching points.
+**Step2**: Selezionare i punti insegnati per la funzione CIRCLE-CIRCLE. In questo manuale, i nomi dei punti insegnati sono "A0"~"A12".
 
-**Step 3**: Set Full Circle instruction with "Smooth Transition", no motion protection.
-
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Cerchio completo" in "Istruzioni di movimento", nella "Modifica istruzioni" selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/426.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-79 Blending Settings for Conventional CIRCLE
+.. centered:: Grafico 9.27-79 Impostazioni dell'istruzione blending per l'istruzione CIRCLE convenzionale
 
-**Step 4**: Generate program for optimized velocity across all instructions.
-
+**Step4**: Aggiungere più istruzioni CIRCLE, generare il programma Lua ed eseguirlo per realizzare la funzione di blending CIRCLE-CIRCLE. Il programma tipico è lo stesso del programma CIRCLE-CIRCLE convenzionale. Questo metodo utilizza il movimento a velocità a T ottimizzato per tutte le istruzioni.
+   
 .. image:: coding/433.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-80 CIRCLE-CIRCLE Blending via Configuration Switch
+.. centered:: Grafico 9.27-80 Programma tipico che utilizza l'interruttore di configurazione per il blending tra CIRCLE-CIRCLE
 
-Blending for Extended Axis Asynchronous Motion
-*******************************************************
+Blending del movimento asincrono dell'asse esteso
+****************************************************************
 
-Using Lua Command Method
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step1**: Select the taught points for extended axis asynchronous motion blending. This manual uses "A0" to "A5" as the taught point names.
+**Step1**: Selezionare i punti insegnati per la funzione di blending del movimento asincrono dell'asse esteso. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step2**: Click "Teach Program" → "Program Editing", select the "Extended Axis" command under "Peripheral Commands", set "Motion Mode" to "Asynchronous", select the taught points and configure the debug speed. For motion protection, choose "Acceleration Smoothing Mode" and set the "Smooth Transition" parameter at the points requiring smoothing.
-
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Asse esteso" in "Istruzioni periferiche", selezionare "Asincrono" per "Metodo di movimento", selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/435.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-81 Extended Axis Asynchronous Motion Blending Command Settings
+.. centered:: Grafico 9.27-81 Impostazioni dell'istruzione blending per il movimento asincrono dell'asse esteso
 
-**Step3**: Add motion commands, generate and run the Lua program to achieve blending for extended axis asynchronous motion. This method only applies S-curve velocity planning and blending between `AccSmoothStart()` and `AccSmoothEnd()`, while using T-curve planning for other commands.
-
+**Step3**: Aggiungere istruzioni di movimento, generare il programma Lua ed eseguirlo per realizzare la funzione di blending del movimento asincrono dell'asse esteso. Questo metodo utilizza la pianificazione della velocità a forma di S e il blending solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza la pianificazione della velocità a forma di T per le altre istruzioni.
+   
 .. image:: coding/436.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-82 Typical Lua Program for Extended Axis Asynchronous Motion Blending
+.. centered:: Grafico 9.27-82 Programma tipico del metodo con istruzioni Lua per il blending del movimento asincrono dell'asse esteso
 
-Using Motion Configuration Switch
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step1**: Click "Initial Setup" → "Safety" → "Motion Configuration" and enable the "Acceleration Smoothing Mode" switch.
-
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-83 Acceleration Smoothing Mode Configuration Switch
+.. centered:: Grafico 9.27-83 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step2**: Select the taught points for extended axis asynchronous motion blending. This manual uses "A0" to "A5" as the taught point names.
+**Step2**: Selezionare i punti insegnati per la funzione di blending del movimento asincrono dell'asse esteso. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step3**: Click "Teach Program" → "Program Editing", select the "Extended Axis" command under "Peripheral Commands", set "Motion Mode" to "Asynchronous", select the taught points and configure the debug speed. For motion protection, choose "None" and set the "Smooth Transition" parameter at the points requiring smoothing.
-
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Asse esteso" in "Istruzioni periferiche", selezionare "Asincrono" per "Metodo di movimento", selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/437.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-84 Standard Extended Axis Asynchronous Motion Blending Command Settings
+.. centered:: Grafico 9.27-84 Impostazioni dell'istruzione blending convenzionale per il movimento asincrono dell'asse esteso
 
-**Step4**: Add multiple motion commands, generate and run the Lua program to achieve blending for extended axis asynchronous motion. The typical program is the same as standard extended axis motion programs. This method applies S-curve velocity planning and blending to all motions.
-
+**Step4**: Aggiungere più istruzioni di movimento, generare il programma Lua ed eseguirlo per realizzare la funzione di blending del movimento asincrono dell'asse esteso. Il programma tipico è lo stesso del programma di movimento convenzionale dell'asse esteso. Questo metodo utilizza la pianificazione della velocità a forma di S e il blending per tutti i movimenti.
+   
 .. image:: coding/438.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-85 Typical Program for Extended Axis Asynchronous Motion Blending Using Configuration Switch
+.. centered:: Grafico 9.27-85 Programma tipico che utilizza l'interruttore di configurazione per il blending del movimento asincrono dell'asse esteso
 
-Blending for Extended Axis Synchronous Motion
-***********************************************************
+Blending del movimento sincrono dell'asse esteso
+*******************************************************
 
-Using Lua Command Method
+Utilizzo del metodo con istruzioni Lua
 """"""""""""""""""""""""""""""""""""""""""
 
-**Step1**: Select the taught points for extended axis synchronous motion blending. This manual uses "A0" to "A5" as the taught point names.
+**Step1**: Selezionare i punti insegnati per la funzione di blending del movimento sincrono dell'asse esteso. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step2**: Click "Teach Program" → "Program Editing", select the "Extended Axis" command under "Peripheral Commands", set "Motion Mode" to "Synchronous", select the taught points and configure the debug speed. For motion protection, choose "Acceleration Smoothing Mode" and set the "Smooth Transition" parameter at the points requiring smoothing.
-
+**Step2**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Asse esteso" in "Istruzioni periferiche", selezionare "Sincrono" per "Metodo di movimento", selezionare il punto insegnato e impostare la velocità di debug, selezionare "Modalità levigatezza accelerazione" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/439.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-86 Extended Axis Synchronous Motion Blending Command Settings
+.. centered:: Grafico 9.27-86 Impostazioni dell'istruzione blending per il movimento sincrono dell'asse esteso
 
-**Step3**: Add motion commands, generate and run the Lua program to achieve blending for extended axis synchronous motion. This method only applies S-curve velocity planning and blending between `AccSmoothStart()` and `AccSmoothEnd()`, while using T-curve planning for other commands.
-
+**Step3**: Aggiungere istruzioni di movimento, generare il programma Lua ed eseguirlo per realizzare la funzione di blending del movimento sincrono dell'asse esteso. Questo metodo utilizza la pianificazione della velocità a forma di S e il blending solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza la pianificazione della velocità a forma di T per le altre istruzioni.
+   
 .. image:: coding/440.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-87 Typical Lua Program for Extended Axis Synchronous Motion Blending
+.. centered:: Grafico 9.27-87 Programma tipico del metodo con istruzioni Lua per il blending del movimento sincrono dell'asse esteso
 
-Using Motion Configuration Switch
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Utilizzo del metodo con interruttore di configurazione del movimento
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step1**: Click "Initial Setup" → "Safety" → "Motion Configuration" and enable the "Acceleration Smoothing Mode" switch.
-
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per aprire l'interruttore "Modalità levigatezza accelerazione".
+   
 .. image:: coding/317.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-88 Acceleration Smoothing Mode Configuration Switch
+.. centered:: Grafico 9.27-88 Impostazioni dell'interruttore di configurazione della modalità levigatezza accelerazione
 
-**Step2**: Select the taught points for extended axis synchronous motion blending. This manual uses "A0" to "A5" as the taught point names.
+**Step2**: Selezionare i punti insegnati per la funzione di blending del movimento sincrono dell'asse esteso. In questo manuale, i nomi dei punti insegnati sono "A0"~"A5".
 
-**Step3**: Click "Teach Program" → "Program Editing", select the "Extended Axis" command under "Peripheral Commands", set "Motion Mode" to "Synchronous", select the taught points and configure the debug speed. For motion protection, choose "None" and set the "Smooth Transition" parameter at the points requiring smoothing.
-
+**Step3**: Fare clic sul pulsante "Programma di insegnamento" -> "Programmazione del programma", selezionare l'istruzione "Asse esteso" in "Istruzioni periferiche", selezionare "Sincrono" per "Metodo di movimento", selezionare il punto insegnato e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, e impostare il parametro "Transizione morbida" nei punti in cui è necessaria la levigatezza.
+   
 .. image:: coding/441.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.27-89 Standard Extended Axis Synchronous Motion Blending Command Settings
+.. centered:: Grafico 9.27-89 Impostazioni dell'istruzione blending convenzionale per il movimento sincrono dell'asse esteso
 
-**Step4**: Add multiple motion commands, generate and run the Lua program to achieve blending for extended axis synchronous motion. The typical program is the same as standard extended axis motion programs. This method applies S-curve velocity planning and blending to all motions.
-
+**Step4**: Aggiungere più istruzioni di movimento, generare il programma Lua ed eseguirlo per realizzare la funzione di blending del movimento sincrono dell'asse esteso. Il programma tipico è lo stesso del programma di movimento convenzionale dell'asse esteso. Questo metodo utilizza la pianificazione della velocità a forma di S e il blending per tutti i movimenti.
+   
 .. image:: coding/442.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.27-90 Typical Program for Extended Axis Synchronous Motion Blending Using Configuration Switch
+.. centered:: Grafico 9.27-90 Programma tipico che utilizza l'interruttore di configurazione per il blending del movimento sincrono dell'asse esteso
 
-Swing Tilt Angle Function
+Funzione di inclinazione laterale dell'oscillazione
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++
 
-The robot swing tilt angle function allows the robot's end tool to customize the swing angle around the Rx direction of the swing coordinate system during swinging motion, reducing the difference in contact length between the fillet weld and the connected materials on both sides in operations such as lap welding.
+La funzione di inclinazione laterale dell'oscillazione del robot supporta la rotazione personalizzata dell'utensile finale del robot attorno alla direzione Rx del sistema di coordinate di oscillazione durante il movimento oscillante, riducendo la differenza nella lunghezza di contatto tra la saldatura d'angolo e i materiali collegati su entrambi i lati durante processi come la saldatura a sovrapposizione.
 
-Operation Procedure
+Flusso operativo
 ++++++++++++++++++++++++++++
 
-On the robot’s web control interface, click "Teaching Program" -> "Program Editing" to enter the "Motion Command" interface, as shown below.
-
+Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Programma di insegnamento" -> "Modifica programma", per accedere all'interfaccia "Istruzioni di movimento", come mostrato nella figura seguente.
+   
 .. image:: coding/320.png
-   :width: 3in
+   :width: 4in
    :align: center
 
-.. centered:: Figure 9.28-1 Motion Command Interface
+.. centered:: Grafico 9.28-1 Interfaccia delle istruzioni di movimento
 
-In the "Motion Command" interface, click "Weave" to enter the "Weave" command editing interface.
-
+Nell'interfaccia "Istruzioni di movimento", fare clic su "Oscillazione", per accedere all'interfaccia di modifica delle istruzioni "Weave".
+   
 .. image:: coding/321.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.28-2 Weave Command Editing Interface
+.. centered:: Grafico 9.28-2 Interfaccia di modifica delle istruzioni Weave
 
-In the "Weave" command editing interface, click the "Selection Number" dropdown to choose different swing parameter configurations. Click the button next to the dropdown to modify the swing parameters under the selected number.
-
+Nell'interfaccia di modifica delle istruzioni "Weave", fare clic sulla casella a discesa "Seleziona numero" per scegliere diverse configurazioni dei parametri di oscillazione; fare clic sul "Pulsante" a destra della casella a discesa "Seleziona numero" per modificare la configurazione dei parametri di oscillazione sotto quel numero.
+   
 .. image:: coding/322.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.28-3 Swing Parameter Configuration
+.. centered:: Grafico 9.28-3 Configurazione dei parametri di oscillazione
 
-In the swing parameter configuration, enter a custom rotation angle around the Rx direction of the swing coordinate system in the "Swing Direction Tilt Angle" field, then click "Configure" to complete the setup.
+Nella configurazione dei parametri di oscillazione, nella colonna "Angolo di inclinazione laterale della direzione di oscillazione", è possibile inserire l'angolo personalizzato di rotazione attorno alla direzione Rx del sistema di coordinate di oscillazione, quindi fare clic su "Configura" per completare la configurazione dei parametri di oscillazione.
 
-.. note:: Note: The "Swing Direction Tilt Angle" parameter is applicable to "Triangle Wave Swing," "Sine Wave Swing," "Circular Swing - Clockwise," and "Circular Swing - Counterclockwise" in the "Swing Type" parameter.
+.. note:: Nota: il parametro "Angolo di inclinazione laterale della direzione di oscillazione" si applica ai parametri "Tipo di oscillazione" che includono "Oscillazione a onda triangolare", "Oscillazione sinusoidale", "Oscillazione circolare - senso orario" e "Oscillazione circolare - senso antiorario".
 
-The following example demonstrates the swing tilt angle function using Lin motion:
+Di seguito viene illustrato come implementare la funzione di inclinazione laterale dell'oscillazione utilizzando il movimento Lin come esempio:
 
-**Step 1**: In the "Weave" command editing interface, select a pre-configured swing parameter set from the "Selection Number" dropdown. Under "Command Type," click "Start Weave," then click "Add" to enable the swing function.
-
+**Step1**: Nell'interfaccia di modifica delle istruzioni "Weave", nella casella a discesa "Seleziona numero" dell'interfaccia "Modifica istruzioni", scegliere il numero di configurazione con i parametri di inclinazione laterale dell'oscillazione già configurati; nella colonna "Tipo di istruzione", fare clic su "Inizia oscillazione", quindi fare clic su "Aggiungi" per indicare l'attivazione della funzione di oscillazione.
+   
 .. image:: coding/323.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.28-4 Adding Start Weave
+.. centered:: Grafico 9.28-4 Aggiunta dell'inizio dell'oscillazione
 
-**Step 2**: In the "Motion Command" interface, click "Linear" to create a Lin linear motion (basic motion command, not detailed here).
+**Step2**: Nell'interfaccia "Istruzioni di movimento", fare clic su "Linea retta" per creare un movimento lineare Lin. Questo passaggio è un'istruzione di movimento di base e non verrà approfondito.
 
-**Step 3**: In the "Weave" command editing interface, under "Command Type," click "Stop Weave," then click "Add" to disable the swing function.
-
+**Step3**: Nell'interfaccia di modifica delle istruzioni "Weave", nella colonna "Tipo di istruzione", fare clic su "Termina oscillazione", quindi fare clic su "Aggiungi" per indicare la disattivazione della funzione di oscillazione.
+   
 .. image:: coding/324.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.28-5 Adding Stop Weave
+.. centered:: Grafico 9.28-5 Aggiunta dell'arresto dell'oscillazione
 
-**Step 4**: After completing Steps 1–3, check the correctness of the settings in the "Program Preview" section of the "Weave" command editing interface.
-
+**Step4**: Dopo aver completato i passaggi 1~3, nella colonna "Anteprima programma" dell'interfaccia di modifica delle istruzioni "Weave", è possibile verificare se i passaggi 1~3 sono stati impostati correttamente.
+   
 .. image:: coding/325.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.28-6 Swing Program Preview
+.. centered:: Grafico 9.28-6 Anteprima del programma di oscillazione
 
-**Step 5**: After verifying the program in the "Program Preview" section, click "Apply" to automatically generate executable LUA code.
-
+**Step5**: Dopo aver controllato le impostazioni del programma nella colonna "Anteprima programma", fare clic su "Applica" per generare automaticamente un programma LUA eseguibile.
+   
 .. image:: coding/326.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.28-7 Example LUA Swing Motion Program
+.. centered:: Grafico 9.28-7 Programma LUA tipico per il movimento oscillatorio
 
-Welding process parameter gradient function (current, voltage, travel speed along weld seam)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di transizione graduale dei parametri di processo di saldatura (corrente, tensione, velocità di avanzamento lungo la saldatura)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++
 
-The welding parameter gradual change function (current, voltage, and travel speed along the weld seam) supports customizing the variation range of process parameters during welding.
+La funzione di transizione graduale dei parametri di processo di saldatura (corrente, tensione e velocità di avanzamento lungo la saldatura) supporta la definizione personalizzata dell'intervallo di variazione dei parametri di processo durante la saldatura.
 
-Current/Voltage Parameter Gradual Change Process
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Flusso di transizione graduale dei parametri di corrente e tensione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Current Parameter Gradual Change
-*****************************************
+Transizione graduale della corrente
+********************************************
 
-On the robot web control interface, navigate to "Teach Program" -> "Program Editing" to enter the "Welding Command" interface as shown below.
+Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Programma di insegnamento" -> "Programmazione del programma", per accedere all'interfaccia "Istruzioni di saldatura", come mostrato nella figura seguente.
    
 .. image:: coding/327.png
-   :width: 3in
+   :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-1 Welding Command Interface
+.. centered:: Grafico 9.29-1 Interfaccia delle istruzioni di saldatura
 
-In the "Welding Command" interface, click "Weld" to enter the "Weld" command configuration interface.
+Nell'interfaccia "Istruzioni di saldatura", fare clic su "Saldatura", per accedere all'interfaccia di configurazione delle istruzioni "Weld".
    
 .. image:: coding/328.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-2 Weld Command Configuration Interface
+.. centered:: Grafico 9.29-2 Interfaccia di configurazione delle istruzioni Weld
 
-In the "Command Type" section of the "Weld" command configuration interface, click "Welding Current Gradual Start" to configure parameters including "Start Current", "End Current", "Welding Current Control AO", and "Smoothing Option".
+Nell'interfaccia di configurazione delle istruzioni "Weld", nella colonna "Tipo di istruzione", fare clic su "Inizio transizione graduale corrente di saldatura", e configurare i parametri "Corrente iniziale", "Corrente finale", "AO controllo corrente saldatura" e "Selezione levigatezza".
 
-For example, configure "Start Current" as 260 A, "End Current" as 220 A, "Welding Current Control AO" as "Ctrl-AO0" control box analog channel, and "Smoothing Option" as "Break". Click "Add" to complete configuration, then verify parameters in the "Program Preview" section for any errors.
+Ad esempio, configurare "Corrente iniziale" a 260 A, "Corrente finale" a 220 A, "AO controllo corrente saldatura" al canale analogico "Ctrl-AO0" del quadro di controllo e "Selezione levigatezza" a "Break", quindi fare clic su "Aggiungi". Una volta completata la configurazione, nella colonna "Anteprima programma", verificare se i parametri dell'istruzione sono configurati correttamente.
    
 .. image:: coding/329.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-3 Welding Current Gradual Start Command Parameters
+.. centered:: Grafico 9.29-3 Parametri dell'istruzione di inizio transizione graduale della corrente di saldatura
 
-In the "Command Type" section of the "Weld" command configuration interface, click "Welding Current Gradual End". No parameters need to be configured. Click "Add" to complete, then verify in "Program Preview".
+Nell'interfaccia di configurazione delle istruzioni "Weld", nella colonna "Tipo di istruzione", fare clic su "Fine transizione graduale corrente di saldatura". Non è necessario configurare parametri, fare clic su "Aggiungi" per completare la configurazione. Nella colonna "Anteprima programma", verificare se i parametri dell'istruzione sono configurati correttamente.
    
 .. image:: coding/330.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-4 Welding Current Gradual End Command Parameters
+.. centered:: Grafico 9.29-4 Parametri dell'istruzione di fine transizione graduale della corrente di saldatura
 
-After configuring both start and end commands, click "Apply" to automatically generate executable LUA program.
+Dopo aver configurato i parametri delle istruzioni "Inizio transizione graduale corrente di saldatura" e "Fine transizione graduale corrente di saldatura", fare clic su "Applica" per generare automaticamente un programma LUA eseguibile.
 
-.. note:: During configuration, motion commands must be included. A typical LUA program combining arc tracking motion with current gradual change is shown below.
+.. note:: Durante la configurazione dei parametri delle istruzioni "Inizio transizione graduale corrente di saldatura" e "Fine transizione graduale corrente di saldatura", è necessario configurare istruzioni di movimento. Di seguito viene mostrato un programma LUA tipico che combina un'istruzione di movimento di tracciamento dell'arco con la transizione graduale dei parametri di corrente.
    
 .. image:: coding/331.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-5 Typical Current Gradual Change Arc Tracking LUA Program
+.. centered:: Grafico 9.29-5 Programma LUA tipico per il tracciamento dell'arco con transizione graduale dei parametri di corrente
 
-Voltage Parameter Gradual Change
-**********************************
+Transizione graduale della tensione
+**************************************************
 
-In the "Command Type" section of the "Weld" command configuration interface, click "Welding Voltage Gradual Start" to configure parameters including "Start Voltage", "End Voltage", "Welding Voltage Control AO", and "Smoothing Option".
+Nell'interfaccia di configurazione delle istruzioni "Weld", nella colonna "Tipo di istruzione", fare clic su "Inizio transizione graduale tensione di saldatura", e configurare i parametri "Tensione iniziale", "Tensione finale", "AO controllo tensione saldatura" e "Selezione levigatezza".
 
-For example, configure "Start Voltage" as 25 V, "End Voltage" as 22 V, "Welding Voltage Control AO" as "Ctrl-AO1" control box analog channel, and "Smoothing Option" as "Break". Click "Add" to complete configuration, then verify in "Program Preview".
+Ad esempio, configurare "Tensione iniziale" a 25 V, "Tensione finale" a 22 V, "AO controllo tensione saldatura" al canale analogico "Ctrl-AO1" del quadro di controllo e "Selezione levigatezza" a "Break", quindi fare clic su "Aggiungi". Una volta completata la configurazione, nella colonna "Anteprima programma", verificare se l'istruzione è configurata correttamente, come mostrato nella figura seguente.
    
 .. image:: coding/332.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-6 Welding Voltage Gradual Start Command Parameters
+.. centered:: Grafico 9.29-6 Parametri dell'istruzione di inizio transizione graduale della tensione di saldatura
 
-In the "Command Type" section, click "Welding Voltage Gradual End". No parameters need configuration. Click "Add" then verify.
+Nell'interfaccia di configurazione delle istruzioni "Weld", nella colonna "Tipo di istruzione", fare clic su "Fine transizione graduale tensione di saldatura". Non è necessario configurare parametri, fare clic su "Aggiungi" per completare la configurazione. Nella colonna "Anteprima programma", verificare se l'istruzione è configurata correttamente.
    
 .. image:: coding/333.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-7 Welding Voltage Gradual End Command Parameters
+.. centered:: Grafico 9.29-7 Parametri dell'istruzione di fine transizione graduale della tensione di saldatura
 
-After configuration, click "Apply" to generate LUA program.
+Dopo aver configurato i parametri delle istruzioni "Inizio transizione graduale tensione di saldatura" e "Fine transizione graduale tensione di saldatura", fare clic su "Applica" per generare automaticamente un programma LUA eseguibile.
    
 .. image:: coding/334.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-8 Typical Voltage Gradual Change Arc Tracking LUA Program
+.. centered:: Grafico 9.29-8 Programma LUA tipico per il tracciamento dell'arco con transizione graduale dei parametri di tensione
 
-Travel Speed Gradual Change Process
-+++++++++++++++++++++++++++++++++++++++++++++++
+Flusso di transizione graduale del parametro di velocità di avanzamento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Navigate to "Teach Program" -> "Program Editing" -> "Motion Command" interface.
+Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Programma di insegnamento" -> "Programmazione del programma", per accedere all'interfaccia "Istruzioni di movimento".
    
 .. image:: coding/335.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 9.29-9 Motion Command Interface
+.. centered:: Grafico 9.29-9 Interfaccia delle istruzioni di movimento
 
-Click "Weave" to enter configuration interface.
+Nell'interfaccia "Istruzioni di movimento", fare clic su "Oscillazione", per accedere all'interfaccia di configurazione delle istruzioni "Weave".
    
 .. image:: coding/336.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-10 Weave Command Configuration Interface
+.. centered:: Grafico 9.29-10 Interfaccia di configurazione delle istruzioni Weave
 
-In "Command Type", click "Weave Gradual Start" to configure "Start Speed", "End Speed", and "Gradual Mode".
+Nell'interfaccia di configurazione delle istruzioni "Weave", nella colonna "Tipo di istruzione", fare clic su "Inizio transizione graduale oscillazione", e configurare i parametri "Velocità iniziale", "Velocità finale" e "Modalità di transizione".
 
-For example, set "Gradual Mode" as "Weave+Travel Speed", "Start Speed" as 24 cm/min, and "End Speed" as 30 cm/min. Click "Add" then verify.
+Ad esempio, configurare "Modalità di transizione" a "Oscillazione + velocità di avanzamento", "Velocità iniziale" a 24 cm/min e "Velocità finale" a 30 cm/min, quindi fare clic su "Aggiungi". Una volta completata la configurazione, nella colonna "Anteprima programma", verificare se l'istruzione è configurata correttamente.
    
 .. image:: coding/337.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-11 Weave+Travel Speed Gradual Start Parameters
+.. centered:: Grafico 9.29-11 Parametri dell'istruzione di inizio transizione graduale per oscillazione + velocità di avanzamento
 
-Click "Weave Gradual End" (no parameters needed), then "Add" and verify.
+Nell'interfaccia delle istruzioni "Weave", nella colonna "Tipo di istruzione", fare clic su "Fine transizione graduale oscillazione". Non è necessario configurare parametri, fare clic su "Aggiungi" per completare la configurazione. Nella colonna "Anteprima programma", verificare se l'istruzione è configurata correttamente.
    
 .. image:: coding/338.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-12 Weave+Travel Speed Gradual End Parameters
+.. centered:: Grafico 9.29-12 Parametri dell'istruzione di fine transizione graduale per oscillazione + velocità di avanzamento
 
-Click "Apply" to generate LUA program.
+Dopo aver configurato i parametri delle istruzioni "Inizio transizione graduale oscillazione" e "Fine transizione graduale oscillazione", fare clic su "Applica" per generare automaticamente un programma LUA eseguibile.
 
-.. note:: Motion commands must be included. A sample program is shown below.
+.. note:: Durante la configurazione dei parametri delle istruzioni "Inizio transizione graduale oscillazione" e "Fine transizione graduale oscillazione", è necessario configurare istruzioni di movimento. Di seguito viene mostrato un programma LUA tipico che combina un'istruzione di movimento di tracciamento dell'arco con la transizione graduale del parametro di velocità di avanzamento.
    
 .. image:: coding/339.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.29-13 Typical Travel Speed Gradual Change Arc Tracking LUA Program
+.. centered:: Grafico 9.29-13 Programma LUA tipico per il tracciamento dell'arco con transizione graduale del parametro di velocità di avanzamento
 
-.. note:: Before configuring parameters in "Weld" or "Weave" interfaces, confirm the communication method between control box and welder (analog: "Controller I/O"; digital: "Digital Communication Protocol").
+.. note:: Quando si configurano i parametri delle istruzioni di transizione graduale dei parametri di processo di saldatura nelle interfacce di configurazione delle istruzioni "Weld" e "Weave", è necessario prima determinare il metodo di comunicazione tra il quadro di controllo e la saldatrice. Per la comunicazione analogica e digitale, fare clic rispettivamente su "I/O controller" o "Protocollo di comunicazione digitale".
 
-Robot ModbusRTU Communication
+Comunicazione ModbusRTU del robot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++
 
-ModbusRTU is a commonly used communication protocol in industrial production. FAIR collaborative robots provide two communication methods: ModbusRTU Master and ModbusRTU Slave. The collaborative robot supports up to 8 ModbusRTU Masters communicating simultaneously with external devices, with each master supporting up to 128 registers. The robot's ModbusRTU Slave has 64 coils, 64 discrete inputs, 32 holding registers, and 32 input registers (holding registers and input registers support both signed and floating-point data types).
+ModbusRTU è un protocollo di comunicazione comunemente utilizzato nella produzione industriale. I robot collaborativi Faro forniscono due modalità, Master ModbusRTU e Slave ModbusRTU, per comunicare con i vostri dispositivi. Il robot collaborativo supporta fino a 8 master ModbusRTU che comunicano contemporaneamente con dispositivi esterni, ciascuno supportando fino a 128 registri; lo slave ModbusRTU del robot collaborativo ha 64 coil, 64 input discreti, 32 registri holding e 32 registri input (i tipi di dati dei registri holding e input includono signed e floating point).
 
-Additionally, some input register addresses of the robot's ModbusRTU Slave are dedicated to feedback information such as current joint positions and motion speeds. Some coil register addresses are dedicated to controlling robot operations like starting programs, stopping programs, and setting control box DOs. The robot's ModbusRTU Slave only supports connection with one master. Detailed usage methods are described below.
+Inoltre, alcuni registri input dello slave ModbusRTU del robot sono dedicati a fornire informazioni come la posizione corrente delle giunture del robot, la velocità di movimento, ecc. Alcuni registri coil sono dedicati al controllo dell'avvio del programma, dell'arresto del programma, all'impostazione dei DO del quadro di controllo, ecc. Lo slave ModbusRTU del robot supporta la connessione con un solo master. Di seguito sono riportati i metodi di utilizzo dettagliati.
 
-Robot ModbusRTU Master Operation Instructions
+Istruzioni operative relative al Master ModbusRTU del robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Before using the collaborative robot as a ModbusRTU Master to communicate with your device, please check the 485 hardware connection between your device and the robot. The steps to use the robot as a ModbusRTU Master are as follows: ① Add a master; ② Add registers; ③ Communication test; ④ Write user program; ⑤ Execute user program.
+Prima di utilizzare il robot collaborativo come master ModbusRTU per comunicare con i vostri dispositivi, controllare prima la connessione hardware 485 tra il vostro dispositivo e il robot. L'utilizzo del master ModbusRTU del robot prevede i seguenti passaggi: ① Aggiungere un master; ② Aggiungere registri; ③ Test di comunicazione; ④ Scrivere il programma utente; ⑤ Eseguire il programma utente;
 
-Adding a ModbusRTU Master
+Aggiunta di un Master ModbusRTU
 *******************************************
-Open WebApp, click "Teach Simulation" and "Program Teaching" in sequence, and create a new user program "testModbusRTUMaster.lua".
+Aprire WebApp, fare clic in sequenza su "Simulazione insegnamento", "Insegnamento programma", creare un nuovo programma utente "testModbusRTUMaster.lua".
    
 .. image:: coding/340.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-1 Creating a ModbusRTU Master User Program
+.. centered:: Grafico 9.30-1 Creazione del programma utente per il master ModbusRTU
 
-Click the "ModbusRTU Settings" button to open the ModbusRTU configuration page.
+Fare clic sul pulsante "Impostazioni ModbusRTU", per aprire la pagina di configurazione della funzione ModbusRTU.
    
 .. image:: coding/341.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-2 Opening ModbusRTU Settings
+.. centered:: Grafico 9.30-2 Apertura delle impostazioni ModbusRTU
 
-Click "Master Settings" and then "Add Modbus Master" to complete adding a ModbusRTU Master.
+Fare clic in sequenza su "Impostazioni master", "Aggiungi master Modbus", per completare l'aggiunta di un master ModbusRTU.
    
 .. image:: coding/342.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-3 Adding a "ModbusRTU Master"
+.. centered:: Grafico 9.30-3 Aggiunta di un "Master ModbusRTU"
 
-Select "Baud Rate", "Data Bits", "Parity", and "Stop Bits" according to your slave device configuration. The meanings of these parameters are as follows:
+In base alla situazione del dispositivo slave, selezionare in sequenza "Baud rate", "Bit dati", "Parità" e "Bit di stop". Il significato specifico di questi parametri è il seguente:
 
-**Baud Rate**: The baud rate used for ModbusRTU communication. Supported values: 9600, 14400, 19200, 38400, 56000, 67600, 115200, 128000. Default is 115200. Set to match the slave device.
+**Baud rate**: Baud rate utilizzato per la comunicazione ModbusRTU. Supporta: 9600, 14400, 19200, 38400, 56000, 67600, 115200, 128000. Il valore predefinito è 115200. Impostare in modo coerente con lo slave.
 
-**Data Bits**: Currently only supports 8 bits. Set to match the slave device.
+**Bit dati**: Attualmente supporta solo 8 bit. Impostare in modo coerente con lo slave.
 
-**Parity**: Parity method. Supports None, Odd, Even. Default is None. Set to match the slave device.
+**Parità**: Metodo di parità. Supporta None, Odd, Even. Il valore predefinito è None. Impostare in modo coerente con lo slave.
 
-**Stop Bits**: Supports 0.5, 1, 1.5, 2. Default is 1. Set to match the slave device.
+**Bit di stop**: Supporta 0.5, 1, 1.5, 2. Il valore predefinito è 1. Impostare in modo coerente con lo slave.
    
 .. image:: coding/343.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-4 Setting ModbusRTU Master Parameters
+.. centered:: Grafico 9.30-4 Impostazione dei parametri del master ModbusRTU
 
-After correctly entering the above parameters, the robot ModbusRTU Master can communicate with the slave device. (If you have confirmed that the ModbusRTU Master parameters are correctly configured but communication fails, please check the following:
+Dopo aver inserito correttamente i parametri sopra, il master ModbusRTU del robot può comunicare con lo slave. (Se avete confermato di aver configurato correttamente i parametri relativi al master ModbusRTU, ma la comunicazione tra il robot e il vostro dispositivo non riesce, controllare le seguenti configurazioni:
 
-① Physical 485 connection between the robot and slave device; ② Check the slave device's communication configuration and test the communication link with a serial port debugging tool first. For example, configure the same ModbusRTU parameters on the PC, create a new register in the robot web interface, and perform a 0x03 read holding register operation to see if the serial port debugging tool receives data. As shown below, reading register address 0x1000 with 0x03 instruction, the PC can receive data normally, indicating correct communication configuration.)
+① La connessione fisica 485 tra il robot e il dispositivo slave; ② Controllare la configurazione di comunicazione del dispositivo slave e si consiglia di testare prima il collegamento di comunicazione con un software di debug seriale. Ad esempio, configurare sul PC parametri ModbusRTU coerenti con quelli del robot, creare un nuovo registro nell'interfaccia web del robot ed eseguire un'operazione di lettura del registro holding 0x03, per verificare se il software di debug seriale sul PC può ricevere i dati. Come mostrato nella figura seguente, leggendo il registro all'indirizzo 0x1000 tramite l'istruzione 0x03, il PC può ricevere normalmente i dati, indicando che la configurazione di comunicazione è corretta.
    
 .. image:: coding/344.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-5 Verifying Modbus Connection Status
+.. centered:: Grafico 9.30-5 Verifica dello stato della connessione Modbus
 
-At this point, we have completed the creation of a robot ModbusRTU Master. If you click "Add Modbus Master" again, you can create another new ModbusRTU Master (Figure 2-6). The robot supports up to 8 masters communicating with external devices simultaneously. Double-click the "Delete" button in the upper right corner of the Modbus Master to delete it.
+A questo punto abbiamo completato la creazione di un master ModbusRTU del robot. Se si fa clic nuovamente su "Aggiungi master Modbus", è possibile creare un nuovo master ModbusRTU (Figura 2-6). Il robot supporta fino a 8 master che comunicano contemporaneamente con dispositivi esterni. Fare doppio clic sul pulsante "Elimina" in alto a destra del master Modbus, per eliminare quel master Modbus.
    
 .. image:: coding/345.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-6 Adding Another ModbusRTU Master
+.. centered:: Grafico 9.30-6 Aggiunta di un altro master ModbusRTU
 
-Adding Registers to ModbusRTU Master
+Aggiunta di registri al master ModbusRTU
 *******************************************
 
-Click the "Add Master Register" button to add a register to the master.
+Fare clic sul pulsante "Aggiungi registro master", per aggiungere un registro a questo master.
    
 .. image:: coding/346.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-7 Adding a ModbusRTU Master Register
+.. centered:: Grafico 9.30-7 Aggiunta di un registro del master ModbusRTU
 
-Select the master register type, input address number, and name in sequence. The meanings of each parameter are as follows:
+Selezionare in sequenza il tipo di registro del master, inserire il numero dell'indirizzo e il nome. Il significato di ciascun parametro è il seguente:
 
-**Type**: Modbus function code. 0x01-Read Coils; 0x02-Read Discrete Inputs; 0x03-Read Holding Registers (signed -32768-32767); 0x03-Read Holding Registers (floating-point, 32-bit data length, occupies two registers, 4 bytes); 0x04-Read Input Registers (signed -32768-32767); 0x04-Read Input Registers (floating-point, 32-bit data length, occupies two registers, 4 bytes); 0x05-Write Single Coil; 0x06-Write Single Holding Register; 0x0F-Write Multiple Coils; 0x10-Write Multiple Holding Registers. Floating-point registers are displayed in big-endian format.
+**Tipo**: Codice funzione modbus, 0x01 - Leggi coil; 0x02 - Leggi input discreti; 0x03 - Leggi registri holding (tipo signed -32768-32767); 0x03 - Leggi registri holding (tipo floating point, lunghezza dati 32 bit, occupa due registri, 4 byte); 0x04 - Leggi registri input (tipo signed -32768-32767); 0x04 - Leggi registri input (tipo floating point, lunghezza dati 32 bit, occupa due registri, 4 byte); 0x05 - Scrivi coil singolo; 0x06 - Scrivi registro holding singolo; 0x0F - Scrivi più coil; 0x03 - Leggi registri holding (tipo signed -32768-32767); 0x03 - Leggi registri holding (tipo floating point, lunghezza dati 32 bit, occupa due registri, 4 byte); I registri floating point per la lettura/scrittura vengono visualizzati in formato big-endian.
 
-**Register Address**: The register address of the ModbusRTU Slave to read or write.
+**Indirizzo registro**: Indirizzo del registro dello slave ModbusRTU da leggere o scrivere;
 
-**Register Quantity**: The number of registers to operate when reading or writing multiple registers (0x05, 0x06 can only be 1). Supports up to 12 registers.
+**Quantità registri**: Numero di registri da operare in caso di lettura/scrittura multipla (0x05, 0x06 possono avere quantità solo 1). Supporta fino a 12 registri.
 
-**Address Value**: Display value for reading, or write value (use English comma "," to separate multiple values).
+**Valore indirizzo**: Valore visualizzato per la lettura o valore da scrivere per l'operazione di scrittura (separare più valori con virgola inglese ",")
    
 .. image:: coding/347.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-8 Setting ModbusRTU Master Register Parameters
+.. centered:: Grafico 9.30-8 Impostazione dei parametri del registro del master ModbusRTU
 
-Click the "Add Master Register" button again to add another master register. Double-click the "Delete" button on the right side of the register to delete it. The figure below shows the supported function code registers.
+Facendo nuovamente clic sul pulsante "Aggiungi registro master", è possibile aggiungere un altro registro master. Fare doppio clic sul pulsante "Elimina" a destra del registro, per eliminare quel registro. La figura seguente mostra i codici funzione supportati per i registri.
    
 .. image:: coding/348.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-9 Adding Multiple Master Registers
+.. centered:: Grafico 9.30-9 Aggiunta di più registri master
 
-ModbusRTU Master Communication Test
+Test di comunicazione del master ModbusRTU
 **********************************************************
 
-The robot Modbus Master register has an "Address Value" field to display the current register value. Registers of types 0x01, 0x02, 0x03, and 0x04 are read-only, and their address values are displayed in gray non-editable fields. When the value of the corresponding address in the slave changes, the robot master can read the corresponding register address value by clicking the read button and display the current value synchronously. Function codes 0x05, 0x06, 0x0F, and 0x10 are write operations, and their address values are displayed in white editable fields. You can modify the register value on the robot Modbus Master settings page.
+I registri del master Modbus del robot hanno una casella numerica "Valore indirizzo" per visualizzare il valore corrente del registro. I registri di tipo 0x01, 0x02, 0x03, 0x04 sono di sola lettura, le corrispondenti caselle dei valori indirizzo sono grigie e non modificabili. Quando il valore all'indirizzo corrispondente dello slave cambia, il master del robot può leggere il valore del registro corrispondente facendo clic sul pulsante di lettura e visualizzare il valore corrente in modo sincrono. I codici funzione 0x05, 0x06, 0x0F, 0x10 sono operazioni di scrittura, le loro caselle dei valori indirizzo sono bianche e modificabili. È possibile modificare il valore del registro nella pagina delle impostazioni del master Modbus del robot.
    
 .. image:: coding/349.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-10 Modbus Master Address Value
+.. centered:: Grafico 9.30-10 Valore indirizzo del master Modbus
 
-Master Read Register Test
-""""""""""""""""""""""""""""""""""
-On the external ModbusRTU Slave device, continuously read 10 coils starting from address 0x4000, 12 discrete inputs starting from address 0x3000, 2 holding registers starting from address 0x2010 using int16, and 1 floating-point input register at address 0x1029. The corresponding register address values on the robot Modbus Master settings page will display accordingly. The sent data frames are shown below (since the register at address 0x1029 is set to floating-point type, it actually reads two 16-bit registers, 0x1029 and 0x102A, to store one floating-point number, but the read quantity is set to 1).
+Test di lettura dei registri del master
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+Sul dispositivo slave ModbusRTU esterno, leggere consecutivamente 10 coil a partire dall'indirizzo 0x4000, leggere consecutivamente 12 input discreti a partire dall'indirizzo 0x3000, leggere consecutivamente due registri holding a partire dall'indirizzo 0x2010 utilizzando int16, leggere un numero floating point dal registro input all'indirizzo 0x1029. A questo punto, il valore indirizzo dei registri corrispondenti nella pagina delle impostazioni del master Modbus del robot verrà visualizzato di conseguenza. Il frame di dati inviato è mostrato nella figura seguente (poiché il registro all'indirizzo 0x1029 è configurato per la lettura in formato floating point, in realtà legge due registri a 16 bit, 0x1029 e 0x102A, per memorizzare un numero floating point, ma la quantità di lettura è impostata su 1).
    
 .. image:: coding/350.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-11 Modbus Master Displaying Read Register Values (Command Frame Screenshot)
+.. centered:: Grafico 9.30-11 Il master Modbus visualizza i valori dei registri letti (screenshot del frame di istruzione)
 
-Master Write Register Test
-""""""""""""""""""""""""""""""""""
+Test di scrittura dei registri del master
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-On the robot ModbusRTU Master settings page, write a single coil at address 0x1000 with a value of 1; write a single register at address 0x1001 with a value of 2001; write 5 coils starting at address 0x2000 with values 1,1,0,1,1; write 2 holding registers starting at address 0x2010 with int16 data type and values 3001, 3002; write a floating-point holding register at address 0x1029 (actually two 16-bit registers) with a value of 21.55; the corresponding register addresses on the Modbus Slave have been written with the specified values.
+Nella pagina delle impostazioni del master ModbusRTU del robot, scrivere un coil singolo all'indirizzo 0x1000, valore 1; scrivere un registro singolo all'indirizzo 0x1001, valore 2001; scrivere 5 coil a partire dall'indirizzo 0x2000, valori 1,1,0,1,1; scrivere 2 registri holding a partire dall'indirizzo 0x2010, tipo dati int16, valori 3001, 3002; scrivere un registro holding in formato floating point all'indirizzo 0x1029 (in realtà due registri a 16 bit), valore 21.55; gli indirizzi dei registri corrispondenti dello slave Modbus sono stati scritti con i rispettivi valori.
    
 .. image:: coding/351.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-12 ModbusRTU Master Write Operation (Command Frame Screenshot)
+.. centered:: Grafico 9.30-12 Operazione di scrittura del master ModbusRTU (screenshot del frame di istruzione)
 
-Writing a ModbusRTU Master Program
+Scrittura del programma per il master ModbusRTU
 ************************************************
 
-Click "All" and then "Communication Instructions" to open the communication instruction addition page.
+Aprire la pagina di aggiunta delle istruzioni di comunicazione.
    
 .. image:: coding/352.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-13 Opening the Communication Instruction Addition Page
+.. centered:: Grafico 9.30-13 Apertura della pagina di aggiunta delle istruzioni di comunicazione
 
-Click "Modbus".
+Fare clic su "Modbus".
    
 .. image:: coding/353.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-14 Selecting Modbus
+.. centered:: Grafico 9.30-14 Selezione di Modbus
 
-Click "Modbus_RTU", select "Master (Client)", to open the ModbusRTU Master instruction addition page.
+Fare clic su "Modbus_RTU", selezionare "Master (client)", per aprire la pagina di aggiunta delle istruzioni del master ModbusRTU.
    
 .. image:: coding/354.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-15 Selecting Modbus_RTU
+.. centered:: Grafico 9.30-15 Selezione di Modbus_RTU
 
-Write Single Coil
+Scrittura di un coil singolo
 """"""""""""""""""""""""""""
 
-Select "Write Register", function code 0x05-Single Coil, register/coil address 0x1000, register value/coil quantity 1, byte array {1}, click "Add" button. Finally, scroll to the bottom of the page and click "Apply" button (Figure 2-16).
+Selezionare "Scrivi registro", codice funzione 0x05 - Coil singolo, registro, indirizzo coil 0x1000, valore registro, quantità coil 1, array di byte {1}, fare clic sul pulsante "Aggiungi". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica" (Figura 2-16).
    
 .. image:: coding/355.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-16 Writing a Single Coil
+.. centered:: Grafico 9.30-16 Scrittura di un coil singolo
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Master instruction to write a single digital output. Switch the robot to automatic mode and click the start button. The robot will write the value 1 to the coil register address 0x1000.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di scrittura di un singolo output digitale del master Modbus del robot. Passare il robot in modalità automatica, fare clic sul pulsante di avvio, il master del robot scriverà il valore 1 all'indirizzo del registro coil corrispondente 0x1000.
    
 .. image:: coding/356.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-17 LUA Program for Writing a Single Coil
+.. centered:: Grafico 9.30-17 Programma LUA per la scrittura di un coil singolo
 
-Write Multiple Coils
+Scrittura di più coil
 """"""""""""""""""""""""""""""""""""""""
-Select "Write Register", function code 0x0F-Multiple Coils, register/coil address 0x1010, register value/coil quantity 3, byte array {1,0,1}, click "Add" button. Finally, scroll to the bottom of the page and click "Apply" button (Figure 2-18).
+Selezionare "Scrivi registro", codice funzione 0x0F - Più coil, registro, indirizzo coil 0x1010, valore registro, quantità coil 3, array di byte {1,0,1}, fare clic sul pulsante "Aggiungi". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica" (Figura 2-18).
    
 .. image:: coding/357.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-18 Writing Multiple Coils
+.. centered:: Grafico 9.30-18 Scrittura di più coil
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Master instruction to write multiple digital outputs. Switch the robot to automatic mode and click the start button. The robot will write the values 1, 0, 1 to the coil registers starting at address 0x1000.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di scrittura di un singolo output digitale del master Modbus del robot. Passare il robot in modalità automatica, fare clic sul pulsante di avvio, il master del robot scriverà il valore 1 all'indirizzo del registro coil corrispondente 0x1000.
    
 .. image:: coding/358.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-19 LUA Program for Writing Multiple Coils
+.. centered:: Grafico 9.30-19 Programma LUA per la scrittura di più coil
 
-Read Coils and Discrete Inputs
-""""""""""""""""""""""""""""""
+Lettura di coil e input discreti
+""""""""""""""""""""""""""""""""""""""""""""""""
 
-Select "Read Register Instruction", function code 0x01-Coils (select 0x02-Discrete Inputs if reading discrete inputs), register/coil address 0x2000, register/coil quantity 3, click "Add" button. Then select "Read Register Data", register/coil/discrete input quantity 3, click "Add" button. Finally, scroll to the bottom of the page and click "Apply" button (Figure 2-20).
+Selezionare "Istruzione lettura registro", codice funzione 0x01 - Coil (se è necessario leggere input discreti, selezionare 0x02 - Input discreti), registro, indirizzo coil 0x2000, registro, quantità coil 3, fare clic sul pulsante "Aggiungi". Contemporaneamente, selezionare "Dati lettura registro", registro, coil, quantità input discreti 3, fare clic sul pulsante "Aggiungi". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica" (Figura 2-20).
    
 .. image:: coding/359.png
    :width: 4in
@@ -5828,29 +5890,29 @@ Select "Read Register Instruction", function code 0x01-Coils (select 0x02-Discre
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-20 Reading Coils
+.. centered:: Grafico 9.30-20 Lettura di coil
 
-Now the robot program "testModbusRTUSlave.lua" has added two robot Modbus Master instructions to read coils.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto due istruzioni di lettura coil del master Modbus del robot.
    
 .. image:: coding/360.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-21 Program for Reading a Single Coil
+.. centered:: Grafico 9.30-21 Programma per la lettura di un coil singolo
 
-Usually, after reading Modbus registers, the read values are stored in variables. Therefore, you need to define variables to store the read values. Click the "Switch Mode" button to switch the robot LUA program to editable mode. Before the "ModbusRegRead" instruction, add return value variables "value1", "value2", "value3". After executing the program, the read values will be stored in "value1", "value2", and "value3".
+Di solito, dopo aver letto un registro Modbus, il valore letto viene memorizzato in una variabile, quindi è necessario definire una variabile per memorizzare il valore letto. Fare clic sul pulsante "Cambia modalità", per passare il programma Lua del robot in modalità modificabile. Prima dell'istruzione "ModbusRegRead", aggiungere le variabili di ritorno "value1", "value2", "value3". Dopo l'esecuzione del programma, i valori letti verranno memorizzati in "value1", "value2", "value3".
    
 .. image:: coding/361.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-22 Storing Multiple Coil Values in Variables
+.. centered:: Grafico 9.30-22 Memorizzazione di più valori coil in variabili
 
-Coil and discrete input type register values are only 0 or 1. In the robot program, you can perform different operations by judging different register values.
+I valori dei registri di tipo coil e input discreti hanno solo due valori: 0 e 1. Nel programma del robot, è possibile eseguire operazioni diverse in base al valore del registro.
 
-Read Holding Registers and Input Registers
+Lettura di registri holding e input
 """"""""""""""""""""""""""""""""""""""""""""""
-Select "Read Register Instruction", function code 0x03-Holding Registers (select 0x04-Input Registers if reading input registers), register/coil address 0x4000, register/coil quantity 5, click "Add" button. Then select "Read Register Data", register/coil/discrete input quantity 5, click "Add" button. Finally, scroll to the bottom of the page and click "Apply" button (Figure 2-23).
+Selezionare "Istruzione lettura registro", codice funzione 0x03 - Coil (se è necessario leggere registri input, selezionare 0x04 - Registri input), registro, indirizzo coil 0x4000, registro, quantità coil 5, fare clic sul pulsante "Aggiungi". Contemporaneamente, selezionare "Dati lettura registro", registro, coil, quantità input discreti 5, fare clic sul pulsante "Aggiungi". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica" (Figura 2-23).
    
 .. image:: coding/362.png
    :width: 4in
@@ -5860,2044 +5922,2046 @@ Select "Read Register Instruction", function code 0x03-Holding Registers (select
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-23 Reading Holding Registers
+.. centered:: Grafico 9.30-23 Lettura di registri holding
 
-Now the robot program "testModbusRTUSlave.lua" has added two robot Modbus Master instructions to read coils.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto due istruzioni di lettura coil del master Modbus del robot.
    
 .. image:: coding/363.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-24 Program for Reading a Single Coil
+.. centered:: Grafico 9.30-24 Programma per la lettura di un coil singolo
 
-Usually, after reading Modbus registers, the read values are stored in variables. Therefore, you need to define variables to store the read values. Click the "Switch Mode" button to switch the robot LUA program to editable mode. Before the "ModbusRegRead" instruction, add return value variables "value1", "value2", "value3", "value4", "value5". After executing the program, the read values will be stored in these variables.
+Di solito, dopo aver letto un registro Modbus, il valore letto viene memorizzato in una variabile, quindi è necessario definire variabili per memorizzare i valori letti. Fare clic sul pulsante "Cambia modalità", per passare il programma Lua del robot in modalità modificabile. Prima dell'istruzione "ModbusRegRead", aggiungere le variabili di ritorno "value1", "value2", "value3", "value4", "value5". Dopo l'esecuzione del programma, i valori letti verranno memorizzati in "value1", "value2", "value3", "value4", "value5".
    
 .. image:: coding/364.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-25 Storing Multiple Holding Register Values in Variables
+.. centered:: Grafico 9.30-25 Memorizzazione di più valori di registri holding in variabili
 
-Robot ModbusRTU Slave Operation Instructions
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Istruzioni operative relative allo Slave ModbusRTU del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The robot ModbusRTU Slave provides four types of registers: general-purpose digital inputs (coils), general-purpose digital outputs (discrete inputs), general-purpose analog inputs (holding registers), and general-purpose analog outputs (input registers). The general-purpose digital inputs and analog inputs are mainly used for the robot to read data from external ModbusRTU Master devices to control robot operations. The general-purpose digital outputs and analog outputs are mainly used for the robot to send data signals to external ModbusRTU Master devices, which read the relevant register values to control their device operations.
+Lo slave ModbusRTU del robot fornisce quattro tipi di registri: input digitali generali (coil), output digitali generali (input discreti), input analogici generali (registri holding) e output analogici generali (registri input). Tra questi, gli input digitali generali e gli input analogici vengono utilizzati principalmente dal robot per leggere i dati dal master ModbusRTU esterno, al fine di controllare le operazioni del robot. Gli output digitali generali e gli output analogici generali vengono utilizzati principalmente dal robot per inviare segnali dati al dispositivo master ModbusRTU esterno. Il dispositivo master esterno legge i valori dei registri corrispondenti per controllare il funzionamento del proprio dispositivo.
 
-In addition to the above general-purpose inputs and outputs, the robot also provides some "functional digital inputs (coils)" for external master devices to control robot operations such as starting programs and stopping programs. Some input registers are dedicated to displaying the current robot status information, including the robot's current Cartesian position and operation status (see Appendix 1: ModbusRTU Slave Address Mapping Table for specific definitions). The robot ModbusRTU Slave only supports connection with one master. The process of using the robot ModbusRTU Slave mainly includes: ① Parameter configuration; ② Communication test; ③ Program writing.
+Oltre agli input/output generali di cui sopra, il robot fornisce anche alcuni "input digitali funzionali (coil)" per consentire al dispositivo master esterno di controllare operazioni come l'avvio del programma, l'arresto del programma, ecc. Fornisce inoltre alcuni registri input per visualizzare le informazioni sullo stato corrente del robot, inclusa la posizione cartesiana corrente del robot, lo stato di esecuzione corrente del robot, ecc. (per definizioni specifiche, vedere Allegato 1: Tabella di mappatura degli indirizzi dello slave ModbusRTU). Lo slave ModbusRTU del robot supporta la connessione con un solo master. L'utilizzo dello slave ModbusRTU del robot comprende principalmente: ① Configurazione dei parametri; ② Test di comunicazione; ③ Scrittura del programma.
 
-ModbusRTU Slave Communication Parameter Configuration
-******************************************************
+Configurazione dei parametri di comunicazione dello slave ModbusRTU
+************************************************************************************
 
-Open WebApp, click "Teach Simulation" and "Program Teaching" in sequence, and create a new user program "testModbusRTUSlave.lua".
+Aprire WebApp, fare clic in sequenza su "Simulazione insegnamento", "Insegnamento programma", creare un nuovo programma utente "testModbusRTUSlave.lua".
    
 .. image:: coding/365.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-26 Creating a ModbusRTU Slave User Program
+.. centered:: Grafico 9.30-26 Creazione del programma utente per lo slave ModbusRTU
 
-Click the "ModbusRTU Settings" button to open the ModbusRTU configuration page.
+Fare clic sul pulsante "Impostazioni ModbusRTU", per aprire la pagina di configurazione della funzione ModbusRTU.
    
 .. image:: coding/366.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-27 Opening ModbusRTU Settings
+.. centered:: Grafico 9.30-27 Apertura delle impostazioni ModbusRTU
 
-Click "Slave Settings" and enter the robot slave's baud rate, data bits, parity, stop bits, and slave number. "Baud Rate", "Data Bits", "Parity", and "Stop Bits" are the parameter configurations for the robot as a ModbusRTU Slave. "Slave Number" is the slave device number in the instructions sent by the external master.
+Fare clic in sequenza su "Impostazioni slave", inserire il baud rate, i bit dati, la parità, i bit di stop e il numero dello slave dello slave del robot. Tra questi, "Baud rate", "Bit dati", "Parità", "Bit di stop" sono i parametri di configurazione del robot come slave ModbusRTU. "Numero slave" è il numero del dispositivo slave specificato nei comandi inviati dal master esterno.
    
 .. image:: coding/367.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-28 ModbusRTU Slave Settings
+.. centered:: Grafico 9.30-28 Impostazioni dello slave ModbusRTU
 
-ModbusRTU Slave Communication Test
-****************************************
+Test di comunicazione dello slave ModbusRTU
+*******************************************************
 
-General-Purpose Digital Inputs (Coils)
+Input digitali generali (coil)
 """"""""""""""""""""""""""""""""""""""""""""""
-The robot ModbusRTU Slave provides 64 coil registers with addresses 0x4000~0x403F (see Appendix 1: ModbusRTU Slave Address Mapping Table for specific definitions). The general-purpose registers of the robot ModbusRTU Slave can be aliased. Change the name of the robot slave coil register DI0 to "A Ready" and DI1 to "B Ready". According to the address mapping table, the Modbus coil addresses for "A Ready" and "B Ready" are 0x4000 and 0x4001, respectively. On the external ModbusRTU Master device, set the robot slave coil register addresses 0x4000 and 0x4001 to 1. The indicator lights for these two registers on the robot ModbusRTU Slave monitoring page will light up.
+Lo slave ModbusRTU del robot fornisce 64 registri coil, i cui indirizzi sono 0x4000~0x403F (per definizioni specifiche, vedere Allegato 1: Tabella di mappatura degli indirizzi dello slave ModbusRTU). Tutti i registri generali dello slave ModbusRTU del robot possono avere alias. Modificare il nome del registro coil DI0 dello slave del robot in "A in posizione", e il nome di DI1 in "B in posizione". Secondo la tabella di mappatura degli indirizzi, gli indirizzi Modbus coil per "A in posizione" e "B in posizione" sono rispettivamente 0x4000 e 0x4001. Sul dispositivo master ModbusRTU esterno, impostare entrambi i registri coil dello slave del robot agli indirizzi 0x4000 e 0x4001 su 1. A questo punto, nella pagina di monitoraggio dello slave ModbusRTU del robot, le spie dei due registri si accendono.
    
 .. image:: coding/368.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-29 ModbusRTU Slave Coil Status Monitoring (Command Frame Screenshot)
+.. centered:: Grafico 9.30-29 Monitoraggio dello stato dei coil dello slave ModbusRTU (screenshot del frame di istruzione)
 
-General-Purpose Digital Outputs (Discrete Inputs)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Output digitali generali (input discreti)
+""""""""""""""""""""""""""""""""""""""""""""""
 
-The robot ModbusRTU Slave provides 64 discrete input registers with addresses 0x3000-0x303F (see Appendix 1: ModbusRTU Slave Address Mapping Table for specific definitions). Similarly, the discrete input registers of the robot ModbusRTU Slave can also be aliased. Click "General-Purpose Digital Outputs (Discrete Inputs)" to change the name of the robot slave discrete input register DO0 to "A Start" and DO1 to "B Start". According to the address mapping table, the Modbus discrete input addresses for "A Start" and "B Start" are 0x3000 and 0x3001, respectively. Click the indicator light corresponding to "A Start". The light will turn on, and the value of the corresponding register address 0x3000 will change to 1. The external ModbusRTU Master device can read this register value.
+Lo slave ModbusRTU del robot fornisce 64 registri input discreti, i cui indirizzi sono 0x3000-0x303F (per definizioni specifiche, vedere Allegato 1: Tabella di mappatura degli indirizzi dello slave ModbusRTU). Anche i registri input discreti dello slave ModbusRTU del robot possono avere alias. Fare clic su "Output digitali generali (input discreti)" per modificare il nome del registro input discreto DO0 dello slave del robot in "Avvio A", e il nome di DO1 in "Avvio B". Secondo la tabella di mappatura degli indirizzi, gli indirizzi Modbus input discreti per "Avvio A" e "Avvio B" sono rispettivamente 0x3000 e 0x3001. Fare clic sulla spia dell'input discreto corrispondente a "Avvio A", la spia si accende, il valore del registro corrispondente all'indirizzo 0x3000 diventa 1, e il dispositivo master ModbusRTU esterno può leggere questo valore del registro.
    
 .. image:: coding/369.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-30 ModbusRTU Slave Discrete Input Control
+.. centered:: Grafico 9.30-30 Controllo degli input discreti dello slave ModbusRTU
 
-Analog Inputs (Holding Registers)
+Input analogici (registri holding)
 """"""""""""""""""""""""""""""""""""""""
-The robot provides three types of holding registers: unsigned, signed, and floating-point, totaling 32. The addresses for AI0~AI32 are 0x2000-0x202F (see Appendix 1: ModbusRTU Slave Address Mapping Table for specific definitions). The data range for signed registers is -32768~32767, and floating-point registers are displayed in big-endian format. Change the names of AI0 and AI1 to "Voltage" and "Current", respectively. From the ModbusRTU Slave address mapping table, the addresses of these two registers are 0x2000 and 0x2001, respectively. Therefore, when the connected master device modifies the values of holding register addresses 0x2000 and 0x2001, the "Voltage" and "Current" register address values on the robot ModbusRTU Slave monitoring page will update accordingly. The robot's analog inputs are mainly used for the robot to obtain numerical signals from external master devices.
+Il robot fornisce tre tipi di registri holding: senza segno, con segno e floating point, per un totale di 32. Gli indirizzi di AI0~AI32 sono 0x2000-0x202F (per definizioni specifiche, vedere Allegato 1: Tabella di mappatura degli indirizzi dello slave ModbusRTU). Tra questi, l'intervallo di dati dei registri con segno è -32768~32767, e i registri floating point vengono visualizzati in formato big-endian. Modificare i nomi di AI0 e AI1 rispettivamente in "Tensione" e "Corrente". Dalla tabella di mappatura degli indirizzi dello slave ModbusRTU, si ricava che gli indirizzi dei due registri sono rispettivamente 0x2000 e 0x2001. Pertanto, quando il dispositivo master collegato modifica i valori degli indirizzi dei registri holding 0x2000 e 0x2001, la pagina di monitoraggio dello slave ModbusRTU del robot aggiorna e visualizza di conseguenza i valori degli indirizzi dei registri "Tensione" e "Corrente". L'input analogico del robot viene utilizzato principalmente per acquisire segnali numerici dal dispositivo master esterno.
    
 .. image:: coding/370.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-31 ModbusRTU Slave Analog Input Monitoring (Command Frame Screenshot)
+.. centered:: Grafico 9.30-31 Monitoraggio dell'input analogico dello slave ModbusRTU (screenshot del frame di istruzione)
 
-Analog Outputs (Input Registers)
+Output analogici (registri input)
 """"""""""""""""""""""""""""""""""""""""
-The robot provides three types of input registers: unsigned, signed, and floating-point, totaling 64. The addresses for AO0~AO63 are 0x1000-0x100F, 0x104D-0x106C (see Appendix 1: ModbusRTU Slave Address Mapping Table for specific definitions). The data range for signed registers is -32768~32767, and floating-point registers are displayed in big-endian format. Change the names of AO0 and AO1 to "Target Position A" and "Target Position B", respectively, with input register values of 2000 and 1500. From the ModbusRTU Slave address mapping table, the addresses of these two registers are 0x1000 and 0x1001, respectively. Therefore, when the connected master device reads the input register addresses 0x1000 and 0x1001, it will obtain the set values. The robot slave analog outputs are mainly used for the robot to send numerical signals to external master devices.
+Il robot fornisce tre tipi di registri input: senza segno, con segno e floating point, per un totale di 64. Gli indirizzi di AO0~AO63 sono 0x1000-0x100F, 0x104D-0x106C (per definizioni specifiche, vedere Allegato 1: Tabella di mappatura degli indirizzi dello slave ModbusRTU). Tra questi, l'intervallo di dati dei registri con segno è -32768~32767, e i registri floating point vengono visualizzati in formato big-endian. Modificare i nomi di AO0 e AO1 rispettivamente in "Posizione target A" e "Posizione target B", con valori dei registri input rispettivamente 2000 e 1500. Dalla tabella di mappatura degli indirizzi dello slave ModbusRTU, si ricava che gli indirizzi dei due registri sono rispettivamente 0x1000 e 0x1001. Pertanto, quando il dispositivo master collegato legge i valori degli indirizzi dei registri input 0x1000 e 0x1001, ottiene i valori impostati. L'output analogico dello slave del robot viene utilizzato principalmente per trasmettere segnali numerici al dispositivo master esterno.
    
 .. image:: coding/371.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-32 Modbus Slave Modifying Analog Inputs
+.. centered:: Grafico 9.30-32 Modifica dell'input analogico dello slave Modbus
 
-Writing a ModbusRTU Slave Program
+Scrittura del programma per lo slave ModbusRTU
 **************************************************
-Click "All" and then "Communication Instructions" to open the communication instruction addition page.
+
+Aprire la pagina di aggiunta delle istruzioni di comunicazione.
    
 .. image:: coding/372.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-33 Opening the Communication Instruction Addition Page
+.. centered:: Grafico 9.30-33 Apertura della pagina di aggiunta delle istruzioni di comunicazione
 
-Click "Modbus".
+Fare clic su "Modbus".
    
 .. image:: coding/373.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-34 Selecting Modbus
+.. centered:: Grafico 9.30-34 Selezione di Modbus
 
-Click "Modbus_RTU", select "Slave", to open the ModbusRTU Slave instruction addition page (Figure 60).
+Fare clic su "Modbus_RTU", selezionare "Slave", per aprire la pagina di aggiunta delle istruzioni dello slave ModbusRTU.
    
 .. image:: coding/374.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-35 Selecting Modbus_RTU, Slave
+.. centered:: Grafico 9.30-35 Selezione di Modbus_RTU, Slave
 
-Write Single Digital Output DO (Discrete Input)
-""""""""""""""""""""""""""""""""""""""""""""""""
-Select DO name as "A Start", register quantity as 1, register value as 0, click "Write Single Digital Output". Finally, scroll to the bottom of the page and click "Apply" button.
+Scrittura di un singolo output digitale DO (input discreto)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Selezionare il nome DO come "Avvio A", quantità registro 1, valore registro 0, fare clic su "Scrivi singolo output digitale". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica".
    
 .. image:: coding/375.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-36 Adding a Write Single Digital Output Instruction, Applying the Write Single Digital Output Instruction
+.. centered:: Grafico 9.30-36 Aggiunta dell'istruzione per scrivere un singolo output digitale, applicazione dell'istruzione per scrivere un singolo output digitale
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Slave instruction to write a single digital output. Switch the robot to automatic mode and click the start button. The robot will write the value 0 to the digital output named "A Start".
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di scrittura di un singolo output digitale dello slave Modbus del robot. Passare il robot in modalità automatica, fare clic sul pulsante di avvio, il robot scriverà il valore 0 all'indirizzo corrispondente all'output digitale denominato "Avvio A".
    
 .. image:: coding/376.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-37 LUA Program for Writing a Single Digital Output
+.. centered:: Grafico 9.30-37 Programma LUA per la scrittura di un singolo output digitale
 
-Write Multiple Digital Outputs DO (Discrete Inputs)
+Scrittura di più output digitali DO (input discreti)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-Open the ModbusRTU Slave instruction addition page, find "Digital Output Settings", select DO name as "A Start", register quantity as 5, register value as 1,0,1,0,1. The number of register values must match the set register quantity, and multiple register values should be separated by English commas. Click "Write Digital Output". Finally, scroll to the bottom of the page and click "Apply" button.
+
+Aprire la pagina di aggiunta delle istruzioni dello slave ModbusRTU, trovare "Impostazioni output digitali", selezionare il nome DO come "Avvio A", quantità registro 5, valore registro 1,0,1,0,1. Il numero di valori del registro deve corrispondere alla quantità di registri impostata, e più valori di registro devono essere separati da virgole inglesi, fare clic su "Scrivi output digitale". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica".
    
 .. image:: coding/377.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-38 Configuring Write Multiple Digital Outputs, Applying Write Multiple Digital Outputs
+.. centered:: Grafico 9.30-38 Configurazione della scrittura di più output digitali, applicazione della scrittura di più output digitali
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Slave instruction to write multiple digital outputs. Switch the robot to automatic mode and click the start button. The robot will write the values 1, 0, 1, 0, 1 to the discrete input registers starting from "A Start" and the next four.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di scrittura di più output digitali dello slave Modbus del robot. Passare il robot in modalità automatica, fare clic sul pulsante di avvio, lo slave del robot scriverà rispettivamente i valori 1, 0, 1, 0, 1 nei successivi 4 registri input discreti a partire da "Avvio A".
    
 .. image:: coding/378.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-39 LUA Program for Writing Multiple Digital Outputs
+.. centered:: Grafico 9.30-39 Programma LUA per la scrittura di più output digitali
 
-Read Single Digital Output DO (Discrete Input)
-""""""""""""""""""""""""""""""""""""""""""""""
-Open the ModbusRTU Master instruction addition page, find "Digital Output Settings", DO name as "A Start", register quantity as 1, register value does not need to be filled, click "Read Digital Output". Finally, scroll to the bottom of the page and click "Apply" button.
+Lettura di un singolo output digitale DO (input discreto)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Aprire la pagina di aggiunta delle istruzioni del master ModbusRTU, trovare "Impostazioni output digitali", nome DO "Avvio A", quantità registro 1, non è necessario inserire il valore registro, fare clic su "Leggi output digitale". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica".
    
 .. image:: coding/379.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-40 Configuring Read Single Digital Output, Applying Read Single Digital Output
+.. centered:: Grafico 9.30-40 Configurazione della lettura di un singolo output digitale, applicazione della lettura di un singolo output digitale
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Slave instruction to read a single digital output.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di lettura di un singolo output digitale dello slave Modbus del robot.
    
 .. image:: coding/380.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-41 Program for Reading a Single Digital Output
+.. centered:: Grafico 9.30-41 Programma per la lettura di un singolo output digitale
 
-Usually, after reading Modbus registers, the read values are stored in variables. Therefore, you need to define a variable to store the read value. Click the "Switch Mode" button to switch the robot LUA program to editable mode. Before the "ModbusSlaveReadDO_RTU" instruction, add a return value variable "AStartValue". After executing the program, the read value will be stored in "AStartValue".
+Di solito, dopo aver letto un registro Modbus, il valore letto viene memorizzato in una variabile, quindi è necessario definire una variabile per memorizzare il valore letto. Fare clic sul pulsante "Cambia modalità", per passare il programma Lua del robot in modalità modificabile. Prima dell'istruzione "ModbusSlaveReadDO_RTU", aggiungere la variabile di ritorno "AStartValue". Dopo l'esecuzione del programma, il valore letto verrà memorizzato in "AStartValue".
    
 .. image:: coding/381.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-42 Storing a Single Digital Output Read in a Variable
+.. centered:: Grafico 9.30-42 Memorizzazione della lettura di un singolo output digitale in una variabile
 
-Coil-type register values are only 0 or 1. In the robot program, you can perform different operations by judging different register values.
+I valori dei registri di tipo coil hanno solo due valori: 0 e 1. Nel programma del robot, è possibile eseguire operazioni diverse in base al valore del registro.
 
-Read Multiple Digital Outputs DO (Discrete Inputs)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Lettura di più output digitali DO (input discreti)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Open the ModbusRTU Master instruction addition page, find "Digital Output Settings", select DO name as "A Start", register quantity as 2, register value does not need to be filled, click "Read Digital Output". Finally, scroll to the bottom of the page and click "Apply" button.
+Aprire la pagina di aggiunta delle istruzioni del master ModbusRTU, trovare "Impostazioni output digitali", selezionare il nome DO come "Avvio A", quantità registro 2, non è necessario inserire il valore registro, fare clic su "Leggi output digitale". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica".
    
 .. image:: coding/382.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-43 Configuring Read Multiple Digital Outputs, Applying Read Multiple Digital Outputs
+.. centered:: Grafico 9.30-43 Configurazione della lettura di più output digitali, applicazione della lettura di più output digitali
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Slave instruction to read multiple digital outputs.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di lettura di più output digitali dello slave Modbus del robot.
    
 .. image:: coding/383.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-44 Program for Reading Multiple Digital Outputs
+.. centered:: Grafico 9.30-44 Programma per la lettura di più output digitali
 
-Click the "Switch Mode" button to switch the robot LUA program to editable mode. Since the read quantity is 2, you need to add two return value variables "value1,value2" before the "ModbusSlaveReadDO_RTU" instruction. After executing the program, the two digital output register values will be stored in these two variables. Similarly, you can judge the values of "value1" and "value2" to make the robot perform different actions.
+Fare clic sul pulsante "Cambia modalità", per passare il programma Lua del robot in modalità modificabile. Poiché la quantità letta è di 2, è necessario aggiungere due variabili di ritorno "value1, value2" prima dell'istruzione "ModbusSlaveReadDO_RTU". Dopo l'esecuzione del programma, i valori dei 2 registri output digitali letti verranno memorizzati rispettivamente nelle due variabili sopra. Allo stesso modo, è possibile controllare il robot in base ai valori di "value1" e "value2".
    
 .. image:: coding/384.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-45 Storing Multiple Digital Output Reads in Variables
+.. centered:: Grafico 9.30-45 Memorizzazione della lettura di più output digitali in variabili
 
-Read Digital Input DI (Coils)
+Lettura dell'input digitale DI (coil)
 """""""""""""""""""""""""""""""""""""""""""
 
-Open the ModbusRTU Slave instruction addition page, find "Digital Input Settings", select DI name as "A Ready", register quantity as 2, click "Read Digital Input". Finally, scroll to the bottom of the page and click "Apply" button.
+Aprire la pagina di aggiunta delle istruzioni dello slave ModbusRTU, trovare "Impostazioni input digitali", selezionare il nome DI come "A in posizione", quantità registro 2, fare clic su "Leggi input digitale". Infine, scorrere fino alla parte inferiore della pagina, fare clic sul pulsante "Applica".
    
 .. image:: coding/385.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-46 Configuring Read Digital Input, Applying Read Digital Input
+.. centered:: Grafico 9.30-46 Configurazione della lettura dell'input digitale, applicazione della lettura dell'input digitale
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Slave instruction to read digital inputs.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di lettura dell'input digitale dello slave Modbus del robot.
    
 .. image:: coding/386.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-47 Program Instruction for Reading Digital Inputs
+.. centered:: Grafico 9.30-47 Istruzione del programma per la lettura dell'input digitale
 
-Click the "Switch Mode" button to switch the robot LUA program to editable mode. Before the "ModbusSlaveReadDI_RTU" instruction, add return value variables "AState,BState". After executing the program, the two digital input values will be stored in variables "AState" and "BState", respectively. You can control the robot to perform different operations by judging the variable values.
+Fare clic sul pulsante "Cambia modalità", per passare il programma Lua del robot in modalità modificabile. Prima dell'istruzione "ModbusSlaveReadDI_RTU", aggiungere le variabili di ritorno "AState, BState". Dopo l'esecuzione del programma, i due valori di input digitale letti verranno memorizzati rispettivamente nelle variabili "AState" e "BState". È possibile controllare il robot in base ai valori delle variabili.
    
 .. image:: coding/387.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-48 Program for Reading Digital Inputs
+.. centered:: Grafico 9.30-48 Programma per la lettura dell'input digitale
 
-Read/Write Operations for Analog Output AO (Input Registers) and Analog Input AI (Holding Registers)
+Operazioni di lettura/scrittura per output analogici AO (registri input) e input analogici AI (registri holding)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The read/write operations for analog outputs (input registers) and analog inputs (holding registers) are basically the same as those for digital outputs (discrete inputs) and digital inputs (coils). The difference is that the data range of the latter is limited to 0 or 1, while the former has a larger data range. Therefore, specific operations can refer to the writing of digital output and digital input programs. Here, only the program examples for reading analog inputs (Figure 3-24) and reading/writing analog outputs (Figure 3-25) are shown.
+Le operazioni di lettura/scrittura per output analogici (registri input) e input analogici (registri holding) sono fondamentalmente le stesse di quelle per output digitali (input discreti) e input digitali (coil). La differenza è che l'intervallo di dati di questi ultimi è limitato a 0 o 1, mentre quello dei primi è più ampio. Pertanto, per le operazioni specifiche, fare riferimento alla scrittura dei programmi per output digitali e input digitali. Qui vengono mostrati solo esempi di programmi per la lettura di input analogici e la lettura/scrittura di output analogici.
    
 .. image:: coding/388.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-49 Reading Analog Inputs
+.. centered:: Grafico 9.30-49 Lettura dell'input analogico
    
 .. image:: coding/389.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-50 Reading/Writing Analog Outputs
+.. centered:: Grafico 9.30-50 Lettura/scrittura dell'output analogico
 
-Wait for Digital Input
+Attesa dell'input digitale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-Open the ModbusRTU Slave instruction addition page, find "Wait for Digital Input Settings", select DI name as the configured "A Ready" register, wait state as "True", timeout as 5000ms. Click "Add" button, then click "Apply" button.
+Aprire la pagina di aggiunta delle istruzioni dello slave ModbusRTU, trovare "Impostazioni attesa input digitale", selezionare il nome DI come il registro "A in posizione" configurato, stato di attesa "True", tempo di timeout 5000 ms. Fare clic sul pulsante "Aggiungi", infine fare clic sul pulsante "Applica".
    
 .. image:: coding/390.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-51 Adding a Wait for Digital Input Instruction
+.. centered:: Grafico 9.30-51 Aggiunta dell'istruzione di attesa dell'input digitale
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Slave instruction to wait for a digital input. After starting the program, the robot will wait for the "A Ready" coil register value of the slave to become true (value 1). Since the timeout is set to 5s, if the "A Ready" signal is still 0 after 5s, the robot program will report a timeout error and automatically stop running.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di attesa dell'input digitale dello slave Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro coil "A in posizione" dello slave diventi true, cioè valore 1. Poiché il tempo di timeout è impostato a 5 s, se dopo 5 s di attesa il segnale "A in posizione" è ancora 0, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
    
 .. image:: coding/391.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-52 Program for Waiting for Digital Input
+.. centered:: Grafico 9.30-52 Programma di attesa dell'input digitale
 
-Wait for Analog Input
+Attesa dell'input analogico
 """"""""""""""""""""""""""""""""""
-Open the ModbusRTU Slave instruction addition page, find "Wait for Analog Input Settings", select AI name as the configured "Current" register, wait state as ">", register value as 255, timeout as 5000ms. Click "Add" button, then click "Apply" button.
+Aprire la pagina di aggiunta delle istruzioni dello slave ModbusRTU, trovare "Impostazioni attesa input analogico", selezionare il nome AI come il registro "Corrente" configurato, stato di attesa ">", valore registro 255, tempo di timeout 5000 ms. Fare clic sul pulsante "Aggiungi", infine fare clic sul pulsante "Applica".
    
 .. image:: coding/392.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-53 Adding a Wait for Analog Input Instruction
+.. centered:: Grafico 9.30-53 Aggiunta dell'istruzione di attesa dell'input analogico
 
-Now the robot program "testModbusRTUSlave.lua" has added a robot Modbus Slave instruction to wait for an analog input value. After starting the program, the robot will wait for the "Current" register value of the slave to be greater than 255. Since the timeout is set to 5s, if the "Current" signal is still not greater than 255 after 5s, the robot program will report a timeout error and automatically stop running.
+A questo punto, il programma robot "testModbusRTUSlave.lua" ha già aggiunto un'istruzione di attesa del valore di input analogico dello slave Modbus del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro "Corrente" dello slave sia maggiore di 255. Poiché il tempo di timeout è impostato a 5 s, se dopo 5 s di attesa il segnale "Corrente" non è ancora maggiore di 255, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
    
 .. image:: coding/393.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-54 Program for Waiting for Analog Input Register
+.. centered:: Grafico 9.30-54 Programma di attesa del registro di input analogico
 
-Open the ModbusRTU Slave command addition page, find the "Wait for Analog Input Setting" (i.e., wait for AI input register setting). Select the AI name as the configured "Liquid Level" register, set the wait condition to "=", the register value to 255, and the timeout to 5000ms. Click the "Add" button, and finally click the "Apply" button.
-
+Aprire la pagina di aggiunta delle istruzioni dello slave ModbusRTU, trovare "Impostazioni attesa input analogico", ovvero l'impostazione di attesa del registro input AI, selezionare il nome AI come il registro "Livello liquido" configurato, stato di attesa "=", valore registro 255, tempo di timeout 5000 ms. Fare clic sul pulsante "Aggiungi", infine fare clic sul pulsante "Applica".
+            
 .. image:: coding/496.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.30-54-2 Add Wait for Analog Input
+.. centered:: Grafico 9.30-54-2 Aggiunta dell'attesa dell'input analogico
 
-At this point, a Modbus RTU Slave command to wait for the AI input register value has been added to the robot program "test.lua". After starting the program, the robot will continuously wait for the "Liquid Level" register value to equal 255. Since the timeout is set to 5s, if the "Liquid Level" signal still does not equal 255 after the robot waits for 5 seconds, the robot program will report a timeout error and automatically stop running.
+A questo punto, il programma robot "test.lua" ha già aggiunto un'istruzione di attesa del valore del registro input AI dello slave Modbus Rtu del robot. Dopo l'avvio del programma, il robot attenderà continuamente che il valore del registro "Livello liquido" sia uguale a 255. Poiché il tempo di timeout è impostato a 5 s, se dopo 5 s di attesa il segnale "Livello liquido" non è ancora uguale a 255, il programma del robot segnalerà un errore di timeout e si fermerà automaticamente.
 
-Robot Status Feedback and Control via ModbusRTU Slave
+Feedback dello stato e controllo del robot tramite slave ModbusRTU
 ***********************************************************************************
-The input register addresses 0x1010-0x104C of the collaborative robot ModbusRTU Slave are used to feedback real-time robot status (see Appendix 1: ModbusRTU Slave Address Mapping Table for specific address definitions). You only need to read the corresponding register values with the master device to obtain the corresponding real-time robot status data.
+Gli indirizzi dei registri input 0x1010-0x104C dello slave ModbusRTU del robot collaborativo sono utilizzati per fornire feedback sullo stato in tempo reale del robot (per definizioni specifiche degli indirizzi, vedere Allegato 1: Tabella di mappatura degli indirizzi dello slave ModbusRTU). È sufficiente che il dispositivo master legga i valori dei registri corrispondenti per ottenere i dati sullo stato in tempo reale del robot.
 
-The coil register addresses 0x4040-0x405C of the collaborative robot ModbusRTU Slave are used for the master device to control the robot (see Appendix 1: ModbusRTU Slave Address Mapping Table for specific address definitions). Take coil address 0x4054 as an example. This address function is "Start Program". When the robot is in automatic mode, the master device changes the value of address 0x4054 from 0 to 1, and the robot automatically starts running the currently configured program. Another example is coil address 0x4040, which is used to control the output of control box DO0. When the external master changes the coil address 0x4040 from 0 to 1, the control box DO0 automatically outputs effectively. Similarly, when the external master changes the coil address 0x4040 from 1 to 0, the control box DO0 output becomes invalid. On the ModbusRTU Slave settings page, click "Functional Digital Inputs (Coils)" to monitor all current functional digital inputs.
+Gli indirizzi dei registri coil 0x4040-0x405C dello slave ModbusRTU del robot collaborativo sono utilizzati dal dispositivo master per controllare il robot (per definizioni specifiche degli indirizzi, vedere Allegato 1: Tabella di mappatura degli indirizzi dello slave ModbusRTU). Prendendo come esempio l'indirizzo coil 0x4054, la funzione di questo indirizzo è "Avvia programma". Quando il robot è in modalità automatica, se il dispositivo master imposta il valore dell'indirizzo 0x4054 da 0 a 1, il robot inizia automaticamente a eseguire il programma configurato; prendendo come esempio l'indirizzo coil 0x4040, questo viene utilizzato per controllare l'output DO0 del quadro di controllo del robot. Quando il master esterno imposta il valore dell'indirizzo coil 0x4040 da 0 a 1, il DO0 del quadro di controllo viene attivato; allo stesso modo, quando il master esterno imposta il valore dell'indirizzo coil 0x4040 da 1 a 0, l'output DO0 del quadro di controllo viene disattivato. Nella pagina delle impostazioni dello slave ModbusRTU, fare clic su "Input digitali funzionali (coil)", per monitorare la situazione corrente di tutti gli input digitali funzionali.
    
 .. image:: coding/396.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.30-55 Digital input of the robot slave function
+.. centered:: Grafico 9.30-55 Input digitali funzionali dello slave del robot
 
-Attachment 1: Modbus Slave Address Mapping Table
+Allegato 1: Tabella di mappatura degli indirizzi dello slave Modbus Rtu
 
 .. list-table::
    :widths: 15 20 25 15 20 10
    :header-rows: 0
    :align: center
 
-   * - **Third-party Controller Address**
-     - **Type**
-     - **Name**
-     - **Data Type**
-     - **Function Code**
-     - **R/W**
+   * - **Indirizzo fornito dal controller di terze parti**
+     - **Tipo**
+     - **Nome**
+     - **Tipo di dati**
+     - **Codice funzione**
+     - **Lettura/Scrittura**
 
    * - 0x3000
-     - General Digital Output (Discrete)
+     - Output digitale generale (discreto)
      - DO0
      - BOOL 
      - 0x02 
-     - Read Only  
+     - Sola lettura  
 
    * - 0x3001
-     - General Digital Output (Discrete)
+     - Output digitale generale (discreto)
      - DO1
      - BOOL 
      - 0x02 
-     - Read Only  
+     - Sola lettura  
 
    * - 0x3002
-     - General Digital Output (Discrete)
+     - Output digitale generale (discreto)
      - DO2
      - BOOL 
      - 0x02 
-     - Read Only  
+     - Sola lettura  
 
    * - 0x3003
-     - General Digital Output (Discrete)
+     - Output digitale generale (discreto)
      - DO3
      - BOOL 
      - 0x02 
-     - Read Only  
+     - Sola lettura  
 
    * - ...
-     - General Digital Output (Discrete)
+     - Output digitale generale (discreto)
      - ...
      - BOOL 
      - 0x02 
-     - Read Only  
+     - Sola lettura  
 
    * - 0x303F
-     - General Digital Output (Discrete)
+     - Output digitale generale (discreto)
      - DO127
      - BOOL 
      - 0x02 
-     - Read Only  
+     - Sola lettura  
 
    * - 0x4000
-     - General Digital Input (Coil)
+     - Input digitale generale (coil)
      - DI0
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4001
-     - General Digital Input (Coil)
+     - Input digitale generale (coil)
      - DI1
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4002
-     - General Digital Input (Coil)
+     - Input digitale generale (coil)
      - DI2
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4003
-     - General Digital Input (Coil)
+     - Input digitale generale (coil)
      - DI3
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - ...
-     - General Digital Input (Coil)
+     - Input digitale generale (coil)
      - ...
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x403F
-     - General Digital Input (Coil)
+     - Input digitale generale (coil)
      - DI64
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4040
-     - Robot Control
-     - Control Box DO0
+     - Controllo robot
+     - DO0 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4041
-     - Robot Control
-     - Control Box DO1
+     - Controllo robot
+     - DO1 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4042
-     - Robot Control
-     - Control Box DO2
+     - Controllo robot
+     - DO2 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4043
-     - Robot Control
-     - Control Box DO3
+     - Controllo robot
+     - DO3 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4044
-     - Robot Control
-     - Control Box DO4
+     - Controllo robot
+     - DO4 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4045
-     - Robot Control
-     - Control Box DO5
+     - Controllo robot
+     - DO5 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4046
-     - Robot Control
-     - Control Box DO6
+     - Controllo robot
+     - DO6 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4047
-     - Robot Control
-     - Control Box DO7
+     - Controllo robot
+     - DO7 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4048
-     - Robot Control
-     - Control Box CO0
+     - Controllo robot
+     - CO0 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4049
-     - Robot Control
-     - Control Box CO1
+     - Controllo robot
+     - CO1 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x404A
-     - Robot Control
-     - Control Box CO2
+     - Controllo robot
+     - CO2 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x404B
-     - Robot Control
-     - Control Box CO3
+     - Controllo robot
+     - CO3 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x404C
-     - Robot Control
-     - Control Box CO4
+     - Controllo robot
+     - CO4 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x404D
-     - Robot Control
-     - Control Box CO5
+     - Controllo robot
+     - CO5 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x404E
-     - Robot Control
-     - Control Box CO6
+     - Controllo robot
+     - CO6 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x404F
-     - Robot Control
-     - Control Box CO7
+     - Controllo robot
+     - CO7 quadro di controllo
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4050
-     - Robot Control
-     - Tool DO0
+     - Controllo robot
+     - DO0 utensile
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4051
-     - Robot Control
-     - Tool DO1
+     - Controllo robot
+     - DO1 utensile
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4052
-     - Robot Control
-     - Pause
+     - Controllo robot
+     - Pausa
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4053
-     - Robot Control
-     - Resume
+     - Controllo robot
+     - Riprendi
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4054
-     - Robot Control
-     - Start
+     - Controllo robot
+     - Avvia
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4055
-     - Robot Control
-     - Stop
+     - Controllo robot
+     - Arresta
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4056
-     - Robot Control
-     - Move to Home Position
+     - Controllo robot
+     - Sposta all'origine dell'operazione
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4057
-     - Robot Control
-     - Manual/Auto Toggle
+     - Controllo robot
+     - Commuta manuale/automatico
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4058
-     - Robot Control
-     - Start Main Program
+     - Controllo robot
+     - Avvia programma principale
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x4059
-     - Robot Control
-     - Level 1 Reduction Mode
+     - Controllo robot
+     - Modalità riduzione di primo livello
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x405A
-     - Robot Control
-     - Level 2 Reduction Mode
+     - Controllo robot
+     - Modalità riduzione di secondo livello
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x405B
-     - Robot Control
-     - Level 3 Reduction Mode (Stop)
+     - Controllo robot
+     - Modalità riduzione di terzo livello (arresto)
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x405C
-     - Robot Control
-     - Clear All Faults
+     - Controllo robot
+     - Cancella tutti i guasti
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x405D
-     - Robot Control
-     - Reserved
+     - Controllo robot
+     - Riservato
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x405E
-     - Robot Control
-     - Reserved
+     - Controllo robot
+     - Riservato
      - BOOL 
-     - 0x01, 0x05, 0x0F 
-     - R/W  
+     - 0x01、0x05、0x0F 
+     - Lettura/Scrittura  
 
    * - 0x1000
-     - Analog Input
+     - Input analogico
      - AO0
      - INT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1001
-     - Analog Input
+     - Input analogico
      - AO1
      - INT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1002
-     - Analog Input
+     - Input analogico
      - AO2
      - INT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - ...
-     - Analog Input
+     - Input analogico
      - ...
      - INT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x100F
-     - Analog Input
+     - Input analogico
      - AO15
      - INT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1010
-     - Robot Status
-     - Enable Status (0-Disabled, 1-Enabled)
+     - Stato robot
+     - Stato abilitazione 0-non abilitato, 1-abilitato
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1011
-     - Robot Status
-     - Robot Mode (1-Manual, 0-Auto)
+     - Stato robot
+     - Modalità robot, 1-manuale, 0-automatico
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1012
-     - Robot Status
-     - Robot Operation Status (1-Stop, 2-Running, 3-Paused, 4-Dragging)
+     - Stato robot
+     - Stato esecuzione robot 1-arrestato, 2-in esecuzione, 3-in pausa, 4-trattinato
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1013
-     - Robot Status
-     - Tool Number
+     - Stato robot
+     - Numero utensile
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1014
-     - Robot Status
-     - Workpiece Number
+     - Stato robot
+     - Numero pezzo
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1015
-     - Robot Status
-     - Emergency Stop Status (0-Normal, 1-Emergency Stop)
+     - Stato robot
+     - Stato arresto di emergenza 0-non in arresto di emergenza, 1-arresto di emergenza
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1016
-     - Robot Status
-     - Soft Limit Fault
+     - Stato robot
+     - Guasto limite morbido eccessivo
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1017
-     - Robot Status
-     - Main Fault Code
+     - Stato robot
+     - Codice guasto principale
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1018
-     - Robot Status
-     - Sub Fault Code
+     - Stato robot
+     - Codice guasto secondario
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1019
-     - Robot Status
-     - Collision Detection (1-Collision, 0-No Collision)
+     - Stato robot
+     - Rilevamento collisione, 1-collisione, 0-nessuna collisione
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x101A
-     - Robot Status
-     - Motion Completion Signal
+     - Stato robot
+     - Segnale di movimento a punto
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x101B
-     - Robot Status
-     - Safety Stop Signal SI0
+     - Stato robot
+     - Segnale arresto sicurezza SI0
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x101C
-     - Robot Status
-     - Safety Stop Signal SI1
+     - Stato robot
+     - Segnale arresto sicurezza SI1
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x101D
-     - Robot Status
-     - Control Box Analog Input AI0
+     - Stato robot
+     - Input analogico quadro di controllo AI0
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x101E
-     - Robot Status
-     - Control Box Analog Input AI1
+     - Stato robot
+     - Input analogico quadro di controllo AI1
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x101F
-     - Robot Status
-     - Tool Analog Input AI0
+     - Stato robot
+     - Input analogico utensile AI0
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1020
-     - Robot Status
-     - Control Box Analog Output AO0
+     - Stato robot
+     - Output analogico quadro di controllo AO0
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1021
-     - Robot Status
-     - Control Box Analog Output AO1
+     - Stato robot
+     - Output analogico quadro di controllo AO1
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1022
-     - Robot Status
-     - Tool Analog Output AO0
+     - Stato robot
+     - Output analogico utensile AO0
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1023
-     - Robot Status
-     - Control Box Digital Input (Bit0-Bit7: DI0-DI7, Bit8-Bit15: CI0-CI7)
+     - Stato robot
+     - Input digitale quadro di controllo Bit0-Bit7 corrispondente a DI0-DI7 Bit8-Bit15 corrispondente a CI0-CI7
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1024
-     - Robot Status
-     - Tool Digital Input (Bit0-Bit15: DI0-DI15)
+     - Stato robot
+     - Input digitale lato utensile Bit0-Bit15 corrispondente a DI0-DI15
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1025
-     - Robot Status
-     - Control Box Digital Output (Bit0-Bit7: DO0-DO7, Bit8-Bit15: CO0-CO7)
+     - Stato robot
+     - Output digitale quadro di controllo Bit0-Bit7 corrispondente a DO0-DO7 Bit8-Bit15 corrispondente a CO0-CO7
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1026
-     - Robot Status
-     - Tool Digital Output (Bit0-Bit15: DO0-DO15)
+     - Stato robot
+     - Output digitale lato utensile Bit0-Bit15 corrispondente a DO0-DO15
      - UINT16 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1027
-     - Robot Status
-     - TCP Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità TCP
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1028
-     - Robot Status
-     - TCP Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità TCP
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1029
-     - Robot Status
-     - Joint 1 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 1
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x102A
-     - Robot Status
-     - Joint 1 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 1
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x102B
-     - Robot Status
-     - Joint 2 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 2
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x102C
-     - Robot Status
-     - Joint 2 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 2
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x102D
-     - Robot Status
-     - Joint 3 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 3
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x102E
-     - Robot Status
-     - Joint 3 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 3
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x102F
-     - Robot Status
-     - Joint 4 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 4
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1030
-     - Robot Status
-     - Joint 4 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 4
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1031
-     - Robot Status
-     - Joint 5 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 5
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1032
-     - Robot Status
-     - Joint 5 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 5
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1033
-     - Robot Status
-     - Joint 6 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 6
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1034
-     - Robot Status
-     - Joint 6 Position
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione giunto 6
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1035
-     - Robot Status
-     - Joint 1 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 1
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1036
-     - Robot Status
-     - Joint 1 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 1
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1037
-     - Robot Status
-     - Joint 2 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 2
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1038
-     - Robot Status
-     - Joint 2 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 2
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1039
-     - Robot Status
-     - Joint 3 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 3
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x103A
-     - Robot Status
-     - Joint 3 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 3
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x103B
-     - Robot Status
-     - Joint 4 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 4
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x103C
-     - Robot Status
-     - Joint 4 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 4
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x103D
-     - Robot Status
-     - Joint 5 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 5
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x103E
-     - Robot Status
-     - Joint 5 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 5
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x103F
-     - Robot Status
-     - Joint 6 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 6
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1040
-     - Robot Status
-     - Joint 6 Speed
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Velocità giunto 6
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1041
-     - Robot Status
-     - TCP Position X
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP X
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1042
-     - Robot Status
-     - TCP Position X
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP X
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1043
-     - Robot Status
-     - TCP Position Y
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP Y
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1044
-     - Robot Status
-     - TCP Position Y
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP Y
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1045
-     - Robot Status
-     - TCP Position Z
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP Z
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1046
-     - Robot Status
-     - TCP Position Z
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP Z
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1047
-     - Robot Status
-     - TCP Position RX
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP RX
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1048
-     - Robot Status
-     - TCP Position RX
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP RX
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1049
-     - Robot Status
-     - TCP Position RY
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP RY
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x104A
-     - Robot Status
-     - TCP Position RY
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP RY
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x104B
-     - Robot Status
-     - TCP Position RZ
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP RZ
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x104C
-     - Robot Status
-     - TCP Position RZ
-     - FLOAT32 (Big Endian) 
+     - Stato robot
+     - Posizione TCP RZ
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x104D
-     - Analog Input
+     - Input analogico
      - AO16
-     - FLOAT32 (Big Endian) 
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x104E
-     - Analog Input
+     - Input analogico
      - AO16
-     - FLOAT32 (Big Endian) 
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x104F
-     - Analog Input
+     - Input analogico
      - AO17
-     - FLOAT32 (Big Endian) 
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x1050
-     - Analog Input
+     - Input analogico
      - AO17
-     - FLOAT32 (Big Endian) 
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - ...
-     - Analog Input
+     - Input analogico
      - ...
-     - FLOAT32 (Big Endian) 
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x106B
-     - Analog Input
+     - Input analogico
      - AO31
-     - FLOAT32 (Big Endian) 
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x106C
-     - Analog Input
+     - Input analogico
      - AO31
-     - FLOAT32 (Big Endian) 
+     - FLOAT32 (visualizzazione big-endian) 
      - 0x04
-     - Read Only  
+     - Sola lettura  
 
    * - 0x2000
-     - Analog Output
+     - Output analogico
      - AI0
      - INT16 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x2001
-     - Analog Output
+     - Output analogico
      - AI1
      - INT16 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x2002
-     - Analog Output
+     - Output analogico
      - AI2
      - INT16 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - ...
-     - Analog Output
+     - Output analogico
      - ...
      - INT16 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x200F
-     - Analog Output
+     - Output analogico
      - AI15
      - INT16 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x2010
-     - Analog Output
+     - Output analogico
      - AI16
-     - FLOAT32 (Big Endian) 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - FLOAT32 (visualizzazione big-endian) 
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x2011
-     - Analog Output
+     - Output analogico
      - AI16
-     - FLOAT32 (Big Endian) 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - FLOAT32 (visualizzazione big-endian) 
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x2012
-     - Analog Output
+     - Output analogico
      - AI17
-     - FLOAT32 (Big Endian) 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - FLOAT32 (visualizzazione big-endian) 
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x2013
-     - Analog Output
+     - Output analogico
      - AI17
-     - FLOAT32 (Big Endian) 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - FLOAT32 (visualizzazione big-endian) 
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - ...
-     - Analog Output
+     - Output analogico
      - ...
-     - FLOAT32 (Big Endian) 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - FLOAT32 (visualizzazione big-endian) 
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x202E
-     - Analog Output
+     - Output analogico
      - AI31
-     - FLOAT32 (Big Endian) 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - FLOAT32 (visualizzazione big-endian) 
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
    * - 0x202F
-     - Analog Output
+     - Output analogico
      - AI31
-     - FLOAT32 (Big Endian) 
-     - 0x03, 0x06, 0x10
-     - R/W  
+     - FLOAT32 (visualizzazione big-endian) 
+     - 0x03、0x06、0x10
+     - Lettura/Scrittura  
 
-Protection Based on 6-Axis Force Sensor Posture Compliance Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protezione basata sulla funzione di adattamento dell'orientamento del sensore di forza a sei assi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++
 
-Current FR robots have no maximum adjustment angle limit in posture compliance function under constant force FT_Control. When the 6-axis force sensor receives external torque, the robot end will continuously deviate, which may cause hazards.
+Attualmente, la funzione di adattamento dell'orientamento del robot FR sotto il controllo di forza costante FT_Control non ha limiti per l'angolo di regolazione massimo. Quando il sensore di forza a sei assi è sottoposto a una coppia esterna, l'estremità del robot continuerà a spostarsi, il che in tali circostanze può facilmente portare a situazioni pericolose.
 
-This enhancement adds maximum adjustment angle limit on top of the FT_Control posture compliance function, allowing custom threshold setting to make posture compliance smoother.
+Sulla base della funzione di adattamento dell'orientamento di FT_Control, viene aggiunto un limite per l'angolo di regolazione massimo, impostando una soglia personalizzata per rendere la funzione di adattamento dell'orientamento più fluida.
 
-Operation Procedure
+Flusso operativo
 ++++++++++++++++++++++++++++++++++++++++
 
-**Step1**: Click "Initial Setup"->"Basic"->"Coordinate System"->"Tool" to enter the tool coordinate system setup interface. Select "Coordinate System Name" and configure parameters for the end tool coordinate system.
+**Step1**: Fare clic su "Impostazioni iniziali" -> "Base" -> "Coordinate utensile", per accedere all'interfaccia di impostazione del sistema di coordinate dell'utensile. Selezionare "Nome sistema di coordinate" e impostare i parametri del sistema di coordinate corrispondente all'utensile finale.
    
 .. image:: coding/443.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.31-1 Tool Coordinate System Setup
+.. centered:: Grafico 9.31-1 Impostazione del sistema di coordinate dell'utensile
 
-**Step2**: Click "Teach Programming"->"Program Editing" to write constant force control Lua script. Select "Force Control Set"->"Control", add force control motion command, set "Posture Compliance" to ON, and configure maximum adjustment angle as the threshold.
+**Step2**: Fare clic su "Programma di insegnamento"->"Programmazione del programma", scrivere uno script Lua per il controllo di forza costante, selezionare "Set di controllo di forza"->"Control", aggiungere un'istruzione di movimento con controllo di forza, impostare "Attivazione" per l'adattamento dell'orientamento e impostare l'angolo massimo di regolazione come soglia per l'angolo di adattamento dell'orientamento.
    
 .. image:: coding/444.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.31-2 Force Control Motion Command
+.. centered:: Grafico 9.31-2 Istruzione di movimento con controllo di forza
 
-**Step3**: On web interface click "FT" to set 6-axis force sensor reference coordinate system. Select reference coordinate system as "Custom Coordinate System" and configure corresponding parameters.
-When posture compliance adjusts around tool coordinate system, set reference coordinate parameters to "0"; when adjusting around end flange coordinate system, set parameters to match the end tool coordinate system.
+**Step3**: Nell'interfaccia web, fare clic su "FT", impostare il sistema di coordinate di riferimento del sensore di forza a sei assi, selezionare il sistema di coordinate di riferimento come "Sistema di coordinate personalizzato" e impostare i parametri corrispondenti del sistema di coordinate.
+L'adattamento dell'angolo di orientamento ruota attorno al sistema di coordinate dell'utensile, impostare i parametri del sistema di coordinate di riferimento su "0"; l'adattamento dell'angolo di orientamento ruota attorno al sistema di coordinate della flangia finale, impostare i parametri del sistema di coordinate di riferimento sui parametri del sistema di coordinate corrispondenti all'utensile finale.
    
 .. image:: coding/445.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.31-3 Setting 6-Axis Force Sensor Reference Coordinate System
+.. centered:: Grafico 9.31-3 Impostazione del sistema di coordinate di riferimento del sensore di forza a sei assi
 
-**Step4**: Run the script to observe posture compliance effect. The adjustment angle under constant force will be limited within the custom maximum adjustment angle range.
+**Step4**: Eseguire lo script, osservare l'effetto di adattamento dell'orientamento. L'angolo di regolazione dell'adattamento dell'orientamento sotto forza costante sarà limitato all'interno dell'intervallo personalizzato dell'angolo massimo di regolazione.
 
-Socket Communication Interface Function
+Funzionalità dell'interfaccia di comunicazione Socket
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Socket Configuration
+Configurazione Socket
 ++++++++++++++++++++++++++++++++++
 
-When using the Socket communication interface function, after the robot is powered on, you need to first access the web page to configure the Socket protocol. The configuration is saved after power-off.
+Quando si utilizza la funzionalità dell'interfaccia di comunicazione Socket, dopo l'accensione e l'avvio del robot, è necessario accedere alla pagina web per configurare il protocollo Socket. La configurazione viene salvata in caso di spegnimento.
 
-Click "Teach Program" - "Program Editing", then click "Socket Network Debugging" in the upper right menu bar to enter the Socket configuration interface. Click "Add Socket" to configure Socket parameters. Up to four Sockets can be added.
+Fare clic su "Programma di insegnamento" - "Programmazione del programma", quindi fare clic su "Debug rete Socket" nella barra dei menu in alto a destra per accedere all'interfaccia di configurazione Socket. Fare clic su "Aggiungi Socket" per configurare i parametri Socket. È possibile aggiungere fino a quattro Socket.
 
 .. image:: coding/446.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-1 Socket Network Debugging Interface
+.. centered:: Grafico 9.32-1 Interfaccia di debug rete Socket
 
 .. image:: coding/447.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-2 Socket Configuration Parameters Interface
+.. centered:: Grafico 9.32-2 Interfaccia dei parametri di configurazione Socket
 
-Communication Parameter Settings
+Impostazione dei parametri di comunicazione
 ********************************************
 
-The communication protocol supports UDP, TCP server, and TCP client.
+I protocolli di comunicazione supportati sono UDP, TCP Server, TCP Client.
 
-Data types support both ASCII and HEX. After configuring the data type, all data transmission and reception for that Socket connection will be processed according to the configured type.
+I tipi di dati supportati sono ASCII e HEX. Dopo aver configurato il tipo di dati, tutte le trasmissioni e ricezioni di dati per quella connessione Socket vengono elaborate in base al tipo configurato.
 
-Heartbeat Detection Mechanism
+Meccanismo di rilevamento heartbeat
 ********************************************
-The heartbeat detection mechanism is only applicable to TCP server and TCP client.
+Il meccanismo di rilevamento heartbeat si applica solo a TCP Server e TCP Client.
 
-The heartbeat detection mechanism uses the Keepalive mechanism to detect and maintain the active state of the connection, preventing accidental interruption of long-idle connections. It mainly includes the following parameters:
+Il meccanismo di rilevamento heartbeat utilizza il meccanismo Keepalive per rilevare e mantenere lo stato attivo della connessione, prevenendo interruzioni accidentali di connessioni inattive per lungo tempo. Include principalmente i seguenti parametri:
 
-- Probe interval: How long to wait before sending keepalive probe packets (in seconds);
-- Probe time: Interval between probe packets (in seconds);
-- Probe count: Maximum number of probe packets to send.
+- Intervallo di rilevamento: Dopo quanto tempo di inattività iniziare a inviare pacchetti di rilevamento keepalive, unità secondi;
+- Intervallo di rilevamento: Intervallo di tempo tra l'invio dei pacchetti di rilevamento, unità secondi;
+- Numero di rilevamenti: Numero massimo di pacchetti di rilevamento da inviare.
 
-Reconnection Mechanism
-********************************************
-The reconnection mechanism is only applicable to TCP client.
+Meccanismo di riconnessione in caso di interruzione
+************************************************************************
+Il meccanismo di riconnessione in caso di interruzione si applica solo a TCP Client.
 
-When the reconnection mechanism is enabled and the TCP client detects a server disconnection upon startup, it will actively attempt to reconnect. If the connection cannot be established after reaching the maximum reconnection attempts, the connection will be dropped. It mainly includes the following parameters:
+Quando il meccanismo di riconnessione in caso di interruzione è attivato, se il client TCP rileva la disconnessione del server all'apertura, attiverà attivamente il meccanismo di riconnessione. Se non riesce a connettersi dopo aver raggiunto il numero massimo di tentativi di riconnessione, la connessione verrà interrotta. Include principalmente i seguenti parametri:
 
-- Reconnection interval: Reconnection interval time (in ms, recommended to be in seconds);
-- Maximum reconnection attempts: Maximum number of reconnection attempts.
+- Intervallo di riconnessione: Intervallo di tempo tra i tentativi di riconnessione, unità ms, si consiglia un intervallo a livello di secondi;
+- Numero massimo di tentativi di riconnessione: Numero massimo di tentativi di riconnessione.
   
-Custom Protocol Parsing
+Analisi del protocollo personalizzato
 ********************************************
-When custom protocol parsing is enabled, the transmitted and received data will be encapsulated or parsed according to the protocol configuration.
+Quando l'analisi del protocollo personalizzato è attivata, i dati trasmessi e ricevuti vengono incapsulati o analizzati in base al contenuto della configurazione del protocollo.
 
-Custom protocols can be automatically generated based on configuration parameters. In ASCII mode, frame header, frame count, data length, and frame tail combinations are supported. Delimiters can be used for data segmentation. In HEX mode, frame header, frame count, data length, checksum method, and frame tail combinations are supported.
+Il protocollo personalizzato può essere generato automaticamente in base ai parametri configurati. In modalità ASCII, supporta la combinazione di intestazione del frame, conteggio del frame, lunghezza dei dati e fine del frame. È possibile utilizzare separatori per dividere i dati. In modalità HEX, supporta la combinazione di intestazione del frame, conteggio del frame, lunghezza dei dati, metodo di checksum e fine del frame.
 
 .. image:: coding/448.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-3 ASCII Mode Custom Protocol Configuration
+.. centered:: Grafico 9.32-3 Configurazione del protocollo personalizzato in modalità ASCII
 
 .. image:: coding/449.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-4 HEX Mode Custom Protocol Configuration
+.. centered:: Grafico 9.32-4 Configurazione del protocollo personalizzato in modalità HEX
 
-After configuring the custom protocol, click the "Generate" button to automatically generate the corresponding Lua file. The Lua file supports import and export functions. The protocol type can be flexibly configured by modifying the file code.
+Dopo aver configurato il protocollo personalizzato, fare clic sul pulsante "Genera" per generare automaticamente il file Lua corrispondente. Il file Lua supporta funzioni di importazione ed esportazione. È possibile modificare personalmente il tipo di protocollo in base al codice del file per una configurazione flessibile.
 
-Socket Connection
+Connessione Socket
 ++++++++++++++++++++++++++++++++++++++++++
 
-Interface Connection Display
-********************************************
-After configuring Socket information, the Socket connection can be established. The connection status includes the following three states:
+Visualizzazione dello stato di connessione nell'interfaccia
+********************************************************************
+Dopo aver configurato le informazioni Socket, è possibile stabilire la connessione Socket. Lo stato della connessione include i seguenti tre stati:
 
-- White: Connection not established.
+- Bianco: Connessione non stabilita.
 
 .. image:: coding/450.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-5 Disconnected State
+.. centered:: Grafico 9.32-5 Stato non connesso
 
-- Yellow: TCP server waiting for connection or TCP client requesting connection.
+- Giallo: TCP Server in attesa di connessione o TCP Client in richiesta di connessione.
 
 .. image:: coding/451.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-6 Waiting for Connection State
+.. centered:: Grafico 9.32-6 Stato di attesa connessione
 
-- Green: Connection successful.
+- Verde: Connessione riuscita.
 
 .. image:: coding/452.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-7 Connected State
+.. centered:: Grafico 9.32-7 Stato di connessione riuscita
 
-Connection Command Module
+Modulo istruzioni di connessione
 ********************************************
 
-Click "Teach Program" - "Program Editing" - "Communication Commands", select "Socket" command to generate commands for opening and closing Socket connections for Lua programming. SocketID can only select already configured Socket connections.
+Fare clic su "Programma di insegnamento" - "Programmazione del programma" - "Istruzioni di comunicazione", selezionare l'istruzione "Socket" per generare istruzioni per aprire e chiudere la connessione Socket, utilizzate nella programmazione Lua. L'ID Socket può selezionare solo una connessione Socket già configurata.
 
 .. image:: coding/453.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-8 Socket Connection Command Module
+.. centered:: Grafico 9.32-8 Modulo istruzioni di connessione Socket
 
-Command details:
+Dettaglio istruzioni:
 
-- Open connection command: OpenSockeConnect(id);
-- Parameter id: Pre-configured socket ID, return value 0 for success;
-- Close connection command: CloseSockeConnect(id);
-- Parameter id: Pre-configured socket ID, return value 0 for success.
+- Istruzione per aprire la connessione: OpenSockeConnect(id);
+- Parametro id: ID socket già configurato, valore di ritorno 0 per successo;
+- Istruzione per chiudere la connessione: CloseSockeConnect(id);
+- Parametro id: ID socket già configurato, valore di ritorno 0 per successo.
 
-Socket Communication
+Comunicazione Socket
 +++++++++++++++++++++++++++++++++++++++++
 
-Communication Testing
+Test di comunicazione
 ***********************************
-The interface provides communication testing for data transmission and reception testing, as shown in Figure 3-1 below.
+L'interfaccia fornisce test di comunicazione, consentendo test di trasmissione e ricezione dati, come mostrato nella figura seguente.
 
 .. image:: coding/454.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-9 Communication Testing
+.. centered:: Grafico 9.32-9 Test di comunicazione
  
-The interface sends data in blocking mode by default, waiting for motion completion before sending data. The default data reception timeout is 5 seconds, after which an error will be reported and stopped. These parameters can be adjusted when issuing commands.
+L'invio di dati dall'interfaccia utilizza per impostazione predefinita la modalità bloccante, attendendo il completamento del movimento prima di inviare i dati. Il timeout di ricezione dati predefinito è di 5 secondi, dopo i quali viene segnalato un errore e l'operazione si interrompe. I parametri sopra possono essere regolati durante l'invio tramite il modulo di istruzioni.
 
-Communication Command Module
+Modulo istruzioni di comunicazione
 ***********************************
 
-Click "Teach Program" - "Program Editing" - "Communication Commands", select "Socket" command to generate Socket communication commands for data transmission and reception in Lua programming. SocketID can only select already configured Socket connections for sending data.
+Fare clic su "Programma di insegnamento" - "Programmazione del programma" - "Istruzioni di comunicazione", selezionare l'istruzione "Socket" per generare istruzioni di comunicazione Socket per la trasmissione e ricezione di dati, utilizzate nella programmazione Lua. L'ID Socket può selezionare solo una connessione Socket già configurata, per l'invio dei dati.
 
 .. image:: coding/455.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-10 Sending Socket Data
+.. centered:: Grafico 9.32-10 Invio di dati Socket
 
-Command parameters are Socket ID, data to send, and whether to wait for motion completion.
+I parametri dell'istruzione sono rispettivamente: ID Socket, dati da inviare e se attendere il completamento del movimento.
 
-Command details:
+Dettaglio istruzioni:
 
-- Send command: SocketSend(id,data,block);
-- Parameters: id, connected socket ID; data: data to send (string format), content must match the configured data type, such as "hello" or "FA54DE"; block: whether to block motion (0: wait for motion completion before sending, 1: send immediately). Return value 0 for success.
+- Istruzione di invio: SocketSend(id,data,block);
+- Parametri: id, ID socket già connesso; data: dati da inviare, in formato stringa, il contenuto dei dati deve corrispondere al tipo di dati configurato, ad esempio "hello" o "FA54DE"; block: se bloccare il movimento, 0: attendere il completamento del movimento prima di inviare, 1: inviare immediatamente. Valore di ritorno 0 per successo.
 
-Receiving data is shown below.
+La ricezione dei dati è mostrata nella figura seguente.
 
 .. image:: coding/456.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.32-11 Receiving Socket Data
+.. centered:: Grafico 9.32-11 Ricezione di dati Socket
 
-Command parameters are Socket ID, reception timeout (in milliseconds), and post-timeout strategy.
+I parametri dell'istruzione sono rispettivamente: ID Socket, timeout di ricezione in millisecondi e stato dopo il timeout.
 
-Command details:
+Dettaglio istruzioni:
 
-- Receive command: SocketReceive(id,timeout,stopStartegy);
-- Parameters: id, connected socket ID; timeout: reception timeout; stopStartegy: post-timeout strategy (0: report error and stop after timeout, 1: continue running after timeout);
-- Return values: time: reception time, data: received data.
+- Istruzione di ricezione: SocketReceive(id,timeout,stopStartegy);
+- Parametri: id, ID socket già connesso; timeout: timeout di ricezione; stopStartegy: strategia dopo il timeout, 0: segnala errore e interrompe dopo il timeout, 1: continua l'esecuzione dopo il timeout;
+- Valori di ritorno: time: tempo di ricezione, data: dati ricevuti.
 
-Robot Linear, Circular, and Full Circle Motion Setting Physical Speed
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Impostazione della velocità fisica per movimenti lineari, ad arco e circolari completi del robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-LUA Programming
+Scrittura del programma LUA
 +++++++++++++++++++++++++++++++++++++++++++
 
-Linear Command
+Comando linea retta
 ********************************
-Click the "Linear" icon to enter the Lin command editing interface.
+Fare clic sull'icona "Linea retta" per accedere all'interfaccia di modifica del comando Lin.
 
-The function of this command is similar to the "PTP" command, but the path to the point reached by this command is a straight line.
+Questa istruzione è simile all'istruzione "PTP", ma il percorso per raggiungere il punto è una linea retta.
 
 .. image:: coding/457.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-1 Lin Command Addition Interface
+.. centered:: Grafico 9.33-1 Interfaccia di aggiunta dell'istruzione Lin
 
-The LIN command allows selecting the motion speed mode as "Percentage" or "Physical Speed":
+L'istruzione LIN consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità fisica":
 
-- Percentage: Input the debugging speed percentage. The robot moves at a percentage of its maximum speed. The actual robot motion speed is calculated as: V = Robot Maximum Speed × Global Speed Percentage × Debugging Speed Percentage. Hover the mouse over the small eye icon to the right of the "Debugging Speed" input box to display the actual physical speed (unit: mm/s) of the robot in both manual and automatic modes under the current debugging speed setting.
+- Percentuale: Inserire la percentuale di velocità di debug. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità di debug. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità di debug", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità di debug.
 
 .. image:: coding/458.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.33-2 Input Percentage to Display Actual Physical Speed Value
+.. centered:: Grafico 9.33-2 Visualizzazione della velocità fisica effettiva inserendo una percentuale
 
-- Physical Speed: The input speed is the actual operating speed of the robot, unit mm/s; the input acceleration is usually set to twice the speed. (The maximum physical speed of the LIN command is limited by the global speed percentage. If the robot's maximum operating speed is 1000mm/s and the global speed is 50%, then the maximum physical speed for the LIN command is 1000 × 50% = 500mm/s).
+- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
 
 .. image:: coding/459.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.33-3 Input Actual Physical Speed
+.. centered:: Grafico 9.33-3 Inserimento della velocità fisica effettiva
 
-Circular Arc Command
+Comando arco
 *********************************
 
-Click the "Circular Arc" icon to enter the Arc command editing interface.
+Fare clic sull'icona "Arco" per accedere all'interfaccia di modifica del comando Arc.
 
-The "Arc" command is for circular motion and includes three points: the first point is the arc start point, the second point is the arc intermediate transition point, and the third point is the end point.
+L'istruzione "Arc" è un movimento circolare che include tre punti: il primo punto è il punto di inizio dell'arco, il secondo punto è il punto di transizione intermedio dell'arco e il terzo punto è il punto finale.
 
-Both the transition point and the end point can be set for offset, you can choose offset based on the base coordinate system or based on the tool coordinate system, and pop-up settings for x, y, z, rx, ry, rz offsets appear. The end point can set a smooth transition radius to achieve a continuous motion effect. (Arc motion requires first adding a PTP or Lin command to move to the start point).
+Sia il punto di transizione che il punto finale possono essere impostati per lo spostamento, è possibile scegliere lo spostamento basato sul sistema di coordinate di base o sul sistema di coordinate dell'utensile, e verranno visualizzati gli offset x, y, z, rx, ry, rz. Il punto finale può essere impostato con un raggio di transizione morbida per ottenere un effetto di movimento continuo. (Per eseguire un movimento ad arco, è necessario prima aggiungere un'istruzione PTP o LIN per spostarsi al punto di inizio).
 
 .. image:: coding/460.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-4 Arc Command Interface
+.. centered:: Grafico 9.33-4 Interfaccia dell'istruzione Arc
 
-The ARC command allows selecting the motion speed mode as "Percentage" or "Physical Speed":
+L'istruzione ARC consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità fisica":
 
-- Percentage: Input the debugging speed percentage. The robot moves at a percentage of its maximum speed. The actual robot motion speed is calculated as: V = Robot Maximum Speed × Global Speed Percentage × Debugging Speed Percentage. Hover the mouse over the small eye icon to the right of the "Debugging Speed" input box to display the actual physical speed (unit: mm/s) of the robot in both manual and automatic modes under the current debugging speed setting.
+- Percentuale: Inserire la percentuale di velocità di debug. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità di debug. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità di debug", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità di debug.
 
 .. image:: coding/461.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.33-5 Input Percentage to Display Actual Physical Speed Value
+.. centered:: Grafico 9.33-5 Visualizzazione della velocità fisica effettiva inserendo una percentuale
 
-- Physical Speed: The input speed is the actual operating speed of the robot, unit mm/s; the input acceleration is usually set to twice the speed. (The maximum physical speed of the ARC command is limited by the global speed percentage. If the robot's maximum operating speed is 1000mm/s and the global speed is 50%, then the maximum physical speed for the ARC command is 1000 × 50% = 500mm/s).
+- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
 
 .. image:: coding/462.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.33-6 Input Actual Physical Speed
+.. centered:: Grafico 9.33-6 Inserimento della velocità fisica effettiva
  
-Full Circle Command Addition
+Aggiunta dell'istruzione cerchio completo
 ******************************************
 
-**Step1**: Create a new user program "testCircle.lua", click the "Full Circle" button to open the full circle command addition page.
+**Step1**: Creare un nuovo programma utente "testCircle.lua", fare clic sul pulsante "Cerchio completo", per aprire la pagina di aggiunta dell'istruzione cerchio completo.
 
 .. image:: coding/463.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-7 Add Full Circle Command Button
+.. centered:: Grafico 9.33-7 Pulsante per aggiungere l'istruzione cerchio completo
 
-**Step2**: On the full circle command addition page, select the starting point motion mode and the starting point as "P1".
+**Step2**: Nella pagina di aggiunta dell'istruzione cerchio completo, selezionare il metodo di movimento del punto di inizio e il punto di inizio come "P1".
 
 .. image:: coding/464.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-8 Starting Point Motion Mode and Starting Point "P1"
+.. centered:: Grafico 9.33-8 Metodo di movimento del punto di inizio e punto di inizio "P1"
 
-**Step3**: On the full circle command addition page, select "Full Circle Intermediate Point 1" as point "P2", and "Full Circle Intermediate Point 2" as point "P3".
+**Step3**: Nella pagina di aggiunta dell'istruzione cerchio completo, selezionare "Punto intermedio 1 del cerchio" come punto "P2" e "Punto intermedio 2 del cerchio" come punto "P3".
 
 .. image:: coding/465.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-9 Select Arc Intermediate Points and End Point
+.. centered:: Grafico 9.33-9 Selezione del punto intermedio e del punto finale dell'arco
 
-**Step4**: Select the speed mode and input the speed value.
+**Step4**: Selezionare la modalità di velocità e inserire il valore della velocità.
 
-The Circle command allows selecting the motion speed mode as "Percentage" or "Physical Speed":
+L'istruzione Circle consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità fisica":
 
-- Percentage: Input the debugging speed percentage. The robot moves at a percentage of its maximum speed. The actual robot motion speed is calculated as: V = Robot Maximum Speed × Global Speed Percentage × Debugging Speed Percentage. Hover the mouse over the small eye icon to the right of the "Debugging Speed" input box to display the actual physical speed (unit: mm/s) of the robot in both manual and automatic modes under the current debugging speed setting.
+- Percentuale: Inserire la percentuale di velocità di debug. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità di debug. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità di debug", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità di debug.
 
 .. image:: coding/466.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.33-10 Input Percentage to Display Actual Physical Speed Value
+.. centered:: Grafico 9.33-10 Visualizzazione della velocità fisica effettiva inserendo una percentuale
 
-- Physical Speed: The input speed is the actual operating speed of the robot, unit mm/s; the input acceleration is usually set to twice the speed. (The maximum physical speed of the Circle command is limited by the global speed percentage. If the robot's maximum operating speed is 1000mm/s and the global speed is 50%, then the maximum physical speed for the Circle command is 1000 × 50% = 500mm/s).
+- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
 
 .. image:: coding/467.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 9.33-11 Input Actual Physical Speed
+.. centered:: Grafico 9.33-11 Inserimento della velocità fisica effettiva
 
-**Step5**: Click the "Add" button and then the "Apply" button sequentially. Now the "testCircle.lua" program has the full circle motion command added.
+**Step5**: Fare clic in sequenza sui pulsanti "Aggiungi" e "Applica". A questo punto, "testCircle.lua" ha già aggiunto l'istruzione di movimento cerchio completo.
 
 .. image:: coding/468.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-12 Full Circle Motion Command Added
+.. centered:: Grafico 9.33-12 Aggiunta dell'istruzione di movimento cerchio completo
 
-Switch the robot to automatic mode and, ensuring safety, start the program. The robot will then move along the full circular trajectory.
+Passare il robot in modalità automatica e, garantendo la sicurezza, avviare il programma. Il robot eseguirà quindi il movimento lungo la traiettoria del cerchio completo.
 
-Smart Tool
+Pulsante di saldatura
 +++++++++++++++++++++++++++++++++++
 
-Under the "Auxiliary Applications" -> "Tool Applications" menu bar, click "Smart Tool" to enter the Smart Tool configuration function interface.
+Nel menu "Impostazioni iniziali" -> "Periferiche" -> "Pulsante di saldatura", fare clic su "Dispositivo adattato", per accedere all'interfaccia della funzionalità del pulsante di saldatura.
 
-Configure keys A-E and the IO key sequentially. After Smart Tool configuration is complete, the robot internally maintains the function corresponding to each button. When it detects that a button is pressed, it automatically executes the function item corresponding to that button.
+Nella funzionalità dei tasti, configurare in sequenza le funzioni dei tasti A-E e del tasto IO. Dopo la configurazione di Smart Tool, il robot mantiene internamente la funzione corrispondente a ciascun tasto. Quando rileva che un tasto è stato premuto, esegue automaticamente la funzione associata a quel tasto.
 
-A-E Key Functions:
+Funzioni dei tasti A-E:
 
-- Motion Command: When selecting PTP, LIN, or ARC motion commands, the corresponding point speed needs to be input. Among them, LIN and ARC commands can choose "Percentage" or "Physical Speed":
-- Percentage: Input the point speed percentage. The robot moves at a percentage of its maximum speed. The actual robot motion speed is calculated as: V = Robot Maximum Speed × Global Speed Percentage × Point Speed Percentage. Hover the mouse over the small eye icon to the right of the "Point Speed" input box to display the actual physical speed (unit: mm/s) of the robot in both manual and automatic modes under the current speed setting.
+- Istruzione di movimento: Quando si selezionano le istruzioni di movimento PTP, LIN, ARC, è necessario inserire la velocità del punto corrispondente. Per le istruzioni LIN, ARC è possibile selezionare "Percentuale" o "Velocità fisica":
+- Percentuale: Inserire la percentuale di velocità del punto. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità del punto. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità punto", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità.
 
 .. image:: coding/469.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-13 Input Percentage to Display Actual Physical Speed Value
+.. centered:: Grafico 9.33-13 Visualizzazione della velocità fisica effettiva inserendo una percentuale
  
-- Physical Speed: The input speed is the actual operating speed of the robot, unit mm/s; the input acceleration is usually set to twice the speed. (The maximum physical speed is limited by the global speed percentage. If the robot's maximum operating speed is 1000mm/s and the global speed is 50%, then the maximum physical speed is 1000 × 50% = 500mm/s).
+- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
 
 .. image:: coding/470.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-14 Input Actual Physical Speed
+.. centered:: Grafico 9.33-14 Inserimento della velocità fisica effettiva
 
-After successful configuration, a related motion command is added to the teach program. When configuring an ARC motion command, a PTP/LIN command must be configured first.
+Dopo una configurazione riuscita, il programma di insegnamento aggiungerà una nuova istruzione di movimento correlata. Quando si configura un'istruzione di movimento ARC, è necessario prima configurare un'istruzione PTP/LIN.
 
-- DO Output: When "DO Output" is selected, a dropdown box appears allowing selection of output options DO0⁓DO7.
+- Output DO: Quando si seleziona "Output DO", viene visualizzata una casella a discesa per selezionare le opzioni di output DO0⁓DO7.
 
 .. image:: coding/471.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-15 Smart Tool Configuration (A-E Keys)
+.. centered:: Grafico 9.33-15 Configurazione di Smart Tool (tasti A-E)
 
-IO Key Function:
+Funzioni del tasto IO:
 
-- IO Signal Configuration: The dropdown box allows selection of DO0⁓DO7 options, CO0⁓CO7 options, End-DO0, End-DO1, and extended IO (Aux-DO0⁓Aux-DO127);
-- Combined Command: After selecting "IO Signal", under specific conditions, the "Welder Selection" and "Point Speed" configuration items are displayed, generating different program commands.
+- Configurazione del segnale IO: La casella a discesa consente di selezionare le opzioni DO0⁓DO7, CO0⁓CO7, End-DO0, End-DO1 e IO estesi (Aux-DO0⁓Aux-DO127);
+- Istruzione combinata: Dopo aver selezionato "Segnale IO", in condizioni specifiche verranno visualizzati gli elementi di configurazione "Selezione saldatrice" e "Velocità punto", generando diverse istruzioni di programma.
 
 .. image:: coding/472.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.33-16 Smart Tool Configuration (IO Key)
+.. centered:: Grafico 9.33-16 Configurazione di Smart Tool (tasto IO)
+   
+.. important:: 
+   - Quando il segnale IO è configurato come DO0~DO7 o CO0~CO7 (senza configurazione "Accensione arco"), il programma aggiunge SetDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
+   - Quando il segnale IO è configurato come End-DO0, End-DO1, il programma aggiunge SetToolDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
+   - Quando il segnale IO è configurato come IO estesi (senza configurazione "Accensione arco saldatrice"), il programma aggiunge SetAuxDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
+   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") e "Selezione saldatrice" è "Nessuna", il programma aggiunge SetDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
+   - Quando il segnale IO è configurato come IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "Nessuna", il programma aggiunge SetAuxDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
+   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") o IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "Saldatura", alla prima pressione il programma aggiunge ARCStart, alla seconda aggiunge ARCEnd, alla terza aggiunge ArcStart, alla quarta aggiunge ARCStart, alternando le operazioni sopra; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
+   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") o IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "LIN+Saldatura", alla prima pressione il programma aggiunge LIN e ARCStart, alla seconda aggiunge LIN e ARCEnd, alla terza aggiunge LIN e ARCStart, alla quarta aggiunge LIN e ARCEnd, alternando le operazioni sopra; in questo caso, "Selezione saldatrice" e "Velocità punto" sono visibili.
+   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") o IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "LIN+Saldatura+Oscillazione", alla prima pressione il programma aggiunge LIN, ARCStart e WeaveStart, alla seconda aggiunge LIN, ARCEnd e WeaveEnd, alla terza aggiunge LIN, ARCStart e WeaveStart, alla quarta aggiunge LIN, ARCEnd e WeaveEnd, alternando le operazioni sopra; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
 
-.. important::
-   - When the IO signal is configured as DO0~DO7 or CO0~CO7 (without "Arc Start" configured), the program adds SetDO; "Weld Selection" and "Point Speed" are hidden at this time.
-   - When the IO signal is configured as End-DO0 or End-DO1, the program adds SetToolDO; "Weld Selection" and "Point Speed" are hidden at this time.
-   - When the IO signal is configured as Extended IO (without "Welder Arc Start" configured), the program adds SetAuxDO; "Weld Selection" and "Point Speed" are hidden at this time.
-   - When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) and "Welder Selection" is "None", the program adds SetDO; "Weld Selection" and "Point Speed" are hidden at this time.
-   - When the IO signal configuration item is Extended IO (with "Welder Arc Start" configured) and "Welder Selection" is "None", the program adds SetAuxDO; "Weld Selection" and "Point Speed" are hidden at this time.
-   - When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) or Extended IO (with "Welder Arc Start" configured) and "Welder Selection" is "Welding", the first press adds ARCStart, the second press adds ARCEnd, the third press adds ARCStart, the fourth press adds ARCStart, alternating and repeating the above operations; "Weld Selection" and "Point Speed" are hidden at this time.
-   - When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) or Extended IO (with "Welder Arc Start" configured) and "Welder Selection" is "LIN+Welding", the first press adds LIN and ARCStart, the second press adds LIN and ARCEnd, the third press adds LIN and ARCStart, the fourth press adds LIN and ARCEnd, alternating and repeating the above operations; "Weld Selection" and "Point Speed" are displayed at this time.
-   - When the IO signal is configured as CO0~CO7 (with "Arc Start" configured) or Extended IO (with "Welder Arc Start" configured) and "Welder Selection" is "LIN+Welding+Weaving", the first press adds LIN, ARCStart, and WeaveStart, the second press adds LIN, ARCEnd, and WeaveEnd, the third press adds LIN, ARCStart, and WeaveStart, the fourth press adds LIN, ARCEnd, and WeaveEnd, alternating and repeating the above operations; "Weld Selection" and "Point Speed" are hidden at this time.
-
-Impedance Control Function During Robot Motion
+Funzione di controllo dell'impedenza durante il movimento del robot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
-++++++++++++++++++++++++++++++++++++++
+Panoramica
+++++++++++++++++++++++++++++++++
 
-The impedance control function enables real-time detection of external forces. When the set threshold is reached, it actively complies with the external force, deviates from the motion trajectory, and returns to the motion trajectory after the external force drops below the threshold, thereby achieving better human-robot interaction. When an external force exceeding the preset force threshold is detected, this function drives the robotic arm to generate an offset in the direction of the force, achieving an active avoidance effect. After the external force is removed, the robotic arm returns to the vicinity of the original motion trajectory, thus enhancing safety during human-robot collaboration.
+La funzione di controllo dell'impedenza rileva in tempo reale le forze esterne. Quando viene raggiunta una soglia predefinita, adatta attivamente la forza esterna, deviando dalla traiettoria di movimento. Quando la forza esterna scende sotto la soglia, ritorna alla traiettoria di movimento, migliorando così l'interazione uomo-macchina. Questa funzione, quando rileva che la forza esterna supera una soglia di forza preimpostata, guida il braccio robotico a generare uno spostamento nella direzione della forza, ottenendo un effetto di evitamento attivo. Dopo che la forza esterna viene rimossa, il braccio robotico ritorna vicino alla traiettoria di movimento originale, migliorando così la sicurezza durante la collaborazione uomo-macchina.
 
-Impedance Control Function
-+++++++++++++++++++++++++++++++++++++++++++
+Funzione di controllo dell'impedenza
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Impedance Control Configuration and Function Start/Stop in Cartesian Space
-******************************************************************************************
+Impostazione del controllo dell'impedenza nello spazio cartesiano e attivazione/disattivazione della funzione
+*****************************************************************************************************************************************
 
-**Step1**: Log in to the web interface, sequentially click "Initial Settings" → "Basic" → "Joints" → "Collision Level" to enter the robot collision level setting module, and set a reasonable collision coefficient, as shown in Figure 2-1.
+**Step1**: Accedere all'interfaccia web, fare clic in sequenza su "Impostazioni iniziali" → "Base" → "Giunti" → "Livello collisione", per accedere al modulo di impostazione del livello di collisione del robot, impostare un coefficiente di collisione appropriato, come mostrato nella Figura 2-1.
 
 .. image:: coding/473.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.34-1 Robot Collision Coefficient Setting Module
+.. centered:: Grafico 9.34-1 Modulo di impostazione del coefficiente di collisione del robot
 
-**Step2**: To use a force sensor to implement the impedance control function, the force sensor must be configured in the end effector peripheral configuration under "Peripherals" → "End Effector". If choosing not to use a force sensor to implement the impedance control function, this step is not required.
+**Step2**: Per utilizzare un sensore di forza per implementare la funzione di controllo dell'impedenza, è necessario configurare il sensore di forza nella configurazione della periferica finale in "Periferiche" → "Utensile finale"; se non si utilizza un sensore di forza per implementare la funzione di controllo dell'impedenza, non è necessario eseguire questo passaggio.
 
-**Step3**: Sequentially click "Teach Program" → "Program Programming" → "Force Control Set", and add the "Impedance" command. The "Impedance" command enables the robot to implement impedance control on the running trajectory (Currently, only impedance control in Cartesian space is available).
+**Step3**: Fare clic in sequenza su "Programma di insegnamento" → "Programmazione del programma" → "Set di controllo di forza", aggiungere l'istruzione "Impedance". L'istruzione "Impedance" consente al robot di implementare il controllo dell'impedenza durante l'esecuzione della traiettoria (attualmente, è disponibile solo il controllo dell'impedenza nello spazio cartesiano).
 
 .. image:: coding/474.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.34-2 Adding Force Control Command
+.. centered:: Grafico 9.34-2 Aggiunta dell'istruzione di controllo di forza
 
-**Step4**: In the force control command module, select "Cartesian Space" from the space selection dropdown menu. Set appropriate values in the text boxes for force threshold, mass coefficient, damping coefficient, stiffness coefficient, maximum linear velocity, maximum linear acceleration, maximum angular velocity, and maximum angular acceleration. Click "Enable" under command type, then click "Add" to add the impedance control enable command; click "Disable" under command type, then click "Add" to add the impedance control disable command.
+**Step4**: Nel modulo di istruzione di controllo di forza, selezionare "Spazio cartesiano" nella casella a discesa "Selezione spazio", impostare valori appropriati per soglia della forza, coefficiente di massa, coefficiente di smorzamento, coefficiente di rigidità, velocità lineare massima, accelerazione lineare massima, velocità angolare massima e accelerazione angolare massima nelle caselle di testo. Nel "Tipo di istruzione", fare clic su "Attiva", quindi su "Aggiungi", per aggiungere l'istruzione di attivazione del controllo dell'impedenza; nel "Tipo di istruzione", fare clic su "Disattiva", quindi su "Aggiungi", per aggiungere l'istruzione di disattivazione del controllo dell'impedenza.
 
 .. image:: coding/475.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.34-3 Impedance Control Command Example
+.. centered:: Grafico 9.34-3 Esempio di istruzione di controllo dell'impedenza
 
-**Step5**: During operation, if the robotic arm stops running and the lower left corner of the Web interface displays "500 Error: Current collision level is too low", this is because the set force threshold is greater than the trigger threshold of the collision level. At this point, increasing the collision level or decreasing the force threshold will resolve this error.
+**Step5**: Durante l'esecuzione, se il braccio robotico si ferma e nell'angolo inferiore sinistro dell'interfaccia Web viene visualizzato "Errore 500: Livello di collisione corrente troppo basso", ciò è dovuto al fatto che la soglia della forza impostata è superiore alla soglia di attivazione del livello di collisione. In questo caso, aumentare il livello di collisione o ridurre la soglia della forza per risolvere l'errore.
 
 .. image:: coding/476.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.34-4 Collision Level Too Low Warning
+.. centered:: Grafico 9.34-4 Avviso di livello di collisione troppo basso
 
-**Step6**: During operation, if the robotic arm stops running and the lower right corner of the Web interface displays "Collision Fault", this is because the external force on the robotic arm has exceeded the trigger threshold of the collision level, thereby triggering a collision fault.
+**Step6**: Durante l'esecuzione, se il braccio robotico si ferma e nell'angolo inferiore destro dell'interfaccia Web viene visualizzato "Guasto collisione", ciò significa che la forza esterna sul braccio robotico ha superato la soglia di attivazione del livello di collisione, attivando così un guasto per collisione.
 
 .. image:: coding/477.png
-   :width: 6in
+   :width: 4in
    :align: center
 
-.. centered:: Figure 9.34-5 Collision Fault Warning
+.. centered:: Grafico 9.34-5 Avviso di guasto collisione
 
-Specific Functions and Recommended Values of Parameters:
+Funzione specifica dei parametri e valori consigliati:
 
-- Space Selection: Sets the operational space for impedance control. Currently, only Cartesian space impedance control is available.
-- Force Threshold: The minimum trigger force for impedance control. The range for the translational direction force threshold is 30–150N, and for the rotational direction force threshold is 7–30Nm.
-- Mass Coefficient: Increasing the mass coefficient will cause the offset to be slower, decreasing it will cause the robot offset to be too fast. The range for the translational direction is [0.01-1], recommended value is 0.04; the range for the rotational direction is [0.001-1], recommended value is 0.01.
-- Damping Coefficient: Increasing the damping coefficient will cause the offset to be slower, decreasing it will cause the robot offset to be too fast, resulting in oscillation. The range for the translational direction is [0.1-2], recommended value is 0.1; the range for the rotational direction is [0.008-1.5], recommended value is 0.08.
-- Stiffness Coefficient: Increasing the stiffness coefficient will cause the offset to be slower. Recommended value is 0.
-- Maximum Linear Velocity: Limits the velocity generated by external forces in the translational direction. Recommended value is 250mm/s.
-- Maximum Linear Acceleration: Limits the acceleration generated by external forces in the translational direction. Recommended value is 500mm/s².
-- Maximum Angular Velocity: Limits the angular velocity generated by external forces in the rotational direction. Recommended value is 90°/s.
-- Maximum Angular Acceleration: Limits the angular acceleration generated by external forces in the rotational direction. Recommended value is 180°/s².
+- Selezione spazio: Imposta lo spazio di esecuzione del controllo dell'impedenza. Attualmente è disponibile solo il controllo dell'impedenza nello spazio cartesiano;
+- Soglia della forza: Forza minima di attivazione per il controllo dell'impedenza. L'intervallo per la soglia della forza in direzione di traslazione è 30–150 N, per la soglia della forza in direzione di rotazione è 7–30 Nm;
+- Coefficiente di massa: Aumentare il coefficiente di massa rallenta lo spostamento, ridurlo fa sì che il robot si sposti troppo velocemente. Intervallo per la direzione di traslazione: [0.01-1], consigliato 0.04; intervallo per la direzione di rotazione: [0.001-1], consigliato 0.01;
+- Coefficiente di smorzamento: Aumentare il coefficiente di smorzamento rallenta lo spostamento, ridurlo fa sì che il robot si sposti troppo velocemente, causando oscillazioni. Intervallo per la direzione di traslazione: [0.1-2], consigliato 0.1; intervallo per la direzione di rotazione: [0.008-1.5], consigliato 0.08;
+- Coefficiente di rigidità: Aumentare il coefficiente di rigidità rallenta lo spostamento, consigliato 0;
+- Velocità lineare massima: Limita la velocità generata dalla forza esterna in direzione di traslazione, consigliato 250 mm/s;
+- Accelerazione lineare massima: Limita l'accelerazione generata dalla forza esterna in direzione di traslazione, consigliato 500 mm/s2;
+- Velocità angolare massima: Limita la velocità angolare generata dalla forza esterna in direzione di rotazione, consigliato 90°/s;
+- Accelerazione angolare massima: Limita l'accelerazione angolare generata dalla forza esterna in direzione di rotazione, consigliato 180°/s2.
 
-Custom Weaving Welding Function
+Funzione di saldatura oscillante personalizzata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++++++++++++++++++++
 
-The custom weaving welding function allows the execution of weaving using a pattern designed by the user.
+La funzione di saldatura oscillante personalizzata consente di eseguire la saldatura oscillante utilizzando un modello di saldatura oscillante progettato dall'utente.
 
-Description of the Custom Weaving Welding Function:
+Descrizione della funzione di saldatura oscillante personalizzata:
 
-- (1) In the weaving parameters interface, select any one of the weaving types: "Custom Weave 0", "Custom Weave 1", or "Custom Weave 2". A maximum of 3 custom weaving patterns can be set.
-- (2) The number of custom weaving endpoints can be set to a maximum of 10 and a minimum of 2. The X, Y, Z data of the last endpoint is fixed at 0 and cannot be modified, though the dwell time for all endpoints can be set.
-- (3) The X, Y, and Z values of the custom weaving endpoints must be within the range of -10mm to 10mm, and the weaving frequency must not exceed 10 Hz.
-- (4) Currently, linear, circular, and full-circle trajectories support custom weaving welding, but the weaving gradient function is not yet supported.
-- (5) Note: When the weaving dwell time is set to "Include", the total weaving dwell time must not exceed half of the weaving cycle time.
+- (1) Nell'interfaccia dei parametri di oscillazione, selezionare "Oscillazione personalizzata 0", "Oscillazione personalizzata 1" o "Oscillazione personalizzata 2" per il tipo di oscillazione. Sono disponibili al massimo 3 modelli di saldatura oscillante personalizzati.
+- (2) Il numero massimo di endpoint di oscillazione personalizzati è 10, il minimo è 2. L'ultimo endpoint ha dati X, Y, Z fissati a 0 e non modificabili. Il tempo di permanenza per tutti gli endpoint può essere impostato.
+- (3) I valori X, Y, Z degli endpoint di oscillazione personalizzati devono essere compresi nell'intervallo -10 mm ~ 10 mm, e la frequenza di oscillazione non deve superare 10.
+- (4) Attualmente, le traiettorie lineari, ad arco e circolari complete supportano la saldatura oscillante personalizzata, ma non supportano ancora la funzione di transizione graduale dell'oscillazione.
+- (5) Prestare attenzione: quando il tempo di attesa dell'oscillazione è impostato su "Include", il tempo totale di permanenza dell'oscillazione non deve superare la metà del periodo di oscillazione.
 
-Operational Procedure for Custom Weaving Welding Function
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Flusso operativo per la funzione di saldatura oscillante personalizzata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The operational procedure for the custom weaving welding function is as follows:
+Il flusso operativo per la funzione di saldatura oscillante personalizzata è il seguente:
 
-**Step 1**: First, record the start and end teach points of the linear trajectory. Then, click "Teach Program" -> "Program Editing", select "Point to Point" to move the robot end to the linear start point "custWeaveP1". Finally, select "Linear" to move the robot to the linear end point "custWeaveP2".
+**Step 1**: Prima registrare i punti di insegnamento di inizio e fine della traiettoria lineare. Quindi fare clic su "Programma di insegnamento", "Programmazione del programma", selezionare "Da punto a punto" per spostare l'estremità del robot al punto di inizio della linea "custWeaveP1", infine selezionare "Linea retta" per spostare il robot al punto finale della linea "custWeaveP2".
 
-**Step 2**: Select the "Weaving" button, click the weaving process editing button to enter the weaving parameters setting interface. Select "Custom Weave N" (N=0, 1, 2) for the "Weaving Type".
+**Step 2**: Selezionare il pulsante "Oscillazione", fare clic sul pulsante di modifica del processo di oscillazione, per accedere all'interfaccia di impostazione dei parametri di oscillazione. Selezionare "Oscillazione personalizzata N" (N=0, 1, 2) per "Tipo di oscillazione".
 
 .. image:: coding/478.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 9.35-1 Weaving Parameters Setting Interface
+.. centered:: Grafico 9.35-1 Interfaccia di impostazione dei parametri di oscillazione
 
-**Step 3**: After selecting the "Weaving Type", scroll down in the weaving parameters setting interface. In this interface, select the number of custom weaving endpoints, set the position and dwell time of each point in the weaving coordinate system, and finally click the "Configure" button.
+**Step 3**: Dopo aver selezionato il "Tipo di oscillazione", scorrere verso il basso nell'interfaccia di impostazione dei parametri di oscillazione. Nell'interfaccia, selezionare il numero di endpoint di oscillazione personalizzati, impostare la posizione e il tempo di permanenza di ciascun punto nel sistema di coordinate di oscillazione, infine fare clic sul pulsante "Configura".
 
 .. image:: coding/479.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 9.35-2 Custom Weaving Setting Interface
+.. centered:: Grafico 9.35-2 Interfaccia di impostazione dell'oscillazione personalizzata
 
-**Step 4**: In the weaving interface, sequentially select "Start Weaving" and "Stop Weaving" in the "Command Type" dropdown, click the "Add" button, and finally click the "Apply" button.
+**Step 4**: Nell'interfaccia di oscillazione, nel "Tipo di istruzione", selezionare in sequenza "Inizia oscillazione", "Termina oscillazione" e fare clic sul pulsante "Aggiungi", infine fare clic sul pulsante "Applica".
 
 .. image:: coding/480.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 9.35-3 Weaving Command Setting Interface
+.. centered:: Grafico 9.35-3 Interfaccia di impostazione delle istruzioni di oscillazione
 
-**Step 5**: In the program editing interface, select the weaving start command, click the "Move Up" button at the top of the interface, and finally save the program. Switch the robot to automatic mode and click the "Start" button. The robot will then begin custom weaving along the linear trajectory.
+**Step 5**: Nell'interfaccia di modifica del programma, selezionare l'istruzione di inizio oscillazione, fare clic sul pulsante "Sposta su" nella parte superiore dell'interfaccia, infine salvare il programma. Passare il robot in modalità automatica, fare clic sul pulsante "Inizia", il robot inizierà l'oscillazione personalizzata sulla traiettoria lineare.
 
 .. image:: coding/481.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 9.35-4 Original LUA Command Interface
+.. centered:: Grafico 9.35-4 Interfaccia originale delle istruzioni LUA
 
 .. image:: coding/482.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 9.35-5 Modified LUA Command Interface
+.. centered:: Grafico 9.35-5 Interfaccia delle istruzioni LUA modificata
 
-**Step 6**: The steps for setting up custom weaving for circular and full-circle trajectories are the same as Step 1 to Step 5 above.
+**Step 6**: I passaggi di impostazione per l'oscillazione personalizzata sulle traiettorie ad arco e circolari complete sono gli stessi dello Step 1-Step 5.
 
-Teach point configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione dei punti di insegnamento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Points Config." to enter the teaching point configuration interface.
+Fare clic su "Configurazione punti di insegnamento" per accedere all'interfaccia della funzionalità di configurazione dei punti di insegnamento.
 
-Before using the button box or other IO signals to record the teaching point function, the user first configures the teaching point name prefix, the upper limit of the number and the teaching method. The name prefix supports two modes: custom prefix and current program name as the prefix. For example, customize the name prefix "P", number upper limit "3", teaching method "robot teaching", record the current end (tool) points of the robot in sequence: P1, P2, P3, and record again will overwrite the previous record points.
+Prima di utilizzare la funzionalità di registrazione dei punti di insegnamento tramite la scatola pulsanti o altri segnali IO, l'utente deve configurare il prefisso del nome del punto di insegnamento, il limite superiore del numero e il metodo di insegnamento. Il prefisso del nome supporta due modalità: prefisso personalizzato e utilizzo del nome del programma corrente come prefisso. Ad esempio, con un prefisso di nome personalizzato "P", limite superiore del numero "3", metodo di insegnamento "Insegnamento robot", i punti registrati per l'estremità corrente (utensile) del robot saranno in sequenza: P1, P2, P3. La registrazione successiva sovrascriverà i punti registrati in precedenza.
 
 .. image:: coding/483.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.36-1 Teach point configuration
+.. centered:: Grafico 9.36-1 Configurazione dei punti di insegnamento
 
-End-point dot automatic overwrite update Lua program function
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento automatico del programma Lua con registrazione punti dell'estremità
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-End-point dot configuration
-********************************************
+Configurazione della funzionalità di registrazione punti dell'estremità
+**************************************************************************************
 
-1. Enable the end-point dot function and click on settings. You can use the switch to select the Lua programs that need to be updated for specific positions. 
+1. Attivare la funzionalità di registrazione punti dell'estremità, fare clic su Impostazioni. È possibile selezionare i programmi Lua per i quali aggiornare i punti tramite l'interruttore.
 
 .. image:: coding/484.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.36‑2 Enable end point recording
+.. centered:: Grafico 9.36‑2 Attivazione della funzionalità di registrazione punti dell'estremità
 
-2. The configuration is complete, with the end-tip dot name prefixed as "test", the numbering limit set to 10, and all Lua programs selected for enabling updates. Close the webApp, and the function remains active.
+2. Dopo aver completato la configurazione, il nome dei punti registrati dall'estremità avrà prefisso "test", il limite superiore del numero è 10, selezionare tutti i programmi Lua per l'aggiornamento. Chiudere WebApp, la funzionalità rimane attiva.
    
-End-button dot automatic update Lua program
-************************************************************
+Aggiornamento automatico del programma Lua con registrazione punti tramite pulsante dell'estremità
+*********************************************************************************************************************************
 
-1. Click the robot end-point dot button.
+1. Fare clic sul pulsante di registrazione punti dell'estremità del robot.
 
 .. image:: coding/485.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.36‑3 end-point dot button
+.. centered:: Grafico 9.36‑3 Pulsante di registrazione punti dell'estremità
 
-2. At this point, the end-tip LED flashes: with the purple light flashing (start) -> blue light on (dot recording and updating in Lua) -> green light on (dot recording completed), and the position information corresponding to the selected Lua program's name is synchronized and updated.
+2. In questo momento, lo stato di illuminazione LED dell'estremità: lampeggio viola (inizio) -> luce blu fissa (registrazione punto e aggiornamento Lua in corso) -> luce verde fissa (registrazione punto completata). Le informazioni sui punti con il nome corrispondente nel programma Lua selezionato vengono aggiornate in modo sincrono.
 
 .. image:: coding/486.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.36‑3 End-tip dot recording and updating Lua program LED changes
+.. centered:: Grafico 9.36‑3 Cambiamenti LED durante la registrazione punti e l'aggiornamento del programma Lua
 
-3. When the dot recording fails, the end-tip LED flashes: Purple light flashing (start) -> Red light flashing (dot recording failed) -> Green light on (returning to normal).
+3. In caso di fallimento della registrazione punto, lo stato di illuminazione LED dell'estremità: lampeggio viola (inizio) -> lampeggio rosso (registrazione punto fallita) -> luce verde fissa (ritorno alla normalità).
 
 .. image:: coding/487.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.36‑4 LED changes when end-tip dot recording fails
+.. centered:: Grafico 9.36‑4 Cambiamenti LED in caso di fallimento della registrazione punti dell'estremità
 
-Function usage example
-******************************************
+Esempio di utilizzo della funzionalità
+********************************************************
 
-1. Click on Auxiliary Applications - Tool Applications - Teaching Point Configuration, customize the prefix to "test", set the number limit to 5, select Robot Teaching as the teaching method, enable the end-point dot function, and click on settings.
+1. Prefisso personalizzato: test, limite superiore del numero 5, metodo di insegnamento selezionare insegnamento robot, attivare la funzionalità di registrazione punti dell'estremità, fare clic su Impostazioni.
 
-2. Activate the Lua program "program1" that requires position updates.
+2. Abilitare il programma Lua program1 per l'aggiornamento dei punti.
 
 .. image:: coding/488.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.36‑5 Teaching Point Configuration
+.. centered:: Grafico 9.36‑5 Configurazione dei punti di insegnamento
 
-3. As shown below, it depicts the "program1" program and its current running trajectory.
+3. La figura seguente mostra il programma program1 e la sua traiettoria di esecuzione corrente.
 
 .. image:: coding/489.png
    :width: 6in
    :align: center
 
-.. centered:: Chart 9.36‑6 Program1 program and its current running trajectory
+.. centered:: Grafico 9.36‑6 Programma program1 e traiettoria di esecuzione corrente
 
-4. Switch the page to manual mode, move the robot to a new position, click the end-tip dot button, and wait for the end-tip LED to complete its flashing sequence: Purple light flashing (start) -> Blue light on (dot recording and updating in Lua) -> Green light on (dot recording completed), at which point the recorded position is labeled as test1.
-
-5. Repeat step 4 to record positions "test2," "test3," "test4," and "test5," completing the recording of 5 points. At this stage, the positions for the "program1" program have been synchronized and updated.
-
-6. Re-run the "program1" program. The motion trajectory will have been updated, and the updated motion trajectory is shown below.
+4. Passare la pagina in modalità manuale, trascinare il robot in una nuova posizione, fare clic sul pulsante di registrazione punti dell'estremità, attendere il completamento del lampeggio LED dell'estremità: lampeggio viola (inizio) -> luce blu fissa (registrazione punto e aggiornamento Lua in corso) -> luce verde fissa (registrazione punto completata). In questo momento, il punto registrato è test1.
+5. Ripetere il passaggio 4, registrare in sequenza test2, test3, test4, test5, completando la registrazione di 5 punti. A questo punto, i punti del programma program1 sono stati aggiornati in modo sincrono.
+6. Eseguire nuovamente il programma program1, la traiettoria di movimento è ora aggiornata, come mostrato nella figura seguente.
 
 .. image:: coding/490.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.36‑7 Updated running trajectory
+.. centered:: Grafico 9.36‑7 Traiettoria di esecuzione aggiornata
 
-Main program configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione del programma principale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Main program" to enter the main program configuration function interface.
+Fare clic su "Configurazione programma principale" per accedere all'interfaccia della funzionalità di configurazione del programma principale.
 
-The configuration of the main program can be used in conjunction with the DI configuration of the main program startup. The configured main program needs to be trial run first to ensure safety. After configuring the corresponding DI in the robot settings to start the main program signal function, the user can control the DI signal to run the main program.
+La configurazione del programma principale può essere utilizzata insieme alla configurazione DI per l'avvio del programma principale. Il programma principale configurato deve essere prima eseguito in prova per garantire la sicurezza. Dopo aver configurato il DI corrispondente nella configurazione del robot per la funzione di segnale di avvio del programma principale, l'utente può controllare quel segnale DI per eseguire il programma principale.
 
 .. image:: coding/491.png
    :width: 4in
    :align: center
 
-.. centered:: Chart 9.37‑1 Main program configuration
+.. centered:: Grafico 9.37‑1 Configurazione del programma principale
 
-Robot Extended Axis Intersecting Line Welding
+Saldatura a linee intersecanti con asse esteso del robot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-System Configuration
+Composizione del sistema
 ++++++++++++++++++++++++++++++++++
 
 .. image:: coding/497.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑1 Robot Extended Axis Intersecting Line Welding System Configuration
+.. centered:: Grafico 9.38‑1 Composizione del sistema di saldatura a linee intersecanti con asse esteso del robot
 
-In the system, (a) is the computer, (b) is the robot and its control box, (c) is the positioner and drive equipment, (d) is the welder and supporting equipment.
+Nel sistema, (a) è il computer, (b) è il robot e il suo quadro di controllo, (c) è il posizionatore e il dispositivo di azionamento, (d) è la saldatrice e le apparecchiature accessorie.
 
-Extended Axis Communication Configuration
+Configurazione della comunicazione per l'asse esteso
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The communication methods between the robot and the extended axis include using UDP or RS485.
+I metodi di comunicazione tra il robot e l'asse esteso includono l'utilizzo di UDP o RS485.
 
 .. image:: coding/498.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑2 Extended Axis Configuration Page
-
-Click "Initial Setup", "Peripherals", "Extended Axis" on the robot operation interface to enter the extended axis configuration page. Taking using a PLC connected to the robot via UDP communication as an example, click the "UDP Communication" icon to enter the extended axis configuration page for UDP communication.
+.. centered:: Grafico 9.38‑2 Pagina di configurazione dell'asse esteso
+ 
+Nell'interfaccia operativa del robot, fare clic su "Impostazioni iniziali", "Periferiche", "Asse esteso", per accedere alla pagina di configurazione dell'asse esteso. Prendendo come esempio la connessione di un PLC al robot tramite comunicazione UDP, fare clic sull'icona "Comunicazione UDP", per accedere alla pagina di configurazione dell'asse esteso con comunicazione UDP.
 
 .. image:: coding/499.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑3 UDP Communication Configuration Interface
+.. centered:: Grafico 9.38‑3 Interfaccia di configurazione della comunicazione UDP
+ 
+Nella pagina di configurazione dell'asse esteso con comunicazione UDP, è possibile selezionare il numero dell'asse esteso corrispondente, connettersi e configurare i parametri di comunicazione UDP (indirizzo, porta, periodo, rilevamento perdita pacchetti, ecc.), nonché il tempo di completamento del posizionamento dell'asse esteso.
 
-On the extended axis configuration page for UDP communication, you can select the corresponding extended axis number, connect and configure UDP communication parameters (address, port, cycle, packet loss detection, etc.), and the extended axis positioning completion time.
+Il contenuto della configurazione dell'asse esteso non è l'obiettivo principale di questa introduzione alla funzione. Per la configurazione dettagliata, consultare il manuale utente corrispondente.
 
-Extended axis configuration content is not the focus of this function introduction. For detailed configuration, refer to the corresponding section of the user manual.
-
-Welder Connection Configuration
+Configurazione della connessione della saldatrice
 +++++++++++++++++++++++++++++++++++++++++++++++++++
-Configure the welder through the following configuration page:
+Configurare la saldatrice tramite la seguente pagina di configurazione:
 
 .. image:: coding/500.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑4 Welder Configuration Page
+.. centered:: Grafico 9.38‑4 Pagina di configurazione della saldatrice
 
-Welder communication can use IO communication or RS485 communication. Click "Initial Setup", "Peripherals", "Welder" to enter the configuration and connection interface, where you can configure modules such as "Control Type", "I/O Configuration", "Welding Process Parameters", "Welder Debugging", etc.
+La comunicazione con la saldatrice può utilizzare comunicazione IO o comunicazione RS485. Fare clic su "Impostazioni iniziali", "Periferiche", "Saldatrice", per accedere all'interfaccia di configurazione e connessione. È possibile configurare moduli come "Tipo di controllo", "Configurazione I/O", "Parametri processo di saldatura", "Debug saldatrice", ecc.
 
-Welder configuration content is not the focus of this function introduction. For detailed configuration, refer to the corresponding section of the user manual.
+Il contenuto della configurazione della saldatrice non è l'obiettivo principale di questa introduzione alla funzione. Per la configurazione dettagliata, consultare il manuale utente corrispondente.
 
-Tool Coordinate System Calibration
+Calibrazione del sistema di coordinate dell'utensile
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-After installing the welding torch on the robot end, calibrate the welding torch:
+Dopo aver installato la torcia di saldatura sull'estremità del robot, calibrare la torcia di saldatura:
 
 .. image:: coding/501.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑5 Tool Coordinate System Configuration Page
+.. centered:: Grafico 9.38‑5 Pagina di configurazione del sistema di coordinate dell'utensile
 
-Click "Initial Setup", "Basic", "Tool Coordinates" to enter the tool coordinate system settings page.
+Fare clic su "Impostazioni iniziali", "Base", "Coordinate utensile", per accedere alla pagina di impostazione del sistema di coordinate dell'utensile.
 
 .. image:: coding/502.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑6 Select the 6-Point Method to Calibrate the Welding Torch
+.. centered:: Grafico 9.38‑6 Selezione del metodo a 6 punti per calibrare la torcia di saldatura
 
-Select an empty coordinate system, choose the tool type as "Tool", select the 6-point method to calibrate the welding torch tool. It is recommended to calibrate the posture of the tool coordinate system as shown in Figure 4-3 below.
+Selezionare un sistema di coordinate vuoto, selezionare il tipo di utensile come "Utensile", scegliere il metodo a 6 punti per calibrare l'utensile torcia di saldatura. Si consiglia di calibrare l'orientamento del sistema di coordinate dell'utensile come mostrato nella Figura 4-3 seguente.
 
 .. image:: coding/503.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.38‑7 Welding Torch Coordinate System Posture Diagram
+.. centered:: Grafico 9.38‑7 Diagramma dell'orientamento del sistema di coordinate della torcia di saldatura
 
-Tool coordinate system calibration content is not the focus of this function introduction. For detailed calibration methods, refer to the corresponding section of the user manual.
+Il contenuto della calibrazione del sistema di coordinate dell'utensile non è l'obiettivo principale di questa introduzione alla funzione. Per il metodo di calibrazione dettagliato, consultare il manuale utente corrispondente.
 
-Intersecting Line Welding Function
-+++++++++++++++++++++++++++++++++++++++
+Funzione di saldatura a linee intersecanti
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There are two forms of trajectory motion for intersecting line welding: one is using a two-degree-of-freedom L-type positioner for intersecting line motion, and the other is performing intersecting line motion directly without using a positioner.
+Il movimento della traiettoria per la saldatura a linee intersecanti ha due forme: una utilizza un posizionatore a due gradi di libertà a L per il movimento a linee intersecanti, l'altra esegue direttamente il movimento a linee intersecanti senza utilizzare un posizionatore.
 
-Extended Axis Coordinate System Calibration
-***************************************************
+Calibrazione del sistema di coordinate dell'asse esteso
+*************************************************************
 
-When using the extended axis coordinate system to achieve synchronized motion between the positioner and the robot, the extended axis coordinate system needs to be calibrated.
+Quando si utilizza il sistema di coordinate dell'asse esteso per realizzare il movimento sincronizzato tra il posizionatore e il robot, è necessario calibrare il sistema di coordinate dell'asse esteso.
 
 .. image:: coding/504.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑8 Extended Axis Coordinate System Settings Page
+.. centered:: Grafico 9.38‑8 Pagina di impostazione del sistema di coordinate dell'asse esteso
 
-Click "Initial Setup", "Peripherals", "Extended Axis" to enter the extended axis coordinate system settings interface. Select the extended axis number that needs to be set, click the edit button, select "1-Two-degree-of-freedom L-type Positioner" and save.
+Fare clic su "Impostazioni iniziali", "Periferiche", "Asse esteso", per accedere all'interfaccia di impostazione del sistema di coordinate dell'asse esteso. Selezionare il numero dell'asse esteso da impostare, fare clic sul pulsante di modifica, selezionare "1-Posizionatore a due gradi di libertà a L" e salvare.
 
 .. image:: coding/505.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑9 Extended Axis Calibration Page
+.. centered:: Grafico 9.38‑9 Pagina di calibrazione dell'asse esteso
+ 
+Durante la calibrazione dell'asse esteso, prestare attenzione a selezionare "Posizione robot relativa all'asse esteso" come "Esterno all'asse esteso". Per il caso del posizionatore, selezionare il metodo a 4 punti per la calibrazione.
 
-When calibrating the extended axis, pay attention to select "Robot Position Relative to Extended Axis" as "Outside Extended Axis". For the positioner case, select the 4-point method for calibration.
+Il contenuto della calibrazione dell'asse esteso non è l'obiettivo principale di questa introduzione alla funzione. Per il metodo di calibrazione dettagliato, consultare il manuale utente corrispondente.
 
-Extended axis calibration content is not the focus of this function introduction. For detailed calibration methods, refer to the corresponding section of the user manual.
-
-Intersecting Line Trajectory Welding
+Saldatura della traiettoria a linee intersecanti
 ***************************************************
 
-Based on the taught points recorded on the cross-sections of the main pipe and the branch pipe, a workpiece coordinate system as shown in the figure below can be established. The origin of the coordinate system is located at the intersection point of the main pipe and branch pipe axes, the X-axis is parallel to the main pipe axis pointing towards the section where the taught points are recorded, and the Z-axis is parallel to the branch pipe axis pointing towards the plane where the taught points are recorded.
+In base ai punti di insegnamento registrati sulle sezioni trasversali del tubo principale e del tubo di giunzione, è possibile stabilire il sistema di coordinate del pezzo come mostrato nella figura seguente. L'origine del sistema di coordinate si trova nel punto di intersezione degli assi del tubo principale e del tubo di giunzione. L'asse X è parallelo all'asse del tubo principale, puntando verso la sezione trasversale in cui sono stati registrati i punti di insegnamento. L'asse Z è parallelo all'asse del tubo di giunzione, puntando verso il piano in cui sono stati registrati i punti di insegnamento.
 
 .. image:: coding/506.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 9.38‑10 Intersecting Line Trajectory Workpiece Coordinate System
+.. centered:: Grafico 9.38‑10 Sistema di coordinate del pezzo per la traiettoria a linee intersecanti
 
-Method Without Using a Positioner
+Metodo senza posizionatore
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-**Step 1**: Record 6 taught points on the cross-section of the main pipe and the cross-section of the branch pipe respectively.
+**Step 1**: Registrare 6 punti di insegnamento rispettivamente sulle sezioni trasversali del tubo principale e del tubo di giunzione.
 
-**Step 2**: Click "Teach Program", "Program Programming", find "Intersecting Line" in the "Motion Instructions", and enter the intersecting line trajectory settings page.
+**Step 2**: Fare clic su "Programma di insegnamento", "Programmazione del programma", trovare "Linee intersecanti" in "Istruzioni di movimento", per accedere alla pagina di impostazione della traiettoria a linee intersecanti.
 
 .. image:: coding/507.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑11 Intersecting Line Trajectory Settings Page
+.. centered:: Grafico 9.38‑11 Pagina di impostazione della traiettoria a linee intersecanti
 
-**Step 3**: On the intersecting line trajectory settings page, select "Disable" for "Extended Axis Points", complete the settings for starting point motion, motion direction, speed and acceleration, and offset value. The counterclockwise motion direction is the direction of the four fingers when the right hand grips the Z-axis of the workpiece coordinate system.
+**Step 3**: Nella pagina di impostazione della traiettoria a linee intersecanti, selezionare "Disabilita" per "Punti asse esteso", completare le impostazioni per il movimento del punto di inizio, direzione di movimento, velocità e accelerazione, valore di offset. La direzione antioraria per la direzione di movimento è data dalla regola della mano destra: afferrare l'asse Z del sistema di coordinate del pezzo con la mano destra, la direzione delle quattro dita indica il senso antiorario.
 
-**Step 4**: In the "Intersecting Line Point Data" section of the intersecting line trajectory settings page, select the recorded taught points. After setting, click the "Add", "Apply" buttons.
+**Step 4**: Nella sezione "Dati punti linee intersecanti" della pagina di impostazione della traiettoria a linee intersecanti, selezionare i punti di insegnamento registrati. Dopo il completamento delle impostazioni, fare clic sui pulsanti "Aggiungi" e "Applica".
 
 .. image:: coding/508.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑12 Intersecting Line Trajectory Instruction Settings
+.. centered:: Grafico 9.38‑12 Impostazione dell'istruzione per la traiettoria a linee intersecanti
 
-**Step 5**: Click the "Welding" button under "Welding Instructions" to enter the welding settings page, select "Arc Start" and "Arc End" instructions, click the "Add", "Apply" buttons. After successful addition, move the Arc Start LUA instruction up one line.
+**Step 5**: Fare clic sul pulsante "Saldatura" sotto "Istruzioni di saldatura", per accedere alla pagina di impostazione della saldatura. Selezionare le istruzioni "Accensione arco" e "Estinzione arco", fare clic sui pulsanti "Aggiungi" e "Applica". Dopo l'aggiunta riuscita, spostare l'istruzione LUA di accensione arco di una riga verso l'alto.
 
 .. image:: coding/509.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑13 Welding Instruction Settings
-
-The following is a typical LUA program for intersecting line welding without a positioner:
+.. centered:: Grafico 9.38‑13 Impostazione delle istruzioni di saldatura
+ 
+Di seguito è riportato un tipico programma LUA per la saldatura a linee intersecanti senza posizionatore:
 
 .. image:: coding/510.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑14 No Positioner - Intersecting Line Welding Example Program
+.. centered:: Grafico 9.38‑14 Programma di esempio per la saldatura a linee intersecanti senza posizionatore
 
-Method Using a Two-Degree-of-Freedom L-Type Positioner
+Metodo con posizionatore a due gradi di libertà a L
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Step 1**: Record 6 taught points on the cross-section of the main pipe and the cross-section of the branch pipe respectively, and rotate axes 1 and 2 of the positioner to record 4 positioner taught points.
+**Step 1**: Registrare 6 punti di insegnamento rispettivamente sulle sezioni trasversali del tubo principale e del tubo di giunzione, ruotare gli assi 1 e 2 del posizionatore e registrare 4 punti di insegnamento per il posizionatore.
 
-**Step 2**: Click "Teach Program", "Program Programming", find "Intersecting Line" in the "Motion Instructions", and enter the intersecting line trajectory settings page.
+**Step 2**: Fare clic su "Programma di insegnamento", "Programmazione del programma", trovare "Linee intersecanti" in "Istruzioni di movimento", per accedere alla pagina di impostazione della traiettoria a linee intersecanti.
 
 .. image:: coding/511.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑15 Intersecting Line Trajectory Settings Page
+.. centered:: Grafico 9.38‑15 Pagina di impostazione della traiettoria a linee intersecanti
 
-**Step 3**: On the intersecting line trajectory settings page, select "Enable" for "Extended Axis Points", select the recorded positioner taught points, complete the settings for starting point motion, motion direction, speed and acceleration, and offset value.
+**Step 3**: Nella pagina di impostazione della traiettoria a linee intersecanti, selezionare "Abilita" per "Punti asse esteso", selezionare i punti di insegnamento del posizionatore registrati, completare le impostazioni per il movimento del punto di inizio, direzione di movimento, velocità e accelerazione, valore di offset.
 
-**Step 4**: In the "Intersecting Line Point Data" section of the intersecting line trajectory settings page, select the recorded taught points. After setting, click the "Add", "Apply" buttons.
+**Step 4**: Nella sezione "Dati punti linee intersecanti" della pagina di impostazione della traiettoria a linee intersecanti, selezionare i punti di insegnamento registrati. Dopo il completamento delle impostazioni, fare clic sui pulsanti "Aggiungi" e "Applica".
 
 .. image:: coding/512.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑16 Intersecting Line Trajectory Instruction Settings
+.. centered:: Grafico 9.38‑16 Impostazione dell'istruzione per la traiettoria a linee intersecanti
 
-**Step 5**: Click the "Welding" button under "Welding Instructions" to enter the welding settings page, select "Arc Start" and "Arc End" instructions, click the "Add", "Apply" buttons. After successful addition, move the Arc Start LUA instruction up one line.
+**Step 5**: Fare clic sul pulsante "Saldatura" sotto "Istruzioni di saldatura", per accedere alla pagina di impostazione della saldatura. Selezionare le istruzioni "Accensione arco" e "Estinzione arco", fare clic sui pulsanti "Aggiungi" e "Applica". Dopo l'aggiunta riuscita, spostare l'istruzione LUA di accensione arco di una riga verso l'alto.
 
 .. image:: coding/513.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑17 Welding Instruction Settings
-
-The following is a typical LUA program for positioner-based intersecting line welding:
+.. centered:: Grafico 9.38‑17 Impostazione delle istruzioni di saldatura
+ 
+Di seguito è riportato un tipico programma LUA per la saldatura a linee intersecanti con posizionatore:
 
 .. image:: coding/514.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 9.38‑18 Positioner - Intersecting Line Welding Example Program
+.. centered:: Grafico 9.38‑18 Programma di esempio per la saldatura a linee intersecanti con posizionatore

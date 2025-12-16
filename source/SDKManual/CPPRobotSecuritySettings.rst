@@ -1,72 +1,72 @@
-Security settings
-========================
+Configurazione Sicurezza Robot
+==============================
 
 .. toctree:: 
     :maxdepth: 5
 
-Set Collision Level
-++++++++++++++++++++++++++++++++
+Impostare Livello Rilevamento Collisioni
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set collision level
-    * @param  [in]  mode  0-Level, 1-Percentage
-    * @param  [in]  level Collision threshold, level range [], percentage range [0~1]
-    * @param  [in]  config 0-Don't update config file, 1-Update config file
-    * @return  Error code
+    * @brief Imposta il livello di rilevamento collisioni
+    * @param  [in]  mode  0-livello, 1-percentuale
+    * @param  [in]  level Soglia di collisione, intervallo per livello [], intervallo per percentuale [0~1]
+    * @param  [in]  config 0-non aggiornare file di configurazione, 1-aggiorna file di configurazione
+    * @return  Codice errore
     */
     errno_t  SetAnticollision(int mode, float level[6], int config);
 
-Set Post-Collision Strategy
-++++++++++++++++++++++++++++++++
+Impostare Strategia dopo Collisione
+++++++++++++++++++++++++++++++++++++
 .. versionchanged:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-	 * @brief  Set post-collision strategy
-	 * @param  [in] strategy  0-Error pause; 1-Continue running; 2-Error stop; 3-Gravity torque mode; 4-Oscillation response mode; 5-Collision rebound mode
-	 * @param  [in] safeTime  Safe stop time [1000 - 2000]ms
-	 * @param  [in] safeDistance  Safe stop distance [1-150]mm
-	 * @param  [in] safetyMargin  J1-J6 safety factor [1-10]
-	 * @return  Error code
+	 * @brief  Imposta la strategia dopo una collisione
+	 * @param  [in] strategy  0-segnala errore e pausa; 1-continua esecuzione; 2-segnala errore e ferma; 3-modalità coppia gravità; 4-modalità risposta oscillazioni; 5-modalità rimbalzo da collisione 
+	 * @param  [in] safeTime  Tempo di arresto sicuro [1000 - 2000] ms
+	 * @param  [in] safeDistance  Distanza di arresto sicuro [1-150] mm
+	 * @param  [in] safetyMargin  Fattori di sicurezza j1-j6 [1-10]
+	 * @return  Codice errore
 	 */
 	errno_t SetCollisionStrategy(int strategy, int safeTime, int safeDistance, int safetyMargin[]);
 
-Custom Collision Detection Threshold Start
-++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Funzione Soglia Rilevamento Collisioni Personalizzata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.0-3.8.0
 
 .. code-block:: c++
     :linenos:
 
 	 /**
-	 * @brief  Start custom collision detection threshold, set joint and TCP collision detection thresholds
-	 * @param  [in] flag 1-Joint detection only; 2-TCP detection only; 3-Both joint and TCP detection
-	 * @param  [in] jointDetectionThreshould Joint collision detection threshold j1-j6
-	 * @param  [in] tcpDetectionThreshould TCP collision detection threshold, xyzabc
-	 * @param  [in] block 0-Non-blocking; 1-Blocking
-	 * @return  Error code
+	 * @brief  Inizia funzione soglia rilevamento collisioni personalizzata, imposta le soglie di rilevamento collisioni per lato articolare e TCP
+	 * @param  [in] flag 1-attiva solo rilevamento articolare; 2-attiva solo rilevamento TCP; 3-attiva sia rilevamento articolare che TCP
+	 * @param  [in] jointDetectionThreshould Soglia rilevamento collisioni articolari j1-j6
+	 * @param  [in] tcpDetectionThreshould Soglia rilevamento collisioni TCP, xyzabc
+	 * @param  [in] block 0-non bloccante; 1-bloccante
+	 * @return  Codice errore
 	 */
 	errno_t CustomCollisionDetectionStart(int flag, double jointDetectionThreshould[6], double tcpDetectionThreshould[6], int block);
 
-Custom Collision Detection Threshold End
-++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Funzione Soglia Rilevamento Collisioni Personalizzata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.0-3.8.0
 
 .. code-block:: c++
     :linenos:
 
 	/**
-	 * @brief  Close custom collision detection threshold function
-	 * @return  Error code
+	 * @brief  Disattiva funzione soglia rilevamento collisioni personalizzata
+	 * @return  Codice errore
 	 */
 	errno_t CustomCollisionDetectionEnd();
 
-Robot Collision Level Setting Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Impostazione Livello Collisioni Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
@@ -115,46 +115,46 @@ Robot Collision Level Setting Code Example
          return 0;
      }
 
-Set Positive Limit
-++++++++++++++++++++++++++++++++
+Impostare Limiti Positivi (Soft Limit)
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Set positive limit
-    * @param  [in] limit Six joint positions, unit deg
-    * @return  Error code
+    * @brief  Imposta i limiti positivi (soft limit)
+    * @param  [in] limit Posizioni delle sei articolazioni, unità deg
+    * @return  Codice errore
     */
     errno_t  SetLimitPositive(float limit[6]);
 
-Set Negative Limit
-++++++++++++++++++++++++++++++++
+Impostare Limiti Negativi (Soft Limit)
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Set negative limit
-    * @param  [in] limit Six joint positions, unit deg
-    * @return  Error code
+    * @brief  Imposta i limiti negativi (soft limit)
+    * @param  [in] limit Posizioni delle sei articolazioni, unità deg
+    * @return  Codice errore
     */
     errno_t  SetLimitNegative(float limit[6]);   
 
-Get Joint Soft Limit Angles
-++++++++++++++++++++++++++++++++++++
+Ottenere Angoli Limiti Articolari Soft
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get joint soft limit angles
-    * @param  [in] flag 0-Blocking, 1-Non-blocking    
-    * @param  [out] negative  Negative limit angle, unit deg
-    * @param  [out] positive  Positive limit angle, unit deg
-    * @return  Error code
+    * @brief  Ottiene gli angoli dei limiti articolari soft
+    * @param  [in] flag 0-bloccante, 1-non bloccante    
+    * @param  [out] negative  Angoli limite negativi, unità deg
+    * @param  [out] positive  Angoli limite positivi, unità deg
+    * @return  Codice errore
     */
     errno_t  GetJointSoftLimitDeg(uint8_t flag, float negative[6], float positive[6]);
     
-Robot Limit Setting Code Example
-++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Impostazione Limiti Robot
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -182,36 +182,36 @@ Robot Limit Setting Code Example
       return 0;
     }
 
-Set Robot Collision Detection Method
-++++++++++++++++++++++++++++++++++++++++++
+Impostare Metodo Rilevamento Collisioni Robot
++++++++++++++++++++++++++++++++++++++++++++++++
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set robot collision detection method
-    * @param [in] method Collision detection method: 0-Current mode; 1-Dual encoder; 2-Both current and dual encoder
-    * @param [in] thresholdMode Collision level threshold method: 0-Fixed collision level threshold; 1-Custom collision detection threshold
-    * @return  Error code
+    * @brief Imposta il metodo di rilevamento collisioni del robot
+    * @param [in] method Metodo di rilevamento collisioni: 0-modalità corrente; 1-doppio encoder; 2-attiva sia corrente che doppio encoder
+    * @param [in] thresholdMode Modalità soglia livello collisioni; 0-modalità soglia fissa per livello collisioni; 1-soglia di rilevamento collisioni personalizzata
+    * @return  Codice errore
     */
     errno_t SetCollisionDetectionMethod(int method, int thresholdMode = 0);
 
-Set Static Collision Detection On/Off
-++++++++++++++++++++++++++++++++++++++++++
+Impostare Attivazione/Disattivazione Rilevamento Collisioni in Stato Statico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Set static collision detection on/off
-     * @param [in] status 0-Off; 1-On
-     * @return Error code
+     * @brief Imposta attivazione/disattivazione rilevamento collisioni in stato statico
+     * @param [in] status 0-disattiva; 1-attiva
+     * @return Codice errore
      */
     errno_t SetStaticCollisionOnOff(int status);
 
-Robot Collision Detection Method Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Impostazione Metodo Rilevamento Collisioni Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -240,23 +240,23 @@ Robot Collision Detection Method Code Example
       return 0;
     }
 
-Joint Torque Power Detection
-++++++++++++++++++++++++++++++++++++++++++
+Rilevamento Potenza Coppia Articolare
++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Joint torque power detection
-     * @param [in] status 0-Off; 1-On
-     * @param [in] power Set maximum power (W);
-     * @return Error code
+     * @brief Rilevamento potenza coppia articolare
+     * @param [in] status 0-disattiva; 1-attiva
+     * @param [in] power Imposta potenza massima (W);
+     * @return Codice errore
      */
     errno_t SetPowerLimit(int status, double power);
 
-Joint Torque Power Detection Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Rilevamento Potenza Coppia Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
 .. code-block:: c++
     :linenos:

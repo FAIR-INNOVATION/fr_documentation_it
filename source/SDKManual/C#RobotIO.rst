@@ -1,73 +1,73 @@
-Robot IO
-============
+I/O del robot
+===================
 
-.. toctree:: 
+.. toctree::
     :maxdepth: 5
 
-Setting the control box digital outputs
-++++++++++++++++++++++++++++++++++++++++++++++
+Imposta uscita digitale del cabinet di controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Setting up the control box digital outputs.
-    * @param [in] id io number, range [0~15]
-    * @param [in] status 0-off, 1-on
-    * @param [in] smooth 0-not smooth, 1-smooth
-    * @param [in] block 0-Blocking, 1-Non-blocking
-    * @return Error code
-    */
-    int SetDO(int id, byte status, byte smooth, byte block); 
+    /**
+    * @brief  Imposta uscita digitale del cabinet di controllo
+    * @param  [in] id  Numero io, intervallo [0~15]
+    * @param  [in] status 0-Spento, 1-Acceso
+    * @param  [in] smooth 0-Non smooth, 1-Smooth
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @return  Codice di errore
+    */
+    int SetDO(int id, byte status, byte smooth, byte block);
 
-Set the tool digital output
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta uscita digitale dell'utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Setting the tool digital output
-    * @param [in] id io number, range [0~1]
-    * @param [in] status 0-off, 1-on
-    * @param [in] smooth 0-not smooth, 1-smooth
-    * @param [in] block 0-Blocking, 1-Non-blocking
-    * @return Error code
-    */
-    int SetToolDO(int id, byte status, byte smooth, byte block); 
+    /**
+    * @brief  Imposta uscita digitale dell'utensile
+    * @param  [in] id  Numero io, intervallo [0~1]
+    * @param  [in] status 0-Spento, 1-Acceso
+    * @param  [in] smooth 0-Non smooth, 1-Smooth
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @return  Codice di errore
+    */
+    int SetToolDO(int id, byte status, byte smooth, byte block);
 
-Set the control box analog output
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta uscita analogica del cabinet di controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Setting up the control box analog outputs.
-    * @param [in] id io number, range [0~1].
-    * @param [in] value Percentage of current or voltage value, range [0~100] Corresponding to current value [0~20mA] or voltage [0~10V].
-    * @param [in] block 0-blocking, 1-non-blocking
-    * @return Error code
-    */
-    int SetAO(int id, float value, byte block). 
+    /**
+    * @brief  Imposta uscita analogica del cabinet di controllo
+    * @param  [in] id  Numero io, intervallo [0~1]
+    * @param  [in] value Percentuale valore corrente o tensione, intervallo [0~100] corrispondente a corrente [0~20mA] o tensione [0~10V]
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @return  Codice di errore
+    */
+    int SetAO(int id, float value, byte block);
 
-Set the tool analog output
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta uscita analogica dell'utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief set tool analog output
-    * @param [in] id io number, range [0].
-    * @param [in] value Percentage of current or voltage value, range [0~100] corresponding to current value [0~20mA] or voltage [0~10V]
-    * @param [in] block 0-blocking, 1-non-blocking
-    * @return Error code
-    */
-    int SetToolAO(int id, float value, byte block).
+    /**
+    * @brief  Imposta uscita analogica dell'utensile
+    * @param  [in] id  Numero io, intervallo [0]
+    * @param  [in] value Percentuale valore corrente o tensione, intervallo [0~100] corrispondente a corrente [0~20mA] o tensione [0~10V]
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @return  Codice di errore
+    */
+    int SetToolAO(int id, float value, byte block);
 
-Set digital, analog output code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per impostare uscite digitali e analogiche
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void button14_Click(object sender, EventArgs e)
+    private void button14_Click(object sender, EventArgs e)
     {
         byte status = 1;
         byte smooth = 0;
@@ -121,105 +121,105 @@ Set digital, analog output code example
 
     }
 
-etting control box digital inputs
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni ingresso digitale del cabinet di controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get control box digital inputs.
-    * @param [in] id io number, range [0~15]
-    * @param [in] block 0-blocking, 1-non-blocking
-    * @param [out] result 0-low level, 1-high level
-    * @return error code
-    */    
-    int GetDI(int id, byte block, ref byte level).
+    /**
+    * @brief  Ottieni ingresso digitale del cabinet di controllo
+    * @param  [in] id  Numero io, intervallo [0~15]
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @param  [out] result  0-Basso livello, 1-Alto livello
+    * @return  Codice di errore
+    */
+    int GetDI(int id, byte block, ref byte level);
 
-Get tool digital input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni ingresso digitale dell'utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get instrumented digital input
-    * @param [in] id io number, range [0~1]
-    * @param [in] block 0-blocking, 1-non-blocking
-    * @param [out] result 0-low level, 1-high level
-    * @return error code
-    */    
-    int GetToolDI(int id, byte block, ref byte level); 
+    /**
+    * @brief  Ottieni ingresso digitale dell'utensile
+    * @param  [in] id  Numero io, intervallo [0~1]
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @param  [out] result  0-Basso livello, 1-Alto livello
+    * @return  Codice di errore
+    */
+    int GetToolDI(int id, byte block, ref byte level);
 
-Get control box analog input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni ingresso analogico del cabinet di controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get control box analog inputs.
-    * @param [in] id io number, range [0~1]
-    * @param [in] block 0-blocking, 1-non-blocking
-    * @param [out] result Input current or voltage value percentage, range [0~100] corresponding to current value [0~20mS] or voltage [0~10V]
-    * @return error code
-    */    
-    int GetAI(int id, byte block, ref float persent). 
+    /**
+    * @brief  Ottieni ingresso analogico del cabinet di controllo
+    * @param  [in] id  Numero io, intervallo [0~1]
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @param  [out] result  Percentuale valore corrente o tensione in ingresso, intervallo [0~100] corrispondente a corrente [0~20mS] o tensione [0~10V]
+    * @return  Codice di errore
+    */
+    int GetAI(int id, byte block, ref float persent);
 
-Get tool analog input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni ingresso analogico dell'utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Get tool analog input
-    * @param [in] id io number, range [0]
-    * @param [in] block 0-blocking, 1-non-blocking
-    * @param [out] result Input current or voltage value percentage, range [0~100] corresponds to current value [0~20mS] or voltage [0~10V]
-    * @return error code
-    */    
-    int GetToolAI(int id, byte block, ref float persent). 
- 
-Get the robot end record button status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /**
+    * @brief  Ottieni ingresso analogico dell'utensile
+    * @param  [in] id  Numero io, intervallo [0]
+    * @param  [in] block  0-Bloccante, 1-Non bloccante
+    * @param  [out] result  Percentuale valore corrente o tensione in ingresso, intervallo [0~100] corrispondente a corrente [0~20mS] o tensione [0~10V]
+    * @return  Codice di errore
+    */
+    int GetToolAI(int id, byte block, ref float persent);
+
+Ottieni lo stato del pulsante di registrazione all'estremità del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get end-of-robot record button state.
-    * @param [out] state Button state, 0-pressed, 1-unpressed.
-    * @return Error code. 
-    */ 
-    int GetAxlePointRecordBtnState(ref byte state). 
+    /**
+    * @brief Ottieni lo stato del pulsante di registrazione all'estremità del robot
+    * @param [out] state Stato pulsante, 0-Premuto, 1-Rilasciato
+    * @return Codice di errore
+    */
+    int GetAxlePointRecordBtnState(ref byte state);
 
-Get the robot end DO output state
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni lo stato delle uscite DO all'estremità del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get robot end DO output state. 
-    * @param [out] do_state DO output state, do0~do1 corresponds to bit1~bit2, start from bit0. 
-    * @return Error code 
-    */ 
-    int GetToolDO(ref byte do_state).
+    /**
+    * @brief Ottieni lo stato delle uscite DO all'estremità del robot
+    * @param [out] do_state Stato uscite DO, do0~do1 corrisponde a bit1~bit2, a partire da bit0
+    * @return Codice di errore
+    */
+    int GetToolDO(ref byte do_state);
 
-Get the DO output state of the machine controller
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni lo stato delle uscite DO del controller del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Get robot controller DO output state. 
-    * @param [out] do_state_h DO output state, co0~co7 corresponds to bit0~bit7 
-    * @param [out] do_state_l DO output state, do0~do7 corresponds to bit0~bit7
-    * @return Error code 
-    */ 
-    int GetDO(ref int do_state_h, ref int do_state_l);   
+    /**
+    * @brief Ottieni lo stato delle uscite DO del controller del robot
+    * @param [out] do_state_h Stato uscite DO, co0~co7 corrisponde a bit0~bit7
+    * @param [out] do_state_l Stato uscite DO, do0~do7 corrisponde a bit0~bit7
+    * @return Codice di errore
+    */
+    int GetDO(ref int do_state_h, ref int do_state_l);
 
-Get robot DI, DO state code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per ottenere lo stato DI, DO del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void button15_Click(object sender, EventArgs e)
+    private void button15_Click(object sender, EventArgs e)
     {
         byte status = 1;
         byte smooth = 0;
@@ -254,90 +254,90 @@ Get robot DI, DO state code example
         Console.WriteLine($"DO state high is: {do_state_h}\n DO state low is: {do_state_l}");
     }
 
-Wait for control box digital input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendi ingresso digitale del cabinet di controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Wait for control box digital input.
-    * @param [in] id io number, range [0~15]
-    * @param [in] status 0-off, 1-on
-    * @param [in] max_time Maximum waiting time in ms
-    * @param [in] opt Timeout policy, 0-program stops and prompts for timeout, 1-ignore timeout prompts and continue execution, 2-wait all the time.
-    * @return error_code
-    */
-    int WaitDI(int id, byte status, int max_time, int opt). 
+    /**
+    * @brief Attendi ingresso digitale del cabinet di controllo
+    * @param  [in] id  Numero io, intervallo [0~15]
+    * @param  [in]  status 0-Spento, 1-Acceso
+    * @param  [in]  max_time  Tempo di attesa massimo, unità ms
+    * @param  [in]  opt  Strategia dopo timeout, 0-Arresta programma e indica timeout, 1-Ignora indicazione timeout e continua esecuzione programma, 2-Aspetta indefinitamente
+    * @return  Codice di errore
+    */
+    int WaitDI(int id, byte status, int max_time, int opt);
 
-Wait for multiple digital inputs to the control box
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendi ingressi digitali multipli del cabinet di controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Waiting for control box multiplexed digital inputs.
-    * @param [in] mode 0-multiplex with, 1-multiplex or
-    * @param [in] id io number, bit0~bit7 corresponds to DI0~DI7, bit8~bit15 corresponds to CI0~CI7
-    * @param [in] status 0-off, 1-on
-    * @param [in] max_time Maximum wait time in ms.
-    * @param [in] opt Timeout policy, 0 - program stops and prompts for timeout, 1 - ignores timeout prompts and continues execution, 2 - waits forever.
-    * @return error_code
-    */
-    int WaitMultiDI(int mode, int id, byte status, int max_time, int opt). 
+    /**
+    * @brief Attendi ingressi digitali multipli del cabinet di controllo
+    * @param  [in] mode 0-AND multipli, 1-OR multipli
+    * @param  [in] id  Numero io, bit0~bit7 corrisponde a DI0~DI7, bit8~bit15 corrisponde a CI0~CI7
+    * @param  [in]  status 0-Spento, 1-Acceso
+    * @param  [in]  max_time  Tempo di attesa massimo, unità ms
+    * @param  [in]  opt  Strategia dopo timeout, 0-Arresta programma e indica timeout, 1-Ignora indicazione timeout e continua esecuzione programma, 2-Aspetta indefinitamente
+    * @return  Codice di errore
+    */
+    int WaitMultiDI(int mode, int id, byte status, int max_time, int opt);
 
-Wait for tool digital input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendi ingresso digitale dell'utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Waiting for instrumented digital input
-    * @param [in] id io number, range [0~1]
-    * @param [in] status 0-off, 1-on
-    * @param [in] max_time Maximum wait time in ms
-    * @param [in] opt Timeout policy, 0-program stops and prompts for timeout, 1-ignore timeout prompts and continue execution, 2-wait all the time.
-    * @return error_code
-    */
-    int WaitToolDI(int id, byte status, int max_time, int opt); 
+    /**
+    * @brief Attendi ingresso digitale dell'utensile
+    * @param  [in] id  Numero io, intervallo [0~1]
+    * @param  [in]  status 0-Spento, 1-Acceso
+    * @param  [in]  max_time  Tempo di attesa massimo, unità ms
+    * @param  [in]  opt  Strategia dopo timeout, 0-Arresta programma e indica timeout, 1-Ignora indicazione timeout e continua esecuzione programma, 2-Aspetta indefinitamente
+    * @return  Codice di errore
+    */
+    int WaitToolDI(int id, byte status, int max_time, int opt);
 
-Wait for control box analog input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendi ingresso analogico del cabinet di controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Waiting for control box analog input.
-    * @param [in] id io number, range [0~1]
-    * @param [in] sign 0-greater than, 1-less than
-    * @param [in] value Input current or voltage value percentage, range [0~100] corresponding to current value [0~20mS] or voltage [0~10V]
-    * @param [in] max_time Maximum wait time in ms
-    * @param [in] opt Policy after timeout, 0-program stops and prompts for timeout, 1-ignore timeout and prompt program to continue, 2-always wait
-    * @return error_code
-    */
-    int WaitAI(int id, int sign, float value, int max_time, int opt);   
+    /**
+    * @brief Attendi ingresso analogico del cabinet di controllo
+    * @param  [in] id  Numero io, intervallo [0~1]
+    * @param  [in]  sign 0-Maggiore di, 1-Minore di
+    * @param  [in]  value Percentuale valore corrente o tensione in ingresso, intervallo [0~100] corrispondente a corrente [0~20mS] o tensione [0~10V]
+    * @param  [in]  max_time  Tempo di attesa massimo, unità ms
+    * @param  [in]  opt  Strategia dopo timeout, 0-Arresta programma e indica timeout, 1-Ignora indicazione timeout e continua esecuzione programma, 2-Aspetta indefinitamente
+    * @return  Codice di errore
+    */
+    int WaitAI(int id, int sign, float value, int max_time, int opt);
 
-Wait for tool analog input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendi ingresso analogico dell'utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Waiting for tool analog input
-    * @param [in] id io number, range [0]
-    * @param [in] sign 0-greater than, 1-less than
-    * @param [in] value Input current or voltage value percentage, range [0~100] corresponding to current value [0~20mS] or voltage [0~10V]
-    * @param [in] max_time Maximum wait time in ms
-    * @param [in] opt Policy after timeout, 0-program stops and prompts for timeout, 1-ignore timeout and prompt program to continue, 2-always wait
-    * @return error_code
-    */
-    int WaitToolAI(int id, int sign, float value, int max_time, int opt). 
+    /**
+    * @brief Attendi ingresso analogico dell'utensile
+    * @param  [in] id  Numero io, intervallo [0]
+    * @param  [in]  sign 0-Maggiore di, 1-Minore di
+    * @param  [in]  value Percentuale valore corrente o tensione in ingresso, intervallo [0~100] corrispondente a corrente [0~20mS] o tensione [0~10V]
+    * @param  [in]  max_time  Tempo di attesa massimo, unità ms
+    * @param  [in]  opt  Strategia dopo timeout, 0-Arresta programma e indica timeout, 1-Ignora indicazione timeout e continua esecuzione programma, 2-Aspetta indefinitamente
+    * @return  Codice di errore
+    */
+    int WaitToolAI(int id, int sign, float value, int max_time, int opt);
 
-Wait for the control box digital, analog input signal code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per attendere segnali di ingresso digitali e analogici del cabinet di controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void btnIOTest_Click(object sender, EventArgs e)
+    private void btnIOTest_Click(object sender, EventArgs e)
     {
         byte status = 1;
         byte smooth = 0;
@@ -361,97 +361,97 @@ Wait for the control box digital, analog input signal code example
         robot.WaitToolAI(0, 0, 50, 1000, 1);
         Console.WriteLine("WaitToolAI over; rtn is: " + rtn);
     }
-    
-Set whether or not the output is reset after the control box DO stops/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Imposta se resettare le uscite DO del cabinet di controllo dopo arresto/pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Set whether the output is reset after the control box DO stop/pause.
-    * @param [in] resetFlag 0-no reset; 1-reset
-    * @return Error code.
-    */
-    int SetOutputResetCtlBoxDO(int resetFlag).
+    /**
+    * @brief  Imposta se resettare le uscite DO del cabinet di controllo dopo arresto/pausa
+    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
+    * @return  Codice di errore
+    */
+    int SetOutputResetCtlBoxDO(int resetFlag);
 
-Set whether the output is reset after the control box AO stop/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se resettare le uscite AO del cabinet di controllo dopo arresto/pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Sets whether outputs are reset after control box AO stop/pause.
-    * @param [in] resetFlag 0-no reset; 1-reset
-    * @return Error code
-    */
-    int SetOutputResetCtlBoxAO(int resetFlag).
+    /**
+    * @brief  Imposta se resettare le uscite AO del cabinet di controllo dopo arresto/pausa
+    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
+    * @return  Codice di errore
+    */
+    int SetOutputResetCtlBoxAO(int resetFlag);
 
-Set whether the output is reset after the end tool DO stop/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se resettare le uscite DO dell'utensile all'estremità dopo arresto/pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Sets whether the output is reset after the end tool DO stops/pauses.
-    * @param [in] resetFlag 0-no reset; 1-reset
-    * @return Error code.
-    */
-    int SetOutputResetAxleDO(int resetFlag).
+    /**
+    * @brief  Imposta se resettare le uscite DO dell'utensile all'estremità dopo arresto/pausa
+    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
+    * @return  Codice di errore
+    */
+    int SetOutputResetAxleDO(int resetFlag);
 
-Sets whether the output is reset after the end tool AO stops/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se resettare le uscite AO dell'utensile all'estremità dopo arresto/pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Sets whether output is reset after end tool AO stop/pause.
-    * @param [in] resetFlag 0-no reset; 1-reset
-    * @return Error code.
-    */
-    int SetOutputResetAxleAO(int resetFlag).
+    /**
+    * @brief  Imposta se resettare le uscite AO dell'utensile all'estremità dopo arresto/pausa
+    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
+    * @return  Codice di errore
+    */
+    int SetOutputResetAxleAO(int resetFlag);
 
-Sets whether the output is reset after an extended DO stop/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se resettare le uscite DO estese dopo arresto/pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Sets whether the output is reset after an extended DO stop/pause.
-    * @param [in] resetFlag 0-no reset; 1-reset
-    * @return Error code.
-    */
-    int SetOutputResetExtDO(int resetFlag).
+    /**
+    * @brief  Imposta se resettare le uscite DO estese dopo arresto/pausa
+    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
+    * @return  Codice di errore
+    */
+    int SetOutputResetExtDO(int resetFlag);
 
-Set whether the output is reset after the extended AO stops/pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se resettare le uscite AO estese dopo arresto/pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Sets whether the output is reset after an extended AO stop/pause.
-    * @param [in] resetFlag 0-no reset; 1-reset
-    * @return ErrorCode
-    */
-    int SetOutputResetExtAO(int resetFlag).
+    /**
+    * @brief  Imposta se resettare le uscite AO estese dopo arresto/pausa
+    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
+    * @return  Codice di errore
+    */
+    int SetOutputResetExtAO(int resetFlag);
 
-Set whether or not the output is reset after the SmartTool is stopped/paused
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se resettare le uscite SmartTool dopo arresto/pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Sets whether the output is reset after a SmartTool stop/pause.
-    * @param [in] resetFlag 0-no reset; 1-reset
-    * @return Error code.
-    */
-    int SetOutputResetSmartToolDO(int resetFlag).
+    /**
+    * @brief  Imposta se resettare le uscite SmartTool dopo arresto/pausa
+    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
+    * @return  Codice di errore
+    */
+    int SetOutputResetSmartToolDO(int resetFlag);
 
-Setting the output reset after stopping/pausing the LUA program Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per impostare il reset delle uscite dopo arresto/pausa del programma LUA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void button17_Click(object sender, EventArgs e)
+    private void button17_Click(object sender, EventArgs e)
     {
         for (int i = 0; i < 16; i++)
         {

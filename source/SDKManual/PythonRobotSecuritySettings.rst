@@ -1,56 +1,56 @@
-Security Settings
-===================================================
+Impostazioni Sicurezza Robot
+=========================================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Setting the collision level
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Livello Collisione
++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAnticollision (mode,level,config)``"
-    "Description", "Setting the collision level"
-    "Mandatory parameters", "- ``mode``: 0 - level, 1 - percentage;
-    - ``level=[j1,j2,j3,j4,j5,j6]``: collision threshold;
-    - ``config``: 0 - do not update configuration file, 1 - update configuration file"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAnticollision (mode,level,config)``"
+    "Descrizione", "Imposta livello collisione"
+    "Parametri Obbligatori", "- ``mode``:0-livello, 1-percentuale;
+    - ``level=[j1,j2,j3,j4,j5,j6]``:soglia collisione;
+    - ``config``:0-non aggiorna file configurazione, 1-aggiorna file configurazione"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Setting the post-collision strategy
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Strategia dopo Collisione
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetCollisionStrategy(strategy,safeTime,safeDistance,safeVel,safetyMargin)``"
-    "Description", "Set post-crash strategy"
-    "Mandatory parameters", "- ``strategy``: 0 - report error and pause, 1 - keep running, 2 - error stop, 3 - heavy moment mode, 4 - shock response mode, 5 - impact rebound mode"
-    "Default parameters", "- ``safeTime``: safe stop time [1000-2000] ms, default: 1000
-    - ``safeDistance``: safe stopping distance [1-150] mm, default: 100
-    - ``safeVel``: safe stopping speed[50-250]mm/s, default: 250
-    - ``safetyMargin[6]``: safety margin [1-10], default: [10,10,10,10,10,10,10]"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetCollisionStrategy(strategy,safeTime,safeDistance,safeVel,safetyMargin)``"
+    "Descrizione", "Imposta strategia dopo collisione"
+    "Parametri Obbligatori", "- ``strategy``：0-errore pausa, 1-continua esecuzione, 2-errore stop, 3-modalità coppia gravità, 4-modalità risposta oscillazione, 5-modalità rimbalzo collisione"
+    "Parametri Predefiniti", "- ``safeTime``：tempo arresto sicurezza [1000-2000]ms, default: 1000
+    - ``safeDistance``：distanza arresto sicurezza [1-150]mm, default: 100
+    - ``safeVel``：velocità arresto sicurezza [50-250]mm/s, default: 250
+    - ``safetyMargin[6]``：fattore sicurezza [1-10], default: [10,10,10,10,10,10]"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-The Custom collision detection threshold function starts to set the collision detection thresholds of the joint end and TCP end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Funzione Soglia Rilevamento Collisione Personalizzata, Imposta Soglia Rilevamento Collisione Giunti e TCP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.0
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``CustomCollisionDetectionStart(flag, jointDetectionThreshould, tcpDetectionThreshould, block)``"
-    "Description", "The Custom collision detection threshold function starts to set the collision detection thresholds of the joint end and TCP end"
-    "Mandatory parameters", "- ``flag``: 1- Only joint detection is turned on; 2- Only TCP detection is enabled. 3- Joint and TCP detection are enabled simultaneously
-    - ``jointDetectionThreshould``: Joint collision detection threshold j1-j6
-    - ``tcpDetectionThreshould``: indicates TCP collision detection threshold, xyzabc
-    - ``block``: 0- non-blocking; 1- block"
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Prototipo", "``CustomCollisionDetectionStart(flag, jointDetectionThreshould, tcpDetectionThreshould, block)``"
+    "Descrizione", "Inizio funzione soglia rilevamento collisione personalizzata, imposta soglia rilevamento collisione giunti e TCP"
+    "Parametri Obbligatori", "- ``flag``： 1-solo rilevamento giunti attivo; 2-solo rilevamento TCP attivo; 3-rilevamento giunti e TCP attivi contemporaneamente
+    - ``jointDetectionThreshould``： soglia rilevamento collisione giunti j1-j6
+    - ``tcpDetectionThreshould``： soglia rilevamento collisione TCP, xyzabc
+    - ``block``： 0-non bloccante; 1-bloccante"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
 
-The custom collision detection threshold function is disabled
+Fine Funzione Soglia Rilevamento Collisione Personalizzata
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.0
 
@@ -58,20 +58,20 @@ The custom collision detection threshold function is disabled
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``CustomCollisionDetectionEnd()``"
-    "Description", "The custom collision detection threshold function is disabled"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Prototipo", "``CustomCollisionDetectionEnd()``"
+    "Descrizione", "Fine funzione soglia rilevamento collisione personalizzata"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
 
-Robot collision level setting code example
+Esempio Codice Impostazione Livello Collisione Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     mode = 0
     config = 1
@@ -103,102 +103,102 @@ Robot collision level setting code example
     print(f"CustomCollisionDetectionEnd rtn is {rtn}")
     robot.CloseRPC()
 
-Setting the positive limit
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Limite Positivo
++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetLimitPositive(p_limit)``"
-    "Description", "Setting positive limits"
-    "Mandatory parameters", "- ``p_limit=[j1,j2,j3,j4,j5,j6]``: six joint positions"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetLimitPositive(p_limit)``"
+    "Descrizione", "Imposta limite positivo"
+    "Parametri Obbligatori", "- ``p_limit=[j1,j2,j3,j4,j5,j6]``：sei posizioni giunti"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Setting the negative limit
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Limite Negativo
++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetLimitNegative(n_limit)``"
-    "Description", "Setting negative limits"
-    "Mandatory parameters", "- ``n_limit=[j1,j2,j3,j4,j5,j6]``: six joint positions"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetLimitNegative(n_limit)``"
+    "Descrizione", "Imposta limite negativo"
+    "Parametri Obbligatori", "- ``n_limit=[j1,j2,j3,j4,j5,j6]``：sei posizioni giunti"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Obtaining the soft limiting angle of a joint
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Angoli Limiti Soft Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetJointSoftLimitDeg(flag=1)``"
-    "Description", "Acquisition of joint soft limiting angle"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``[j1min,j1max,j2min,j2max,j3min,j3max, j4min,j4max,j5min, j5max, j6min,j6max]``: Axis 1 to Axis 6, joints with negative and positive limits, in [mm]"
+    "Prototipo", "``GetJointSoftLimitDeg(flag=1)``"
+    "Descrizione", "Ottiene angoli limiti soft giunti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "``flag``：0-bloccante, 1-non bloccante  default 1"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``[j1min,j1max,j2min,j2max,j3min,j3max, j4min,j4max,j5min, j5max, j6min,j6max]``：asse1~asse6, limite negativo e positivo giunti, unità[mm]"
 
-Robot limit setting code example
+Esempio Codice Impostazione Limiti Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     plimit = [170.0, 80.0, 150.0, 80.0, 170.0, 160.0]
     robot.SetLimitPositive(plimit)
     nlimit = [-170.0, -260.0, -150.0, -260.0, -170.0, -160.0]
     robot.SetLimitNegative(nlimit)
     error,neg_deg = robot.GetJointSoftLimitDeg(0)
-    print(f"pos limit deg: {neg_deg[1]}, {neg_deg[3]}, {neg_deg[5]}, {neg_deg[7]}, {neg_deg[9]}, {neg_deg[11]}")
-    print(f"neg limit deg: {neg_deg[0]}, {neg_deg[2]}, {neg_deg[4]}, {neg_deg[6]}, {neg_deg[8]}, {neg_deg[10]}")
+    print(f"limite positivo deg: {neg_deg[1]}, {neg_deg[3]}, {neg_deg[5]}, {neg_deg[7]}, {neg_deg[9]}, {neg_deg[11]}")
+    print(f"limite negativo deg: {neg_deg[0]}, {neg_deg[2]}, {neg_deg[4]}, {neg_deg[6]}, {neg_deg[8]}, {neg_deg[10]}")
     robot.CloseRPC()
 
-Setting up a robot collision detection method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Metodo Rilevamento Collisione Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetCollisionDetectionMethod(method, thresholdMode)``"
-    "Description", "Sets the robot collision detection method."
-    "Mandatory parameters", "
-    - ``method``: collision detection method: 0 - current mode; 1 - dual encoder; 2 - current and dual encoder on at the same time  
-    - ``thresholdMode``: Collision level threshold method 0-Collision level fixed threshold mode 1- Customize collision detection thresholds
+    "Prototipo", "``SetCollisionDetectionMethod(method, thresholdMode)``"
+    "Descrizione", "Imposta metodo rilevamento collisione robot"
+    "Parametri Obbligatori", "
+    - ``method``：metodo rilevamento collisione: 0-modalità corrente; 1-doppio encoder; 2-corrente e doppio encoder entrambi attivi
+    - ``thresholdMode``：modalità soglia livello collisione; 0-modalità soglia fissa livello collisione; 1-soglia rilevamento collisione personalizzata  
     "
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
 
-Set static undercollision detection to start off
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Attivazione/Disattivazione Rilevamento Collisione in Stato Statico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetStaticCollisionOnOff(status)``"
-    "Description", "Set static undercollision detection to start off"
-    "Mandatory parameters", "
-    - ``status``: 0 - off; 1 - on
+    "Prototipo", "``SetStaticCollisionOnOff(status)``"
+    "Descrizione", "Imposta attivazione/disattivazione rilevamento collisione in stato statico"
+    "Parametri Obbligatori", "
+    - ``status``： 0-disattivato; 1-attivato
     "
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
 
-Set up the robot collision detection method code example
+Esempio Codice Impostazione Metodo Rilevamento Collisione Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     rtn = robot.SetCollisionDetectionMethod(0,0)
     rtn = robot.SetStaticCollisionOnOff(1)
@@ -208,31 +208,31 @@ Set up the robot collision detection method code example
     print(f"SetStaticCollisionOnOff Off rtn is {rtn}")
     robot.CloseRPC()
 
-Joint torque and power detection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rilevamento Potenza Coppia Giunti
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetPowerLimit(status, power)``"
-    "Description", "Joint torque and power detection"
-    "Mandatory parameters", "
-    - ``status``: 0 - off; 1 - on
-    - ``power``：Set the maximum power (W)
+    "Prototipo", "``SetPowerLimit(status, power)``"
+    "Descrizione", "Rilevamento potenza coppia giunti"
+    "Parametri Obbligatori", "
+    - ``status``：0-disattivato; 1-attivato
+    - ``power``：imposta potenza massima (W)
     "
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
     
-Sample code for joint torque power detection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Rilevamento Potenza Coppia Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     robot.DragTeachSwitch(1)
     robot.SetPowerLimit(1, 200)
@@ -242,7 +242,7 @@ Sample code for joint torque power detection
     while count > 0:
         error = robot.ServoJT(torques, 0.001)
         count -= 1
-        time.sleep(0.001)  # 1ms delay
+        time.sleep(0.001)  # ritardo 1ms
     error = robot.ServoJTEnd()
     robot.DragTeachSwitch(0)
     robot.CloseRPC()

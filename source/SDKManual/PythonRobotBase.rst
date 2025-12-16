@@ -1,119 +1,118 @@
-Robotics Basics
-=======================================
+Fondamenti Robot
+=======================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Instantiated Robot
+Istanziazione Robot
+++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``RPC(ip)``"
+    "Descrizione", "Istanzia un oggetto robot"
+    "Parametri Obbligatori", "- ``ip``：Indirizzo IP del robot, IP predefinito di fabbrica è '192.168.58.2'"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Successo: ritorna un oggetto robot
+    - Fallimento: l'oggetto creato viene distrutto"
+
+Chiudere Connessione RPC
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``CloseRPC()``"
+    "Descrizione", "Chiude connessione RPC"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Nessuno"
+
+Interrogare Numero Versione SDK
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetSDKVersion()``"
+    "Descrizione", "Interroga numero versione SDK"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento-errcode
+    - ``sdk``：Numero versione SDK, numero versione controller"
+
+Ottenere IP Controller
++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetControllerIP()``"
+    "Descrizione", "Interroga IP controller"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``ip``：IP controller"
+
+Controllare Entrata/Uscita Modalità Insegnamento Trascinamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``DragTeachSwitch(state)``"
+    "Descrizione", "Controlla entrata/uscita modalità insegnamento trascinamento"
+    "Parametri Obbligatori", "- ``state``：1-entra modalità insegnamento trascinamento, 0-esce modalità insegnamento trascinamento"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+
+Interrogare Se Robot è in Modalità Trascinamento
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``RPC(ip)``"
-    "Description", "Instantiating a robot object"
-    "Required parameter", "- ``ip``:The IP address of the robot, with a default factory IP of “192.168.58.2”"
-    "Optional parameter", "NULL"
-    "Return value", "- Success: Returns a robot object
-    - Failed: The created object will be destroyed"
+    "Prototipo", "``IsInDragTeach()``"
+    "Descrizione", "Interroga se robot è in modalità insegnamento trascinamento"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``state``：0-non in modalità insegnamento trascinamento, 1-in modalità insegnamento trascinamento"
 
-Close the RPC connection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``CloseRPC()``"
-    "Description", "Close RPC connection"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "NULL"
-
-Query SDK version number
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare Abilitazione/Disabilitazione Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetSDKVersion()``"
-    "Description", "Query SDK version number"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Fail-errcode
-    - ``sdk``: SDK version number, controller version number"
+    "Prototipo", "``RobotEnable(state)``"
+    "Descrizione", "Controlla abilitazione/disabilitazione robot"
+    "Parametri Obbligatori", "- ``state``：1-abilitato, 0-disabilitato"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode "
 
-Get controller IP
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``GetControllerIP()``"
-    "Description", "Query Controller IP"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``ip``: controller IP"
-
-Controlling the robot into and out of drag-and-drop instructor mode
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare Cambio Modalità Manuale/Automatica Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``DragTeachSwitch(state)``"
-    "Description", "Controls the robot into and out of drag-and-drop demonstration mode."
-    "Mandatory parameter", "- ``state``: 1-entry into drag-indicator mode, 0-exit from drag-indicator mode"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``Mode(state)``"
+    "Descrizione", "Controlla cambio modalità manuale/automatica robot"
+    "Parametri Obbligatori", "- ``state``：0-modalità automatica, 1-modalità manuale"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Queries whether the robot is in drag mode
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``IsInDragTeach()``"
-    "Description", "Queries whether the robot is in drag-and-drop demonstration mode."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``state``: 0 - non-drag instructional mode, 1 - drag instructional mode"
-
-Control robot up-enable or down-enable
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "prototype", "``RobotEnable(state)``"
-    "Description", "Control robot up-enable or down-enable"
-    "Mandatory parameters", "- ``state``: 1 - up enable, 0 - down enable"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
-
-
-Control of robot hand-automatic mode switching
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "prototype", "``Mode(state)``"
-    "description", "control robot hand auto mode switching"
-    "Mandatory parameters", "- ``state``: 0 - automatic mode, 1 - manual mode"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Shut down the robot operating system
+Spegnere Sistema Operativo Robot
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -121,13 +120,13 @@ Shut down the robot operating system
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ShutDownRobotOS()``"
-    "Description", "Shut down the robot operating system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``ShutDownRobotOS()``"
+    "Descrizione", "Spegne sistema operativo robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Initialize the log parameters
+Inizializzare Parametri Log
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -135,16 +134,16 @@ Initialize the log parameters
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LoggerInit(output_model=1, file_path="", file_num=5)``"
-    "Description", "Initialize the log parameters"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``output_model``：Output mode, 0- Direct output; 1- Buffered output; 2- Asynchronous output, default 1
-    - ``file_path``：File path + name, the name must be XXX. The log form, such as/home/fr. / Linux/fairino log. The default path where the program is executed, with the default name fairino_year +month+data.log(e.g., fairino_2024_03_13.log);
-    - ``file_num``：The number of files for rolling storage ranges from 1 to 20, with a default value of 5. The upper limit for a single file is 50M."
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``LoggerInit(output_model=1, file_path="", file_num=5)``"
+    "Descrizione", "Inizializza parametri log"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``output_model``：Modalità output, 0-output diretto; 1-output bufferizzato; 2-output asincrono, default 1
+    - ``file_path``：Percorso salvataggio file + nome, nome deve essere formato xxx.log, es. /home/fr/linux/fairino.log. Percorso predefinito programma esecuzione, nome predefinito: fairino_anno+mese+data.log (es: fairino_2024_03_13.log);
+    - ``file_num``：Numero file archiviazione rolling, 1~20 file, valore predefinito 5. Singolo file limite superiore 50M;"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Setting the log filter level
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Livello Filtro Log
++++++++++++++++++++++++++++++++++
 
 .. versionadded:: python SDK-v2.0.2
 
@@ -152,19 +151,19 @@ Setting the log filter level
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetLoggerLevel(lvl=1)``"
-    "Description", "Set log filter level"
-    "Mandatory parameters", "NULL"
-    "Default Parameters","- ``lvl``: filter level value, the smaller the value the less output logs, 1-error, 2-warnning, 3-inform, 4-debug, default value is 1"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetLoggerLevel(lvl=1)``"
+    "Descrizione", "Imposta livello filtro log"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``lvl``：Valore livello filtro, valore più piccolo produce meno log output, 1-error, 2-warning, 3-inform, 4-debug, valore predefinito 1"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Robot base control code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Controllo Fondamentale Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     error,version = robot.GetSDKVersion()
     print(f"SDK version: {version}")
@@ -190,37 +189,37 @@ Robot base control code example
     robot.Mode(1)
     robot.CloseRPC()
 
-Get the software version of the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Versione Software Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSoftwareVersion()``"
-    "Description", "Get the software version of the robot"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``robotModel``: robot model
-    - ``webVersion``: web version
-    - ``controllerVersion``: controller version"
+    "Prototipo", "``GetSoftwareVersion()``"
+    "Descrizione", "Ottiene versione software robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``robotModel``：Modello robot
+    - ``webVersion``：Versione web
+    - ``controllerVersion``：Versione controller"
 
-Getting robot hardware version information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Informazioni Versione Hardware Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSlaveHardVersion()``"
-    "Description", "Get robot hardware version information"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``ctrlBoxBoardVersion``: control box version
+    "Prototipo", "``GetSlaveHardVersion()``"
+    "Descrizione", "Ottiene informazioni versione hardware robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``ctrlBoxBoardVersion``：Versione box controllo
     - ``driver1Version``
     - ``driver2Version``
     - ``driver3Version``
@@ -229,20 +228,20 @@ Getting robot hardware version information
     - ``driver6Version``
     - ``endBoardVersion``"
 
-Getting robot firmware version information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Informazioni Versione Firmware Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSlaveFirmVersion()``"
-    "Description", "Get information about the robot's firmware version."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``ctrlBoxBoardVersion``: control box version
+    "Prototipo", "``GetSlaveFirmVersion()``"
+    "Descrizione", "Ottiene informazioni versione firmware robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode
+    - ``ctrlBoxBoardVersion``：Versione box controllo
     - ``driver1Version``
     - ``driver2Version``
     - ``driver3Version``
@@ -251,13 +250,13 @@ Getting robot firmware version information
     - ``driver6Version``
     - ``endBoardVersion``"
 
-Get the robot software firmware version code sample
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Versione Software/Firmware Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     rtn,robotModel, webversion, controllerVersion = robot.GetSoftwareVersion()
     print(f"Getsoftwareversion rtn is: {rtn}")

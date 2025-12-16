@@ -1,204 +1,194 @@
-Robot Welding
-======================
+Robot di Saldatura
+==================
 
-.. toctree:: 
-    :maxdepth: 5
+.. toctree::
+   :maxdepth: 5
 
-Set Welding Process Curve Parameters
-+++++++++++++++++++++++++++++++++++++++
+Impostare i parametri della curva del processo di saldatura
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set welding process curve parameters
-     * @param [in] id Welding process ID (1-99)
-     * @param [in] startCurrent Arc starting current (A)
-     * @param [in] startVoltage Arc starting voltage (V)
-     * @param [in] startTime Arc starting time (ms)
-     * @param [in] weldCurrent Welding current (A)
-     * @param [in] weldVoltage Welding voltage (V)
-     * @param [in] endCurrent Arc ending current (A)
-     * @param [in] endVoltage Arc ending voltage (V)
-     * @param [in] endTime Arc ending time (ms)
-     * @return Error code
-     */
-    errno_t WeldingSetProcessParam(int id, double startCurrent, double startVoltage, double startTime, double weldCurrent, double weldVoltage, double endCurrent, double endVoltage, double endTime);
+   /**
+    * @brief Imposta i parametri della curva del processo di saldatura
+    * @param [in] id Numero del processo di saldatura (1-99)
+    * @param [in] startCurrent Corrente di accensione dell'arco (A)
+    * @param [in] startVoltage Tensione di accensione dell'arco (V)
+    * @param [in] startTime Tempo di accensione dell'arco (ms)
+    * @param [in] weldCurrent Corrente di saldatura (A)
+    * @param [in] weldVoltage Tensione di saldatura (V)
+    * @param [in] endCurrent Corrente di spegnimento dell'arco (A)
+    * @param [in] endVoltage Tensione di spegnimento dell'arco (V)
+    * @param [in] endTime Tempo di spegnimento dell'arco (ms)
+    * @return Codice di errore
+    */
+   errno_t WeldingSetProcessParam(int id, double startCurrent, double startVoltage, double startTime, double weldCurrent, double weldVoltage, double endCurrent, double endVoltage, double endTime);
 
-Get Welding Process Curve Parameters
-+++++++++++++++++++++++++++++++++++++++
+Ottenere i parametri della curva del processo di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Get welding process curve parameters
-     * @param [in] id Welding process ID (1-99)
-     * @param [out] startCurrent Arc starting current (A)
-     * @param [out] startVoltage Arc starting voltage (V)
-     * @param [out] startTime Arc starting time (ms)
-     * @param [out] weldCurrent Welding current (A)
-     * @param [out] weldVoltage Welding voltage (V)
-     * @param [out] endCurrent Arc ending current (A)
-     * @param [out] endVoltage Arc ending voltage (V)
-     * @param [out] endTime Arc ending time (ms)
-     * @return Error code
-     */
-    errno_t WeldingGetProcessParam(int id, double& startCurrent, double& startVoltage, double& startTime, double& weldCurrent, double& weldVoltage, double& endCurrent, double& endVoltage, double& endTime);
+   /**
+    * @brief Ottiene i parametri della curva del processo di saldatura
+    * @param [in] id Numero del processo di saldatura (1-99)
+    * @param [out] startCurrent Corrente di accensione dell'arco (A)
+    * @param [out] startVoltage Tensione di accensione dell'arco (V)
+    * @param [out] startTime Tempo di accensione dell'arco (ms)
+    * @param [out] weldCurrent Corrente di saldatura (A)
+    * @param [out] weldVoltage Tensione di saldatura (V)
+    * @param [out] endCurrent Corrente di spegnimento dell'arco (A)
+    * @param [out] endVoltage Tensione di spegnimento dell'arco (V)
+    * @param [out] endTime Tempo di spegnimento dell'arco (ms)
+    * @return Codice di errore
+    */
+   errno_t WeldingGetProcessParam(int id, double& startCurrent, double& startVoltage, double& startTime, double& weldCurrent, double& weldVoltage, double& endCurrent, double& endVoltage, double& endTime);
 
-Set Welding Current to Analog Output Relationship
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare la relazione tra corrente di saldatura e uscita analogica
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set welding current to analog output relationship
-    * @param [in] currentMin Current value at left point of linear relationship (A)
-    * @param [in] currentMax Current value at right point of linear relationship (A)
-    * @param [in] outputVoltageMin Analog output voltage at left point (V)
-    * @param [in] outputVoltageMax Analog output voltage at right point (V)
-    * @return Error code
+   /**
+    * @brief Imposta la relazione tra corrente di saldatura e uscita analogica
+    * @param [in] currentMin Valore corrente del punto sinistro della relazione lineare corrente-uscita analogica (A)
+    * @param [in] currentMax Valore corrente del punto destro della relazione lineare corrente-uscita analogica (A)
+    * @param [in] outputVoltageMin Valore di tensione di uscita analogica del punto sinistro della relazione lineare (V)
+    * @param [in] outputVoltageMax Valore di tensione di uscita analogica del punto destro della relazione lineare (V)
+    * @return Codice di errore
     */
-    errno_t WeldingSetCurrentRelation(double currentMin, double currentMax, double outputVoltageMin, double outputVoltageMax);
+   errno_t WeldingSetCurrentRelation(double currentMin, double currentMax, double outputVoltageMin, double outputVoltageMax);
 
-Set Welding Voltage to Analog Output Relationship
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare la relazione tra tensione di saldatura e uscita analogica
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set welding voltage to analog output relationship
-    * @param [in] weldVoltageMin Welding voltage at left point of linear relationship (A)
-    * @param [in] weldVoltageMax Welding voltage at right point of linear relationship (A)
-    * @param [in] outputVoltageMin Analog output voltage at left point (V)
-    * @param [in] outputVoltageMax Analog output voltage at right point (V)
-    * @return Error code
+   /**
+    * @brief Imposta la relazione tra tensione di saldatura e uscita analogica
+    * @param [in] weldVoltageMin Valore di tensione di saldatura del punto sinistro della relazione lineare (V)
+    * @param [in] weldVoltageMax Valore di tensione di saldatura del punto destro della relazione lineare (V)
+    * @param [in] outputVoltageMin Valore di tensione di uscita analogica del punto sinistro della relazione lineare (V)
+    * @param [in] outputVoltageMax Valore di tensione di uscita analogica del punto destro della relazione lineare (V)
+    * @return Codice di errore
     */
-    errno_t WeldingSetVoltageRelation(double weldVoltageMin, double weldVoltageMax, double outputVoltageMin, double outputVoltageMax);
+   errno_t WeldingSetVoltageRelation(double weldVoltageMin, double weldVoltageMax, double outputVoltageMin, double outputVoltageMax);
 
-Get Welding Current to Analog Output Relationship
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la relazione tra corrente di saldatura e uscita analogica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Get welding current to analog output relationship
-    * @param [out] currentMin Current value at left point of linear relationship (A)
-    * @param [out] currentMax Current value at right point of linear relationship (A)
-    * @param [out] outputVoltageMin Analog output voltage at left point (V)
-    * @param [out] outputVoltageMax Analog output voltage at right point (V)
-    * @return Error code
+   /**
+    * @brief Ottiene la relazione tra corrente di saldatura e uscita analogica
+    * @param [out] currentMin Valore corrente del punto sinistro della relazione lineare corrente-uscita analogica (A)
+    * @param [out] currentMax Valore corrente del punto destro della relazione lineare corrente-uscita analogica (A)
+    * @param [out] outputVoltageMin Valore di tensione di uscita analogica del punto sinistro della relazione lineare (V)
+    * @param [out] outputVoltageMax Valore di tensione di uscita analogica del punto destro della relazione lineare (V)
+    * @return Codice di errore
     */
-    errno_t WeldingGetCurrentRelation(double *currentMin, double *currentMax, double *outputVoltageMin, double *outputVoltageMax);
+   errno_t WeldingGetCurrentRelation(double *currentMin, double *currentMax, double *outputVoltageMin, double *outputVoltageMax);
 
-Get Welding Voltage to Analog Output Relationship
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la relazione tra tensione di saldatura e uscita analogica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Get welding voltage to analog output relationship
-    * @param [out] weldVoltageMin Welding voltage at left point of linear relationship (A)
-    * @param [out] weldVoltageMax Welding voltage at right point of linear relationship (A)
-    * @param [out] outputVoltageMin Analog output voltage at left point (V)
-    * @param [out] outputVoltageMax Analog output voltage at right point (V)
-    * @return Error code
+   /**
+    * @brief Ottiene la relazione tra tensione di saldatura e uscita analogica
+    * @param [out] weldVoltageMin Valore di tensione di saldatura del punto sinistro della relazione lineare (V)
+    * @param [out] weldVoltageMax Valore di tensione di saldatura del punto destro della relazione lineare (V)
+    * @param [out] outputVoltageMin Valore di tensione di uscita analogica del punto sinistro della relazione lineare (V)
+    * @param [out] outputVoltageMax Valore di tensione di uscita analogica del punto destro della relazione lineare (V)
+    * @return Codice di errore
     */
-    errno_t WeldingGetVoltageRelation(double *weldVoltageMin, double *weldVoltageMax, double *outputVoltageMin, double *outputVoltageMax);
+   errno_t WeldingGetVoltageRelation(double *weldVoltageMin, double *weldVoltageMax, double *outputVoltageMin, double *outputVoltageMax);
 
-Set Welding Current
-+++++++++++++++++++++++++++++++++++++++++++++
+Impostare la corrente di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set welding current
-    * @param [in] ioType Control IO type 0-Control box IO; 1-Extension IO
-    * @param [in] current Welding current value (A)
-    * @param [in] AOIndex Welding current control box analog output port (0-1)
-    * @param [in] blend Whether to smooth 0-Not smooth; 1-Smooth
-    * @return Error code
+   /**
+    * @brief Imposta la corrente di saldatura
+    * @param [in] ioType Tipo IO di controllo 0-IO della centralina; 1-IO esteso
+    * @param [in] current Valore della corrente di saldatura (A)
+    * @param [in] AOIndex Porta di uscita analogica della centralina per il controllo della corrente di saldatura (0-1)
+    * @param [in] blend Se levigare 0-Non levigare; 1-Levigare
+    * @return Codice di errore
     */
-    errno_t WeldingSetCurrent(int ioType, double current, int AOIndex, int blend);
+   errno_t WeldingSetCurrent(int ioType, double current, int AOIndex, int blend);
 
-Set Welding Voltage
-+++++++++++++++++++++++++++++++++++++++++++++
+Impostare la tensione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set welding voltage
-    * @param [in] ioType Control IO type 0-Control box IO; 1-Extension IO
-    * @param [in] voltage Welding voltage value (V)
-    * @param [in] AOIndex Welding voltage control box analog output port (0-1)
-    * @param [in] blend Whether to smooth 0-Not smooth; 1-Smooth
-    * @return Error code
+   /**
+    * @brief Imposta la tensione di saldatura
+    * @param [in] ioType Tipo IO di controllo 0-IO della centralina; 1-IO esteso
+    * @param [in] voltage Valore della tensione di saldatura (V)
+    * @param [in] AOIndex Porta di uscita analogica della centralina per il controllo della tensione di saldatura (0-1)
+    * @param [in] blend Se levigare 0-Non levigare; 1-Levigare
+    * @return Codice di errore
     */
-    errno_t WeldingSetVoltage(int ioType, double voltage, int AOIndex, int blend);
+   errno_t WeldingSetVoltage(int ioType, double voltage, int AOIndex, int blend);
 
-Set Weaving Parameters
-+++++++++++++++++++++++++++++++++++++++++++++
+Impostare i parametri di oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set weaving parameters
-     * @param [in] weaveNum Weaving parameter configuration ID
-     * @param [in] weaveType Weaving type: 
-     *        0-Horizontal triangular wave weaving;
-     *        1-Vertical L-shaped triangular wave weaving;
-     *        2-Clockwise circular weaving;
-     *        3-Counter-clockwise circular weaving;
-     *        4-Horizontal sine wave weaving;
-     *        5-Vertical L-shaped sine wave weaving;
-     *        6-Vertical triangular wave weaving;
-     *        7-Vertical sine wave weaving
-     * @param [in] weaveFrequency Weaving frequency (Hz)
-     * @param [in] weaveIncStayTime Wait mode: 
-     *        0-Period excludes wait time;
-     *        1-Period includes wait time
-     * @param [in] weaveRange Weaving amplitude (mm)
-     * @param [in] weaveLeftRange Left chord length for vertical triangular weaving (mm)
-     * @param [in] weaveRightRange Right chord length for vertical triangular weaving (mm)
-     * @param [in] additionalStayTime Vertical triangular weaving apex dwell time (mm)
-     * @param [in] weaveLeftStayTime Left dwell time (ms)
-     * @param [in] weaveRightStayTime Right dwell time (ms)
-     * @param [in] weaveCircleRadio Circular weaving-callback ratio (0-100%)
-     * @param [in] weaveStationary Position wait during weaving:
-     *        0-Position continues moving during wait time;
-     *        1-Position remains static during wait time
-     * @param [in] weaveYawAngle Weaving direction azimuth angle (rotation around Z-axis), in °
-     * @param [in] weaveRotAngle Weaving direction tilt angle (deflection around X-axis), in °
-     * @return Error code
-     */
-    errno_t WeaveSetPara(int weaveNum, int weaveType, double weaveFrequency, int weaveIncStayTime, double weaveRange, double weaveLeftRange, double weaveRightRange, int additionalStayTime, int weaveLeftStayTime, int weaveRightStayTime, int weaveCircleRadio, int weaveStationary, double weaveYawAngle, double weaveRotAngle = 0);
+   /**
+    * @brief Imposta i parametri di oscillazione
+    * @param [in] weaveNum Numero di configurazione dei parametri di saldatura oscillante
+    * @param [in] weaveType Tipo di oscillazione 0-Oscillazione a onda triangolare piana; 1-Oscillazione a onda triangolare L verticale; 2-Oscillazione circolare in senso orario; 3-Oscillazione circolare in senso antiorario; 4-Oscillazione a onda sinusoidale piana; 5-Oscillazione a onda sinusoidale L verticale; 6-Oscillazione a onda triangolare verticale; 7-Oscillazione a onda sinusoidale verticale
+    * @param [in] weaveFrequency Frequenza di oscillazione (Hz)
+    * @param [in] weaveIncStayTime Modalità di attesa 0-Il ciclo non include il tempo di attesa; 1-Il ciclo include il tempo di attesa
+    * @param [in] weaveRange Ampiezza di oscillazione (mm)
+    * @param [in] weaveLeftRange Lunghezza della corda sinistra per l'oscillazione triangolare verticale (mm)
+    * @param [in] weaveRightRange Lunghezza della corda destra per l'oscillazione triangolare verticale (mm)
+    * @param [in] additionalStayTime Tempo di permanenza nel punto del triangolo verticale (ms)
+    * @param [in] weaveLeftStayTime Tempo di permanenza a sinistra (ms)
+    * @param [in] weaveRightStayTime Tempo di permanenza a destra (ms)
+    * @param [in] weaveCircleRadio Rapporto di ritorno per l'oscillazione circolare (0-100%)
+    * @param [in] weaveStationary Attesa della posizione di oscillazione, 0-La posizione continua a muoversi durante il tempo di attesa; 1-La posizione rimane ferma durante il tempo di attesa
+    * @param [in] weaveYawAngle Angolo di direzione dell'oscillazione (rotazione attorno all'asse Z dell'oscillazione), unità °
+    * @param [in] weaveRotAngle Angolo di rollio direzione oscillazione (rotazione attorno all'asse X oscillazione), unità °
+    * @return Codice di errore
+    */
+   errno_t WeaveSetPara(int weaveNum, int weaveType, double weaveFrequency, int weaveIncStayTime, double weaveRange, double weaveLeftRange, double weaveRightRange, int additionalStayTime, int weaveLeftStayTime, int weaveRightStayTime, int weaveCircleRadio, int weaveStationary, double weaveYawAngle, double weaveRotAngle = 0);
 
-Welding Parameter Setup Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++
-    
+Esempio di codice per impostare i parametri di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestSetWeldParam(void)
     {
@@ -278,264 +268,272 @@ Welding Parameter Setup Code Example
       return 0;
     }
 
-Instantaneously Set Weaving Parameters
-+++++++++++++++++++++++++++++++++++++++++++++
+Impostare i parametri di oscillazione in tempo reale
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Instantly set weaving parameters
-    * @param [in] weaveNum Weaving parameter configuration number
-    * @param [in] weaveType Weaving type 0-Flat triangular wave; 1-Vertical L-shaped triangular wave; 2-Clockwise circular; 3-Counter-clockwise circular; 4-Flat sine wave; 5-Vertical L-shaped sine wave; 6-Vertical triangular wave; 7-Vertical sine wave
-    * @param [in] weaveFrequency Weaving frequency (Hz)
-    * @param [in] weaveIncStayTime Wait mode 0-Cycle excludes wait time; 1-Cycle includes wait time
-    * @param [in] weaveRange Weaving amplitude (mm)
-    * @param [in] weaveLeftStayTime Left dwell time (ms)
-    * @param [in] weaveRightStayTime Right dwell time (ms)
-    * @param [in] weaveCircleRadio Circular weaving - callback ratio (0-100%)
-    * @param [in] weaveStationary Weaving position wait, 0-Position continues moving during wait; 1-Position remains stationary during wait
-    * @return Error code
+   /**
+    * @brief Imposta i parametri di oscillazione in tempo reale
+    * @param [in] weaveNum Numero di configurazione dei parametri di saldatura oscillante
+    * @param [in] weaveType Tipo di oscillazione 0-Oscillazione a onda triangolare piana; 1-Oscillazione a onda triangolare L verticale; 2-Oscillazione circolare in senso orario; 3-Oscillazione circolare in senso antiorario; 4-Oscillazione a onda sinusoidale piana; 5-Oscillazione a onda sinusoidale L verticale; 6-Oscillazione a onda triangolare verticale; 7-Oscillazione a onda sinusoidale verticale
+    * @param [in] weaveFrequency Frequenza di oscillazione (Hz)
+    * @param [in] weaveIncStayTime Modalità di attesa 0-Il ciclo non include il tempo di attesa; 1-Il ciclo include il tempo di attesa
+    * @param [in] weaveRange Ampiezza di oscillazione (mm)
+    * @param [in] weaveLeftStayTime Tempo di permanenza a sinistra (ms)
+    * @param [in] weaveRightStayTime Tempo di permanenza a destra (ms)
+    * @param [in] weaveCircleRadio Rapporto di ritorno per l'oscillazione circolare (0-100%)
+    * @param [in] weaveStationary Attesa della posizione di oscillazione, 0-La posizione continua a muoversi durante il tempo di attesa; 1-La posizione rimane ferma durante il tempo di attesa
+    * @return Codice di errore
     */
-    errno_t WeaveOnlineSetPara(int weaveNum, int weaveType, double weaveFrequency, int weaveIncStayTime, double weaveRange, int weaveLeftStayTime, int weaveRightStayTime, int weaveCircleRadio, int weaveStationary);
+   errno_t WeaveOnlineSetPara(int weaveNum, int weaveType, double weaveFrequency, int weaveIncStayTime, double weaveRange, int weaveLeftStayTime, int weaveRightStayTime, int weaveCircleRadio, int weaveStationary);
 
-Set Robot Welding Arc Unexpected Interruption Detection Parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare i parametri di rilevamento dell'interruzione dell'arco di saldatura del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-	 * @brief Set robot welding arc unexpected interruption detection parameters
-	 * @param [in] checkEnable Enable detection; 0-Disable; 1-Enable
-	 * @param [in] arcInterruptTimeLength Arc interruption confirmation duration (ms)
-	 * @return Error code
+   /**
+    * @brief Imposta i parametri di rilevamento dell'interruzione accidentale dell'arco di saldatura del robot
+    * @param [in] checkEnable Abilita il rilevamento; 0-Disabilitato; 1-Abilitato
+    * @param [in] arcInterruptTimeLength Durata di conferma dell'interruzione dell'arco (ms)
+    * @return Codice di errore
     */
-	errno_t WeldingSetCheckArcInterruptionParam(int checkEnable, int arcInterruptTimeLength);
+   errno_t WeldingSetCheckArcInterruptionParam(int checkEnable, int arcInterruptTimeLength);
 
-Get Robot Welding Arc Unexpected Interruption Detection Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere i parametri di rilevamento dell'interruzione dell'arco di saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-	 * @brief Get robot welding arc unexpected interruption detection parameters
-	 * @param [out] checkEnable Whether detection is enabled; 0-Disabled; 1-Enabled
-	 * @param [out] arcInterruptTimeLength Arc interruption confirmation duration (ms)
-	 * @return Error code
+   /**
+    * @brief Ottiene i parametri di rilevamento dell'interruzione accidentale dell'arco di saldatura del robot
+    * @param [out] checkEnable Abilita il rilevamento; 0-Disabilitato; 1-Abilitato
+    * @param [out] arcInterruptTimeLength Durata di conferma dell'interruzione dell'arco (ms)
+    * @return Codice di errore
     */
-	errno_t WeldingGetCheckArcInterruptionParam(int* checkEnable, int* arcInterruptTimeLength);
+   errno_t WeldingGetCheckArcInterruptionParam(int* checkEnable, int* arcInterruptTimeLength);
 
-Set Robot Welding Interruption Recovery Parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare i parametri di recupero dell'interruzione di saldatura del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-	 * @brief Set robot welding interruption recovery parameters
-	 * @param [in] enable Whether to enable welding interruption recovery
-	 * @param [in] length Weld overlap distance (mm)
-	 * @param [in] velocity Robot return to re-arc point speed percentage (0-100)
-	 * @param [in] moveType Robot movement to re-arc point method; 0-LIN; 1-PTP
-	 * @return Error code
+   /**
+    * @brief Imposta i parametri di recupero dell'interruzione di saldatura del robot
+    * @param [in] enable Abilita il recupero dell'interruzione di saldatura
+    * @param [in] length Distanza di sovrapposizione della saldatura (mm)
+    * @param [in] velocity Velocità percentuale del robot per tornare al punto di riaccensione (0-100)
+    * @param [in] moveType Metodo di movimento del robot verso il punto di riaccensione; 0-LIN; 1-PTP
+    * @return Codice di errore
     */
-	errno_t WeldingSetReWeldAfterBreakOffParam(int enable, double length, double velocity, int moveType);
-    
-Get Robot Welding Interruption Recovery Parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   errno_t WeldingSetReWeldAfterBreakOffParam(int enable, double length, double velocity, int moveType);
+
+Ottenere i parametri di recupero dell'interruzione di saldatura del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-	 * @brief Get robot welding interruption recovery parameters
-	 * @param [out] enable Whether welding interruption recovery is enabled
-	 * @param [out] length Weld overlap distance (mm)
-	 * @param [out] velocity Robot return to re-arc point speed percentage (0-100)
-	 * @param [out] moveType Robot movement to re-arc point method; 0-LIN; 1-PTP
-	 * @return Error code
+   /**
+    * @brief Ottiene i parametri di recupero dell'interruzione di saldatura del robot
+    * @param [out] enable Abilita il recupero dell'interruzione di saldatura
+    * @param [out] length Distanza di sovrapposizione della saldatura (mm)
+    * @param [out] velocity Velocità percentuale del robot per tornare al punto di riaccensione (0-100)
+    * @param [out] moveType Metodo di movimento del robot verso il punto di riaccensione; 0-LIN; 1-PTP
+    * @return Codice di errore
     */
-	errno_t WeldingGetReWeldAfterBreakOffParam(int* enable, double* length, double* velocity, int* moveType);
+   errno_t WeldingGetReWeldAfterBreakOffParam(int* enable, double* length, double* velocity, int* moveType);
 
-Set Welder Control Mode Extended DO Port
-++++++++++++++++++++++++++++++++++++++++++
+Impostare la porta DO estesa per la modalità di controllo della saldatrice
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set welder control mode extended DO port
-    * @param DONum Welder control mode DO port (0-127)
-    * @return Error code
+   /**
+    * @brief Imposta la porta DO estesa per la modalità di controllo della saldatrice
+    * @param DONum Porta DO per la modalità di controllo della saldatrice (0-127)
+    * @return Codice di errore
     */
-    errno_t SetWeldMachineCtrlModeExtDoNum(int DONum);
+   errno_t SetWeldMachineCtrlModeExtDoNum(int DONum);
 
-Set Welder Control Mode
-++++++++++++++++++++++++++++++++++++++++++
+Impostare la modalità di controllo della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Set welder control mode
-    * @param mode Welder control mode; 0-Unary
-    * @return Error code
+   /**
+    * @brief Imposta la modalità di controllo della saldatrice
+    * @param mode Modalità di controllo della saldatrice; 0-Unitaria
+    * @return Codice di errore
     */
-    errno_t SetWeldMachineCtrlMode(int mode);
+   errno_t SetWeldMachineCtrlMode(int mode);
 
-Welding Start
-++++++++++++++++++++++++++
+Inizio della saldatura
+++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Welding start
-    * @param [in] ioType IO type 0-Controller IO; 1-Extended IO
-    * @param [in] arcNum Welder configuration file number
-    * @param [in] timeout Arc ignition timeout
-    * @return Error code
+   /**
+    * @brief Inizia la saldatura
+    * @param [in] ioType Tipo IO 0-IO del controllore; 1-IO esteso
+    * @param [in] arcNum Numero del file di configurazione della saldatrice
+    * @param [in] timeout Tempo di timeout per l'accensione dell'arco
+    * @return Codice di errore
     */
-    errno_t ARCStart(int ioType, int arcNum, int timeout);
+   errno_t ARCStart(int ioType, int arcNum, int timeout);
 
-Welding End
-++++++++++++++++++++++++++
+Fine della saldatura
+++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Welding end
-    * @param [in] ioType IO type 0-Controller IO; 1-Extended IO
-    * @param [in] arcNum Welder configuration file number
-    * @param [in] timeout Arc extinguishing timeout
-    * @return Error code
+   /**
+    * @brief Termina la saldatura
+    * @param [in] ioType Tipo IO 0-IO del controllore; 1-IO esteso
+    * @param [in] arcNum Numero del file di configurazione della saldatrice
+    * @param [in] timeout Tempo di timeout per lo spegnimento dell'arco
+    * @return Codice di errore
     */
-    errno_t ARCEnd(int ioType, int arcNum, int timeout);
+   errno_t ARCEnd(int ioType, int arcNum, int timeout);
 
-Weaving Start
-+++++++++++++++++++++++++++++++++++++++++++++
+Inizio dell'oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Weaving start
-    * @param [in] weaveNum Weaving parameter configuration number
-    * @return Error code
+   /**
+    * @brief Inizia l'oscillazione
+    * @param [in] weaveNum Numero di configurazione dei parametri di saldatura oscillante
+    * @return Codice di errore
     */
-    errno_t WeaveStart(int weaveNum);
+   errno_t WeaveStart(int weaveNum);
 
-Weaving End
-+++++++++++++++++++++++++++++++++++++++++++++
+Fine dell'oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Weaving end
-    * @param [in] weaveNum Weaving parameter configuration number
-    * @return Error code
+   /**
+    * @brief Termina l'oscillazione
+    * @param [in] weaveNum Numero di configurazione dei parametri di saldatura oscillante
+    * @return Codice di errore
     */
-    errno_t WeaveEnd(int weaveNum);
+   errno_t WeaveEnd(int weaveNum);
 
-Forward Wire Feeding
-+++++++++++++++++++++++++++++++++++++++++++++
+Alimentazione del filo in avanti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Forward wire feeding
-    * @param [in] ioType IO type 0-Controller IO; 1-Extended IO
-    * @param [in] wireFeed Wire feed control 0-Stop feeding; 1-Feed wire
-    * @return Error code
+   /**
+    * @brief Alimentazione del filo in avanti
+    * @param [in] ioType Tipo IO 0-IO del controllore; 1-IO esteso
+    * @param [in] wireFeed Controllo alimentazione filo 0-Ferma alimentazione filo; 1-Alimenta filo
+    * @return Codice di errore
     */
-    errno_t SetForwardWireFeed(int ioType, int wireFeed);
+   errno_t SetForwardWireFeed(int ioType, int wireFeed);
 
-Reverse Wire Feeding
-+++++++++++++++++++++++++++++++++++++++++++++
+Alimentazione del filo all'indietro
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Reverse wire feeding
-    * @param [in] ioType IO type 0-Controller IO; 1-Extended IO
-    * @param [in] wireFeed Wire feed control 0-Stop feeding; 1-Feed wire
-    * @return Error code
+   /**
+    * @brief Alimentazione del filo all'indietro
+    * @param [in] ioType Tipo IO 0-IO del controllore; 1-IO esteso
+    * @param [in] wireFeed Controllo alimentazione filo 0-Ferma alimentazione filo; 1-Alimenta filo
+    * @return Codice di errore
     */
-    errno_t SetReverseWireFeed(int ioType, int wireFeed);
+   errno_t SetReverseWireFeed(int ioType, int wireFeed);
 
-Gas Feeding
-+++++++++++++++++++++++++++++++++++++++++++++
+Alimentazione del gas
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Gas feeding
-    * @param [in] ioType IO type 0-Controller IO; 1-Extended IO
-    * @param [in] airControl Gas feed control 0-Stop feeding; 1-Feed gas
-    * @return Error code
+   /**
+    * @brief Alimentazione del gas
+    * @param [in] ioType Tipo IO 0-IO del controllore; 1-IO esteso
+    * @param [in] airControl Controllo alimentazione gas 0-Ferma alimentazione gas; 1-Alimenta gas
+    * @return Codice di errore
     */
-    errno_t SetAspirated(int ioType, int airControl);
+   errno_t SetAspirated(int ioType, int airControl);
 
-Set Robot to Resume Welding After Interruption
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare il recupero della saldatura dopo l'interruzione del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-	 * @brief Set robot to resume welding after interruption
-	 * @return Error code
+   /**
+    * @brief Imposta il recupero della saldatura dopo l'interruzione del robot
+    * @return Codice di errore
     */
-	errno_t WeldingStartReWeldAfterBreakOff();
+   errno_t WeldingStartReWeldAfterBreakOff();
 
-Set Robot to Abort Welding After Interruption
-+++++++++++++++++++++++++++++++++++++++++++++
+Impostare l'uscita dalla saldatura dopo l'interruzione del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.8-3.7.8
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-	 * @brief Set robot to abort welding after interruption
-	 * @return Error code
-	 */
-	errno_t WeldingAbortWeldAfterBreakOff();
+   /**
+    * @brief Imposta l'uscita dalla saldatura dopo l'interruzione del robot
+    * @return Codice di errore
+    */
+   errno_t WeldingAbortWeldAfterBreakOff();
 
-Robot Welding Control Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per controllo saldatura robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestWelding(void)
     {
@@ -578,48 +576,48 @@ Robot Welding Control Code Example
       return 0;
     }
 
-
-Segment Welding Start
-+++++++++++++++++++++++++++++++++++++++++++++
+Inizio della saldatura a segmenti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Segment welding start
-    * @param [in] startDesePos Starting point Cartesian position
-    * @param [in] endDesePos Ending point Cartesian pose
-    * @param [in] startJPos Starting point joint pose
-    * @param [in] endJPos Ending point joint pose
-    * @param [in] weldLength Welding segment length (mm)
-    * @param [in] noWeldLength Non-welding segment length (mm)
-    * @param [in] weldIOType Welding IO type (0-Control box IO; 1-Extended IO)
-    * @param [in] arcNum Welder configuration file number
-    * @param [in] weldTimeout Arc ignition/extinguishing timeout
-    * @param [in] isWeave Whether to weave
-    * @param [in] weaveNum Weaving parameter configuration number
-    * @param [in] tool Tool coordinate number, range [0~14]
-    * @param [in] user Workpiece coordinate number, range [0~14]
-    * @param [in] vel Speed percentage, range [0~100]
-    * @param [in] acc Acceleration percentage, range [0~100], not currently open
-    * @param [in] ovl Speed scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-Move to position (blocking), [0~1000.0]-Smoothing radius (non-blocking), unit mm
-    * @param [in] epos Extended axis position, unit mm
-    * @param [in] search 0-No wire search, 1-Wire search
-    * @param [in] offset_flag 0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param [in] offset_pos Pose offset
-    * @return Error code
+   /**
+    * @brief Inizia la saldatura a segmenti
+    * @param [in] startDesePos Posizione cartesiana del punto di inizio
+    * @param [in] endDesePos Posa cartesiana del punto di fine
+    * @param [in] startJPos Posa articolare del punto di inizio
+    * @param [in] endJPos Posa articolare del punto di fine
+    * @param [in] weldLength Lunghezza del segmento di saldatura (mm)
+    * @param [in] noWeldLength Lunghezza del segmento non saldato (mm)
+    * @param [in] weldIOType Tipo IO di saldatura (0-IO della centralina; 1-IO esteso)
+    * @param [in] arcNum Numero del file di configurazione della saldatrice
+    * @param [in] weldTimeout Tempo di timeout per accensione/spegnimento dell'arco
+    * @param [in] isWeave Se oscillare
+    * @param [in] weaveNum Numero di configurazione dei parametri di saldatura oscillante
+    * @param [in] tool Numero sistema coordinate utensile, intervallo [0~14]
+    * @param [in] user Numero sistema coordinate pezzo, intervallo [0~14]
+    * @param [in] vel Percentuale di velocità, range [0~100]
+    * @param [in] acc Percentuale di accelerazione, range [0~100], attualmente non disponibile
+    * @param [in] ovl Fattore di scala della velocità, range [0~100]
+    * @param [in] blendR [-1.0]-Movimento fino a destinazione (bloccante), [0~1000.0]-Raggio di levigatura (non bloccante), unità mm
+    * @param [in] epos Posizione degli assi estesi, unità mm
+    * @param [in] search 0-Nessuna ricerca del filo, 1-Ricerca del filo
+    * @param [in] offset_flag 0-Nessun offset, 1-Offset nel sistema di coordinate base/pezzo, 2-Offset nel sistema di coordinate utensile
+    * @param [in] offset_pos Quantità di offset della posa
+    * @return Codice di errore
     */
-    errno_t SegmentWeldStart(DescPose *startDesePos, DescPose *endDesePos, JointPos *startJPos, JointPos *endJPos, double weldLength, double noWeldLength, int weldIOType, int arcNum, int weldTimeout, bool isWeave, int weaveNum, int tool, int user, float vel, float acc, float ovl, float blendR, ExaxisPos *epos, uint8_t search, uint8_t offset_flag, DescPose *offset_pos);
+   errno_t SegmentWeldStart(DescPose *startDesePos, DescPose *endDesePos, JointPos *startJPos, JointPos *endJPos, double weldLength, double noWeldLength, int weldIOType, int arcNum, int weldTimeout, bool isWeave, int weaveNum, int tool, int user, float vel, float acc, float ovl, float blendR, ExaxisPos *epos, uint8_t search, uint8_t offset_flag, DescPose *offset_pos);
 
-Robot Segment Welding Code Example
-+++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per saldatura a segmenti del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionchanged:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestSegWeld(void)
     {
@@ -647,85 +645,88 @@ Robot Segment Welding Code Example
       return 0;
     }
 
+Inizio della simulazione di oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Simulation Weaving Start
-++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Simulation weaving start
-     * @param [in] weaveNum Weaving parameter number
-     * @return Error code
-     */
-    errno_t WeaveStartSim(int weaveNum);
+   /**
+    * @brief Inizia la simulazione di oscillazione
+    * @param [in] weaveNum Numero dei parametri di oscillazione
+    * @return Codice di errore
+    */
+   errno_t WeaveStartSim(int weaveNum);
 
-Simulation Weaving End
-++++++++++++++++++++++++++++++++++++++++++
+Fine della simulazione di oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Simulation weaving end
-     * @param [in] weaveNum Weaving parameter number
-     * @return Error code
-     */
-    errno_t WeaveEndSim(int weaveNum);
+   /**
+    * @brief Termina la simulazione di oscillazione
+    * @param [in] weaveNum Numero dei parametri di oscillazione
+    * @return Codice di errore
+    */
+   errno_t WeaveEndSim(int weaveNum);
 
-Start Trajectory Detection Warning (No Movement)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio del rilevamento di traiettoria di allarme (senza movimento)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Start trajectory detection warning (no movement)
-     * @param [in] weaveNum  Weaving parameter number
-     * @return Error code
-     */
-    errno_t WeaveInspectStart(int weaveNum);
+   /**
+    * @brief Inizia il rilevamento di traiettoria di allarme (senza movimento)
+    * @param [in] weaveNum Numero dei parametri di oscillazione
+    * @return Codice di errore
+    */
+   errno_t WeaveInspectStart(int weaveNum);
 
-End Trajectory Detection Warning (No Movement)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine del rilevamento di traiettoria di allarme (senza movimento)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
-.. code-block:: c++
-    :linenos:
-
-    /**
-     * @brief End trajectory detection warning (no movement)
-     * @param [in] weaveNum  Weaving parameter number
-     * @return Error code
-     */
-    errno_t WeaveInspectEnd(int weaveNum);
-
-Weaving Gradual Change Start
-++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Weaving gradual change start
-     * @param [in] weaveChangeFlag 1-Change weaving parameters; 2-Change weaving parameters + welding speed
-     * @param [in] weaveNum Weaving number 
-     * @param [in] velStart Welding start speed (cm/min)
-     * @param [in] velEnd Welding end speed (cm/min)
-     * @return Error code
-     */
-     errno_t WeaveChangeStart(int weaveChangeFlag, int weaveNum, double velStart, double velEnd);
+   /**
+    * @brief Termina il rilevamento di traiettoria di allarme (senza movimento)
+    * @param [in] weaveNum Numero dei parametri di oscillazione
+    * @return Codice di errore
+    */
+   errno_t WeaveInspectEnd(int weaveNum);
 
-Robot Weaving Gradual Change Welding Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio della transizione graduale di oscillazione
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
-    :linenos:
-    
+   :linenos:
+
+   /**
+    * @brief Inizia la transizione graduale di oscillazione
+    * @param [in] weaveChangeFlag 1-Cambia parametri di oscillazione; 2-Cambia parametri di oscillazione + velocità di saldatura
+    * @param [in] weaveNum Numero di oscillazione
+    * @param [in] velStart Velocità di inizio saldatura, (cm/min)
+    * @param [in] velEnd Velocità di fine saldatura, (cm/min)
+    * @return Codice di errore
+    */
+   errno_t WeaveChangeStart(int weaveChangeFlag, int weaveNum, double velStart, double velEnd);
+
+Esempio di codice per saldatura con transizione graduale di oscillazione del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
+
     int TestWeave(void)
     {
       ROBOT_STATE_PKG pkg = {};
@@ -768,123 +769,131 @@ Robot Weaving Gradual Change Welding Code Example
       return 0;
     }
 
-Weaving Gradual Change End
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine della transizione graduale di oscillazione
++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.2.0-3.8.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-	/**
-	 * @brief  Weaving gradual change end
-	 * @return  Error code
-	 */
-    errno_t WeaveChangeEnd();
+   /**
+    * @brief Termina la transizione graduale di oscillazione
+    * @return Codice di errore
+    */
+   errno_t WeaveChangeEnd();
 
-Extended IO-Configure Welder Gas Detection Signal
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+IO esteso - Configurare il segnale di rilevamento del gas della saldatrice
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Extended IO-Configure welder gas detection signal
-     * @param [in] DONum Gas detection signal extended DO number
-     * @return Error code
-     */
-    errno_t SetAirControlExtDoNum(int DONum);
+   /**
+    * @brief IO esteso - Configura il segnale di rilevamento del gas della saldatrice
+    * @param [in] DONum Numero DO esteso per il segnale di rilevamento del gas
+    * @return Codice di errore
+    */
+   errno_t SetAirControlExtDoNum(int DONum);
 
-Extended IO-Configure Welder Arc Start Signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+IO esteso - Configurare il segnale di accensione dell'arco della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Extended IO-Configure welder arc start signal
-     * @param [in] DONum Welder arc start signal extended DO number
-     * @return Error code
-     */
-    errno_t SetArcStartExtDoNum(int DONum);
+   /**
+    * @brief IO esteso - Configura il segnale di accensione dell'arco della saldatrice
+    * @param [in] DONum Numero DO esteso per il segnale di accensione dell'arco
+    * @return Codice di errore
+    */
+   errno_t SetArcStartExtDoNum(int DONum);
 
-Extended IO-Configure Welder Reverse Wire Feed Signal
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+IO esteso - Configurare il segnale di alimentazione all'indietro del filo della saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Extended IO-Configure welder reverse wire feed signal
-     * @param [in] DONum Reverse wire feed signal extended DO number
-     * @return Error code
-     */
-    errno_t SetWireReverseFeedExtDoNum(int DONum);
+   /**
+    * @brief IO esteso - Configura il segnale di alimentazione all'indietro del filo della saldatrice
+    * @param [in] DONum Numero DO esteso per il segnale di alimentazione all'indietro del filo
+    * @return Codice di errore
+    */
+   errno_t SetWireReverseFeedExtDoNum(int DONum);
 
-Extended IO-Configure Welder Forward Wire Feed Signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+IO esteso - Configurare il segnale di alimentazione in avanti del filo della saldatrice
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Extended IO-Configure welder forward wire feed signal
-     * @param [in] DONum Forward wire feed signal extended DO number
-     * @return Error code
-     */
-    errno_t SetWireForwardFeedExtDoNum(int DONum);
+   /**
+    * @brief IO esteso - Configura il segnale di alimentazione in avanti del filo della saldatrice
+    * @param [in] DONum Numero DO esteso per il segnale di alimentazione in avanti del filo
+    * @return Codice di errore
+    */
+   errno_t SetWireForwardFeedExtDoNum(int DONum);
 
-Extended IO-Configure Welder Arc Success Signal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+IO esteso - Configurare il segnale di successo dell'accensione dell'arco della saldatrice
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Extended IO-Configure welder arc success signal
-     * @param [in] DINum Arc success signal extended DI number
-     * @return Error code
-     */
-    errno_t SetArcDoneExtDiNum(int DINum);
+   /**
+    * @brief IO esteso - Configura il segnale di successo dell'accensione dell'arco della saldatrice
+    * @param [in] DINum Numero DI esteso per il segnale di successo dell'accensione dell'arco
+    * @return Codice di errore
+    */
+   errno_t SetArcDoneExtDiNum(int DINum);
 
-Extended IO-Configure Welder Ready Signal
-++++++++++++++++++++++++++++++++++++++++++
+IO esteso - Configurare il segnale di pronto della saldatrice
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Extended IO-Configure welder ready signal
-     * @param [in] DINum Welder ready signal extended DI number
-     * @return Error code
-     */
-    errno_t SetWeldReadyExtDiNum(int DINum);
+   /**
+    * @brief IO esteso - Configura il segnale di pronto della saldatrice
+    * @param [in] DINum Numero DI esteso per il segnale di pronto della saldatrice
+    * @return Codice di errore
+    */
+   errno_t SetWeldReadyExtDiNum(int DINum);
 
-Extended IO-Configure Welding Interruption Recovery Signal
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+IO esteso - Configurare i segnali di recupero dell'interruzione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
-.. code-block:: c++
-    :linenos:
 
-    /**
-     * @brief Extended IO-Configure welding interruption recovery signal
-     * @param [in] reWeldDINum Resume welding after interruption signal extended DI number
-     * @param [in] abortWeldDINum Abort welding after interruption signal extended DI number
-     * @return Error code
-     */
-    errno_t SetExtDIWeldBreakOffRecover(int reWeldDINum, int abortWeldDINum);
-
-Set Extended IO Welding Signal Code Example
-+++++++++++++++++++++++++++++++++++++++++++
-    
 .. code-block:: c++
-    :linenos:
+   :linenos:
+
+   /**
+    * @brief IO esteso - Configura i segnali di recupero dell'interruzione di saldatura
+    * @param [in] reWeldDINum Numero DI esteso per il segnale di recupero della saldatura dopo interruzione
+    * @param [in] abortWeldDINum Numero DI esteso per il segnale di uscita dalla saldatura dopo interruzione
+    * @return Codice di errore
+    */
+   errno_t SetExtDIWeldBreakOffRecover(int reWeldDINum, int abortWeldDINum);
+
+Esempio di codice per impostare i segnali di saldatura IO estesi
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
 
     int TestExtDIConfig(void)
     {
@@ -910,97 +919,101 @@ Set Extended IO Welding Signal Code Example
       return 0;
     }
 
-Arc Tracking Control
-+++++++++++++++++++++++++++
+Controllo del tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-      /**
-      * @brief  Arc tracking control
-   	  * @param  [in] flag Switch, 0-Off; 1-On
-  	  * @param  [in] dalayTime Lag time, unit ms
-  	  * @param  [in] isLeftRight Left-right deviation compensation
-  	  * @param  [in] klr Left-right adjustment coefficient (sensitivity);
-  	  * @param  [in] tStartLr Left-right start compensation time cyc
-  	  * @param  [in] stepMaxLr Left-right maximum compensation per cycle mm
-  	  * @param  [in] sumMaxLr Left-right total maximum compensation mm
-  	  * @param  [in] isUpLow Up-down deviation compensation
-  	  * @param  [in] kud Up-down adjustment coefficient (sensitivity);
-  	  * @param  [in] tStartUd Up-down start compensation time cyc
-  	  * @param  [in] stepMaxUd Up-down maximum compensation per cycle mm
-  	  * @param  [in] sumMaxUd Up-down total maximum compensation
-  	  * @param  [in] axisSelect Up-down coordinate system selection, 0-Weaving; 1-Tool; 2-Base
-  	  * @param  [in] referenceType Up-down reference current setting method, 0-Feedback; 1-Constant
-  	  * @param  [in] referSampleStartUd Up-down reference current sampling start count (feedback);, cyc
-  	  * @param  [in] referSampleCountUd Up-down reference current sampling cycle count (feedback);, cyc
-  	  * @param  [in] referenceCurrent Up-down reference current mA
-  	  * @param  [in] offsetType Offset tracking type, 0-No offset; 1-Sampling; 2-Percentage
-  	  * @param  [in] offsetParameter Offset parameter; Sampling (offset sampling start time, default one cycle); Percentage (offset percentage (-100 ~ 100))
-  	  * @return  Error code
-  	  */
-	 errno_t ArcWeldTraceControl(int flag, double delaytime, int isLeftRight, double klr, double tStartLr, double stepMaxLr, double sumMaxLr, int isUpLow, double kud, double tStartUd, double stepMaxUd, double sumMaxUd, int axisSelect, int referenceType, double referSampleStartUd, double referSampleCountUd, double referenceCurrent, int offsetType = 0, int offsetParameter = 0);
-
-Set Arc Tracking Input Signal Port
-++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v2.1.5.0
-    
-.. code-block:: c++
-    :linenos:
-
-     /**
-      * @brief  Set arc tracking input signal port
-      * @param  [in] channel Arc tracking AI channel selection,[0-3]
-      * @return  Error code
-      */
-     errno_t ArcWeldTraceExtAIChannelConfig(int channel);
-
-
-Arc Tracking + Multi-layer Multi-pass Compensation Start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v2.1.5.0
-    
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief Arc tracking + multi-layer multi-pass compensation start
-    * @return Error code
+   /**
+    * @brief Controllo del tracciamento dell'arco
+    * @param [in] flag Interruttore, 0-Spegnere; 1-Accendere
+    * @param [in] dalayTime Tempo di ritardo, unità ms
+    * @param [in] isLeftRight Compensazione deviazione sinistra-destra
+    * @param [in] klr Coefficiente di regolazione sinistra-destra (sensibilità)
+    * @param [in] tStartLr Tempo di inizio compensazione sinistra-destra cyc
+    * @param [in] stepMaxLr Compensazione massima per volta sinistra-destra mm
+    * @param [in] sumMaxLr Compensazione totale massima sinistra-destra mm
+    * @param [in] isUpLow Compensazione deviazione alto-basso
+    * @param [in] kud Coefficiente di regolazione alto-basso (sensibilità)
+    * @param [in] tStartUd Tempo di inizio compensazione alto-basso cyc
+    * @param [in] stepMaxUd Compensazione massima per volta alto-basso mm
+    * @param [in] sumMaxUd Compensazione totale massima alto-basso mm
+    * @param [in] axisSelect Selezione sistema coordinate alto-basso, 0-Oscillazione; 1-Utensile; 2-Base
+    * @param [in] referenceType Metodo impostazione corrente di riferimento alto-basso, 0-Retroazione; 1-Costante
+    * @param [in] referSampleStartUd Conteggio inizio campionamento corrente di riferimento alto-basso (retroazione), cyc
+    * @param [in] referSampleCountUd Conteggio ciclo campionamento corrente di riferimento alto-basso (retroazione), cyc
+    * @param [in] referenceCurrent Corrente di riferimento alto-basso mA
+    * @param [in] offsetType Tipo di tracciamento offset, 0-Nessun offset; 1-Campionamento; 2-Percentuale
+    * @param [in] offsetParameter Parametro offset; Campionamento (tempo di inizio campionamento offset, per default campiona un ciclo); Percentuale (percentuale offset (-100 ~ 100))
+    * @return Codice di errore
     */
-    errno_t ArcWeldTraceReplayStart();
+   errno_t ArcWeldTraceControl(int flag, double delaytime, int isLeftRight, double klr, double tStartLr, double stepMaxLr, double sumMaxLr, int isUpLow, double kud, double tStartUd, double stepMaxUd, double sumMaxUd, int axisSelect, int referenceType, double referSampleStartUd, double referSampleCountUd, double referenceCurrent, int offsetType = 0, int offsetParameter = 0);
 
-Arc Tracking + Multi-layer Multi-pass Compensation End
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare la porta di ingresso del segnale per il tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief Arc tracking + multi-layer multi-pass compensation end
-    * @return Error code
+   /**
+    * @brief Imposta la porta di ingresso del segnale per il tracciamento dell'arco
+    * @param [in] channel Selezione banda passante AI per il tracciamento dell'arco, [0-3]
+    * @return Codice di errore
     */
-    errno_t ArcWeldTraceReplayEnd();
+   errno_t ArcWeldTraceExtAIChannelConfig(int channel);
 
-Offset Coordinate Transformation - Multi-layer Multi-pass Welding
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione tracciamento arco + compensazione multi-strato multi-passata
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
-.. code-block:: c++
-    :linenos:
 
-    /**
-    * @brief Offset coordinate transformation - multi-layer multi-pass welding
-    * @return Error code
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief Attiva tracciamento arco + compensazione multi-strato multi-passata
+    * @return Codice di errore
     */
-    errno_t MultilayerOffsetTrsfToBase(DescTran pointO, DescTran pointX, DescTran pointZ, double dx, double dy, double db, DescPose& offset);
+   errno_t ArcWeldTraceReplayStart();
 
-Multi-layer Multi-pass Welding Arc Tracking Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    
+Disattivazione tracciamento arco + compensazione multi-strato multi-passata
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. versionadded:: C++SDK-v2.1.5.0
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
+
+   /**
+    * @brief Disattiva tracciamento arco + compensazione multi-strato multi-passata
+    * @return Codice di errore
+    */
+   errno_t ArcWeldTraceReplayEnd();
+
+Trasformazione delle coordinate di offset - Saldatura multi-strato multi-passata
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. versionadded:: C++SDK-v2.1.5.0
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief Trasformazione delle coordinate di offset - Saldatura multi-strato multi-passata
+    * @return Codice di errore
+    */
+   errno_t MultilayerOffsetTrsfToBase(DescTran pointO, DescTran pointX, DescTran pointZ, double dx, double dy, double db, DescPose& offset);
+
+Esempio di codice per il tracciamento dell'arco nella saldatura multi-strato multi-passata
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+   :linenos:
 
     int TestArcWeldTrace(void)
     {
@@ -1107,64 +1120,69 @@ Multi-layer Multi-pass Welding Arc Tracking Code Example
       return 0;
     }
 
-Arc Tracking Welder Current Feedback AI Channel Selection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Selezione canale AI per la retroazione della corrente della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Arc tracking welder current feedback AI channel selection
-     * @param [in]  channel Channel; 0-Extended AI0; 1-Extended AI1; 2-Extended AI2; 3-Extended AI3; 4-Control box AI0; 5-Control box AI1
-     * @return Error code
-     */
-     errno_t ArcWeldTraceAIChannelCurrent(int channel);
+   /**
+    * @brief Selezione canale AI per la retroazione della corrente della saldatrice nel tracciamento dell'arco
+    * @param [in] channel Canale; 0-AI esteso 0; 1-AI esteso 1; 2-AI esteso 2; 3-AI esteso 3; 4-AI centralina 0; 5-AI centralina 1
+    * @return Codice di errore
+    */
+   errno_t ArcWeldTraceAIChannelCurrent(int channel);
 
-Arc Tracking Welder Voltage Feedback AI Channel Selection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Selezione canale AI per la retroazione della tensione della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Arc tracking welder voltage feedback AI channel selection
-     * @param [in]  channel Channel; 0-Extended AI0; 1-Extended AI1; 2-Extended AI2; 3-Extended AI3; 4-Control box AI0; 5-Control box AI1
-     * @return Error code
-     */
-     errno_t ArcWeldTraceAIChannelVoltage(int channel);
+   /**
+    * @brief Selezione canale AI per la retroazione della tensione della saldatrice nel tracciamento dell'arco
+    * @param [in] channel Canale; 0-AI esteso 0; 1-AI esteso 1; 2-AI esteso 2; 3-AI esteso 3; 4-AI centralina 0; 5-AI centralina 1
+    * @return Codice di errore
+    */
+   errno_t ArcWeldTraceAIChannelVoltage(int channel);
 
-Arc Tracking Welder Current Feedback Conversion Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Parametri di conversione per la retroazione della corrente della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-      * @brief Arc tracking welder current feedback conversion parameters
-      * @param [in] AILow AI channel lower limit, default 0V, range [0-10V]
-      * @param [in] AIHigh AI channel upper limit, default 10V, range [0-10V]
-      * @param [in] currentLow AI channel lower limit corresponding welder current value, default 0V, range [0-200V]
-      * @param [in] currentHigh AI channel upper limit corresponding welder current value, default 100V, range [0-200V]
-      * @return Error code
-      */
-     errno_t ArcWeldTraceCurrentPara(float AILow, float AIHigh, float currentLow, float currentHigh);
+   /**
+    * @brief Parametri di conversione per la retroazione della corrente della saldatrice nel tracciamento dell'arco
+    * @param [in] AILow Limite inferiore canale AI, valore predefinito 0V, range [0-10V]
+    * @param [in] AIHigh Limite superiore canale AI, valore predefinito 10V, range [0-10V]
+    * @param [in] currentLow Valore di corrente della saldatrice corrispondente al limite inferiore del canale AI, valore predefinito 0V, range [0-200V]
+    * @param [in] currentHigh Valore di corrente della saldatrice corrispondente al limite superiore del canale AI, valore predefinito 100V, range [0-200V]
+    * @return Codice di errore
+    */
+   errno_t ArcWeldTraceCurrentPara(float AILow, float AIHigh, float currentLow, float currentHigh);
 
-Arc Tracking Welder Voltage Feedback Conversion Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Parametri di conversione per la retroazione della tensione della saldatrice nel tracciamento dell'arco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-    * @brief Arc tracking welder voltage feedback conversion parameters
-    * @param [in] AILow AI channel lower limit, default 0V, range [0-10V]
-    * @param [in] AIHigh AI channel upper limit, default 10V, range [0-10V]
-    * @param [in] voltageLow AI channel lower limit corresponding welder voltage value, default 0V, range [0-200V]
-    * @param [in] voltageHigh AI channel upper limit corresponding welder voltage value, default 100V, range [0-200V]
-    * @return Error code
-    */
-    errno_t ArcWeldTraceVoltagePara(float AILow, float AIHigh, float voltageLow, float voltageHigh);
+   /**
+    * @brief Parametri di conversione per la retroazione della tensione della saldatrice nel tracciamento dell'arco
+    * @param [in] AILow Limite inferiore canale AI, valore predefinito 0V, range [0-10V]
+    * @param [in] AIHigh Limite superiore canale AI, valore predefinito 10V, range [0-10V]
+    * @param [in] voltageLow Valore di tensione della saldatrice corrispondente al limite inferiore del canale AI, valore predefinito 0V, range [0-200V]
+    * @param [in] voltageHigh Valore di tensione della saldatrice corrispondente al limite superiore del canale AI, valore predefinito 100V, range [0-200V]
+    * @return Codice di errore
+    */
+   errno_t ArcWeldTraceVoltagePara(float AILow, float AIHigh, float voltageLow, float voltageHigh);
 
-Arc Tracking Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il tracciamento dell'arco
++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int WeldTraceControlWithCtrlBoxAI(FRRobot* robot)
     {
@@ -1183,8 +1201,8 @@ Arc Tracking Code Example
       robot->WeldingSetCurrentRelation(0, 495, 1, 10, 0);
       robot->WeldingSetVoltageRelation(10, 45, 1, 10, 1);
 
-      robot->WeldingSetVoltage(0, 25, 1, 0);// ----Set voltage
-      robot->WeldingSetCurrent(0, 260, 0, 0);// ----Set current
+      robot->WeldingSetVoltage(0, 25, 1, 0);// ----Imposta tensione
+      robot->WeldingSetCurrent(0, 260, 0, 0);// ----Imposta corrente
 
       int rtn = robot->ArcWeldTraceAIChannelCurrent(4);
       cout << "ArcWeldTraceAIChannelCurrent rtn is " << rtn << endl;
@@ -1207,28 +1225,29 @@ Arc Tracking Code Example
       return 0;
     }
 
+Impostare le porte IO estese per la ricerca del filo
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Set Wire Search Extended IO Port
-++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
-    
-.. code-block:: c++
-    :linenos:
 
-    /**
-    * @brief Set wire search extended IO port
-    * @param searchDoneDINum  Wire search success DO port (0-127)
-    * @param searchStartDONum  Wire search start/stop control DO port (0-127)
-    * @return Error code
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief Imposta le porte IO estese per la ricerca del filo
+    * @param searchDoneDINum Porta DO per il successo della ricerca del filo (0-127)
+    * @param searchStartDONum Porta DO per il controllo avvio/arresto della ricerca del filo (0-127)
+    * @return Codice di errore
     */
-    errno_t SetWireSearchExtDIONum(int searchDoneDINum, int searchStartDONum);
+   errno_t SetWireSearchExtDIONum(int searchDoneDINum, int searchStartDONum);
 
-Example Program
-+++++++++++++++
+Programma di esempio
+++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     void TestUDPWireSearch(FRRobot* robot)
     {
@@ -1240,49 +1259,49 @@ Example Program
     int rtn0, rtn1, rtn2 = 0;
     ExaxisPos exaxisPos = { 0.0, 0.0, 0.0, 0.0 };
     DescPose offdese = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
-    
+
     DescPose descStart = { -158.767, -510.596, 271.709, -179.427, -0.745, -137.349 };
     JointPos jointStart = { 61.667, -79.848, 108.639, -119.682, -89.700, -70.985 };
-    
+
     DescPose descEnd = { 0.332, -516.427, 270.688, 178.165, 0.017, -119.989 };
     JointPos jointEnd = { 79.021, -81.839, 110.752, -118.298, -91.729, -70.981 };
 
     robot->MoveL(&jointStart, &descStart, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese);
     robot->MoveL(&jointEnd, &descEnd, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese);
-    
+
     DescPose descREF0A = { -66.106, -560.746, 270.381, 176.479, -0.126, -126.745 };
     JointPos jointREF0A = { 73.531, -75.588, 102.941, -116.250, -93.347, -69.689 };
-    
+
     DescPose descREF0B = { -66.109, -528.440, 270.407, 176.479, -0.129, -126.744 };
     JointPos jointREF0B = { 72.534, -79.625, 108.046, -117.379, -93.366, -70.687 };
-    
+
     DescPose descREF1A = { 72.975, -473.242, 270.399, 176.479, -0.129, -126.744 };
     JointPos jointREF1A = { 87.169, -86.509, 115.710, -117.341, -92.993, -56.034 };
-    
+
     DescPose descREF1B = { 31.355, -473.238, 270.405, 176.480, -0.130, -126.745 };
     JointPos jointREF1B = { 82.117, -87.146, 116.470, -117.737, -93.145, -61.090 };
 
     rtn0 = robot->WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-    robot->MoveL(&jointREF0A, &descREF0A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-    robot->MoveL(&jointREF0B, &descREF0B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Location point
+    robot->MoveL(&jointREF0A, &descREF0A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+    robot->MoveL(&jointREF0B, &descREF0B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
     rtn1 = robot->WireSearchWait("REF0");
     rtn2 = robot->WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
 
     rtn0 = robot->WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-    robot->MoveL(&jointREF1A, &descREF1A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-    robot->MoveL(&jointREF1B, &descREF1B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Location point
+    robot->MoveL(&jointREF1A, &descREF1A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+    robot->MoveL(&jointREF1B, &descREF1B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
     rtn1 = robot->WireSearchWait("REF1");
     rtn2 = robot->WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
 
     rtn0 = robot->WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-    robot->MoveL(&jointREF0A, &descREF0A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-    robot->MoveL(&jointREF0B, &descREF0B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Location point
+    robot->MoveL(&jointREF0A, &descREF0A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+    robot->MoveL(&jointREF0B, &descREF0B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
     rtn1 = robot->WireSearchWait("RES0");
     rtn2 = robot->WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
 
     rtn0 = robot->WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-    robot->MoveL(&jointREF1A, &descREF1A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-    robot->MoveL(&jointREF1B, &descREF1B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Location point
+    robot->MoveL(&jointREF1A, &descREF1A, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+    robot->MoveL(&jointREF1B, &descREF1B, 1, 0, 10, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
     rtn1 = robot->WireSearchWait("RES1");
     rtn2 = robot->WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
 
@@ -1297,99 +1316,105 @@ Example Program
     robot->PointsOffsetDisable();
     }
 
-Wire Search Start
-+++++++++++++++++++++++
+Inizio della ricerca del filo
++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-    * @brief  Wire search start
-    * @param  [in] refPos  1-Reference point 0-Contact point
-    * @param  [in] searchVel   Search speed %
-    * @param  [in] searchDis  Search distance mm
-    * @param  [in] autoBackFlag Auto return flag, 0-No auto; -Auto
-    * @param  [in] autoBackVel  Auto return speed %
-    * @param  [in] autoBackDis  Auto return distance mm
-    * @param  [in] offectFlag  1-Search with offset; 0-Teach point search
-    * @return  Error code
+   /**
+    * @brief Inizia la ricerca del filo
+    * @param [in] refPos 1-Punto di riferimento 0-Punto di contatto
+    * @param [in] searchVel Velocità di ricerca %
+    * @param [in] searchDis Distanza di ricerca mm
+    * @param [in] autoBackFlag Flag ritorno automatico, 0-Non automatico; -Automatico
+    * @param [in] autoBackVel Velocità di ritorno automatico %
+    * @param [in] autoBackDis Distanza di ritorno automatico mm
+    * @param [in] offectFlag 1-Ricerca con offset; 0-Ricerca al punto insegnato
+    * @return Codice di errore
     */
-     errno_t WireSearchStart(int refPos, float searchVel, int searchDis, int autoBackFlag, float autoBackVel, int autoBackDis, int offectFlag);
+   errno_t WireSearchStart(int refPos, float searchVel, int searchDis, int autoBackFlag, float autoBackVel, int autoBackDis, int offectFlag);
 
-Wire Search End
-+++++++++++++++++++++++
+Fine della ricerca del filo
++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-      * @brief  Wire search end
-      * @param  [in] refPos  1-Reference point 2-Contact point
-      * @param  [in] searchVel   Search speed %
-      * @param  [in] searchDis  Search distance mm
-      * @param  [in] autoBackFlag Auto return flag, 0-No auto; -Auto
-      * @param  [in] autoBackVel  Auto return speed %
-      * @param  [in] autoBackDis  Auto return distance mm
-      * @param  [in] offectFlag  1-Search with offset; 2-Teach point search
-      * @return  Error code
-      */
-     errno_t WireSearchEnd(int refPos, float searchVel, int searchDis, int autoBackFlag, float autoBackVel, int autoBackDis, int offectFlag);
+   /**
+    * @brief Termina la ricerca del filo
+    * @param [in] refPos 1-Punto di riferimento 2-Punto di contatto
+    * @param [in] searchVel Velocità di ricerca %
+    * @param [in] searchDis Distanza di ricerca mm
+    * @param [in] autoBackFlag Flag ritorno automatico, 0-Non automatico; -Automatico
+    * @param [in] autoBackVel Velocità di ritorno automatico %
+    * @param [in] autoBackDis Distanza di ritorno automatico mm
+    * @param [in] offectFlag 1-Ricerca con offset; 2-Ricerca al punto insegnato
+    * @return Codice di errore
+    */
+   errno_t WireSearchEnd(int refPos, float searchVel, int searchDis, int autoBackFlag, float autoBackVel, int autoBackDis, int offectFlag);
 
-Calculate Wire Search Offset
-++++++++++++++++++++++++++++++++++++++
+Calcolare l'offset della ricerca del filo
+++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-      * @brief  Calculate wire search offset
-      * @param  [in] seamType  Weld seam type
-      * @param  [in] method   Calculation method
-      * @param  [in] varNameRef Reference point 1-6, "#" means no point variable
-      * @param  [in] varNameRes Contact point 1-6, "#" means no point variable
-      * @param  [out] offectFlag 0-Offset directly added to command point; 1-Offset requires coordinate transformation of command point
-      * @param  [out] offect Offset pose [x, y, z, a, b, c]
-      * @return  Error code
-      */
-     errno_t GetWireSearchOffset(int seamType, int method, std::vector<std::string> varNameRef, std::vector<std::string> varNameRes, int& offectFlag, DescPose& offect);
+   /**
+    * @brief Calcola l'offset della ricerca del filo
+    * @param [in] seamType Tipo di giunzione
+    * @param [in] method Metodo di calcolo
+    * @param [in] varNameRef Punti di riferimento 1-6, "#" indica nessuna variabile punto
+    * @param [in] varNameRes Punti di contatto 1-6, "#" indica nessuna variabile punto
+    * @param [out] offectFlag 0-L'offset viene aggiunto direttamente ai punti di comando; 1-L'offset richiede una trasformazione delle coordinate dei punti di comando
+    * @param [out] offect Posa offset [x, y, z, a, b, c]
+    * @return Codice di errore
+    */
+   errno_t GetWireSearchOffset(int seamType, int method, std::vector<std::string> varNameRef, std::vector<std::string> varNameRes, int& offectFlag, DescPose& offect);
 
-Wait for Wire Search Completion
-++++++++++++++++++++++++++++++++++++
+Attendere il completamento della ricerca del filo
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-      * @brief  Wait for wire search completion
-      * @return  Error code
-      */
-     errno_t WireSearchWait(std::string varName);
+   /**
+    * @brief Attende il completamento della ricerca del filo
+    * @return Codice di errore
+    */
+   errno_t WireSearchWait(std::string varName);
 
-Write Wire Search Contact Point to Database
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrivere il punto di contatto della ricerca del filo nel database
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-      * @brief  Write wire search contact point to database
-      * @param  [in] varName  Contact point name "RES0" ~ "RES99"
-      * @param  [in] pos  Contact point data [x, y, x, a, b, c]
-      * @return  Error code
-      */
-     errno_t SetPointToDatabase(std::string varName, DescPose pos);
+   /**
+    * @brief Scrive il punto di contatto della ricerca del filo nel database
+    * @param [in] varName Nome del punto di contatto "RES0" ~ "RES99"
+    * @param [in] pos Dati del punto di contatto [x, y, z, a, b, c]
+    * @return Codice di errore
+    */
+   errno_t SetPointToDatabase(std::string varName, DescPose pos);
 
-Robot Wire Search Code Example
-+++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la ricerca del filo del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C++SDK-v2.1.5.0
-    
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int TestWireSearch(void)
     {
@@ -1425,23 +1450,23 @@ Robot Wire Search Code Example
       DescPose descREF1B = { 203.103, 583.836, 63.909, 179.991, 2.854, -103.372 };
       JointPos jointREF1B = { -119.088, -69.676, 98.692, -121.761, -89.219, 74.303 };
       rtn0 = robot.WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-      robot.MoveL(&jointREF0A, &descREF0A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-      robot.MoveL(&jointREF0B, &descREF0B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Direction point
+      robot.MoveL(&jointREF0A, &descREF0A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+      robot.MoveL(&jointREF0B, &descREF0B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
       rtn1 = robot.WireSearchWait("REF0");
       rtn2 = robot.WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
       rtn0 = robot.WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-      robot.MoveL(&jointREF1A, &descREF1A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-      robot.MoveL(&jointREF1B, &descREF1B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Direction point
+      robot.MoveL(&jointREF1A, &descREF1A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+      robot.MoveL(&jointREF1B, &descREF1B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
       rtn1 = robot.WireSearchWait("REF1");
       rtn2 = robot.WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
       rtn0 = robot.WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-      robot.MoveL(&jointREF0A, &descREF0A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-      robot.MoveL(&jointREF0B, &descREF0B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Direction point
+      robot.MoveL(&jointREF0A, &descREF0A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+      robot.MoveL(&jointREF0B, &descREF0B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
       rtn1 = robot.WireSearchWait("RES0");
       rtn2 = robot.WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
       rtn0 = robot.WireSearchStart(0, 10, 100, 0, 10, 100, 0);
-      robot.MoveL(&jointREF1A, &descREF1A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Start point
-      robot.MoveL(&jointREF1B, &descREF1B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Direction point
+      robot.MoveL(&jointREF1A, &descREF1A, 1, 1, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese); //Punto di partenza
+      robot.MoveL(&jointREF1B, &descREF1B, 1, 1, 100, 100, 100, -1, &exaxisPos, 1, 0, &offdese); //Punto direzione
       rtn1 = robot.WireSearchWait("RES1");
       rtn2 = robot.WireSearchEnd(0, 10, 100, 0, 10, 100, 0);
       vector <string> varNameRef = { "REF0", "REF1", "#", "#", "#", "#" };
@@ -1455,76 +1480,77 @@ Robot Wire Search Code Example
       robot.PointsOffsetDisable();
       robot.CloseRPC();
       return 0;
+    }
 
-Set Welding Voltage Gradual Change Start
-+++++++++++++++++++++++++++++++++++++++++++++
-    
+Impostare l'inizio della transizione graduale della tensione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-    * @brief Set welding voltage gradual change start
-    * @param [in] IOType Control type; 0-Control box IO; 1-Digital communication protocol (UDP);2-Digital communication protocol (ModbusTCP)
-    * @param [in] voltageStart Starting welding voltage (V)
-    * @param [in] voltageEnd Ending welding voltage (V)
-    * @param [in] AOIndex Control box AO port number (0-1)
-    * @param [in] blend Whether to smooth 0-No smoothing; 1-Smooth
-    * @return Error code
-    */
-    errno_t WeldingSetVoltageGradualChangeStart(int IOType, double voltageStart, double voltageEnd, int AOIndex, int blend);
+   /**
+    * @brief Imposta l'inizio della transizione graduale della tensione di saldatura
+    * @param [in] IOType Tipo di controllo; 0-IO della centralina; 1-Protocollo di comunicazione digitale (UDP); 2-Protocollo di comunicazione digitale (ModbusTCP)
+    * @param [in] voltageStart Tensione di saldatura iniziale (V)
+    * @param [in] voltageEnd Tensione di saldatura finale (V)
+    * @param [in] AOIndex Numero porta AO della centralina (0-1)
+    * @param [in] blend Se levigare 0-Non levigare; 1-Levigare
+    * @return Codice di errore
+    */
+   errno_t WeldingSetVoltageGradualChangeStart(int IOType, double voltageStart, double voltageEnd, int AOIndex, int blend);
 
-Set Welding Voltage Gradual Change End
-+++++++++++++++++++++++++++++++++++++++++++++
-    
+Impostare la fine della transizione graduale della tensione di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-      * @brief Set welding voltage gradual change end
-      * @return Error code
-      */
-     errno_t WeldingSetVoltageGradualChangeEnd();
+   /**
+    * @brief Imposta la fine della transizione graduale della tensione di saldatura
+    * @return Codice di errore
+    */
+   errno_t WeldingSetVoltageGradualChangeEnd();
 
-Set Welding Current Gradual Change Start
-+++++++++++++++++++++++++++++++++++++++++++++
-    
+Impostare l'inizio della transizione graduale della corrente di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-     /**
-      * @brief Set welding current gradual change start
-      * @param [in] IOType Control type; 0-Control box IO; 1-Digital communication protocol (UDP);2-Digital communication protocol (ModbusTCP)
-      * @param [in] voltageStart Starting welding current (A)
-      * @param [in] voltageEnd Ending welding current (A)
-      * @param [in] AOIndex Control box AO port number (0-1)
-      * @param [in] blend Whether to smooth 0-No smoothing; 1-Smooth
-      * @return Error code
-      */
-     errno_t WeldingSetCurrentGradualChangeStart(int IOType, double currentStart, double currentEnd, int AOIndex, int blend);
+   /**
+    * @brief Imposta l'inizio della transizione graduale della corrente di saldatura
+    * @param [in] IOType Tipo di controllo; 0-IO della centralina; 1-Protocollo di comunicazione digitale (UDP); 2-Protocollo di comunicazione digitale (ModbusTCP)
+    * @param [in] currentStart Corrente di saldatura iniziale (A)
+    * @param [in] currentEnd Corrente di saldatura finale (A)
+    * @param [in] AOIndex Numero porta AO della centralina (0-1)
+    * @param [in] blend Se levigare 0-Non levigare; 1-Levigare
+    * @return Codice di errore
+    */
+   errno_t WeldingSetCurrentGradualChangeStart(int IOType, double currentStart, double currentEnd, int AOIndex, int blend);
 
-Set Welding Current Gradual Change End
-+++++++++++++++++++++++++++++++++++++++++++++
-    
+Impostare la fine della transizione graduale della corrente di saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
-    /**
-     * @brief Set welding current gradual change end
-     * @return Error code
-     */
-    errno_t WeldingSetCurrentGradualChangeEnd();
-    
-Robot Welding Current Voltage Gradual Change Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    
+   /**
+    * @brief Imposta la fine della transizione graduale della corrente di saldatura
+    * @return Codice di errore
+    */
+   errno_t WeldingSetCurrentGradualChangeEnd();
+
+Esempio di codice per la transizione graduale di corrente e tensione di saldatura del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. code-block:: c++
-    :linenos:
+   :linenos:
 
     int WeldparamChange(FRRobot* robot)
     {
       DescPose startdescPose = { -484.707, 276.996, -14.013, -37.657, -40.508, -1.548 };
       JointPos startjointPos = { -45.421, -75.673, 93.627, -104.302, -87.938, 6.005 };
-      
+
       DescPose enddescPose = { -508.767, 137.109, -13.966, -37.639, -40.508, -1.559 };
       JointPos endjointPos = { -32.768, -80.947, 100.254, -106.201, -87.201, 18.648 };
 
@@ -1543,7 +1569,7 @@ Robot Welding Current Voltage Gradual Change Code Example
       rtn = robot->ArcWeldTraceControl(1, 0, 1, 0.08, 5, 5, 300, 1, 0.06, 4, 4, 300, 1, 0, 4, 1, 10, 0, 0);
       cout << "ArcWeldTraceControl rtn is " << rtn << endl;
       robot->MoveJ(&startjointPos, &startdescPose, 1, 0, 5, 100, 100, &exaxisPos, -1, 0, &offdese);
-      
+
       robot->ARCStart(0, 0, 10000);
       robot->WeaveStart(0);
       robot->WeaveChangeStart(2, 1, 24, 36);
@@ -1557,52 +1583,55 @@ Robot Welding Current Voltage Gradual Change Code Example
       return 0;
     }
 
-Set Custom Weave Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v3.8.6
-    
-.. code-block:: c++
-    :linenos:
+Impostare i parametri di oscillazione personalizzati
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    /**
-    * @brief Set Custom Weave Parameters
-    * @param [in] id Custom weave ID: 0-2
-    * @param [in] pointNum Number of weave points 0-10
-    * @param [in] point Movement endpoint data x,y,z
-    * @param [in] stayTime Weave dwell time (ms)
-    * @param [in] frequency Weave frequency (Hz)
-    * @param [in] incStayType Wait mode: 0- Cycle does not include wait time; 1- Cycle includes wait time
-    * @param [in] stationary Weave position wait: 0- Continue motion during wait time; 1- Position stationary during wait time
-    * @return Error code
-    */
-    errno_t CustomWeaveSetPara(int id, int pointNum, DescTran point[10], double stayTime[10], double frequency, int incStayType, int stationary);
-                
-Get Custom Weave Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
-    
-.. code-block:: c++
-    :linenos:
 
-    /**
-    * @brief Get Custom Weave Parameters
-    * @param [in] id Custom weave ID: 0-2
-    * @param [out] pointNum Number of weave points 0-10
-    * @param [out] point Movement endpoint data x,y,z
-    * @param [out] stayTime Weave dwell time (ms)
-    * @param [out] frequency Weave frequency (Hz)
-    * @param [out] incStayType Wait mode: 0- Cycle does not include wait time; 1- Cycle includes wait time
-    * @param [out] stationary Weave position wait: 0- Continue motion during wait time; 1- Position stationary during wait time
-    * @return Error code
-    */
-    errno_t CustomWeaveGetPara(int id, int& pointNum, DescTran point[10], double stayTime[10], double& frequency, int& incStayType, int& stationary);
-                    
-Custom Weave Parameters Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v3.8.6
-    
 .. code-block:: c++
-    :linenos:
+   :linenos:
+
+   /**
+    * @brief Imposta i parametri di oscillazione personalizzati
+    * @param [in] id Numero di oscillazione personalizzata: 0-2
+    * @param [in] pointNum Numero di punti di oscillazione 0-10
+    * @param [in] point Dati dei punti di estremità del movimento x,y,z
+    * @param [in] stayTime Tempi di permanenza nell'oscillazione ms
+    * @param [in] frequency Frequenza di oscillazione Hz
+    * @param [in] incStayType Modalità di attesa: 0-Il ciclo non include il tempo di attesa; 1-Il ciclo include il tempo di attesa
+    * @param [in] stationary Attesa della posizione di oscillazione: 0-Continua a muoversi durante il tempo di attesa; 1-Posizione ferma durante il tempo di attesa
+    * @return Codice di errore
+    */
+   errno_t CustomWeaveSetPara(int id, int pointNum, DescTran point[10], double stayTime[10], double frequency, int incStayType, int stationary);
+
+Ottenere i parametri di oscillazione personalizzati
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. versionadded:: C++SDK-v3.8.6
+
+.. code-block:: c++
+   :linenos:
+
+   /**
+    * @brief Ottiene i parametri di oscillazione personalizzati
+    * @param [in] id Numero di oscillazione personalizzata: 0-2
+    * @param [out] pointNum Numero di punti di oscillazione 0-10
+    * @param [out] point Dati dei punti di estremità del movimento x,y,z
+    * @param [out] stayTime Tempi di permanenza nell'oscillazione ms
+    * @param [out] frequency Frequenza di oscillazione Hz
+    * @param [out] incStayType Modalità di attesa: 0-Il ciclo non include il tempo di attesa; 1-Il ciclo include il tempo di attesa
+    * @param [out] stationary Attesa della posizione di oscillazione: 0-Continua a muoversi durante il tempo di attesa; 1-Posizione ferma durante il tempo di attesa
+    * @return Codice di errore
+    */
+   errno_t CustomWeaveGetPara(int id, int& pointNum, DescTran point[10], double stayTime[10], double& frequency, int& incStayType, int& stationary);
+
+Esempio di codice per parametri di oscillazione personalizzati
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. versionadded:: C++SDK-v3.8.6
+
+.. code-block:: c++
+   :linenos:
 
     int TestCustomWeaveSetPara()
     {
@@ -1616,7 +1645,7 @@ Custom Weave Parameters Code Example
         return 0;
       }
       robot.SetReConnectParam(true, 30000, 500);
-      DescTran point[10] = {}; 
+      DescTran point[10] = {};
       point[0].x = -3;
       point[0].y = -3;
       point[0].z = 0;

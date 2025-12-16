@@ -1,216 +1,216 @@
-Peripherals
-====================================
+Periferiche del Robot
+========================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Configuration of jaws
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Pinza
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetGripperConfig(company,device,softversion=0,bus=0)``"
-    "Description", "Configuration jaws"
-    "Required Parameters","- ``company``: gripper claw manufacturer, 1-Robotiq, 2-Huiling, 3-Tianji, 4-Dahuan, 5-Knowledge;
-    - ``device``: device number, Robotiq (0-2F-85 series), Huiling (0-NK series, 1-Z-EFG-100), Tianji (0-TEG-110), Dahuan (0-PGI-140), Zhixing (0-CTPM2F20)"
-    "Default parameters", "- ``softversion``: software version number, not used for now, default is 0;
-    - ``bus``: device mount end bus location, not used yet, default is 0;"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetGripperConfig(company,device,softversion=0,bus=0)``"
+    "Descrizione", "Configura la pinza"
+    "Parametri Obbligatori", "- ``company``：Produttore pinza，1-Robotiq，2-Huilin，3-Tianji，4-Dahuan，5-Zhixing；
+    - ``device``：Numero dispositivo，Robotiq(0-2F-85 serie)，Huilin(0-NK serie,1-Z-EFG-100)，Tianji(0-TEG-110)，Dahuan(0-PGI-140)，Zhixing(0-CTPM2F20)"
+    "Parametri Predefiniti", "- ``softversion``：Numero versione software，non utilizzato al momento，predefinito 0；
+    - ``bus``：Posizione bus terminale montaggio dispositivo，non utilizzato al momento，predefinito 0；"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Get Jaw Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Configurazione Pinza
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperConfig()``"
-    "Description", "Get Jaw Configuration"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``[number,company,device,softversion]``: number, jaw number; company, jaw manufacturer, 1-Robotiq, 2-Huiling, 3-Tianji, 4-Dahuan, 5-Zhixing ;device, device number, Robotiq (0-2F-85 series), Huiling (0 -NK series,1-Z-EFG-100), Tianji(0-TEG-110), Dahuan(0-PGI-140), Zhixing(0-CTPM2F20) ;softvesion, software version number, not in use for the time being, default is 0."
+    "Prototipo", "``GetGripperConfig()``"
+    "Descrizione", "Ottiene la configurazione della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``[number,company,device,softversion]``： number，Numero pinza;company，Produttore pinza，1-Robotiq，2-Huilin，3-Tianji，4-Dahuan，5-Zhixing ;device，Numero dispositivo，Robotiq(0-2F-85 serie)，Huilin(0-NK serie,1-Z-EFG-100)，Tianji(0-TEG-110)，Dahuan(0-PGI-140)，Zhixing(0-CTPM2F20);softvesion，Numero versione software，non utilizzato al momento，predefinito 0。"
 
-Activate jaws
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione Pinza
+++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ActGripper(index,action)``"
-    "Description", "Activate the jaws."
-    "Mandatory parameter", "- ``index``: jaw number;
-    - ``action``: 0-reset, 1-activate"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``ActGripper(index,action)``"
+    "Descrizione", "Attiva la pinza"
+    "Parametri Obbligatori", "- ``index``:Numero pinza；
+    - ``action``:0-Ripristino，1-Attivazione"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Control jaws
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllo Pinza
+++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveGripper(index,pos,vel,force,maxtime,block,type,rotNum,rotVel,rotTorque)``"
-    "Description", "Control jaws"
-    "Mandatory parameter", "- ``index``: jaw number;
-    - ``pos``: percentage of position, range [0~100];
-    - ``vel``: percentage of speed, in the range [0 to 100]; ``vel``: percentage of speed, in the range [0 to 100].
-    - ``force``: percentage of torque, range [0 to 100];
-    - ``maxtime``: maximum wait time, range [0~30000], unit [ms];
-    - ``block``: 0-blocking, 1-non-blocking;
-    - ``type``: type of jaws, 0-parallel jaws; 1-rotary jaws;
-    - ``rotNum``:rotNum The number of rotations;
-    - ``rotVel``: Percentage of rotational velocity [0-100];
-    - ``rotTorque``: percentage of rotational torque [0-100]."
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``MoveGripper(index,pos,vel,force,maxtime,block,type,rotNum,rotVel,rotTorque)``"
+    "Descrizione", "Controlla la pinza"
+    "Parametri Obbligatori", "- ``index``:Numero pinza；
+    - ``pos``:Posizione percentuale，intervallo [0~100]；
+    - ``vel``:Velocità percentuale，intervallo [0~100];
+    - ``force``:Coppia percentuale，intervallo [0~100]；
+    - ``maxtime``:Tempo massimo attesa，intervallo [0~30000]，unità [ms]；
+    - ``block``:0-Bloccante，1-Non bloccante；
+    - ``type``:Tipo pinza，0-Pinza parallela; 1-Pinza rotante；
+    - ``rotNum``:rotNum Numero rotazioni；
+    - ``rotVel``:Velocità rotazione percentuale [0-100]；
+    - ``rotTorque``:Coppia rotazione percentuale [0-100]。"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Getting the jaw movement status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Stato Movimento Pinza
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperMotionDone()``"
-    "Description", "Get the state of the jaw motion"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``[fault,status]``: status of gripper movement, fault:0-no error, 1-with error; status:0-movement not completed, 1-movement completed"
+    "Prototipo", "``GetGripperMotionDone()``"
+    "Descrizione", "Ottiene lo stato di movimento della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``[fault,status]``：Stato movimento pinza，fault:0-Nessun errore，1-Con errore；status:0-Movimento non completato，1-Movimento completato"
 
-Obtain the activated status of the gripper
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Stato Attivazione Pinza
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperActivateStatus()``"
-    "Description", "Obtain the activated status of the gripper"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``gripper_active``：bit0 to bit15 correspond to the claw numbers 0 to 15. bit=0 indicates not activated, and bit=1 indicates activated"
+    "Prototipo", "``GetGripperActivateStatus()``"
+    "Descrizione", "Ottiene lo stato di attivazione della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``gripper_active``：bit0~bit15 corrisponde a numero pinza 0~15，bit=0 non attivato，bit=1 attivato"
 
-Obtain the position of the gripper
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Posizione Pinza
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperCurPosition()``"
-    "Description", "Obtain the position of the gripper"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``position``：Position percentage, ranging from 0 to 100%"
+    "Prototipo", "``GetGripperCurPosition()``"
+    "Descrizione", "Ottiene la posizione della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``position``：Posizione percentuale，intervallo 0~100%"
 
-Obtain the gripper speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Velocità Pinza
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperCurSpeed()``"
-    "Description", "Obtain the gripper speed"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``speed``：Speed percentage, range 0 to 100%"
+    "Prototipo", "``GetGripperCurSpeed()``"
+    "Descrizione", "Ottiene la velocità della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``speed``：Velocità percentuale，intervallo 0~100%"
 
-Obtain the gripper current
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Corrente Pinza
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperCurCurrent()``"
-    "Description", "Obtain the gripper current"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``current``：Current percentage, range 0 to 100%"
+    "Prototipo", "``GetGripperCurCurrent()``"
+    "Descrizione", "Ottiene la corrente della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``current``：Corrente percentuale，intervallo 0~100%"
 
-Obtain the gripper voltage
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Tensione Pinza
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperVoltage()``"
-    "Description", "Obtain the gripper voltage"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``voltage``：Voltage, unit: 0.1V"
+    "Prototipo", "``GetGripperVoltage()``"
+    "Descrizione", "Ottiene la tensione della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``voltage``：Tensione, unità 0.1V"
 
-Obtain the temperature of the gripper
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Temperatura Pinza
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperTemp()``"
-    "Description", "Obtain the temperature of the gripper"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``temp``：Temperature, unit: 0.1V"
+    "Prototipo", "``GetGripperTemp()``"
+    "Descrizione", "Ottiene la temperatura della pinza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento1 errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``temp``：Temperatura，unità ℃"
 
-Calculate pre-capture point-visual
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Punto Pre-Presa - Visione
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputePrePick(desc_pos, zlength, zangle)``"
-    "Description", "Calculate pre-capture point-visual"
-    "Mandatory parameter", "- ``desc_pos``: clip grab point Cartesian position.
-    - ``zlength``: z-axis offset.
-    - ``zangle``: rotational offset around the z-axis"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``pre_pos``: pre-grip point Cartesian position"
+    "Prototipo", "``ComputePrePick(desc_pos, zlength, zangle)``"
+    "Descrizione", "Calcola il punto di pre-presa - visione"
+    "Parametri Obbligatori", "- ``desc_pos``：Posa cartesiana punto di presa pinza;
+    - ``zlength``：Offset asse z;
+    - ``zangle``：Offset rotazione attorno asse z"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``pre_pos``：Posa cartesiana punto di pre-presa"
 
-Calculate retreat point-visual
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Punto Ritiro - Visione
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputePostPick(desc_pos, zlength, zangle)``"
-    "Description", "Computing Retreat Point-Vision"
-    "Mandatory parameters", "- ``desc_pos``: grab point Cartesian position;
-    - ``zlength``: z-axis offset.
-    - ``zangle``: rotational offset around the z-axis"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``post_pos``: retreat point Cartesian poses"
+    "Prototipo", "``ComputePostPick(desc_pos, zlength, zangle)``"
+    "Descrizione", "Calcola il punto di ritiro - visione"
+    "Parametri Obbligatori", "- ``desc_pos``：Posa cartesiana punto di presa;
+    - ``zlength``：Offset asse z;
+    - ``zangle``：Offset rotazione attorno asse z"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``post_pos``：Posa cartesiana punto di ritiro"
 
-Robot claw operation code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Operazioni Pinza Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
-    :linenos:
+    :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     company = 4
     device = 0
@@ -269,61 +269,61 @@ Robot claw operation code example
     print(f"xyz is:{postpick_pose[0]},{postpick_pose[1]},{postpick_pose[2]};rpy is:{postpick_pose[3]},{postpick_pose[4]},{postpick_pose[5]}")
     robot.CloseRPC()
 
-Get the number of rotation turns of the rotary gripper
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Numero Rotazioni Pinza Rotante
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperRotNum()``"
-    "Description", "Get the number of rotation turns of the rotary gripper"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``num``：Number of turns"
+    "Prototipo", "``GetGripperRotNum()``"
+    "Descrizione", "Ottiene il numero di rotazioni della pinza rotante"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``num``：Numero rotazioni"
 
-Gets the percentage of rotation speed of the rotating gripper
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Velocità Percentuale Rotazione Pinza Rotante
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperRotSpeed()``"
-    "Description", "Gets the percentage of rotation speed of the rotating gripper"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``speed``：Percent rotation speed"
+    "Prototipo", "``GetGripperRotSpeed()``"
+    "Descrizione", "Ottiene la velocità percentuale di rotazione della pinza rotante"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``speed``：Velocità rotazione percentuale"
 
-Obtains the percentage of rotating torque of the rotating gripper
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Coppia Percentuale Rotazione Pinza Rotante
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetGripperRotTorque()``"
-    "Description", "Obtains the percentage of rotating torque of the rotating gripper"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``fault``：0-correct，1-error
-    - ``torque``：Percent torque of rotation"
+    "Prototipo", "``GetGripperRotTorque()``"
+    "Descrizione", "Ottiene la coppia percentuale di rotazione della pinza rotante"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``fault``：0-Nessun errore，1-Con errore
+    - ``torque``：Coppia rotazione percentuale"
 
-Get the rotary gripper status code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Ottenimento Stato Pinza Rotante
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
-    :linenos:
+    :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     fault = 0
     rotNum = 0.0
@@ -335,164 +335,164 @@ Get the rotary gripper status code example
     print(f"gripper rot num:{rotNum},gripper rotSpeed:{rotSpeed},gripper rotTorque:{rotTorque}")
     robot.CloseRPC()
 
-Drive belt start and stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvio, Arresto Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorStartEnd(status)``"
-    "Description", "Drive belt start, stop"
-    "Mandatory parameters", "- ``status``: status of the drive belt, 1-start, 0-stop"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorStartEnd(status)``"
+    "Descrizione", "Avvia o arresta il nastro trasportatore"
+    "Parametri Obbligatori", "- ``status``： Stato nastro trasportatore，1-Avvio，0-Arresto"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Record IO detection points
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione Punto Rilevamento IO
+++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorPointIORecord()``"
-    "Description", "Record IO detection points"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorPointIORecord()``"
+    "Descrizione", "Registra punto rilevamento IO"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Record point A
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione Punto A
+++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorPointARecord()``"
-    "Description", "Record point A."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorPointARecord()``"
+    "Descrizione", "Registra punto A"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Recording reference points
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione Punto di Riferimento
+++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorRefPointRecord()``"
-    "Description", "Record reference point"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorRefPointRecord()``"
+    "Descrizione", "Registra punto di riferimento"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Record point B
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione Punto B
+++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorPointBRecord()``"
-    "Description", "Record point B."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorPointBRecord()``"
+    "Descrizione", "Registra punto B"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento1 errcode"
 
-Conveyorized workpiece IO inspection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rilevamento IO Pezzo Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorIODetect(max_t)``"
-    "Description", "Conveyorized workpiece IO detection"
-    "Mandatory parameter", "- ``max_t``: Maximum detection time in ms"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorIODetect(max_t)``"
+    "Descrizione", "Rilevamento IO pezzo nastro trasportatore"
+    "Parametri Obbligatori", "- ``max_t``： Tempo massimo rilevamento，unità ms"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Get the current position of the object
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Posizione Corrente Oggetto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorGetTrackData(mode)``"
-    "Description", "Get the current position of the object."
-    "Mandatory Parameters", "- ``mode``: 1-Tracking Capture 2-Tracking Motion 3-TPD Tracking"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorGetTrackData(mode)``"
+    "Descrizione", "Ottiene la posizione corrente dell'oggetto"
+    "Parametri Obbligatori", "- ``mode``： 1-Inseguimento presa 2-Inseguimento movimento 3-Inseguimento TPD"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Drive belt tracking started
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Inseguimento Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorTrackStart(status)``"
-    "Description", "Drive belt tracking started"
-    "Mandatory parameters", "- ``status``: status, 1-start, 0-stop"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorTrackStart(status)``"
+    "Descrizione", "Inizia l'inseguimento del nastro trasportatore"
+    "Parametri Obbligatori", "- ``status``： Stato，1-Avvio，0-Arresto"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Belt tracking stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Inseguimento Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorTrackEnd()``"
-    "Description", "Drive belt tracking stop"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorTrackEnd()``"
+    "Descrizione", "Termina l'inseguimento del nastro trasportatore"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Drive Belt Parameter Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Parametri Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorSetParam(param, followType, startDis, endDis)``"
-    "Description", "Configuration of drive belt parameters"
-    "Mandatory parameters", "- ``param= [encChannel,resolution,lead,wpAxis,vision,speedRadio]``: 
-                                - ``encChannel``: encoder channels 1-2
-                                - ``resolution``: encoder resolution Number of pulses per encoder revolution
-                                - ``lead``: Mechanical transmission ratio Distance traveled by the conveyor belt in one revolution of the encoder
-                                - ``wpAxis``: Workpiece coordinate system number Select the coordinate system number of the workpiece for the tracking motion function, and set the tracking gripping and TPD tracking to 0.
-                                - ``vision``: whether or not to match vision 0 - no 1 - match, 
-                                - ``speedRadio``: speed ratio For conveyor tracking gripping speed range (1-100) Tracking motion, TPD tracking set to 1
-    - ``followType``: Track movement type, 0- track movement; 1- Follow-up campaign"
-    "Default parameters", "- ``startDis``: Tracking grasp needs to be set, tracking start distance, -1: automatic calculation (automatic tracking after the workpiece reaches the robot), the unit is mm, the default value is 0
-    - ``endDis``: The tracking capture needs to be set. The tracking termination distance, in mm, is 100 by default"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorSetParam(param, followType, startDis, endDis)``"
+    "Descrizione", "Configura i parametri del nastro trasportatore"
+    "Parametri Obbligatori", "- ``param``： = [encChannel,resolution,lead,wpAxis,vision,speedRadio] 
+                    - ``encChannel``: Canale encoder 1-2
+                    - ``resolution``: Risoluzione encoder Numero impulsi per rotazione encoder
+                    - ``lead``: Rapporto trasmissione meccanico Distanza movimento nastro per rotazione encoder
+                    - ``wpAxis``: Numero sistema coordinate pezzo Seleziona numero sistema coordinate pezzo per funzionalità inseguimento movimento，impostare a 0 per inseguimento presa, inseguimento TPD
+                    - ``vision``: Con visione?  0-Senza 1-Con,
+                    - ``speedRadio``: Rapporto velocità  Intervallo velocità per inseguimento presa nastro (1-100)  Impostare a 1 per inseguimento movimento, inseguimento TPD
+    - ``followType``：Tipo movimento inseguimento，0-Inseguimento movimento；1-Movimento inseguimento controllo"
+    "Parametri Predefiniti", "- ``startDis``：Da impostare per inseguimento presa controllo， Distanza inizio inseguimento， -1：Calcolo automatico (inseguimento automatico dopo arrivo pezzo sotto robot)，unità mm， valore predefinito 0
+    - ``endDis``：Da impostare per inseguimento presa controllo，Distanza fine inseguimento， unità mm， valore predefinito 100"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Belt Grip Point Compensation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Compensazione Punto Presa Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorCatchPointComp(cmp)``"
-    "Description", "Drive belt grip point compensation"
-    "Mandatory parameters", "- ``cmp``: Compensate for position [x,y,z]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorCatchPointComp(cmp)``"
+    "Descrizione", "Compensazione punto presa nastro trasportatore"
+    "Parametri Obbligatori", "- ``cmp``： Posizione compensazione [x,y,z]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-linear motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Lineare
+++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype","``ConveyorTrackMoveL(name,tool,wobj,vel=20,acc=100,ovl=100,blendR=-1.0)``"
-    "Description", "Linear motion"
-    "Mandatory parameters", "- ``name``: cvrCatchPoint or cvrRaisePoint
-    - ``tool``: tool number
-    - ``wobj``: workpiece number"
-    "Default Parameters","- ``vel``: speed default 20
-    - ``acc``: acceleration default 100
-    - ``ovl``: velocity scaling factor default 100
-    - ``blendR``: [-1.0]-motion in place (blocking), [0~1000]-smoothing radius (non-blocking) in [mm] default -1.0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorTrackMoveL(name,tool,wobj,vel=20,acc=100,ovl=100,blendR=-1.0)``"
+    "Descrizione", "Movimento lineare"
+    "Parametri Obbligatori", "- ``name``：cvrCatchPoint o cvrRaisePoint
+    - ``tool``: Numero utensile
+    - ``wobj``:  Numero pezzo"
+    "Parametri Predefiniti", "- ``vel``: Velocità predefinito 20
+    - ``acc``: Accelerazione predefinito 100
+    - ``ovl``: Fattore scala velocità predefinito 100
+    - ``blendR``: [-1.0]-Movimento a posizione (bloccante)，[0~1000]-Raggio smoothing (non bloccante)，unità [mm] predefinito -1.0"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Conveyor communication input detection
+Rilevamento Input Comunicazione Nastro Trasportatore
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -500,13 +500,13 @@ Conveyor communication input detection
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorComDetect(timeout)``"
-    "Description", "Conveyor communication input detection"
-    "Mandatory parameters", "- ``timeout``: Wait timeout duration ms"
-    "Default Parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorComDetect(timeout)``"
+    "Descrizione", "Rilevamento input comunicazione nastro trasportatore"
+    "Parametri Obbligatori", "- ``timeout``：Tempo attesa timeout ms"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Conveyor communication input detection triggered
+Attivazione Rilevamento Input Comunicazione Nastro Trasportatore
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -514,13 +514,13 @@ Conveyor communication input detection triggered
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ConveyorComDetectTrigger()``"
-    "Description", "Conveyor communication input detection triggered"
-    "Mandatory parameters", "NULL"
-    "Default Parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ConveyorComDetectTrigger()``"
+    "Descrizione", "Attiva rilevamento input comunicazione nastro trasportatore"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Robot conveyor operation code example
+Esempio di Codice Operazioni Nastro Trasportatore Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
@@ -528,7 +528,7 @@ Robot conveyor operation code example
     from fairino import Robot
     import time
     import threading
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     retval = robot.ConveyorStartEnd(1)
     print(f"ConveyorStartEnd retval is:{retval}")
@@ -577,77 +577,77 @@ Robot conveyor operation code example
     print(f"MoveGripper retval is:{retval}")
     robot.CloseRPC()
 
-End Sensor Configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Sensore Termine
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AxleSensorConfig(idCompany, idDevice, idSoftware, idBus)``"
-    "Description", "End Sensor Configuration"
-    "Mandatory parameters", "
-    - ``idCompany``: manufacturer, 18-Junkong; 25-Huide
-    - ``idDevice``: type, 0-JUNKONG/RYR6T.V1.0
-    - ``idSoftware``: software version, 0-J1.0/HuiDe1.0 (not yet available)
-    - ``idBus``: mount location, 1-end port 1; 2-end port 2... ..8-end port 8 (not open yet)
+    "Prototipo", "``AxleSensorConfig(idCompany, idDevice, idSoftware, idBus)``"
+    "Descrizione", "Configurazione sensore termine"
+    "Parametri Obbligatori", "
+    - ``idCompany``: Produttore，18-JUNKONG；25-HUIDE
+    - ``idDevice``: Tipo，0-JUNKONG/RYR6T.V1.0
+    - ``idSoftware``: Versione software，0-J1.0/HuiDe1.0 (non ancora disponibile)
+    - ``idBus``: Posizione montaggio，1-Porta termine n.1；2-Porta termine n.2...8-Porta termine n.8 (non ancora disponibile)
     "
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
- 
-Get End Sensor Configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+
+Ottenimento Configurazione Sensore Termine
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AxleSensorConfigGet()``"
-    "Description", "Get end sensor configuration"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``idCompany``: manufacturer, 18-Junkong; 25-Huide
-    - ``idDevice``: type, 0-JUNKONG/RYR6T.V1.0"
+    "Prototipo", "``AxleSensorConfigGet()``"
+    "Descrizione", "Ottiene la configurazione del sensore termine"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``idCompany``: Produttore，18-JUNKONG；25-HUIDE
+    - ``idDevice``: Tipo，0-JUNKONG/RYR6T.V1.0"
         
-End sensor activation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione Sensore Termine
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AxleSensorActivate(actFlag)``"
-    "Description", "End sensor activation"
-    "Mandatory parameters", "``actFlag``: 0-reset; 1-activate"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``coord``: coordinate system values [x,y,z,rx,ry,rz]"
+    "Prototipo", "``AxleSensorActivate(actFlag)``"
+    "Descrizione", "Attiva sensore termine"
+    "Parametri Obbligatori", "``actFlag``： 0-Ripristino；1-Attivazione"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``coord``: Valori sistema coordinate [x,y,z,rx,ry,rz]"
 
-End Sensor Register Write
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura Registro Sensore Termine
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AxleSensorRegWrite(devAddr, regHAddr, regLAddr, regNum, data1, data2, isNoBlock)``"
-    "Description", "End Sensor Register Write"
-    "Mandatory parameters", "- ``devAddr``: device address number 0-255
-    - ``regHAddr``: register address high 8 bits
-    - ``regLAddr``: register address lower 8 bits
-    - ``regNum``: number of registers 0-255
-    - ``data1``: write to register value 1
-    - ``data2``: write register value 2
-    - ``isNoBlock``: whether blocking 0 - blocking; 1 - non-blocking"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``AxleSensorRegWrite(devAddr, regHAddr, regLAddr, regNum, data1, data2, isNoBlock)``"
+    "Descrizione", "Scrittura registro sensore termine"
+    "Parametri Obbligatori", "- ``devAddr``：Numero indirizzo dispositivo 0-255
+    - ``regHAddr``：Indirizzo registro alto 8 bit
+    - ``regLAddr``：Indirizzo registro basso 8 bit
+    - ``regNum``：Numero registri 0-255
+    - ``data1``：Valore registro scritto 1
+    - ``data2``：Valore registro scritto 2
+    - ``isNoBlock``：Bloccante? 0-Bloccante; 1-Non bloccante"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-End sensor code example
+Esempio di Codice Sensore Termine
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
@@ -655,7 +655,7 @@ End sensor code example
     from fairino import Robot
     import time
     import threading
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.AxleSensorConfig(18, 0, 0, 1)
     error, company, type = robot.AxleSensorConfigGet()
@@ -667,42 +667,42 @@ End sensor code example
     print(f"AxleSensorRegWrite rtn is:{rtn}")
     robot.CloseRPC()
 
-Obtaining Robot Peripheral Protocols
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Protocollo Periferiche Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetExDevProtocol()``"
-    "Description", "Get robot peripheral protocol"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode. 
-    - ``protocol``: Robot peripheral protocol number 4096-Extended Axis Control Card; 4097-ModbusSlave; 4098-ModbusMaster"
+    "Prototipo", "``GetExDevProtocol()``"
+    "Descrizione", "Ottiene il protocollo delle periferiche robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode; 
+    - ``protocol``: Numero protocollo periferiche robot 4096-Scheda controllo asse espansione；4097-ModbusSlave；4098-ModbusMaster"
 
-Setting up robot peripheral protocols
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Protocollo Periferiche Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetExDevProtocol(protocol)``"
-    "Description", "Setting the robot peripheral protocol"
-    "Mandatory parameters", "- ``protocol``: robot peripheral protocol number 4096 - Extended Axis Control Card; 4097 - ModbusSlave; 4098 - ModbusMaster"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetExDevProtocol(protocol)``"
+    "Descrizione", "Imposta il protocollo delle periferiche robot"
+    "Parametri Obbligatori", "- ``protocol``：Numero protocollo periferiche robot 4096-Scheda controllo asse espansione；4097-ModbusSlave；4098-ModbusMaster"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Example of setup robot peripheral protocol code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Impostazione Protocollo Periferiche Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     protocol = 4096
     rtn = robot.SetExDevProtocol(protocol)
@@ -711,239 +711,238 @@ Example of setup robot peripheral protocol code
     print(f"GetExDevProtocol rtn:{rtn},protocol is:{protocol}")
     robot.CloseRPC()
 
-Getting end communication parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Parametri Comunicazione Termine
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAxleCommunicationParam()``"
-    "Description", "Get end communication parameters"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``baudRate``: baud rate: support 1-9600, 2-14400, 3-19200, 4-38400, 5-56000, 6-67600, 7-115200, 8-128000
-    - ``dataBit``: data bit: data bit support (8,9), currently commonly used 8
-    - ``stopBit``: stop bit: 1-1, 2-0.5, 3-2, 4-1.5, currently 1 is commonly used.
-    - ``verify``: check digit: 0-None, 1-Odd, 2-Even, currently 0.
-    - ``timeout``: timeout time: 1~1000ms, this value needs to be combined with the peripheral with the setting of reasonable time parameters
-    - ``timeoutTimes``: timeout times: 1~10, mainly for timeout retransmission, reduce occasional exceptions to improve user experience
-    - ``period``: periodic instruction time interval:1~1000ms, mainly used for the time interval between each issuance of periodic instructions"
+    "Prototipo", "``GetAxleCommunicationParam()``"
+    "Descrizione", "Ottiene i parametri di comunicazione del termine"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``baudRate``：Baud rate: supporta 1-9600，2-14400，3-19200，4-38400，5-56000，6-67600，7-115200，8-128000
+    - ``dataBit``：Bit dati: supporta (8,9)，attualmente comunemente 8
+    - ``stopBit``：Bit stop:1-1，2-0.5，3-2，4-1.5，attualmente comunemente 1
+    - ``verify``：Bit verifica:0-Nessuno，1-Dispari，2-Pari, attualmente comunemente 0
+    - ``timeout``：Tempo timeout:1~1000ms，questo valore deve essere impostato in combinazione con le periferiche per un parametro temporale ragionevole
+    - ``timeoutTimes``：Numero timeout:1~10，principalmente per ritrasmissione in caso di timeout，riduce eccezioni occasionali e migliora l'esperienza utente
+    - ``period``：Intervallo temporale comandi periodici:1~1000ms，utilizzato principalmente per l'intervallo tra ogni invio di comandi periodici"
 
-Setting the end communication parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Parametri Comunicazione Termine
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAxleCommunicationParam(baudRate, dataBit, stopBit, verify, timeout, timeoutTimes, period)``"
-    "description", "set end communication parameters"
-    "Required Parameters","- ``baudRate``: baud rate: supports 1-9600, 2-14400, 3-19200, 4-38400, 5-56000, 6-67600, 7-115200, 8-128000
-    - ``dataBit``: data bit: data bit support (8,9), currently commonly used 8
-    - ``stopBit``: stop bit: 1-1, 2-0.5, 3-2, 4-1.5, currently 1 is commonly used.
-    - ``verify``: check digit: 0-None, 1-Odd, 2-Even, currently 0.
-    - ``timeout``: timeout time: 1~1000ms, this value needs to be combined with the peripheral with the setting of reasonable time parameters
-    - ``timeoutTimes``: timeout times: 1~10, mainly for timeout retransmission, reduce occasional exceptions to improve user experience
-    - ``period``: periodic instruction time interval:1~1000ms, mainly used for the time interval between each issuance of periodic instructions"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetAxleCommunicationParam(baudRate, dataBit, stopBit, verify, timeout, timeoutTimes, period)``"
+    "Descrizione", "Imposta i parametri di comunicazione del termine"
+    "Parametri Obbligatori", "- ``baudRate``：Baud rate: supporta 1-9600，2-14400，3-19200，4-38400，5-56000，6-67600，7-115200，8-128000
+    - ``dataBit``：Bit dati: supporta (8,9)，attualmente comunemente 8
+    - ``stopBit``：Bit stop:1-1，2-0.5，3-2，4-1.5，attualmente comunemente 1
+    - ``verify``：Bit verifica:0-Nessuno，1-Dispari，2-Pari, attualmente comunemente 0
+    - ``timeout``：Tempo timeout:1~1000ms，questo valore deve essere impostato in combinazione con le periferiche per un parametro temporale ragionevole
+    - ``timeoutTimes``：Numero timeout:1~10，principalmente per ritrasmissione in caso di timeout，riduce eccezioni occasionali e migliora l'esperienza utente
+    - ``period``：Intervallo temporale comandi periodici:1~1000ms，utilizzato principalmente per l'intervallo tra ogni invio di comandi periodici"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Setting the end file transfer type
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Tipo Trasferimento File Termine
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAxleFileType(type)``"
-    "Description", "Set the end file transfer type"
-    "Mandatory parameters", "- ``type``: 1-MCU upgrade file, 2-LUA file"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetAxleFileType(type)``"
+    "Descrizione", "Imposta il tipo di trasferimento file del termine"
+    "Parametri Obbligatori", "- ``type``：1-File aggiornamento MCU,2-File LUA"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Setting Enable End LUA Execution
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Abilitazione Esecuzione LUA Termine
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAxleLuaEnable(enable)``"
-    "Description", "Set Enable End LUA Enforcement"
-    "Mandatory parameters", "- ``enable``: 0 - not enabled; 1 - enabled"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetAxleLuaEnable(enable)``"
+    "Descrizione", "Imposta l'abilitazione dell'esecuzione LUA del termine"
+    "Parametri Obbligatori", "- ``enable``：0-Non abilitato；1-Abilitato"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-End LUA file exception error recovery
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Recupero Errore Anomalo File LUA Termine
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetRecoverAxleLuaErr(enable)``"
-    "Description", "End LUA File Exception Error Recovery"
-    "Mandatory parameters", "- ``status``: 0 - no recovery; 1 - recovery"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetRecoverAxleLuaErr(enable)``"
+    "Descrizione", "Recupero errore anomalo file LUA termine"
+    "Parametri Obbligatori", "- ``status``：0-Non recuperare；1-Recupera"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Get end LUA execution enable status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Stato Abilitazione Esecuzione LUA Termine
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAxleLuaEnableStatus()``"
-    "description", "Get end LUA execution enable state"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``enable``: 0-don't enable; 1-enable"
+    "Prototipo", "``GetAxleLuaEnableStatus()``"
+    "Descrizione", "Ottiene lo stato di abilitazione dell'esecuzione LUA del termine"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``enable``：0-Non abilitato；1-Abilitato"
 
-Setting the end LUA end device enable type
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Tipo Dispositivo Termine Abilitato LUA Termine
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetAxleLuaEnableDeviceType(forceSensorEnable, gripperEnable, IOEnable)``"
-    "Description", "Set end LUA end device enable type"
-    "Mandatory parameters","- ``forceSensorEnable``: force sensor enable status, 0 - not enabled; 1 - enabled
-    - ``gripperEnable``: gripper enable status, 0 - not enabled; 1 - enabled
-    - ``IOEnable``: IO device enable status, 0-not enabled; 1-enabled"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetAxleLuaEnableDeviceType(forceSensorEnable, gripperEnable, IOEnable)``"
+    "Descrizione", "Imposta il tipo di dispositivo termine abilitato LUA del termine"
+    "Parametri Obbligatori", "- ``forceSensorEnable``：Stato abilitazione sensore forza，0-Non abilitato；1-Abilitato
+    - ``gripperEnable``：Stato abilitazione pinza，0-Non abilitato；1-Abilitato
+    - ``IOEnable``：Stato abilitazione dispositivo IO，0-Non abilitato；1-Abilitato"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Get End LUA End Device Enablement Type
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Tipo Dispositivo Termine Abilitato LUA Termine
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAxleLuaEnableDeviceType()``"
-    "Description", "Get End LUA End Device Enablement Type"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``forceSensorEnable``: force sensor enable status, 0 - not enabled; 1 - enabled
-    - ``gripperEnable``: gripper enable status, 0 - not enabled; 1 - enabled
-    - ``IOEnable``: IO device enable status, 0-not enabled; 1-enabled"
+    "Prototipo", "``GetAxleLuaEnableDeviceType()``"
+    "Descrizione", "Ottiene il tipo di dispositivo termine abilitato LUA del termine"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``forceSensorEnable``：Stato abilitazione sensore forza，0-Non abilitato；1-Abilitato
+    - ``gripperEnable``：Stato abilitazione pinza，0-Non abilitato；1-Abilitato
+    - ``IOEnable``：Stato abilitazione dispositivo IO，0-Non abilitato；1-Abilitato"
 
-Get the currently configured end device
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Dispositivi Termine Configurati Correntemente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAxleLuaEnableDevice()``"
-    "Description", "Get the currently configured end device"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``forceSensorEnable[8]``: force sensor enable state, 0 - not enabled; 1 - enabled
-    - ``gripperEnable[8]``: gripper enable status, 0 - not enabled; 1 - enabled
-    - ``IOEnable[8]``: IO device enable status, 0-not enabled; 1-enabled"
+    "Prototipo", "``GetAxleLuaEnableDevice()``"
+    "Descrizione", "Ottiene i dispositivi termine configurati correntemente"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``forceSensorEnable[8]``：Stato abilitazione sensore forza，0-Non abilitato；1-Abilitato
+    - ``gripperEnable[8]``：Stato abilitazione pinza，0-Non abilitato；1-Abilitato
+    - ``IOEnable[8]``：Stato abilitazione dispositivo IO，0-Non abilitato；1-Abilitato"
 
-Setting to enable the jaw movement control function
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Abilitazione Funzione Controllo Azione Pinza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAxleLuaGripperFunc(id, func)``"
-    "Description", "Set to enable the jaw motion control function"
-    "Mandatory parameters", "- ``id``: gripper device number
-    - ``func``: 0-jaw enable; 1-jaw initialization; 2-position setting; 3-speed setting; 4-torque setting; 6-reading the jaw status; 7-reading the initialization status; 8-reading the fault code; 9-reading the position; 10-reading the speed; 11-reading the torque,12-15 reserved"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetAxleLuaGripperFunc(id, func)``"
+    "Descrizione", "Imposta l'abilitazione della funzione di controllo azione pinza"
+    "Parametri Obbligatori", "- ``id``：Numero dispositivo pinza
+    - ``func``：0-Abilitazione pinza；1-Inizializzazione pinza；2-Impostazione posizione；3-Impostazione velocità；4-Impostazione coppia；6-Lettura stato pinza；7-Lettura stato inizializzazione；8-Lettura codice errore；9-Lettura posizione；10-Lettura velocità；11-Lettura coppia,12-15 Riservato"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Getting to Enable Jaw Motion Control
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Abilitazione Funzione Controllo Azione Pinza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAxleLuaGripperFunc(id)``"
-    "Description", "Get the Enable Jaw Motion Control function"
-    "Mandatory parameter", "- ``id``: gripper device number"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``func``: 0-jaw enable; 1-jaw initialization; 2-position setting; 3-speed setting; 4-torque setting; 6-reading the jaw status; 7-reading the initialization status; 8-reading the fault code; 9-reading the position; 10-reading the speed; 11-reading the torque,12-15 reserved"
+    "Prototipo", "``GetAxleLuaGripperFunc(id)``"
+    "Descrizione", "Ottiene l'abilitazione della funzione di controllo azione pinza"
+    "Parametri Obbligatori", "- ``id``：Numero dispositivo pinza"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``func``：0-Abilitazione pinza；1-Inizializzazione pinza；2-Impostazione posizione；3-Impostazione velocità；4-Impostazione coppia；6-Lettura stato pinza；7-Lettura stato inizializzazione；8-Lettura codice errore；9-Lettura posizione；10-Lettura velocità；11-Lettura coppia,12-15 Riservato"
 
-The Ethercat slave file is written by the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura File Slave Ethercat Robot
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SlaveFileWrite(type,slaveID,fileName)``"
-    "Description", "The Ethercat slave file is written by the robot"
-    "Mandatory parameter", "- ``type``：Slave file type, 1- Upgrade slave file; 2- Upgrade the slave station configuration file
-    - ``slaveID``：From the station number
-    - ``fileName``：Upload the file name"
-    "Default parameters", "NULL"
-    "Return Value", "errorcode Success-0 Failure- errcode"
+    "Prototipo", "``SlaveFileWrite(type,slaveID,fileName)``"
+    "Descrizione", "Scrittura file slave Ethercat robot"
+    "Parametri Obbligatori", "- ``type``：Tipo file slave，1-Aggiornamento file slave；2-Aggiornamento file configurazione slave
+    - ``slaveID``：Numero slave
+    - ``fileName``：Nome file da caricare"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-
-Upload the end Lua open protocol file
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Upload File LUA Protocollo Aperto Termine
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AxleLuaUpload(filePath)``"
-    "Description", "Upload the end Lua open protocol file"
-    "Mandatory parameter", "- ``filePath``：Local lua file path name .../AXLE_LUA_End_DaHuan.lua"
-    "Default parameters", "NULL"
-    "Return Value", "errorcode Success-0 Failure- errcode"
+    "Prototipo", "``AxleLuaUpload(filePath)``"
+    "Descrizione", "Upload file LUA protocollo aperto termine"
+    "Parametri Obbligatori", "- ``filePath``：Percorso file Lua locale .../AXLE_LUA_End_DaHuan.lua"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-The robot Ethercat enters boot mode from the station
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Modalità Boot Slave Ethercat Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetSysServoBootMode(filePath)``"
-    "Description", "The robot Ethercat enters boot mode from the station"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "errorcode Success-0 Failure- errcode"
+    "Prototipo", "``SetSysServoBootMode(filePath)``"
+    "Descrizione", "Imposta la modalità boot slave Ethercat robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Example of LUA file manipulation code at the end of the robot
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Operazioni File LUA Termine Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.AxleLuaUpload("D://zUP/AXLE_LUA_End_DaHuan.lua")
-    param = [7, 8, 1, 0, 5, 3, 1]  # 对应AxleComParam参数
+    param = [7, 8, 1, 0, 5, 3, 1]  # Corrisponde ai parametri AxleComParam
     robot.SetAxleCommunicationParam(7, 8, 1, 0, 5, 3, 1)
     error,getParam0,getParam1,getParam2,getParam3,getParam4,getParam5,getParam6 = robot.GetAxleCommunicationParam()
     print(f"GetAxleCommunicationParam param is:{getParam0} {getParam1} {getParam2} {getParam3} {getParam4} {getParam5} {getParam6}")
@@ -976,53 +975,66 @@ Example of LUA file manipulation code at the end of the robot
         print(f"gripper pos is:{pkg.gripper_position}")
         time.sleep(0.1)
     robot.CloseRPC()
-
-
-Obtain the status of the SmartTool button
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+Ottenimento Stato Pulsante SmartTool
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSmarttoolBtnState()``"
-    "Description", "Obtain the status of the SmartTool button"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode 
-    - ``state``: SmartTool handle button status (bit0:0- Communication is normal; 1- Communication disconnection; bit1- Undo operation bit2- Clear the program; bit3-A key bit4-B key bit5-C key bit6-D key bit7-E key bit8-IO key bit9- Manual automatic Starting from bit10"
+    "Prototipo", "``GetSmarttoolBtnState()``"
+    "Descrizione", "Ottiene lo stato del pulsante SmartTool"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``state``：Stato pulsante manopola SmartTool;(bit0:0-Comunicazione normale；1-Comunicazione interrotta；bit1-Annulla operazione；bit2-Svuota programma；bit3-Tasto A；bit4-Tasto B；bit5-Tasto C；bit6-Tasto D；bit7-Tasto E；bit8-Tasto IO；bit9-Manuale/Automatico；bit10-Inizia)"
 
-SmartTool button code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Pulsante SmartTool
++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     while True:
         error,state = robot.GetSmarttoolBtnState()
         print(f"{state:016b}")
         time.sleep(0.1)
-        
-Set the load detection before drag is started
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Impostazione Rilevamento Forza Carico Prima Abilitazione Trascinamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetTorqueDetectionSwitch(flag)``"
-    "Description", "Set the load detection before drag is started"
-    "Mandatory parameters", "- ``flag``：0- closed; 1- On"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetTorqueDetectionSwitch(flag)``"
+    "Descrizione", "Imposta il rilevamento della forza del carico prima dell'abilitazione del trascinamento"
+    "Parametri Obbligatori", "- ``flag``：0-Disattiva；1-Attiva"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Laser peripheral open and close function
+Funzione Accensione/Spegnimento Periferica Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.1.6
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``LaserTrackingLaserOnOff(OnOff, weldId)``"
+    "Descrizione", "Funzione accensione/spegnimento periferica laser"
+    "Parametri Obbligatori", "- ``OnOff``：0-Spegni；1-Accendi"
+    "Parametri Predefiniti", "- ``weldId``：ID saldatura predefinito 0"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+
+Funzione Inizio/Fine Inseguimento Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1030,13 +1042,14 @@ Laser peripheral open and close function
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LaserTrackingLaserOnOff(OnOff, weldId)``"
-    "Description", "Laser peripheral open and close function"
-    "Mandatory parameters", "- ``OnOff``：0- closed; 1- On"
-    "Default parameters", "- ``weldId``：The default weld ID is 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LaserTrackingTrackOnOff(OnOff, coordId)``"
+    "Descrizione", "Funzione inizio/fine inseguimento laser"
+    "Parametri Obbligatori", "- ``OnOff``：0-Spegni；1-Accendi
+    - ``coordId``：Numero sistema coordinate utensile periferica laser"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Laser tracking start-end function
+Ricerca Posizione Laser - Direzione Fissa
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1044,14 +1057,35 @@ Laser tracking start-end function
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LaserTrackingTrackOnOff(OnOff, coordId)``"
-    "Description", "Laser tracking start-end function"
-    "Mandatory parameters", "- ``OnOff``：0- closed; 1- On
-    - ``coordId``：Laser peripheral tool coordinate system No"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LaserTrackingSearchStart_xyz(direction, vel, distance, timeout, posSensorNum)``"
+    "Descrizione", "Ricerca posizione laser - direzione fissa"
+    "Parametri Obbligatori", "- ``direction``：0-x+ 1-x- 2-y+ 3-y- 4-z+ 5-z-
+    - ``vel``：Velocità unità%
+    - ``distance``：Distanza massima ricerca unità mm
+    - ``timeout``：Tempo timeout ricerca unità ms
+    - ``posSensorNum``：Numero sistema coordinate utensile calibrato laser"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Laser positioning - Fixed direction
+Ricerca Posizione Laser - Direzione Arbitraria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.1.6
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``LaserTrackingSearchStart_point(directionPoint, vel, distance, timeout, posSensorNum)``"
+    "Descrizione", "Ricerca posizione laser - direzione arbitraria"
+    "Parametri Obbligatori", "- ``directionPoint``：Coordinate xyz punto input ricerca,[x,y,z]
+    - ``vel``：Velocità unità%
+    - ``distance``：Distanza massima ricerca unità mm
+    - ``timeout``：Tempo timeout ricerca unità ms
+    - ``posSensorNum``：Numero sistema coordinate utensile calibrato laser"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+
+Configurazione IP Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1059,17 +1093,28 @@ Laser positioning - Fixed direction
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LaserTrackingSearchStart_xyz(direction, vel, distance, timeout, posSensorNum)``"
-    "Description", "Laser positioning - Fixed direction"
-    "Mandatory parameters", "- ``direction``：0-x+ 1-x- 2-y+ 3-y- 4-z+ 5-z-
-    - ``vel``：Unit of speed %
-    - ``distance``：The maximum positioning distance unit is mm
-    - ``timeout``：The unit of seek timeout time is ms
-    - ``posSensorNum``：The coordinate number of the tool calibrated by laser"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LaserTrackingSensorConfig(ip, port)``"
+    "Descrizione", "Configurazione IP laser"
+    "Parametri Obbligatori", "- ``ip``：Indirizzo IP periferica laser
+    - ``port``：Numero porta periferica laser"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Laser positioning - in any direction
+Configurazione Periodo Campionamento Periferica Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.1.6
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``LaserTrackingSensorSamplePeriod(period)``"
+    "Descrizione", "Configurazione periodo campionamento periferica laser"
+    "Parametri Obbligatori", "- ``period``：Periodo campionamento periferica laser unità ms"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+
+Caricamento Driver Periferica Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1077,17 +1122,13 @@ Laser positioning - in any direction
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LaserTrackingSearchStart_point(directionPoint, vel, distance, timeout, posSensorNum)``"
-    "Description", "Laser positioning - in any direction"
-    "Mandatory parameters", "- ``directionPoint``：To the left of the xyz of the input point for positioning,[x,y,z]
-    - ``vel``：Unit of speed %
-    - ``distance``：The maximum positioning distance unit is mm
-    - ``timeout``：The unit of seek timeout time is ms
-    - ``posSensorNum``：The coordinate number of the tool calibrated by laser"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LoadPosSensorDriver(type)``"
+    "Descrizione", "Caricamento driver periferica laser"
+    "Parametri Obbligatori", "- ``type``：Tipo protocollo driver periferica laser 101-Ruiniu 102-Chuangxiang 103-Quanshi 104-Tongzhou 105-Aotai"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Laser IP configuration
+Scaricamento Driver Periferica Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1095,28 +1136,13 @@ Laser IP configuration
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LaserTrackingSensorConfig(ip, port)``"
-    "Description", "Laser IP configuration"
-    "Mandatory parameters", "- ``ip``：The ip address of the laser peripheral
-    - ``port``：The port number of the laser peripheral"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``UnLoadPosSensorDriver()``"
+    "Descrizione", "Scaricamento driver periferica laser"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Configuration of sampling period for laser peripherals
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.1.6
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``LaserTrackingSensorSamplePeriod(period)``"
-    "Description", "Configuration of sampling period for laser peripherals"
-    "Mandatory parameters", "- ``period``：The unit of sampling period for laser peripherals is ms"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Laser peripheral driver loading
+Registrazione Traiettoria Saldatura Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1124,13 +1150,14 @@ Laser peripheral driver loading
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LoadPosSensorDriver(type)``"
-    "Description", "Laser peripheral driver loading"
-    "Mandatory parameters", "- ``type``：Protocol type of the laser device driver: 101-Ruineng 102-Chuangxiang 103-Quanshi 104-Tongzhou 105-Aotai"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LaserSensorRecord1(status, delayTime)``"
+    "Descrizione", "Registrazione traiettoria saldatura laser"
+    "Parametri Obbligatori", "- ``status``：0-Arresta registrazione 1-Inseguimento in tempo reale  2-Inizia registrazione
+    - ``delayTime``：Tempo ritardo unità ms"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Laser peripheral driver unloading
+Riproduzione Traiettoria Saldatura Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1138,43 +1165,14 @@ Laser peripheral driver unloading
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``UnLoadPosSensorDriver()``"
-    "Description", "Laser peripheral driver unloading"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Laser weld seam trajectory recording
-+++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.1.6
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``LaserSensorRecord1(status, delayTime)``"
-    "Description", "Laser weld seam trajectory recording"
-    "Mandatory parameters", "- ``status``：0- Stop recording 1- Real-time tracking 2- Start recording
-    - ``delayTime``：The delay time unit is ms"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Laser weld seam trajectory reproduction
-+++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.1.6
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``LaserSensorReplay(delayTime, speed)``"
-    "Description", "Laser weld seam trajectory reproduction"
-    "Mandatory parameters", "- ``delayTime``：The delay time unit is ms
-    - ``speed``：Unit of speed %"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LaserSensorReplay(delayTime, speed)``"
+    "Descrizione", "Riproduzione traiettoria saldatura laser"
+    "Parametri Obbligatori", "- ``delayTime``：Tempo ritardo unità ms
+    - ``speed``：Velocità unità%"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
     
-Laser tracking reproduction
+Riproduzione Inseguimento Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1182,13 +1180,13 @@ Laser tracking reproduction
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveLTR()``"
-    "Description", "Laser tracking reproduction"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveLTR()``"
+    "Descrizione", "Riproduzione inseguimento laser"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Laser weld seam trajectory reproduction
+Riproduzione Traiettoria Saldatura Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1196,33 +1194,48 @@ Laser weld seam trajectory reproduction
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LaserSensorRecordandReplay(delayMode, delayTime, delayDisExAxisNum, delayDis, sensitivePara, speed)``"
-    "Description", "Laser weld seam trajectory reproduction"
-    "Mandatory parameters", "- ``delayMode``：Mode 0- Delay time 1- delay distance
-    - ``delayTime``：Delay time in ms
-    - ``delayDisExAxisNum``：Extension axis number
-    - ``delayDis``：The delay distance is in mm
-    - ``sensitivePara``：Compensate the sensitivity factor
-    - ``speed``：Speed unit %"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LaserSensorRecordandReplay(delayMode, delayTime, delayDisExAxisNum, delayDis, sensitivePara, speed)``"
+    "Descrizione", "Riproduzione traiettoria saldatura laser"
+    "Parametri Obbligatori", "- ``delayMode``：Modalità 0-Tempo ritardo 1-Distanza ritardo
+    - ``delayTime``：Tempo ritardo unità ms
+    - ``delayDisExAxisNum``：Numero asse espansione
+    - ``delayDis``：Distanza ritardo unità mm
+    - ``sensitivePara``：Coefficiente sensibilità compensazione
+    - ``speed``：Velocità unità%"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Movement to the starting point of weld record
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento al Punto Inizio Registrazione Saldatura
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveToLaserRecordStart(moveType, ovl)``"
-    "Description", "Movement to the starting point of weld record"
-    "Mandatory parameters", "- ``moveType``：0-PTP 1-LIN
-    - ``ovl``：Speed unit %"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveToLaserRecordStart(moveType, ovl)``"
+    "Descrizione", "Movimento al punto inizio registrazione saldatura"
+    "Parametri Obbligatori", "- ``moveType``：0-PTP 1-LIN
+    - ``ovl``：Velocità unità%"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Movement to the end of the weld record
+Movimento al Punto Fine Registrazione Saldatura
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.1.6
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``MoveToLaserRecordEnd(moveType, ovl)``"
+    "Descrizione", "Movimento al punto fine registrazione saldatura"
+    "Parametri Obbligatori", "- ``moveType``：0-PTP 1-LIN
+    - ``ovl``：Velocità unità%"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+
+Movimento al Punto Ricerca Sensore Laser
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
@@ -1230,59 +1243,44 @@ Movement to the end of the weld record
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveToLaserRecordEnd(moveType, ovl)``"
-    "Description", "Movement to the end of the weld record"
-    "Mandatory parameters", "- ``moveType``：0-PTP 1-LIN
-    - ``ovl``：Speed unit %"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveToLaserSeamPos(moveFlag, ovl, dataFlag, plateType, trackOffectType, offset)``"
+    "Descrizione", "Movimento al punto ricerca sensore laser"
+    "Parametri Obbligatori", "- ``moveFlag``：Tipo movimento：0-PTP；1-LIN
+    - ``ovl``：Fattore scala velocità，0-100
+    - ``dataFlag``：Selezione dati cache saldatura：0-Esegue dati pianificati；1-Esegue dati registrati
+    - ``plateType``：Tipo pannello：0-Pannello ondulato；1-Pannello trapezoidale；2-Pannello recinzione；3-Bidone olio；4-Pannello corazzato ondulato
+    - ``trackOffectType``：Tipo offset sensore laser：0-Nessun offset；1-Offset sistema base；2-Offset sistema utensile；3-Offset dati originali sensore laser
+    - ``offset``：Valore offset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Move to the laser sensor to find the site
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Informazioni Coordinate Punto Ricerca Sensore Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveToLaserSeamPos(moveFlag, ovl, dataFlag, plateType, trackOffectType, offset)``"
-    "Description", "Move to the laser sensor to find the site"
-    "Mandatory parameters", "- ``moveFlag``：Motion type: 0-PTP; 1-LIN
-    - ``ovl``：Speed scaling factor, 0-100
-    - ``dataFlag``：Weld cache data selection: 0-execution planning data; 1- Perform logging data
-    - ``plateType``：Plate type: 0-corrugated plate; 1- Corrugated board; 2- Fence board; 3- oil barrel; 4- Corrugated shell steel
-    - ``trackOffectType``：Laser sensor offset type: 0-no offset; 1-base coordinate shift; 2- Tool coordinate offset; 3-Laser sensor raw data offset
-    - ``offset``：Offset value"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``GetLaserSeamPos(trackOffectType, offset)``"
+    "Descrizione", "Ottiene le informazioni coordinate del punto ricerca sensore laser"
+    "Parametri Obbligatori", "- ``trackOffectType``：Tipo offset sensore laser：0-Nessun offset；1-Offset sistema base；2-Offset sistema utensile；3-Offset dati originali sensore laser
+    - ``offset``：Valore offset"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``jPos``：Posizione giunti[°]
+    - ``descPos``：Posizione cartesiana[mm]
+    - ``tool``：Sistema coordinate utensile
+    - ``user``：Sistema coordinate pezzo
+    - ``exaxis``：Posizione asse espansione[mm]"
 
-Obtain the coordinate information of the laser sensor location
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.1.6
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``GetLaserSeamPos(trackOffectType, offset)``"
-    "Description", "Obtain the coordinate information of the laser sensor location"
-    "Mandatory parameters", "- ``trackOffectType``：Laser sensor offset type: 0-no offset; 1-base coordinate shift; 2- Tool coordinate offset; 3-Laser sensor raw data offset
-    - ``offset``：Offset value"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``jPos``：Joint position[°]
-    - ``descPos``：Cartesian position[mm]
-    - ``tool``：Tool coordinate system
-    - ``user``：Workpiece coordinate system
-    - ``exaxis``：Extension axis position[mm]"
-
-Example of laser peripheral sensor parameter configuration and debugging code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Configurazione Parametri e Debug Sensore Periferica Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.LaserTrackingSensorConfig("192.168.58.20", 5020)
     robot.LaserTrackingSensorSamplePeriod(20)
@@ -1292,13 +1290,13 @@ Example of laser peripheral sensor parameter configuration and debugging code
     robot.LaserTrackingLaserOnOff(1, 0)
     robot.CloseRPC()
 
-Code example of laser trajectory scanning and trajectory reproduction
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Scansione Traiettoria Laser e Riproduzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.OpenLuaUpload("D://zUP/CtrlDev_laser_ruiniu-0117.lua")
     time.sleep(2)
@@ -1325,13 +1323,13 @@ Code example of laser trajectory scanning and trajectory reproduction
         i = i+1
     robot.CloseRPC()
 
-Code examples for laser locating and real-time tracking
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Ricerca Posizione Laser e Inseguimento in Tempo Reale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.OpenLuaUpload("D://zUP/CtrlDev_laser_ruiniu-0117.lua")
     time.sleep(2)
@@ -1360,13 +1358,13 @@ Code examples for laser locating and real-time tracking
         print(i)
     robot.CloseRPC()
 
-Code example of the extended axis synchronized with the robot for laser tracking
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Inseguimento Laser Sincrono con Asse Espansione e Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     startexaxisPos = [0.0, 0.0, 0.0, 0.0]
     seamexaxisPos = [-10.0, 0.0, 0.0, 0.0]

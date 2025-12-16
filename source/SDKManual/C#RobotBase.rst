@@ -1,127 +1,127 @@
-Robot Basics
-===================================================
+Fondamenti del robot
+===============================
 
 .. toctree:: 
     :maxdepth: 5
 
-Instantiating the Robot
+Istanziazione del robot
 ++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Robot interface class constructor
+    * @brief  Costruttore della classe dell'interfaccia del robot
     */
     Robot(); 
 
-Establishing Communication with the Controller
+Stabilire la comunicazione con il controller
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Establish communication with the robot controller
-    * @param  [in] ip  Controller IP address, default is 192.168.58.2
-    * @return Error code
+    * @brief  Stabilire la comunicazione con il controller del robot
+    * @param  [in] ip  Indirizzo IP del controller, predefinito di fabbrica: 192.168.58.2
+    * @return Codice di errore
     */
     int RPC(string ip);
 
-Disconnect from the robot
-++++++++++++++++++++++++++++++++++
+Interrompere la comunicazione con il robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Disconnect from the robot controller 
-    * @return Error code 
+    * @brief Interrompere la comunicazione con il controller del robot 
+    * @return Codice di errore 
     */ 
     int CloseRPC(); 
 
-Query the SDK version number
-++++++++++++++++++++++++++++++++++
+Interrogare il numero di versione dell'SDK
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Query the SDK version number 
-    * @param [out] version SDK version number 
-    * @return Error code 
+    * @brief Interrogare il numero di versione dell'SDK 
+    * @param [out] version Numero di versione dell'SDK 
+    * @return Codice di errore 
     */  
     int GetSDKVersion(ref string version);
 
-Get the controller IP address
+Ottenere l'IP del controller
 ++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get the controller IP
-    * @param  [out] ip  Controller IP
-    * @return  Error code
+    * @brief  Ottenere l'IP del controller
+    * @param  [out] ip  IP del controller
+    * @return  Codice di errore
     */
     int GetControllerIP(ref string ip);
 
-Control the robot to enter or exit drag teaching mode
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare l'ingresso o l'uscita del robot dalla modalità di insegnamento a trascinamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Control the robot to enter or exit drag teaching mode
-    * @param  [in] state 0-exit drag teaching mode, 1-enter drag teaching mode
-    * @return  Error code
+    * @brief  Controllare l'ingresso o l'uscita del robot dalla modalità di insegnamento a trascinamento
+    * @param  [in] state 0-Uscire dalla modalità di insegnamento a trascinamento, 1-Entrare nella modalità di insegnamento a trascinamento
+    * @return  Codice di errore
     */
     int DragTeachSwitch(byte state);
 
-Check if the robot is in drag mode
-++++++++++++++++++++++++++++++++++
+Verificare se il robot è in modalità trascinamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Check if the robot is in drag teach mode
-    * @param  [out] state 0-not in drag teach mode, 1-in drag teach mode
-    * @return Error code
+    * @brief  Verificare se il robot è in modalità di insegnamento a trascinamento
+    * @param  [out] state 0-Non in modalità di insegnamento a trascinamento, 1-In modalità di insegnamento a trascinamento
+    * @return  Codice di errore
     */
-    int IsInDragTeach(ref byte state);
+    int IsInDragTeach(ref byte state); 
 
-Control robot enable or disable
-++++++++++++++++++++++++++++++++++
+Controllare l'abilitazione o la disabilitazione del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Control robot enable or disable; robot is automatically enabled by default after power-on
-    * @param  [in] state  0-disable, 1-enable
-    * @return  Error code
+    * @brief  Controllare l'abilitazione o la disabilitazione del robot. Dopo l'accensione, il robot viene automaticamente abilitato per impostazione predefinita.
+    * @param  [in] state  0-Disabilitazione, 1-Abilitazione
+    * @return  Codice di errore
     */
     int RobotEnable(byte state); 
 
-Control robot manual/automatic mode switching
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare il cambio di modalità manuale/automatica del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Control robot manual/automatic mode switching
-    * @param [in] mode 0-automatic mode, 1-manual mode
-    * @return Error code
+    * @brief Controllare il cambio di modalità manuale/automatica del robot
+    * @param [in] mode 0-Modalità automatica, 1-Modalità manuale
+    * @return Codice di errore
     */
     int Mode(int mode);
 
-Shut down the robot operating system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Spegnere il sistema operativo del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Shut down the robot operating system
-    * @return Error code
+    * @brief Spegnere il sistema operativo del robot
+    * @return Codice di errore
     */
     int ShutDownRobotOS();
 
-Code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -131,28 +131,28 @@ Code example
         Console.WriteLine($"ShutDownRobotOS rtn is {rtn}");
     }
 
-Set robot communication reconnection parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare i parametri di riconnessione per la comunicazione con il robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set robot communication reconnection parameters
-    * @param [in] enable Whether to enable true-enable, false-disable
-    * @param [in] times Reconnect times
-    * @param [in] period Reconnect time interval (milliseconds)
+    * @brief Impostare i parametri di riconnessione per la comunicazione con il robot
+    * @param [in] enable Se attivare true-Abilitato, false-Non abilitato
+    * @param [in] times Numero di tentativi di riconnessione
+    * @param [in] period Intervallo di tempo per la riconnessione (millisecondi)
     */
     void SetReconnectParam(bool enable, int times, int period);
 
-Code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice
++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     private void btnStandard_Click(object sender, EventArgs e)
     {
         Robot robot = new Robot();
-        robot.SetReconnectParam(true, 100, 20000);//Disconnection reconnection parameters
+        robot.SetReconnectParam(true, 100, 20000);// Parametri di riconnessione in caso di interruzione
         robot.RPC("192.168.58.2"); 
 
         string ip = "";
@@ -173,7 +173,7 @@ Code example
         robot.DragTeachSwitch(0);
         Thread.Sleep(1000);
         robot.IsInDragTeach(ref state);
-        Console.WriteLine($"drag state: {state}");
+        Console.WriteLine($"drag state : {state}");
         Thread.Sleep(3000);
         robot.RobotEnable(0);
         Thread.Sleep(3000);
@@ -184,88 +184,88 @@ Code example
         robot.Mode(1);
     }
 
-Initialize log parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizializzare i parametri del log
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Initialize log parameters
-    * @param [in] logType: Output mode, DIRECT-direct output; BUFFER-buffered output; ASYNC-asynchronous output
-    * @param [in] logLevel: Log filtering level, ERROR-error; WARNING-warning; INFO-information; DEBUG-debug
-    * @param [in] filePath: File save path, e.g., "D://Log/"
-    * @param [in] saveFileNum: Number of files to save; files exceeding both the number of files to save and the number of days to save will be deleted
-    * @param [in] saveDays: Number of days to save; files exceeding both the number of files to save and the number of days to save will be deleted
-    * @return Error code
+    * @brief Inizializzare i parametri del log
+    * @param [in] logType：Modalità di output，DIRECT-Output diretto；BUFFER-Output bufferizzato；ASYNC-Output asincrono
+    * @param [in] logLevel：Livello di filtraggio del log，ERROR-Errore；WARNING-Avviso；INFO-Informazione；DEBUG-Debug
+    * @param [in] filePath: Percorso di salvataggio del file，es. “D://Log/”
+    * @param [in] saveFileNum：Numero di file da salvare，i file che superano sia il numero di file salvati che i giorni di salvataggio verranno eliminati
+    * @param [in] saveDays: Giorni di salvataggio del file，i file che superano sia il numero di file salvati che i giorni di salvataggio verranno eliminati
+    * @return Codice di errore
     */
     int LoggerInit(FrLogType logType = FrLogType.DIRECT, FrLogLevel logLevel = FrLogLevel.INFO, string filePath = "", int saveFileNum = 10, int saveDays = 10);
 
-Set log filtering level
-++++++++++++++++++++++++++++++++++
+Impostare il livello di filtraggio del log
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set log filtering level
-    * @param [in] logLevel: Log filtering level, ERROR-error; WARNING-warning; INFO-information; DEBUG-debug
-    * @return Error code
+    * @brief Impostare il livello di filtraggio del log
+    * @param [in] logLevel: Livello di filtraggio del log，ERROR-Errore；WARNING-Avviso；INFO-Informazione；DEBUG-Debug
+    * @return Codice di errore
     */
     int SetLoggerLevel(FrLogLevel logLevel);
 
-Get robot software version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la versione del software del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Get robot software version information
-    * @param [out] robotModel Robot model
-    * @param [out] webVersion Web version
-    * @param [out] controllerVersion Controller version
-    * @return Error code 
+    * @brief Ottenere le informazioni sulla versione del software del robot
+    * @param [out] robotModel Modello del robot
+    * @param [out] webVersion Versione web
+    * @param [out] controllerVersion Versione del controller
+    * @return Codice di errore 
     */ 
     int GetSoftwareVersion(ref string robotModel, ref string webVersion, ref string controllerVersion);
-
-Get robot hardware version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+Ottenere la versione hardware del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Get robot hardware version information
-    * @param [out] ctrlBoxBoardVersion Control box board hardware version
-    * @param [out] driver1Version Driver 1 hardware version
-    * @param [out] driver1Version Driver 2 hardware version
-    * @param [out] driver1Version Driver 3 hardware version
-    * @param [out] driver1Version Driver 4 hardware version
-    * @param [out] driver1Version Driver 5 hardware version
-    * @param [out] driver1Version Driver 6 hardware version
-    * @param [out] endBoardVersion End board hardware version
-    * @return Error code 
+    * @brief Ottenere le informazioni sulla versione hardware del robot
+    * @param [out] ctrlBoxBoardVersion Versione hardware della scheda del quadro di controllo
+    * @param [out] driver1Version Versione hardware dell'azionamento 1
+    * @param [out] driver1Version Versione hardware dell'azionamento 2
+    * @param [out] driver1Version Versione hardware dell'azionamento 3
+    * @param [out] driver1Version Versione hardware dell'azionamento 4
+    * @param [out] driver1Version Versione hardware dell'azionamento 5
+    * @param [out] driver1Version Versione hardware dell'azionamento 6
+    * @param [out] endBoardVersion Versione hardware della scheda finale
+    * @return Codice di errore 
     */ 
-    int GetHardwareVersion(ref string ctrlBoxBoardVersion, ref string driver1Version, ref string driver2Version, ref string driver3Version, ref string driver4Version, ref string driver5Version, ref string driver6Version, ref string endBoardVersion);
+    int GetHardwareVersion(ref string ctrlBoxBoardVersion, ref string driver1Version, ref string driver2Version, ref string driver3Version,ref string driver4Version, ref string driver5Version, ref string driver6Version, ref string endBoardVersion);
 
-Get robot firmware version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la versione del firmware del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Get robot firmware version information
-    * @param [out] ctrlBoxBoardVersion Control box board firmware version
-    * @param [out] driver1Version Driver 1 firmware version
-    * @param [out] driver1Version Driver 2 firmware version
-    * @param [out] driver1Version Driver 3 firmware version
-    * @param [out] driver1Version Driver 4 firmware version
-    * @param [out] driver1Version Driver 5 firmware version
-    * @param [out] driver1Version Driver 6 firmware version
-    * @param [out] endBoardVersion End board firmware version
-    * @return Error code 
+    * @brief Ottenere le informazioni sulla versione del firmware del robot
+    * @param [out] ctrlBoxBoardVersion Versione firmware della scheda del quadro di controllo
+    * @param [out] driver1Version Versione firmware dell'azionamento 1
+    * @param [out] driver1Version Versione firmware dell'azionamento 2
+    * @param [out] driver1Version Versione firmware dell'azionamento 3
+    * @param [out] driver1Version Versione firmware dell'azionamento 4
+    * @param [out] driver1Version Versione firmware dell'azionamento 5
+    * @param [out] driver1Version Versione firmware dell'azionamento 6
+    * @param [out] endBoardVersion Versione firmware della scheda finale
+    * @return Codice di errore 
     */ 
-    int GetFirmwareVersion(ref string ctrlBoxBoardVersion, ref string driver1Version, ref string driver2Version, ref string driver3Version, ref string driver4Version, ref string driver5Version, ref string driver6Version, ref string endBoardVersion);
+    int GetFirmwareVersion(ref string ctrlBoxBoardVersion, ref string driver1Version, ref string driver2Version, ref string driver3Version,ref string driver4Version, ref string driver5Version, ref string driver6Version, ref string endBoardVersion);
 
-Code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice
+++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -281,20 +281,18 @@ Code example
         Console.WriteLine($"controllerVersion  is: {ver[2]}");
         Console.WriteLine($"Hard ctrlBox Version  is: {ver[3]}");
         Console.WriteLine($"Hard driver1 Version  is: {ver[4]}");
-        Console.WriteLine($"Hard driver2 Version is: {ver[5]}");
-        Console.WriteLine($"Hard driver3 Version is: {ver[6]}");
-        Console.WriteLine($"Hard driver4 Version is: {ver[7]}");
-        Console.WriteLine($"Hard driver5 Version is: {ver[8]}");
-        Console.WriteLine($"Hard driver6 Version is: {ver[9]}");
-        Console.WriteLine($"Hard end Version is: {ver[10]}");
-        Console.WriteLine($"Firm ctrlBox Version is: {ver[11]}");
-        Console.WriteLine($"Firm driver1 Version is: {ver[12]}");
-        Console.WriteLine($"Firm driver2 Version is: {ver[13]}");
-        Console.WriteLine($"Firm driver3 Version is: {ver[14]}");
-        Console.WriteLine($"Firm driver4 Version is: {ver[15]}");
-        Console.WriteLine($"Firm driver5 Version is: {ver[16]}");
-        Console.WriteLine($"Firm driver6 Version is: {ver[17]}");
-        Console.WriteLine($"Firm end Version is: {ver[18]}");
+        Console.WriteLine($"Hard driver2 Version  is: {ver[5]}");
+        Console.WriteLine($"Hard driver3 Version  is: {ver[6]}");
+        Console.WriteLine($"Hard driver4 Version  is: {ver[7]}");
+        Console.WriteLine($"Hard driver5 Version  is: {ver[8]}");
+        Console.WriteLine($"Hard driver6 Version  is: {ver[9]}");
+        Console.WriteLine($"Hard end Version  is: {ver[10]}");
+        Console.WriteLine($"Firm ctrlBox Version  is: {ver[11]}");
+        Console.WriteLine($"Firm driver1 Version  is: {ver[12]}");
+        Console.WriteLine($"Firm driver2 Version  is: {ver[13]}");
+        Console.WriteLine($"Firm driver3 Version  is: {ver[14]}");
+        Console.WriteLine($"Firm driver4 Version  is: {ver[15]}");
+        Console.WriteLine($"Firm driver5 Version  is: {ver[16]}");
+        Console.WriteLine($"Firm driver6 Version  is: {ver[17]}");
+        Console.WriteLine($"Firm end Version  is: {ver[18]}");
     }
-
-

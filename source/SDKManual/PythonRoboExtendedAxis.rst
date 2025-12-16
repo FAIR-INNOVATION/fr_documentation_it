@@ -1,258 +1,258 @@
-Extended Axis
+Assi di Espansione
 ==========================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Setting the 485 Extended Axis Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Parametri Asse di Espansione 485
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoSetParam(servoId,servoCompany,servoModel,servoSoftVersion, servoResolution,axisMechTransRatio)``"
-    "Description", "Setting the 485 extended axis parameters"
-    "Mandatory parameters","- ``servoId``: servo drive ID, range [1-15], corresponds to slave ID;
-    - ``servoCompany``: servo drive manufacturer, 1 - Dynatec;
-    - ``servoModel``: Servo drive model, 1-FD100-750C;
-    - ``servoSoftVersion``: servo drive software version, 1-V1.0;
-    - ``servoResolution``: encoder resolution;
-    - ``axisMechTransRatio``: mechanical transmission ratio;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoSetParam(servoId,servoCompany,servoModel,servoSoftVersion, servoResolution,axisMechTransRatio)``"
+    "Descrizione", "Imposta i parametri dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;
+    - ``servoCompany``：Produttore driver servomotore, 1-Dynatech;
+    - ``servoModel``：Modello driver servomotore, 1-FD100-750C;
+    - ``servoSoftVersion``：Versione software driver servomotore, 1-V1.0;
+    - ``servoResolution``：Risoluzione encoder;
+    - ``axisMechTransRatio``：Rapporto di trasmissione meccanico;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Getting 485 Expansion Axis Configuration Parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Parametri Configurazione Asse di Espansione 485
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoGetParam(servoId)``"
-    "Description", "Get 485 extended axis configuration parameters"
-    "Mandatory parameters", "- ``servoId``: servo drive ID, range [1-15], corresponding to slave ID;"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode.
-    - ``servoCompany``: servo drive manufacturer, 1 - Dynatec;
-    - ``servoModel``: servo drive model, 1-FD100-750C;
-    - ``servoSoftVersion``: servo drive software version, 1-V1.0;
-    - ``servoResolution``: encoder resolution;
-    - ``axisMechTransRatio``: mechanical transmission ratio;"
+    "Prototipo", "``AuxServoGetParam(servoId)``"
+    "Descrizione", "Ottiene i parametri di configurazione dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode;
+    - ``servoCompany``：Produttore driver servomotore, 1-Dynatech;
+    - ``servoModel``：Modello driver servomotore, 1-FD100-750C;
+    - ``servoSoftVersion``：Versione software driver servomotore, 1-V1.0;
+    - ``servoResolution``：Risoluzione encoder;
+    - ``axisMechTransRatio``：Rapporto di trasmissione meccanico;"
 
-Setting the 485 expansion axis enable/disable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Abilitazione/Disabilitazione Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoEnable(servoId,status)``"
-    "Description", "Setting the 485 extension axis to enable/de-enable"
-    "Mandatory parameters","- ``servoId``: servo drive ID, range [1-15], corresponds to slave ID;
-    - ``status``: enabling status, 0-de-enabling, 1-enabling;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoEnable(servoId,status)``"
+    "Descrizione", "Imposta l'abilitazione/disabilitazione dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;
+    - ``status``：Stato abilitazione, 0-Disabilitato, 1-Abilitato;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the 485 Extended Axis Control Mode
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Modalità Controllo Asse di Espansione 485
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoSetControlMode(servoId,mode)``"
-    "Description", "Setting the 485 Extended Axis Control Mode"
-    "Mandatory parameters","- ``servoId``: servo drive ID, range [1-15], corresponds to slave ID;
-    - ``mode``: control mode, 0-position mode, 1-velocity mode;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoSetControlMode(servoId,mode)``"
+    "Descrizione", "Imposta la modalità di controllo dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;
+    - ``mode``：Modalità controllo, 0-Modalità posizione, 1-Modalità velocità;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the 485 extended axis target position (position mode)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Posizione Obiettivo Asse di Espansione 485 (Modalità Posizione)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoSetTargetPos(servoId,pos,speed)``"
-    "Description", "Setting the 485 extended axis target position (position mode)"
-    "Mandatory parameters","- ``servoId``: servo drive ID, range [1-15], corresponds to slave ID;
-    - ``pos``: target position, mm or °;
-    - ``speed``: target speed, mm/s or °/s;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoSetTargetPos(servoId,pos,speed)``"
+    "Descrizione", "Imposta la posizione obiettivo dell'asse di espansione 485 (modalità posizione)"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;
+    - ``pos``：Posizione obiettivo, mm o °;
+    - ``speed``：Velocità obiettivo, mm/s o °/s;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the 485 extended axis target torque (torque mode)-not yet available
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Coppia Obiettivo Asse di Espansione 485 (Modalità Coppia) - Non ancora disponibile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``AuxServoSetTargetTorque(servoId,torque)``"
-    "Description", "Setting the 485 extended axis target torque (torque mode)"
-    "Mandatory parameters","- ``servoId``: servo drive ID, range [1-15], corresponds to slave ID;
-    - ``torque``: target moment, Nm;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoSetTargetTorque(servoId,torque)``"
+    "Descrizione", "Imposta la coppia obiettivo dell'asse di espansione 485 (modalità coppia)"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;
+    - ``torque``：Coppia obiettivo, Nm;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the 485 extended axis back to zero
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Home Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoHoming(servoId,mode,searchVel,latchVel)``"
-    "Description", "Setting the 485 extension axis back to zero"
-    "Mandatory parameters","- ``servoId``: servo drive ID, range [1-15], corresponds to slave ID;
-    - ``mode``: return to zero mode, 1 - return to zero at current position; 2 - return to zero at negative limit; 3 - return to zero at positive limit.
-    - ``searchVel``: return-to-zero velocity, mm/s or °/s.
-    - ``latchVel``: hoop speed, mm/s or °/s;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoHoming(servoId,mode,searchVel,latchVel)``"
+    "Descrizione", "Imposta l'home dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;
+    - ``mode``：Modalità home, 1-Home posizione corrente; 2-Home limite negativo; 3-Home limite positivo;
+    - ``searchVel``： Velocità ricerca home, mm/s o °/s;
+    - ``latchVel``：Velocità aggancio, mm/s o °/s;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Clearing 485 Expansion Axis Error Messages
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Cancellazione Errori Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoClearError(servoId)``"
-    "Description", "Clearing 485 Extended Axis Error Message"
-    "Mandatory parameters", "- ``servoId``: servo drive ID, range [1-15], corresponding to slave ID;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoClearError(servoId)``"
+    "Descrizione", "Cancella gli errori dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Get 485 extended axis servo status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Stato Servo Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``AuxServoGetStatus(servoId)``"
-    "Description", "Get 485 extended axis servo status"
-    "Mandatory parameters", "- ``servoId``: servo drive ID, range [1-15], corresponding to slave ID;"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode.
-    - ``servoErrCode``: servo drive error code
-    - ``servoState``: servo drive state bit0:0-not enabled; 1-enabled; bit1:0-not in motion; 1-being in motion; bit2 0-positive limit not triggered; 1-positive limit triggered; bit3 0-negative limit not triggered; 1-negative limit triggered; bit4 0-positioning not completed; 1-positioning complete; bit5: 0-not zero return; 1 -zero return complete;
-    - ``servoPos``: servo current position mm or °;
-    - ``servoSpeed``: servo current speed mm/s or °/s;
-    - ``servoTorque``: servo current torque Nm;"
+    "Prototipo", "``AuxServoGetStatus(servoId)``"
+    "Descrizione", "Ottiene lo stato del servo dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode;
+    - ``servoErrCode``：Codice errore driver servomotore
+    - ``servoState``：Stato driver servomotore bit0:0-Non abilitato; 1-Abilitato;  bit1:0-Non in movimento; 1-In movimento;  bit2 0-Limite positivo non attivato; 1-Limite positivo attivato; bit3 0-Limite negativo non attivato; 1-Limite negativo attivato; bit4 0-Posizionamento non completato; 1-Posizionamento completato;  bit5：0-Home non effettuato; 1-Home completato;
+    - ``servoPos``：Posizione corrente servo mm o °;
+    - ``servoSpeed``：Velocità corrente servo mm/s o °/s;
+    - ``servoTorque``：Coppia corrente servo Nm;"
 
-Setting the 485 extended axis target speed (velocity mode)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Velocità Obiettivo Asse di Espansione 485 (Modalità Velocità)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoSetTargetSpeed(servoId,speed)``"
-    "Description", "Setting the 485 extended axis target speed (velocity mode)"
-    "Mandatory parameters","- ``servoId``: servo drive ID, range [1-15], corresponds to slave ID;
-    - ``speed``: target speed, mm/s or °/s;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoSetTargetSpeed(servoId,speed)``"
+    "Descrizione", "Imposta la velocità obiettivo dell'asse di espansione 485 (modalità velocità)"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;
+    - ``speed``：Velocità obiettivo, mm/s o °/s;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the 485 extended axis data axis number in the status feedback
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Numero Asse Dati Asse di Espansione 485 nel Feedback Stato
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServosetStatusID(servoId)``"
-    "Description", "Sets the 485 extended axis data axis number in status feedback"
-    "Mandatory parameters", "- ``servoId``: servo drive ID, range [1-15], corresponding to slave ID;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServosetStatusID(servoId)``"
+    "Descrizione", "Imposta il numero asse dei dati asse di espansione 485 nel feedback stato"
+    "Parametri Obbligatori", "- ``servoId``：ID driver servomotore, intervallo [1-15], corrisponde all'ID slave;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the 485 Extended Axis Motion Acceleration and Deceleration Speed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Accelerazione/Decelerazione Movimento Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoSetAcc(acc, dec)``"
-    "Description", "Sets the 485 extended axis motion acceleration and deceleration speeds."
-    "Mandatory parameters","- ``acc``: 485 extended axis motion acceleration
-    - ``dec``: 485 extended axis motion deceleration"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoSetAcc(acc, dec)``"
+    "Descrizione", "Imposta l'accelerazione/decelerazione del movimento dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``acc``：Accelerazione movimento asse di espansione 485
+    - ``dec``：Decelerazione movimento asse di espansione 485"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the 485 extended axis emergency stop acceleration and deceleration speeds
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Accelerazione/Decelerazione Arresto Emergenza Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoSetEmergencyStopAcc(acc, dec)``"
-    "Description", "Setting the 485 extended axis emergency stop acceleration and deceleration speed"
-    "Mandatory parameters","- ``acc``: 485 extended axis emergency stop acceleration
-    - ``dec``: 485 extended axis emergency stop deceleration"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AuxServoSetEmergencyStopAcc(acc, dec)``"
+    "Descrizione", "Imposta l'accelerazione/decelerazione di arresto emergenza dell'asse di espansione 485"
+    "Parametri Obbligatori", "- ``acc``：Accelerazione arresto emergenza asse di espansione 485
+    - ``dec``：Decelerazione arresto emergenza asse di espansione 485"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Get 485 Extended Axis Motion Acceleration and Deceleration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Accelerazione/Decelerazione Movimento Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoGetAcc()``"
-    "Description", "Get 485 extended axis motion plus or minus velocity"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``acc``: 485 extended axis motion acceleration
-    - ``dec``: 485 extended axis motion deceleration"
+    "Prototipo", "``AuxServoGetAcc()``"
+    "Descrizione", "Ottiene l'accelerazione/decelerazione del movimento dell'asse di espansione 485"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``acc``：Accelerazione movimento asse di espansione 485
+    - ``dec``：Decelerazione movimento asse di espansione 485"
 
-Get 485 extended axis emergency stop acceleration and deceleration speeds
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Accelerazione/Decelerazione Arresto Emergenza Asse di Espansione 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AuxServoGetEmergencyStopAcc()``"
-    "Description", "Get 485 extended axis emergency stop acceleration and deceleration speed"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``acc``: 485 extended axis emergency stop acceleration
-    - ``dec``: 485 extended axis emergency stop deceleration"
+    "Prototipo", "``AuxServoGetEmergencyStopAcc()``"
+    "Descrizione", "Ottiene l'accelerazione/decelerazione di arresto emergenza dell'asse di espansione 485"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``acc``：Accelerazione arresto emergenza asse di espansione 485
+    - ``dec``：Decelerazione arresto emergenza asse di espansione 485"
 
-Extended axis control code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Controllo Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     retval = robot.AuxServoSetParam(1, 1, 1, 1, 131072, 15.45)
     print(f"AuxServoSetParam is: {retval}")
@@ -328,31 +328,31 @@ Extended axis control code example
     robot.AuxServoSetTargetSpeed(1, 0, 80)
     robot.CloseRPC()
 
-Parameter configuration for UDP extended axis communication
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Parametri Comunicazione UDP Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``ExtDevSetUDPComParam(ip, port, period, lossPkgTime, lossPkgNum, disconnectTime, reconnectEnable, reconnectPeriod, reconnectNum, selfConnect)``"
-    "Description", "UDP Extended Axis Communication Parameter Configuration"
-    "Mandatory parameters", "
-    - ``ip``: PLC IP address;
-    - ``port``: port number;
-    - ``period``: communication period (ms, not open yet);
-    - ``lossPkgTime``: packet loss detection time (ms);
-    - ``lossPkgNum``: number of packets lost;
-    - ``disconnectTime``: the length of the communication disconnect confirmation;
-    - ``reconnectEnable``: communication disconnection auto reconnect enable 0-not enable 1-enable;
-    - ``reconnectPeriod``: reconnect period interval (ms);
-    - ``reconnectNum``: number of reconnections
-    - ``selfConnect``: Whether the connection is automatically established upon power-off and restart; 0- No connection established; 1- Establish a connection"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtDevSetUDPComParam(ip, port, period, lossPkgTime, lossPkgNum, disconnectTime, reconnectEnable, reconnectPeriod, reconnectNum, selfConnect)``"
+    "Descrizione", "Configurazione parametri comunicazione UDP asse di espansione"
+    "Parametri Obbligatori", "
+    - ``ip``：Indirizzo IP PLC；
+    - ``port``：Numero porta；
+    - ``period``：Periodo comunicazione (ms, non ancora disponibile)；
+    - ``lossPkgTime``：Tempo rilevamento perdita pacchetti (ms)；
+    - ``lossPkgNum``：Numero perdite pacchetti；
+    - ``disconnectTime``：Durata conferma disconnessione comunicazione；
+    - ``reconnectEnable``：Abilitazione riconnessione automatica in caso di disconnessione 0-Disabilitato 1-Abilitato；
+    - ``reconnectPeriod``：Intervallo periodo riconnessione (ms)；
+    - ``reconnectNum``：Numero tentativi riconnessione
+    - ``selfConnect``：Stabilire connessione automaticamente dopo riavvio alimentazione; 0-Non stabilire connessione; 1-Stabilire connessione"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Get UDP extended axis communication parameters
+Ottenimento Parametri Comunicazione UDP Asse di Espansione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -360,23 +360,23 @@ Get UDP extended axis communication parameters
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtDevGetUDPComParam()``"
-    "Description", "Get UDP extended axis communication parameters"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "
-    - Error Code Success-0 Failure- errcode;
-    - ``ip``: PLC IP address;
-    - ``port``: port number;
-    - ``period``: communication period (ms, not open yet);
-    - ``lossPkgTime``: packet loss detection time (ms);
-    - ``lossPkgNum``: number of packets lost;
-    - ``disconnectTime``: the length of the communication disconnect confirmation;
-    - ``reconnectEnable``: communication disconnection auto reconnect enable 0-not enable 1-enable;
-    - ``reconnectPeriod``: reconnect period interval (ms);
-    - ``reconnectNum``: number of reconnections"
+    "Prototipo", "``ExtDevGetUDPComParam()``"
+    "Descrizione", "Ottiene i parametri di comunicazione UDP dell'asse di espansione"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "
+    - Codice errore Successo-0  Fallimento- errcode；
+    - ``ip``：Indirizzo IP PLC；
+    - ``port``：Numero porta；
+    - ``period``：Periodo comunicazione (ms, non ancora disponibile)；
+    - ``lossPkgTime``：Tempo rilevamento perdita pacchetti (ms)；
+    - ``lossPkgNum``：Numero perdite pacchetti；
+    - ``disconnectTime``：Durata conferma disconnessione comunicazione；
+    - ``reconnectEnable``：Abilitazione riconnessione automatica in caso di disconnessione 0-Disabilitato 1-Abilitato；
+    - ``reconnectPeriod``：Intervallo periodo riconnessione (ms)；
+    - ``reconnectNum``：Numero tentativi riconnessione"
  
-Load UDP communication
+Caricamento Comunicazione UDP
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -384,13 +384,13 @@ Load UDP communication
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtDevLoadUDPDriver()``"
-    "Description", "Load UDP communication"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Offloading UDP communication
+    "Prototipo", "``ExtDevLoadUDPDriver()``"
+    "Descrizione", "Carica la comunicazione UDP"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+    
+Scaricamento Comunicazione UDP
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -398,105 +398,105 @@ Offloading UDP communication
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtDevUnloadUDPDriver()``"
-    "Description", "Offloading UDP communication"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtDevUnloadUDPDriver()``"
+    "Descrizione", "Scarica la comunicazione UDP"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-UDP Extended Axis Communication Recovery after Abnormal Disconnection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ripristino Connessione Dopo Disconnessione Anomala Comunicazione UDP Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``ExtDevUDPClientComReset()``"
-    "Description", "UDP Extended Axis Communication Abnormally Disconnected After Restoring Connection"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-  
-UDP extension axis communication is closed after abnormal disconnection.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    "Prototipo", "``ExtDevUDPClientComReset()``"
+    "Descrizione", "Ripristina connessione dopo disconnessione anomala comunicazione UDP asse di espansione"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+
+Chiusura Comunicazione Dopo Disconnessione Anomala Comunicazione UDP Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtDevUDPClientComClose()``"
-    "Description", "UDP Extended Axis Communication Abnormal Disconnect Closes Communication"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtDevUDPClientComClose()``"
+    "Descrizione", "Chiude la comunicazione dopo disconnessione anomala comunicazione UDP asse di espansione"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-UDP Extended Axis Parameter Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Parametri Asse di Espansione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisParamConfig(axisId, axisType, axisDirection, axisMax, axisMin, axisVel, axisAcc,axisLead, encResolution, axisOffect. axisCompany, axisModel, axisEncType)``"
-    "Description", "UDP Extended Axis Parameter Configuration"
-    "Mandatory parameters", "
-    - ``axisId``: axis number [1-4];
-    - ``axisType``: extended axis type 0 - translation; 1 - rotation;
-    - ``axisDirection``: extended axis direction 0 - forward; 1 - reverse;
-    - ``axisMax``: Maximum position of the extended axis in mm;
-    - ``axisMin``: Extended axis minimum position in mm;
-    - ``axisVel``: speed mm/s;
-    - ``axisAcc``: acceleration mm/s2;
-    - ``axisLead``: lead in mm;
-    - ``encResolution``: encoder resolution;
-    - ``axisOffect``: Extended axis offset from the start of the weld;
-    - ``axisCompany``: drive manufacturers 1-Hochuan; 2-HuiChuan; 3-Panasonic;
-    - ``axisModel``: Drive Model 1-Hochuan-SV-XD3EA040L-E, 2-Hochuan-SV-X2EA150A-A, 1-HuiChuan-SV620PT5R4I, 1-Panasonic-MADLN15SG, 2-Panasonic-MSDLN25SG, 3-Panasonic-MCDLN35SG;
-    - ``axisEncType``: encoder type 0-incremental; 1-absolute;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtAxisParamConfig(axisId, axisType, axisDirection, axisMax, axisMin, axisVel, axisAcc,axisLead, encResolution, axisOffect, axisCompany, axisModel, axisEncType)``"
+    "Descrizione", "Configurazione parametri asse di espansione UDP"
+    "Parametri Obbligatori", "
+    - ``axisId``：Numero asse [1-4]；
+    - ``axisType``：Tipo asse di espansione 0-Translazionale; 1-Rotazionale；
+    - ``axisDirection``：Direzione asse di espansione 0-Positivo; 1-Negativo；
+    - ``axisMax``：Posizione massima asse di espansione mm；
+    - ``axisMin``：Posizione minima asse di espansione mm；
+    - ``axisVel``：Velocità mm/s；
+    - ``axisAcc``：Accelerazione mm/s2；
+    - ``axisLead``：Passo vite mm；
+    - ``encResolution``：Risoluzione encoder；
+    - ``axisOffect``：Offset asse di espansione punto inizio saldatura；
+    - ``axisCompany``：Produttore driver 1-Hecheng; 2-Inovance; 3-Panasonic；
+    - ``axisModel``：Modello driver 1-Hecheng-SV-XD3EA040L-E, 2-Hecheng-SV-X2EA150A-A, 1-Inovance-SV620PT5R4I, 1-Panasonic-MADLN15SG, 2-Panasonic-MSDLN25SG, 3-Panasonic-MCDLN35SG；
+    - ``axisEncType``：Tipo encoder  0-Incrementale; 1-Assoluto;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the extended robot position relative to the extended axis
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Posizione Robot Relativa all'Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetRobotPosToAxis(installType)``"
-    "Description", "Set the position of the extended robot relative to the extended axis"
-    "Mandatory parameters", "- ``installType``: 0 - robot mounted on external axis, 1 - robot mounted outside external axis;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetRobotPosToAxis(installType)``"
+    "Descrizione", "Imposta la posizione del robot relativa all'asse di espansione"
+    "Parametri Obbligatori", "- ``installType``：0-Robot installato sull'asse esterno, 1-Robot installato all'esterno dell'asse esterno;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting the extended axis system DH parameter configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Configurazione Parametri DH Sistema Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAxisDHParaConfig(axisConfig,axisDHd1,axisDHd2,axisDHd3,axisDHd4,axisDHa1,axisDHa2,axisDHa3,axisDHa4)``"
-    "Description", "Sets the extended axis system DH parameter configuration"
-    "Mandatory parameters", "
-    - ``axisConfig``: external axis configuration, 0 - single degree of freedom linear slide, 1 - two degree of freedom L-type indexer, 2 - three degree of freedom, 3 - four degree of freedom, 4 - single degree of freedom indexer;
-    - ``axisDHd1``: external axis DH parameter d1 mm;
-    - ``axisDHd2``: external axis DH parameter d2 mm;
-    - ``axisDHd3``: external axis DH parameter d3 mm;
-    - ``axisDHd4``: external axis DH parameter d4 mm;
-    - ``axisDHa1``: external axis DH parameter a1 mm;
-    - ``axisDHa2``: external axis DH parameter a2 mm;
-    - ``axisDHa3``: external axis DH parameter a3 mm;
-    - ``axisDHa4``: external axis DH parameter a4 mm;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAxisDHParaConfig(axisConfig,axisDHd1,axisDHd2,axisDHd3,axisDHd4,axisDHa1, axisDHa2,axisDHa3,axisDHa4)``"
+    "Descrizione", "Imposta la configurazione dei parametri DH del sistema asse di espansione"
+    "Parametri Obbligatori", "
+    - ``axisConfig``：Configurazione asse esterno, 0-Guidovia lineare a singolo grado di libertà, 1-Posizionatore a due gradi di libertà a L, 2-Tre gradi di libertà, 3-Quattro gradi di libertà, 4-Posizionatore a singolo grado di libertà；
+    - ``axisDHd1``：Parametro DH asse esterno d1 mm；
+    - ``axisDHd2``：Parametro DH asse esterno d2 mm；
+    - ``axisDHd3``：Parametro DH asse esterno d3 mm；
+    - ``axisDHd4``：Parametro DH asse esterno d4 mm；
+    - ``axisDHa1``：Parametro DH asse esterno a1 mm；
+    - ``axisDHa2``：Parametro DH asse esterno a2 mm；
+    - ``axisDHa3``：Parametro DH asse esterno a3 mm；
+    - ``axisDHa4``：Parametro DH asse esterno a4 mm；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
                           
-UDP Extended Axis Enable
+Abilitazione Asse di Espansione UDP
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -504,14 +504,14 @@ UDP Extended Axis Enable
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisServoOn(axisID, status)``"
-    "description", "UDP Extended Axis Enable"
-    "Mandatory parameters", "- ``axisID``: axis number [1-4];
-    - ``status``: 0-de-enable; 1-enable;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtAxisServoOn(axisID, status)``"
+    "Descrizione", "Abilitazione asse di espansione UDP"
+    "Parametri Obbligatori", "- ``axisID``：Numero asse [1-4]；
+    - ``status``：0-Disabilitato; 1-Abilitato;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-UDP Extended Axis Zero Return
+Home Asse di Espansione UDP
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -519,17 +519,17 @@ UDP Extended Axis Zero Return
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisSetHoming(axisID, mode, searchVel, latchVel)``"
-    "Description", "UDP extended axis back to zero"
-    "Mandatory parameters", "
-    - ``axisID``: axis number [1-4];
-    - ``mode``: return to zero mode 0 current position return to zero, 1 negative limit return to zero, 2 - positive limit return to zero;
-    - ``searchVel``: search velocity (mm/s);
-    - ``latchVel``: zeroing hoop speed (mm/s);"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtAxisSetHoming(axisID, mode, searchVel, latchVel)``"
+    "Descrizione", "Home asse di espansione UDP"
+    "Parametri Obbligatori", "
+    - ``axisID``：Numero asse [1-4]；
+    - ``mode``：Modalità home 0 home posizione corrente, 1 home limite negativo, 2-home limite positivo；
+    - ``searchVel``：Velocità ricerca home (mm/s)；
+    - ``latchVel``：Velocità aggancio home (mm/s)；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-UDP Extended Axis Tap Start
+Inizio Jog Asse di Espansione UDP
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -537,18 +537,18 @@ UDP Extended Axis Tap Start
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisStartJog( axisID, direction, vel, acc, maxDistance)``"
-    "Description", "UDP Extended Axis Tap Start"
-    "Mandatory parameters", "
-    - ``axisID``: axis number [1-4];
-    - ``direction``: direction of rotation 0 - reverse; 1 - forward;
-    - ``vel``: velocity (mm/s);
-    - ``acc``: acceleration (mm/s);
-    - ``maxDistance``: maximum pointing distance;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtAxisStartJog( axisID, direction, vel, acc, maxDistance)``"
+    "Descrizione", "Inizio jog asse di espansione UDP"
+    "Parametri Obbligatori", "
+    - ``axisID``：Numero asse [1-4]；
+    - ``direction``：Direzione rotazione 0-Negativo; 1-Positivo；
+    - ``vel``：Velocità (mm/s)；
+    - ``acc``：Accelerazione (mm/s)；
+    - ``maxDistance``：Distanza massima jog；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-UDP Extended Axis Tap Stop
+Stop Jog Asse di Espansione UDP
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -556,21 +556,21 @@ UDP Extended Axis Tap Stop
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisStopJog(axisID)``"
-    "Description", "UDP Extended Axis Tap Stop"
-    "Mandatory parameters", "- ``axisID``: axis number [1-4];"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtAxisStopJog(axisID)``"
+    "Descrizione", "Stop jog asse di espansione UDP"
+    "Parametri Obbligatori", "- ``axisID``：Numero asse [1-4]；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Example of UDP extension axis configuration and tapping code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Configurazione e Jog Asse di Espansione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     rtn = robot.ExtDevSetUDPComParam("192.168.58.88", 2021, 2, 100, 3, 200, 1, 100, 5, 1)
     print(f"ExtDevSetUDPComParam rtn is {rtn}")
@@ -623,97 +623,97 @@ Example of UDP extension axis configuration and tapping code
     robot.ExtDevUnloadUDPDriver()
     robot.CloseRPC()
 
-Setting the reference point of the extended axis coordinate system - four-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Punto di Riferimento Sistema Coordinate Asse di Espansione - Metodo a Quattro Punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisSetRefPoint(pointNum)``"
-    "Description", "Setting the reference point of the extended axis coordinate system - four-point method"
-    "Mandatory parameters", "- ``pointNum``: point number [1-4];"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-      
-Calculating the Extended Axis Coordinate System - Four Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    "Prototipo", "``ExtAxisSetRefPoint(pointNum)``"
+    "Descrizione", "Imposta il punto di riferimento del sistema coordinate asse di espansione - metodo a quattro punti"
+    "Parametri Obbligatori", "- ``pointNum``：Numero punto [1-4]；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+        
+Calcolo Sistema Coordinate Asse di Espansione - Metodo a Quattro Punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisComputeECoordSys()``"
-    "Description", "Calculating Extended Axis Coordinate Systems - Four Point Method"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode.
-    - ``coord``: extended axis coordinate system values [x,y,z,rx,ry,rz];"
+    "Prototipo", "``ExtAxisComputeECoordSys()``"
+    "Descrizione", "Calcola il sistema coordinate asse di espansione - metodo a quattro punti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode;
+    - ``coord``：Valori sistema coordinate asse di espansione [x,y,z,rx,ry,rz]；"
                  
-Reference Point Setting for the Shifter Coordinate System - Four-Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Punto di Riferimento Sistema Coordinate Posizionatore - Metodo a Quattro Punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``PositionorSetRefPoint(pointNum)``"
-    "Description", "Reference Point Setting for the Variable Position Machine Coordinate System - Four Point Method"
-    "Mandatory parameters", "- ``pointNum``: point number [1-4];"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PositionorSetRefPoint(pointNum)``"
+    "Descrizione", "Imposta il punto di riferimento del sistema coordinate posizionatore - metodo a quattro punti"
+    "Parametri Obbligatori", "- ``pointNum``：Numero punto [1-4]；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Shifter Coordinate System Calculation - Four Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Sistema Coordinate Posizionatore - Metodo a Quattro Punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``PositionorComputeECoordSys()``"
-    "Description", "Translator Coordinate System Calculation - Four Point Method"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode.
-    - ``coord``: the value of the coordinate system of the translocator [x,y,z,rx,ry,rz];"
+    "Prototipo", "``PositionorComputeECoordSys()``"
+    "Descrizione", "Calcola il sistema coordinate posizionatore - metodo a quattro punti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode;
+    - ``coord``：Valori sistema coordinate posizionatore [x,y,z,rx,ry,rz]；"
              
-Setting of the calibration reference point in the position in the coordinate system of the end of the translator
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Posa Punto di Riferimento Calibrazione nel Sistema Coordinate Estremità Posizionatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetRefPointInExAxisEnd(pos)``"
-    "Description", "Set the calibration reference point to be positioned in the coordinate system of the end of the variator"
-    "Mandatory parameters", "- ``pos``: bit position values [x,y,z,rx,ry,rz];"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetRefPointInExAxisEnd(pos)``"
+    "Descrizione", "Imposta la posa del punto di riferimento calibrazione nel sistema coordinate estremità posizionatore"
+    "Parametri Obbligatori", "- ``pos``：Valori posa [x,y,z,rx,ry,rz]；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Applying the Extended Axis Coordinate System
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Applicazione Sistema Coordinate Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisActiveECoordSys(applyAxisId,axisCoordNum,coord,calibFlag)``"
-    "Description", "Apply extended axis coordinate system"
-    "Mandatory parameters", "
-    - ``applyAxisId``:Extended Axis Numbering bit0-bit3 corresponds to extended axis numbering 1-4, e.g., if you apply extended axes 1 and 3, it would be 0b 0000 0101, or 5;
-    - ``axisCoordNum``: extended axis coordinate system number;
-    - ``coord``: coordinate system value [x,y,z,rx,ry,rz];
-    - ``calibFlag``: calibration flag 0 - no, 1 - yes;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtAxisActiveECoordSys(applyAxisId,axisCoordNum,coord,calibFlag)``"
+    "Descrizione", "Applica sistema coordinate asse di espansione"
+    "Parametri Obbligatori", "
+    - ``applyAxisId``:Numero asse di espansione bit0-bit3 corrisponde a numero asse di espansione 1-4, ad esempio applica asse di espansione 1 e 3, allora è 0b 0000 0101, cioè 5;
+    - ``axisCoordNum``：Numero sistema coordinate asse di espansione；
+    - ``coord``：Valori sistema coordinate [x,y,z,rx,ry,rz]；
+    - ``calibFlag``：Flag calibrazione 0-No, 1-Sì；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Obtain the extended axis coordinate system
+Ottenimento Sistema Coordinate Asse di Espansione
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
@@ -721,22 +721,22 @@ Obtain the extended axis coordinate system
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisGetCoord()``"
-    "Description", "Obtain the extended axis coordinate system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``：Extended axis coordinate system"
+    "Prototipo", "``ExtAxisGetCoord()``"
+    "Descrizione", "Ottiene il sistema coordinate dell'asse di espansione"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``coord``：Sistema coordinate asse di espansione"
 
-Extended axis coordinate system calibration code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Calibrazione Sistema Coordinate Asse di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     rtn = robot.ExtDevSetUDPComParam("192.168.58.88", 2021, 2, 100, 3, 200, 1, 100, 5, 1)
     print(f"ExtDevSetUDPComParam rtn is {rtn}")
@@ -831,7 +831,7 @@ Extended axis coordinate system calibration code example
     print(f"ExtAxisActiveECoordSys rtn is {rtn}")
     robot.CloseRPC()
           
-UDP Extended Axis Motion
+Movimento Asse di Espansione UDP
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
@@ -839,236 +839,236 @@ UDP Extended Axis Motion
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ExtAxisMove(pos,ovl,blend=-1)``"
-    "Description", "UDP Extended Axis Motion"
-    "Mandatory parameters", "- ``pos=[exaxis[0],exaxis[1],exaxis[2],exaxis[3]]``: target position Axis 1 position to Axis 4 position;
-    - ``ovl``: percentage of speed"
-    "Default parameters", "- ``blend``：Smoothing parameter (mm or ms), -1, waiting for the motion to complete, Default -1"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ExtAxisMove(pos,ovl,blend=-1)``"
+    "Descrizione", "Movimento asse di espansione UDP"
+    "Parametri Obbligatori", "- ``pos=[exaxis[0],exaxis[1],exaxis[2],exaxis[3]]``：Posizione obiettivo posizione asse 1~posizione asse 4;
+    - ``ovl``：Percentuale velocità"
+    "Parametri Predefiniti", "- ``blend``：Parametro smoothing (mm o ms), -1, attesa completamento movimento, default -1"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
                                         
-UDP Extended axis motion code example
-++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Movimento Asse di Espansione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     axisPos = [20,0,0,0]
     robot.ExtAxisMove(axisPos, 50, -1)
     robot.CloseRPC()
     return 0
 
-UDP extension axes synchronized with robot joint motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Sincrono Asse di Espansione UDP con Movimento Giunti Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``ExtAxisSyncMoveJ(joint_pos,tool,user,exaxis_pos, desc_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], vel=20.0, acc=0.0, ovl= 100.0, blendT=-1.0, offset_flag=0, offset_pos=[ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])``"
-    "Description", "UDP extension axis synchronized motion with robot joint motion"
-    "Mandatory parameters", "
-    - ``joint_pos``: target joint position in [°];
-    - ``desc_pos``: Cartesian position of the target in [mm][°];
-    - ``tool``: tool number, [0 to 14]
-    - ``user``: artifact number, [0~14]
-    - ``exaxis_pos``: external axis 1 position ~ external axis 4 positions"
-    "Default Parameters", "
-    - ``desc_pos``: target Cartesian position in [mm][°] Default initial value [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls positive kinematics to solve for the return value.
-    - ``vel``: percentage of speed, [0~100] default 20.0;
-    - ``acc``: percentage of acceleration, [0~100] not open yet, default 0.0;
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0 ;
-    - ``blendT``: [-1.0]-motion in place (blocking), [0~500.0]-smoothing time (non-blocking) in [ms] default -1.0;
-    - ``offset_flag``: [0] - no offset, [1] - offset in workpiece/base coordinate system, [2] - offset in tool coordinate system Default 0;
-    - ``offset_pos``: position offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0] ;"
-    "Return Value", "Error Code Success-0 Failure- errcode;"
+    "Prototipo", "``ExtAxisSyncMoveJ(joint_pos,tool,user,exaxis_pos, desc_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], vel=20.0, acc=0.0, ovl= 100.0,  blendT=-1.0, offset_flag=0, offset_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0])``"
+    "Descrizione", "Movimento sincrono asse di espansione UDP con movimento giunti robot"
+    "Parametri Obbligatori", "
+    - ``joint_pos``： Posizione giunti obiettivo, unità [°]；
+    - ``desc_pos``：Posa cartesiana obiettivo, unità [mm][°]
+    - ``tool``：Numero tool, [0~14]
+    - ``user``：Numero pezzo, [0~14]
+    - ``exaxis_pos``：Posizione asse esterno 1 ~ Posizione asse esterno 4"
+    "Parametri Predefiniti", "
+    - ``desc_pos``:Posa cartesiana obiettivo, unità [mm][°] default valori iniziali [0.0,0.0,0.0,0.0,0.0,0.0], default chiama valore ritorno cinematica diretta;
+    - ``vel``： Percentuale velocità, [0~100] default 20.0；
+    - ``acc``：Percentuale accelerazione, [0~100] non ancora disponibile, default 0.0 ；
+    - ``ovl``：Fattore scala velocità, [0~100] default 100.0  ；
+    - ``blendT``：[-1.0]-Movimento a posizione (bloccante), [0~500.0]-Tempo smoothing (non bloccante), unità [ms] default -1.0；
+    - ``offset_flag``：[0]-Nessun offset, [1]-Offset nel sistema pezzo/base, [2]-Offset nel sistema tool default 0；
+    - ``offset_pos``：Offset posa, unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0] ；"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode；"
                                         
-UDP extension axes synchronized with robot joint motion code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Movimento Sincrono Asse di Espansione UDP con Movimento Giunti Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
-    # Set the UDP communication parameters and load
+    # Imposta parametri comunicazione UDP e li carica
     robot.ExtDevSetUDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10)
     robot.ExtDevLoadUDPDriver()
-    # Set the parameters of the extended axis
+    # Imposta parametri asse di espansione
     robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0)
     robot.SetRobotPosToAxis(1)
     robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0)
-    # Expand the axis to enable and return to zero
+    # Abilitazione asse di espansione, home
     robot.ExtAxisServoOn(1, 0)
     robot.ExtAxisSetHoming(1, 0, 20, 3)
-    # Extended axis coordinate system calibration
-    pos = []  # Please fill in the specific coordinates
+    # Calibrazione sistema coordinate asse di espansione
+    pos = []  # Inserisci qui le coordinate punto calibrazione
     robot.SetRefPointInExAxisEnd(pos)
-    robot.PositionorSetRefPoint(1)  # This operation should be repeated 4 times (using 4 dots)
+    robot.PositionorSetRefPoint(1)  # Questa operazione deve essere ripetuta 4 volte (con 4 punti)
     error,coord = robot.PositionorComputeECoordSys()
     robot.ExtAxisActiveECoordSys(1, 1, coord, 1)
-    # Synchronize the starting and ending points of the movement
-    startdescPose = []  # Please fill in the specific coordinates
-    startjointPos = []  # Please fill in the specific coordinates
-    startexaxisPos = []  # Please fill in the specific coordinates
-    enddescPose = []  # Please fill in the specific coordinates
-    endjointPos = []  # Please fill in the specific coordinates
-    endexaxisPos = []  # Please fill in the specific coordinates
-    # Move to the starting point
+    # Punto di partenza e arrivo movimento sincrono
+    startdescPose = []  # Inserisci coordinate specifiche
+    startjointPos = []  # Inserisci coordinate specifiche
+    startexaxisPos = []  # Inserisci coordinate specifiche
+    enddescPose = []  # Inserisci coordinate specifiche
+    endjointPos = []  # Inserisci coordinate specifiche
+    endexaxisPos = []  # Inserisci coordinate specifiche
+    # Movimento al punto di partenza
     robot.ExtAxisMove(startexaxisPos, 20, -1)
     offdese = [0, 0, 0, 0, 0, 0]
     robot.MoveJ(joint_pos=startjointPos,tool= 1,user= 1,vel= 100,acc= 100,ovl= 100,exaxis_pos= startexaxisPos,blendT= 0,offset_flag= 0,offset_pos= offdese)
     robot.ExtAxisSyncMoveJ(endjointPos, enddescPose, 1, 1, endexaxisPos, 100, 100, 100, -1, 0, offdese)
     robot.CloseRPC()
                   
-UDP extension axes synchronized with robot linear motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Sincrono Asse di Espansione UDP con Movimento Lineare Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``ExtAxisSyncMoveL(desc_pos, tool, user, exaxis_pos, joint_pos = [0.0,0.0,0.0,0.0,0.0,0.0,0.0], vel=20.0, acc=0.0, ovl=100.0, blendR=-1.0, search=0, offset_flag= 0, offset_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],config=-1)``"
-    "Description", "UDP extension axis synchronized motion with robot linear motion"
-    "Mandatory parameters", "
-    - ``desc_pos``: target Cartesian position in [mm][°];
-    - ``tool``: tool number, [0 to 14];
-    - ``user``: artifact number, [0 to 14];
-    - ``exaxis_pos``: external axis 1 position ~ external axis 4 positions;"
-    "Default Parameters", "
-    - ``joint_pos``: target joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``vel``: percentage of speed, [0~100] default 20.0;
-    - ``acc``: percentage of acceleration, [0~100] not open yet, default 0.0;
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0;
-    - ``blendR``: [-1.0]-motion in place (blocking), [0~500.0]-smoothing time (non-blocking) in [ms] default -1.0;
-    - ``search``: [0] - no wire search, [1] - wire search;
-    - ``offset_flag``: [0] - no offset, [1] - offset in workpiece/base coordinate system, [2] - offset in tool coordinate system Default 0;
-    - ``offset_pos``: position offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0] ;
-    - ``config``: Reverse the joint space configuration, [-1]- calculate based on the current joint position, [0~7]- solve based on the specific joint space configuration, default -1"
-    "Return Value", "Error Code Success-0 Failure- errcode;"
-
-UDP extension axes synchronized with robot linear motion code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    "Prototipo", "``ExtAxisSyncMoveL(desc_pos, tool, user, exaxis_pos, joint_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], vel=20.0, acc=0.0, ovl=100.0, blendR=-1.0, search=0, offset_flag=0, offset_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],config=-1)``"
+    "Descrizione", "Movimento sincrono asse di espansione UDP con movimento lineare robot"
+    "Parametri Obbligatori", "
+    - ``desc_pos``：Posa cartesiana obiettivo, unità [mm][°]；
+    - ``tool``：Numero tool, [0~14]；
+    - ``user``：Numero pezzo, [0~14]；
+    - ``exaxis_pos``：Posizione asse esterno 1 ~ Posizione asse esterno 4；"
+    "Parametri Predefiniti", "
+    - ``joint_pos``:Posizione giunti obiettivo, unità [°] default valori iniziali [0.0,0.0,0.0,0.0,0.0,0.0], default chiama valore ritorno cinematica inversa;
+    - ``vel``： Percentuale velocità, [0~100] default 20.0；
+    - ``acc``：Percentuale accelerazione, [0~100] non ancora disponibile, default 0.0；
+    - ``ovl``：Fattore scala velocità, [0~100] default 100.0；
+    - ``blendR``：[-1.0]-Movimento a posizione (bloccante), [0~500.0]-Tempo smoothing (non bloccante), unità [ms] default -1.0；
+    - ``search``：[0]-Nessuna ricerca filo saldatura, [1]-Ricerca filo saldatura；
+    - ``offset_flag``：[0]-Nessun offset, [1]-Offset nel sistema pezzo/base, [2]-Offset nel sistema tool default 0；
+    - ``offset_pos``：Offset posa, unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0] ；
+    - ``config``:Configurazione spazio giunti soluzione inversa, [-1]-Calcolo con riferimento alla posizione giunti corrente, [0~7]-Calcolo in base a specifica configurazione spazio giunti, default -1"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode；"
+                                            
+Esempio di Codice Movimento Sincrono Asse di Espansione UDP con Movimento Lineare Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
-    # Set the UDP communication parameters and load
+    # Imposta parametri comunicazione UDP e li carica
     robot.ExtDevSetUDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10)
     robot.ExtDevLoadUDPDriver()
-    # Set the parameters of the extended axis
+    # Imposta parametri asse di espansione
     robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0)
     robot.SetRobotPosToAxis(1)
     robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0)
-    # Expand the axis to enable and return to zero
+    # Abilitazione asse di espansione, home
     robot.ExtAxisServoOn(1, 0)
     robot.ExtAxisSetHoming(1, 0, 20, 3)
-    # Extended axis coordinate system calibration
-    pos = []  # Please fill in the coordinates of the marking points
+    # Calibrazione sistema coordinate asse di espansione
+    pos = []  # Inserisci coordinate punto calibrazione
     robot.SetRefPointInExAxisEnd(pos)
-    robot.PositionorSetRefPoint(1)  # It needs to be called four times for calibration
+    robot.PositionorSetRefPoint(1)  # Deve essere chiamato 4 volte per la calibrazione
     error,coord = robot.PositionorComputeECoordSys()
     robot.ExtAxisActiveECoordSys(1, 1, coord, 1)
-    # Synchronize the starting and ending points of the movement
-    startdescPose = []  # Please fill in the coordinates of the marking points
-    startjointPos = []  # Please fill in the coordinates of the marking points
-    startexaxisPos = []  # Please fill in the coordinates of the marking points
-    enddescPose = []  # Please fill in the coordinates of the marking points
-    endjointPos = []  # Please fill in the coordinates of the marking points
-    endexaxisPos = []  # Please fill in the coordinates of the marking points
-    # Move to the starting point
+    # Punto di partenza e arrivo movimento sincrono
+    startdescPose = []  # Inserisci coordinate
+    startjointPos = []  # Inserisci coordinate
+    startexaxisPos = []  # Inserisci coordinate
+    enddescPose = []  # Inserisci coordinate
+    endjointPos = []  # Inserisci coordinate
+    endexaxisPos = []  # Inserisci coordinate
+    # Movimento al punto di partenza
     robot.ExtAxisMove(startexaxisPos, 20, -1)
     offdese = [0, 0, 0, 0, 0, 0]
     robot.MoveJ(joint_pos=startjointPos, tool= 1,user= 1,vel= 100,acc= 100,ovl= 100,exaxis_pos= startexaxisPos,blendT= 0)
-    # Perform synchronous linear motion
+    # Esegue movimento lineare sincrono
     robot.ExtAxisSyncMoveL(endjointPos, enddescPose, 1, 1, endexaxisPos, 100, 100, 100, 0, 0, offdese)
     robot.CloseRPC()
                       
-UDP extension axes synchronized with robot circular motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Sincrono Asse di Espansione UDP con Movimento Arco Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``ExtAxisSyncMoveC(desc_pos_p, tool_p, user_p,exaxis_pos_p, desc_pos_t, tool_t, user_t,exaxis_pos_t,joint_pos_p=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], joint_pos_t=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],vel_p =20.0, acc_p=100.0, offset_flag_p=0, offset_pos_p =[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], vel_t=20.0, acc_t=100.0, offset_flag_t=0, offset_pos_t=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ovl=100.0, blendR=-1.0, config=-1)``"
-    "Description", " UDP extension axis synchronized with robot circular motion"
-    "Mandatory parameters", "
-    - ``desc_pos_p``: path point Cartesian position in [mm][°];
-    - ``tool_p``: pathpoint tool number, [0~14];
-    - ``user_p``: pathpoint artifact number, [0~14];
-    - ``exaxis_pos_p``: path point external axis 1 position ~ external axis 4 position Default [0.0,0.0,0.0,0.0];
-    - ``desc_pos_t``: Cartesian position of the target point in [mm][°];
-    - ``tool_t``: tool number, [0~14];
-    - ``user_t``: artifact number, [0~14];
-    - ``exaxis_pos_t``: target point external axis 1 position ~ external axis 4 position default [0.0,0.0,0.0,0.0];"
-    "Default Parameters", "
-    - ``joint_pos_p``: target joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``joint_pos_t``: target joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``vel_p``: path point velocity percentage, [0~100] default 20.0;
-    - ``acc_p``: path point acceleration percentage, [0~100] not open yet, default 0.0;   
-    - ``offset_flag_p``: whether the path point is offset [0]-no offset, [1]-offset in workpiece/base coordinate system, [2]-offset in tool coordinate system Default 0;
-    - ``offset_pos_p``: path point position offset in [mm][°] Default [0.0,0.0,0.0,0.0,0.0,0.0];
-    - ``vel_t``: Target point velocity percentage, [0~100] default 20.0;
-    - ``acc_t``: target point acceleration percentage, [0~100] Not open yet Default 0.0;
-    - ``offset_flag_t``: whether the target point is offset or not [0]-no offset, [1]-offset in workpiece/base coordinate system, [2]-offset in tool coordinate system Default 0;
-    - ``offset_pos_t``: target point attitude offset in [mm][°] Default [0.0,0.0,0.0,0.0,0.0,0.0];
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0;
-    - ``blendR``: [-1.0] - motion in place (blocking), [0~1000] - smoothing radius (non-blocking) in [mm] default -1.0;
-    - ``config``: Reverse the joint space configuration, [-1]- calculate based on the current joint position, [0~7]- solve based on the specific joint space configuration, default -1"
-    "Return Value", "Error Code Success-0 Failure- errcode;"
+    "Prototipo", "``ExtAxisSyncMoveC(desc_pos_p, tool_p, user_p,exaxis_pos_p, desc_pos_t, tool_t, user_t,exaxis_pos_t,joint_pos_p=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], joint_pos_t=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],vel_p=20.0, acc_p=100.0, offset_flag_p=0, offset_pos_p =[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], vel_t=20.0, acc_t=100.0, offset_flag_t=0, offset_pos_t=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ovl=100.0, blendR=-1.0, config=-1)``"
+    "Descrizione", " Movimento sincrono asse di espansione UDP con movimento arco robot"
+    "Parametri Obbligatori", "
+    - ``desc_pos_p``：Posa cartesiana punto percorso, unità [mm][°]；
+    - ``tool_p``：Numero tool punto percorso, [0~14]；
+    - ``user_p``：Numero pezzo punto percorso, [0~14]；
+    - ``exaxis_pos_p``：Posizione asse esterno 1 ~ Posizione asse esterno 4 punto percorso default [0.0,0.0,0.0,0.0]；
+    - ``desc_pos_t``：Posa cartesiana punto obiettivo, unità [mm][°]；
+    - ``tool_t``：Numero tool, [0~14]；
+    - ``user_t``：Numero pezzo, [0~14]；
+    - ``exaxis_pos_t``：Posizione asse esterno 1 ~ Posizione asse esterno 4 punto obiettivo default [0.0,0.0,0.0,0.0]；"
+    "Parametri Predefiniti", "
+    - ``joint_pos_p``:Posizione giunti obiettivo, unità [°] default valori iniziali [0.0,0.0,0.0,0.0,0.0,0.0], default chiama valore ritorno cinematica inversa;
+    - ``joint_pos_t``:Posizione giunti obiettivo, unità [°] default valori iniziali [0.0,0.0,0.0,0.0,0.0,0.0], default chiama valore ritorno cinematica inversa;
+    - ``vel_p``: Percentuale velocità punto percorso, [0~100] default 20.0；
+    - ``acc_p``: Percentuale accelerazione punto percorso, [0~100] non ancora disponibile, default 0.0 ；   
+    - ``offset_flag_p``: Offset punto percorso [0]-Nessun offset, [1]-Offset nel sistema pezzo/base, [2]-Offset nel sistema tool default 0；
+    - ``offset_pos_p``: Offset posa punto percorso, unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]；
+    - ``vel_t``: Percentuale velocità punto obiettivo, [0~100] default 20.0；
+    - ``acc_t``: Percentuale accelerazione punto obiettivo, [0~100] non ancora disponibile default 0.0；
+    - ``offset_flag_t``: Offset punto obiettivo [0]-Nessun offset, [1]-Offset nel sistema pezzo/base, [2]-Offset nel sistema tool default 0；
+    - ``offset_pos_t``: Offset posa punto obiettivo, unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]；
+    - ``ovl``: Fattore scala velocità, [0~100] default 100.0；
+    - ``blendR``：[-1.0]-Movimento a posizione (bloccante), [0~1000]-Raggio smoothing (non bloccante), unità [mm] default -1.0；
+    - ``config``:Configurazione spazio giunti soluzione inversa, [-1]-Calcolo con riferimento alla posizione giunti corrente, [0~7]-Calcolo in base a specifica configurazione spazio giunti, default -1"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode；"
                                                 
-UDP extension axes synchronized with robot circular motion code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Movimento Sincrono Asse di Espansione UDP con Movimento Arco Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
-    # Set the UDP communication parameters and load
+    # Imposta parametri comunicazione UDP e li carica
     robot.ExtDevSetUDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10)
     robot.ExtDevLoadUDPDriver()
-    # Set the parameters of the extended axis
+    # Imposta parametri asse di espansione
     robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0)
     robot.SetRobotPosToAxis(1)
     robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0)
-    # Expand the axis to enable and return to zero
+    # Abilitazione asse di espansione, home
     robot.ExtAxisServoOn(1, 0)
     robot.ExtAxisSetHoming(1, 0, 20, 3)
-    # Extended axis coordinate system calibration
-    pos = []  # Enter the coordinates of the reference point
+    # Calibrazione sistema coordinate asse di espansione
+    pos = []  # Inserisci coordinate punto calibrazione
     robot.SetRefPointInExAxisEnd(pos)
-    robot.PositionorSetRefPoint(1)  # Call four times to complete the calibration
+    robot.PositionorSetRefPoint(1)  # Chiamato 4 volte per completare la calibrazione
     coord = []
     error,coord = robot.PositionorComputeECoordSys()
     robot.ExtAxisActiveECoordSys(1, 1, coord, 1)
-    # Synchronous arc starting point, middle point and end point
-    startdescPose = []# Input coordinates
-    startjointPos = []# Input coordinates
-    startexaxisPos =[]  # Enter the coordinates of the extended axis
-    middescPose = []# Input the midpoint
+    # Punto di partenza, intermedio e arrivo arco sincrono
+    startdescPose = []# Inserisci coordinate
+    startjointPos = []# Inserisci coordinate
+    startexaxisPos =[]  # Inserisci coordinate asse di espansione
+    middescPose = []# Inserisci punto intermedio
     midjointPos = []
     midexaxisPos =[]
     enddescPose = []
     endjointPos = []
     endexaxisPos =[]
-    # Move to the starting point
+    # Movimento al punto di partenza
     robot.ExtAxisMove(startexaxisPos, 20, -1)
     offdese = [0, 0, 0, 0, 0, 0]
     robot.MoveJ(joint_pos=startjointPos,tool= 1,user= 1,vel= 100,acc= 100,ovl= 100,exaxis_pos= startexaxisPos,blendT= 0,offset_flag= 0,offset_pos= offdese)
-    # Start synchronous circular arc movement
+    # Inizia movimento arco sincrono
     robot.ExtAxisSyncMoveC(midjointPos,middescPose,1,1,midexaxisPos,
                            endjointPos,enddescPose,1,1,endexaxisPos,
                            100,100,0,offdese,
@@ -1076,7 +1076,7 @@ UDP extension axes synchronized with robot circular motion code example
                            100,0)
     robot.CloseRPC()
 
-Setting the Extended DO
+Impostazione DO di Espansione
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -1084,17 +1084,17 @@ Setting the Extended DO
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAuxDO(DONum,bOpen,smooth,block)``"
-    "Description", "Setting the Extended DO"
-    "Mandatory parameters", "
-    - ``DONum``: DO number;
-    - ``bOpen``: switch True-Open, False-Off;
-    - ``smooth``: smooth or not True - yes, False - no;
-    - ``block``: whether to block True - Yes, False - No;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAuxDO(DONum,bOpen,smooth,block)``"
+    "Descrizione", "Imposta DO di espansione"
+    "Parametri Obbligatori", "
+    - ``DONum``： Numero DO；
+    - ``bOpen``：Interruttore True-Aperto,False-Chiuso；
+    - ``smooth``：Smoothing True -Sì, False -No；
+    - ``block``：Bloccante True -Sì, False -No；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Setting up Extended AO
+Impostazione AO di Espansione
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -1102,46 +1102,46 @@ Setting up Extended AO
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAuxAO(AONum,value,block)``"
-    "Description", "Setting the Extended AO"
-    "Mandatory parameters", "
-    - ``AONum``: AO number;
-    - ``value``: analog value [0-4095];
-    - ``block``: whether to block True - Yes, False - No;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAuxAO(AONum,value,block)``"
+    "Descrizione", "Imposta AO di espansione"
+    "Parametri Obbligatori", "
+    - ``AONum``： Numero AO；
+    - ``value``：Valore analogico [0-4095]；
+    - ``block``：Bloccante True -Sì, False -No；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
         
-Setting the Extended DI Input Filter Time
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Tempo Filtro Ingresso DI di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAuxDIFilterTime(filterTime)``"
-    "Description", "Setting the Extended DI Input Filter Time"
-    "Mandatory parameters", "- ``filterTime``: filter time (ms);"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAuxDIFilterTime(filterTime)``"
+    "Descrizione", "Imposta il tempo di filtro dell'ingresso DI di espansione"
+    "Parametri Obbligatori", "- ``filterTime``： Tempo di filtro (ms)；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
         
-Setting the Extended AI Input Filter Time
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Tempo Filtro Ingresso AI di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAuxAIFilterTime(AINum,filterTime)``"
-    "Description", "Set the extended AI input filter time"
-    "Mandatory parameters", "
-    - ``AINum``: AI number;
-    - ``filterTime``: filter time (ms);"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetAuxAIFilterTime(AINum,filterTime)``"
+    "Descrizione", "Imposta il tempo di filtro dell'ingresso AI di espansione"
+    "Parametri Obbligatori", "
+    - ``AINum``： Numero AI；
+    - ``filterTime``： Tempo di filtro (ms)；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
         
-Waiting for extended DI input
+Attesa Ingresso DI di Espansione
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -1149,17 +1149,17 @@ Waiting for extended DI input
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WaitAuxDI(DINum,bOpen,time,errorAlarm)``"
-    "Description", "Waiting for extended DI input"
-    "Mandatory parameters", "
-    - ``DINum``: DI number;
-    - ``bOpen``: switch True-Open, False-Off;
-    - ``time``: maximum waiting time (ms);
-    - ``errorAlarm``: whether to continue the campaign True-Yes,False-No"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitAuxDI(DINum,bOpen,time,errorAlarm)``"
+    "Descrizione", "Attesa ingresso DI di espansione"
+    "Parametri Obbligatori", "
+    - ``DINum``： Numero DI；
+    - ``bOpen``：Interruttore True-Aperto,False-Chiuso；
+    - ``time``：Tempo massimo attesa (ms)；
+    - ``errorAlarm``：Continuare movimento True-Sì,False-No"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
         
-Waiting for extended AI input
+Attesa Ingresso AI di Espansione
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -1167,18 +1167,18 @@ Waiting for extended AI input
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WaitAuxAI(,AINum,sign,value,time,errorAlarm)``"
-    "Description", "Waiting for extended AI input"
-    "Mandatory parameters", "
-    - ``AINum``: AI number;
-    - ``sign``: 0 - greater than; 1 - less than;
-    - ``value``: AI value;
-    - ``time``: maximum waiting time (ms);
-    - ``errorAlarm``: whether to continue the campaign True-Yes,False-No"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitAuxAI(,AINum,sign,value,time,errorAlarm)``"
+    "Descrizione", "Attesa ingresso AI di espansione"
+    "Parametri Obbligatori", "
+    - ``AINum``： Numero AI；
+    - ``sign``：0-Maggiore di; 1-Minore di；
+    - ``value``：Valore AI；
+    - ``time``：Tempo massimo attesa (ms)；
+    - ``errorAlarm``：Continuare movimento True-Sì,False-No"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
         
-Get Extended DI Value
+Ottenimento Valore DI di Espansione
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -1186,16 +1186,16 @@ Get Extended DI Value
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAuxDI(DINum,isNoBlock)``"
-    "Description", "Get Extended DI Value"
-    "Mandatory parameters", "
-    - ``DINum``: DI number;
-    - ``isNoBlock``: whether to block True-blocking false-non-blocking;"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode;
-    - ``isOpen``: 0 - off; 1 - on;"
+    "Prototipo", "``GetAuxDI(DINum,isNoBlock)``"
+    "Descrizione", "Ottiene il valore DI di espansione"
+    "Parametri Obbligatori", "
+    - ``DINum``： Numero DI；
+    - ``isNoBlock``：Bloccante True-Bloccante false-Non bloccante；"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode；
+    - ``isOpen``： 0-Chiuso; 1-Aperto；"
           
-Get Extended AI Value
+Ottenimento Valore AI di Espansione
 ++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
@@ -1203,24 +1203,24 @@ Get Extended AI Value
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetAuxAI(AINum,isNoBlock)``"
-    "Description", "Get Extended AI Value"
-    "Mandatory parameters", "
-    - ``AINum``: AI number;
-    - ``isNoBlock``: whether to block True-blocking False-non-blocking"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode;
-    - ``value``: input value;"
+    "Prototipo", "``GetAuxAI(AINum,isNoBlock)``"
+    "Descrizione", "Ottiene il valore AI di espansione"
+    "Parametri Obbligatori", "
+    - ``AINum``： Numero AI；
+    - ``isNoBlock``：Bloccante True-Bloccante False-Non bloccante"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode；
+    - ``value``：Valore ingresso；"
 
-Extended IO code examples
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice I/O di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     for i in range(128):
         robot.SetAuxDO(i, True, False, True)
@@ -1240,97 +1240,97 @@ Extended IO code examples
     robot.SetAuxAIFilterTime(0, 10)
     for i in range(20):
         curValue = False
-        error, curValue = robot.GetAuxDI(i, False)  # 注意：如库内部需引用方式，这里需修改
+        error, curValue = robot.GetAuxDI(i, False)  # Nota: se la libreria richiede passaggio per riferimento, qui va modificato
         print(f"DI{i}   {curValue}")
     curValue = -1
     for i in range(4):
-        error, curValue = robot.GetAuxAI(i, True)  # 同样注意引用传参问题
+        error, curValue = robot.GetAuxAI(i, True)  # Nota anche qui problema passaggio per riferimento
         print(f"AI{i}   {curValue}")
     robot.WaitAuxDI(1, False, 1000, False)
     robot.WaitAuxAI(1, 1, 132, 1000, False)
     robot.CloseRPC()
 
-Removable Device Enable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Abilitazione Dispositivo Mobile
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``TractorEnable(enable)``"
-    "description", "removable device enable"
-    "Mandatory parameters", "- ``enable``: enable state, 0-de-enable, 1-enable"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``TractorEnable(enable)``"
+    "Descrizione", "Abilitazione dispositivo mobile"
+    "Parametri Obbligatori", "- ``enable``：Stato abilitazione, 0-Disabilitato, 1-Abilitato"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Zeroing of removable units
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Home Dispositivo Mobile
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``TractorHoming()``"
-    "Description", "Removable unit back to zero"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``TractorHoming()``"
+    "Descrizione", "Home dispositivo mobile"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Movable unit linear motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Lineare Dispositivo Mobile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``TractorMoveL(distance, vel)``"
-    "Description", "Movable device linear motion"
-    "Mandatory parameters", "- ``distance``: distance of linear movement (mm)
-    - ``vel``: percentage of linear motion speed (0-100)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``TractorMoveL(distance, vel)``"
+    "Descrizione", "Movimento lineare dispositivo mobile"
+    "Parametri Obbligatori", "- ``distance``：Distanza movimento lineare (mm）
+    - ``vel``：Percentuale velocità movimento lineare (0-100）"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Movable unit circular motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Arco Dispositivo Mobile
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``TractorMoveC(radio, angle, vel)``"
-    "Description", "Movable device circular motion"
-    "Mandatory parameters", "- ``radio``: radius of circular motion (mm)
-    - ``angle``: angle of circular motion (°)
-    - ``vel``: Percentage of speed of circular motion (0-100)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``TractorMoveC(radio, angle, vel)``"
+    "Descrizione", "Movimento arco dispositivo mobile"
+    "Parametri Obbligatori", "- ``radio``：Raggio movimento arco (mm）
+    - ``angle``：Angolo movimento arco (°）
+    - ``vel``：Percentuale velocità movimento arco (0-100）"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Stopping motion of movable devices
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Stop Movimento Dispositivo Mobile
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ProgramStop()``"
-    "Description", "Movable unit stops moving"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ProgramStop()``"
+    "Descrizione", "Stop movimento dispositivo mobile"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Portable device code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Dispositivo Mobile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.ExtDevSetUDPComParam("192.168.58.2", 2021, 2, 50, 5, 50, 1, 50, 10, 1)
     robot.ExtDevLoadUDPDriver()
@@ -1361,32 +1361,32 @@ Portable device code example
     time.sleep(1)
     robot.CloseRPC()
 
-Laser sensor recording points
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrazione Punto Sensore Laser
+++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``LaserRecordPoint(coordID)``"
-    "Description", "Laser sensor recording points"
-    "Mandatory par", "- ``coordID``：Laser sensor coordinate system"
-    "Default param", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``joint``：The laser sensor identifies the position of the point joint
-    - ``desc``：The laser sensor identifies the Cartesian position of the point
-    - ``exaxis``：The laser sensor identifies the extended axis position of the point"
+    "Prototipo", "``LaserRecordPoint(coordID)``"
+    "Descrizione", "Registrazione punto sensore laser"
+    "Parametri Obbligatori", "- ``coordID``：Sistema coordinate sensore laser"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``joint``：Posizione giunti punto rilevato sensore laser
+    - ``desc``：Posizione cartesiana punto rilevato sensore laser
+    - ``exaxis``：Posizione asse di espansione punto rilevato sensore laser"
 
-Sample code for laser sensor recording points
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Registrazione Punto Sensore Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     direction_point = [0, 0, 0]
     rtn = robot.LaserTrackingSearchStart(2, direction_point, 10, 100, 10000, 2)
@@ -1403,29 +1403,29 @@ Sample code for laser sensor recording points
     robot.MoveJ(joint,tool=1,user=0,vel=100,acc=100,ovl=50,exaxis_pos=exaxis,blendT=-1,offset_flag=0,offset_pos=off)
     robot.CloseRPC()
 
-Set the synchronous movement strategy of the extended axis and the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Strategia Movimento Sincrono Asse di Espansione con Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetExAxisRobotPlan(strategy)``"
-    "Description", "Set the synchronous movement strategy of the extended axis and the robot"
-    "Mandatory par", "- ``strategy``：Strategy; 0- Mainly robots; 1- The extended axis is synchronized with the robot"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetExAxisRobotPlan(strategy)``"
+    "Descrizione", "Imposta la strategia di movimento sincrono asse di espansione con robot"
+    "Parametri Obbligatori", "- ``strategy``：Strategia；0-Con robot come principale；1-Asse di espansione e robot sincroni"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Code example for setting the synchronous motion strategy of the extended axis and the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Impostazione Strategia Movimento Sincrono Asse di Espansione con Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     joint_pos1 = [-22.016, -49.217, 124.714, -161.100, -85.108, -0.333]
     joint_pos2 = [-21.083, -46.613, 110.079, -147.796, -80.757, -0.330]
@@ -1449,66 +1449,66 @@ Code example for setting the synchronous motion strategy of the extended axis an
     time.sleep(8)
     robot.CloseRPC()
 
-Control array type sucker
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllo Ventosa a Matrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetSuckerCtrl(slaveID, len, ctrlValue)``"
-    "Description", "Control array type sucker"
-    "Mandatory par", "- ``slaveID``：Slave station number
-    - ``len``：length
-    - ``ctrlValue``：Control value 1- Suction according to the maximum vacuum degree 2- suction according to the set vacuum degree 3- stop suction"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetSuckerCtrl(slaveID, len, ctrlValue)``"
+    "Descrizione", "Controllo ventosa a matrice"
+    "Parametri Obbligatori", "- ``slaveID``：Numero slave
+    - ``len``：Lunghezza
+    - ``ctrlValue``：Valore controllo 1-Aspirazione con massimo vuoto 2-Aspirazione con vuoto impostato 3-Stop aspirazione"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Get the state of the array suction cup
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Stato Ventosa a Matrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSuckerState(slaveID)``"
-    "Description", "Get the state of the array suction cup"
-    "Mandatory par", "- ``slaveID``：Slave station number"
-    "Default param", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``state``：Adsorption state 0 -released object 1 -successful adsorption of the workpiece was detected 2 -no adsorption to the object 3 -object detachment
-    - ``pressValue``：The current vacuum is in kpa
-    - ``error``：The current error code for the sucker"
+    "Prototipo", "``GetSuckerState(slaveID)``"
+    "Descrizione", "Ottiene lo stato della ventosa a matrice"
+    "Parametri Obbligatori", "- ``slaveID``：Numero slave"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``state``：Stato aspirazione 0-Rilascio oggetto 1-Rilevato oggetto aspirazione riuscita 2-Nessun oggetto aspirato 3-Oggetto staccato
+    - ``pressValue``：Vuoto corrente unità kpa
+    - ``error``：Codice errore corrente ventosa"
 
-Wait for the sucker state
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attesa Stato Ventosa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``WaitSuckerState(slaveID, state, ms)``"
-    "Description", "Wait for the sucker state"
-    "Mandatory par", "- ``slaveID``：Slave station number
-    - ``state``：Adsorption state 0 -released object 1 -successful adsorption of the workpiece was detected 2 -no adsorption to the object 3 -object detachment
-    - ``ms``：Maximum waiting time"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``WaitSuckerState(slaveID, state, ms)``"
+    "Descrizione", "Attesa stato ventosa"
+    "Parametri Obbligatori", "- ``slaveID``：Numero slave
+    - ``state``：Stato aspirazione 0-Rilascio oggetto 1-Rilevato oggetto aspirazione riuscita 2-Nessun oggetto aspirato 3-Oggetto staccato
+    - ``ms``：Tempo massimo attesa"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Array type sucker control command code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Comandi Controllo Ventosa a Matrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
-    robot.OpenLuaUpload("C://Project/PeripheralSDK/CtrlDev_sucker.lua")
+    robot.OpenLuaUpload("C://项目/外设SDK/CtrlDev_sucker.lua")
     time.sleep(2)
     robot.UnloadCtrlOpenLUA(1)
     robot.LoadCtrlOpenLUA(1)
@@ -1529,145 +1529,145 @@ Array type sucker control command code example
     robot.SetSuckerCtrl(12, 1, ctrl)
     robot.CloseRPC()
 
-Upload an open protocol Lua file
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Upload File Lua Protocollo Aperto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``OpenLuaUpload(filePath)``"
-    "Description", "Upload an open protocol Lua file"
-    "Mandatory par", "- ``filePath``：Local open protocol lua file path name"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``OpenLuaUpload(filePath)``"
+    "Descrizione", "Upload file Lua protocollo aperto"
+    "Parametri Obbligatori", "- ``filePath``：Percorso file Lua protocollo aperto locale"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Get the slave board parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Parametri Scheda Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetFieldBusConfig()``"
-    "Description", "Get the slave board parameters"
-    "Mandatory par", "NULL"
-    "Default param", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
+    "Prototipo", "``GetFieldBusConfig()``"
+    "Descrizione", "Ottiene i parametri della scheda slave"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
     - ``type``：0-Ethercat，1-CClink, 3-Ethercat, 4-EIP
-    - ``version``：Protocol version
-    - ``connState``：0- Not connected 1- Connected"
+    - ``version``：Versione protocollo
+    - ``connState``：0-Non connesso 1-Connesso"
 
-Write the slave DO
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura DO Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FieldBusSlaveWriteDO(DOIndex, wirteNum, status)``"
-    "Description", "Write the slave DO"
-    "Mandatory par", "- ``DOIndex``：DO number
-    - ``wirteNum``：Number of writes
-    - ``status``：The number to write, up to 8"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``FieldBusSlaveWriteDO(DOIndex, wirteNum, status)``"
+    "Descrizione", "Scrittura DO slave"
+    "Parametri Obbligatori", "- ``DOIndex``：Numero DO
+    - ``wirteNum``：Quantità da scrivere
+    - ``status``：Valore da scrivere, massimo 8"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Write the slave AO
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura AO Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FieldBusSlaveWriteAO(AOIndex, wirteNum, status)``"
-    "Description", "Write the slave AO"
-    "Mandatory par", "- ``AOIndex``：AO number
-    - ``wirteNum``：Number of writes
-    - ``status``：The number to write, up to 8"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``FieldBusSlaveWriteAO(AOIndex, wirteNum, status)``"
+    "Descrizione", "Scrittura AO slave"
+    "Parametri Obbligatori", "- ``AOIndex``：Numero AO
+    - ``wirteNum``：Quantità da scrivere
+    - ``status``：Valore da scrivere, massimo 8"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Read the slave DI
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lettura DI Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FieldBusSlaveReadDI(DOIndex, readeNum)``"
-    "Description", "Read the slave DI"
-    "Mandatory par", "- ``DOIndex``：DI number
-    - ``readeNum``：Number of reads"
-    "Default param", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``status[8]``：Read a maximum of 8 values"
+    "Prototipo", "``FieldBusSlaveReadDI(DOIndex, readeNum)``"
+    "Descrizione", "Lettura DI slave"
+    "Parametri Obbligatori", "- ``DOIndex``：Numero DI
+    - ``readeNum``：Quantità da leggere"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``status[8]``：Valore letto, massimo 8"
 
-Read the slave AI
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lettura AI Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FieldBusSlaveReadAI(AOIndex, readeNum)``"
-    "Description", "Read the slave AI"
-    "Mandatory par", "- ``AOIndex``：AI number
-    - ``readeNum``：Number of reads"
-    "Default param", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``status[8]``：Read a maximum of 8 values"
+    "Prototipo", "``FieldBusSlaveReadAI(AOIndex, readeNum)``"
+    "Descrizione", "Lettura AI slave"
+    "Parametri Obbligatori", "- ``AOIndex``：Numero AI
+    - ``readeNum``：Quantità da leggere"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``status[8]``：Valore letto, massimo 8"
 
-Wait for the extension DI input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attesa Ingresso DI di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FieldBusSlaveWaitDI(DIIndex, status, waitMs)``"
-    "Description", "Wait for the extension DI input"
-    "Mandatory par", "- ``DIIndex``：DI number
-    - ``status``：0- low level; 1- High level
-    - ``waitMs``：Maximum waiting time (ms)"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``FieldBusSlaveWaitDI(DIIndex, status, waitMs)``"
+    "Descrizione", "Attesa ingresso DI di espansione"
+    "Parametri Obbligatori", "- ``DIIndex``：Numero DI
+    - ``status``：0-Livello basso; 1-Livello alto
+    - ``waitMs``：Tempo massimo attesa (ms)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Wait for extended AI input
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attesa Ingresso AI di Espansione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FieldBusSlaveWaitAI(AIIndex, waitType, value, waitMs)``"
-    "Description", "Wait for extended AI input"
-    "Mandatory par", "- ``AIIndex``：AI number
-    - ``waitType``：0- greater than; 1- less than
-    - ``value``：AI value
-    - ``waitMs``：Maximum waiting time (ms)"
-    "Default param", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``FieldBusSlaveWaitAI(AIIndex, waitType, value, waitMs)``"
+    "Descrizione", "Attesa ingresso AI di espansione"
+    "Parametri Obbligatori", "- ``AIIndex``：Numero AI
+    - ``waitType``：0-Maggiore di; 1-Minore di
+    - ``value``：Valore AI
+    - ``waitMs``：Tempo massimo attesa (ms)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Example of slave mode related interface instruction code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Interfacce Modalità Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
-    robot.OpenLuaUpload("D://zUP/Peripheral_equipment/CtrlDev_field.lua")
+    robot.OpenLuaUpload("D://zUP/外设/CtrlDev_field.lua")
     time.sleep(2)
     robot.SetCtrlOpenLUAName(3,"CtrlDev_field.lua")
     robot.UnloadCtrlOpenLUA(3)
@@ -1675,10 +1675,10 @@ Example of slave mode related interface instruction code
     time.sleep(8)
     rtn,type, version, conn_state = robot.GetFieldBusConfig()
     print(f"type is {type}, version is {version}, connState is {conn_state}")
-    # Write digital outputs
+    # Scrittura uscite digitali
     ctrl = [1, 0, 1]  # DO0=1, DO1=0, DO2=1
     robot.FieldBusSlaveWriteDO(0, 3, ctrl)
-    # Write analog output
+    # Scrittura uscita analogica
     ctrl_ao = [0x1000]  # AO2 = 0x1000
     robot.FieldBusSlaveWriteAO(2, 1, ctrl_ao)
     for i in range(100):

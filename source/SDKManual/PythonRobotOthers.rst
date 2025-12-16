@@ -1,23 +1,23 @@
-Others
+Altre Interfacce
 =================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-Get SSH public key
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Chiave Pubblica SSH
+++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSSHKeygen()``"
-    "description", "Get SSH public key"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``keygen``: public key"
+    "Prototipo", "``GetSSHKeygen()``"
+    "Descrizione", "Ottiene la chiave pubblica SSH"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``keygen``：Chiave pubblica"
 
-Issue the SCP command
+Invio Comando SCP
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.3
 
@@ -25,38 +25,38 @@ Issue the SCP command
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetSSHScpCmd(mode, sshname, sship, usr_file_url, robot_file_url)``"
-    "Description", "Issue the SCP command"
-    "Mandatory parameters", "- ``mode``: 0- Upload (Host Computer -> Controller), 1- Download (Controller -> Host Computer
-    - ``sshname``: User name of the upper computer
-    - ``sship``: The ip address of the upper computer
-    - ``usr_file_url``: File path of the upper computer
-    - ``robot_file_url``: Robot controller file path"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetSSHScpCmd(mode, sshname, sship, usr_file_url, robot_file_url)``"
+    "Descrizione", "Invio comando SCP"
+    "Parametri Obbligatori", "- ``mode``：0-Upload (controller superiore -> controller), 1-Download (controller -> controller superiore)
+    - ``sshname``：Nome utente controller superiore
+    - ``sship``：Indirizzo IP controller superiore
+    - ``usr_file_url``：Percorso file controller superiore
+    - ``robot_file_url``：Percorso file controller robot"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Calculate the MD5 value of a file in a specified path
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Valore MD5 File Percorso Specificato
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputeFileMD5(file_path)``"
-    "Description", "Calculates the MD5 value of a file in the specified path."
-    "Mandatory parameter","- ``file_path``: file path including filename, default Traj folder path is :/fruser/traj/, e.g. /fruser/traj/trajHelix_aima_1.txt"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``md5``: the MD5 value of the file."
+    "Prototipo", "``ComputeFileMD5(file_path)``"
+    "Descrizione", "Calcola il valore MD5 del file nel percorso specificato"
+    "Parametri Obbligatori", "- ``file_path``：Percorso file incluso nome file, percorso predefinito cartella Traj: /fruser/traj/, es. /fruser/traj/trajHelix_aima_1.txt"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode
+    - ``md5``：Valore MD5 file"
 
-Robot SSH, MD5 instruction code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Comandi SSH, MD5 Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     file_path = "/fruser/airlab.lua"
     md5 = ""
@@ -79,90 +79,90 @@ Robot SSH, MD5 instruction code example
     print(f"md5 is: {md5}")
     robot.CloseRPC()
 
-Setting the Robot 20004 Port Feedback Cycle
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Periodo Feedback Porta 20004 Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetRobotRealtimeStateSamplePeriod(period)``"
-    "Description", "Setting the robot 20004 port feedback cycle"
-    "Mandatory parameter", "- ``period``: robot 20004 port feedback period (ms)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetRobotRealtimeStateSamplePeriod(period)``"
+    "Descrizione", "Imposta il periodo di feedback porta 20004 robot"
+    "Parametri Obbligatori", "- ``period``：Periodo feedback porta 20004 robot (ms)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
 
-Get robot 20004 port feedback cycle
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Periodo Feedback Porta 20004 Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotRealtimeStateSamplePeriod()``"
-    "Description", "Get robot 20004 port feedback cycle"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``period``: robot 20004 port feedback period (ms)"
+    "Prototipo", "``GetRobotRealtimeStateSamplePeriod()``"
+    "Descrizione", "Ottiene il periodo di feedback porta 20004 robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``period``：Periodo feedback porta 20004 robot (ms)"
 
-Robot 20004 port state feedback cycle configuration code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Configurazione Periodo Feedback Stato Porta 20004 Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.SetRobotRealtimeStateSamplePeriod(10)
     error,getPeriod = robot.GetRobotRealtimeStateSamplePeriod()
     print(f"period is {getPeriod}")
     time.sleep(1)
     robot.CloseRPC()
-    
-Robot software upgrade
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Aggiornamento Software Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SoftwareUpgrade(filePath, block)``"
-    "Description", "Robot Software Upgrade"
-    "Required parameters","- ``filePath``: full path of the software upgrade package
-    - ``block``: whether to block until the upgrade is complete true:blocking; false:non-blocking"
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode "
+    "Prototipo", "``SoftwareUpgrade(filePath, block)``"
+    "Descrizione", "Aggiornamento software robot"
+    "Parametri Obbligatori", "- ``filePath``：Percorso completo pacchetto aggiornamento software
+    - ``block``：Bloccare fino al completamento aggiornamento true: bloccante; false: non bloccante"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode "
 
-Get robot software upgrade status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Stato Aggiornamento Software Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSoftwareUpgradeState()``"
-    "Description", "Get robot software upgrade status"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``state``: robot package upgrade status, 0: idle in progress or uploading upgrade package in progress, 1~100: percentage of upgrade completed, -1: upgrade software failure, -2: checksum failure, -3: version checksum failure, -4: unpacking failure, -5: user configuration upgrade failure, -6: peripheral configuration upgrade failure, -7: extended axis configuration upgrade failure, -8: robot configuration upgrade failure, -9: DH parameter configuration upgrade failure"
+    "Prototipo", "``GetSoftwareUpgradeState()``"
+    "Descrizione", "Ottiene lo stato di aggiornamento software robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
+    - ``state``：Stato aggiornamento pacchetto software robot, 0: inattivo o upload pacchetto aggiornamento in corso, 1~100: percentuale completamento aggiornamento, -1: aggiornamento software fallito, -2: verifica fallita, -3: verifica versione fallita, -4: decompressione fallita, -5: aggiornamento configurazione utente fallito, -6: aggiornamento configurazione periferiche fallito, -7: aggiornamento configurazione assi di espansione fallito, -8: aggiornamento configurazione robot fallito, -9: aggiornamento parametri DH fallito"
 
-Robot software upgrade code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Aggiornamento Software Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     error = robot.SoftwareUpgrade("D://zUP/QNX382/software.tar.gz", False)
     print(f"SoftwareUpgrade error is {error}")
@@ -172,8 +172,8 @@ Robot software upgrade code example
         time.sleep(3)
     robot.CloseRPC()
 
-Download Point Table Database
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Download Database Tabella Punti
++++++++++++++++++++++++++++++++
 
 .. versionadded:: python SDK-v2.0.1
 
@@ -181,49 +181,49 @@ Download Point Table Database
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``PointTableDownLoad(point_table_name, save_file_path)``"
-    "Description", "Download Points Table Database"
-    "Required Parameters", "- ``point_table_name``: name of the point table to be downloaded pointTable1.db;
-    - ``save_file_path``: storage path to download the point table C://test/;"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PointTableDownLoad(point_table_name, save_file_path)``"
+    "Descrizione", "Download database tabella punti"
+    "Parametri Obbligatori", "- ``point_table_name``：Nome tabella punti da scaricare    pointTable1.db;
+    - ``save_file_path``:Percorso di memorizzazione tabella punti scaricata   C://test/;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Upload point table database
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Upload Database Tabella Punti
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``PointTableUpLoad(point_table_file_path)``"
-    "Description", "Upload point table database"
-    "Required Parameters", "- ``point_table_file_path``: full pathname of uploaded point table C://test/pointTable1.db"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PointTableUpLoad(point_table_file_path)``"
+    "Descrizione", "Upload database tabella punti"
+    "Parametri Obbligatori", "- ``point_table_file_path``：Percorso completo tabella punti da caricare   C://test/pointTable1.db"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Point table update lua file
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento File Lua Tabella Punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``PointTableUpdateLua(point_table_name, lua_file_name)``"
-    "Description", "Point table update lua file"
-    "Required Parameters","- ``point_table_name``: the name of the point table to be switched, pointTable1.db, when the point table is empty, i.e. "", it means updating the lua program to the initial program with no point table applied
-    - ``lua_file_name``: name of the lua file to update testPointTable.lua"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PointTableUpdateLua(point_table_name, lua_file_name)``"
+    "Descrizione", "Aggiornamento file Lua tabella punti"
+    "Parametri Obbligatori", "- ``point_table_name``：Nome tabella punti da attivare pointTable1.db, quando la tabella punti è vuota, cioè "", indica l'aggiornamento del programma Lua al programma iniziale non applicando la tabella punti
+    - ``lua_file_name``: Nome file Lua da aggiornare testPointTable.lua"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Robot point table operation code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Operazioni Tabella Punti Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     save_path = "D://zDOWN/"
     point_table_name = "point_table_FR5.db"
@@ -238,7 +238,7 @@ Robot point table operation code example
     print(f"retval is: {rtn}")
     robot.CloseRPC()
 
-Controller log download
+Download Log Controller
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -246,13 +246,13 @@ Controller log download
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``RbLogDownload(savePath)``"
-    "Description", "Controller log download"
-    "Mandatory parameters", "- ``savePath``: Save the file path D://zDown/"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``RbLogDownload(savePath)``"
+    "Descrizione", "Download log controller"
+    "Parametri Obbligatori", "- ``savePath``：Percorso salvataggio file D://zDown/"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Download all data sources
+Download Tutte le Fonti Dati
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -260,13 +260,13 @@ Download all data sources
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AllDataSourceDownload(savePath)``"
-    "Description", "Download all data sources"
-    "Mandatory parameters", "- ``savePath``: Save the file path D://zDown/"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``AllDataSourceDownload(savePath)``"
+    "Descrizione", "Download tutte le fonti dati"
+    "Parametri Obbligatori", "- ``savePath``：Percorso salvataggio file D://zDown/"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Data backup package download
+Download Pacchetto Backup Dati
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -274,21 +274,21 @@ Data backup package download
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``DataPackageDownload(savePath)``"
-    "Description", "Data backup package download"
-    "Mandatory parameters", "- ``savePath``: Save the file path D://zDown/"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``DataPackageDownload(savePath)``"
+    "Descrizione", "Download pacchetto backup dati"
+    "Parametri Obbligatori", "- ``savePath``：Percorso salvataggio file D://zDown/"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Download the controller data code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Download Dati Controller
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     rtn = robot.RbLogDownload("D://zDOWN/")
     print(f"RbLogDownload rtn is {rtn}")
@@ -298,7 +298,7 @@ Download the controller data code example
     print(f"DataPackageDownload rtn is {rtn}")
     robot.CloseRPC()
 
-Set up encoder upgrade
+Impostazione Aggiornamento Encoder
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
@@ -306,13 +306,13 @@ Set up encoder upgrade
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetEncoderUpgrade(path)``"
-    "Description", "Set up encoder upgrade"
-    "Mandatory parameters", "- ``path``：Local upgrade package full path(D://zUP/XXXXX.bin)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
-
-Set up joint firmware upgrade
+    "Prototipo", "``SetEncoderUpgrade(path)``"
+    "Descrizione", "Imposta l'aggiornamento encoder"
+    "Parametri Obbligatori", "- ``path``：Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+    
+Impostazione Aggiornamento Firmware Giunti
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
@@ -320,14 +320,29 @@ Set up joint firmware upgrade
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetJointFirmwareUpgrade(type, path)``"
-    "Description", "Set up joint firmware upgrade"
-    "Mandatory parameters", "- ``type``：Updating file types 1- Upgrade firmware; 2- Upgrade the slave profile
-    - ``path``：Local upgrade package full path(D://zUP/XXXXX.bin)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetJointFirmwareUpgrade(type, path)``"
+    "Descrizione", "Imposta l'aggiornamento firmware giunti"
+    "Parametri Obbligatori", "- ``type``：Tipo file aggiornamento; 1-Aggiornamento firmware; 2-Aggiornamento file configurazione slave
+    - ``path``：Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Set up control box firmware upgrade
+Impostazione Aggiornamento Firmware Pannello di Controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.1.4
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetCtrlFirmwareUpgrade(type, path)``"
+    "Descrizione", "Imposta l'aggiornamento firmware pannello di controllo"
+    "Parametri Obbligatori", "- ``type``：Tipo file aggiornamento; 1-Aggiornamento firmware; 2-Aggiornamento file configurazione slave
+    - ``path``：Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+    
+Impostazione Aggiornamento Firmware Estremità
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
@@ -335,51 +350,36 @@ Set up control box firmware upgrade
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetCtrlFirmwareUpgrade(type, path)``"
-    "Description", "Set up control box firmware upgrade"
-    "Mandatory parameters", "- ``type``：Updating file types 1- Upgrade firmware; 2- Upgrade the slave profile
-    - ``path``：Local upgrade package full path(D://zUP/XXXXX.bin)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
-
-Set up the end firmware upgrade
-+++++++++++++++++++++++++++++++++++++++++++++
+    "Prototipo", "``SetEndFirmwareUpgrade(type, path)``"
+    "Descrizione", "Imposta l'aggiornamento firmware estremità"
+    "Parametri Obbligatori", "- ``type``：Tipo file aggiornamento; 1-Aggiornamento firmware; 2-Aggiornamento file configurazione slave
+    - ``path``：Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+       
+Aggiornamento File Configurazione Parametri Completi Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetEndFirmwareUpgrade(type, path)``"
-    "Description", "Set up the end firmware upgrade"
-    "Mandatory parameters", "- ``type``：Updating file types 1- Upgrade firmware; 2- Upgrade the slave profile
-    - ``path``：Local upgrade package full path(D://zUP/XXXXX.bin)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``JointAllParamUpgrade(path)``"
+    "Descrizione", "Aggiornamento file configurazione parametri completi giunti"
+    "Parametri Obbligatori", "- ``path``：Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
-Joint full parameter profile upgrade
-+++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.1.4
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``JointAllParamUpgrade(path)``"
-    "Description", "Joint full parameter profile upgrade"
-    "Mandatory parameters", "- ``path``：Local upgrade package full path(D://zUP/XXXXX.bin)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
-
-Example of robot slave firmware upgrade code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di Codice Aggiornamento Firmware Slave Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
     robot.RobotEnable(0)
     time.sleep(0.2)
@@ -399,35 +399,35 @@ Example of robot slave firmware upgrade code
     print(f"robot SetJointFirmwareUpgrade rtn is {rtn}")
     robot.CloseRPC()
        
-Robot Operating System upgrade (LA control box)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento Sistema Operativo Robot (Pannello di Controllo LA)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``KernelUpgrade(filePath)``"
-    "Description", "Robot Operating System upgrade (LA control box)"
-    "Mandatory parameters", "- ``filePath``：Operating system upgrade package full path"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``KernelUpgrade(filePath)``"
+    "Descrizione", "Aggiornamento sistema operativo robot (pannello di controllo LA)"
+    "Parametri Obbligatori", "- ``filePath``：Percorso completo pacchetto aggiornamento sistema operativo"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
        
-Obtain upgrade results of robot operating system (LA control box)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento Risultato Aggiornamento Sistema Operativo Robot (Pannello di Controllo LA)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetKernelUpgradeResult()``"
-    "Description", "Obtain upgrade results of robot operating system (LA control box)"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``GetKernelUpgradeResult()``"
+    "Descrizione", "Ottiene il risultato dell'aggiornamento sistema operativo robot (pannello di controllo LA)"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
        
-Robot MCU log generation
+Generazione Log MCU Robot
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
@@ -435,8 +435,8 @@ Robot MCU log generation
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``RobotMCULogCollect()``"
-    "Description", "Robot MCU log generation"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``RobotMCULogCollect()``"
+    "Descrizione", "Generazione log MCU robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"

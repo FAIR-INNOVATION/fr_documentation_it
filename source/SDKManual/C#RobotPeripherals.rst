@@ -1,196 +1,196 @@
-Robot Peripherals
-=================
+Periferiche Robot
+======================
 
 .. toctree:: 
     :maxdepth: 5
 
-Configure Gripper
+Configurare Pinza
 ++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Configure gripper
-    * @param  [in] company  Gripper manufacturer, to be determined
-    * @param  [in] device  Device number, not currently used, default is 0
-    * @param  [in] softvesion  Software version number, not currently used, default is 0
-    * @param  [in] bus Device bus position, currently unused, default is 0
-    * @return  Error code
+    * @brief  Configurare Pinza
+    * @param  [in] company  Produttore pinza, da definire
+    * @param  [in] device  Numero dispositivo, attualmente non utilizzato, default 0
+    * @param  [in] softvesion  Numero versione software, attualmente non utilizzato, default 0
+    * @param  [in] bus Posizione bus estremità dove è collegato il dispositivo, attualmente non utilizzato, default 0
+    * @return   Codice errore
     */
     int SetGripperConfig(int company, int device, int softvesion, int bus);
 
-Get gripper configuration
-++++++++++++++++++++++++++
+Ottenere Configurazione Pinza
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get gripper configuration
-    * @param  [in] company  Gripper manufacturer, to be determined
-    * @param  [in] device  Device number, currently unused, default is 0
-    * @param  [in] softvesion  Software version number, currently unused, default is 0
-    * @param  [in] bus Device bus position, currently unused, default is 0
-    * @return  Error code
+    * @brief  Ottenere Configurazione Pinza
+    * @param  [in] company  Produttore pinza, da definire
+    * @param  [in] device  Numero dispositivo, attualmente non utilizzato, default 0
+    * @param  [in] softvesion  Numero versione software, attualmente non utilizzato, default 0
+    * @param  [in] bus Posizione bus estremità dove è collegato il dispositivo, attualmente non utilizzato, default 0
+    * @return   Codice errore
     */
     int GetGripperConfig(int *company, int *device, int *softvesion, int *bus);
 
-Activate Gripper
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief  Activate gripper
-    * @param  [in] index  Gripper number
-    * @param  [in] act  0-reset, 1-activate
-    * @return  Error code
-    */
-    int ActGripper(int index, byte act);
-
-Control gripper
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief  Control gripper
-    * @param  [in] index  Gripper ID
-    * @param  [in] pos  Position percentage, range [0~100]
-    * @param  [in] vel  Speed percentage, range [0~100]
-    * @param  [in] force  Torque percentage, range [0~100]
-    * @param  [in] max_time  Maximum wait time, range [0~30000], unit ms
-    * @param  [in] block  0-blocking, 1-non-blocking
-    * @param  [in] type Gripper type, 0-parallel gripper; 1-rotating gripper
-    * @param  [in] rotNum Number of rotation cycles
-    * @param  [in] rotVel Rotation speed percentage [0-100]
-    * @param  [in] rotTorque Rotation torque percentage [0-100]
-    * @return Error code
-    */
-    int MoveGripper(int index, int pos, int vel, int force, int max_time, byte block, int type, double rotNum, int rotVel, int rotTorque);
-
-Get gripper motion status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief  Get gripper motion status
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] staus  0-motion not completed, 1-motion completed
-    * @return  Error code
-    */
-    int GetGripperMotionDone(ref int fault, ref int status); 
-
-Get gripper activation status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief  Get gripper activation status
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] status  bit0~bit15 corresponds to gripper numbers 0~15, bit=0 is not activated, bit=1 is activated
-    * @return  Error code
-    */
-    int GetGripperActivateStatus(ref int fault, ref int status);
-
-Get Gripper Position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief  Get gripper position
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] position  Position percentage, range 0~100%
-    * @return  Error code
-    */
-    int GetGripperCurPosition(ref int fault, ref int position);
-
-Get gripper speed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-
-    /**
-    * @brief  Get gripper speed
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] speed  Speed percentage, range 0~100%
-    * @return  Error code
-    */
-    int GetGripperCurSpeed(ref int fault, ref int speed);
-     
-Get gripper current
+Attivare Pinza
 ++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get gripper current
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] current  Current percentage, range 0~100%
-    * @return Error code
+    * @brief  Attivare Pinza
+    * @param  [in] index  Numero identificativo pinza
+    * @param  [in] act  0-reset, 1-attiva
+    * @return   Codice errore
     */
-    int GetGripperCurrent(ref int fault, ref int current);
+    int ActGripper(int index, byte act); 
 
-Get gripper voltage
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare Pinza
+++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get gripper voltage
-    * @param [out] fault 0-no error, 1-error
-    * @param  [out] voltage  Voltage, unit 0.1V
-    * @return  Error code
+    * @brief  Controllare Pinza
+    * @param  [in] index  Numero identificativo pinza
+    * @param  [in] pos  Percentuale posizione, range [0~100]
+    * @param  [in] vel  Percentuale velocità, range [0~100]
+    * @param  [in] force  Percentuale coppia, range [0~100]
+    * @param  [in] max_time  Tempo di attesa massimo, range [0~30000], unità ms
+    * @param  [in] block  0-bloccante, 1-non bloccante
+    * @param  [in] type Tipo pinza, 0-pinza parallela; 1-pinza rotante
+    * @param  [in] rotNum Numero di giri rotazione
+    * @param  [in] rotVel Percentuale velocità rotazione [0-100]
+    * @param  [in] rotTorque Percentuale coppia rotazione [0-100]
+    * @return   Codice errore
+    */
+    int MoveGripper(int index, int pos, int vel, int force, int max_time, byte block, int type, double rotNum, int rotVel, int rotTorque);
+
+Ottenere Stato Movimento Pinza
+++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ottenere Stato Movimento Pinza
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] staus  0-movimento non completato, 1-movimento completato
+    * @return   Codice errore
+    */
+    int GetGripperMotionDone(ref int fault, ref int status); 
+
+Ottenere Stato Attivazione Pinza
+++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ottenere Stato Attivazione Pinza
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] status  bit0~bit15 corrispondono numeri pinza 0~15, bit=0 non attivato, bit=1 attivato
+    * @return   Codice errore
+    */
+    int GetGripperActivateStatus(ref int fault, ref int status);
+
+Ottenere Posizione Pinza
++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ottenere Posizione Pinza
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] position  Percentuale posizione, range 0~100%
+    * @return   Codice errore
+    */
+    int GetGripperCurPosition(ref int fault, ref int position);
+
+Ottenere Velocità Pinza
+++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ottenere Velocità Pinza
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] speed  Percentuale velocità, range 0~100%
+    * @return   Codice errore
+    */
+    int GetGripperCurSpeed(ref int fault, ref int speed);
+     
+Ottenere Corrente Pinza
+++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ottenere Corrente Pinza
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] current  Percentuale corrente, range 0~100%
+    * @return   Codice errore
+    */
+    int GetGripperCurCurrent(ref int fault, ref int current);
+
+Ottenere Tensione Pinza
+++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ottenere Tensione Pinza
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] voltage  Tensione, unità 0.1V
+    * @return   Codice errore
     */
     int GetGripperVoltage(ref int fault, ref int voltage);
 
-Get gripper temperature
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Temperatura Pinza
++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get gripper temperature
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] temp  Temperature, unit °C
-    * @return  Error code
+    * @brief  Ottenere Temperatura Pinza
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] temp  Temperatura, unità ℃
+    * @return   Codice errore
     */
     int GetGripperTemp(ref int fault, ref int temp);
 
-Calculate pre-gripping point - vision
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolare Punto Pre-Presa - Visione
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Calculate pre-gripping point - vision 
-    * @param [in] desc_pos Gripping point Cartesian pose 
-    * @param [in] zlength Z-axis offset 
-    * @param [in] zangle Rotation offset around the z-axis
-    * @param [out] pre_pos Pre-pick point
-    * @return Error code 
+    * @brief Calcolare Punto Pre-Presa - Visione 
+    * @param [in] desc_pos Posa cartesiana punto di presa 
+    * @param [in] zlength Offset asse z 
+    * @param [in] zangle Offset rotazione attorno asse z
+    * @param [out] pre_pos Punto pre-presa
+    * @return Codice errore 
     */ 
     int ComputePrePick(DescPose desc_pos, double zlength, double zangle, ref DescPose pre_pos);
 
-Calculate retreat point - vision
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolare Punto Post-Presa - Visione
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Calculate retreat point - visual 
-    * @param [in] desc_pos Retreat point Cartesian pose 
-    * @param [in] zlength Z-axis offset 
-    * @param [in] zangle Rotation offset around the Z-axis
-    * @param [out] post_pos Retreat point
-    * @return Error code 
+    * @brief Calcolare Punto Post-Presa - Visione 
+    * @param [in] desc_pos Posa cartesiana punto post-presa 
+    * @param [in] zlength Offset asse z 
+    * @param [in] zangle Offset rotazione attorno asse z
+    * @param [out] post_pos Punto post-presa
+    * @return Codice errore 
     */ 
     int ComputePostPick(DescPose desc_pos, double zlength, double zangle, ref DescPose post_pos);
 
-Robot Gripper Operation Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Operazioni Pinza Robot
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -270,47 +270,47 @@ Robot Gripper Operation Code Example
 
     }
 
-Get the number of rotations of the rotating gripper
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Numero Giri Pinza Rotante
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get the number of rotations of the rotating gripper
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] num  Number of rotations
-    * @return  Error code
+    * @brief  Ottenere Numero Giri Pinza Rotante
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] num  Numero giri rotazione
+    * @return   Codice errore
     */
     int GetGripperRotNum(ref UInt16 fault, ref double num);
 
-Get the rotation speed percentage of the rotating gripper
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Percentuale Velocità Rotazione Pinza Rotante
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get the rotation speed percentage of the rotating gripper
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] speed  Rotation speed percentage
-    * @return  Error code
+    * @brief  Ottenere Percentuale Velocità Rotazione Pinza Rotante
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] speed  Percentuale velocità rotazione
+    * @return   Codice errore
     */
     int GetGripperRotSpeed(ref UInt16 fault, ref int speed);
 
-Get the rotation torque percentage of the rotating gripper
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Percentuale Coppia Rotazione Pinza Rotante
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get the rotational torque percentage of the rotating gripper
-    * @param  [out] fault  0-no error, 1-error
-    * @param  [out] torque  Rotational torque percentage
-    * @return  Error code
+    * @brief  Ottenere Percentuale Coppia Rotazione Pinza Rotante
+    * @param  [out] fault  0-nessun errore, 1-errore presente
+    * @param  [out] torque  Percentuale coppia rotazione
+    * @return   Codice errore
     */
     int GetGripperRotTorque(ref UInt16 fault, ref int torque);
 
-Example of retrieving the rotational gripper status code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Ottenimento Stato Pinza Rotante
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -332,194 +332,194 @@ Example of retrieving the rotational gripper status code
         return 0;
     }
 
-Drive belt start/stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvio, Arresto Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Conveyor belt start/stop 
-    * @param [in] status Status, 1-start, 0-stop
-    * @return Error code 
+    * @brief Avvio, Arresto Nastro Trasportatore 
+    * @param [in] status Stato, 1-avvio, 0-arresto
+    * @return Codice errore 
     */ 
-    int ConveyorStartEnd(byte status);
+    int ConveyorStartEnd(byte status); 
 
-Record IO detection points
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrare Punto Rilevamento IO
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Record IO detection point 
-    * @return Error code 
+    * @brief Registrare Punto Rilevamento IO 
+    * @return Codice errore 
     */ 
     int ConveyorPointIORecord(); 
 
-Record point A
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrare Punto A
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Record Point A 
-    * @return Error code 
+    * @brief Registrare Punto A 
+    * @return Codice errore 
     */ 
     int ConveyorPointARecord();
 
-Record reference point
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrare Punto Riferimento
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Record reference point 
-    * @return Error code 
+    * @brief Registrare Punto Riferimento 
+    * @return Codice errore 
     */ 
     int ConveyorRefPointRecord(); 
 
-Record Point B
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Registrare Punto B
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Record Point B 
-    * @return Error code 
+    * @brief Registrare Punto B 
+    * @return Codice errore 
     */ 
     int ConveyorPointBRecord();
 
-Conveyor belt workpiece IO detection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rilevamento IO Pezzo Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Conveyor workpiece IO detection 
-    * @param [in] max_t Maximum detection time, unit ms
-    * @return Error code 
+    * @brief Rilevamento IO Pezzo Nastro Trasportatore 
+    * @param [in] max_t Tempo massimo rilevamento, unità ms
+    * @return Codice errore 
     */ 
     int ConveyorIODetect(int max_t);
 
-Get Object Current Position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Posizione Corrente Oggetto
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Get object current position 
-    * @param [in] mode 1-track grab, 2-track movement, 3-TPD tracking
-    * @return Error code 
+    * @brief Ottenere Posizione Corrente Oggetto 
+    * @param [in] mode 1-tracciamento presa, 2-tracciamento movimento, 3-tracciamento TPD
+    * @return Codice errore 
     */ 
     int ConveyorGetTrackData(int mode);
 
-Start conveyor tracking
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Tracciamento Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Start conveyor tracking 
-    * @param [in] status Status, 1-start, 0-stop
-    * @return Error code 
+    * @brief Inizio Tracciamento Nastro Trasportatore 
+    * @param [in] status Stato, 1-avvio, 0-arresto
+    * @return Codice errore 
     */
     int ConveyorTrackStart(byte status);
 
-Conveyor tracking stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Tracciamento Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Conveyor tracking stop 
-    * @return Error code 
+    * @brief Fine Tracciamento Nastro Trasportatore 
+    * @return Codice errore 
     */
     int ConveyorTrackEnd();
 
-Drive Belt Parameter Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Parametri Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Drive belt parameter configuration
-    * @param [in] para[0] Encoder channel 1~2
-    * @param [in] para[1] Number of pulses per encoder revolution
-    * @param [in] para[2] Conveyor belt travel distance per encoder revolution
-    * @param [in] para[3] Workpiece coordinate system number Select the workpiece coordinate system number for tracking motion functionality; set to 0 for tracking grasping and TPD tracking
-    * @param [in] para[4] Whether to configure vision 0: No configuration 1: Configuration
-    * @param [in] para[5] Speed ratio for conveyor belt tracking and grasping options (1-100). Other options default to 1.
-    * @param [in] followType Tracking motion type: 0-Tracking motion; 1 - Inspection movement
-    * @param [in] startDis Inspection tracking requires setting, tracking start distance, -1: automatically calculated (inspection starts automatically when the workpiece reaches below the robot), unit mm, default value 0
-    * @param [in] endDis Inspection tracking requires setting, tracking end distance, unit mm, default value 100
-    * @return Error code
+    * @brief Configurazione Parametri Nastro Trasportatore
+    * @param [in] para[0] Canale encoder 1~2
+    * @param [in] para[1] Numero impulsi per giro encoder
+    * @param [in] para[2] Distanza percorrenza nastro per giro encoder
+    * @param [in] para[3] Numero sistema coordinate pezzo Per funzione tracciamento movimento selezionare numero sistema coordinate pezzo, per tracciamento presa, TPD impostare 0
+    * @param [in] para[4] Se dotato di visione  0 no  1 sì
+    * @param [in] para[5] Rapporto velocità  Opzione tracciamento presa nastro (1-100)  Altre opzioni default 1 
+    * @param [in] followType Tipo movimento tracciamento, 0-tracciamento movimento; 1-movimento inseguimento ispezione
+    * @param [in] startDis Necessario per presa inseguimento ispezione, distanza inizio tracciamento, -1: calcolo automatico (inseguimento ispezione automatico dopo arrivo pezzo sotto robot), unità mm, valore default 0
+    * @param [in] endDis Necessario per presa inseguimento ispezione, distanza fine tracciamento, unità mm, valore default 100
+    * @return Codice errore
     */
     int ConveyorSetParam(int encChannel, int resolution, double lead, int wpAxis, int vision, double speedRadio, int followType, int startDis=0, int endDis=100);
 
-Set conveyor belt pickup point compensation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Compensazione Punto Presa Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Set conveyor belt catch point compensation 
-    * @param [in] cmp Compensation position double[3]{x, y, z}
-    * @return Error code 
+    * @brief Impostare Compensazione Punto Presa Nastro Trasportatore 
+    * @param [in] cmp Posizione compensazione double[3]{x, y, z}
+    * @return Codice errore 
     */
     int ConveyorCatchPointComp(double[] cmp);
 
-Conveyor belt tracking linear motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Lineare Tracciamento Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Conveyor belt tracking linear motion 
-    * @param [in] name Motion point name
-    * @param [in] tool Tool coordinate number, range [0~14] 
-    * @param [in] wobj Workpiece coordinate number, range [0~14] 
-    * @param [in] vel Velocity percentage, range [0~100] 
-    * @param [in] acc Acceleration percentage, range [0~100], currently unavailable 
-    * @param [in] ovl Velocity scaling factor, range [0~100] 
-    * @param [in] blendR [-1.0] - move to position (blocked), [0~1000.0] - smooth radius (unblocked), unit mm  
-    * @return Error code 
+    * @brief Movimento Lineare Tracciamento Nastro Trasportatore 
+    * @param [in] name Nome punto movimento
+    * @param [in] tool Numero sistema coordinate utensile, range [0~14] 
+    * @param [in] wobj Numero sistema coordinate pezzo, range [0~14] 
+    * @param [in] vel Percentuale velocità, range [0~100] 
+    * @param [in] acc Percentuale accelerazione, range [0~100], attualmente non disponibile 
+    * @param [in] ovl Fattore di scala velocità, range [0~100] 
+    * @param [in] blendR [-1.0]-movimento fino a posizione (bloccante), [0~1000.0]-raggio smoothing (non bloccante), unità mm  
+    * @return Codice errore 
     */
     int ConveyorTrackMoveL(string name, int tool, int wobj, float vel, float acc, float ovl, float blendR);
 
-Conveyor communication input detection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rilevamento Input Comunicazione Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Conveyor communication input detection
-    * @param [in] timeout Wait timeout in ms
-    * @return Error code
+    * @brief Rilevamento Input Comunicazione Nastro Trasportatore
+    * @param [in] timeout Tempo attesa timeout ms
+    * @return Codice errore
     */
     int ConveyorComDetect(int timeout);
 
-Conveyor Communication Input Detection Trigger
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Trigger Rilevamento Input Comunicazione Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Conveyor Communication Input Detection Trigger
-    * @return Error code
+    * @brief Trigger Rilevamento Input Comunicazione Nastro Trasportatore
+    * @return Codice errore
     */
     int ConveyorComDetectTrigger();
 
-Conveyor Communication Input Detection Trigger Example Program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Programma Trigger Rilevamento Input Comunicazione Nastro Trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     private void button3_Click(object sender, EventArgs e)
     {
 
-        // Disable the button to prevent repeated clicks
+        // Disabilitare pulsante per evitare clic ripetuti
         button3.Enabled = false;
 
-        // Execute time-consuming operations in a background thread
+        // Eseguire operazione lunga in thread background
         Thread conveyorThread = new Thread(ConveyorTest);
         conveyorThread.IsBackground = true;
         conveyorThread.Start();
@@ -527,20 +527,20 @@ Conveyor Communication Input Detection Trigger Example Program
 
     private void button4_Click(object sender, EventArgs e)
     {
-        // Get user input
+        // Ottenere input utente
         string input = texBox.Text;
         Console.WriteLine($"please input a number to trigger:{input}");
     
         int rtn = robot.ConveyorComDetectTrigger();
-        Console.WriteLine($"ConveyorComDetectTrigger return value: {rtn}");
+        Console.WriteLine($"ConveyorComDetectTrigger valore restituito: {rtn}");
         
     }
 
     private void ConveyorTest()
     {
-        // Use Invoke to update controls on the UI thread
+        // Usare Invoke per aggiornare controlli sul thread UI
         this.Invoke((MethodInvoker)delegate {
-            Console.WriteLine( "Starting conveyor test...");
+            Console.WriteLine("Inizio test nastro trasportatore...");
         });
 
         int retval = 0;
@@ -549,7 +549,7 @@ Conveyor Communication Input Detection Trigger Example Program
         bool block = false;
         retval = 0;
 
-        /* Conveyor belt grabbing process */
+        /* Processo presa nastro trasportatore */
         DescPose startdescPose = new DescPose(139.176f, 4.717f, 9.088f, -179.999f, -0.004f, -179.990f);
         JointPos startjointPos = new JointPos(-34.129f, -88.062f, 97.839f, -99.780f, -90.003f, -34.140f);
 
@@ -559,49 +559,49 @@ Conveyor Communication Input Detection Trigger Example Program
         ExaxisPos exaxisPos = new ExaxisPos(0, 0, 0, 0);
         DescPose offdese = new DescPose(0, 0, 0, 0, 0, 0);
 
-        // Move to a safe position
+        // Spostarsi a posizione sicura
         retval = robot.MoveL(homejointPos, homePose, 1, 1, 100, 100, 100, -1, exaxisPos, 0, 0, offdese, 1, 1);
-        Console.WriteLine($"MoveL to safe position return value: {retval}");
+        Console.WriteLine($"MoveL a posizione sicura valore restituito: {retval}");
 
-        // Conveyor detection
-        retval = robot.ConveyComDetect(1000 * 10);
-        Console.WriteLine($"ConveyorComDetect return value: {retval}");
+        // Rilevamento nastro trasportatore
+        retval = robot.ConveryComDetect(1000 * 10);
+        Console.WriteLine($"ConveyorComDetect valore restituito: {retval}");
 
-        // Get tracking data
+        // Ottenere dati tracciamento
         retval = robot.ConveyorGetTrackData(2);
-        Console.WriteLine($"ConveyorGetTrackData return value: {retval}");
+        Console.WriteLine($"ConveyorGetTrackData valore restituito: {retval}");
 
-        // Start tracking
+        // Inizio tracciamento
         retval = robot.ConveyorTrackStart(2);
-        Console.WriteLine($"ConveyorTrackStart return value: {retval}");
+        Console.WriteLine($"ConveyorTrackStart valore restituito: {retval}");
 
-        // Move to the starting position
+        // Spostarsi a posizione iniziale
         robot.MoveL(startjointPos, startdescPose, 1, 1, 100, 100, 100, -1, exaxisPos, 0, 0, offdese, 1, 1);
         robot.MoveL(startjointPos, startdescPose, 1, 1, 100, 100, 100, -1, exaxisPos, 0, 0, offdese, 1, 1);
 
-        // End tracking
+        // Fine tracciamento
         retval = robot.ConveyorTrackEnd();
-        Console.WriteLine($"ConveyorTrackEnd return value: {retval}");
+        Console.WriteLine($"ConveyorTrackEnd valore restituito: {retval}");
 
-        // Return to safe position
+        // Ritorno a posizione sicura
         robot.MoveL(homejointPos, homePose, 1, 1, 100, 100, 100, -1, exaxisPos, 0, 0, offdese, 1, 1);
 
         this.Invoke((MethodInvoker)delegate {
-            Console.WriteLine( "Conveyor belt test completed!");
+            Console.WriteLine("Test nastro trasportatore completato!");
             button3.Enabled = true;
         });
     }
 
-Robot Conveyor Belt Operation Example Program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Programma Operazioni Nastro Trasportatore Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     private void btnConvert_Click(object sender, EventArgs e)
-    {
+        {
         Robot robot = new Robot();
-        robot.RPC( "192.168.58.2");
-        DescPose pos1 = new DescPose(0, 0, 0, 0, 0, 0);
+        robot.RPC("192.168.58.2");
+        DescPose pos1 = new DescPose(0, 0, 0, 0 ,0 ,0);
         DescPose pos2 = new DescPose(0, 0, 0, 0, 0, 0);
 
         pos1.tran.x = -351.175;
@@ -634,16 +634,16 @@ Robot Conveyor Belt Operation Example Program
         Console.WriteLine($"ConveyorIODetect: rtn  {rtn}");
 
         robot.ConveyorGetTrackData(1);
-        rtn = robot. ConveyorTrackStart(1);
+        rtn = robot.ConveyorTrackStart(1);
         Console.WriteLine($"ConveyorTrackStart: rtn  {rtn}");
 
-        rtn = robot.ConveyorTrackMoveL( "cvrCatchPoint", 0, 0, 100.0f, 0.0f, 100.0f, -1.0f, 0, 0);
+        rtn = robot.ConveyorTrackMoveL("cvrCatchPoint", 0, 0, 100.0f, 0.0f, 100.0f, -1.0f, 0, 0);
         Console.WriteLine($"ConveyorTrackMoveL: rtn  {rtn}");
 
         rtn = robot.MoveGripper(1, 59, 43, 21, 30000, 0);
         Console.WriteLine($"MoveGripper: rtn  {rtn}");
 
-        rtn = robot.ConveyorTrackMoveL( "cvrRaisePoint", 0, 0, 100.0f, 0.0f, 100.0f, -1.0f, 0, 0);
+        rtn = robot.ConveyorTrackMoveL("cvrRaisePoint", 0, 0, 100.0f, 0.0f, 100.0f, -1.0f, 0, 0);
         Console.WriteLine($"ConveyorTrackMoveL: rtn  {rtn}");
 
         rtn = robot.ConveyorTrackEnd();
@@ -656,66 +656,66 @@ Robot Conveyor Belt Operation Example Program
         Console.WriteLine($"MoveGripper: rtn  {rtn}");
     }
 
-End Sensor Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Sensore Estremità
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  End Sensor Configuration
-    * @param  [in] idCompany Manufacturer, 18-JUNKONG; 25-HUIDE
-    * @param  [in] idDevice Type, 0-JUNKONG/RYR6T.V1.0
-    * @param  [in] idSoftware Software version, 0-J1.0/HuiDe1.0 (not yet available)
-    * @param  [in] idBus Mounting location, 1-End 1 port; 2-End 2 port... 8-Endpoint 8 port (not yet available)
-    * @return Error code
+    * @brief  Configurazione Sensore Estremità
+    * @param  [in] idCompany Produttore, 18-JUNKONG；25-HUIDE
+    * @param  [in] idDevice Tipo, 0-JUNKONG/RYR6T.V1.0
+    * @param  [in] idSoftware Versione software, 0-J1.0/HuiDe1.0(attualmente non disponibile)
+    * @param  [in] idBus Posizione montaggio, 1-porta 1 estremità; 2-porta 2 estremità...8-porta 8 estremità(attualmente non disponibile)
+    * @return   Codice errore
     */
     int AxleSensorConfig(int idCompany, int idDevice, int idSoftware, int idBus);
 
-Get endpoint sensor configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Configurazione Sensore Estremità
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get terminal sensor configuration
-    * @param  [out] idCompany Manufacturer, 18-JUNKONG; 25-HUIDE
-    * @param  [out] idDevice Type, 0-JUNKONG/RYR6T.V1.0
-    * @return  Error code
+    * @brief  Ottenere Configurazione Sensore Estremità
+    * @param  [out] idCompany Produttore, 18-JUNKONG；25-HUIDE
+    * @param  [out] idDevice Tipo, 0-JUNKONG/RYR6T.V1.0
+    * @return   Codice errore
     */
     int AxleSensorConfigGet(ref int idCompany, ref int idDevice);
 
-End-of-line sensor activation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione Sensore Estremità
++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
-    
+
     /**
-    * @brief  End-of-line sensor activation
-    * @param  [in] actFlag 0-reset; 1-activate
-    * @return  Error code
+    * @brief  Attivazione Sensore Estremità
+    * @param  [in] actFlag 0-reset; 1-attiva
+    * @return   Codice errore
     */
     int AxleSensorActivate(int actFlag);
 
-End Sensor Register Write
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura Registro Sensore Estremità
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  End Sensor Register Write
-    * @param  [in] devAddr  Device Address Number 0-255
-    * @param  [in] regHAddr High 8 bits of the register address
-    * @param  [in] regLAddr Low 8 bits of the register address
-    * @param  [in] regNum  Number of registers 0-255
-    * @param  [in] data1 Value to write to the register 1
-    * @param  [in] data2 Value to write to the register 2
-    * @param  [in] isNoBlock 0-blocking; 1-non-blocking
-    * @return  Error code
+    * @brief  Scrittura Registro Sensore Estremità
+    * @param  [in] devAddr  Numero indirizzo dispositivo 0-255
+    * @param  [in] regHAddr Indirizzo registro 8 bit alti
+    * @param  [in] regLAddr Indirizzo registro 8 bit bassi
+    * @param  [in] regNum  Numero registri 0-255
+    * @param  [in] data1 Valore scrittura registro 1
+    * @param  [in] data2 Valore scrittura registro 2
+    * @param  [in] isNoBlock 0-bloccante; 1-non bloccante
+    * @return   Codice errore
     */
      int AxleSensorRegWrite(int devAddr, int regHAddr, int regLAddr, int regNum, int data1, int data2, int isNoBlock);
 
-End Sensor Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Sensore Estremità
+++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -725,244 +725,242 @@ End Sensor Code Example
         int company = -1;
         int type = -1;
         robot.AxleSensorConfigGet(ref company, ref type);
-        Console.WriteLine( "company is " + company +  ", type is " + type);
+        Console.WriteLine("company is " + company + ", type is " + type);
 
         int rtn = robot.AxleSensorActivate(1);
-        Console.WriteLine( "AxleSensorActivate rtn is " + rtn);
+        Console.WriteLine("AxleSensorActivate rtn is " + rtn);
 
         Thread.Sleep(1000);
 
         rtn = robot.AxleSensorRegWrite(1, 4, 6, 1, 0, 0, 0);
-        Console.WriteLine( "AxleSensorRegWrite rtn is " + rtn);   
+        Console.WriteLine("AxleSensorRegWrite rtn is " + rtn);   
     }
 
-Obtain robot peripheral protocol
-++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Protocollo Periferiche Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-v1.0.6
 
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Get robot peripheral protocol
-    * @param [out] protocol Robot peripheral protocol number 4096-Extended Axle Control Card; 4097-ModbusSlave; 4098-ModbusMaster
-    * @return Error code 
+    * @brief Ottenere Protocollo Periferiche Robot
+    * @param [out] protocol Numero protocollo periferiche robot 4096-scheda controllo asse esteso; 4097-ModbusSlave; 4098-ModbusMaster
+    * @return Codice errore 
     */
     int GetExDevProtocol(ref int protocol);
 
-Set robot peripheral protocol
-++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Protocollo Periferiche Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-v1.0.6
 
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Set robot peripheral protocol
-    * @param [in] protocol Robot peripheral protocol number 4096-Extended Axis Control Card; 4097-Modbus Slave; 4098-Modbus Master
-    * @return Error code 
+    * @brief Impostare Protocollo Periferiche Robot
+    * @param [in] protocol Numero protocollo periferiche robot 4096-scheda controllo asse esteso; 4097-ModbusSlave; 4098-ModbusMaster
+    * @return Codice errore 
     */
     int SetExDevProtocol(int protocol);
 
-Example program for setting robot peripheral protocol
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Programma Impostazione Protocollo Periferiche Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
-
 
     private void btnSetProto_Click(object sender, EventArgs e)
     {
       int protocol = 4096;
       int rtn = robot.SetExDevProtocol(protocol);
-      
-      Console.WriteLine( "SetExDevProtocol rtn " + rtn);
+      Console.WriteLine("SetExDevProtocol rtn " + rtn);
       rtn = robot.GetExDevProtocol(ref protocol);
-      Console.WriteLine( "GetExDevProtocol rtn " + rtn +  " protocol is: " + protocol);
+      Console.WriteLine("GetExDevProtocol rtn " + rtn + " protocol is: " + protocol);
     }
 
-Get end-point communication parameters
+Ottenere Parametri Comunicazione Estremità
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get terminal communication parameters
-    * @param param Terminal communication parameters
-    * @return  Error code
+    * @brief Ottenere Parametri Comunicazione Estremità
+    * @param param Parametri comunicazione estremità
+    * @return   Codice errore
     */
     int GetAxleCommunicationParam(ref AxleComParam getParam);
 
-Set terminal communication parameters
+Impostare Parametri Comunicazione Estremità
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set terminal communication parameters
-    * @param param  Terminal communication parameters
-    * @return  Error code
+    * @brief Impostare Parametri Comunicazione Estremità
+    * @param param  Parametri comunicazione estremità
+    * @return   Codice errore
     */
     int SetAxleCommunicationParam(AxleComParam param);
 
-Set terminal file transfer type
+Impostare Tipo Trasmissione File Estremità
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the terminal file transfer type
-    * @param type 1-MCU upgrade file; 2-LUA file
-    * @return  Error code
+    * @brief Impostare Tipo Trasmissione File Estremità
+    * @param type 1-file aggiornamento MCU; 2-file LUA
+    * @return   Codice errore
     */
     int SetAxleFileType(int type);
 
-Set enable terminal LUA execution
+Impostare Abilitazione Esecuzione LUA Estremità
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Enable LUA execution at the end
-    * @param enable 0-Disabled; 1-Enabled
-    * @return  Error code
+    * @brief Impostare Abilitazione Esecuzione LUA Estremità
+    * @param enable 0-non abilitato; 1-abilitato
+    * @return   Codice errore
     */
     int SetAxleLuaEnable(int enable);
 
-End LUA file exception error recovery
+Recupero Errore Anomalo File LUA Estremità
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief End-of-file LUA file exception error recovery
-    * @param status 0-do not recover; 1-recover
-    * @return Error code
+    * @brief Recupero Errore Anomalo File LUA Estremità
+    * @param status 0-non recuperare; 1-recupera
+    * @return   Codice errore
     */
     int SetRecoverAxleLuaErr(int status);
 
-Get the enable status of the terminal LUA execution
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Abilitazione Esecuzione LUA Estremità
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the enable status of the terminal LUA execution
-    * @param [out] status 0-disabled; 1-enabled
-    * @return  Error code
+    * @brief Ottenere Stato Abilitazione Esecuzione LUA Estremità
+    * @param [out] status 0-non abilitato; 1-abilitato
+    * @return   Codice errore
     */
     int GetAxleLuaEnableStatus(ref int status);
 
-Set the enable type of the terminal LUA terminal device
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Tipo Dispositivi Estremità Abilitati LUA Estremità
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the enable type of the terminal LUA terminal device
-    * @param [in] forceSensorEnable Force sensor enable status, 0-disabled; 1-enabled
-    * @param [in] gripperEnable Gripper enable status, 0-disabled; 1-enabled
-    * @param [in] IOEnable IO device enable status, 0-disabled; 1-enabled
-    * @return  Error code
+    * @brief Impostare Tipo Dispositivi Estremità Abilitati LUA Estremità
+    * @param [in] forceSensorEnable Stato abilitazione sensore forza, 0-non abilitato; 1-abilitato
+    * @param [in] gripperEnable Stato abilitazione pinza, 0-non abilitato; 1-abilitato
+    * @param [in] IOEnable Stato abilitazione dispositivo IO, 0-non abilitato; 1-abilitato
+    * @return   Codice errore
     */
     int SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable);
 
-Get the enable type of the end-of-line LUA device
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Tipo Dispositivi Estremità Abilitati LUA Estremità
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the enable type of the end LUA device
-    * @param [out] forceSensorEnable Force sensor enable status, 0-disabled; 1-enabled
-    * @param [out] gripperEnable Gripper enable status, 0-disabled; 1-enabled
-    * @param [out] IOEnable IO device enable status, 0-disabled; 1-enabled
-    * @return  Error code
+    * @brief Ottenere Tipo Dispositivi Estremità Abilitati LUA Estremità
+    * @param [out] forceSensorEnable Stato abilitazione sensore forza, 0-non abilitato; 1-abilitato
+    * @param [out] gripperEnable Stato abilitazione pinza, 0-non abilitato; 1-abilitato
+    * @param [out] IOEnable Stato abilitazione dispositivo IO, 0-non abilitato; 1-abilitato
+    * @return   Codice errore
     */
     int GetAxleLuaEnableDeviceType(ref int forceSensorEnable, ref int gripperEnable, ref int IOEnable);
 
-Get the currently configured end device
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Dispositivi Estremità Configurati Correntemente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the currently configured end device
-    * @param [out] forceSensorEnable Force sensor enable device number 0-disabled; 1-enabled
-    * @param [out] gripperEnable Gripper enable device number, 0-disabled;1-enabled
-    * @param [out] IODeviceEnable IO device enable ID, 0-disabled; 1-enabled
-    * @return  Error code
+    * @brief Ottenere Dispositivi Estremità Configurati Correntemente
+    * @param [out] forceSensorEnable Numero dispositivo sensore forza abilitato 0-non abilitato; 1-abilitato
+    * @param [out] gripperEnable Numero dispositivo pinza abilitato, 0-non abilitato; 1-abilitato
+    * @param [out] IODeviceEnable Numero dispositivo IO abilitato, 0-non abilitato; 1-abilitato
+    * @return   Codice errore
     */
     int GetAxleLuaEnableDevice(ref int[] forceSensorEnable, ref int[] gripperEnable, ref int[] IODeviceEnable);
 
-Set enable gripper action control functionality
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Funzione Controllo Azione Pinza Abilitata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set enable claw action control function
-    * @param [in] id claw device number
-    * @param [in] func func[0]-claw enable; func[1]-claw initialization; 2-position setting;3-Set speed; 4-Set torque; 6-Read gripper status; 7-Read initialization status; 8-Read fault code; 9-Read position; 10-Read speed;11-read torque
-    * @return  Error code
+    * @brief Impostare Funzione Controllo Azione Pinza Abilitata
+    * @param [in] id Numero dispositivo pinza
+    * @param [in] func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
+    * @return   Codice errore
     */
     int SetAxleLuaGripperFunc(int id, int[] func);
 
-Get enable claw action control function
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Funzione Controllo Azione Pinza Abilitata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get enable claw action control function
-    * @param [in] id Gripper device ID
-    * @param [out] func func[0]-Gripper enable; func[1]-Gripper initialization; 2-Position setting; 3-Speed setting; 4-Torque setting; 6-Read gripper status; 7-Read initialization status; 8-Read fault code; 9-Read position; 10-Read speed; 11-Read torque
-    * @return  Error code
+    * @brief Ottenere Funzione Controllo Azione Pinza Abilitata
+    * @param [in] id Numero dispositivo pinza
+    * @param [out] func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
+    * @return   Codice errore
     */
     int GetAxleLuaGripperFunc(int id, ref int[] func);
 
-Writing robot Ethercat slave file
+Scrittura File Slave Robot Ethercat
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Writing robot Ethercat slave file
-    * @param [in] type Slave file type, 1-upgrade slave file; 2-upgrade slave configuration file
-    * @param [in] slaveID Slave ID
-    * @param [in] fileName Upload file name
-    * @return  Error code
+    * @brief Scrittura File Slave Robot Ethercat
+    * @param [in] type Tipo file slave, 1-aggiornamento file slave; 2-aggiornamento file configurazione slave
+    * @param [in] slaveID Numero slave
+    * @param [in] fileName Nome file caricamento
+    * @return   Codice errore
     */
     int SlaveFileWrite(int type, int slaveID, string fileName);
 
-Upload terminal Lua open protocol file
+Caricamento File Protocollo Aperto LUA Estremità
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Upload end Lua open protocol file
-    * @param filePath Local lua file path name  ".../AXLE_LUA_End_DaHuan.lua"
-    * @return Error code
-    */       
+    /** 
+    * @brief Caricamento File Protocollo Aperto LUA Estremità
+    * @param filePath Nome percorso file lua locale ".../AXLE_LUA_End_DaHuan.lua"
+    * @return Codice errore 
+    */
     int AxleLuaUpload(string filePath);
 
-Robot Ethercat slave enters boot mode
+Impostare Modalità Boot Slave Ethercat Robot
 +++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Robot Ethercat slave enters boot mode
-    * @return  Error code
+    * @brief Impostare Modalità Boot Slave Ethercat Robot
+    * @return   Codice errore
     */
     int SetSysServoBootMode();
 
-Robot End-of-Arm LUA File Operation Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Operazioni File LUA Estremità Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     private void button41_Click(object sender, EventArgs e)
+    private void button41_Click(object sender, EventArgs e)
     {
         ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
         robot.AxleLuaUpload("D://zUP/AXLE_LUA_End_JunDuo_Xinjingcheng.lua");
@@ -1024,8 +1022,8 @@ Robot End-of-Arm LUA File Operation Code Example
             Thread.Sleep(100);
         }
     }
-    
-Get SmartTool button status
+
+Ottenere Stato Pulsante SmartTool
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.3  Web-3.8.2
     
@@ -1033,14 +1031,14 @@ Get SmartTool button status
     :linenos:
 
     /**
-    * @brief Get SmartTool button status
-    * @param [out] state SmartTool handle button status; (bit0: 0 - communication normal; 1 - communication disconnected; bit1 - cancel operation; bit2 - clear program; 
-    bit3 - A key; bit4 - B key; bit5 - C key; bit6 - D key; bit7 - E key; bit8 - IO key; bit9 - manual/automatic; bit10 - start)
-    * @return Error code
+    * @brief Ottenere Stato Pulsante SmartTool
+    * @param [out] state Stato pulsanti manopola SmartTool;(bit0:0-comunicazione normale; 1-perdita comunicazione; bit1-annulla operazione; bit2-svuota programma;
+        bit3-pulsante A; bit4-pulsante B; bit5-pulsante C; bit6-pulsante D; bit7-pulsante E; bit8-pulsante IO; bit9-manuale/automatico; bit10-inizia)
+    * @return Codice errore
     */
     int GetSmarttoolBtnState(ref int state);
 
-Code example
+Esempio Codice
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.3  Web-3.8.2
     
@@ -1056,142 +1054,142 @@ Code example
         {
             int rtn = robot.GetSmarttoolBtnState(ref state);
             string binaryString = Convert.ToString(state, 2).PadLeft(32, '0');
-            Console.WriteLine($"GetSmarttoolBtnState rtn (binary): {binaryString}");
+            Console.WriteLine($"GetSmarttoolBtnState rtn (binario): {binaryString}");
             Thread.Sleep(100);
         }
 
     }
 
-Upload Open Protocol Lua File
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Caricamento File Lua Protocollo Aperto
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Upload Open Protocol Lua File
-    * @param  filePath Local open protocol lua file path name
-    * @return Error code
+    * @brief Caricamento File Lua Protocollo Aperto
+    * @param  filePath Nome percorso file lua protocollo aperto locale
+    * @return Codice errore
     */
-    public int OpenLuaUpload(String filePath)
+    public int OpenLuaUpload(string filePath)
 
 
-Get Slave Board Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Parametri Scheda Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Get Slave Board Parameters
-    * @param  type  0-Ethercat, 1-CClink, 3-Ethercat, 4-EIP
-    * @param  version  Protocol version
-    * @param  connState  0-Disconnected 1-Connected
-    * @return  Error code
+    * @brief  Ottenere Parametri Scheda Slave
+    * @param  type  0-Ethercat，1-CClink, 3-Ethercat, 4-EIP
+    * @param  version  Versione protocollo
+    * @param  connState  0-non connesso 1-connesso
+    * @return   Codice errore
     */
     public int GetFieldBusConfig(int[] type, int[] version, int[] connState)
 
-Write Slave DO
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura DO Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Write Slave DO
-    * @param   DOIndex  DO number
-    * @param   wirteNum  Number to write
-    * @param   status Value to write, max 8
-    * @return  Error code
+    * @brief  Scrittura DO Slave
+    * @param   DOIndex  Numero DO
+    * @param   wirteNum  Quantità scrittura
+    * @param   status Valori scrittura, massimo 8
+    * @return   Codice errore
     */
     public int FieldBusSlaveWriteDO(int DOIndex, int wirteNum, int[] status)
 
-Write Slave AO
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scrittura AO Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Write Slave AO
-    * @param  AOIndex  AO number
-    * @param  wirteNum  Number to write
-    * @param  status Value to write, max 8
-    * @return  Error code
+    * @brief  Scrittura AO Slave
+    * @param  AOIndex  Numero AO
+    * @param  wirteNum  Quantità scrittura
+    * @param  status Valori scrittura, massimo 8
+    * @return   Codice errore
     */
     public int FieldBusSlaveWriteAO(int AOIndex, int wirteNum, int[] status)
 
-Read Slave DI
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lettura DI Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Read Slave DI
-    * @param  DOIndex  DI number
-    * @param  readNum  Number to read
-    * @param  status Read value, max 8
-    * @return  Error code
+    * @brief  Lettura DI Slave
+    * @param  DOIndex  Numero DI
+    * @param  readNum  Quantità lettura
+    * @param  status Valori letti, massimo 8
+    * @return   Codice errore
     */
     public int FieldBusSlaveReadDI(int DOIndex, int readNum, int[] status)
 
-Read Slave AI
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lettura AI Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Read Slave AI
-    * @param  AIIndex  AI number
-    * @param  readNum  Number to read
-    * @param  status Read value, max 8
-    * @return  Error code
+    * @brief  Lettura AI Slave
+    * @param  AIIndex  Numero AI
+    * @param  readNum  Quantità lettura
+    * @param  status Valori letti, massimo 8
+    * @return   Codice errore
     */
     public int FieldBusSlaveReadAI(int AIIndex, int readNum, double[] status)
 
-Wait for Extended DI Input
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attesa Input DI Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Wait for Extended DI Input
-    * @param  DIIndex DI number
-    * @param  status 0-Low level; 1-High level
-    * @param  waitMs Max waiting time (ms)
-    * @return Error code
+    * @brief Attesa Input DI Esteso
+    * @param  DIIndex Numero DI
+    * @param  status 0-livello basso; 1-livello alto
+    * @param  waitMs Tempo massimo attesa(ms)
+    * @return Codice errore
     */
     public int FieldBusSlaveWaitDI(int DIIndex, int status, int waitMs)
 
-Wait for Extended AI Input
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attesa Input AI Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Wait for Extended AI Input
-    * @param  AIIndex AI number
-    * @param  waitType 0-Greater than; 1-Less than
-    * @param  value AI value
-    * @param  waitMs Max waiting time (ms)
-    * @return Error code
+    * @brief Attesa Input AI Esteso
+    * @param  AIIndex Numero AI
+    * @param  waitType 0-maggiore; 1-minore
+    * @param  value Valore AI
+    * @param  waitMs Tempo massimo attesa(ms)
+    * @return Codice errore
     */
     public int FieldBusSlaveWaitAI(int AIIndex, int waitType, double value, int waitMs)
 
-Slave Mode Related Interface Command Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Istruzioni Interfacce Relative Modalità Slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -1208,7 +1206,7 @@ Slave Mode Related Interface Command Code Example
         {
             return;
         }
-        // Upload and load open protocol file
+        // Caricare e caricare file protocollo aperto
         robot.OpenLuaUpload("E://zup/CtrlDev_field.lua");
         Thread.Sleep(2000);
         robot.SetCtrlOpenLUAName(3, "CtrlDev_field.lua");
@@ -1216,17 +1214,17 @@ Slave Mode Related Interface Command Code Example
         robot.LoadCtrlOpenLUA(3);
         Thread.Sleep(8000);
     
-        // Get protocol type, software version, and connection status with PLC
+        // Ottenere tipo protocollo, versione software, stato connessione con PLC
         robot.GetFieldBusConfig(ref type, ref version, ref connState);
         Console.WriteLine($"type is {type}, version is {version}, connState is {connState}");
     
-        // Write DO0 = 1, DO1 = 0, DO2 = 1
+        // Scrivere DO0 = 1, DO1 = 0, DO2 = 1
         ctrl[0] = 1;
         ctrl[1] = 0;
         ctrl[2] = 1;
         robot.FieldBusSlaveWriteDO(0, 3, ctrl);
     
-        // Write AO2 = 0x1000
+        // Scrivere AO2 = 0x1000
         ctrlAO[0] = 0x1000;
         robot.FieldBusSlaveWriteAO(2, 1, ctrlAO);
 
@@ -1245,57 +1243,57 @@ Slave Mode Related Interface Command Code Example
         Console.WriteLine($"FieldBusSlaveWaitAI result is {ret}"); 
     }
 
-Control Array Sucker
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllo Ventosa a Matrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Control Array Sucker
-    * @param  slaveID Slave ID
-    * @param  len Length
-    * @param  ctrlValue Control value 1-Suction at max vacuum; 2-Suction at set vacuum; 3-Stop suction
-    * @return Error code
+    * @brief Controllo Ventosa a Matrice
+    * @param  slaveID Numero slave
+    * @param  len Lunghezza
+    * @param  ctrlValue Valore controllo 1-aspirazione massima pressione vuoto 2-aspirazione pressione vuoto impostata 3-fermare aspirazione
+    * @return Codice errore
     */
     public int SetSuckerCtrl(int slaveID, int len, int[] ctrlValue)
 
-Get Array Sucker Status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Ventosa a Matrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get Array Sucker Status
-    * @param  slaveID Slave ID
-    * @param  state Adsorption state 0-Release object; 1-Workpiece detected and adsorbed successfully; 2-No object adsorbed; 3-Object detached
-    * @param  pressValue Current vacuum degree Unit kpa
-    * @param  error Sucker current error code
-    * @return Error code
+    * @brief Ottenere Stato Ventosa a Matrice
+    * @param  slaveID Numero slave
+    * @param  state Stato aspirazione 0-rilascio oggetto 1-rilevato presa oggetto riuscita 2-nessun oggetto aspirato 3-oggetto staccato
+    * @param  pressValue Pressione vuoto corrente unità kpa
+    * @param  error Codice errore corrente ventosa
+    * @return Codice errore
     */
     public int GetSuckerState(int slaveID, int[] state, int[] pressValue, int[] error)
 
-Wait for Sucker Status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attesa Stato Ventosa
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.7  Web-3.8.5
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Wait for Sucker Status
-    * @param  slaveID Slave ID
-    * @param  state Adsorption state 0-Release object; 1-Workpiece detected and adsorbed successfully; 2-No object adsorbed; 3-Object detached
-    * @param  ms Max waiting time
-    * @return Error code
+    * @brief Attesa Stato Ventosa
+    * @param  slaveID Numero slave
+    * @param  state Stato aspirazione 0-rilascio oggetto 1-rilevato presa oggetto riuscita 2-nessun oggetto aspirato 3-oggetto staccato
+    * @param  ms Tempo massimo attesa
+    * @return Codice errore
     */
     public int WaitSuckerState(int slaveID, int state, int ms)
 
-Array Sucker Control Command Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Istruzioni Controllo Ventosa a Matrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -1309,18 +1307,18 @@ Array Sucker Control Command Code Example
         int rtn;
     
     
-        // Upload and load open protocol file
+        // Caricare e caricare file protocollo aperto
         robot.OpenLuaUpload(@"C:\SDK\CtrlDev_sucker.lua");
         Thread.Sleep(2000);
         robot.UnloadCtrlOpenLUA(1);
         robot.LoadCtrlOpenLUA(1);
         Thread.Sleep(1000);
     
-        // Control sucker in broadcast mode with maximum adsorption capacity
+        // Controllare ventosa in modalità broadcast con capacità aspirazione massima
         ctrl[0] = 1;
         robot.SetSuckerCtrl(0, 1, ctrl);
     
-        // Monitor states of sucker 1 and sucker 12 in a loop
+        // Monitorare stati ventosa 1 e ventosa 12 in ciclo
         for (int i = 0; i < 100; i++)
         {
             robot.GetSuckerState(1, ref state, ref pressValue, ref error);
@@ -1329,11 +1327,11 @@ Array Sucker Control Command Code Example
             Console.WriteLine($"sucker12 state is {state}, pressValue is {pressValue}, error num is {error}");
             Thread.Sleep(100);
         }
-        // Wait for sucker 1 to reach adsorbed state, timeout 100ms
+        // Attendere ventosa 1 raggiunga stato aspirato, timeout 100ms
         int ret = robot.WaitSuckerState(1, 1, 100);
         Console.WriteLine($"WaitSuckerState result is {ret}");
     
-        // Unicast mode to turn off sucker 1 and 12
+        // Modalità unicast spegnere ventosa 1 e 12
         ctrl[0] = 3;
         robot.SetSuckerCtrl(1, 1, ctrl);
         robot.SetSuckerCtrl(12, 1, ctrl);
@@ -1341,7 +1339,7 @@ Array Sucker Control Command Code Example
         robot.CloseRPC();
     }
 
-Laser peripheral on/off function
+Funzione Accensione/Spegnimento Periferica Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1350,14 +1348,14 @@ Laser peripheral on/off function
 
 
     /**
-    * @brief Laser peripheral on/off function
-    * @param [in] OnOff 0-off 1-on
-    * @param [in] weldId Weld seam ID, default is 0
-    * @return Error code
-    */
+     * @brief Funzione Accensione/Spegnimento Periferica Laser
+     * @param [in] OnOff 0-spegnere 1-accendere
+     * @param [in] weldId ID saldatura default 0
+     * @return Codice errore
+     */
     public int LaserTrackingLaserOnOff(int OnOff, int weldId)
     
-Laser tracking start/stop function
+Funzione Inizio/Fine Tracciamento Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1366,14 +1364,14 @@ Laser tracking start/stop function
 
     
     /**
-    * @brief Laser tracking start/stop function
-    * @param [in] OnOff 0-stop 1-start
-    * @param [in] coordId Laser peripheral tool coordinate system number
-    * @return Error code
-    */
+     * @brief Funzione Inizio/Fine Tracciamento Laser
+     * @param [in] OnOff 0-fine 1-inizio
+     * @param [in] coordId Numero sistema coordinate utensile periferica laser
+     * @return Codice errore
+     */
     public int LaserTrackingTrackOnOff(int OnOff, int coordId)
 
-Laser positioning - fixed direction
+Ricerca Posizione Laser - Direzione Fissa Inversa
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1382,17 +1380,17 @@ Laser positioning - fixed direction
 
 
     /**
-    * @brief Laser positioning - fixed direction
-    * @param [in] direction 0-x+ 1-x- 2-y+ 3-y- 4-z+ 5-z-
-    * @param [in] vel Speed in %
-    * @param [in] distance Maximum positioning distance in mm
-    * @param [in] timeout Positioning timeout in ms
-    * @param [in] posSensorNum Laser calibrated tool coordinate number
-    * @return Error code
-    */
+     * @brief Ricerca Posizione Laser - Direzione Fissa Inversa
+     * @param [in] direction 0-x+ 1-x- 2-y+ 3-y- 4-z+ 5-z-
+     * @param [in] vel Velocità unità%
+     * @param [in] distance Distanza massima ricerca unità mm
+     * @param [in] timeout Timeout ricerca unità ms
+     * @param [in] posSensorNum Numero sistema coordinate utensile calibrato laser
+     * @return Codice errore
+     */
     public int LaserTrackingSearchStart_xyz(int direction, int vel, int distance, int timeout, int posSensorNum)
     
-Laser positioning - arbitrary direction
+Ricerca Posizione Laser - Direzione Arbitraria
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1401,17 +1399,17 @@ Laser positioning - arbitrary direction
 
 
     /**
-    * @brief Laser positioning - arbitrary direction
-    * @param [in] directionPoint XYZ coordinates of the positioning input point
-    * @param [in] vel Speed in %
-    * @param [in] distance Maximum positioning distance in mm
-    * @param [in] timeout Positioning timeout in ms
-    * @param [in] posSensorNum Laser calibrated tool coordinate number
-    * @return Error code
-    */
+     * @brief Ricerca Posizione Laser - Direzione Arbitraria
+     * @param [in] directionPoint Coordinate xyz punto input ricerca
+     * @param [in] vel Velocità unità%
+     * @param [in] distance Distanza massima ricerca unità mm
+     * @param [in] timeout Timeout ricerca unità ms
+     * @param [in] posSensorNum Numero sistema coordinate utensile calibrato laser
+     * @return Codice errore
+     */
     public int LaserTrackingSearchStart_point(DescTran directionPoint, int vel, int distance, int timeout, int posSensorNum)
    
-Laser positioning stop
+Fine Ricerca Posizione Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1420,12 +1418,12 @@ Laser positioning stop
 
 
     /**
-    * @brief Laser positioning stop
-    * @return Error code
+    * @brief  Fine Ricerca Posizione Laser
+    * @return Codice errore
     */
     public int LaserTrackingSearchStop()
 
-Laser IP configuration
+Configurazione IP Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1434,14 +1432,14 @@ Laser IP configuration
 
 
     /**
-    * @brief Laser IP configuration
-    * @param [in] ip IP address of the laser peripheral
-    * @param [in] port Port number of the laser peripheral
-    * @return Error code
-    */
+     * @brief Configurazione IP Laser
+     * @param [in] ip Indirizzo IP periferica laser
+     * @param [in] port Numero porta periferica laser
+     * @return Codice errore
+     */
     public int LaserTrackingSensorConfig(string ip, int port)
 
-Laser peripheral sampling period configuration
+Configurazione Periodo Campionamento Periferica Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1450,13 +1448,13 @@ Laser peripheral sampling period configuration
 
 
     /**
-    * @brief Laser peripheral sampling period configuration
-    * @param [in] period Laser peripheral sampling period in ms
-    * @return Error code
-    */
+     * @brief Configurazione Periodo Campionamento Periferica Laser
+     * @param [in] period Periodo campionamento periferica laser unità ms
+     * @return Codice errore
+     */
     public int LaserTrackingSensorSamplePeriod(int period)
 
-Laser peripheral driver loading
+Caricamento Driver Periferica Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1465,13 +1463,13 @@ Laser peripheral driver loading
 
 
     /**
-    * @brief Laser peripheral driver loading
-    * @param [in] type Laser peripheral driver protocol type 101-Ruiniu 102-Chuangxiang 103-Quanshi 104-Tongzhou 105-Aotai
-    * @return Error code
-    */
+     * @brief Caricamento Driver Periferica Laser
+     * @param [in] type Tipo protocollo driver periferica laser 101-Ruiniao 102-Chuangxiang 103-Quanshi 104-Tongzhou 105-Aotai
+     * @return Codice errore
+     */
     public int LoadPosSensorDriver(int type)
 
-Laser Peripheral Driver Unloading
+Scaricamento Driver Periferica Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1480,12 +1478,12 @@ Laser Peripheral Driver Unloading
 
 
     /**
-    * @brief Laser peripheral driver unloading
-    * @return Error code
-    */
+     * @brief Scaricamento Driver Periferica Laser
+     * @return Codice errore
+     */
     public int UnLoadPosSensorDriver()
 
-Laser Weld Seam Trajectory Recording
+Registrazione Traiettoria Saldatura Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1494,14 +1492,14 @@ Laser Weld Seam Trajectory Recording
 
 
     /**
-    * @brief Laser weld seam trajectory recording
-    * @param [in] status 0-stop recording 1-real-time tracking 2-start recording
-    * @param [in] delayTime Delay time in ms
-    * @return Error code
-    */
+     * @brief Registrazione Traiettoria Saldatura Laser
+     * @param [in] status 0-fermare registrazione 1-tracciamento tempo reale  2-iniziare registrazione
+     * @param [in] delayTime Tempo ritardo unità ms
+     * @return Codice errore
+     */
     public int LaserSensorRecord1(int status, int delayTime)
 
-Laser Weld Seam Trajectory Replay
+Riproduzione Traiettoria Saldatura Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1510,14 +1508,14 @@ Laser Weld Seam Trajectory Replay
 
 
     /**
-    * @brief Laser weld seam trajectory replay
-    * @param [in] delayTime Delay time in ms
-    * @param [in] speed Speed in %
-    * @return Error code
-    */
+     * @brief Riproduzione Traiettoria Saldatura Laser
+     * @param [in] delayTime Tempo ritardo unità ms
+     * @param [in] speed Velocità unità%
+     * @return Codice errore
+     */
     public int LaserSensorReplay(int delayTime, double speed)
 
-Laser Tracking Replay
+Riproduzione Tracciamento Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1526,12 +1524,12 @@ Laser Tracking Replay
 
 
     /**
-    * @brief Laser tracking replay
-    * @return Error code
-    */
+     * @brief Riproduzione Tracciamento Laser
+     * @return Codice errore
+     */
     public int MoveLTR()
 
-Laser Weld Seam Trajectory Recording and Replay
+Riproduzione Traiettoria Saldatura Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1540,18 +1538,18 @@ Laser Weld Seam Trajectory Recording and Replay
 
 
     /**
-    * @brief Laser weld seam trajectory recording and replay
-    * @param [in] delayMode Mode 0-delay time 1-delay distance
-    * @param [in] delayTime Delay time in ms
-    * @param [in] delayDisExAxisNum Extended axis number
-    * @param [in] delayDis Delay distance in mm
-    * @param [in] sensitivePara Compensation sensitivity coefficient
-    * @param [in] speed Speed in %
-    * @return Error code
-    */
+     * @brief Riproduzione Traiettoria Saldatura Laser
+     * @param [in] delayMode Modalità 0-tempo ritardo 1-distanza ritardo
+     * @param [in] delayTime Tempo ritardo unità ms
+     * @param [in] delayDisExAxisNum Numero asse esteso
+     * @param [in] delayDis Distanza ritardo unità mm
+     * @param [in] sensitivePara Coefficiente sensibilità compensazione
+     * @param [in] speed Velocità unità%
+     * @return Codice errore
+     */
     public int LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum, double delayDis, double sensitivePara, double speed)
-
-Move to Laser Record Start Point
+    
+Movimento a Punto Inizio Registrazione Saldatura
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1560,14 +1558,14 @@ Move to Laser Record Start Point
 
 
     /**
-    * @brief Move to laser record start point
-    * @param [in] moveType 0-PTP 1-LIN
-    * @param [in] ovl Speed in %
-    * @return Error code
-    */
+     * @brief Movimento a Punto Inizio Registrazione Saldatura
+     * @param [in] moveType 0-PTP 1-LIN
+     * @param [in] ovl Velocità unità%
+     * @return Codice errore
+     */
     public int MoveToLaserRecordStart(int moveType, double ovl)
 
-Move to Laser Record End Point
+Movimento a Punto Fine Registrazione Saldatura
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1576,14 +1574,14 @@ Move to Laser Record End Point
 
 
     /**
-    * @brief Move to laser record end point
-    * @param [in] moveType 0-PTP 1-LIN
-    * @param [in] ovl Speed in %
-    * @return Error code
-    */
+     * @brief Movimento a Punto Fine Registrazione Saldatura
+     * @param [in] moveType 0-PTP 1-LIN
+     * @param [in] ovl Velocità unità%
+     * @return Codice errore
+     */
     public int MoveToLaserRecordEnd(int moveType, double ovl)
 
-Move to Laser Sensor Positioning Point
+Movimento a Punto Ricerca Sensore Laser
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
@@ -1592,20 +1590,19 @@ Move to Laser Sensor Positioning Point
 
 
     /**
-    * @brief Move to laser sensor positioning point
-    * @param [in] moveFlag Motion type: 0-PTP; 1-LIN
-    * @param [in] ovl Speed scaling factor, 0-100
-    * @param [in] dataFlag Weld seam cache data selection: 0-execute planning data; 1-execute recorded data
-    * @param [in] plateType Plate type: 0-corrugated plate; 1-corrugated cardboard; 2-fence plate; 3-oil drum; 4-corrugated shell steel
-    * @param [in] trackOffectType Laser sensor offset type: 0-no offset; 1-base coordinate system offset; 2-tool coordinate system offset; 3-laser sensor raw data offset
-    * @param [in] offset Offset value
-    * @return Error code
-    */
+     * @brief Movimento a Punto Ricerca Sensore Laser
+     * @param [in] moveFlag Tipo movimento: 0-PTP; 1-LIN
+     * @param [in] ovl Fattore di scala velocità, 0-100
+     * @param [in] dataFlag Selezione dati cache saldatura: 0-eseguire dati pianificati; 1-eseguire dati registrati
+     * @param [in] plateType Tipo piastra: 0-piastra ondulata; 1-piastra a nido d'ape; 2-piastra recinzione; 3-fusto olio; 4-acciaio corazza ondulata
+     * @param [in] trackOffectType Tipo offset sensore laser: 0-nessun offset; 1-offset sistema base; 2-offset sistema utensile; 3-offset dati originali sensore laser
+     * @param [in] offset Quantità offset
+     * @return Codice errore
+     */
     public int MoveToLaserSeamPos(int moveFlag, double ovl, int dataFlag, int plateType, int trackOffectType, DescPose offset)
-
     
-Get laser sensor positioning point coordinate information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Informazioni Coordinate Punto Ricerca Sensore Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
@@ -1613,20 +1610,20 @@ Get laser sensor positioning point coordinate information
 
 
     /**
-    * @brief Get laser sensor positioning point coordinate information
-    * @param [in] trackOffectType Laser sensor offset type: 0-no offset; 1-base coordinate system offset; 2-tool coordinate system offset; 3-laser sensor raw data offset
-    * @param [in] offset Offset value
-    * @param [out] jPos Joint position [°]
-    * @param [out] descPos Cartesian position [mm]
-    * @param [out] tool Tool coordinate system
-    * @param [out] user Workpiece coordinate system
-    * @param [out] exaxis Extended axis position [mm]
-    * @return Error code
-    */
+     * @brief Ottenere Informazioni Coordinate Punto Ricerca Sensore Laser
+     * @param [in] trackOffectType Tipo offset sensore laser: 0-nessun offset; 1-offset sistema base; 2-offset sistema utensile; 3-offset dati originali sensore laser
+     * @param [in] offset Quantità offset
+     * @param [out] jPos Posizione articolare[°]
+     * @param [out] descPos Posizione cartesiana[mm]
+     * @param [out] tool Sistema coordinate utensile
+     * @param [out] user Sistema coordinate pezzo
+     * @param [out] exaxis Posizione asse esteso[mm]
+     * @return Codice errore
+     */
     public int GetLaserSeamPos(int trackOffectType, DescPose offset, ref JointPos jPos, ref DescPose descPos, ref int tool, ref int user, ref ExaxisPos exaxis)
 
-Laser Peripheral Sensor Parameter Configuration and Debugging Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Configurazione Parametri Sensore Periferica Laser e Debug
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
@@ -1647,8 +1644,8 @@ Laser Peripheral Sensor Parameter Configuration and Debugging Code Example
         robot.LaserTrackingLaserOnOff(1, 0);
     }
 
-Laser Trajectory Scanning and Trajectory Replay Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Scansione Traiettoria Laser e Riproduzione Traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
@@ -1686,13 +1683,13 @@ Laser Trajectory Scanning and Trajectory Replay Code Example
             robot.LaserSensorReplay(10, 100);
             robot.MoveLTR();
             robot.LaserSensorRecord1(0, 10);
-            Console.WriteLine($"Number of completions : {i+1} ");
+            Console.WriteLine($"Numero completamenti : {i+1} ");
         }
                 
     }
 
-Laser Positioning and Real-time Tracking Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Ricerca Posizione Laser e Tracciamento Tempo Reale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
@@ -1730,12 +1727,12 @@ Laser Positioning and Real-time Tracking Code Example
             DescPose enddescPose = new DescPose(-103.555, -464.234, 13.076, 174.179, -1.344, -91.709);
             robot.MoveL(endjointPos, enddescPose, 1, 0, 20, 100, 100, -1, exaxisPos, 0, 0, offdese, 0);
             robot.LaserTrackingTrackOnOff(0, 3);
-            Console.WriteLine($"Number of completions : {i + 1} ");
+            Console.WriteLine($"Numero completamenti : {i + 1} ");
         }
     }
 
-Extended Axis and Robot Synchronized Laser Tracking Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Tracciamento Laser con Asse Esteso e Robot Sincronizzati
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.8  Web-3.8.6
 
 .. code-block:: c#
@@ -1776,7 +1773,6 @@ Extended Axis and Robot Synchronized Laser Tracking Code Example
                 robot.ExtAxisSyncMoveL(endjointPos, enddescPose, 1, 0, 20, 100, 100, -1, endexaxisPos, 0, offdese);
                 robot.LaserTrackingTrackOnOff(0, 2);
             }
-            Console.WriteLine($"Number of completions : {i + 1} ");
+            Console.WriteLine($"Numero completamenti : {i + 1} ");
         }     
     }
-

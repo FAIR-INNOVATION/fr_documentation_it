@@ -1,150 +1,150 @@
-Appendix
+Appendice
 =================
 
 .. toctree:: 
     :maxdepth: 5
 
-Source Code Download
+Download Codice Sorgente
 ------------------------------------------------
 
-Find the "Downloads" section in the FAIRINO documentation (https://fairino-doc-en.readthedocs.io/latest/), click the "Python SDK" button, and then click "FAIRINO Python SDK" on the right-hand page. Wait for the browser to complete the download.
+Nel sito di documentazione di FAIR (https://fairino-doc-it.readthedocs.io/latest/), trovare il modulo "Download Materiali", fare clic sul pulsante "Python SDK", quindi nella pagina a destra fare clic su "FAIRINO Python SDK" e attendere il completamento del download del browser.
 
 .. image:: image/025.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.1‑1 Python SDK Source Code Download
+.. centered:: Figura 16.1‑1 Download Codice Sorgente Python SDK
 
-Download and extract the Python SDK. The project directory is shown below. The "windows" folder contains the Python SDK for Windows systems, and the "linux" folder contains the Python SDK for Linux systems.
+Scaricare ed estrarre il Python SDK. La struttura della directory del progetto è mostrata nella figura seguente. La cartella `windows` contiene il Python SDK per sistemi Windows; la cartella `linux` contiene il Python SDK per sistemi Linux.
 
 .. image:: image/026.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.1‑2 Python SDK File Structure Example
+.. centered:: Figura 16.1‑2 Esempio Struttura File Python SDK
 
-Taking the Windows system as an example, open the "windows" folder. The directory is shown below. The "example" folder contains test samples, the "fairino" folder contains the Python SDK source code, and "libfairino" contains library files.
+Prendendo come esempio il sistema Windows, aprire la cartella `windows`. La directory è mostrata nella figura seguente. La cartella `example` contiene esempi di test, la cartella `fairino` contiene il codice sorgente del Python SDK e `libfairino` contiene i file di libreria.
 
 .. image:: image/027.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.1‑3 Python SDK File Structure Example for Windows Systems
+.. centered:: Figura 16.1‑3 Esempio Struttura File Python SDK per Sistema Windows
 
-Open the "windows" folder in PyCharm. The structure is shown below.
+Aprire la cartella `windows` utilizzando il software Pycharm. La struttura è mostrata nella figura seguente.
 
 .. image:: image/028.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 16.1‑4 Project File Structure Example in PyCharm
+.. centered:: Figura 16.1‑4 Esempio Struttura File Progetto in Pycharm
  
-Source Code Compilation
+Compilazione Codice Sorgente
 ----------------------------------------
-The generation of Python dynamic libraries varies depending on the system type and Python version. For example, on Windows platforms, the library file suffix is ".pyd", while on Linux platforms, it is ".so". Additionally, dynamic libraries generated for different Python versions cannot be mixed. Therefore, before generating dynamic libraries, ensure the Python version and platform are correctly selected. This manual uses Python 3.10, Windows 11, and Ubuntu 22.04 for compilation instructions.
+La generazione della libreria dinamica Python produce librerie diverse a seconda del tipo di sistema e della versione di Python. Ad esempio, sulla piattaforma Windows il file di libreria generato ha estensione ".pyd", mentre su Linux ha estensione ".so". Inoltre, le librerie dinamiche generate da versioni diverse di Python non possono essere utilizzate in modo intercambiabile. Pertanto, prima di generare la libreria dinamica, è necessario determinare la versione di Python, la piattaforma di utilizzo, ecc. Questo manuale fornisce istruzioni per la compilazione utilizzando Python 3.10, Windows 11 e Ubuntu 22.04.
 
-Windows Platform Python SDK Compilation
+Compilazione Python SDK su Piattaforma Windows
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-First, open the downloaded Python SDK files in PyCharm and open the "setup.py" file.
+Innanzitutto, aprire il file Python SDK scaricato utilizzando Pycharm e aprire il file `setup.py`;
 
 .. image:: image/029.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑1 Opening the Project File
+.. centered:: Figura 16.2‑1 Apertura File Progetto
 
-Then, select the Python interpreter at the bottom-right corner. This example uses Python 3.10.
+Quindi, fare clic nell'angolo in basso a destra per selezionare l'interprete Python. In questo esempio si utilizza Python 3.10;
 
 .. image:: image/030.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑2 Selecting the Python Version
+.. centered:: Figura 16.2‑2 Selezione Versione Python
  
-Right-click the "fairino" folder, click "Open In," and then click "Terminal."
+Fare clic con il tasto destro sulla cartella `fairino`, selezionare "Apri in", quindi fare clic su "Terminale";
 
 .. image:: image/031.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑3 Opening the Terminal
+.. centered:: Figura 16.2‑3 Apertura Terminale
 
-In the terminal, enter "python setup.py build_ext --inplace" and press "Enter" to generate the Python SDK dynamic library.
+Nell'interfaccia del terminale, inserire "python setup.py build_ext --inplace" e premere "Invio" per generare la libreria dinamica Python SDK;
 
 .. image:: image/032.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑4 Running the Dynamic Library Generation Command
+.. centered:: Figura 16.2‑4 Esecuzione Comando Generazione Libreria Dinamica
 
-After the dynamic library is generated, the "fairino" folder will contain "Robot.c" and "Robot.cp310-win_amd64.pyd". "Robot.c" is the C language file converted from "Robot.py", and "Robot.cp310-win_amd64.pyd" is the Python SDK dynamic library. Here, "cp310" indicates compatibility with Python 3.10, and "win_amd64" indicates compatibility with Windows platforms.
+Dopo il completamento della generazione della libreria dinamica, nella cartella `fairino` verranno generati `Robot.c` e `Robot.cp310-win_amd64.pyd`. `Robot.c` è il file `Robot.py` convertito in linguaggio C; `Robot.cp310-win_amd64.pyd` è la libreria dinamica Python SDK, dove "cp310" indica la compatibilità con Python 3.10 e "win_amd64" indica la compatibilità con la piattaforma Windows.
 
 .. image:: image/033.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑5 Generated .pyd Dynamic Library
+.. centered:: Figura 16.2‑5 Generazione Libreria Dinamica .pyd
  
-Linux Platform Python SDK Compilation
+Compilazione Python SDK su Piattaforma Linux
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-First, check the Python version. This manual uses the "pyenv" tool to manage Python versions on Linux systems. Run the "pyenv versions" command to view the current Python version.
+Innanzitutto, verificare la versione di Python. Questo manuale utilizza lo strumento `pyenv` per gestire le versioni di Python nel sistema Linux. Eseguire il comando "pyenv versions" per visualizzare la versione corrente di Python;
 
 .. image:: image/034.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑6 Checking the Python Version
+.. centered:: Figura 16.2‑6 Verifica Versione Python
 
-Switch to the target Python version. For example, to use Python 3.10, run the "pyenv global 3.10.3" command.
+Quindi, passare alla versione di Python target. Utilizzando Python 3.10 come esempio, eseguire il comando "pyenv global 3.10.3" per passare a Python 3.10;
 
 .. image:: image/035.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑7 Selecting the Python Version
+.. centered:: Figura 16.2‑7 Selezione Versione Python
 
-Navigate to the directory containing "Robot.py" by running the command "cd /home/fairino/fairino-python-sdk-master/fairino-python-sdk-master/linux/fairino".
+Passare alla directory che contiene il file `Robot.py` eseguendo il comando "cd /home/fairino/fairino-python-sdk-master/fairino-python-sdk-master/linux/fairino" per cambiare directory fino a `Robot.py`.
 
 .. image:: image/036.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑8 Navigating to the "Robot.py" Directory
+.. centered:: Figura 16.2‑8 Passaggio alla Directory del File Robot.py
 
-Confirm the Python version by running the "python --version" command.
+Confermare la versione di Python eseguendo il comando "python --version" per visualizzare la versione corrente di Python;
 
 .. image:: image/037.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑9 Checking the Python Version
+.. centered:: Figura 16.2‑9 Verifica Versione Python
  
-In the terminal, enter "python setup.py build_ext --inplace" and press "Enter" to generate the Python SDK dynamic library.
+Nell'interfaccia del terminale, inserire "python setup.py build_ext --inplace" e premere "Invio" per generare la libreria dinamica Python SDK;
 
 .. image:: image/038.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑10 Running the Dynamic Library Generation Command
+.. centered:: Figura 16.2‑10 Esecuzione Comando Generazione Libreria Dinamica
 
-After the dynamic library is generated, the "fairino" folder will contain "Robot.c" and "Robot.cpython-310-x86_64-linux-gnu.so". "Robot.c" is the C language file converted from "Robot.py", and "Robot.cpython-310-x86_64-linux-gnu.so" is the Python SDK dynamic library. Here, "python-310" indicates compatibility with Python 3.10, and "linux-gnu" indicates compatibility with Linux platforms.
+Dopo il completamento della generazione della libreria dinamica, nella cartella `fairino` verranno generati `Robot.c` e `Robot.cpython-310-x86_64-linux-gnu.so`. `Robot.c` è il file `Robot.py` convertito in linguaggio C; "Robot.cpython-310-x86_64-linux-gnu.so" è la libreria dinamica Python SDK, dove "python-310" indica la compatibilità con Python 3.10 e "linux-gnu" indica la compatibilità con la piattaforma Linux.
 
 .. image:: image/039.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑11 Generated .so Dynamic Library
+.. centered:: Figura 16.2‑11 Generazione Libreria Dinamica .so
 
-Notes
+Note Importanti
 ----------------------------------
 
-Potential Issues
+Problemi Potenziali
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version Compatibility
+Corrispondenza Versioni
 ++++++++++++++++++++++++++++++
-Python dynamic libraries depend on the generation environment and Python version. Therefore, when using Python dynamic libraries, ensure the library matches the system type and Python version.
+La libreria dinamica Python dipende dall'ambiente di generazione e dalla versione di Python. Pertanto, quando si utilizza una libreria dinamica Python, è necessario verificare che la libreria sia compatibile con il tipo di sistema e che la versione della libreria corrisponda alla versione di Python in uso.
 
-Error Codes
+Codici di Errore
 ++++++++++++++++++++++++++++++
-A return value of 0 indicates normal operation. If the return value is not 0, refer to the error code table.
+Un valore di ritorno pari a 0 indica un'esecuzione normale. Se il valore di ritorno è diverso da 0, consultare la tabella di riferimento dei codici di errore.

@@ -1,1983 +1,1356 @@
-Node graph programming
-============================
+Programming con Grafi a Nodi
+==============================
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 6
 
-Basic information
----------------------
+Informazioni di Base
+----------------------------------
 
-Introduction
-~~~~~~~~~~~~~~~
+Introduzione al Sistema
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Node graph programming is programming software developed for robots. Its main functions and technical features are as follows:
+Il programming con grafi a nodi è un software di programmazione sviluppato per robot. Le sue funzioni principali e caratteristiche tecniche sono le seguenti:
 
-- The connections between nodes better present the contextual logic of the program;
-- Through operations such as creating nodes, connecting nodes, and editing node parameters, robot programming can be completed with just dragging operations and a small amount of parameter input;
-- Helps to better visualize code and script complex and repetitive tasks faster;
+- Le connessioni tra i nodi rappresentano efficacemente le relazioni logiche contestuali del programma.
+- Attraverso operazioni come la creazione di nodi, la loro connessione e la modifica dei parametri, è possibile completare la scrittura di programmi per robot semplicemente trascinando gli elementi e inserendo pochi parametri.
+- Aiuta a visualizzare meglio il codice e a scrivere più rapidamente script per compiti complessi e ripetitivi.
 
 .. image:: node_editor_software/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.1-1 Node graph programming interface
+.. centered:: Figura 11.1-1 Interfaccia di Programmazione con Grafi a Nodi
 
-Toolbar
-~~~~~~~~~~
+Barra degli Strumenti
+~~~~~~~~~~~~~~~~~~~~~
 
-Use the toolbar at the top left of the Node Graph Programming page.
+Utilizzare la barra degli strumenti situata in alto a sinistra nella pagina di programmazione con grafi a nodi.
 
 .. image:: node_editor_software/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.1-2 Toolbar
+.. centered:: Figura 11.1-2 Barra degli Strumenti Operativi
 
-.. note:: 
+.. note::
    .. image:: coding/006.png
       :height: 0.75in
       :align: left
 
-   name:**Open**
+   Nome: **Apri**
    
-   effect:Open user program file, choose to load or delete files in the pop-up box
+   Funzione: Apre il file del programma utente. In una finestra di dialogo, è possibile scegliere di caricare o eliminare file.
 
-.. note:: 
+.. note::
    .. image:: coding/010.png
       :height: 0.75in
       :align: left
 
-   name:**Save**
+   Nome: **Salva**
    
-   effect:Save node graph edits
+   Funzione: Salva il contenuto modificato del grafo a nodi.
 
-.. note:: 
+.. note::
    .. image:: node_editor_software/131.png
       :height: 0.75in
       :align: left
 
-   name:**Overload**
+   Nome: **Ricarica**
    
-   effect:Reload the node graph content of the last operation to the local
+   Funzione: Ricarica localmente il contenuto del grafo a nodi dell'operazione precedente.
 
-.. note:: 
+.. note::
    .. image:: coding/007.png
       :height: 0.75in
       :align: left
 
-   name:**New**
+   Nome: **Nuovo**
    
-   effect:Create a new node graph programming file
+   Funzione: Crea un nuovo file di programmazione con grafi a nodi.
 
-.. note:: 
+.. note::
    .. image:: coding/008.png
       :height: 0.75in
       :align: left
 
-   name:**Export**
+   Nome: **Esporta**
    
-   effect:After creating/opening the node graph programming file, click the "Export" button to pop up the "Export Node Graph Programming" pop-up box, select the workspace file name to export the file (json format)
+   Funzione: Dopo aver creato/aperto un file di programmazione con grafi a nodi, fare clic sul pulsante "Esporta" per aprire la finestra di dialogo "Esporta programmazione grafo a nodi". Selezionare il nome del file nell'area di lavoro per esportare il file (formato JSON).
 
-.. note:: 
+.. note::
    .. image:: coding/009.png
       :height: 0.75in
       :align: left
 
-   name:**Import**
+   Nome: **Importa**
    
-   effect:Click the "Import" button to pop up the import prompt box. Select the file to be imported and click Import. The file content will be displayed in the node graph programming workspace
+   Funzione: Fare clic sul pulsante "Importa" per aprire una finestra di dialogo di importazione. Selezionare il file da importare e, dopo aver cliccato su Importa, il contenuto del file verrà visualizzato nell'area di lavoro della programmazione con grafi a nodi.
 
-.. note:: 
+.. note::
    .. image:: node_editor_software/129.png
       :height: 0.75in
       :align: left
 
-   name:**Code**
+   Nome: **Codice**
    
-   effect:After the node graph is connected, Lua code is generated
+   Funzione: Dopo aver connesso il grafo a nodi, genera il codice Lua.
 
-Node graph operations
--------------------------
+Operazioni sul Grafo a Nodi
+----------------------------
 
-Node program
-~~~~~~~~~~~~~~
+Programma a Nodi
+~~~~~~~~~~~~~~~~
 
-For node programs, you need to right-click the mouse in a blank space to open the node program selection bar. Program instructions are mainly divided into logic instructions, motion instructions, force control instructions, control instructions, Modbus instructions, expansion axis and other instructions.
+Per avviare un programma a nodi, è necessario fare clic con il tasto destro del mouse su un'area vuota per aprire la barra di selezione dei programmi a nodi. I comandi del programma sono principalmente suddivisi in: comandi logici, comandi di movimento, comandi di controllo della forza, comandi di controllo, comandi Modbus, assi estesi, ecc.
 
-The input box above the node program selection bar allows fuzzy search to quickly locate the required node instructions.
+La casella di input sopra la barra di selezione dei programmi a nodi consente una ricerca fuzzy per individuare rapidamente il comando del nodo desiderato.
 
-The specific node program operation process is as follows:
+Il flusso operativo specifico del programma a nodi è il seguente:
 
-- Click "Begin" to start the node and create the starting node programming location;
-- Click on the selected program instruction node, the corresponding node diagram is displayed in the workspace, and the instruction parameters can be selected and entered in the drop-down box;
-- The functions of the arrows on the right side of the command node: 1. A single arrow icon connects to the next node; 2. Multiple arrow icons, the first "Body" arrow icon connects to the content node, and the second "Completed" icon connects to the next node;
-- Connect the "Begin" start node to the completed node program to end the node programming operation;
+- Fare clic sul nodo di inizio "Begin" per creare la posizione di programmazione del nodo iniziale.
+- Fare clic sul nodo comando del programma selezionato; il corrispondente grafo a nodi verrà visualizzato nell'area di lavoro, dove è possibile selezionare i parametri del comando da menu a tendina o inserirli manualmente.
+- Funzione delle frecce a destra del nodo comando: 1. L'icona a freccia singola si collega al nodo successivo. 2. Se sono presenti più icone freccia, la prima icona "Body" si collega al nodo del contenuto, la seconda icona "Completed" si collega al nodo successivo.
+- Collegare il nodo di inizio "Begin" con il programma a nodi completato per concludere l'operazione di programmazione del nodo.
 
-If/Else instruction
-----------------------
+Istruzione If/Else
+------------------
 
-Click the "If/Else" related command node to enter the node diagram editing interface. (This command requires a certain programming foundation. If you need help, please contact us)
+Fare clic sul nodo dell'istruzione correlata a "If/Else" per accedere all'interfaccia di modifica del grafo a nodi. (Questa istruzione richiede una certa base di programmazione. Per assistenza, contattarci).
 
-“If/Else” command:
+Istruzione "If/Else":
 
-- First: Connect the node instructions within the if condition
-- Second: If only two judgment conditions are entered on the left, it means connecting the node instructions in the else condition; if all three judgment conditions on the left exist, it means connecting the node instructions in the elseif condition.
-- Third: If all three judgment conditions on the left exist, it means connecting the else condition.
-- Completed: Connect subsequent node instructions
-
+- First: Collega le istruzioni del nodo all'interno della condizione if.
+- Second: Se sono immesse solo due condizioni di valutazione a sinistra, indica il collegamento alle istruzioni del nodo all'interno della condizione else; se sono presenti tre condizioni di valutazione a sinistra, indica il collegamento alle istruzioni del nodo all'interno della condizione elseif.
+- Third: Se sono presenti tre condizioni di valutazione a sinistra, indica il collegamento alla condizione else.
+- Completed: Collega alle istruzioni del nodo successive.
 
 .. image:: node_editor_software/124.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.3-1 "If/Else" command node interface
+.. centered:: Figura 11.3-1 Interfaccia del Nodo Istruzione "If/Else"
 
-While instruction
--------------------
+Istruzione While
+----------------
 
-Click the "While" related command node to enter the node graph editing interface.
+Fare clic sul nodo dell'istruzione correlata a "While" per accedere all'interfaccia di modifica del grafo a nodi.
 
-Enter the waiting condition in the input box behind While, enter the action instructions during the loop in the input box behind do, and click Save. (For the convenience of operation, you can enter any do content and edit other instructions in the program to insert them instead).
+Nella casella di input dopo While, inserire la condizione di attesa; nella casella di input dopo do, inserire le istruzioni di azione durante il ciclo. Fare clic su Salva per confermare. (Per comodità operativa, è possibile inserire arbitrariamente il contenuto di do e modificare successivamente il programma inserendo altre istruzioni per sostituirlo).
 
-“While” command:
+Istruzione "While":
 
-- Condition: while loop condition
+- Condition: Condizione del ciclo while.
 
 .. image:: node_editor_software/125.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.4-1 “While” command node interface
+.. centered:: Figura 11.4-1 Interfaccia del Nodo Istruzione "While"
 
-Goto instruction
-------------------
+Istruzione di Salto
+-------------------
 
-Click "Goto" on the relevant command node to enter the node graph editing interface.
+Fare clic sul nodo dell'istruzione correlata al "Salto" per accedere all'interfaccia di modifica del grafo a nodi.
 
-"Goto" command, the first "Body" arrow icon connects to the body content node, and the second "Completed" arrow icon connects to the subsequent jump position goto instruction node. (This command requires a certain programming foundation. If you need help, please contact us).
+L'istruzione "Salto" ha la prima icona freccia "Body" che collega il nodo del contenuto principale e la seconda icona freccia "Completed" che collega il nodo istruzione goto della posizione di salto successiva. (Questa istruzione richiede una certa base di programmazione. Per assistenza, contattarci).
 
-- Jump name: Enter the jump name to determine the jump location
+- Nome salto: Inserire il nome del salto per determinare la posizione di salto.
 
 .. image:: node_editor_software/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.5-1 "Goto" command node interface
+.. centered:: Figura 11.5-1 Interfaccia del Nodo Istruzione "Salto"
 
-.. important:: Jump name cannot start with a number.
+.. important:: Il nome del salto non può iniziare con un numero.
 
-Wait instruction
----------------------------
+Istruzione di Attesa
+--------------------
 
-Click the "Wait" related command node to enter the node diagram editing interface.
+Fare clic sul nodo dell'istruzione correlata all'"Attesa" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This instruction is a delay instruction, divided into four parts: "WaitMs", "WaitDI", "WaitMultiDI" and "WaitAI".
+Questa istruzione è un'istruzione di ritardo, suddivisa in quattro parti: "WaitMs", "WaitDI", "WaitMultiDI" e "WaitAI".
 
-1. "Wait" command node, parameters:
+1. Nodo istruzione "Attesa", parametri:
 
-- Waiting time (ms): The unit of delay waiting time is milliseconds. Enter the number of milliseconds to wait.
+- Tempo di attesa (ms): L'unità di tempo per l'attesa di ritardo è il millisecondo. Inserire il numero di millisecondi da attendere.
 
 .. image:: node_editor_software/004.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.6-1 "Wait" command node interface
+.. centered:: Figura 11.6-1 Interfaccia del Nodo Istruzione "Attesa"
 
-2. "WaitDI" command node, parameters:
+2. Nodo istruzione "Attesa DI", parametri:
 
-- DI port number: Ctrl-DI0 ~ Ctrl-CI7(WaitDI,[0~15]), End-DI0 ~ End-DI1(WaitToolDI,[0~1])
-- Status: false/true
-- Maximum time (ms): 0 ~ 10000
-- Waiting for timeout processing: stop reporting errors/continue execution/wait forever
+- Porta DI: Ctrl-DI0 ~ Ctrl-DI7 (WaitDI, [0~15]), End-DI0 ~ End-DI1 (WaitToolDI, [0~1])
+- Stato: false/true
+- Tempo massimo (ms): 0 ~ 10000
+- Gestione timeout attesa: Interrompi ed errore/Continua esecuzione/Attendi indefinitamente
 
 .. image:: node_editor_software/005.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.6-2 "WaitMultiDI" command node interface
+.. centered:: Figura 11.6-2 Interfaccia del Nodo Istruzione "Attesa DI"
 
-3. "WaitMultiDI" command node, parameters:
+3. Nodo istruzione "Attesa DI multipli", parametri:
 
-- Condition: and/or
-- Conditional selection: Select the port number that the bit status is enabled, separated by commas, for example DI0, DI1
-- True value corresponding port: Select the port number of the true value, separated by commas, for example DI0, DI1
-- Maximum time (ms): 0 ~ 10000, maximum waiting time
-- Waiting for timeout processing: stop reporting errors/continue execution/wait forever
+- Condizione: AND/OR
+- Selezione condizione: Selezionare i numeri di porta attivi per lo stato del bit, separati da virgola, es. DI0, DI1
+- Porte corrispondenti al valore vero: Selezionare i numeri di porta per il valore vero, separati da virgola, es. DI0, DI1
+- Tempo massimo (ms): 0 ~ 10000, tempo massimo di attesa
+- Gestione timeout attesa: Interrompi ed errore/Continua esecuzione/Attendi indefinitamente
 
 .. image:: node_editor_software/006.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.6-3 "WaitMultiDI" command node interface
+.. centered:: Figura 11.6-3 Interfaccia del Nodo Istruzione "Attesa DI multipli"
 
-4. "WaitAI" command node, parameters:
+4. Nodo istruzione "Attesa AI", parametri:
 
-- Condition: and/or
-- AI port number: Ctrl-AI0 ~ Ctrl-AI1(WaitAI,[0~1]), End-AI0(WaitToolAI,[0])
-- Condition: greater than/less than
-- Value (%): 1 ~ 100
-- Maximum time (ms): 0 ~ 10000
-- Waiting for timeout processing: Stop error reporting/continue execution/keep waiting. When waiting for timeout processing and keep waiting, the maximum time defaults to 0.
+- Condizione: AND/OR
+- Porta AI: Ctrl-AI0 ~ Ctrl-AI1 (WaitAI, [0~1]), End-AI0 (WaitToolAI, [0])
+- Condizione: Maggiore di/Minore di
+- Valore (%): 1 ~ 100
+- Tempo massimo (ms): 0 ~ 10000
+- Gestione timeout attesa: Interrompi ed errore/Continua esecuzione/Attendi indefinitamente. Quando si seleziona "Attendi indefinitamente", il tempo massimo predefinito è 0.
 
 .. image:: node_editor_software/007.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.6-4 "WaitAI" command node interface
+.. centered:: Figura 11.6-4 Interfaccia del Nodo Istruzione "Attesa AI"
 
-Pause instruction
---------------------
+Istruzione di Pausa
+-------------------
 
-Click the "Pause" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Pausa" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command is a pause command. Insert this command in the program. When the program executes this command, the robot will be in a paused state. If you want to continue running, click the "Pause/Resume" button in the control area.
+Questa istruzione è un'istruzione di pausa. Inserendo questa istruzione nel programma, quando il programma la esegue, il robot si metterà in pausa. Per continuare l'esecuzione, fare clic sul pulsante "Pausa/Riprendi" nell'area di controllo.
 
-"Pause" command node, parameters:
+Nodo istruzione "Pausa", parametri:
 
-- Pause type: no function, cylinder not in place, etc.
+- Tipo di pausa: Nessuna funzione, Cilindro non in posizione, ecc.
 
 .. image:: node_editor_software/008.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.7-1 "Pause" command node interface
+.. centered:: Figura 11.7-1 Interfaccia del Nodo Istruzione "Pausa"
 
-Dofile instruction
---------------------
+Istruzione Chiamata Sottoprogramma
+-----------------------------------
 
-Click the "Dofile" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Chiamata sottoprogramma" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command is a dofile command. Insert this command in the program. When the program executes this command, the robot will be in a paused state. If you want to continue running, click the "Pause/Resume" button in the control area.
+Questa istruzione è per chiamare un sottoprogramma. Inserendo questa istruzione nel programma, quando il programma la esegue, il robot si metterà in pausa. Per continuare l'esecuzione, fare clic sul pulsante "Pausa/Riprendi" nell'area di controllo.
 
-"Dofile" command node, parameters:
+Nodo istruzione "Chiamata sottoprogramma", parametri:
 
-- dofile: create the generated file name
-- Which layer to call: first layer/second layer
-- ID number: the corresponding position id of the level to which it belongs
+- File dofile: Nome del file creato/generato
+- Livello di chiamata: Primo livello/Secondo livello
+- ID numero: ID della posizione corrispondente al livello di appartenenza
 
 .. image:: node_editor_software/009.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.8-1 “Dofile” command node interface
+.. centered:: Figura 11.8-1 Interfaccia del Nodo Istruzione "Chiamata sottoprogramma"
 
-Set system variable command
-----------------------------------
+Istruzione Imposta Variabile di Sistema
+---------------------------------------
 
-Click the "Set system variable command" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Imposta variabile di sistema" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This instruction is a setting system variable instruction, which is divided into setting system variables and obtaining system variables. It is used in conjunction with while, if-else and other instructions.
+Questa istruzione serve per impostare le variabili di sistema ed è suddivisa in Imposta variabile di sistema e Ottieni variabile di sistema. Viene utilizzata in combinazione con istruzioni come while, if-else, ecc.
 
-"Configure system variable command" command node, parameters:
+Nodo istruzione "Imposta variabile di sistema", parametri:
 
-- Var: custom variable name
-- Value: Enter according to actual situation
+- Var: Nome della variabile personalizzata
+- Valore: Inserire in base alla situazione effettiva
 
 .. image:: node_editor_software/132.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.9-1 "Configure system variable command" command node interface
+.. centered:: Figura 11.9-1 Interfaccia del Nodo Istruzione "Imposta variabile di sistema"
 
-"Obtain system variable command" command node, parameters:
+Nodo istruzione "Ottieni variabile di sistema", parametri:
 
-- Var: custom variable name
+- Var: Nome della variabile personalizzata
 
 .. image:: node_editor_software/133.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.9-2 "Obtain system variable command" command node interface
+.. centered:: Figura 11.9-2 Interfaccia del Nodo Istruzione "Ottieni variabile di sistema"
 
-.. important:: The variable name must be a defined name.
+.. important:: Il nome della variabile deve essere uno precedentemente definito.
 
-PTP instruction
------------------
+Istruzione Punto a Punto (PTP)
+------------------------------
 
-Click the "PTP" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Punto a punto" per accedere all'interfaccia di modifica del grafo a nodi.
 
-You can select the point you need to reach. The smooth transition time setting can realize the continuous movement from this point to the next point. Whether to set the offset, you can choose the offset based on the base coordinate system and the offset based on the tool coordinate, and x, y will pop up. z, rx, ry, rz offset settings, the specific PTP path is the optimal path automatically planned by the motion controller.
+È possibile selezionare il punto da raggiungere. L'impostazione del tempo di transizione levigato permette un movimento continuo da quel punto al successivo. L'impostazione dell'offset permette di scegliere l'offset basato sul sistema di coordinate base o sull'offset basato sul sistema di coordinate utensile, e fa apparire le impostazioni dell'offset x, y, z, rx, ry, rz. Il percorso PTP specifico è il percorso ottimale pianificato automaticamente dal controllore di movimento.
 
-"PTP" command node, parameters:
+Nodo istruzione "Punto a punto", parametri:
 
-- Point name: Teaching point
-- Debugging speed (%): 0 ~ 100
-- Stop: false/true
-- Smooth transition (ms): smooth transition time 0 ~ 500
-- Whether to offset No/base coordinate offset/tool ​​coordinate offset. When No is selected, the dx~drz parameter values ​​will not take effect.
-- dx~drz: offset
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
+- Arresto: false/true
+- Transizione levigata (ms): Tempo di transizione levigata 0 ~ 500
+- Applica offset: No/Offset base/Offset utensile. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset.
 
 .. image:: node_editor_software/010.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.10-1 "PTP" command node interface
+.. centered:: Figura 11.10-1 Interfaccia del Nodo Istruzione "Punto a punto"
 
-LIN instruction
------------------
+Istruzione Lineare (LIN)
+------------------------
 
-Click the "LIN" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Linea" per accedere all'interfaccia di modifica del grafo a nodi.
 
-The function of this command is similar to the "point to point" command, but the path to the point reached by this command is a straight line.
+La funzione di questa istruzione è simile all'istruzione "Punto a punto", ma il percorso per raggiungere il punto con questa istruzione è una linea retta.
 
-"LIN" command node, parameters:
+Nodo istruzione "Linea", parametri:
 
-- Point name: Teaching point
-- Debugging speed (%): 0 ~ 100
-- Stop: false/true. When true is selected, the smooth transition parameter value does not take effect
-- Smooth transition (mm): Smooth transition radius 0 ~ 1000
-- Whether to seek position: false/true
-- Position search point variables: REF0~99/RES0~99. When false is selected for position search, the parameters will not take effect
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset. When No is selected, the dx~drz parameter values ​​will not take effect
-- dx~drz: Offset.
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
+- Arresto: false/true. Se si seleziona true, il parametro di transizione levigata non è valido.
+- Transizione levigata (mm): Raggio di transizione levigata 0 ~ 1000
+- Ricerca posizione: false/true
+- Variabile punto di ricerca: REF0~99/RES0~99. Se "Ricerca posizione" è false, questo parametro non è valido.
+- Applica offset: No/Offset base/Offset utensile. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset.
 
 .. image:: node_editor_software/011.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.11-1 “LIN” command node interface
+.. centered:: Figura 11.11-1 Interfaccia del Nodo Istruzione "Linea"
 
-LIN(seamPos) instruction
--------------------------------
+Istruzione Lineare (seamPos)
+-----------------------------
 
-Click the "LIN(seamPos)" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Linea (seamPos)" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command function is used in welding scenarios using laser sensors.
+Questa istruzione viene applicata negli scenari di saldatura che utilizzano un sensore laser.
 
-"LIN(seamPos)" command node, parameters:
+Nodo istruzione "Linea (seamPos)", parametri:
 
-- Point name: Teaching point
-- Debugging speed (%): 0 ~ 100
-- Stop: false/true. When true is selected, the smooth transition parameter value does not take effect
-- Smooth transition (mm): Smooth transition radius 0 ~ 1000
-- Weld cache data selection: execution planning data/execution record data
-- Board type: corrugated board/corrugated board/fence board/oil drum/corrugated shell steel
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset/Laser raw data offset. When No is selected, the dx~drz parameter values ​​will not take effect.
-- dx~drz: Offset.
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
+- Arresto: false/true. Se si seleziona true, il parametro di transizione levigata non è valido.
+- Transizione levigata (mm): Raggio di transizione levigata 0 ~ 1000
+- Selezione dati cache cordone: Esegui dati pianificati/Esegui dati registrati
+- Tipo di lamiera: Lamiera ondulata/Lamiera a cartone ondulato/Lamiera per recinzione/Barile/Acciaio ondulato
+- Applica offset: No/Offset base/Offset utensile/Offset dati laser grezzi. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset
 
 .. image:: node_editor_software/134.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.12-1 “LIN(seamPos)” command node interface
+.. centered:: Figura 11.12-1 Interfaccia del Nodo Istruzione "Linea (seamPos)"
 
-ARC instruction 
------------------
+Istruzione Arco
+---------------
 
-Click the "ARC" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Arco" per accedere all'interfaccia di modifica del grafo a nodi.
 
-The arc motion contains two points. The first point is the transition point in the middle of the arc, and the second point is the end point. Both the transition point and the end point can be offset or not. You can choose to offset based on the base coordinate system or offset based on the tool coordinate. Shift, set x, y, z, rx, ry, rz offset, the end point can set a smooth transition radius to achieve continuous motion effect.
+Il movimento ad arco coinvolge due punti: il primo punto è il punto intermedio di transizione dell'arco, il secondo punto è il punto finale. Sia il punto di transizione che il punto finale possono essere configurati per l'offset, scegliendo tra offset basato sul sistema di coordinate base o offset basato sul sistema di coordinate utensile, impostando i valori di offset x, y, z, rx, ry, rz. Il punto finale può avere un raggio di transizione levigata impostato per ottenere un effetto di movimento continuo.
 
-"ARC" command node, parameters:
+Nodo istruzione "Arco", parametri:
 
-- Arc middle point: teaching point
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset. When No is selected, the dx~drz parameter values ​​will not take effect
-- dx~drz: offset
-- Arc end point: teaching point
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset. When No is selected, the dx~drz parameter values ​​will not take effect
-- dx~drz: offset
-- Debugging speed (%): 0 ~ 100
-- Stop: false/true. When true is selected, the smooth transition parameter value does not take effect.
-- Smooth transition (mm): Smooth transition radius 0 ~ 1000
+- Punto intermedio arco: Punto di insegnamento
+- Applica offset: No/Offset base/Offset utensile. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset
+- Punto finale arco: Punto di insegnamento
+- Applica offset: No/Offset base/Offset utensile. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset
+- Velocità di debug (%): 0 ~ 100
+- Arresto: false/true. Se si seleziona true, il parametro di transizione levigata non è valido.
+- Transizione levigata (mm): Raggio di transizione levigata 0 ~ 1000
 
 .. image:: node_editor_software/012.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.13-1 "ARC" command node interface
+.. centered:: Figura 11.13-1 Interfaccia del Nodo Istruzione "Arco"
 
-Circle instruction
---------------------
+Istruzione Cerchio Completo
+----------------------------
 
-Click the "Circle" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Cerchio completo" per accedere all'interfaccia di modifica del grafo a nodi.
 
-The full circle motion includes two points. The first point is the middle transition point 1 of the full circle, and the second point is the middle transition point 2 of the full circle. Transition point 2 can be set to be offset. This offset takes effect on both transition point 1 and Transition point 2.
+Il movimento a cerchio completo coinvolge due punti: il primo punto è il punto intermedio di transizione 1 del cerchio completo, il secondo punto è il punto intermedio di transizione 2 del cerchio completo. Il punto di transizione 2 può essere configurato per l'offset, e questo offset si applica contemporaneamente sia al punto di transizione 1 che al punto di transizione 2.
 
-"Circle" command node, parameters:
+Nodo istruzione "Cerchio completo", parametri:
 
-- Middle point 1 of the whole circle: teaching point
-- Middle point 2 of the whole circle: teaching point
-- Debugging speed (%): 0 ~ 100
-- Whether to offset: No/base coordinate offset/tool ​​coordinate offset. When No is selected, the dx~drz parameter values ​​will not take effect.
-- dx~drz: offset
+- Punto intermedio 1 cerchio: Punto di insegnamento
+- Punto intermedio 2 cerchio: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
+- Applica offset: No/Offset base/Offset utensile. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset
 
 .. image:: node_editor_software/013.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.14-1 "Circle" command node interface
+.. centered:: Figura 11.14-1 Interfaccia del Nodo Istruzione "Cerchio completo"
 
-Spiral instruction
----------------------
+Istruzione Spirale
+------------------
 
-Click the "Spiral" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Spirale" per accedere all'interfaccia di modifica del grafo a nodi.
 
-The spiral motion contains three points, which form a circle. On the third point setting page, the parameter settings include the number of spiral turns, attitude correction angle, radius increment and rotation axis direction increment. The number of spiral turns is The number of movement circles of the spiral. The attitude correction angle corrects the attitude at the end of the spiral and the attitude of the first point of the spiral. The radius increment is the increment of the radius of each circle. The rotation axis direction increment is the direction of the spiral axis. Increment. Set whether to offset, the offset takes effect on the entire spiral trajectory.
+Il movimento a spirale coinvolge tre punti. Questi tre punti formano un cerchio. Nella pagina delle impostazioni del terzo punto, sono inclusi parametri come il numero di giri della spirale, l'angolo di correzione dell'assetto, l'incremento del raggio e l'incremento della direzione dell'asse di rotazione. Il numero di giri della spirale indica il numero di giri del movimento a spirale. L'angolo di correzione dell'assetto regola l'assetto alla fine della spirale rispetto all'assetto del primo punto della spirale. L'incremento del raggio è l'aumento del raggio per ogni giro. L'incremento della direzione dell'asse di rotazione è l'aumento nella direzione dell'asse della spirale. Impostare se applicare l'offset; questo offset si applica all'intera traiettoria della spirale.
 
-"Spiral" command node, parameters:
+Nodo istruzione "Spirale", parametri:
 
-- Spiral middle point 1: Teaching point
-- Spiral middle point 2: teaching point
-- Spiral middle point 3: teaching point
-- Debugging speed (%): 0 ~ 100
-- Whether to offset: No/base coordinate offset/tool coordinate offset. When No is selected, the dx~drz parameter values will not take effect.
-- dx~drz: offset
-- Number of spiral turns: 0 ~ 100
-- Attitude angle correction rx(°): -1000 ~ 1000
-- Attitude angle correction (°): -1000 ~ 1000
-- Attitude angle correction rz(°): -1000 ~ 1000
-- Radius increment (mm): -100 ~ 100
-- Increment in rotation axis direction (mm): -100 ~ 100
+- Punto intermedio 1 spirale: Punto di insegnamento
+- Punto intermedio 2 spirale: Punto di insegnamento
+- Punto intermedio 3 spirale: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
+- Applica offset: No/Offset base/Offset utensile. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset
+- Numero di giri spirale: 0 ~ 100
+- Angolo correzione assetto rx(°): -1000 ~ 1000
+- Angolo correzione assetto ry(°): -1000 ~ 1000
+- Angolo correzione assetto rz(°): -1000 ~ 1000
+- Incremento raggio (mm): -100 ~ 100
+- Incremento direzione asse rotazione (mm): -100 ~ 100
 
 .. image:: node_editor_software/015.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.15-1 "Spiral" command node interface
+.. centered:: Figura 11.15-1 Interfaccia del Nodo Istruzione "Spirale"
 
-N-Spiral instruction
+Istruzione Nuova Spirale
 ------------------------
 
-Click the "N-Spiral" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Nuova Spirale" per accedere all'interfaccia di modifica del grafo a nodi.
 
-The new spiral motion is an optimized version of spiral motion. This instruction only requires one point and the configuration of each parameter to achieve spiral motion. The robot takes the current position as the starting point, and the user sets the debugging speed, offset or not, the number of spiral turns, the spiral inclination angle, the initial radius, the radius increment, the rotation axis direction increment and the rotation direction. The number of spiral turns is the length of the spiral. The number of movement circles, the spiral inclination angle is the angle between the Z axis of the tool and the horizontal direction, the attitude correction angle corrects the attitude at the end of the spiral and the attitude of the first point of the spiral, the initial radius is the radius of the first circle, and the radius increment That is, the increment of the radius of each circle, the increment of the rotation axis direction is the increment of the spiral axis direction, and the rotation direction is clockwise and counterclockwise.
+Il movimento a nuova spirale è una versione ottimizzata del movimento a spirale. Questa istruzione richiede solo un punto più la configurazione di vari parametri per realizzare il movimento a spirale. Il robot utilizza la posizione corrente come punto di partenza. L'utente imposta la velocità di debug, se applicare l'offset, il numero di giri della spirale, l'angolo di inclinazione della spirale, il raggio iniziale, l'incremento del raggio, l'incremento della direzione dell'asse di rotazione e la direzione di rotazione. Il numero di giri della spirale indica il numero di giri del movimento a spirale. L'angolo di inclinazione della spirale è l'angolo tra l'asse Z dell'utensile e la direzione orizzontale. L'angolo di correzione dell'assetto regola l'assetto alla fine della spirale rispetto all'assetto del primo punto della spirale. Il raggio iniziale è la dimensione del raggio del primo giro. L'incremento del raggio è l'aumento del raggio per ogni giro. L'incremento della direzione dell'asse di rotazione è l'aumento nella direzione dell'asse della spirale. La direzione di rotazione può essere oraria o antioraria.
 
-"N-Spiral" command node, parameters:
+Nodo istruzione "Nuova Spirale", parametri:
 
-- Starting point of spiral: teaching point
-- Debugging speed (%): 0 ~ 100
-- Whether to offset: No/base coordinate offset/tool coordinate offset. When No is selected, the dx~drz parameter values will not take effect.
-- dx~drz: offset
-- Number of spiral turns: 0 ~ 100
-- Helix inclination angle (°): -100 ~ 100
-- Initial radius: 0 ~ 100
-- Radius increment (mm): -100 ~ 100
-- Increment in rotation axis direction (mm): -100 ~ 100
-- Direction of rotation: clockwise/counterclockwise
+- Punto di inizio spirale: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
+- Applica offset: No/Offset base/Offset utensile. Se si sceglie "No", i parametri dx~drz non sono validi.
+- dx~drz: Valori di offset
+- Numero di giri spirale: 0 ~ 100
+- Angolo inclinazione spirale (°): -100 ~ 100
+- Raggio iniziale: 0 ~ 100
+- Incremento raggio (mm): -100 ~ 100
+- Incremento direzione asse rotazione (mm): -100 ~ 100
+- Direzione rotazione: Oraria/Antioraria
 
 .. image:: node_editor_software/016.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.16-1 “N-Spiral” command node interface
+.. centered:: Figura 11.16-1 Interfaccia del Nodo Istruzione "Nuova Spirale"
 
-H-Spiral instruction
-------------------------
+Istruzione Spirale Orizzontale
+------------------------------
 
-Click the “H-Spiral” icon to enter the H-Spiral command editing interface.
+Fare clic sul nodo istruzione "Spirale Orizzontale" per accedere all'interfaccia di modifica del grafo a nodi.
 
-The “H-Spiral” command is a horizontal space spiral motion. This command is set after the single-segment motion (straight line) command.
+L'istruzione "H-Spiral" è per un movimento a spirale nello spazio orizzontale. Questa istruzione viene impostata dopo un'istruzione di movimento a segmento singolo (linea).
 
-"H-Spiral" command node, parameters:
+Nodo istruzione "Spirale Orizzontale", parametri:
 
-- Spiral radius: 0~100mm
-- Helix angular speed: 0~2rev/s
-- Direction of rotation: spiral clockwise/counterclockwise
-- Helix inclination angle: 0~40°
+- Raggio spirale: 0~100mm
+- Velocità angolare spirale: 0~2 giri/s
+- Direzione rotazione: Spirale oraria/antioraria
+- Angolo inclinazione spirale: 0~40°
 
 .. image:: node_editor_software/014.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.17-1 “H-Spiral” command node interface
+.. centered:: Figura 11.17-1 Interfaccia del Nodo Istruzione "Spirale Orizzontale"
 
-Spline instruction
---------------------
+Istruzione Spline
+-----------------
 
-Click the "Spline" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Spline" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command is divided into three parts: the start of the spline group, the spline segment and the end of the spline group. The start of the spline group is the starting mark of the spline movement. The current node graph of the spline segment only contains the SPL segment. The end of the spline group is The end mark of the spline movement.
+Questa istruzione è suddivisa in tre parti: inizio gruppo spline, segmento spline e fine gruppo spline. L'inizio gruppo spline è il marcatore di inizio del movimento spline. Attualmente, il segmento spline nel grafo a nodi include solo il segmento SPL. La fine gruppo spline è il marcatore di fine del movimento spline.
 
-"Spline-SPTP" command node, parameters:
+Nodo istruzione "Spline-SPTP", parametri:
 
-- Point name: Teaching point
-- Debugging speed (%): 0 ~ 100
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
 
 .. image:: node_editor_software/017.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.18-1 "Spline" command node interface
+.. centered:: Figura 11.18-1 Interfaccia del Nodo Istruzione "Spline"
 
-N-Spline instruction
-----------------------
+Istruzione Nuova Spline
+-----------------------
 
-Click the "N-Spline" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Nuova Spline" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This instruction is a spline instruction algorithm optimization instruction. It will replace the existing spline instruction later. This instruction is divided into three parts: multi-point trajectory start, multi-point trajectory segment and multi-point trajectory end. The multi-point trajectory starts with multi-point trajectory. The starting mark of the movement. The multi-point track segment means setting each track point. Click the icon to enter the point adding interface. The end of the multi-point track is the end mark of the multi-point track movement. Here you can set the control mode and debugging speed. The control mode is divided into for a given control point and a given path point.
+Questa istruzione è un'ottimizzazione dell'algoritmo dell'istruzione spline e in futuro sostituirà l'attuale istruzione spline. È suddivisa in tre parti: inizio traiettoria multi-punto, segmento traiettoria multi-punto e fine traiettoria multi-punto. L'inizio traiettoria multi-punto è il marcatore di inizio del movimento traiettoria multi-punto. Il segmento traiettoria multi-punto imposta i vari punti della traiettoria; fare clic sull'icona per accedere all'interfaccia di aggiunta punti. La fine traiettoria multi-punto è il marcatore di fine del movimento traiettoria multi-punto, dove è possibile impostare la modalità di controllo e la velocità di debug. La modalità di controllo è suddivisa in Punto di controllo dato e Punto percorso dato.
 
-"N-Spline" command node, parameters:
+Nodo istruzione "Nuova Spline", parametri:
 
-- Control mode: teaching point
-- Global average connection time: integer, greater than 10, default value is 2000 ms
+- Modalità controllo: Punto di insegnamento
+- Tempo medio transizione globale: Intero, maggiore di 10, valore predefinito 2000ms
 
-"N-Spline-SPL" command node, parameters:
+Nodo istruzione "Nuova Spline-SPL", parametri:
 
-- Point name: Teaching point
-- Debugging speed (%): 0 ~ 100
-- Smooth transition radius: 0 ~ 1000
-- whether last point: no/yes
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100
+- Raggio transizione levigata: 0 ~ 1000
+- Ultimo punto: No/Sì
 
 .. image:: node_editor_software/018.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.19-1 “N-Spline” command node interface
+.. centered:: Figura 11.19-1 Interfaccia del Nodo Istruzione "Nuova Spline"
 
-Weave instruction
---------------------
+Istruzione Oscillazione
+-----------------------
 
-Click the "Weave" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Oscillazione" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command consists of two parts. The first part selects the weaving number of the configured parameters. The program for connecting the Body to represent the connection node is executed between "Start Weaving" and "Stop Weaving".
+Questa istruzione comprende due parti. La prima parte seleziona il numero di oscillazione per il quale i parametri sono configurati. Il collegamento "Body" indica che il programma del nodo collegato viene eseguito tra "Inizia oscillazione" e "Ferma oscillazione".
 
-"Weave" command node, parameters:
+Nodo istruzione "Oscillazione", parametri:
 
-- Number: 0~7
+- Numero: 0~7
 
 .. image:: node_editor_software/019.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.20-1 “Weave” command node interface
+.. centered:: Figura 11.20-1 Interfaccia del Nodo Istruzione "Oscillazione"
 
-TPD instruction
------------------
+Istruzione Riproduci Traiettoria
+--------------------------------
 
-Click the "TPD" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Riproduci traiettoria" per accedere all'interfaccia di modifica del grafo a nodi.
 
-In this command, the user first needs to have a recorded trajectory.
+Per questa istruzione, l'utente deve prima avere una traiettoria registrata.
 
-When programming, first use the point-to-point command to reach the starting point of the corresponding trajectory, then select the trajectory in the trajectory recurrence command, select the smooth trajectory, and set the debugging speed. The trajectory loading command is mainly used to read the trajectory file in advance and extract it into trajectory instructions, which can be better applied to conveyor belt tracking scenarios.
+Durante la programmazione, utilizzare prima l'istruzione punto a punto per raggiungere il punto iniziale corrispondente della traiettoria. Quindi, nell'istruzione riproduci traiettoria, selezionare la traiettoria, scegliere la traiettoria levigata e impostare la velocità di debug. L'istruzione di caricamento traiettoria è principalmente utilizzata per leggere in anticipo il file di traiettoria, estrarlo come istruzione di traiettoria ed è meglio applicata in scenari di inseguimento del nastro trasportatore.
 
-"TPD" command node, parameters:
+Nodo istruzione "Riproduci traiettoria", parametri:
 
-- Track name: recorded track
-- Smooth trajectory: No/Yes
-- Debugging speed (%): 0 ~ 100, default value is 25
+- Nome traiettoria: Traiettoria registrata
+- Traiettoria levigata: No/Sì
+- Velocità di debug (%): 0 ~ 100, valore predefinito 25
 
 .. image:: node_editor_software/020.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.21-1 "TPD" command node interface
+.. centered:: Figura 11.21-1 Interfaccia del Nodo Istruzione "Riproduci traiettoria"
 
-Offset instruction
----------------------
+Istruzione Offset Punto
+-----------------------
 
-Click the "Offset" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Offset punto" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command is an overall offset command. Enter each offset. The program connecting the Body to represent the connection node is executed between start and close. The motion command in the middle will be offset based on the base coordinates (or workpiece coordinates).
+Questa istruzione è per l'offset complessivo. Inserire i vari valori di offset. Il collegamento "Body" indica che il programma del nodo collegato viene eseguito tra l'inizio e la fine. Le istruzioni di movimento intermedie verranno compensate in base al sistema di coordinate base (o del pezzo).
 
-"Offset" command node, parameters:
+Nodo istruzione "Offset punto", parametri:
 
-- Δx: offset, -300~300
-- Δy: offset, -300~300
-- Δz: offset, -300~300
-- Δrx: offset, -300~300
-- Δry: offset, -300~300
-- Δrz: offset, -300~300
+- ∆x: Valore offset, -300~300
+- ∆y: Valore offset, -300~300
+- ∆z: Valore offset, -300~300
+- ∆rx: Valore offset, -300~300
+- ∆ry: Valore offset, -300~300
+- ∆rz: Valore offset, -300~300
 
 .. image:: node_editor_software/021.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.22-1 "Offset" command node interface
+.. centered:: Figura 11.22-1 Interfaccia del Nodo Istruzione "Offset punto"
 
-ServoCart instruction
----------------------------
+Istruzione Servo
+----------------
 
-Click the "ServoCart" command node to enter the node diagram editing interface.
+Fare clic sul nodo istruzione "Servo" per accedere all'interfaccia di modifica del grafo a nodi.
 
-Servo control (Cartesian space motion) instruction, which can control robot movement through absolute pose control or based on the current pose offset.
+Istruzione di controllo servo (movimento nello spazio cartesiano). Questa istruzione permette di controllare il movimento del robot attraverso il controllo della posa assoluta o l'offset basato sulla posa corrente.
 
-"ServoCart" command node, parameters:
+Nodo istruzione "Servo", parametri:
 
-- Movement mode: absolute position/base coordinate offset/tool coordinate offset
-- x: offset, -300~300
-- y: offset, -300~300
-- z: offset, -300~300
-- rx: offset, -300~300
-- ry: offset, -300~300
-- rz: offset, -300~300
-- Proportional coefficient x: 0~1
-- Proportional coefficient y: 0~1
-- Proportional coefficient z: 0~1
-- Proportional coefficient rx: 0~1
-- Proportional coefficient ry: 0~1
-- Proportional coefficient rz: 0~1
-- Acceleration (%): 0~100
-- Speed (%): 0~100
-- Instruction cycle (s): 0.001~0.016
-- Filter time (s): 0~1
-- Scale up: 0~100
+- Modalità movimento: Posizione assoluta/Offset base/Offset utensile
+- x: Valore offset, -300~300
+- y: Valore offset, -300~300
+- z: Valore offset, -300~300
+- rx: Valore offset, -300~300
+- ry: Valore offset, -300~300
+- rz: Valore offset, -300~300
+- Coefficiente scala x: 0~1
+- Coefficiente scala y: 0~1
+- Coefficiente scala z: 0~1
+- Coefficiente scala rx: 0~1
+- Coefficiente scala ry: 0~1
+- Coefficiente scala rz: 0~1
+- Accelerazione (%): 0~100
+- Velocità (%): 0~100
+- Periodo comando (s): 0.001~0.016
+- Tempo filtro (s): 0~1
+- Amplificazione scala: 0~100
 
 .. image:: node_editor_software/022.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.23-1 “ServoCart” command node interface
+.. centered:: Figura 11.23-1 Interfaccia del Nodo Istruzione "Servo"
 
-Trajectory instruction
----------------------------
+Istruzione Traiettoria
+----------------------
 
-Click the "Trajectory" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Traiettoria" per accedere all'interfaccia di modifica del grafo a nodi.
 
-In this command, the user first needs to have a recorded trajectory.
+Per questa istruzione, l'utente deve prima avere una traiettoria registrata.
 
-"Trajectory" command node, parameters:
+Nodo istruzione "Traiettoria", parametri:
 
-- Select track file: recorded track
-- Debugging speed (%): 0 ~ 100, default value is 25
+- Seleziona file traiettoria: Traiettoria registrata
+- Velocità di debug (%): 0 ~ 100, valore predefinito 25
 
 .. image:: node_editor_software/023.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.24-1 “Trajectory” command node interface
+.. centered:: Figura 11.24-1 Interfaccia del Nodo Istruzione "Traiettoria"
 
-TrajectoryJ instruction
--------------------------
+Istruzione Traiettoria J
+------------------------
 
-Click the "TrajectoryJ" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Traiettoria J" per accedere all'interfaccia di modifica del grafo a nodi.
 
-In this command, the user first needs to have a recorded trajectory, and the trajectory file can be imported in advance in the teaching program interface. The trajectory command and trajectory J command are suitable for the general interface of the camera directly giving the trajectory. When there is a discrete trajectory point file in a fixed format, it can be imported into the system to make the robot move according to the trajectory of the imported file.
+Per questa istruzione, l'utente deve prima avere una traiettoria registrata. È possibile importare in anticipo il file di traiettoria nell'interfaccia di insegnamento del programma. Le istruzioni Traiettoria e Traiettoria J sono adatte per interfacce generali in cui la telecamera fornisce direttamente la traiettoria, soddisfacendo la necessità di importare nel sistema file di punti di traiettoria discreti in formato fisso, permettendo al robot di muoversi secondo la traiettoria del file importato.
 
-"TrajectoryJ" command node, parameters:
+Nodo istruzione "Traiettoria J", parametri:
 
-- Select track file: recorded track
-- Debugging speed (%): 0 ~ 100, default value is 25
-- Track mode: path points/control points
+- Seleziona file traiettoria: Traiettoria registrata
+- Velocità di debug (%): 0 ~ 100, valore predefinito 25
+- Modalità traiettoria: Punto percorso/Punto controllo
 
 .. image:: node_editor_software/024.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.25-1 "TrajectoryJ" command node interface
+.. centered:: Figura 11.25-1 Interfaccia del Nodo Istruzione "Traiettoria J"
 
-DMP instruction
------------------
+Istruzione DMP
+--------------
 
-Click the "DMP" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "DMP" per accedere all'interfaccia di modifica del grafo a nodi.
 
-DMP is a trajectory imitation learning method that requires planning a reference trajectory in advance. In the command editing interface, select the teaching point as the new starting point, click "Add" and "Apply" to save the command. The specific path of DMP is a new trajectory that imitates the reference trajectory with a new starting point.
+Il DMP è un metodo di apprendimento per imitazione della traiettoria, che richiede una traiettoria di riferimento pianificata in anticipo. Nell'interfaccia di modifica del comando, selezionare un punto di insegnamento come nuovo punto di partenza, fare clic su "Aggiungi", "Applica" per salvare l'istruzione. Il percorso DMP specifico è la nuova traiettoria che imita la traiettoria di riferimento a partire dal nuovo punto di partenza.
 
-"DMP" command node, parameters:
+Nodo istruzione "DMP", parametri:
 
-- Point name: teaching point
-- Debugging speed (%): 0 ~ 100, default value is 100
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0 ~ 100, valore predefinito 100
 
 .. image:: node_editor_software/025.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.26-1 "DMP" command node interface
+.. centered:: Figura 11.26-1 Interfaccia del Nodo Istruzione "DMP"
 
-WPSTrsf instruction
----------------------------------
+Istruzione Trasformazione Pezzo
+-------------------------------
 
-Click the "WPSTrsf" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Trasformazione pezzo" per accedere all'interfaccia di modifica del grafo a nodi.
 
-Select the workpiece coordinate system to be automatically converted, click "Add" and "Apply" to save the instruction. When adding PTP and LIN instructions, connect them to the Body to implement execution within the instruction, and the points in the workpiece coordinate system are automatically converted.
+Selezionare il sistema di coordinate del pezzo per cui si desidera l' conversione automatica. Fare clic su "Aggiungi", "Applica" per salvare l'istruzione. Quando si aggiungono istruzioni PTP, LIN collegate a "Body", si realizza l'esecuzione all'interno di questa istruzione con conversione automatica dei punti nel sistema di coordinate del pezzo.
 
-"WPSTrsf" command node, parameters:
+Nodo istruzione "Trasformazione pezzo", parametri:
 
-- Workpiece coordinate system: workpiece coordinate series list
+- Sistema coordinate pezzo: Elenco sistemi coordinate pezzo
 
 .. image:: node_editor_software/026.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.27-1 "WPSTrsf" command node interface
+.. centered:: Figura 11.27-1 Interfaccia del Nodo Istruzione "Trasformazione pezzo"
 
-ToolTrst instruction
------------------------
+Istruzione Trasformazione Utensile
+----------------------------------
 
-Click the "ToolTrst" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Trasformazione utensile" per accedere all'interfaccia di modifica del grafo a nodi.
 
-Select the tool coordinate system to be automatically converted, click "Add" and "Apply" to save the instruction. When adding PTP and LIN instructions, connect them to the Body to implement execution within the instruction, and the points in the tool coordinate system are automatically converted.
+Selezionare il sistema di coordinate utensile per cui si desidera l' conversione automatica. Fare clic su "Aggiungi", "Applica" per salvare l'istruzione. Quando si aggiungono istruzioni PTP, LIN collegate a "Body", si realizza l'esecuzione all'interno di questa istruzione con conversione automatica dei punti nel sistema di coordinate utensile.
 
-"ToolTrst" command node, parameters:
+Nodo istruzione "Trasformazione utensile", parametri:
 
-- Tool coordinate system: tool coordinate series list
+- Sistema coordinate utensile: Elenco sistemi coordinate utensile
 
 .. image:: node_editor_software/027.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.28-1 “ToolTrst” command node interface
+.. centered:: Figura 11.28-1 Interfaccia del Nodo Istruzione "Trasformazione utensile"
 
-Digital IO instruction node
-------------------------------
+Nodo Istruzione I/O Digitale
+----------------------------
 
-Click the "Set DO"/"Get DI" command node to enter the node diagram editing interface
+Fare clic sul nodo istruzione "Imposta DO"/"Ottieni DI" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This instruction is an IO instruction, which is divided into two parts: setting IO (SetDO/SPLCSetDO) and getting IO (GetDI/SPLCGetDI).
+Questa istruzione è per l'I/O digitale, suddivisa in impostazione I/O (SetDO/SPLCSetDO) e acquisizione I/O (GetDI/SPLCGetDI).
 
-1. "SetDO" command node, parameters:
+1. Nodo istruzione "Imposta DO", parametri:
 
-- Port: Ctrl-DO0 ~ Ctrl-CO7 (blocking: SetDO, non-blocking: SPLCSetDO, [0~15]), End-DO0 ~ End-DO1 (blocking: SetToolDO, non-blocking: SPLCSetToolDO, [0~1])
-- Status: false/true
-- Whether to block: blocking/non-blocking
-- Smooth trajectory: Break/Serious
-- Whether to apply threads: No/Yes
-  
+- Porta: Ctrl-DO0 ~ Ctrl-DO7 (bloccante: SetDO, non bloccante: SPLCSetDO, [0~15]), End-DO0 ~ End-DO1 (bloccante: SetToolDO, non bloccante: SPLCSetToolDO, [0~1])
+- Stato: false/true
+- Bloccante: Bloccante/Non bloccante
+- Traiettoria levigata: Break/Serious
+- Applica thread: No/Sì
+
 .. image:: node_editor_software/028.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.29-1 “SetDO” command node interface
+.. centered:: Figura 11.29-1 Interfaccia del Nodo Istruzione "Imposta DO"
 
-2. "GetDI" command node, parameters:
+2. Nodo istruzione "Ottieni DI", parametri:
 
-- Port: Ctrl-DI0 ~ Ctrl-CI7 (blocking: GetDI, non-blocking: SPLCGetDI, [0~15]), End-DI0 ~ End-DI1 (blocking: GetToolDI, non-blocking: SPLCGetToolDI, [0~1])
-- Whether to block: blocking/non-blocking
-- Status: false/true
-- Maximum waiting time (ms): 0 ~ 10000
-- Whether to apply threads: No/Yes
-  
+- Porta: Ctrl-DI0 ~ Ctrl-DI7 (bloccante: GetDI, non bloccante: SPLCGetDI, [0~15]), End-DI0 ~ End-DI1 (bloccante: GetToolDI, non bloccante: SPLCGetToolDI, [0~1])
+- Bloccante: Bloccante/Non bloccante
+- Stato: false/true
+- Tempo massimo attesa (ms): 0 ~ 10000
+- Applica thread: No/Sì
+
 .. image:: node_editor_software/029.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.29-2 "GetDI" command node interface
+.. centered:: Figura 11.29-2 Interfaccia del Nodo Istruzione "Ottieni DI"
 
-Simulate AI commands
-----------------------
+Comando I/O Analogico
+---------------------
 
-Click the "Set AO"/"Get AI" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "Imposta AO"/"Ottieni AI" per accedere all'interfaccia di modifica del grafo a nodi.
 
-In this command, it is divided into two functions: setting analog output (SetAO/SPLCSetAO) and getting analog input (GetAI/SPLCGetAI).
+Questa istruzione è suddivisa in due funzioni: impostazione uscita analogica (SetAO/SPLCSetAO) e acquisizione ingresso analogico (GetAI/SPLCGetAI).
 
-1. "SetAO" command node, parameters:
+1. Nodo istruzione "Imposta AO", parametri:
 
-- Port: Ctrl-AO0 ~ Ctrl-AO1 (blocking: SetAO, non-blocking: SPLCSetAO, [0~1]), End-AO0 (blocking: SetToolAO, non-blocking: SPLCSetToolAO, [0])
-- Value (%): 0 ~ 100
-- Whether to block: blocking/non-blocking
-- Whether to apply threads: No/Yes
-  
+- Porta: Ctrl-AO0 ~ Ctrl-AO1 (bloccante: SetAO, non bloccante: SPLCSetAO, [0~1]), End-AO0 (bloccante: SetToolAO, non bloccante: SPLCSetToolAO, [0])
+- Valore (%): 0 ~ 100
+- Bloccante: Bloccante/Non bloccante
+- Applica thread: No/Sì
+
 .. image:: node_editor_software/030.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.30-1 “SetAO” command node interface
-   
-2. "GetAI" command node, parameters:
+.. centered:: Figura 11.30-1 Interfaccia del Nodo Istruzione "Imposta AO"
 
-- Port: Ctrl-AI0 ~ Ctrl-DI1 (blocking: GetAI, non-blocking: SPLCGetAI, [0~1]), End-AI0 (blocking: GetToolAI, non-blocking: SPLCGetToolAI, [0])
-- Condition: greater than/less than
-- Value (%): 0 ~ 100
-- Maximum time (ms): 0 ~ 10000
-- Whether to block: blocking/non-blocking
-- Whether to apply threads: No/Yes
-  
+2. Nodo istruzione "Ottieni AI", parametri:
+
+- Porta: Ctrl-AI0 ~ Ctrl-AI1 (bloccante: GetAI, non bloccante: SPLCGetAI, [0~1]), End-AI0 (bloccante: GetToolAI, non bloccante: SPLCGetToolAI, [0])
+- Condizione: Maggiore di/Minore di
+- Valore (%): 0 ~ 100
+- Tempo massimo (ms): 0 ~ 10000
+- Bloccante: Bloccante/Non bloccante
+- Applica thread: No/Sì
+
 .. image:: node_editor_software/031.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.30-2 "GetAI" command node interface
+.. centered:: Figura 11.30-2 Interfaccia del Nodo Istruzione "Ottieni AI"
 
-Virtual IO command node
--------------------------
+Nodo Comando I/O Virtuale
+--------------------------
 
-Click the "Configure Simulated External DI"/"Configure Simulated External AI" command node to enter the node diagram editing interface.
+Fare clic sul nodo istruzione "Imposta DI esterno virtuale"/"Imposta AI esterno virtuale" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This instruction is a virtual IO control instruction that can set the simulated external DI and AI status and obtain the simulated DI and AI status.
+Questa istruzione è un comando di controllo I/O virtuale, che può impostare lo stato di DI e AI esterni virtuali e acquisire lo stato di DI e AI virtuali.
 
-1. "Configure simulated external DI" command node, parameters:
+1. Nodo istruzione "Imposta DI esterno virtuale", parametri:
 
-- Port: Vir-Ctrl-DI0 ~ Vir-Ctrl-DI15(SetVirtualDI,[0~15]), Vir-End-DI0 ~ Vir-End-DI1(SetVirtualToolDI,[1~2])
-- Status: false/true
-  
+- Porta: Vir-Ctrl-DI0 ~ Vir-Ctrl-DI15 (SetVirtualDI, [0~15]), Vir-End-DI0 ~ Vir-End-DI1 (SetVirtualToolDI, [0~1])
+- Stato: false/true
+
 .. image:: node_editor_software/032.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.31-1 "Configure simulated external DI" command node interface
-   
-2. "Configure simulated external AI" command node, parameters:
+.. centered:: Figura 11.31-1 Interfaccia del Nodo Istruzione "Imposta DI esterno virtuale"
 
-- Port: Vir-Ctrl-AI0 ~ Vir-Ctrl-AI0(SetVirtualAI,[0~1]), Vir-End-AI0(SetVirtualToolAI,[0])
-- Value (v/ma): 0 ~ 20
+2. Nodo istruzione "Imposta AI esterno virtuale", parametri:
+
+- Porta: Vir-Ctrl-AI0 ~ Vir-Ctrl-AI1 (SetVirtualAI, [0~1]), Vir-End-AI0 (SetVirtualToolAI, [0])
+- Valore (V/mA): 0 ~ 20
 
 .. image:: node_editor_software/033.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.31-2 "Configure simulated external AI" command node interface
+.. centered:: Figura 11.31-2 Interfaccia del Nodo Istruzione "Imposta AI esterno virtuale"
 
-Extended IO command node
------------------------------
+Nodo Comando I/O Esteso
+-----------------------
 
-Click the "Obtain simulated external DI"/"Obtain simulated external AI" command node to enter the node diagram editing interface.
+Fare clic sul nodo istruzione "Ottieni DI esterno virtuale"/"Ottieni AI esterno virtuale" per accedere all'interfaccia di modifica del grafo a nodi.
 
-Aux-IO is a command function used by the robot to communicate with the PLC to control external expansion IO. It requires the robot to establish UDP communication with the PLC.
+Aux-IO è la funzione di comando per la comunicazione tra robot e PLC per controllare I/O estesi esterni. Richiede l'instaurazione di una comunicazione UDP tra robot e PLC.
 
-1. "Obtain simulated external DI" command node, parameters:
+1. Nodo istruzione "Ottieni DI esterno virtuale", parametri:
 
-- Port: Vir-Ctrl-DI0 ~ Vir-Ctrl-DI15(GetVirtualDI,[0~15]), Vir-End-DI0 ~ Vir-End-DI1(GetVirtualToolDI,[1~2])
-  
+- Porta: Vir-Ctrl-DI0 ~ Vir-Ctrl-DI15 (GetVirtualDI, [0~15]), Vir-End-DI0 ~ Vir-End-DI1 (GetVirtualToolDI, [0~1])
+
 .. image:: node_editor_software/034.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.32-1 "Obtain simulated external DI" command node interface
-   
-2. "Obtain simulated external AI" command node, parameters:
+.. centered:: Figura 11.32-1 Interfaccia del Nodo Istruzione "Ottieni DI esterno virtuale"
 
-- Port: Vir-Ctrl-AI0 ~ Vir-Ctrl-AI0(GetVirtualAI,[0~1]), Vir-End-AI0(GetVirtualToolAI,[0])
+2. Nodo istruzione "Ottieni AI esterno virtuale", parametri:
+
+- Porta: Vir-Ctrl-AI0 ~ Vir-Ctrl-AI1 (GetVirtualAI, [0~1]), Vir-End-AI0 (GetVirtualToolAI, [0])
 
 .. image:: node_editor_software/035.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.32-2 "Obtain simulated external AI" command node interface
+.. centered:: Figura 11.32-2 Interfaccia del Nodo Istruzione "Ottieni AI esterno virtuale"
 
-3. "Configure UDP communication" command node, parameters:
+3. Nodo istruzione "Configura comunicazione UDP", parametri:
 
-- ip: ip address
-- port: port number
-- Communication cycle (ms): 0 ~ 10000
+- IP: Indirizzo IP
+- Porta: Numero di porta
+- Periodo comunicazione (ms): 0 ~ 10000
 
 .. image:: node_editor_software/036.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.32-3 "Configure UDP Communication" command node interface
+.. centered:: Figura 11.32-3 Interfaccia del Nodo Istruzione "Configura comunicazione UDP"
 
-MoveDO instruction
----------------------
+Comando DO Movimento
+---------------------------
 
-Click the "MoveDO" command node to enter the node graph editing interface.
+Fare clic sul nodo istruzione "DO movimento" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This instruction implements the function of continuously outputting DO signals according to the set interval during linear motion.
+Questa istruzione realizza la funzione di output continuo del segnale DO durante il movimento lineare, in base all'intervallo impostato.
 
-"Motion DO continuous output" command node, parameters:
+Nodo istruzione "Output continuo DO movimento", parametri:
 
-- Port: Ctrl-DO0 ~ Ctrl-DO0(MoveDOStart,[0~15]), End-DO1(MoveDOStart,[0~1])
-- Setting interval (mm): 0 ~ 500
-- Output pulse duty cycle (%): 0 ~ 99
+- Porta: Ctrl-DO0 ~ Ctrl-DO15 (MoveDOStart, [0~15]), End-DO0 ~ End-DO1 (MoveDOStart, [0~1])
+- Intervallo impostato (mm): 0 ~ 500
+- Ciclo di lavoro impulso output (%): 0 ~ 99
 
-"Motion DO single output" command node, parameters:
+Nodo istruzione "Output singolo DO movimento", parametri:
 
-- Port: Ctrl-DO0 ~ Ctrl-DO0(MoveDOOnceStart,[0~15]), End-DO1(MoveDOOnceStart,[0~1])
-- Output mode: constant speed section output/free configuration
-- Setting time (ms): 0 ~ 1000 (The default output mode of the constant speed segment is -1)
-- Reset time (ms): 0 ~ 1000 (The default output mode of the constant speed segment is -1)
-  
+- Porta: Ctrl-DO0 ~ Ctrl-DO15 (MoveDOOnceStart, [0~15]), End-DO0 ~ End-DO1 (MoveDOOnceStart, [0~1])
+- Modalità output: Output tratto a velocità costante/Configurazione libera
+- Tempo set (ms): 0 ~ 1000 (Modalità output tratto a velocità costante predefinito -1)
+- Tempo reset (ms): 0 ~ 1000 (Modalità output tratto a velocità costante predefinito -1)
+
 .. image:: node_editor_software/037.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.33-1 "Motion DO single/continuous output" command node interface
+.. centered:: Figura 11.33-1 Interfaccia del Nodo Istruzione "Output singolo/continuo DO movimento"
 
-ToolList instruction
------------------------------
+Comando Sistema di Coordinate
+------------------------------
 
-Click the "SetToolList"/"SetWobToolList" related command node to enter the node diagram editing interface.
+Fare clic sui nodi istruzione correlati a "Imposta sistema coordinate utensile"/"Imposta sistema coordinate pezzo" per accedere all'interfaccia di modifica del grafo a nodi.
 
-In this command, it is divided into two functions: "SetToolList" and "SetWobToolList".
+Questa istruzione è suddivisa in due funzioni: "Imposta sistema coordinate utensile" e "Imposta sistema coordinate pezzo".
 
-Select the tool coordinate system name and click "Apply" to add this instruction to the program. When the program runs this statement, the tool coordinate system of the robot will be set.
+Selezionare il nome del sistema di coordinate utensile, fare clic su "Applica" per aggiungere l'istruzione al programma. Quando il programma esegue questa istruzione, imposterà il sistema di coordinate utensile del robot.
 
-1. "SetToolList" command node, parameters:
+1. Nodo istruzione "Imposta sistema coordinate utensile", parametri:
 
-- Tool coordinate system name: toolcoord1 ~ toolcoord19(SetToolList, [0~19]), etoolcoord0 ~ etoolcoord14(SetExToolList, [0~14])
-  
+- Nome sistema coordinate utensile: toolcoord1 ~ toolcoord19 (SetToolList, [0~19]), etoolcoord0 ~ etoolcoord14 (SetExToolList, [0~14])
+
 .. image:: node_editor_software/038.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.34-1 "SetToolList" command node interface
+.. centered:: Figura 11.34-1 Interfaccia del Nodo Istruzione "Imposta sistema coordinate utensile"
 
-2. "SetWobToolList" command node, parameters:
+2. Nodo istruzione "Imposta sistema coordinate pezzo", parametri:
 
-- Workpiece coordinate system name: wobjcoord1 ~ wobjcoord14
-  
+- Nome sistema coordinate pezzo: wobjcoord1 ~ wobjcoord14
+
 .. image:: node_editor_software/039.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.34-2 "SetWobToolList" command node interface
+.. centered:: Figura 11.34-2 Interfaccia del Nodo Istruzione "Imposta sistema coordinate pezzo"
 
-Mode instruction
-------------------
+Comando Cambio Modalità
+-----------------------
 
-Click the "Mode" command node to enter the node graph programming interface
+Fare clic sul nodo istruzione "Cambio modalità" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This instruction can switch the robot to manual mode. It is usually added at the end of a program so that the user can automatically switch the robot to manual mode and drag the robot after the program is finished.
+Questa istruzione può commutare il robot in modalità manuale. Di solito viene aggiunta alla fine di un programma, in modo che al termine dell'esecuzione del programma, il robot passi automaticamente in modalità manuale, permettendo all'utente di trascinarlo.
 
-"Mode" command node, parameters:
+Nodo istruzione "Cambio modalità", parametri:
 
-- Mode switch: manual mode
+- Cambio modalità: Modalità manuale
 
 .. image:: node_editor_software/040.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.35-1 “Mode” command node interface
+.. centered:: Figura 11.35-1 Interfaccia del Nodo Istruzione "Cambio modalità"
 
-Collision instruction
+Comando Livello Collisione
 --------------------------
 
-Click the "Collision" command node to enter the node graph programming interface
+Fare clic sul nodo istruzione "Livello collisione" per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command sets the collision level. Through this command, the collision level of each axis can be adjusted in real time while the program is running, allowing for more flexible deployment of application scenarios.
+Questa istruzione imposta il livello di collisione. Attraverso questa istruzione, è possibile regolare in tempo reale il livello di collisione di ciascun asse durante l'esecuzione del programma, permettendo una distribuzione più flessibile degli scenari applicativi.
 
-"Collision" command node, parameters:
+Nodo istruzione "Livello collisione", parametri:
 
-- Standard Level: Standard Level/Customized Percentage
-- joint1-joint6(N): 0 ~ 100, collision threshold, array type
+- Livello standard: Livello standard/Percentuale personalizzata
+- Giunto1-Giunto6 (N): 0 ~ 100, Soglia collisione, tipo array
 
 .. image:: node_editor_software/041.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.36-1 “Collision” command node interface
+.. centered:: Figura 11.36-1 Interfaccia del Nodo Istruzione "Livello collisione"
 
-Acc instruction
-----------------
+Comando Accelerazione
+---------------------
 
-Click the "Acc" command node to enter the node graph programming interface
+Fare clic sul nodo istruzione "Accelerazione" per accedere all'interfaccia di modifica del grafo a nodi.
 
-The "Acc" command is a function that allows the robot's acceleration to be set independently. By adjusting the motion command acceleration scaling factor, the acceleration and deceleration time can be increased or decreased, and the robot's action beat time can be adjusted.
+Il comando "Accelerazione" realizza la funzione di impostazione separata dell'accelerazione del robot. Regolando il fattore di scala dell'accelerazione dell'istruzione di movimento, è possibile aumentare o diminuire il tempo di accelerazione/decelerazione, realizzando la regolazione del tempo di ciclo dell'azione del robot.
 
-"Acc" command node, parameters:
+Nodo istruzione "Accelerazione", parametri:
 
-- Acceleration percentage (%): 0 ~ 100
+- Percentuale accelerazione (%): 0 ~ 100
 
 .. image:: node_editor_software/042.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.37-1 "Acc" command node interface
+.. centered:: Figura 11.37-1 Interfaccia del Nodo Istruzione "Accelerazione"
 
-Gripper instruction
-----------------------
+Istruzione Pinza
+----------------
 
-The command is divided into "gripper movement", "gripper activation" and "gripper reset".
+Questa istruzione è suddivisa in "Movimento pinza", "Attiva pinza" e "Ripristina pinza".
 
-In the command, the number of the gripper that has been configured and activated is displayed. The settings for the opening and closing, opening and closing speed and opening and closing torque of the gripper. The value is a percentage. Whether to block the function option. If blocking is selected, the gripper movement needs to wait for the previous one. The motion command is executed only after it is executed. Select non-blocking, that is, the gripper motion is parallel to the previous motion command.
+Nell'istruzione, viene visualizzato il numero della pinza che è stata configurata e attivata. Vengono impostati l'apertura/chiusura della pinza, la velocità di apertura/chiusura e la coppia di apertura/chiusura, i valori sono in percentuale. L'opzione di blocco: se si seleziona bloccante, il movimento della pinza attende il completamento dell'istruzione di movimento precedente prima di eseguire; se si seleziona non bloccante, il movimento della pinza viene eseguito in parallelo con l'istruzione di movimento precedente.
 
-"Gripper Movement" node, parameters:
+Nodo "Movimento pinza", parametri:
 
-- Gripper number: The number of the activated gripper
-- Clamp position: 0~100
-- Opening and closing speed: 0~100
-- Opening and closing torque: 0~100
-- Maximum time (ms): 0~30000
-- Whether to block: false/true
+- Numero pinza: Numero pinza già attivata
+- Posizione pinza: 0~100
+- Velocità apertura/chiusura: 0~100
+- Coppia apertura/chiusura: 0~100
+- Tempo massimo (ms): 0~30000
+- Bloccante: false/true
 
 .. image:: node_editor_software/043.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.38-1 "Gripper Movement" node interface
+.. centered:: Figura 11.38-1 Interfaccia del Nodo "Movimento pinza"
 
-The gripper reset command displays the configured gripper number. You can add the gripper reset command to the program.
+L'istruzione di ripristino pinza visualizza il numero della pinza già configurata e permette di aggiungere l'istruzione di ripristino pinza al programma.
 
-"Gripper reset" node, parameters:
+Nodo "Ripristina pinza", parametri:
 
-- Gripper number: The number of the activated gripper
+- Numero pinza: Numero pinza già attivata
 
 .. image:: node_editor_software/044.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.38-2 "Gripper reset" node interface
+.. centered:: Figura 11.38-2 Interfaccia del Nodo "Ripristina pinza"
 
-The gripper activation command displays the configured gripper number. You can add the gripper activation command to the program.
+L'istruzione di attivazione pinza visualizza il numero della pinza già configurata e permette di aggiungere l'istruzione di attivazione pinza al programma.
 
-"Gripper activation" node, parameters:
+Nodo "Attiva pinza", parametri:
 
-- Gripper number: The number of the activated gripper
+- Numero pinza: Numero pinza già attivata
 
 .. image:: node_editor_software/045.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.38-3 "Gripper activation" node interface
+.. centered:: Figura 11.38-3 Interfaccia del Nodo "Attiva pinza"
 
-Spray instruction
---------------------
+Istruzione Pistola a Spruzzo
+-----------------------------
 
-This command is a spray-related command that controls the spray gun to "start spraying", "stop spraying", "start clearing the gun" and "stop clearing the gun". When editing the relevant nodes of this program, you need to confirm that the spray gun peripherals have been configured, otherwise it cannot be saved. See the Robot Peripherals chapter for details.
+Questa istruzione è relativa alla verniciatura a spruzzo, controllando la pistola a spruzzo per "Inizia spruzzo", "Ferma spruzzo", "Inizia pulizia pistola" e "Ferma pulizia pistola". Durante la modifica dei nodi relativi a questo programma, assicurarsi che la periferica della pistola a spruzzo sia stata configurata correttamente, altrimenti non sarà possibile salvare. Per i dettagli, vedere il capitolo sulle periferiche del robot.
 
 .. image:: node_editor_software/046.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.39-1 "Start spraying" command node interface
+.. centered:: Figura 11.39-1 Interfaccia Istruzione "Inizia spruzzo"
 
 .. image:: node_editor_software/047.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.39-2 "Stop spraying" command node interface
+.. centered:: Figura 11.39-2 Interfaccia Istruzione "Ferma spruzzo"
 
 .. image:: node_editor_software/048.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.39-3 "Clearing gun" command node interface
+.. centered:: Figura 11.39-3 Interfaccia Istruzione "Inizia pulizia pistola"
 
 .. image:: node_editor_software/049.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.39-4 "Stop clearing" command node interface
+.. centered:: Figura 11.39-4 Interfaccia Istruzione "Ferma pulizia pistola"
 
-Extended axis instructions (controller + PLC)
--------------------------------------------------
+Istruzione Asse Esteso (Controller + PLC)
+-------------------------------------------
 
-This instruction is aimed at scenarios where external axes are used. Used in combination with the PTP instruction, it can decompose the movement of a point in space in the X-axis direction into external axis motion. Select the external axis number, select synchronization as the motion mode, and select the point you want to reach.
+Questa istruzione è destinata a scenari che utilizzano assi esterni. Utilizzata in combinazione con l'istruzione PTP, può scomporre il movimento lungo la direzione X di un punto nello spazio nel movimento dell'asse esterno. Selezionare il numero dell'asse esterno, selezionare la modalità di movimento come sincrona, selezionare il punto da raggiungere.
 
-It is divided into UDP communication loading/configuration, asynchronous movement, synchronous PTP/LIN movement, synchronous ARC movement, zero return command and enable command.
+Suddivisa in Caricamento/Configurazione comunicazione UDP, Movimento asincrono, Movimento PTP/LIN sincrono, Movimento ARC sincrono, Istruzione ritorno a zero e Istruzione abilitazione.
 
-"Extended axis UDP communication configuration" command node, enter the IP address, port number and communication cycle.
+Nodo istruzione "Configurazione comunicazione UDP", inserire indirizzo IP, numero di porta e periodo di comunicazione.
 
 .. image:: node_editor_software/050.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.40-1 "Extended axis UDP communication configuration" command node interface
+.. centered:: Figura 11.40-1 Interfaccia Nodo Istruzione "Configurazione comunicazione UDP"
 
-"Extended axis asynchronous motion" command node, parameters:
+Nodo istruzione "Movimento asincrono", parametri:
 
-- Point name: Teaching point
-- Debugging speed (%): 0~100
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0~100
 
 .. image:: node_editor_software/051.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.40-2 "Extended axis asynchronous motion" command node interface
+.. centered:: Figura 11.40-2 Interfaccia Nodo Istruzione "Movimento asincrono"
 
-"Synchronized PTP/LIN motion" command node, parameters:
+Nodo istruzione "Movimento PTP/LIN sincrono", parametri:
 
-- Sport selection: PTP/LIN
-- Point name: Teaching point
-- Debugging speed (%): 0~100
+- Selezione movimento: PTP/LIN
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0~100
 
 .. image:: node_editor_software/052.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.40-3 "Synchronized PTP/LIN motion" command node interface
+.. centered:: Figura 11.40-3 Interfaccia Nodo Istruzione "Movimento PTP/LIN sincrono"
 
-"Synchronized ARC motion" command node, the default motion mode is ARC, parameters:
+Nodo istruzione "Movimento ARC sincrono", modalità movimento predefinita ARC, parametri:
 
-- Point name: Teaching point
-- Debugging speed (%): 0~100
+- Nome punto: Punto di insegnamento
+- Velocità di debug (%): 0~100
 
 .. image:: node_editor_software/053.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.40-4 "Synchronized ARC motion" command node interface
+.. centered:: Figura 11.40-4 Interfaccia Nodo Istruzione "Movimento ARC sincrono"
 
-"Return to zero" command node, parameters:
+Nodo istruzione "Ritorno a zero", parametri:
 
-- Expansion axis number: 1~4
-- Zero return method: current position zero return/negative limit zero return/positive limit zero return
-- Homing speed: 0~2000, default bit 5
-- Zero point hoop speed: 0~2000, default is 1
+- Numero asse esteso: 1~4
+- Metodo ritorno a zero: Ritorno a zero posizione corrente/Ritorno a zero finecorsa negativo/Ritorno a zero finecorsa positivo
+- Velocità ricerca zero: 0~2000, predefinito 5
+- Velocità aggancio zero: 0~2000, predefinito 1
 
 .. image:: node_editor_software/054.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.40-5 "Return to zero" command node interface
+.. centered:: Figura 11.40-5 Interfaccia Nodo Istruzione "Ritorno a zero"
 
-"Enable" command node,,parameters:
+Nodo istruzione "Abilita", parametri:
 
-- Expansion axis number: 1~4
+- Numero asse esteso: 1~4
 
 .. image:: node_editor_software/055.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.40-6 "Enable" command node interface
+.. centered:: Figura 11.40-6 Interfaccia Nodo Istruzione "Abilita"
 
-Extended axis instructions (controller + servo drive)
--------------------------------------------------------
+Istruzione Asse Esteso (Controller + Azionamento Servo)
+--------------------------------------------------------------
 
-This command can configure extended axis parameters. Set different parameters according to different control modes. The configured expansion axis can be set to its zero point.
+Questa istruzione permette di configurare i parametri dell'asse esteso. Impostare parametri diversi in base alla diversa modalità di controllo. Per gli assi estesi già configurati, è possibile impostare il punto zero.
 
-It is divided into servo ID, control mode, servo enable and servo zero return; the control mode is further divided into position mode and speed mode. These two nodes need to be used in conjunction with the control mode, otherwise adding them separately will not take effect.
+Suddivisa in ID servo, Modalità controllo, Abilitazione servo e Ritorno a zero servo; la Modalità controllo è a sua volta suddivisa in Modalità posizione e Modalità velocità. Questi due nodi devono essere utilizzati in combinazione con la Modalità controllo, altrimenti l'aggiunta singola non avrà effetto.
 
-"Servo ID" command node, parameters:
+Nodo istruzione "ID servo", parametri:
 
-- Servo ID: 1~15
+- ID servo: 1~15
 
 .. image:: node_editor_software/056.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.41-1 "Servo ID" command node interface
+.. centered:: Figura 11.41-1 Interfaccia Nodo Istruzione "ID servo"
 
-"Control mode" command node, parameters:
+Nodo istruzione "Modalità controllo", parametri:
 
-- Servo ID: 1~15
-- Control mode: position mode/speed mode
+- ID servo: 1~15
+- Modalità controllo: Modalità posizione/Modalità velocità
 
 .. image:: node_editor_software/057.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.41-2 "Control Mode" command node interface
+.. centered:: Figura 11.41-2 Interfaccia Nodo Istruzione "Modalità controllo"
 
-"Servo enable" command node, parameters:
+Nodo istruzione "Abilitazione servo", parametri:
 
-- Servo ID: 1~15
-- Servo enable: servo enable/remove enable
+- ID servo: 1~15
+- Abilitazione servo: Abilita servo/Disabilita servo
 
 .. image:: node_editor_software/058.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.41-3 "Servo enable" command node interface
+.. centered:: Figura 11.41-3 Interfaccia Nodo Istruzione "Abilitazione servo"
 
-"Servo return to zero" command node, parameters:
+Nodo istruzione "Ritorno a zero servo", parametri:
 
-- Servo ID: 1~15
-- Zero return method: current position zero return/negative limit zero return/positive limit zero return
-- Homing speed: 0~2000, default bit 5
-- Zero point hoop speed: 0~2000, default is 1
-- Acceleration percentage: 1-100
+- ID servo: 1~15
+- Metodo ritorno a zero: Ritorno a zero posizione corrente/Ritorno a zero finecorsa negativo/Ritorno a zero finecorsa positivo
+- Velocità ricerca zero: 0~2000, predefinito 5
+- Velocità aggancio zero: 0~2000, predefinito 1
+- Percentuale accelerazione: 1~100
 
 .. image:: node_editor_software/059.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.41-4 "Servo return to zero" command node interface
+.. centered:: Figura 11.41-4 Interfaccia Nodo Istruzione "Ritorno a zero servo"
 
-"Position mode" command node, parameters:
+Nodo istruzione "Modalità posizione", parametri:
 
-- Servo ID: 1~15
-- Target location: unlimited
-- Homing speed: unlimited
-- Acceleration percentage: 1-100
+- ID servo: 1~15
+- Posizione obiettivo: Nessun limite
+- Velocità ricerca zero: Nessun limite
+- Percentuale accelerazione: 1~100
 
 .. image:: node_editor_software/060.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.41-5 "Position Mode" command node interface
+.. centered:: Figura 11.41-5 Interfaccia Nodo Istruzione "Modalità posizione"
 
-"Speed mode" command node, parameters:
+Nodo istruzione "Modalità velocità", parametri:
 
-- Servo ID: 1~15
-- Target speed: unlimited
-- Acceleration percentage: 1-100
+- ID servo: 1~15
+- Velocità obiettivo: Nessun limite
+- Percentuale accelerazione: 1~100
 
 .. image:: node_editor_software/061.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.41-6 "Speed Mode" command node interface
+.. centered:: Figura 11.41-6 Interfaccia Nodo Istruzione "Modalità velocità"
 
-Conveyor belt instruction
-----------------------------------
+Istruzione Nastro Trasportatore
+-------------------------------
 
-This instruction includes four commands: Conveyor belt IO real-time detection, position real-time detection, tracking on and tracking off. See the Robot Peripherals chapter for details.
+Questa istruzione include quattro comandi: Rilevamento I/O in tempo reale, Rilevamento posizione in tempo reale, Avvia inseguimento e Ferma inseguimento. Per i dettagli, vedere il capitolo sulle periferiche del robot.
 
-"Conveyor belt IO real-time detection" command node, parameters:
+Nodo istruzione "Rilevamento I/O in tempo reale", parametri:
 
-- Maximum waiting time: 0~10000
+- Tempo massimo attesa: 0~10000
 
 .. image:: node_editor_software/062.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.42-1 "Conveyor belt IO real-time detection" command node interface
+.. centered:: Figura 11.42-1 Interfaccia Nodo Istruzione "Rilevamento I/O in tempo reale"
 
-"Real-time detection of conveyor belt position" command node, parameters:
+Nodo istruzione "Rilevamento posizione in tempo reale", parametri:
 
-- Operating mode: Tracking capture/Tracking motion/TPD tracking
+- Modalità lavoro: Inseguimento e presa/Inseguimento movimento/Inseguimento TPD
 
 .. image:: node_editor_software/063.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.42-2 "Real-time detection of conveyor belt position" command node interface
+.. centered:: Figura 11.42-2 Interfaccia Nodo Istruzione "Rilevamento posizione in tempo reale"
 
-"Conveyor tracking enabled" command node, parameters:
+Nodo istruzione "Avvia inseguimento", parametri:
 
-- Operating mode: Tracking capture/Tracking movement/TPD tracking
+- Modalità lavoro: Inseguimento e presa/Inseguimento movimento/Inseguimento TPD
 
 .. image:: node_editor_software/064.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.42-3 "Conveyor tracking enabled" command node interface
+.. centered:: Figura 11.42-3 Interfaccia Nodo Istruzione "Avvia inseguimento"
 
 .. image:: node_editor_software/065.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.42-4 "Conveyor tracking off" command node interface
+.. centered:: Figura 11.42-4 Interfaccia Nodo Istruzione "Ferma inseguimento"
 
-Polish instruction
-----------------------------------
+Istruzione Smerigliatura
+------------------------
 
-This command is used for polishing scenes. When using it, you need to uninstall and then load the driver, and then set the polishing device to be enabled. Then set the rotation speed, contact force, extension distance and control mode of the grinding equipment. At the same time, you can clear the grinding equipment errors and clear the equipment force sensor.
+Questa istruzione è utilizzata per scenari di smerigliatura. Durante l'uso, è necessario prima scaricare il driver, poi caricarlo, quindi impostare l'abilitazione del dispositivo di smerigliatura. Successivamente, impostare la velocità di rotazione, la forza di contatto, la distanza di estensione e la modalità di controllo del dispositivo di smerigliatura. Allo stesso tempo, è possibile cancellare gli errori del dispositivo di smerigliatura e azzerare il sensore di forza del dispositivo.
 
 .. image:: node_editor_software/066.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-1 "Polishing communication equipment uninstallation" command node interface
+.. centered:: Figura 11.43-1 Interfaccia Nodo Istruzione "Scarica driver comunicazione"
 
 .. image:: node_editor_software/067.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-2 "Polishing communication equipment loading" command node interface
+.. centered:: Figura 11.43-2 Interfaccia Nodo Istruzione "Carica driver comunicazione"
 
-"Polishing equipment enable" command node, parameters:
+Nodo istruzione "Abilita dispositivo", parametri:
 
-- Device enable: Present/Descend
+- Abilita dispositivo: Abilita/Disabilita
 
 .. image:: node_editor_software/068.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-3 "Polishing equipment enable" command node interface
+.. centered:: Figura 11.43-3 Interfaccia Nodo Istruzione "Abilita dispositivo"
 
 .. image:: node_editor_software/069.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-4 "Polishing equipment error clearing" command node interface
+.. centered:: Figura 11.43-4 Interfaccia Nodo Istruzione "Cancella errore dispositivo"
 
 .. image:: node_editor_software/070.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-5 "Polishing equipment force sensor clear" command node interface
+.. centered:: Figura 11.43-5 Interfaccia Nodo Istruzione "Azzera sensore forza dispositivo"
 
-"Polishing speed" command node, parameters:
+Nodo istruzione "Velocità rotazione", parametri:
 
-- Polishing speed: 0~5500
+- Velocità rotazione: 0~5500
 
 .. image:: node_editor_software/071.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-6 "Speed" command node interface
+.. centered:: Figura 11.43-6 Interfaccia Nodo Istruzione "Velocità rotazione"
 
-"Polishing contact force" command node, parameters:
+Nodo istruzione "Forza di contatto", parametri:
 
-- Contact force: 0~200
+- Forza di contatto: 0~200
 
 .. image:: node_editor_software/072.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-7 "Polishing contact force" command node interface
+.. centered:: Figura 11.43-7 Interfaccia Nodo Istruzione "Forza di contatto"
 
-"Polishing protrusion distance" command node, parameters:
+Nodo istruzione "Distanza di estensione", parametri:
 
--Polishing protrusion distance: 0~12
+- Distanza di estensione: 0~12
 
 .. image:: node_editor_software/073.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-8 "Polishing protrusion distance" command node interface
+.. centered:: Figura 11.43-8 Interfaccia Nodo Istruzione "Distanza di estensione"
 
-"Polishing control mode" command node, parameters:
+Nodo istruzione "Modalità controllo", parametri:
 
-- Control mode: zero return mode/position mode/torque mode
+- Modalità controllo: Modalità ritorno a zero/Modalità posizione/Modalità coppia
 
 .. image:: node_editor_software/074.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.43-9 "Polishing control mode" command node interface
+.. centered:: Figura 11.43-9 Interfaccia Nodo Istruzione "Modalità controllo"
 
-Weld command
-----------------------
+Istruzione Saldatura
+--------------------
 
-Click "Welding related command node" to enter the node graph programming interface.
+Fare clic sul nodo istruzione relativo alla saldatura per accedere all'interfaccia di modifica del grafo a nodi.
 
-This command is mainly used for welding machine peripherals. Before adding this command, please confirm whether the welding machine configuration is completed in the user peripherals. For details, see the Robot Peripherals chapter.
+Questa istruzione è principalmente utilizzata per le periferiche della saldatrice. Prima di aggiungere questa istruzione, verificare che la configurazione della saldatrice nelle periferiche utente sia completata. Per i dettagli, vedere il capitolo sulle periferiche del robot.
 
-1. "Welding machine voltage" command node, parameters:
+1. Nodo istruzione "Tensione saldatrice", parametri:
 
-- Welding machine voltage: minimum value is 0
+- Tensione saldatrice: Valore minimo 0
 
 .. image:: node_editor_software/075.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.44-1 "Welding machine voltage" command node interface
+.. centered:: Figura 11.44-1 Interfaccia Nodo Istruzione "Tensione saldatrice"
 
-2. "Welding machine current" command node, parameters:
+2. Nodo istruzione "Corrente saldatrice", parametri:
 
-- Welding machine current: minimum value is 0
+- Corrente saldatrice: Valore minimo 0
 
 .. image:: node_editor_software/076.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.44-2 "Welding machine current" command node interface
+.. centered:: Figura 11.44-2 Interfaccia Nodo Istruzione "Corrente saldatrice"
 
-3. "Arc closing/arc starting" command node, parameters:
+3. Nodo istruzione "Arco finale/iniziale", parametri:
 
-- I/O type: controller IO/expansion IO
-- Welding process number: 0 ~ 7
-- Maximum waiting time (ms): 0 ~ 10000
+- Tipo I/O: I/O controller/I/O esteso
+- Numero processo saldatura: 0 ~ 7
+- Tempo massimo attesa (ms): 0 ~ 10000
 
 .. image:: node_editor_software/077.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.44-3 "Arc closing/arc starting" command node interface
+.. centered:: Figura 11.44-3 Interfaccia Nodo Istruzione "Arco finale/iniziale"
 
-4. "Gas ON/OFF" command node, parameters:
+4. Nodo istruzione "Apri/Chiudi gas", parametri:
 
-- I/O type: controller IO/expansion IO
+- Tipo I/O: I/O controller/I/O esteso
 
 .. image:: node_editor_software/078.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.44-4 "Gas on/off" command node interface
+.. centered:: Figura 11.44-4 Interfaccia Nodo Istruzione "Apri/Chiudi gas"
 
-5. "Forward/Stop forward" command node, parameters:
+5. Nodo istruzione "Avanzamento filo positivo/Interruzione avanzamento positivo", parametri:
 
-- I/O type: controller IO/expansion IO
+- Tipo I/O: I/O controller/I/O esteso
 
 .. image:: node_editor_software/079.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 11.44-5 "Forward/Stop forward" command node interface
-
-6. "Reverse wire feed/Stop reverse" command node, parameters:
-
-- I/O type: controller IO/expansion IO
-
-.. image:: node_editor_software/080.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.44-6 "Reverse wire feed/Stop reverse" command node interface
-
-Segment instruction
----------------------
-
-This command is a special command for welding, mainly used in intermittent welding scenarios where one period of welding and one period of non-welding are cycled. Between the starting point and the end point, use this command to select the starting point and the end point, set the debugging speed, set the DO port of arc starting, execution length, non-execution length, set the function mode, swing selection and rounding rules according to the actual application scenario. Realize the segment welding function, detailed operations can be found in the segment welding instructions on the program teaching page.
-
-"Segment welding" command node, parameters:
-
-- Segment welding mode: no change in attitude/change in attitude
-- Starting point: teaching point
-- End point: teaching point
-- Debugging speed (%): 0~100, default is 100
-- Execution length: 0~1000
-- Non-executable length: 0~1000
-- Function mode: 0~100, default is 100
-- Swing selection: execution section does not swing/execution section swings
-- Rounding rules: no rounding/circular rounding/single segment rounding
-
-.. image:: node_editor_software/081.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.45-1 "Segment welding" command node interface
-
-Laser instruction
---------------------
-
-Click the "Laser" command node to enter the node graph programming interface
-
-This command contains three parts: laser command, tracking command and positioning command. Before adding this command, please confirm whether the laser tracking sensor in the user peripheral has been configured successfully. See the Robot Peripherals chapter for details.
-
-1. "Open/Close sensor" command node, parameters:
-
-- Select weld type: 0 ~ 49
-  
-.. image:: node_editor_software/082.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-1 "Open/Close sensor" command node interface -- Weld type
-
-- Select task number: 0 ~ 255
-  
-.. image:: node_editor_software/135.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-2 "Open/Close sensor" command node interface -- Task number
-
-2. "Load/unload sensor" command node, parameters:
-
-- Function selection: Ruiniu RRT-SV2-BP/CXZK-RBTA4L
-  
-.. image:: node_editor_software/083.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-3 "Load/unload sensor" command node interface
-
-3. "Start/Stop Tracking" command node, parameters:
-
-- Coordinate system name: Customized configuration coordinate system
-  
-.. image:: node_editor_software/084.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-4 "Start/stop tracking" command node interface
-
-4. "Data Record" command node, parameters:
-
-- Function selection: stop recording/real-time tracking/start recording/track recurrence
-- Waiting time (ms): 0 ~ 10000
-  
-.. image:: node_editor_software/085.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-5 "Data Logging" command node interface
-
-5. "Laser tracking recurrence" command node, parameters:
-  
-.. image:: node_editor_software/086.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-6 "Laser Tracking Reappearance" command node interface
-
-6. "Sensor point acquisition movement" command node, parameters:
-
-- Coordinate system name: Customized configuration coordinate system
-- Sports mode: PTP/Lin
-- Debugging speed (%): 0 ~ 100
-  
-.. image:: node_editor_software/087.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-7 "Data Logging" command node interface
-
-7. "Start/End locating" command node, parameters:
-
-- Coordinate system name: Customized configuration coordinate system
-- Direction: -x/-x/-y/-y/-z/-z/specifies the direction
-- Direction point: When "Specify direction" is not selected, the parameter is invalid
-- Speed (%): 0 ~ 100
-- Length (mm): 0 ~ 1000
-- Maximum search time (ms): 0 ~ 10000
-  
-.. image:: node_editor_software/088.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.46-8 "Start/End locating" command node interface
-
-
-Laser recording instructions
-----------------------------------
-
-This command implements the function of taking out the starting point and end point of laser tracking and recording, so that the robot can automatically move to the starting point. It is suitable for situations where the movement starts from outside the workpiece and laser tracking and recording is performed. At the same time, the host computer can obtain the information of the starting point and end point in the recorded data. for subsequent exercise.
-
-Implementing the adjustable laser tracking reproduction speed function allows the robot to record at a very fast speed and then reproduce at the normal welding speed, which can improve operating efficiency.
-
-"Weld data record" command node, parameters:
-
-- Function selection: stop recording/real-time tracking/start recording/track recurrence
-- Waiting time (ms): 0~10000, default is 10
-- Speed (%): 0~100, default is 30, this parameter takes effect when selecting trajectory recurrence
-
-.. image:: node_editor_software/089.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.47-1 "Weld data record" command node interface
-
-"Move to the starting/end point of weld" command node, parameters:
-
-- Sports mode: PTP/LIN
-- Speed (%): 0~100, default is 30
-
-.. image:: node_editor_software/090.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.47-2 "Obtain weld starting point/end point" command node interface
-
-W-Search instruction
------------------------
-
-This command is generally used in welding scenarios and requires the welding machine to be used in combination with robot IO and motion commands. It is divided into search start, search end, search point setting, offset calculation and contact point data writing.
-
-"Welding wire positioning start/end" command node, parameters:
-
-- Base position: do not update/update
-- Position search speed: 0~100
-- Search distance: 0~1000
-- Automatic return flag: no automatic return/automatic return
-- Automatic return speed: 0~100
-- Automatic return distance: 0~1000
-- Positioning method: teaching point positioning/positioning with offset
-
-.. image:: node_editor_software/091.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.48-1 "Welding wire positioning start/end" command node interface
-
-The search point setting adds points based on the weld type and calculation method.
-
-- When the type is fillet weld and the calculation method is 1D (one of xyz), the point addition is selected from point a and point b
-- When the type is fillet weld and the calculation method is 2D (two in xyz), the point addition is selected from point a, point b, point e, and point f
-- When the type is fillet weld and the calculation method is 3D (xyz), the point addition is selected from point a, point b, point c, point d, point e, and point f
-- When the type is fillet weld and the calculation method is 2D- (two in xyz, one in rxryrz), the point addition is selected from point a, point b, point c, point d, point e, and point f
-- When the type is inner and outer diameter and the calculation method is 2D2D (two in xyz), the point addition is selected from point a and point b
-- When the type is point and the calculation method is 3D (xyz), the point addition is selected from point a, point b, point c, point d, point e, and point f
-- When the type is camera and the calculation method is 3D- (xyzrxryrz), the point addition is selected from point a and point b
-- When the type is surface and the calculation method is 3D- (xyzrxryrz), the point addition is selected from point a and point b
-
-.. image:: node_editor_software/092.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.48-2 "Search point setting" command node interface
-
-Calculate the offset to set the datum and contact points based on the weld type and calculation method.
-
-- When the type is fillet weld and the calculation method is 2D (two in xyz), set datum point 1, datum point 2, contact point 1, and contact point 2
-- When the type is fillet weld and the calculation method is 3D (xyz), set datum point 1, datum point 2, datum point 3, contact point 1, contact point 2, and contact point 3
-- When the type is fillet weld and the calculation method is 2D- (two in xyz, one in rxryrz), set reference point 1, reference point 2, reference point 3, contact point 1, contact point 2, contact point 3 
-- When the type is inner and outer diameter and the calculation method is 2D2D (two in xyz), set datum point 1, datum point 2, datum point 3, contact point 1, contact point 2, and contact point 3
-- When the type is point and the calculation method is 3D (xyz), set contact point 1 and contact point 2
-- When the type is camera and the calculation method is 3D- (xyzrxryrz), set contact point 1 and contact point 2
-- When the type is face and the calculation method is 3D- (xyzrxryrz), set contact point 1, contact point 2, contact point 3, contact point 4, contact point 5, and contact point 6
-
-.. image:: node_editor_software/093.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.48-3 "Calculate offset" command node interface
-
-"Contact point data write" command node, parameters:
-
-- Contact point name: RES0~99
-- Contact point name: The data format is {0,0,0,0,0,0}
-
-.. image:: node_editor_software/094.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.48-4 "Contact Point Data Write" command node interface
-
-Weld-Trc instruction
--------------------------
-
-Click the "Weld-Trc" command node to enter the node graph programming interface
-
-This instruction implements robot welding seam tracking using welding seam deviation detection to compensate for the trajectory. Arc sensors can be used to detect welding seam deviations.
-
-"Arc tracking on/off" command node, parameters:
-
-- Arc tracking lag time (ms): reference value 50
-- Deviation compensation: off/on
-- Adjustment coefficient: 0 ~ 300
-- Compensation time (cyc): 0 ~ 300
-- Maximum compensation amount each time (mm): 0 ~ 300
-- Total maximum compensation amount (mm): 0 ~ 300
-- Up and down coordinate system selection: swing
-- Upper and lower reference current setting method: feedback/constant
-- Upper and lower reference current (A): 0 ~ 300
-
-.. image:: node_editor_software/095.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.49-1 "Arc tracking on/off" command node interface
-
-Attitude adjustment instructions
-----------------------------------
-
-Click on the "Attitude Adjustment" related command node to enter the node graph programming interface.
-
-This command adaptively adjusts the welding gun posture for welding tracking scenarios. It is necessary to teach the three points PosA, PosB, and PosC first, otherwise nodes cannot be added.
-
-After recording the three corresponding posture points, add posture adaptive adjustment instructions according to the actual movement direction of the robot. See the Robot Peripherals chapter for details.
-
-"Turn on attitude adjustment" command node, parameters:
-
-- Board type: corrugated board/corrugated board/fence board/corrugated shell steel
-- Direction of movement: left to right/right to left
-- Attitude adjustment time (ms): 0 ~ 1000
-- Length of first section (mm):
-- Inflection point type: top to bottom/bottom to top
-- Length of second section (mm):
-- Length of third section (mm):
-- Length of the fourth section (mm):
-- Length of the fifth section (mm):
-
-.. image:: node_editor_software/096.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.50-1 "Turn on attitude adjustment" command node interface
-
-"Turn off attitude adjustment" command node, parameters:
-
-- Board type: corrugated board/corrugated board/fence board/corrugated shell steel
-
-.. image:: node_editor_software/097.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.50-2 "Turn off attitude adjustment" command node interface
-
-F/T Instruction
-----------------
-
-Click on the command node related to the "F/T" command to enter the node graph programming interface.
-
-This command includes FT_Guard (collision detection), FT_Control (constant force control), FT_Compliance (compliance control), FT_Spiral (spiral insertion), FT_Rot (rotation insertion), FT_Lin (linear insertion), FT_FindSurface (surface positioning), FT_CalCenter (center positioning) ), FT_Click (click force detection) nine instructions, see the robot peripherals chapter for details.
-
-1. "Turn on/off collision detection" command node, parameters:
-
-- Coordinate system name: Custom configured coordinate system
-- Fx-Tx truth value: true/false
-- Fx-Tx current value: input according to actual situation
-- Fx-Tx maximum threshold: input according to actual situation
-- Fx-Tx minimum threshold: input according to actual situation
-
-.. image:: node_editor_software/098.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-1 "Turn on/off collision detection" command node interface
-
-2. "Turn on/off control" command node, parameters:
-
-- Coordinate system name: Custom configured coordinate system
-- Fx-Tx truth value: true/false
-- Current value of Fx-Tx: adjusted according to actual situation
-- F_P_gain - F_D_gain: adjusted according to actual situation, cannot be 0
-- Adaptive start and stop status: stop/start
-- ILC control start and stop status: stop/training/practical operation
-- Maximum adjustment distance (mm): 0 ~ 1000
-- Maximum adjustment angle (°): 0 ~ 1000
-
-.. image:: node_editor_software/099.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-2 "Turn on/off control" command node interface
-
-3. "FT_Compliance Start/End" command node, parameters:
-
-- Delivery position adjustment coefficient: 0 ~ 1
-- Compliant opening force threshold (N): 0 ~ 100
-
-.. image:: node_editor_software/100.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-3 "FT_Compliance Start/End" command node interface
-
-4. "FT_Spiral" command node, parameters:
-
-- Coordinate system name: tool coordinate system/base coordinate
-- Radius feed per revolution (mm): 0 ~ 100, reference value: 0.7
-- Force or torque threshold (N/Nm): 0 ~ 100, reference value: 50
-- Maximum exploration time (ms): 0 ~ 60000, reference value: 60000
-- Maximum linear speed (mm/s): 0 ~ 100, reference value: 5
-
-.. image:: node_editor_software/101.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-4 "FT_Spiral" command node interface
-
-5. "FT_Rot" command node, parameters:
-
-- Coordinate system name: tool coordinate system/base coordinate
-- Rotation angular speed (°/s): 0 ~ 100, reference value: 0.7
-- Trigger force or final torque (N/Nm): 0 ~ 100, reference value: 50
-- Maximum rotation angle (°): 0 ~ 100, reference value: 5
-- Direction of force: direction z/direction mz
-- Maximum rotation angle acceleration (°/s^2): 0 ~ 100
-- Insertion direction: positive/negative
-
-.. image:: node_editor_software/102.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-5 "FT_Rot" command node interface
-
-6. "FT_Lin" command node, parameters:
-
-- Coordinate system name: tool coordinate system/base coordinate
-- Action termination force threshold (N): 0 ~ 100
-- Linear speed (mm/s): 0 ~ 100, reference value: 1
-- Linear acceleration (°/s^2): 0 ~ 100
-- Maximum insertion distance (mm): 0 ~ 100
-- Insertion direction: positive/negative
-
-.. image:: node_editor_software/103.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-6 "FT_Lin" command node interface
-
-7. "FT_FindSurface" command node, parameters:
-
-- Coordinate system name: tool coordinate system/base coordinate
-- Movement direction: positive/negative
-- Moving axis: X/Y/Z
-- Explore linear speed (mm/s): 0 ~ 100
-- Exploration acceleration (mm/s^2): 0 ~ 100
-- Maximum exploration distance (mm): 0 ~ 100
-- Action termination force threshold (N): 0 ~ 100
-
-.. image:: node_editor_software/104.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-7 "FT_FindSurface" command node interface
-
-8. "FT_CalCenter Start/End" command node
-
-.. image:: node_editor_software/105.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.51-8 "FT_CalCenter Start/End" command node interface
-
-Torque recording command
-------------------------------
-
-Click on the "Torque Record" related command node to enter the node graph programming interface.
-
-This command is a torque recording command, which includes three commands: "Start Torque Recording/"Stop Torque Recording" and "Reset Torque Recording".
-
-Real-time torque recording and collision detection function.
-
-Click the "Torque Record Start" button to continuously record the collision situation during the operation of the motion command. The recorded real-time torque is used as the theoretical value for collision detection judgment to reduce the probability of false alarms.
-
-When the set threshold range is exceeded, the collision detection duration is recorded.
-
-Click the "Torque Record Stop" button to stop recording. Click "Torque Record Reset" to restore the status to the default state.
-
-1. "Torque recording start" command node, parameters:
-
-- Smoothing selection: unsmoothed (original data)/smoothed (smoothed data)
-- Joint negative threshold (Nm): -100 ~ 0
-- Joint positive threshold (Nm): 0 ~ 100
-- Joint continuous detection collision time (ms): 0 ~ 1000
-
-.. image:: node_editor_software/107.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.52-1 "Torque recording start" command node interface
-
-2. "Torque recording end" command node
-
-.. image:: node_editor_software/108.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.52-2 "Torque recording end" command node interface
-
-3. "Torque record reset" command node
-
-.. image:: node_editor_software/109.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.52-3 "Torque record reset" command node interface
-
-Modbus instruction
---------------------
-
-Click the "Mobus" related command node to enter the node graph programming interface.
-
-This instruction function is a bus function based on the ModbusTCP protocol. Users can control the robot to communicate with the ModbusTCP client or server (master station and slave station communication) through relevant instructions, and read and write Digital Output, Digital Input, and registers. For more operating functions of ModbusTCP, please contact us for consultation.
-
-Master station register information: Master station register information includes type (DI, DO, AI, AO), address number, name and address value (DI and AI types cannot be entered), which can be edited and deleted.
-
-1. Master station Digital Output settings, parameters:
-
-- Modbus master station name: configured according to actual situation
-- DO name: configured according to actual situation
-- Number of registers: integer type  0 ~ 128
-- Register value: Determined according to the number of registers, multiple values can be entered. For example, the quantity is 3 and the values are 1,0,1
-
-.. image:: node_editor_software/110.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-1 Master station "read/write Digital Output" command node interface
-
-2. Master station Digital Input setting, parameters:
-
-- Modbus master station name: configured according to actual situation
-- DI name: configured according to actual situation
-- Number of registers: integer type  0 ~ 128
-
-.. image:: node_editor_software/111.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-2 Master station "read Digital Input" command node interface
-
-3. Master station analog output settings, parameters:
-
-- Modbus master station name: configured according to actual situation
-- AO name: configured according to actual situation
-- Number of registers: integer type  0 ~ 128
-- Register value: Determined according to the number of registers, multiple values can be entered. For example, the quantity is 3 and the values are 1,0,1
-
-.. image:: node_editor_software/112.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-3 Master station "read/write analog output" command node interface
-
-4. Master station analog input settings, parameters:
-
-- Modbus master station name: configured according to actual situation
-- AI name: Configure according to actual situation
-- Number of registers: integer type  0 ~ 128
-  
-.. image:: node_editor_software/113.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-4 Master station "read analog input" command node interface
-
-5. The master station waits for digital input settings, parameters:
-
-- Modbus master station name: configured according to actual situation
-- DI name: configured according to actual situation
-- Waiting status: true/false
-- Timeout (ms): integer
-  
-.. image:: node_editor_software/114.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-5 Master station "waiting for digital input" command node interface
-
-6. The master station waits for analog word input settings, parameters:
-
-- Modbus master station name: configured according to actual situation
-- AI name: Configure according to actual situation
-- Waiting status: greater than/less than
-- Number of registers: integer type  0 ~ 128
-- Register value: Determined according to the number of registers, multiple values can be entered.
-  
-.. image:: node_editor_software/115.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-6 Master station "wait for analog input" command node interface
-
-7. Slave Digital Output settings, parameters:
-   
-- DO name: configured according to actual situation
-- Number of registers: integer type  0 ~ 128
-- Register value: Determined according to the number of registers, multiple values can be entered. For example, the quantity is 3 and the values are 1,0,1
-
-.. image:: node_editor_software/116.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-7 Slave "read/write Digital Output" command node interface
-
-8. Slave station Digital Input setting, parameters:
-
-- DI name: configured according to actual situation
-- Number of registers: integer type  0 ~ 128
-
-.. image:: node_editor_software/117.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-8 Slave station "read Digital Input" command node interface
-
-9. Slave station analog output settings, parameters:
-
-- AO name: configured according to actual situation
-- Number of registers: integer type  0 ~ 128
-- Register value: Determined according to the number of registers, multiple values can be entered. For example, the quantity is 3 and the values are 1,0,1
-
-.. image:: node_editor_software/118.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-9 Slave "read/write analog output" command node interface
-
-10. The slave station waits for digital input settings, parameters:
-
-- DI name: configured according to actual situation
-- Waiting status: true/false
-- Timeout (ms): integer
-  
-.. image:: node_editor_software/126.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-10 Slave "wait for digital input" command node interface
-
-11. The slave station waits for analog word input settings, parameters:
-
-- AI name: Configure according to actual situation
-- Waiting status: greater than/less than
-- Number of registers: integer type  0 ~ 128
-- Register value: Determined according to the number of registers, multiple values can be entered.
-  
-.. image:: node_editor_software/127.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-11 Master station "wait for analog input" command node interface
-
-12. Slave station analog input settings, parameters:
-
-- AI name: Configure according to actual situation
-- Number of registers: integer type  0 ~ 128
-
-.. image:: node_editor_software/128.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.53-12 Slave "read analog input" command node interface
-
-Application scenario usage examples
-------------------------------------
-
-For example, install a tip on the end of the robot and drag it to a position near the hole of the pallet. You want to perform spiral, rotational and linear insertion operations of the force sensor.
-
-- First, right-click the mouse button and select the "Begin", "Start/End Control", "Spiral Insertion", "Rotation Insertion", and "Linear Insertion" command nodes;
-- Connect as follows and configure relevant parameters.
-
-.. image:: node_editor_software/122.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.54-1 "Force Control" command node application configuration interface
-
-- Enter the file name. If the correct parameters are not entered, the save will fail and a prompt will appear indicating that the command node parameter configuration is incorrect.
-
-.. image:: node_editor_software/123.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figure 11.54-2 Command node parameter configuration error interface
-  
-- After clicking Run, the robot will explore in a spiral plus straight line motion. After exploring the correct hole position, use linear and rotational insertion movements until the hole is correctly inserted.
-
+.. centered:: Figura 11.44-5 Interfaccia N

@@ -1,179 +1,177 @@
-Development guidance
+Guida allo Sviluppo
 =========================
 
 .. toctree:: 
    :maxdepth: 6
 
-Development environment and conditions
--------------------------------------------
+Ambiente di Sviluppo e Requisiti
+---------------------------------------------
 
-The development environment must meet the following minimum configuration:
+L'ambiente di sviluppo deve soddisfare almeno le seguenti configurazioni:
 
-- CPU:1.6 GHz or faster processor;
-- RAM:>=1 GB(more than 2 GB recommended);
-- ROM:>=128GB;
-- OS:Requires Windows 10 or higher, macOS 10.1 5 or higher, Linux (x64) system (Ubuntu, Debian, etc.).
-- Controller Version: Check in WebApp "System Settings-About". Note the distinction between QX and LA in development environment. Avoid using ES6+ syntax and other modern JavaScript features in QX environment examples.
+- CPU: Processore 1.6 GHz o più veloce;
+- RAM: >=1 GB (consigliato 2 GB o superiore);
+- ROM: >=128 GB;
+- SO: Richiede Windows 10 o versioni successive, macOS 10.15 o versioni successive, sistemi Linux (x64) (Ubuntu, Debian, ecc.).
+- Versione del Controller: Controlla in WebApp in "Impostazioni di Sistema - Informazioni". Nota la distinzione tra QX e LA nell'ambiente di sviluppo. Ad esempio, nel contesto QX, evita l'uso di funzionalità JavaScript moderne come la sintassi ES6+.
 
-We have encapsulated some interfaces and modules, but if you want to achieve a better development effect, it is recommended to have a certain understanding of web development, and it is best to be familiar with the following technologies:
+Abbiamo incapsulato alcune interfacce e moduli, ma per ottenere un buon risultato di sviluppo, si consiglia una certa familiarità con lo sviluppo web, preferibilmente conoscendo le seguenti tecnologie:
 
-- HTML，JavaScript/TypeScript，CSS;
+- HTML, JavaScript/TypeScript, CSS;
 - Vue3;
 - Vite;
 - Node.js.
 
-Development tools
---------------------------
-We recommend using the latest Visual Studio Code (VSCode) software for development. To download, please visit the VSCode official download page and select the corresponding system to download.
+Strumenti di Sviluppo
+---------------------------
+Raccomandiamo l'utilizzo dell'ultima versione del software Visual Studio Code (VSCode) per lo sviluppo. Per il download, visita la pagina di download ufficiale di VSCode e seleziona la versione corrispondente al tuo sistema.
 
-At the same time, the Node.js runtime environment needs to be installed on the local computer. When installing Node.js, tools such as npm will be installed to facilitate package management. Visit the Node.js official download page and select the corresponding system version v20 to download.
+Inoltre, è necessario che sul computer locale sia installato l'ambiente di runtime Node.js. L'installazione di Node.js include strumenti come npm per facilitare la gestione dei pacchetti. Visita la pagina di download ufficiale di Node.js e seleziona la versione v20 corrispondente al tuo sistema.
 
-When developing in VSCode, you may also use the following VSCode plug-ins, which can be installed and configured as needed .
+Per lo sviluppo in VSCode, potrebbero essere utili i seguenti plugin di VSCode, che possono essere installati e configurati secondo necessità.
 
 - Vue;
-- ESlint;
+- ESLint;
 - npm Intellisense;
 - Vue Language Features (Volar);
-- TypeScript Vue Plugin (Volar)或者Vue.volar;
+- TypeScript Vue Plugin (Volar) o Vue.volar;
 - Tailwind CSS IntelliSense.
 
-FRCap project structure
----------------------------
+Struttura del Progetto FRCap
+-----------------------------------------
 
-FRCap project file structure:
+Struttura dei file del progetto FRCap:
 
 .. image:: frcap_pictures/012.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5-1  FRCap project structure
+.. centered:: Figura 5-1 Struttura del Progetto FRCap
 
 - Public:
 
-In the public resource folder, the internal files will not be built during the build process, but will be copied directly to the build directory.
+Cartella delle risorse pubbliche. I file al suo interno non vengono elaborati durante il processo di build, ma vengono semplicemente copiati integralmente nella directory di output della build.
 
-The action folder and logo.svg are included by default .
+Contiene per impostazione predefinita la cartella "action" e il file "logo.svg".
 
-The Action folder is used to store custom command background interface logic files.
+La cartella "Action" è utilizzata per memorizzare i file di logica dell'interfaccia di backend per i comandi personalizzati.
 
-Logo.svg is the plug-in icon.
+Logo.svg è l'icona del plugin.
 
 - Src:
 
-Assets folder is mainly used to place static resources.
+La cartella "Assets" è principalmente utilizzata per collocare risorse statiche.
 
-The Components folder is mainly used to place components.
+La cartella "Components" è principalmente utilizzata per collocare componenti.
 
-The Utils folder is mainly used to place utility classes.
+La cartella "Utils" è principalmente utilizzata per collocare classi di utilità.
 
-App.vue home page code.
+App.vue contiene il codice della pagina principale.
 
-Main.js is mainly responsible for global resource introduction.
+Main.js è principalmente responsabile dell'inclusione globale delle risorse, della creazione del framework Vue, ecc.
 
-Vue framework creation, etc.
+Style.css è il file degli stili di base del progetto.
 
-Style.css project basic style file.
+- Build.bat: Script di build per piattaforma Windows.
+- Index.html: Struttura principale UI della pagina.
+- Package.json: File di descrizione dei pacchetti e strategie di compilazione, ecc.
+- Vite.config.js: File di configurazione di Vite.
 
-- Build.bat:Windows platform build script.
-- Index.html:The main frame of the page UI.
-- Package.json:package description file and compilation strategy, etc.
-- Vite.config.js:Vite configuration file.
+Utilizzo di frcap-ui e frcap-api (frontend)
+--------------------------------------------------------
 
-Front-end frcap-ui and frcap-api use
-------------------------------------------
+Frcap-ui fornisce alcuni controlli HTML già incapsulati come componenti Vue, che possono essere importati nel progetto per l'uso, riducendo la difficoltà di sviluppo dell'interfaccia utente e la quantità di codice, migliorando la leggibilità del codice. Naturalmente, puoi anche scegliere alcune eccellenti librerie di componenti UI open source, come Element plus, ecc.
 
-Frcap-ui provides some HTML controls that have been encapsulated through Vue components, which can be imported into projects for use, reducing the difficulty of page UI development and the amount of code, and improving code readability. Of course, you can also choose some excellent open source UI component libraries, such as Element plus, etc.
-
-First open the terminal in your project path and install frcap-ui.
+Prima di tutto, apri il terminale nel percorso del tuo progetto e installa frcap-ui.
 
 .. code-block:: c++
    :linenos:
 
    npm install frcap-ui -s
 
-After successful installation, introduce it into the components that need to use frcap-ui , taking the button control as an example.
+Dopo l'installazione riuscita, importa frcap-ui nei componenti che lo richiedono, prendendo come esempio il controllo pulsante.
 
 .. code-block:: javascript
    :linenos:
 
    import { AppButton } from 'frcap-ui'
 
-Then use it in the <template> element of the component.
+Quindi utilizza l'elemento `<template>` del componente.
 
 .. code-block:: c++
    :linenos:
 
    <AppButton button-text="Start" button-type="primary"></AppButton>
 
-Preview the development project results in the browser.
+Anteprima dell'effetto del progetto di sviluppo nel browser.
 
 .. image:: frcap_pictures/009.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 5-2  AppButton效果
+.. centered:: Figura 5-2 Effetto AppButton
 
-Currently we provide 4 common control components.
+Attualmente forniamo 4 componenti di controllo comuni.
 
-- AppButton:Button component.
+- AppButton: Componente pulsante.
   
-  - buttonType: button type, String, corresponding to different button styles, the default is primary.
+  - buttonType: Tipo di pulsante, String, corrispondente a diversi stili di pulsante, predefinito è primary.
   
-    - primary:blue;
-    - secondery:gray;
-    - safety:green;
-    - warning:yellow;
-    - serious:red.
+    - primary: blu;
+    - secondery: grigio;
+    - safety: verde;
+    - warning: giallo;
+    - serious: rosso.
   
-  - buttonText:Button text, String, default value is "primary".
+  - buttonText: Testo del pulsante, String, valore predefinito "primary".
 
-- AppInput:Input component.
+- AppInput: Componente di input.
   
-  - Type:required item, String, default value text. Indicates the type of input box.
+  - Type: Obbligatorio, String, valore predefinito text. Indica il tipo di campo di input.
   
-    - Number:number input box;
-    - Text:text input box.
+    - Number: campo di input numerico;
+    - Text: campo di input di testo.
   
-  - inputLabel:required item, String, input box label text.
-  - inputUnit:String, input box unit text.
-  - hasUnit:Boolean, default false, indicates whether unit text is required.
-  - isEmptyErr:Boolean, whether the input box is empty.
-  - isReadonly:Boolean, whether the input box is read-only.
+  - inputLabel: Obbligatorio, String, testo dell'etichetta del campo di input.
+  - inputUnit: String, testo dell'unità del campo di input.
+  - hasUnit: Boolean, predefinito false, indica se è necessario il testo dell'unità.
+  - isEmptyErr: Boolean, indica se il campo di input è vuoto.
+  - isReadonly: Boolean, indica se il campo di input è di sola lettura.
 
-- AppSelect:Selection box component.
+- AppSelect: Componente di selezione (select box).
   
-  - selectionLabel:required item, String, selection box label text.
-  - optionsData:required items, Array, option data.
+  - selectionLabel: Obbligatorio, String, testo dell'etichetta del box di selezione.
+  - optionsData: Obbligatorio, Array, dati delle opzioni.
 
-- Modal:modal window component.
+- Modal: Componente finestra modale.
   
-  - show:Boolean, whether to pop up the modal window.
-  - title:String, modal window title.
+  - show: Boolean, indica se far apparire la finestra modale.
+  - title: String, titolo della finestra modale.
 
-In order to facilitate the development of custom instructions that may be created in FRCap , we have built Http requests and APIs into the initial FRCap project downloaded in the "Creation Wizard". In this way, both custom instructions and default provided instructions can be placed in the api.js file in frcap-api . The specific path of api.js is "./src/api/api.js".
+Per facilitare lo sviluppo di comandi personalizzati che potrebbero essere creati in FRCap, abbiamo integrato le richieste HTTP e le API nel progetto FRCap iniziale scaricato tramite la "Creazione guidata". In questo modo, sia i comandi personalizzati che quelli forniti di default possono essere inseriti nel file api.js di frcap-api. Il percorso specifico di api.js è "./src/api/api.js".
 
-The use of F rcap-api is similar to frcap-ui , as follows:
+L'utilizzo di Frcap-api è simile a quello di frcap-ui, come di seguito:
 
-1. api in files that need to use api , such as components .
+1. Importa api nel file (come un componente) che necessita di utilizzare le API.
 
 .. code-block:: javascript
    :linenos:
 
    import api from '@/api/api';
 
-2. Call the default instructions provided in the interface.
+2. Chiama i comandi forniti di default nell'interfaccia.
 
 .. code-block:: c++
    :linenos:
 
    api.getRobotStatus()
 
-3. Write processing logic in the returned promise.
+3. Scrivi la logica di elaborazione nella promise restituita.
 
 .. code-block:: c++
    :linenos:
 
-    api. getRobotStatus ()
+    api.getRobotStatus()
     .then((res) => {
     console.log(res.data);
     })
@@ -181,13 +179,13 @@ The use of F rcap-api is similar to frcap-ui , as follows:
         console.error(err);
     });
 
-Backend Custom Command Development
--------------------------------------
+Sviluppo di Comandi Personalizzati (Backend)
+--------------------------------------------------------
 
-Database Operation Example (LA)
-+++++++++++++++++++++++++++++++++++
+Esempio di Operazione su Database (LA)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1. Import database module
+1. Importa il modulo del database
 
 .. code-block:: javascript
    :linenos:
@@ -196,30 +194,30 @@ Database Operation Example (LA)
     var Sqlite3_Action = require(node + '/better-sqlite3/better-sqlite3.js');
     var sqlite = new Sqlite3_Action();
 
-2. Get content from point database
+2. Ottieni i contenuti dal database dei punti (positions)
    
 .. code-block:: javascript
    :linenos:
 
-    // Match cmd
+    // Corrispondenza cmd
     case 'get_points':
-    // Write SQL statement to return data to frontend sorted by numeric ascending + first letter ascending + Chinese characters ascending
+    // Scrivi l'istruzione SQL, ordina i dati in ordine numerico crescente + ordine alfabetico iniziale crescente + ordine alfabetico cinese iniziale crescente, e restituiscili alla pagina frontend per la visualizzazione
     var sql = "select * from points order by name ASC"; 
     var sql_data = sqlite.queryall(DB_POINTS, sql); 
-    // Format json data
+    // Formattazione dei dati JSON
     for (var i = 0; i < sql_data.length; i++) {
         response_data[sql_data[i].name] = sql_data[i];
     }
-    // Return json data to frontend
+    // Restituisci i dati JSON al frontend
     event_socket.emit('response', res, response_status, response_data);
     break;  
 
-Database Operation Example (QX)
-+++++++++++++++++++++++++++++++++++++++++
+Esempio di Operazione su Database (QX)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. note:: QX version uses JSON format files for data storage.
+.. note:: La versione QX utilizza file in formato JSON per memorizzare i dati.
 
-1. Import database module
+1. Importa il modulo del database
 
 .. code-block:: javascript
    :linenos:
@@ -228,20 +226,20 @@ Database Operation Example (QX)
    var sqlite_adapter = require(node + '/jsdb/sqlite_adapter');
    var db = new sqlite_adapter.Database(palletizing_db);
 
-2. Database usage example
+2. Esempio di utilizzo del database
    
 .. code-block:: javascript
    :linenos:
 
-   // Execute SELECT query and get all rows
+   // Esegui una query SELECT e ottieni tutte le righe
    var rows = db.queryall('SELECT * FROM box_cfg');
    console.log('result:', rows);
 
-   // Execute SELECT query and get single row
+   // Esegui una query SELECT e ottieni una singola riga
    var row = db.queryget('SELECT * FROM box_cfg WHERE flag=1');
    console.log('result:', row);
 
-   // Execute UPDATE statement
+   // Esegui un'istruzione UPDATE
    db.run('UPDATE box_cfg SET height=100 WHERE flag=1', function(err) {
       if (err) {
          console.error('Update failed:', err);
@@ -250,7 +248,7 @@ Database Operation Example (QX)
       }
    });
 
-   // Execute parameterized query
+   // Esegui una query con parametri
    var params = [100, 200, 300, 1];
    db.run('UPDATE box_cfg SET height=?, width=?, length=? WHERE flag=?', params, function(err) {
       if (err) {
@@ -260,13 +258,13 @@ Database Operation Example (QX)
       }
    });
 
-   // Close database connection
+   // Chiudi la connessione al database
    db.close();
 
-Socket Communication Example
-+++++++++++++++++++++++++++++++++
+Esempio di Operazione di Comunicazione Socket
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- Import socket communication module
+- Importa il modulo di comunicazione socket
    
 .. code-block:: javascript
    :linenos:
@@ -275,30 +273,30 @@ Socket Communication Example
     var Socket_Cmd = require(node + '/socket/socket_cmd');
     var socket_cmd = new Socket_Cmd();
 
-- Send system variable setting command
+- Invia un comando per impostare una variabile di sistema
   
 .. code-block:: javascript
    :linenos:
 
-   // Match cmd
+   // Corrispondenza cmd
    case 511:
-   // Get sent data content
+   // Ottieni il contenuto dei dati da inviare
    content = data_json.content;
-   // Get sent data length
+   // Ottieni la lunghezza dei dati da inviare
    len = data_json.content.length;
-   // Assemble sending data
+   // Assemblea i dati da inviare
    send_content = '/f/bIII1III511III' + len + 'III' + content + 'III/b/f'
-   // socket send
+   // Invio socket
    socket_cmd.send(send_content);
-   // socket recv (note LA/QX difference)
-   // LA Version:
+   // Ricezione socket (nota la distinzione LA/QX)
+   // Versione LA:
    socket_cmd.recv().then((recv_data)=>{
       response_data = recv_data;
    event_socket.emit('response', res, response_status, response_data);
    }).catch((err)=>{
       console.log(err);
    })
-   // QX Version 
+   // Versione QX 
    // socket_cmd.recv().then(function(recv_data){
    //     response_data = recv_data;
    // event_socket.emit('response', res, response_status, response_data);

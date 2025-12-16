@@ -1,52 +1,51 @@
-Robot movement
-========================
+Movimento del Robot
+==========================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-
-Jog movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Jog (Movimento a scatti)
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Jog movement 
-    * @param [in] refType 0-joint jog, 2-base coordinate jog, 4-tool coordinate jog, 8-workpiece coordinate jog
-    * @param [in] nb 1-joint 1 (or x-axis), 2-joint 2 (or y-axis), 3-joint 3 (or z-axis), 4-joint 4 (or rotation about x-axis), 5-joint 5 (or rotation about y-axis), 6-joint 6 (or rotation about z-axis)
-    * @param [in] dir 0-negative direction, 1-positive direction
-    * @param [in] vel Speed percentage, [0~100]
-    * @param [in] acc Acceleration percentage, [0~100]
-    * @param [in] max_dis Maximum angle per jog movement in [°] or distance in [mm]
-    * @return Error code 
-    */ 
+    * @brief Jog - Movimento a scatti
+    * @param [in] refType 0-Jog dei giunti, 2-Jog nel sistema di coordinate base, 4-Jog nel sistema di coordinate dello strumento, 8-Jog nel sistema di coordinate del pezzo
+    * @param [in] nb 1-Giunto1 (o asse x), 2-Giunto2 (o asse y), 3-Giunto3 (o asse z), 4-Giunto4 (o rotazione attorno all'asse x), 5-Giunto5 (o rotazione attorno all'asse y), 6-Giunto6 (o rotazione attorno all'asse z)
+    * @param [in] dir 0-Direzione negativa, 1-Direzione positiva
+    * @param [in] vel Percentuale di velocità, [0~100]
+    * @param [in] acc Percentuale di accelerazione, [0~100]
+    * @param [in] max_dis Angolo massimo per singolo movimento a scatti, unità [°] o distanza, unità [mm]
+    * @return Codice di errore
+    */
     int StartJOG(int refType, int nb, int dir, double vel, double acc, double max_dis);
 
-Jog deceleration stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arresto decelerato del movimento Jog
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Jog deceleration stop
-    * @param  [in]  stopType  1-joint jog stop, 3-base coordinate jog stop, 5-tool coordinate jog stop, 9-workpiece coordinate jog stop
-    * @return  Error code
+    * @brief  Arresto decelerato del movimento Jog
+    * @param  [in]  stopType  1-Arresto Jog dei giunti, 3-Arresto Jog nel sistema di coordinate base, 5-Arresto Jog nel sistema di coordinate dello strumento, 9-Arresto Jog nel sistema di coordinate del pezzo
+    * @return  Codice di errore
     */
     int StopJOG(int stopType);
 
-Jog immediate stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arresto immediato del movimento Jog
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Jog immediate stop
-    * @return  Error code
+    * @brief Arresto immediato del movimento Jog
+    * @return  Codice di errore
     */
-    int ImmStopJOG(); 
+    int ImmStopJOG();
 
-Robot jog control code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il controllo Jog del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -86,52 +85,52 @@ Robot jog control code example
         return 0;
     }
 
-Joint space movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento nello spazio dei giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Joint space movement
-    * @param  [in] joint_pos  Target joint position in deg
-    * @param  [in] desc_pos  Target cartesian pose
-    * @param  [in] tool  Tool coordinate number, range [0~14]
-    * @param  [in] user  Workpiece coordinate number, range [0~14]
-    * @param  [in] vel  Speed percentage, range [0~100]
-    * @param  [in] acc  Acceleration percentage, range [0~100], not currently available
-    * @param  [in] ovl  Speed scaling factor, range [0~100]
-    * @param  [in] epos  Extended axis position in mm
-    * @param  [in] blendT [-1.0]-move to position (blocking), [0~500.0]-smoothing time (non-blocking) in ms
-    * @param  [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate, 2-offset in tool coordinate
-    * @param  [in] offset_pos  Pose offset
-    * @return  Error code
+    * @brief  Movimento nello spazio dei giunti
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] desc_pos  Posizione cartesiana target
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] epos  Posizione dell'asse esteso, unità mm
+    * @param  [in] blendT [-1.0]-Movimento fino alla posizione (bloccante), [0~500.0]-Tempo di smoothing (non bloccante), unità ms
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @return  Codice di errore
     */
     int MoveJ(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, ExaxisPos epos, double blendT, int offset_flag, DescPose offset_pos);
 
-Joint space motion (automatic forward kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento nello spazio dei giunti (calcolo cinematico diretto automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
+.. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Joint space motion (automatic forward kinematics calculation)
-    * @param [in] joint_pos  Target joint position, unit deg
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Velocity percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] epos  Extended axis position, unit mm
-    * @param [in] blendT [-1.0]-move to position (blocking), [0~500.0]-smoothing time (non-blocking), unit ms
-    * @param [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos  Pose offset
-    * @return Error code
-    */ 
+    /**
+    * @brief  Movimento nello spazio dei giunti (calcolo cinematico diretto automatico)
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] epos  Posizione dell'asse esteso, unità mm
+    * @param  [in] blendT [-1.0]-Movimento fino alla posizione (bloccante), [0~500.0]-Tempo di smoothing (non bloccante), unità ms
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @return Codice di errore
+    */
     int MoveJ(JointPos joint_pos, int tool, int user, double vel, double acc, double ovl, ExaxisPos epos, double blendT, int offset_flag, DescPose offset_pos)
 
-Cartesian space linear movement
+Movimento lineare nello spazio cartesiano
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.5-3.8.2
 
@@ -139,419 +138,419 @@ Cartesian space linear movement
     :linenos:
 
     /**
-    * @brief  Cartesian space linear movement
-    * @param  [in] joint_pos  Target joint position in deg
-    * @param  [in] desc_pos   Target cartesian pose
-    * @param  [in] tool  Tool coordinate number, range [0~14]
-    * @param  [in] user  Workpiece coordinate number, range [0~14]
-    * @param  [in] vel  Speed percentage, range [0~100]
-    * @param  [in] acc  Acceleration percentage, range [0~100], not currently available
-    * @param  [in] ovl  Speed scaling factor, range [0~100]
-    * @param  [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking) in mm
-    * @param  [in] blendMode Transition mode; 0-tangent transition; 1-corner transition
-    * @param  [in] epos  Extended axis position in mm
-    * @param  [in] search  0-no wire search, 1-wire search
-    * @param  [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate, 2-offset in tool coordinate
-    * @param  [in] offset_pos  Pose offset
-    * @param  [in] overSpeedStrategy  Overspeed handling strategy, 1-standard; 2-error stop when overspeed; 3-adaptive speed reduction, default 0
-    * @param  [in] speedPercent  Allowed speed reduction threshold percentage [0-100], default 10%
-    * @return  Error code
-    */   
+    * @brief  Movimento lineare nello spazio cartesiano
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] desc_pos  Posizione cartesiana target
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param  [in] blendMode Modalità di transizione; 0-Transizione tangente; 1-Transizione a spigolo
+    * @param  [in] epos  Posizione dell'asse esteso, unità mm
+    * @param  [in] search  0-Nessuna ricerca del filo, 1-Ricerca del filo
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @param  [in] overSpeedStrategy  Strategia di gestione della sovravelocità, 1-Standard; 2-Arresto con errore in caso di sovravelocità; 3-Decelerazione adattativa, predefinito 0
+    * @param  [in] speedPercent  Soglia percentuale consentita per la decelerazione [0-100], predefinito 10%
+    * @return  Codice di errore
+    */
     int MoveL(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int blendMode,ExaxisPos epos, int search, int offset_flag, DescPose offset_pos, int overSpeedStrategy, int speedPercent);
 
-Cartesian space linear motion (automatic inverse kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento lineare nello spazio cartesiano (calcolo cinematico inverso automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief Cartesian space linear motion (automatic inverse kinematics calculation)
-    * @param [in] desc_pos  Target cartesian pose
-    * @param [in] tool  Tool coordinate number, range [1~15]
-    * @param [in] user  Workpiece coordinate number, range [1~15]
-    * @param [in] vel  Velocity percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @param [in] blendMode Transition mode; 0-tangent transition; 1-corner transition
-    * @param [in] epos  Extended axis position, unit mm
-    * @param [in] search  0-no wire search, 1-wire search
-    * @param [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos  Pose offset
-    * @param [in] config Inverse kinematics joint space configuration, [-1]-calculate based on current joint position, [0~7]-solve according to specific joint space configuration
-    * @param [in] overSpeedStrategy  Overspeed handling strategy, 1-standard; 2-stop on error when overspeed; 3-adaptive speed reduction, default is 0
-    * @param [in] speedPercent  Allowed speed reduction threshold percentage [0-100], default 10%
-    * @return Error code
+    * @brief  Movimento lineare nello spazio cartesiano (calcolo cinematico inverso automatico)
+    * @param [in] desc_pos  Posizione cartesiana target
+    * @param [in] tool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param [in] user  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param [in] blendMode Modalità di transizione; 0-Transizione tangente; 1-Transizione a spigolo
+    * @param [in] epos  Posizione dell'asse esteso, unità mm
+    * @param [in] search  0-Nessuna ricerca del filo, 1-Ricerca del filo
+    * @param [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param [in] offset_pos  Quantità di offset della posa
+    * @param [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+    * @param [in] overSpeedStrategy  Strategia di gestione della sovravelocità, 1-Standard; 2-Arresto con errore in caso di sovravelocità; 3-Decelerazione adattativa, predefinito 0
+    * @param [in] speedPercent  Soglia percentuale consentita per la decelerazione [0-100], predefinito 10%
+    * @return  Codice di errore
     */
     int MoveL(DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int blendMode, ExaxisPos epos, int search, int offset_flag, DescPose offset_pos, int config, int overSpeedStrategy, int speedPercent)
 
-Cartesian Space Linear Motion (Added velAccParamMode parameter for velocity and acceleration modes)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento lineare nello spazio cartesiano (aggiunto parametro velAccParamMode per modalità parametri velocità/accelerazione)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian Space Linear Motion (Added velAccParamMode parameter for velocity and acceleration modes)
-    * @param  [in] joint_pos  Target joint position, unit deg
-    * @param  [in] desc_pos   Target Cartesian pose
-    * @param  [in] tool  Tool coordinate number, range [1~15]
-    * @param  [in] user  Workpiece coordinate number, range [1~15]
-    * @param  [in] vel  Velocity percentage, range [0~100]
-    * @param  [in] acc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] ovl  Velocity scaling factor, range [0~100]
-    * @param  [in] blendR [-1.0]-Motion complete (blocking), [0~1000.0]-Blending radius (non-blocking), unit mm
-    * @param  [in] epos  Extended axis position, unit mm
-    * @param  [in] search  0-No wire search, 1-Wire search
-    * @param  [in] offset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos  Pose offset
-    * @param  [in] velAccParamMode Velocity and acceleration parameter mode; 0-Percentage; 1-Physical velocity (mm/s) and acceleration (mm/s^2)
-    * @param  [in] overSpeedStrategy  Overspeed handling strategy, 1-Standard; 2-Stop with error on overspeed; 3-Adaptive deceleration, default is 0
-    * @param  [in] speedPercent  Allowed deceleration threshold percentage [0-100], default 10%
-    * @return  Error code
+    * @brief  Movimento lineare nello spazio cartesiano (aggiunto parametro velAccParamMode per modalità parametri velocità/accelerazione)
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] desc_pos  Posizione cartesiana target
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param  [in] epos  Posizione dell'asse esteso, unità mm
+    * @param  [in] search  0-Nessuna ricerca del filo, 1-Ricerca del filo
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @param  [in] velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) accelerazione (mm/s2)
+    * @param  [in] overSpeedStrategy  Strategia di gestione della sovravelocità, 1-Standard; 2-Arresto con errore in caso di sovravelocità; 3-Decelerazione adattativa, predefinito 0
+    * @param  [in] speedPercent  Soglia percentuale consentita per la decelerazione [0-100], predefinito 10%
+    * @return  Codice di errore
     */
     public int MoveL(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, ExaxisPos epos, int search, int offset_flag, DescPose offset_pos, int velAccParamMode, int overSpeedStrategy, int speedPercent)
 
-Cartesian Space Linear Motion (Overload Function 1, Added blendMode)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento lineare nello spazio cartesiano (funzione sovraccaricata 1, aggiunto blendMode)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian Space Linear Motion (Overload Function 1, Added blendMode)
-    * @param  [in] joint_pos  Target joint position, unit deg
-    * @param  [in] desc_pos   Target Cartesian pose
-    * @param  [in] tool  Tool coordinate number, range [1~15]
-    * @param  [in] user  Workpiece coordinate number, range [1~15]
-    * @param  [in] vel  Velocity percentage, range [0~100]
-    * @param  [in] acc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] ovl  Velocity scaling factor, range [0~100]
-    * @param  [in] blendR [-1.0]-Motion complete (blocking), [0~1000.0]-Blending radius (non-blocking), unit mm
-    * @param  [in] blendMode Transition mode; 0-Tangent transition; 1-Corner transition
-    * @param  [in] epos  Extended axis position, unit mm
-    * @param  [in] search  0-No wire search, 1-Wire search
-    * @param  [in] offset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos  Pose offset
-    * @param  [in] velAccParamMode Velocity and acceleration parameter mode; 0-Percentage; 1-Physical velocity (mm/s) and acceleration (mm/s^2)
-    * @param  [in] overSpeedStrategy  Overspeed handling strategy, 1-Standard; 2-Stop with error on overspeed; 3-Adaptive deceleration, default is 0
-    * @param  [in] speedPercent  Allowed deceleration threshold percentage [0-100], default 10%
-    * @return  Error code
+    * @brief  Movimento lineare nello spazio cartesiano (funzione sovraccaricata 1, aggiunto blendMode)
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] desc_pos  Posizione cartesiana target
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param  [in] blendMode Modalità di transizione; 0-Transizione tangente; 1-Transizione a spigolo
+    * @param  [in] epos  Posizione dell'asse esteso, unità mm
+    * @param  [in] search  0-Nessuna ricerca del filo, 1-Ricerca del filo
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @param  [in] velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) accelerazione (mm/s2)
+    * @param  [in] overSpeedStrategy  Strategia di gestione della sovravelocità, 1-Standard; 2-Arresto con errore in caso di sovravelocità; 3-Decelerazione adattativa, predefinito 0
+    * @param  [in] speedPercent  Soglia percentuale consentita per la decelerazione [0-100], predefinito 10%
+    * @return  Codice di errore
     */
     public int MoveL(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int blendMode, ExaxisPos epos, int search, int offset_flag, DescPose offset_pos, int velAccParamMode, int overSpeedStrategy, int speedPercent)
 
-Cartesian Space Linear Motion (Overload Function 2, No Joint Position Input Required)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento lineare nello spazio cartesiano (funzione sovraccaricata 2, non richiede posizione giunto in input)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian Space Linear Motion (Overload Function 2, No Joint Position Input Required)
-    * @param  [in] desc_pos   Target Cartesian pose
-    * @param  [in] tool  Tool coordinate number, range [1~15]
-    * @param  [in] user  Workpiece coordinate number, range [1~15]
-    * @param  [in] vel  Velocity percentage, range [0~100]
-    * @param  [in] acc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] ovl  Velocity scaling factor, range [0~100]
-    * @param  [in] blendR [-1.0]-Motion complete (blocking), [0~1000.0]-Blending radius (non-blocking), unit mm
-    * @param  [in] blendMode Transition mode; 0-Tangent transition; 1-Corner transition
-    * @param  [in] epos  Extended axis position, unit mm
-    * @param  [in] search  0-No wire search, 1-Wire search
-    * @param  [in] offset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos  Pose offset
-    * @param  [in] config Inverse kinematic joint space configuration, [-1]-Reference current joint position for calculation, [0~7]-Solve based on specific joint space configuration
-    * @param  [in] velAccParamMode Velocity and acceleration parameter mode; 0-Percentage; 1-Physical velocity (mm/s) and acceleration (mm/s^2)
-    * @param  [in] overSpeedStrategy  Overspeed handling strategy, 1-Standard; 2-Stop with error on overspeed; 3-Adaptive deceleration, default is 0
-    * @param  [in] speedPercent  Allowed deceleration threshold percentage [0-100], default 10%
-    * @return  Error code
+    * @brief  Movimento lineare nello spazio cartesiano (funzione sovraccaricata 2, non richiede posizione giunto in input)
+    * @param  [in] desc_pos  Posizione cartesiana target
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param  [in] blendMode Modalità di transizione; 0-Transizione tangente; 1-Transizione a spigolo
+    * @param  [in] epos  Posizione dell'asse esteso, unità mm
+    * @param  [in] search  0-Nessuna ricerca del filo, 1-Ricerca del filo
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @param  [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+    * @param  [in] velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) accelerazione (mm/s2)
+    * @param  [in] overSpeedStrategy  Strategia di gestione della sovravelocità, 1-Standard; 2-Arresto con errore in caso di sovravelocità; 3-Decelerazione adattativa, predefinito 0
+    * @param  [in] speedPercent  Soglia percentuale consentita per la decelerazione [0-100], predefinito 10%
+    * @return  Codice di errore
     */
     public int MoveL(DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int blendMode, ExaxisPos epos, int search, int offset_flag, DescPose offset_pos, int config, int velAccParamMode, int overSpeedStrategy, int speedPercent)
 
-Cartesian space circular movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento circolare nello spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian space circular movement
-    * @param  [in] joint_pos_p  Path point joint position in deg
-    * @param  [in] desc_pos_p   Path point cartesian pose
-    * @param  [in] ptool  Tool coordinate number, range [0~14]
-    * @param  [in] puser  Workpiece coordinate number, range [0~14]
-    * @param  [in] pvel  Speed percentage, range [0~100]
-    * @param  [in] pacc  Acceleration percentage, range [0~100], not currently available
-    * @param  [in] epos_p  Extended axis position in mm
-    * @param  [in] poffset_flag  0-no offset, 1-offset in base/workpiece coordinate, 2-offset in tool coordinate
-    * @param  [in] offset_pos_p  Pose offset
-    * @param  [in] joint_pos_t  Target point joint position in deg
-    * @param  [in] desc_pos_t   Target point cartesian pose
-    * @param  [in] ttool  Tool coordinate number, range [0~14]
-    * @param  [in] tuser  Workpiece coordinate number, range [0~14]
-    * @param  [in] tvel  Speed percentage, range [0~100]
-    * @param  [in] tacc  Acceleration percentage, range [0~100], not currently available
-    * @param  [in] epos_t  Extended axis position in mm
-    * @param  [in] toffset_flag  0-no offset, 1-offset in base/workpiece coordinate, 2-offset in tool coordinate
-    * @param  [in] offset_pos_t  Pose offset
-    * @param  [in] ovl  Speed scaling factor, range [0~100]
-    * @param  [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking) in mm 
-    * @return  Error code
-    */      
+    * @brief  Movimento circolare nello spazio cartesiano
+    * @param  [in] joint_pos_p  Posizione giunto del punto di percorso, unità deg
+    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso
+    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
+    * @param  [in] poffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos_p  Quantità di offset della posa
+    * @param  [in] joint_pos_t  Posizione giunto del punto target, unità deg
+    * @param  [in] desc_pos_t  Posa cartesiana del punto target
+    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
+    * @param  [in] toffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos_t  Quantità di offset della posa
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @return  Codice di errore
+    */
     int MoveC(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR);
 
-Cartesian space circular motion (automatic inverse kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento circolare nello spazio cartesiano (calcolo cinematico inverso automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief Cartesian space circular motion (automatic inverse kinematics calculation)
-    * @param [in] desc_pos_p  Path point cartesian pose
-    * @param [in] ptool  Tool coordinate number, range [1~15]
-    * @param [in] puser  Workpiece coordinate number, range [1~15]
-    * @param [in] pvel  Velocity percentage, range [0~100]
-    * @param [in] pacc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] epos_p  Extended axis position, unit mm
-    * @param [in] poffset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos_p  Pose offset
-    * @param [in] desc_pos_t  Target point cartesian pose
-    * @param [in] ttool  Tool coordinate number, range [1~15]
-    * @param [in] tuser  Workpiece coordinate number, range [1~15]
-    * @param [in] tvel  Velocity percentage, range [0~100]
-    * @param [in] tacc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] epos_t  Extended axis position, unit mm
-    * @param [in] toffset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos_t  Pose offset
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @param [in] config Inverse kinematics joint space configuration, [-1]-calculate based on current joint position, [0~7]-solve according to specific joint space configuration
-    * @return Error code
+    * @brief  Movimento circolare nello spazio cartesiano (calcolo cinematico inverso automatico)
+    * @param [in] desc_pos_p  Posa cartesiana del punto di percorso
+    * @param [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param [in] puser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param [in] pvel  Percentuale di velocità, intervallo [0~100]
+    * @param [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param [in] epos_p  Posizione dell'asse esteso, unità mm
+    * @param [in] poffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param [in] offset_pos_p  Quantità di offset della posa
+    * @param [in] desc_pos_t  Posa cartesiana del punto target
+    * @param [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param [in] tvel  Percentuale di velocità, intervallo [0~100]
+    * @param [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param [in] epos_t  Posizione dell'asse esteso, unità mm
+    * @param [in] toffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param [in] offset_pos_t  Quantità di offset della posa
+    * @param [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+    * @return  Codice di errore
     */
     int MoveC(DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR, int config)
 
-Cartesian Space Arc Motion (Added velAccParamMode parameter for velocity and acceleration modes)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento circolare nello spazio cartesiano (aggiunto parametro velAccParamMode per modalità parametri velocità/accelerazione)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian Space Arc Motion (Added velAccParamMode parameter for velocity and acceleration modes)
-    * @param  [in] joint_pos_p  Path point joint position, unit deg
-    * @param  [in] desc_pos_p   Path point Cartesian pose
-    * @param  [in] ptool  Tool coordinate number, range [1~15]
-    * @param  [in] puser  Workpiece coordinate number, range [1~15]
-    * @param  [in] pvel  Velocity percentage, range [0~100]
-    * @param  [in] pacc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] epos_p  Extended axis position, unit mm
-    * @param  [in] poffset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos_p  Pose offset
-    * @param  [in] joint_pos_t  Target point joint position, unit deg
-    * @param  [in] desc_pos_t   Target point Cartesian pose
-    * @param  [in] ttool  Tool coordinate number, range [1~15]
-    * @param  [in] tuser  Workpiece coordinate number, range [1~15]
-    * @param  [in] tvel  Velocity percentage, range [0~100]
-    * @param  [in] tacc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] epos_t  Extended axis position, unit mm
-    * @param  [in] toffset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos_t  Pose offset
-    * @param  [in] ovl  Velocity scaling factor, range [0~100]
-    * @param  [in] blendR [-1.0]-Motion complete (blocking), [0~1000.0]-Blending radius (non-blocking), unit mm
-    * @param  [in] velAccParamMode Velocity and acceleration parameter mode; 0-Percentage; 1-Physical velocity (mm/s) and acceleration (mm/s^2)
-    * @return  Error code
+    * @brief  Movimento circolare nello spazio cartesiano (aggiunto parametro velAccParamMode per modalità parametri velocità/accelerazione)
+    * @param  [in] joint_pos_p  Posizione giunto del punto di percorso, unità deg
+    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso
+    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
+    * @param  [in] poffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos_p  Quantità di offset della posa
+    * @param  [in] joint_pos_t  Posizione giunto del punto target, unità deg
+    * @param  [in] desc_pos_t  Posa cartesiana del punto target
+    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
+    * @param  [in] toffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos_t  Quantità di offset della posa
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param  [in] velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) accelerazione (mm/s2)
+    * @return  Codice di errore
     */
     public int MoveC(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR, int velAccParamMode)
 
-Cartesian Space Arc Motion (Overload Function 1, No Joint Position Input Required)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento circolare nello spazio cartesiano (funzione sovraccaricata 1, non richiede posizione giunto in input)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian Space Arc Motion (Overload Function 1, No Joint Position Input Required)
-    * @param  [in] desc_pos_p   Path point Cartesian pose
-    * @param  [in] ptool  Tool coordinate number, range [1~15]
-    * @param  [in] puser  Workpiece coordinate number, range [1~15]
-    * @param  [in] pvel  Velocity percentage, range [0~100]
-    * @param  [in] pacc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] epos_p  Extended axis position, unit mm
-    * @param  [in] poffset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos_p  Pose offset
-    * @param  [in] desc_pos_t   Target point Cartesian pose
-    * @param  [in] ttool  Tool coordinate number, range [1~15]
-    * @param  [in] tuser  Workpiece coordinate number, range [1~15]
-    * @param  [in] tvel  Velocity percentage, range [0~100]
-    * @param  [in] tacc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] epos_t  Extended axis position, unit mm
-    * @param  [in] toffset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos_t  Pose offset
-    * @param  [in] ovl  Velocity scaling factor, range [0~100]
-    * @param  [in] blendR [-1.0]-Motion complete (blocking), [0~1000.0]-Blending radius (non-blocking), unit mm
-    * @param  [in] config Inverse kinematic joint space configuration, [-1]-Reference current joint position for calculation, [0~7]-Solve based on specific joint space configuration
-    * @param  [in] velAccParamMode Velocity and acceleration parameter mode; 0-Percentage; 1-Physical velocity (mm/s) and acceleration (mm/s^2)
-    * @return  Error code
+    * @brief  Movimento circolare nello spazio cartesiano (funzione sovraccaricata 1, non richiede posizione giunto in input)
+    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso
+    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
+    * @param  [in] poffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos_p  Quantità di offset della posa
+    * @param  [in] desc_pos_t  Posa cartesiana del punto target
+    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
+    * @param  [in] toffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos_t  Quantità di offset della posa
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param  [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+    * @param  [in] velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) accelerazione (mm/s2)
+    * @return  Codice di errore
     */
     public int MoveC(DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR, int config, int velAccParamMode)
 
-Cartesian space full circle movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento circolare completo nello spazio cartesiano
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.6-3.8.3
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian space full circle movement
-    * @param  [in] joint_pos_p  Path point 1 joint position in deg
-    * @param  [in] desc_pos_p   Path point 1 cartesian pose
-    * @param  [in] ptool  Tool coordinate number, range [0~14]
-    * @param  [in] puser  Workpiece coordinate number, range [0~14]
-    * @param  [in] pvel  Speed percentage, range [0~100]
-    * @param  [in] pacc  Acceleration percentage, range [0~100], not currently available
-    * @param  [in] epos_p  Extended axis position in mm
-    * @param  [in] joint_pos_t  Path point 2 joint position in deg
-    * @param  [in] desc_pos_t   Path point 2 cartesian pose
-    * @param  [in] ttool  Tool coordinate number, range [0~14]
-    * @param  [in] tuser  Workpiece coordinate number, range [0~14]
-    * @param  [in] tvel  Speed percentage, range [0~100]
-    * @param  [in] tacc  Acceleration percentage, range [0~100], not currently available
-    * @param  [in] epos_t  Extended axis position in mm
-    * @param  [in] ovl  Speed scaling factor, range [0~100]
-    * @param  [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate, 2-offset in tool coordinate
-    * @param  [in] offset_pos  Pose offset
-    * @param  [in] oacc Acceleration percentage
-    * @param  [in] blendR -1: blocking; 0~1000: smoothing radius
-    * @return  Error code
+    * @brief  Movimento circolare completo nello spazio cartesiano
+    * @param  [in] joint_pos_p  Posizione giunto del punto di percorso 1, unità deg
+    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso 1
+    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
+    * @param  [in] joint_pos_t  Posizione giunto del punto di percorso 2, unità deg
+    * @param  [in] desc_pos_t  Posa cartesiana del punto di percorso 2
+    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @param  [in] oacc  Percentuale di accelerazione
+    * @param  [in] blendR -1: Bloccante; 0~1000: Raggio di smoothing
+    * @return  Codice di errore
     */
     int Circle(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, double ovl, int offset_flag, DescPose offset_pos, double oacc, double blendR)
 
-Cartesian space full circle motion (automatic inverse kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.8-3.8.5
-
-.. code-block:: java
-    :linenos:
-
-    /**
-    * @brief Cartesian space full circle motion (automatic inverse kinematics calculation)
-    * @param [in] desc_pos_p  Path point 1 cartesian pose
-    * @param [in] ptool  Tool coordinate number, range [0~14]
-    * @param [in] puser  Workpiece coordinate number, range [0~14]
-    * @param [in] pvel  Velocity percentage, range [0~100]
-    * @param [in] pacc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] epos_p  Extended axis position, unit mm
-    * @param [in] desc_pos_t  Path point 2 cartesian pose
-    * @param [in] ttool  Tool coordinate number, range [0~14]
-    * @param [in] tuser  Workpiece coordinate number, range [0~14]
-    * @param [in] tvel  Velocity percentage, range [0~100]
-    * @param [in] tacc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] epos_t  Extended axis position, unit mm
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos  Pose offset
-    * @param [in] oacc Acceleration percentage
-    * @param [in] blendR -1: blocking; 0~1000: smoothing radius
-    * @param [in] config Inverse kinematics joint space configuration, [-1]-calculate based on current joint position, [0~7]-solve according to specific joint space configuration
-    * @return Error code
-    */
-    int Circle(DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, double ovl, int offset_flag, DescPose offset_pos, double oacc, double blendR,int config)
-
-Cartesian Space Full Circle Motion (Added velAccParamMode parameter for velocity and acceleration modes)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento circolare completo nello spazio cartesiano (calcolo cinematico inverso automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    *@brief  Cartesian Space Full Circle Motion (Added velAccParamMode parameter for velocity and acceleration modes)
-    *@param  [in] joint_pos_p  Path point 1 joint position, unit deg
-    *@param  [in] desc_pos_p   Path point 1 Cartesian pose
-    *@param  [in] ptool  Tool coordinate number, range [1~15]
-    *@param  [in] puser  Workpiece coordinate number, range [1~15]
-    *@param  [in] pvel  Velocity percentage, range [0~100]
-    *@param  [in] pacc  Acceleration percentage, range [0~100], not yet open
-    *@param  [in] epos_p  Extended axis position, unit mm
-    *@param  [in] joint_pos_t  Path point 2 joint position, unit deg
-    *@param  [in] desc_pos_t   Path point 2 Cartesian pose
-    *@param  [in] ttool  Tool coordinate number, range [1~15]
-    *@param  [in] tuser  Workpiece coordinate number, range [1~15]
-    *@param  [in] tvel  Velocity percentage, range [0~100]
-    *@param  [in] tacc  Acceleration percentage, range [0~100], not yet open
-    *@param  [in] epos_t  Extended axis position, unit mm
-    *@param  [in] ovl  Velocity scaling factor, range [0~100]
-    *@param  [in] offset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    *@param  [in] offset_pos  Pose offset
-    *@param  [in] oacc Acceleration percentage
-    *@param  [in] blendR -1: Blocking; 0~1000: Blending radius
-    *@param  [in] velAccParamMode Velocity and acceleration parameter mode; 0-Percentage; 1-Physical velocity (mm/s) and acceleration (mm/s^2)
-    *@return  Error code
+     * @brief  Movimento circolare completo nello spazio cartesiano (calcolo cinematico inverso automatico)
+     * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso 1
+     * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+     * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+     * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
+     * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+     * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
+     * @param  [in] desc_pos_t  Posa cartesiana del punto di percorso 2
+     * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+     * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+     * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
+     * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+     * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
+     * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+     * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+     * @param  [in] offset_pos  Quantità di offset della posa
+     * @param  [in] oacc  Percentuale di accelerazione
+     * @param  [in] blendR -1: Bloccante; 0~1000: Raggio di smoothing
+     * @param  [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+     * @return  Codice di errore
+     */
+    int Circle(DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, double ovl, int offset_flag, DescPose offset_pos, double oacc, double blendR,int config)
+
+Movimento circolare completo nello spazio cartesiano (aggiunto parametro velAccParamMode per modalità parametri velocità/accelerazione)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: Java SDK-v1.0.8-3.8.5
+
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Movimento circolare completo nello spazio cartesiano (aggiunto parametro velAccParamMode per modalità parametri velocità/accelerazione)
+    * @param  [in] joint_pos_p  Posizione giunto del punto di percorso 1, unità deg
+    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso 1
+    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
+    * @param  [in] joint_pos_t  Posizione giunto del punto di percorso 2, unità deg
+    * @param  [in] desc_pos_t  Posa cartesiana del punto di percorso 2
+    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [1~15]
+    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [1~15]
+    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @param  [in] oacc  Percentuale di accelerazione
+    * @param  [in] blendR -1: Bloccante; 0~1000: Raggio di smoothing
+    * @param  [in] velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) accelerazione (mm/s2)
+    * @return  Codice di errore
     */
     public int Circle(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, double ovl, int offset_flag, DescPose offset_pos, double oacc, double blendR, int velAccParamMode)
 
-Cartesian Space Full Circle Motion (Overload Function 1, No Joint Position Input Required)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento circolare completo nello spazio cartesiano (funzione sovraccaricata 1, non richiede posizione giunto in input)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian Space Full Circle Motion (Overload Function 1, No Joint Position Input Required)
-    * @param  [in] desc_pos_p   Path point 1 Cartesian pose
-    * @param  [in] ptool  Tool coordinate number, range [0~14]
-    * @param  [in] puser  Workpiece coordinate number, range [0~14]
-    * @param  [in] pvel  Velocity percentage, range [0~100]
-    * @param  [in] pacc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] epos_p  Extended axis position, unit mm
-    * @param  [in] desc_pos_t   Path point 2 Cartesian pose
-    * @param  [in] ttool  Tool coordinate number, range [0~14]
-    * @param  [in] tuser  Workpiece coordinate number, range [0~14]
-    * @param  [in] tvel  Velocity percentage, range [0~100]
-    * @param  [in] tacc  Acceleration percentage, range [0~100], not yet open
-    * @param  [in] epos_t  Extended axis position, unit mm
-    * @param  [in] ovl  Velocity scaling factor, range [0~100]
-    * @param  [in] offset_flag  0-No offset, 1-Offset in base/workpiece coordinate system, 2-Offset in tool coordinate system
-    * @param  [in] offset_pos  Pose offset
-    * @param  [in] oacc Acceleration percentage
-    * @param  [in] blendR -1: Blocking; 0~1000: Blending radius
-    * @param  [in] config Inverse kinematic joint space configuration, [-1]-Reference current joint position for calculation, [0~7]-Solve based on specific joint space configuration
-    * @param  [in] velAccParamMode Velocity and acceleration parameter mode; 0-Percentage; 1-Physical velocity (mm/s) and acceleration (mm/s^2)
-    * @return  Error code
+    * @brief  Movimento circolare completo nello spazio cartesiano (funzione sovraccaricata 1, non richiede posizione giunto in input)
+    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso 1
+    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
+    * @param  [in] desc_pos_t  Posa cartesiana del punto di percorso 2
+    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in] offset_pos  Quantità di offset della posa
+    * @param  [in] oacc  Percentuale di accelerazione
+    * @param  [in] blendR -1: Bloccante; 0~1000: Raggio di smoothing
+    * @param  [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+    * @param  [in] velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) accelerazione (mm/s2)
+    * @return  Codice di errore
     */
     public int Circle(DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, double ovl, int offset_flag, DescPose offset_pos, double oacc, double blendR, int config, int velAccParamMode)
 
-Cartesian space point-to-point movement
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento punto a punto nello spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Cartesian space point-to-point movement 
-    * @param [in] desc_pos  Target cartesian pose or pose increment
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Speed percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not currently available
-    * @param [in] ovl  Speed scaling factor, range [0~100]
-    * @param [in] blendT [-1.0]-move to position (blocking), [0~500.0]-smoothing time (non-blocking) in ms
-    * @param [in] config  Joint space configuration, [-1]-calculate with reference to current joint position, [0~7]-calculate with reference to specific joint space configuration, default -1
-    * @return Error code 
-    */ 
+    /**
+    * @brief Movimento punto a punto nello spazio cartesiano
+    * @param [in] desc_pos  Posa cartesiana target o incremento di posa
+    * @param [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param [in] blendT [-1.0]-Movimento fino alla posizione (bloccante), [0~500.0]-Tempo di smoothing (non bloccante), unità ms
+    * @param [in] config  Configurazione dello spazio dei giunti, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Calcolo di riferimento a una specifica configurazione dello spazio dei giunti, predefinito -1
+    * @return Codice di errore
+    */
     int MoveCart(DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendT, int config);
 
-Basic robot movement command code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per le istruzioni di movimento di base del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -617,53 +616,54 @@ Basic robot movement command code example
         return 0;
     }
 
-Cartesian space spiral movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento a spirale nello spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Cartesian space spiral movement 
-    * @param [in] joint_pos  Target joint position in deg
-    * @param [in] desc_pos   Target cartesian pose
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Speed percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not currently available
-    * @param [in] epos  Extended axis position in mm
-    * @param [in] ovl  Speed scaling factor, range [0~100]
-    * @param [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate, 2-offset in tool coordinate
-    * @param [in] offset_pos  Pose offset
-    * @return Error code 
+    * @brief Movimento a spirale nello spazio cartesiano
+    * @param [in] joint_pos  Posizione giunto target, unità deg
+    * @param [in] desc_pos  Posa cartesiana target
+    * @param [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param [in] epos  Posizione dell'asse esteso, unità mm
+    * @param [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param [in] offset_pos  Quantità di offset della posa
+    * @param [in] spiral_param  Parametri della spirale
+    * @return Codice di errore
     */
     int NewSpiral(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, ExaxisPos epos, double ovl, int offset_flag, DescPose offset_pos, SpiralParam spiral_param);
 
-Cartesian space spiral motion (automatic inverse kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento a spirale nello spazio cartesiano (calcolo cinematico inverso automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief Cartesian space spiral motion (automatic inverse kinematics calculation)
-    * @param [in] desc_pos  Target cartesian pose
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Velocity percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] epos  Extended axis position, unit mm
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos  Pose offset
-    * @param [in] spiral_param  Spiral parameters
-    * @param [in] config Inverse kinematics joint space configuration, [-1]-calculate based on current joint position, [0~7]-solve according to specific joint space configuration
-    * @return Error code
+    * @brief Movimento a spirale nello spazio cartesiano (calcolo cinematico inverso automatico)
+    * @param [in] desc_pos  Posa cartesiana target
+    * @param [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param [in] epos  Posizione dell'asse esteso, unità mm
+    * @param [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param [in] offset_pos  Quantità di offset della posa
+    * @param [in] spiral_param  Parametri della spirale
+    * @param [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+    * @return Codice di errore
     */
     int NewSpiral(DescPose desc_pos, int tool, int user, double vel, double acc, ExaxisPos epos, double ovl, int offset_flag, DescPose offset_pos, SpiralParam spiral_param,int config)
 
-Spiral movement code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il movimento a spirale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -694,29 +694,29 @@ Spiral movement code example
         return 0;
     }
 
-Servo movement start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio movimento servo
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Servo movement start, used with ServoJ, ServoCart commands
-    * @return Error code 
-    */ 
+    /**
+    * @brief Inizio movimento servo, da utilizzare con le istruzioni ServoJ e ServoCart
+    * @return Codice di errore
+    */
     int ServoMoveStart();
 
-Servo movement end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine movimento servo
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Servo movement end, used with ServoJ, ServoCart commands
-    * @return Error code 
-    */ 
+    /**
+    * @brief Fine movimento servo, da utilizzare con le istruzioni ServoJ e ServoCart
+    * @return Codice di errore
+    */
     int ServoMoveEnd();
 
-Joint space servo mode movement
+Movimento in modalità servo nello spazio dei giunti
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.6-3.8.3
 
@@ -724,37 +724,37 @@ Joint space servo mode movement
     :linenos:
 
     /**
-    * @brief  Joint space servo mode movement
-    * @param  [in] joint_pos  Target joint position in deg
-    * @param  [in] axisPos  External axis position in mm
-    * @param  [in] acc  Acceleration percentage, range [0~100], not currently available, default 0
-    * @param  [in] vel  Speed percentage, range [0~100], not currently available, default 0
-    * @param  [in] cmdT  Command cycle in s, recommended range [0.001~0.0016]
-    * @param  [in] filterT Filter time in s, not currently available, default 0
-    * @param  [in] gain  Target position proportional amplifier, not currently available, default 0
-    * @param  [in] id  servoJ command ID, default 0
-    * @return  Error code
+    * @brief  Movimento in modalità servo nello spazio dei giunti
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] axisPos  Posizione dell'asse esterno, unità mm
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile, predefinito 0
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100], non ancora disponibile, predefinito 0
+    * @param  [in] cmdT  Periodo di invio comandi, unità s, intervallo consigliato [0.001~0.0016]
+    * @param  [in] filterT  Tempo di filtraggio, unità s, non ancora disponibile, predefinito 0
+    * @param  [in] gain  Amplificatore proporzionale della posizione target, non ancora disponibile, predefinito 0
+    * @param  [in] id  ID dell'istruzione servoJ, predefinito 0
+    * @return  Codice di errore
     */
     int ServoJ(JointPos joint_pos, ExaxisPos axisPos, double acc, double vel, double cmdT, double filterT, double gain, int id);
 
-Joint space servo mode movement example program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di programma per il movimento in modalità servo nello spazio dei giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public static void TestServoJ()
     {
         Robot robot = new Robot();
-        robot.SetReconnectParam(true,20,500);//Set reconnection times and interval
+        robot.SetReconnectParam(true,20,500);//Imposta numero di tentativi di riconnessione, intervallo
         robot.LoggerInit(FrLogType.DIRECT, FrLogLevel.INFO, "D://log", 10, 10);
         int rtn = robot.RPC("192.168.58.2");
         if(rtn == 0)
         {
-            System.out.println("rpc connection success");
+            System.out.println("connessione rpc successo");
         }
         else
         {
-            System.out.println("rpc connection fail");
+            System.out.println("connessione rpc fallita");
             return ;
         }
         JointPos j5 = new JointPos();
@@ -766,57 +766,53 @@ Joint space servo mode movement example program
             while (count > 0)
             {
                 robot.ServoJ(j5, ePos,100, 100, 0.008, 0, 0);
-                j5.J1 += 0.2;//Joint 1 position increase
+                j5.J1 += 0.2;//Incrementa la posizione del giunto 1
                 count -= 1;
                 robot.WaitMs((int)(8));
             }
         }
     }
 
-Joint torque control start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio controllo coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Joint torque control start
-    * @return  Error code
+    * @brief  Inizio controllo coppia giunti
+    * @return  Codice di errore
     */
     int ServoJTStart()
 
-Joint torque control
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllo coppia giunti
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Joint Torque Control
-    * @param torque Torque for joints j1~j6, unit: Nm
-    * @param interval Command cycle, unit: s, range: [0.001~0.008]
-    * @param checkFlag Detection strategy 
-    *                  0-No restrictions; 
-    *                  1-Power limit; 
-    *                  2-Velocity limit; 
-    *                  3-Both power and velocity limits
-    * @param jPowerLimit Maximum joint power limit for each joint (W)
-    * @param jVelLimit Maximum joint velocity for each joint (°/s)
-    * @return Error code
+    * @brief Controllo coppia giunti
+    * @param  torque Coppia giunti j1~j6, unità Nm
+    * @param  interval Periodo del comando, unità s, intervallo [0.001~0.008]
+    * @param  checkFlag Strategia di rilevamento 0-Nessuna limitazione; 1-Limita potenza; 2-Limita velocità; 3-Limita sia potenza che velocità
+    * @param  jPowerLimit Limite massimo di potenza del giunto (W)
+    * @param  jVelLimit Velocità massima del giunto (°/s)
+    * @return  Codice di errore
     */
     public int ServoJT(double[] torque, double interval, int checkFlag, double[] jPowerLimit, double[] jVelLimit)
 
-Joint torque control end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine controllo coppia giunti
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Joint torque control end
-    * @return  Error code
+    * @brief  Fine controllo coppia giunti
+    * @return  Codice di errore
     */
     int ServoJTEnd()
 
-Joint space servo mode movement example program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di programma per il movimento in modalità servo nello spazio dei giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -828,7 +824,7 @@ Joint space servo mode movement example program
         joint_toq=robot.GetJointTorques(1);
 
         int count = 100;
-        robot.ServoJTStart(); //   #servoJT start
+        robot.ServoJTStart(); //   #inizio servoJT
         int error = 0;
         while (count > 0)
         {
@@ -843,8 +839,8 @@ Joint space servo mode movement example program
         return 0;
     }
 
-Joint Torque Control Code Example with Overspeed Protection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il controllo coppia giunti con protezione sovravelocità
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -853,53 +849,52 @@ Joint Torque Control Code Example with Overspeed Protection
         robot.ResetAllError();
         robot.Sleep(500);
         List<Number> torques;
-        torques = robot.GetJointTorques(1);
-        robot.ServoJTStart(); // Start servoJT
-        ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
+        torques=robot.GetJointTorques(1);
+        robot.ServoJTStart(); //   #inizio servoJT
+        ROBOT_STATE_PKG pkg=new ROBOT_STATE_PKG();
         robot.DragTeachSwitch(1);
-        int checkFlag = 3; // -1,3 - Both power and velocity limits
-        // double[] jPowerLimit = {1.0,1.0,1.0,1.0,1.0,1.0}; // 5001
-        double[] jPowerLimit = { 10.0, 10.0, 10.0, 10.0, 10.0, 10.0 }; // Power limits for each joint (W)
-        double[] jVelLimit = { 50, 50, 50, 50, 50, 50 }; // 180.1,-1 - Velocity limits for each joint (°/s)
+        int checkFlag = 3;//-1,3
+        //double[] jPowerLimit = {1.0,1.0,1.0,1.0,1.0,1.0};//5001
+        double[] jPowerLimit = { 10.0, 10.0, 10.0, 10.0, 10.0, 10.0 };
+        double[] jVelLimit = { 50, 50, 50, 50, 50, 50};//180.1,-1
         int count = 800000;
         int error = 0;
-        double[] tor = new double[]{(double)torques.get(1), (double)torques.get(2), (double)torques.get(3), 
-                                   (double)torques.get(4), (double)torques.get(5), (double)torques.get(6)};
+        double[] tor=new double[]{(double)torques.get(1),(double)torques.get(2),(double)torques.get(3),(double)torques.get(4),(double)torques.get(5),(double)torques.get(6)};
         while (count > 0)
         {
-            tor[2] = tor[2] + 0.01; // Increase torque of axis 1 by 0.01NM each time, moving 100 times
-            error = robot.ServoJT(tor, 0.01, checkFlag, jPowerLimit, jVelLimit); // Joint space servo mode motion
-            System.out.printf("ServoJT return is %d\n", error);
+            tor[2] = tor[2]+0.01;//  #incrementa di 0.01NM l'asse 1 ogni volta, movimento per 100 volte
+            error = robot.ServoJT(tor, 0.01, checkFlag, jPowerLimit, jVelLimit);  //# movimento in modalità servo nello spazio dei giunti
+            System.out.printf("ServoJT rtn è %d\n", error);
             count = count - 1;
             robot.Sleep(1);
-            pkg = robot.GetRobotRealTimeState();
-            System.out.printf("maincode %d, subcode %d\n", pkg.main_code, pkg.sub_code);
+            pkg=robot.GetRobotRealTimeState();
+            System.out.printf("codice principale %d, sottocodice %d\n", pkg.main_code, pkg.sub_code);
         }
         robot.DragTeachSwitch(0);
-        error = robot.ServoJTEnd(); // End servo motion
+        error = robot.ServoJTEnd();  //#fine movimento servo
     }
 
-Cartesian space servo mode movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento in modalità servo nello spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Cartesian space servo mode movement
-    * @param  [in]  mode  0-absolute movement (base coordinate), 1-incremental movement (base coordinate), 2-incremental movement (tool coordinate)
-    * @param  [in]  desc_pose  Target cartesian pose or pose increment
-    * @param  [in]  pos_gain  Pose increment proportional coefficient, only effective in incremental movement, range [0~1]
-    * @param  [in]  acc  Acceleration percentage, range [0~100], not currently available, default 0
-    * @param  [in]  vel  Speed percentage, range [0~100], not currently available, default 0
-    * @param  [in]  cmdT  Command cycle in s, recommended range [0.001~0.0016]
-    * @param  [in]  filterT Filter time in s, not currently available, default 0
-    * @param  [in]  gain  Target position proportional amplifier, not currently available, default 0
-    * @return  Error code
+    * @brief  Movimento in modalità servo nello spazio cartesiano
+    * @param  [in]  mode  0-Movimento assoluto (sistema di coordinate base), 1-Movimento incrementale (sistema di coordinate base), 2-Movimento incrementale (sistema di coordinate dello strumento)
+    * @param  [in]  desc_pose  Posa cartesiana target o incremento di posa
+    * @param  [in]  pos_gain  Coefficiente proporzionale dell'incremento di posa, attivo solo nel movimento incrementale, intervallo [0~1]
+    * @param  [in]  acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile, predefinito 0
+    * @param  [in]  vel  Percentuale di velocità, intervallo [0~100], non ancora disponibile, predefinito 0
+    * @param  [in]  cmdT  Periodo di invio comandi, unità s, intervallo consigliato [0.001~0.0016]
+    * @param  [in]  filterT  Tempo di filtraggio, unità s, non ancora disponibile, predefinito 0
+    * @param  [in]  gain  Amplificatore proporzionale della posizione target, non ancora disponibile, predefinito 0
+    * @return  Codice di errore
     */
     int ServoCart(int mode, DescPose desc_pose, Object[] pos_gain, double acc, double vel, double cmdT, double filterT, double gain);
 
-Cartesian space servo mode movement code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il movimento in modalità servo nello spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -931,67 +926,67 @@ Cartesian space servo mode movement code example
         return 0;
     }
 
-Spline movement start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio movimento spline
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Spline movement start
-    * @return  Error code
+    * @brief  Inizio movimento spline
+    * @return  Codice di errore
     */
     int SplineStart();
 
-Joint movement PTP
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento PTP (Punto a Punto) nello spazio dei giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Joint space spline movement
-    * @param  [in] joint_pos  Target joint position in deg
-    * @param  [in] desc_pos   Target cartesian pose
-    * @param  [in] tool  Tool coordinate number, range [0~14]
-    * @param  [in] user  Workpiece coordinate number, range [0~14]
-    * @param  [in] vel  Speed percentage, range [0~100]
-    * @param  [in] acc  Acceleration percentage, range [0~100], not currently available
-    * @param  [in] ovl  Speed scaling factor, range [0~100]
-    * @return  Error code
+    * @brief  Movimento spline nello spazio dei giunti
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] desc_pos  Posa cartesiana target
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @return  Codice di errore
     */
     int SplinePTP(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl);
 
-Joint space spline motion (automatic forward kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento spline nello spazio dei giunti (calcolo cinematico diretto automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
-    :linenos:
-
-    /**
-    * @brief Joint space spline motion (automatic forward kinematics calculation)
-    * @param [in] joint_pos  Target joint position, unit deg
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Velocity percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @return Error code
-    */
-    int SplinePTP(JointPos joint_pos, int tool, int user, double vel, double acc, double ovl)
-
-Spline movement end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Spline movement end
-    * @return  Error code
+    * @brief  Movimento spline nello spazio dei giunti (calcolo cinematico diretto automatico)
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @return  Codice di errore
     */
-    int SplineEnd(); 
+    int SplinePTP(JointPos joint_pos, int tool, int user, double vel, double acc, double ovl)
 
-Spline movement code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine movimento spline
++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Fine movimento spline
+    * @return  Codice di errore
+    */
+    int SplineEnd();
+
+Esempio di codice per il movimento spline
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1023,73 +1018,73 @@ Spline movement code example
         return 0;
     }
 
-New spline movement start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio nuovo movimento spline
++++++++++++++++++++++++++++++
 .. code-block:: Java
-    :linenos:
-
-    /** 
-    * @brief New spline movement start 
-    * @param [in] type   0-circular transition, 1-given points as path points
-    * @param [in] averageTime  Global average transition time(ms)(10 ~  ), default 2000
-    * @return Error code 
-    */ 
-    int NewSplineStart(int type, int averageTime);
-    
-New spline command point
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /** 
-    * @brief Add spline movement command point 
-    * @param [in] joint_pos  Target joint position in deg
-    * @param [in] desc_pos   Target cartesian pose
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Speed percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not currently available
-    * @param [in] ovl  Speed scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking) in mm
-    * @param [in] lastFlag Whether it is the last point, 0-no, 1-yes
-    * @return Error code 
-    */ 
-    int NewSplinePoint(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int lastFlag);
-
-New spline command point (automatic inverse kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.8-3.8.5
-
-.. code-block:: java
     :linenos:
 
     /**
-    * @brief New spline command point (automatic inverse kinematics calculation)
-    * @param [in] desc_pos  Target cartesian pose
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Velocity percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @param [in] lastFlag Whether it is the last point, 0-no, 1-yes
-    * @param [in] config Inverse kinematics joint space configuration, [-1]-calculate based on current joint position, [0~7]-solve according to specific joint space configuration
-    * @return Error code
+    * @brief Inizio nuovo movimento spline
+    * @param [in] type   0-Transizione circolare, 1-I punti dati sono punti di percorso
+    * @param [in] averageTime  Tempo medio di transizione globale (ms) (10 ~ ), predefinito 2000
+    * @return Codice di errore
     */
-    int NewSplinePoint(DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int lastFlag,int config)
+    int NewSplineStart(int type, int averageTime);
 
-New spline movement end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Punto di comando spline
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief New spline movement start 
-    * @return Error code 
-    */ 
+    /**
+    * @brief Aggiunge un punto di comando per il movimento spline
+    * @param [in] joint_pos  Posizione giunto target, unità deg
+    * @param [in] desc_pos  Posa cartesiana target
+    * @param [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param [in] lastFlag Indica se è l'ultimo punto, 0-No, 1-Sì
+    * @return Codice di errore
+    */
+    int NewSplinePoint(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int lastFlag);
+
+Punto di comando spline (calcolo cinematico inverso automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: Java SDK-v1.0.8-3.8.5
+
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Punto di comando spline (calcolo cinematico inverso automatico)
+    * @param  [in] desc_pos  Posa cartesiana target
+    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
+    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
+    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @param  [in] lastFlag Indica se è l'ultimo punto, 0-No, 1-Sì
+    * @param  [in] config  Configurazione dello spazio dei giunti per la soluzione inversa, [-1]-Calcolo di riferimento alla posizione attuale dei giunti, [0~7]-Soluzione basata su una specifica configurazione dello spazio dei giunti
+    * @return  Codice di errore
+    */
+    int NewSplinePoint(DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int lastFlag,int config)
+
+Fine nuovo movimento spline
++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Fine nuovo movimento spline
+    * @return Codice di errore
+    */
     int NewSplineEnd();
-    
-New spline movement code example
+
+Esempio di codice per il nuovo movimento spline
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
@@ -1127,41 +1122,41 @@ New spline movement code example
         return 0;
     }
 
-Stop movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Interruzione movimento
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Stop movement
-    * @return  Error code
+    * @brief Interruzione movimento
+    * @return  Codice di errore
     */
     int StopMotion();
 
-Pause movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pausa movimento
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
-    
-    /** 
-      * @brief Pause movement 
-      * @return Error code 
-    */  
+
+    /**
+    * @brief Pausa movimento
+    * @return Codice di errore
+    */
     int PauseMotion();
 
-Resume movement
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ripresa movimento
++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Resume movement 
-    * @return Error code 
-    */ 
+    /**
+    * @brief Ripresa movimento
+    * @return Codice di errore
+    */
     int ResumeMotion();
 
-Movement pause, resume, stop code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per pausa, ripresa, interruzione movimento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1200,33 +1195,32 @@ Movement pause, resume, stop code example
         return 0;
     }
 
-Point global offset start
+Inizio offset globale dei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Inizio offset globale dei punti
+    * @param  [in]  flag  0-Offset nel sistema di coordinate base o del pezzo, 2-Offset nel sistema di coordinate dello strumento
+    * @param  [in]  offset_pos  Quantità di offset della posa
+    * @return  Codice di errore
+    */
+    int PointsOffsetEnable(int flag, DescPose offset_pos);
+
+Fine offset globale dei punti
 +++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Point global offset start
-    * @param  [in]  flag  0-offset in base/workpiece coordinate, 2-offset in tool coordinate
-    * @param  [in]  offset_pos  Pose offset
-    * @return  Error code
+    * @brief  Fine offset globale dei punti
+    * @return  Codice di errore
     */
-    int PointsOffsetEnable(int flag, DescPose offset_pos); 
+    int PointsOffsetDisable();
 
-
-Point global offset end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Point global offset end
-    * @return  Error code
-    */
-    int PointsOffsetDisable(); 
-
-Point offset code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per l'offset dei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1263,60 +1257,60 @@ Point offset code example
         return 0;
     }
 
-Controller AO flying start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio acquisizione in volo tramite AO del cabinet di controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Controller AO flying start
-    * @param [in] AONum Controller AO number
-    * @param [in] maxTCPSpeed Maximum TCP speed value[1-5000mm/s], default 1000
-    * @param [in] maxAOPercent AO percentage corresponding to maximum TCP speed, default 100%
-    * @param [in] zeroZoneCmp Dead zone compensation value AO percentage, integer, default 20%, range [0-100]
-    * @return Error code
+    * @brief Inizio acquisizione in volo tramite AO del cabinet di controllo
+    * @param [in] AONum Numero AO del cabinet di controllo
+    * @param [in] maxTCPSpeed Valore massimo velocità TCP [1-5000mm/s], predefinito 1000
+    * @param [in] maxAOPercent Percentuale AO corrispondente al valore massimo velocità TCP, predefinito 100%
+    * @param [in] zeroZoneCmp Valore di compensazione zona morta percentuale AO, intero, predefinito 20%, intervallo [0-100]
+    * @return Codice di errore
     */
     int MoveAOStart(int AONum, int maxTCPSpeed, int maxAOPercent, int zeroZoneCmp);
 
-Controller AO flying stop
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   
+Arresto acquisizione in volo tramite AO del cabinet di controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Controller AO flying stop
-    * @return Error code
+    * @brief Arresto acquisizione in volo tramite AO del cabinet di controllo
+    * @return Codice di errore
     */
     int MoveAOStop();
-    
-End effector AO flying start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   
+
+Inizio acquisizione in volo tramite AO dell'utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief End effector AO flying start
-    * @param [in] AONum End effector AO number
-    * @param [in] maxTCPSpeed Maximum TCP speed value[1-5000mm/s], default 1000
-    * @param [in] maxAOPercent AO percentage corresponding to maximum TCP speed, default 100%
-    * @param [in] zeroZoneCmp Dead zone compensation value AO percentage, integer, default 20%, range [0-100]
-    * @return Error code
+    * @brief Inizio acquisizione in volo tramite AO dell'utensile
+    * @param [in] AONum Numero AO dell'utensile
+    * @param [in] maxTCPSpeed Valore massimo velocità TCP [1-5000mm/s], predefinito 1000
+    * @param [in] maxAOPercent Percentuale AO corrispondente al valore massimo velocità TCP, predefinito 100%
+    * @param [in] zeroZoneCmp Valore di compensazione zona morta percentuale AO, intero, predefinito 20%, intervallo [0-100]
+    * @return Codice di errore
     */
     int MoveToolAOStart(int AONum, int maxTCPSpeed, int maxAOPercent, int zeroZoneCmp);
-    
-End effector AO flying stop
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   
+
+Arresto acquisizione in volo tramite AO dell'utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief End effector AO flying stop
-    * @return Error code
+    * @brief Arresto acquisizione in volo tramite AO dell'utensile
+    * @return Codice di errore
     */
     int MoveToolAOStop();
 
-AO flying code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per l'acquisizione in volo tramite AO
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1357,7 +1351,7 @@ AO flying code example
         return 0;
     }
 
-Start Ptp movement FIR filtering
+Inizio filtraggio FIR per movimento Ptp
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.5-3.8.2
 
@@ -1365,52 +1359,52 @@ Start Ptp movement FIR filtering
     :linenos:
 
     /**
-    * @brief Start Ptp movement FIR filtering
-    * @param [in] maxAcc Maximum acceleration limit (deg/s2)
-    * @param [in] maxJek Unified joint jerk limit (deg/s3)
-    * @return Error code
+    * @brief Inizio filtraggio FIR per movimento Ptp
+    * @param [in] maxAcc Valore massimo di accelerazione (deg/s2)
+    * @param [in] maxJek Valore massimo uniforme di strappo del giunto (deg/s3)
+    * @return Codice di errore
     */
     int PtpFIRPlanningStart(double maxAcc,double maxJek);
 
-Close Ptp movement FIR filtering
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine filtraggio FIR per movimento Ptp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Close Ptp movement FIR filtering
-    * @return Error code
+    * @brief Fine filtraggio FIR per movimento Ptp
+    * @return Codice di errore
     */
     int PtpFIRPlanningEnd();
 
-Start LIN, ARC movement FIR filtering
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio filtraggio FIR per movimento LIN, ARC
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Start LIN, ARC movement FIR filtering
-    * @param [in] maxAccLin Linear acceleration limit (mm/s2)
-    * @param [in] maxAccDeg Angular acceleration limit (deg/s2)
-    * @param [in] maxJerkLin Linear jerk limit (mm/s3)
-    * @param [in] maxJerkDeg Angular jerk limit (deg/s3)
-    * @return Error code
+    * @brief Inizio filtraggio FIR per movimento LIN, ARC
+    * @param [in] maxAccLin Valore massimo di accelerazione lineare (mm/s2)
+    * @param [in] maxAccDeg Valore massimo di accelerazione angolare (deg/s2)
+    * @param [in] maxJerkLin Valore massimo di strappo lineare (mm/s3)
+    * @param [in] maxJerkDeg Valore massimo di strappo angolare (deg/s3)
+    * @return Codice di errore
     */
     int LinArcFIRPlanningStart(double maxAccLin, double maxAccDeg, double maxJerkLin, double maxJerkDeg);
 
-Close LIN, ARC movement FIR filtering
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine filtraggio FIR per movimento LIN, ARC
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Close LIN, ARC movement FIR filtering
-    * @return Error code
+    * @brief Fine filtraggio FIR per movimento LIN, ARC
+    * @return Codice di errore
     */
     int LinArcFIRPlanningEnd();
 
-FIR filtering code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il filtraggio FIR
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1439,34 +1433,34 @@ FIR filtering code example
         return 0;
     }
 
-Acceleration smoothing enable
+Attivazione smoothing accelerazione
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Acceleration smoothing enable
-     * @param [in] saveFlag Whether to save after power off
-     * @return  Error code
+     * @brief Attivazione smoothing accelerazione
+     * @param [in] saveFlag Indica se salvare dopo lo spegnimento
+     * @return  Codice di errore
      */
     public int AccSmoothStart(boolean saveFlag)
 
-Acceleration smoothing disable
+Disattivazione smoothing accelerazione
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Acceleration smoothing disable
-     * @param [in] saveFlag Whether to save after power off
-     * @return  Error code
+     * @brief Disattivazione smoothing accelerazione
+     * @param [in] saveFlag Indica se salvare dopo lo spegnimento
+     * @return  Codice di errore
      */
     public int AccSmoothEnd(boolean saveFlag)
 
-Acceleration smoothing code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per lo smoothing dell'accelerazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1489,165 +1483,165 @@ Acceleration smoothing code example
         return 0;
     }
 
-Specified pose speed enable
+Attivazione velocità orientamento specificata
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Specified pose speed enable
-     * @param [in] ratio Pose speed percentage [0-300]
-     * @return  Error code
+     * @brief Attivazione velocità orientamento specificata
+     * @param [in] ratio Percentuale velocità orientamento [0-300]
+     * @return  Codice di errore
      */
     int AngularSpeedStart(int ratio)
 
-Specified pose speed disable
+Disattivazione velocità orientamento specificata
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Specified pose speed disable
-     * @return  Error code
+     * @brief Disattivazione velocità orientamento specificata
+     * @return  Codice di errore
      */
     int AngularSpeedEnd();
 
-Robot specified pose speed code example
+Esempio di codice per la velocità orientamento specificata del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int TestAngularSpeed(Robot robot)
+    {
+        JointPos startjointPos=new JointPos(-11.904, -99.669, 117.473, -108.616, -91.726, 74.256);
+        JointPos endjointPos=new JointPos(-45.615, -106.172, 124.296, -107.151, -91.282, 74.255);
+
+        DescPose startdescPose=new DescPose(-419.524, -13.000, 351.569, -178.118, 0.314, 3.833);
+        DescPose enddescPose=new DescPose(-321.222, 185.189, 335.520, -179.030, -1.284, -29.869);
+
+        ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
+        DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
+        int rtn = robot.AngularSpeedStart(50);
+        robot.MoveJ(startjointPos, startdescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
+        robot.MoveJ(endjointPos, enddescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
+        rtn = robot.AngularSpeedEnd();
+
+        return 0;
+    }
+
+Inizio protezione configurazioni singolari
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Inizio protezione configurazioni singolari
+    * @param  [in]  protectMode Modalità protezione singolare, 0: Modalità giunto; 1-Modalità cartesiana
+    * @param  [in]  minShoulderPos Intervallo di regolazione singolarità spalla (mm), predefinito 100
+    * @param  [in]  minElbowPos Intervallo di regolazione singolarità gomito (mm), predefinito 50
+    * @param  [in]  minWristPos Intervallo di regolazione singolarità polso (°), predefinito 10
+    * @return  Codice di errore
+    */
+    int SingularAvoidStart(int protectMode, double minShoulderPos, double minElbowPos, double minWristPos);
+
+Fine protezione configurazioni singolari
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Fine protezione configurazioni singolari
+    * @return  Codice di errore
+    */
+    int SingularAvoidEnd();
+
+Esempio di codice per la protezione configurazioni singolari del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int TestAngularSpeed(Robot robot)
+    {
+        JointPos startjointPos=new JointPos(-11.904, -99.669, 117.473, -108.616, -91.726, 74.256);
+        JointPos endjointPos=new JointPos(-45.615, -106.172, 124.296, -107.151, -91.282, 74.255);
+
+        DescPose startdescPose=new DescPose(-419.524, -13.000, 351.569, -178.118, 0.314, 3.833);
+        DescPose enddescPose=new DescPose(-321.222, 185.189, 335.520, -179.030, -1.284, -29.869);
+
+        ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
+        DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
+        int rtn = robot.AngularSpeedStart(50);
+        robot.MoveJ(startjointPos, startdescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
+        robot.MoveJ(endjointPos, enddescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
+        rtn = robot.AngularSpeedEnd();
+
+        return 0;
+    }
+
+Svuota coda istruzioni movimento
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    public static int TestAngularSpeed(Robot robot)
-    {
-        JointPos startjointPos=new JointPos(-11.904, -99.669, 117.473, -108.616, -91.726, 74.256);
-        JointPos endjointPos=new JointPos(-45.615, -106.172, 124.296, -107.151, -91.282, 74.255);
-
-        DescPose startdescPose=new DescPose(-419.524, -13.000, 351.569, -178.118, 0.314, 3.833);
-        DescPose enddescPose=new DescPose(-321.222, 185.189, 335.520, -179.030, -1.284, -29.869);
-
-        ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
-        DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
-        int rtn = robot.AngularSpeedStart(50);
-        robot.MoveJ(startjointPos, startdescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
-        robot.MoveJ(endjointPos, enddescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
-        rtn = robot.AngularSpeedEnd();
-
-        return 0;
-    }
-
-Start singular pose protection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
     /**
-    * @brief  Start singular pose protection
-    * @param  [in]  protectMode Singular protection mode, 0: joint mode; 1-cartesian mode
-    * @param  [in]  minShoulderPos Shoulder singular adjustment range(mm), default 100
-    * @param  [in]  minElbowPos Elbow singular adjustment range(mm), default 50
-    * @param  [in]  minWristPos Wrist singular adjustment range(°), default 10
-    * @return  Error code
-    */
-    int SingularAvoidStart(int protectMode, double minShoulderPos, double minElbowPos, double minWristPos);
-
-Stop singular pose protection
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief  Stop singular pose protection
-    * @return  Error code
-    */
-    int SingularAvoidEnd();
-
-Robot singular pose protection code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    public static int TestAngularSpeed(Robot robot)
-    {
-        JointPos startjointPos=new JointPos(-11.904, -99.669, 117.473, -108.616, -91.726, 74.256);
-        JointPos endjointPos=new JointPos(-45.615, -106.172, 124.296, -107.151, -91.282, 74.255);
-
-        DescPose startdescPose=new DescPose(-419.524, -13.000, 351.569, -178.118, 0.314, 3.833);
-        DescPose enddescPose=new DescPose(-321.222, 185.189, 335.520, -179.030, -1.284, -29.869);
-
-        ExaxisPos exaxisPos=new ExaxisPos(0, 0, 0, 0);
-        DescPose offdese=new DescPose(0, 0, 0, 0, 0, 0);
-        int rtn = robot.AngularSpeedStart(50);
-        robot.MoveJ(startjointPos, startdescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
-        robot.MoveJ(endjointPos, enddescPose, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
-        rtn = robot.AngularSpeedEnd();
-
-        return 0;
-    }
-
-Clear Motion Command Queue
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /**
-    * @brief Clears the motion command queue
-    * @return Error code
+    * @brief Svuota coda istruzioni movimento
+    * @return Codice di errore
     */
     public int MotionQueueClear()
 
-Move to Intersecting Line Start Point
+Movimento verso punto di inizio linea di intersezione
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Move to intersecting line start point
-    * @param [in] mainPoint Cartesian poses of 6 taught points on the main pipe
-    * @param [in] mainExaxisPos Extended axis positions for 6 taught points on the main pipe
-    * @param [in] piecePoint Cartesian poses of 6 taught points on the branch pipe
-    * @param [in] pieceExaxisPos Extended axis positions for 6 taught points on the branch pipe
-    * @param [in] extAxisFlag Whether to enable extended axis; 0-Disable; 1-Enable
-    * @param [in] exaxisPos Start point extended axis position
-    * @param [in] tool Tool coordinate system number
-    * @param [in] wobj Workpiece coordinate system number
-    * @param [in] vel Velocity percentage
-    * @param [in] acc Acceleration percentage
-    * @param [in] ovl Velocity scaling factor
-    * @param [in] oacc Acceleration scaling factor
-    * @param [in] moveType Motion type; 0-PTP; 1-LIN
-    * @param [in] moveDirection Motion direction; 0-Clockwise; 1-Counterclockwise
-    * @param [in] offset Offset value
-    * @return Error code
+    * @brief Movimento verso punto di inizio linea di intersezione
+    * @param [in] mainPoint Pose cartesiane dei 6 punti insegnati del tubo principale
+    * @param [in] mainExaxisPos Posizioni assi estesi dei 6 punti insegnati del tubo principale
+    * @param [in] piecePoint Pose cartesiane dei 6 punti insegnati del tubo ausiliario
+    * @param [in] pieceExaxisPos Posizioni assi estesi dei 6 punti insegnati del tubo di giunzione
+    * @param [in] extAxisFlag Indica se attivare l'asse esteso; 0-Disattivato; 1-Attivato
+    * @param [in] exaxisPos Posizione asse esteso del punto di partenza
+    * @param [in] tool Numero del sistema di coordinate dello strumento
+    * @param [in] wobj Numero del sistema di coordinate del pezzo
+    * @param [in] vel Percentuale di velocità
+    * @param [in] acc Percentuale di accelerazione
+    * @param [in] ovl Fattore di scala della velocità
+    * @param [in] oacc Fattore di scala dell'accelerazione
+    * @param [in] moveType Tipo di movimento; 0-PTP; 1-LIN
+    * @param [in] moveDirection Direzione del movimento; 0-Senso orario; 1-Senso antiorario
+    * @param [in] offset Offset
+    * @return Codice di errore
     */
     public int MoveToIntersectLineStart(DescPose[] mainPoint, ExaxisPos[] mainExaxisPos, DescPose[] piecePoint, ExaxisPos[] pieceExaxisPos, int extAxisFlag, ExaxisPos exaxisPos, int tool, int wobj, double vel, double acc, double ovl, double oacc, int moveType, int moveDirection, DescPose offset);
-            
-Intersecting Line Motion
+
+Movimento linea di intersezione
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Intersecting line motion
-    * @param [in] mainPoint Cartesian poses of 6 taught points on the main pipe
-    * @param [in] mainExaxisPos Extended axis positions for 6 taught points on the main pipe
-    * @param [in] piecePoint Cartesian poses of 6 taught points on the branch pipe
-    * @param [in] pieceExaxisPos Extended axis positions for 6 taught points on the branch pipe
-    * @param [in] extAxisFlag Whether to enable extended axis; 0-Disable; 1-Enable
-    * @param [in] exaxisPos Start point extended axis positions
-    * @param [in] tool Tool coordinate system number
-    * @param [in] wobj Workpiece coordinate system number
-    * @param [in] vel Velocity percentage
-    * @param [in] acc Acceleration percentage
-    * @param [in] ovl Velocity scaling factor
-    * @param [in] oacc Acceleration scaling factor
-    * @param [in] moveDirection Motion direction; 0-Clockwise; 1-Counterclockwise
-    * @param [in] offset Offset value
-    * @return Error code
+    * @brief Movimento linea di intersezione
+    * @param [in] mainPoint Pose cartesiane dei 6 punti insegnati del tubo principale
+    * @param [in] mainExaxisPos Posizioni assi estesi dei 6 punti insegnati del tubo principale
+    * @param [in] piecePoint Pose cartesiane dei 6 punti insegnati del tubo ausiliario
+    * @param [in] pieceExaxisPos Posizioni assi estesi dei 6 punti insegnati del tubo di giunzione
+    * @param [in] extAxisFlag Indica se attivare l'asse esteso; 0-Disattivato; 1-Attivato
+    * @param [in] exaxisPos Posizioni assi estesi del punto di partenza
+    * @param [in] tool Numero del sistema di coordinate dello strumento
+    * @param [in] wobj Numero del sistema di coordinate del pezzo
+    * @param [in] vel Percentuale di velocità
+    * @param [in] acc Percentuale di accelerazione
+    * @param [in] ovl Fattore di scala della velocità
+    * @param [in] oacc Fattore di scala dell'accelerazione
+    * @param [in] moveDirection Direzione del movimento; 0-Senso orario; 1-Senso antiorario
+    * @param [in] offset Offset
+    * @return Codice di errore
     */
     public int MoveIntersectLine(DescPose[] mainPoint, ExaxisPos[] mainExaxisPos, DescPose[] piecePoint, ExaxisPos[] pieceExaxisPos, int extAxisFlag, ExaxisPos[] exaxisPos, int tool, int wobj, double vel, double acc, double ovl, double oacc, int moveDirection, DescPose offset);
-                
-Robot Intersecting Line Motion Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Esempio di codice per il movimento linea di intersezione del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1697,9 +1691,9 @@ Robot Intersecting Line Motion Code Example
         int moveType = 1;
         int moveDirection = 1;
         int  rtn = robot.MoveToIntersectLineStart(mainPoint, mainExaxisPos, piecePoint, pieceExaxisPos, extAxisFlag, exaxisPos[0], tool, wobj, vel, acc, ovl, oacc, moveType, moveDirection, offset);
-        System.out.printf("MoveToIntersectLineStart rtn is %d\n", rtn);
+        System.out.printf("MoveToIntersectLineStart rtn è %d\n", rtn);
         rtn = robot.MoveIntersectLine(mainPoint, mainExaxisPos, piecePoint, pieceExaxisPos, extAxisFlag, exaxisPos, tool, wobj, vel, acc, 5.0, 5.0, moveDirection, offset);
-        System.out.printf("MoveIntersectLine rtn is %d\n", rtn);
+        System.out.printf("MoveIntersectLine rtn è %d\n", rtn);
         robot.CloseRPC();
         return ;
     }

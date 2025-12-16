@@ -1,175 +1,165 @@
-Custom protocol slave commands
-================================================
+Istruzioni Slave per Protocollo Personalizzato
+===================================================
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 6
 
-Overview
+Panoramica
 -------------------
 
-Industrial Bus Protocol Integration for Robot Motion Control
------------------------------------------------------------------
+Per facilitare il controllo del movimento del robot da parte del PLC tramite diversi protocolli di bus industriale (CC-Link IEF Basic, Profinet, Ethernet/IP ed EtherCAT), sono state aggiunte le schede FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, FRJ-PCIeN-EIP/CC/PN-RJ-V10 e FRJ-PCIeN-EC-RJ-V10 al control cabinet integrato mini.
 
-To facilitate PLC-based robot motion control through various industrial bus protocols (CC-Link IEF Basic, Profinet, Ethernet/IP, and EtherCAT), the integrated mini control cabinet has been equipped with FRH-PCIeN-EC/EIP/CC/PN-RJ-V10 cards, FRJ-PCIeN-EIP/CC/PN-RJ-V10 cards, and FRJ-PCIeN-EC-RJ-V10 cards.
+Configurazione dell'Ambiente
+----------------------------------------------------
 
-Environment Configuration
---------------------------
+Le descrizioni dei modelli delle schede e delle versioni software sono le seguenti:
 
-The required card models and software versions are as follows:
-
-.. list-table:: 
+.. list-table::
    :widths: 20 50 30
    :header-rows: 1
    :align: center
 
-   * - **Protocol Type**
-     - **Card Model**
-     - **Robot Software Version**
+   * - **Tipo Protocollo**
+     - **Modello Scheda**
+     - **Versione Software Robot**
 
    * - CC-Link IEF Basic
-     - FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, FRJ-PCIeN-EIP/CC/PN-RJ-V10
-     - V3.8.0+
+     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+     - V3.8.0 e superiore
 
    * - Profinet
-     - FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, FRJ-PCIeN-EIP/CC/PN-RJ-V10
-     - V3.8.0+
+     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+     - V3.8.0 e superiore
 
    * - Ethernet/IP
-     - FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, FRJ-PCIeN-EIP/CC/PN-RJ-V10
-     - V3.8.0+
+     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+     - V3.8.0 e superiore
 
    * - EtherCAT
-     - FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, FRJ-PCIeN-EC-RJ-V10
-     - V3.8.4.1+
+     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EC-RJ-V10
+     - V3.8.4.1 e superiore
 
-FRH-PCIeN-EC/EIP/CC/PN-RJ-V10 board hardware environment setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Setup Hardware Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Install the FRH-PCIeN-EC/EIP/CC/PN-RJ-V10 board into the integrated mini control box as shown.
+
+1. Installare la scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10 nel control cabinet integrato mini, come mostrato nella figura.
 
 .. image:: custom_protocol_slave/001.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-1 FRH-PCIeN-EC/EIP/CC/PN-RJ-V10 board installation
+.. centered:: Figura 17.2-1 Installazione Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10
 
 .. image:: custom_protocol_slave/002.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-2 FRH-PCIeN-EC/EIP/CC/PN-RJ-V10 board network port
+.. centered:: Figura 17.2-2 Porte di Rete Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10
 
-2. The robot control box and PLC wiring is shown below.
+2. Il cablaggio tra il control cabinet del robot e il PLC è mostrato nelle figure seguenti.
 
 .. image:: custom_protocol_slave/003.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-3 Control Box & Mitsubishi PLC Wiring Diagrams
+.. centered:: Figura 17.2-3 Schema di Cablaggio Control Cabinet & PLC Mitsubishi
 
 .. image:: custom_protocol_slave/004.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-4 Control Box & Siemens PLC Wiring Diagrams
+.. centered:: Figura 17.2-4 Schema di Cablaggio Control Cabinet & PLC Siemens
 
 .. image:: custom_protocol_slave/005.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-5 Control Box & Omron PLC Wiring Diagrams
+.. centered:: Figura 17.2-5 Schema di Cablaggio Control Cabinet & PLC Omron
 
 .. image:: custom_protocol_slave/006.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-6 Control Box & Omron PLC Wiring Diagrams
+.. centered:: Figura 17.2-6 Schema di Cablaggio Control Cabinet & PLC Inovance (Easy Series)
 
 .. note:: 
-      1: Robot control box (board input network port);
-      2: Switch;
-      3: PC;
-      4: Mitsubishi PLC (CC-Link IEF Basic network port);
-      5: Siemens PLC (Profinet network port);
-      6: Omron PLC (Ethernet/IP network port);
-      7: Omron PLC (EtherCAT network port);
+    1: Control cabinet robot (porta di rete scheda);
+    2: Switch;
+    3: PC portatile;
+    4: PLC Mitsubishi (porta CC-Link IEF Basic);
+    5: PLC Siemens (porta Profinet);
+    6: PLC Omron (porta Ethernet/IP);
+    7: PLC Inovance Easy (porta EtherCAT);
 
-.. important:: When the protocol is switched to EtherCAT bus, the board's network port needs to be distinguished as EtherCAT_IN and EtherCAT_OUT. At this time, the PLC's EtherCAT network port is directly connected to the board's EtherCAT_IN through a network cable.
+.. important:: Quando il protocollo è commutato su bus EtherCAT, le porte di rete della scheda devono essere distinte tra EtherCAT_IN e EtherCAT_OUT. In questo caso, la porta EtherCAT del PLC Omron deve essere collegata direttamente alla porta EtherCAT_IN della scheda tramite un cavo di rete.
 
-FRJ-PCIeN Board Hardware Setup
+Setup Hardware Scheda FRJ-PCIeN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Install the board into the integrated mini control box as shown.
+1. Installare la scheda nel control cabinet integrato mini, come mostrato nella figura.
 
 .. image:: custom_protocol_slave/044.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-7 FRJ-PCIeN Board Ethernet Port
+.. centered:: Figura 17.2-7 Porte di Rete Scheda FRJ-PCIeN
 
-2. Wiring between robot control box and PLC is shown below.
+2. Il cablaggio tra il control cabinet del robot e il PLC è mostrato nelle figure seguenti.
 
 .. image:: custom_protocol_slave/003.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-8 Control Box & Mitsubishi PLC Wiring Diagram
+.. centered:: Figura 17.2-8 Schema di Cablaggio Control Cabinet & PLC Mitsubishi
 
 .. image:: custom_protocol_slave/004.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-9 Control Box & Siemens PLC Wiring Diagram
+.. centered:: Figura 17.2-9 Schema di Cablaggio Control Cabinet & PLC Siemens
 
 .. image:: custom_protocol_slave/005.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-10 Control Box & Inovance PLC Wiring Diagram
+.. centered:: Figura 17.2-10 Schema di Cablaggio Control Cabinet & PLC Inovance (Ethernet/IP)
 
 .. note:: 
-    1: Robot control box (board Ethernet port);
+    1: Control cabinet robot (porta di rete scheda);
     2: Switch;
-    3: Laptop PC;
-    4: Mitsubishi PLC (CC-Link IEF Basic port);
-    5: Siemens PLC (Profinet port);
-    6: Inovance PLC (Ethernet/IP port);
+    3: PC portatile;
+    4: PLC Mitsubishi (porta CC-Link IEF Basic);
+    5: PLC Siemens (porta Profinet);
+    6: PLC Inovance (porta Ethernet/IP);
 
-3. Firmware upgrade is required when switching protocols on FRJ-PCIeN board. For upgrade:
-   - Set PC IP to "192.168.0.xxx"
-   - Open "Gateway Toolset" software
-   - Select PC network adapter
-   - Click "Start" (bottom right)
-   - Click "Search" (top right) to find board devices
+3. Quando si commuta il protocollo sulla scheda FRJ-PCIeN, è necessario eseguire un aggiornamento del firmware. Durante l'aggiornamento, modificare l'indirizzo IP del PC collegato alla scheda in "192.168.0.xxx". Quindi aprire il software "Gateway Toolset" -> selezionare la scheda di rete del PC da collegare -> fare clic sul pulsante "Start" in basso a destra -> fare clic sul pulsante "Search" in alto a destra per cercare i dispositivi scheda.
 
 .. image:: custom_protocol_slave/045.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.2-11 Connecting Board Device
+.. centered:: Figura 17.2-11 Collegamento Dispositivo Scheda
 
-4. Click "Upgrade" (bottom left)
-   - Select board device
-   - Click "..." (top right) to choose protocol firmware
-   - Click "Upgrade" and wait for completion
+4. Fare clic sul pulsante "Upgrade" in basso a sinistra -> selezionare il dispositivo scheda -> fare clic sul pulsante "..." in alto a destra, selezionare il firmware del protocollo richiesto -> fare clic sul pulsante "Upgrade", attendere il completamento dell'aggiornamento del firmware.
 
 .. image:: custom_protocol_slave/046.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.2-12 Board Protocol Switching
+.. centered:: Figura 17.2-12 Cambio Protocollo Scheda
 
-.. note:: IP address changes after protocol switching as shown below.
+.. note:: Dopo il cambio di protocollo della scheda, l'indirizzo IP della scheda cambierà, come dettagliato nella tabella seguente.
 
-.. centered:: Table 17.2-1 Board IP Addresses
+.. centered:: Tabella 17.2-1 Indirizzi IP Scheda
 
 .. list-table:: 
    :widths: 20 80
    :header-rows: 1
    :align: center
 
-   * - **Protocol**
-     - **IP Address**
+   * - **Protocollo**
+     - **Indirizzo IP**
 
    * - CC-Link IEF Basic
      - 192.168.0.113
@@ -180,64 +170,64 @@ FRJ-PCIeN Board Hardware Setup
    * - Profinet
      - 192.168.0.2
 
-When configured for CC-Link IEF Basic, controller changes board IP to "192.168.0.113".
+Quando il protocollo è configurato come CC-Link IEF Basic, il controller modificherà l'IP della scheda in "192.168.0.113".
 
-When configured for Ethernet/IP, controller changes board IP to "192.168.0.112".
+Quando il protocollo è configurato come Ethernet/IP, il controller modificherà l'IP della scheda in "192.168.0.112".
 
-When switching to Profinet, if slave device name matches master, master will automatically configure slave IP.
+Quando il protocollo è commutato su Profinet e il nome del dispositivo slave corrisponde a quello del master, il master configurerà automaticamente l'indirizzo IP dello slave.
 
-Software environment setup
+Setup Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Browser IP input 192.168.58.2, account for admin, password for 123, click ‘Login’, enter the robot control box Web interface.
+1. Nel browser, inserire l'IP 192.168.58.2, nome utente admin, password 123, fare clic su "Login" per accedere all'interfaccia Web del control cabinet robot.
 
 .. image:: teaching_pendant_software/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.2-13 Web Login Interface
+.. centered:: Figura 17.2-13 Interfaccia di Accesso Web
 
-2. Click System Settings -> About Interface, click the Software Upgrade button, select the software.tar.gz file, and upload the upgrade package.
+2. Fare clic su Impostazioni Sistema -> Interfaccia Informazioni, fare clic sul pulsante Aggiornamento Software, selezionare il file software.tar.gz, caricare il pacchetto di aggiornamento.
 
 .. image:: custom_protocol_slave/008.png
-   :width: 4in
+   :width: 6in
    :align: center
 
-.. centered:: Figure 17.2-14 Upgrade software
+.. centered:: Figura 17.2-14 Aggiornamento Software
 
-.. note:: QX control box web version needs 3.8.0 and above, LA control box web version needs 3.8.0 and above.
+.. note:: La versione web del control cabinet QX deve essere V3.8.0 o superiore, la versione web del control cabinet LA deve essere V3.8.0 o superiore.
 
-3. Click the extension button in the upper right corner and switch from 'Local Mode' to 'Remote Mode'.
+3. Fare clic sul pulsante di espansione in alto a destra, passare da "Modalità Locale" a "Modalità Remota".
 
 .. image:: custom_protocol_slave/010.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 17.2-15 Switch remote mode
+.. centered:: Figura 17.2-15 Passaggio a Modalità Remota
 
-4. Select the controller slave protocol and whether the auto-start function is required, then click the "Set" button. Note: To switch between different protocols, you need to click the "Uninstall" button first before configuring other protocols.
+4. Selezionare il protocollo slave del controller e la necessità della funzione di avvio automatico, fare clic sul pulsante "Imposta". Nota: per cambiare protocollo, è necessario prima fare clic sul pulsante "Rimuovi", quindi configurare un altro protocollo.
 
 .. image:: custom_protocol_slave/011.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.2-16 Configure the communication protocol
+.. centered:: Figura 17.2-16 Configurazione Protocollo Comunicazione
 
-.. note:: Switching different protocols requires restarting the control box before configuring the protocols.
+.. note:: Per cambiare protocollo, è necessario riavviare il control cabinet prima di configurare il nuovo protocollo.
 
-PLC Environment construction
+Setup Ambiente PLC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The test environment built to implement the slave commands for each protocol is shown in the table below, which includes the PLC model, firmware version and test software used in each protocol.
+L'ambiente di test configurato per implementare le istruzioni slave dei vari protocolli è mostrato nella tabella seguente, inclusi i modelli PLC utilizzati, le versioni firmware e il software di test.
 
 .. list-table:: 
    :widths: 100 100 100 100 100
    :header-rows: 1
    :align: center
 
-   * - Protocol
-     - Brand
-     - Type
+   * - Protocollo
+     - Marca
+     - Modello
      - Firmware
      - Software
   
@@ -260,51 +250,51 @@ The test environment built to implement the slave commands for each protocol is 
      - Sysmac Studio V1.50
   
    * - EtherCAT
-     - Omron
-     - MX102-1100
-     - V1.3
-     - Sysmac Studio V1.50
+     - Inovance
+     - Easy521-0808TN
+     - /
+     - AutoShop 4.10.2.4
 
 Siemens Profinet
 ++++++++++++++++++++++++++++++++++
 
-1. GSD file (XML file) importing
+1. Importazione File GSD (File XML)
 
-Open Siemens programming software TIA Portal V17, create a new PLC project, select ‘Devices and Networks’, and select ‘Hardware Catalogue’ on the right side to add PLC module by double clicking 6ES7 515-2AM02-0AB0 to add PLC module.
+Aprire il software di programmazione Siemens TIA Portal V17, creare un nuovo progetto PLC, selezionare "Dispositivi e Rete", nel "Catalogo Hardware" a destra, fare doppio clic su 6ES7 515-2AM02-0AB0 per aggiungere il modulo PLC.
 
 .. image:: custom_protocol_slave/012.png
    :width: 6in
    :align: center
 
-In the TIA PORTAL software, select Options-> Manage Generic Station Description File (GSD) in the menu bar to install or remove a GSD file that has already been installed.
+Nel software TIA PORTAL, selezionare "Opzioni" -> "Gestisci File di Descrizione Stazione Generica (GSD)" dalla barra dei menu per installare o rimuovere file GSD già installati.
 
 .. image:: custom_protocol_slave/013.png
    :width: 6in
    :align: center
 
-As an example, to install the Herschel GSD file, select ‘Manage Generic Station Description File (GSD)’ as above, and the ‘Manage Generic Station Description File’ window will appear.
+Prendendo come esempio l'installazione del file GSD per la scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, selezionare "Gestisci File di Descrizione Stazione Generica (GSD)" come sopra, apparirà la finestra "Gestisci File di Descrizione Stazione Generica".
 
-Select the folder where you want to install the GSD file from the ‘Source Path’, select one or more files to install from the list of displayed GSD files, and click the ‘Install’ button. Click the Install button as shown in the following figure.
+Da "Percorso Sorgente" selezionare la cartella contenente il file GSD da installare, dalla lista dei file GSD visualizzata selezionare uno o più file da installare, fare clic sul pulsante "Installa". Come mostrato nella figura sottostante.
 
 .. image:: custom_protocol_slave/014.png
    :width: 6in
    :align: center
 
-After successful installation, you can find the device with the installed GSD file in the hardware catalogue, other field devices, as shown in the figure below.
+Dopo l'installazione riuscita, il dispositivo del file GSD installato può essere trovato nel catalogo hardware, sotto Altri Dispositivi sul Campo, come mostrato nella figura sottostante.
 
 .. image:: custom_protocol_slave/015.png
    :width: 4in
    :align: center
 
-2. Executable programme
+2. Esecuzione Programma
 
-Open the project ‘QNXtest’.
+Aprire il progetto "QNXtest".
 
 .. image:: custom_protocol_slave/016.png
    :width: 6in
    :align: center
 
-Compiler: Double-click on the left side of the project tree to enter ‘Devices and Networks’, right-click on the ‘PLC_1’ module, select Compile from the drop-down menu, and then select ‘Hardware and Software (Changes Only)’ from the stand-alone menu. Hardware and Software (Changes Only)’. After the compilation is completed, it will prompt ‘Compilation complete’ at the bottom of the software view.
+Compilare il programma: nel progetto a sinistra, fare doppio clic per entrare in "Dispositivi e Rete", fare clic destro sul modulo "PLC_1", selezionare Compila dal menu a discesa, fare clic su "Hardware e Software (solo modifiche)". Dopo la compilazione, verrà visualizzato "Compilazione Completata" nella parte inferiore della vista software.
 
 .. image:: custom_protocol_slave/017.png
    :width: 6in
@@ -314,13 +304,13 @@ Compiler: Double-click on the left side of the project tree to enter ‘Devices 
    :width: 6in
    :align: center
 
-Download the programme to the device: Double click on the left side of the project tree to enter the ‘Device and Network’, right click on the ‘PLC_1’ module, and select ‘Download to Device’ from the drop-down menu. ‘Download to Device’, “Hardware and Software (change only)”.
+Scaricare il programma sul dispositivo: nel progetto a sinistra, fare doppio clic per entrare in "Dispositivi e Rete", fare clic destro sul modulo "PLC_1", selezionare "Scarica su dispositivo" dal menu a discesa, fare clic su "Hardware e Software (solo modifiche)".
 
 .. image:: custom_protocol_slave/019.png
    :width: 6in
    :align: center
 
-Search and download devices: After the pop-up window, configure the PG/PC interface type as shown in the following figure, click Start Search, select the device that needs to download the programme, and click Download.
+Cercare e scaricare sul dispositivo: dopo la finestra pop-up, configurare il tipo di interfaccia PG/PC come mostrato di seguito, fare clic su Inizia Ricerca, selezionare il dispositivo su cui scaricare il programma, fare clic su Scarica.
 
 .. image:: custom_protocol_slave/020.png
    :width: 6in
@@ -333,198 +323,198 @@ Search and download devices: After the pop-up window, configure the PG/PC interf
 Mitsubishi CC-Link IEF Basic
 ++++++++++++++++++++++++++++++++++
 
-1. CC-Link IEF Basic Setup
+1. Impostazioni CC-Link IEF Basic
 
-Enable CC-Link IEF Basic: Select ‘Ethernet Port’ in the left menu bar, set the ip address of PLC and make sure it is in the same network segment as the address of Huexun card. Click ‘CC-Link IEF Basic’ and select ‘Use’.
+Attivare l'uso di CC-Link IEF Basic: dal menu di navigazione a sinistra selezionare "Porta Ethernet", impostare l'indirizzo IP del PLC, assicurarsi che sia nella stessa sottorete dell'indirizzo della scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10. Fare clic su "Uso CC-Link IEF Basic", selezionare "Utilizza".
 
 .. image:: custom_protocol_slave/022.png
    :width: 6in
    :align: center
 
-CC-Link IEF Basic Network Configuration Settings: Also in CC-Link IEF Basic Settings, select ‘Network Configuration Settings’, and choose Hueyoson CIFX Digital I/O module. Drag and drop the module to the bottom left of the view to complete the hardware configuration.
+Impostazioni configurazione rete CC-Link IEF Basic: sempre in Impostazioni CC-Link IEF Basic, selezionare "Impostazioni Configurazione Rete", selezionare il modulo CIFX Digital I/O della scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10. Trascinarlo nell'area in basso a sinistra della vista per completare la configurazione hardware.
 
 .. image:: custom_protocol_slave/023.png
    :width: 6in
    :align: center
 
-CC-Link IEF Basic Refresh Settings: Also in CC-Link IEF Basic Settings, click Refresh Settings to customise the transmission settings: 256 bytes receive, 256 bytes transmit.
+Impostazioni refresh CC-Link IEF Basic: sempre in Impostazioni CC-Link IEF Basic, fare clic su Impostazioni Refresh, impostazioni trasmissione personalizzate: 256 byte ricezione, 256 byte trasmissione.
 
 .. image:: custom_protocol_slave/024.png
    :width: 6in
    :align: center
 
-2. Program Download
+2. Download Programma
 
-After opening the test programme, click ‘Online’->‘Write to Programmable Controller’ to enter the download interface.
+Dopo aver aperto il programma di test, fare clic su "Online" -> "Scrivi su Controllore Programmable" per accedere all'interfaccia di download.
 
 .. image:: custom_protocol_slave/025.png
    :width: 6in
    :align: center
 
-After opening the download interface, click ‘Parameter+Programme’ on the top left, then click ‘Execute’ on the bottom right corner to download, wait for the download to complete.
+Dopo aver aperto l'interfaccia di download, fare clic su "Parametri + Programma" in alto a sinistra, quindi fare clic su "Esegui" in basso a destra per eseguire il download, attendere il completamento.
 
 .. image:: custom_protocol_slave/026.png
    :width: 6in
    :align: center
 
-Inovance EtherCAT Configuration
+Inovance EtherCAT
 ++++++++++++++++++++++++++++++++++
 
-1. XML File Import
+1. Importazione File XML
 
-Open Inovance AutoShop programming software and create a new PLC project. Select "EtherCAT Devices" from the right toolbox:
+Aprire il software di programmazione Inovance AutoShop, creare un nuovo progetto PLC, nella barra degli strumenti a destra selezionare "Dispositivi EtherCAT":
 
 .. image:: custom_protocol_slave/052.png
    :width: 6in
    :align: center
 
-Right-click after selecting "EtherCAT Devices" to open the "Import Device XML" dialog. Locate the folder containing the card's XML file. After successful import, the card name will appear under "EtherCAT Devices". Close and reopen the project to complete the import process.
+Fare clic sinistro su "Dispositivi EtherCAT", quindi clic destro per aprire la finestra di dialogo "Importa XML Dispositivo", confermare con clic sinistro, individuare la cartella contenente i file XML della scheda.
+
+Dopo l'importazione riuscita, sotto la directory "Dispositivi EtherCAT" apparirà il nome della scheda. A questo punto, chiudere e riaprire il progetto per completare il processo di importazione del file XML.
 
 .. image:: custom_protocol_slave/053.png
    :width: 6in
    :align: center
 
-2. Variable Mapping
+2. Configurazione Variabili
 
-Double-click the variable table in the left toolbar. Create:
-- 256-byte input array (Soft element address: D0)
-- 256-byte output array (Soft element address: D200)
+Nella barra degli strumenti a sinistra, fare doppio clic sulla tabella delle variabili, creare un array di input da 256 byte, indirizzo dispositivo soft D0. Creare un array di output da 256 byte, indirizzo dispositivo soft D200.
 
 .. image:: custom_protocol_slave/054.png
    :width: 6in
    :align: center
 
-Under "EtherCAT" in the left toolbar, double-click "Xone-PCIe-ECATs". In the dialog, click "I/O Mapping", then bind variable addresses by selecting from the variable table. Repeat sequentially for other addresses.
+Nella barra degli strumenti a sinistra, sotto "EtherCAT", fare doppio clic su "Xone-PCIe-ECATs", nella finestra di dialogo che appare fare clic su "Mappatura Funzioni I/O", fare clic sul riquadro per associare l'indirizzo della variabile, nella finestra di dialogo fare clic su "Tabella Variabili", selezionare l'input/output corrispondente desiderato, fare clic su OK. Ripetere l'operazione per gli altri indirizzi in sequenza.
 
 .. image:: custom_protocol_slave/055.png
    :width: 6in
    :align: center
 
-3. Program Download
+3. Download Programma
 
-Open the test program and change PLC IP from default "192.168.1.88" to "192.168.0.88":
+Aprire il programma di test, modificare l'indirizzo IP del PLC in "192.168.0.88", il default è "192.168.1.88".
 
 .. image:: custom_protocol_slave/056.png
    :width: 6in
    :align: center
 
-Click "Modify IP/Device Name" and update both IP and gateway to "192.168.0.88":
+Fare clic su "Modifica IP/Nome Dispositivo" per accedere all'interfaccia di impostazione IP, modificare l'indirizzo IP e il gateway in "192.168.0.88":
 
 .. image:: custom_protocol_slave/057.png
    :width: 6in
    :align: center
 
-Confirm modification by clicking "Yes" in the popup dialog when clicking "Modify IP".
+Fare clic su "Modifica IP", dopo la finestra di dialogo fare clic su "Sì" per confermare, l'indirizzo IP è stato modificato con successo.
 
 .. image:: custom_protocol_slave/058.png
    :width: 6in
    :align: center
 
-After successful communication, download the PLC program.
+Comunicazione stabilita, scaricare il programma PLC.
 
 .. image:: custom_protocol_slave/059.png
    :width: 6in
    :align: center
 
-HMI setting (CC-Link IEF Basic emulation)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione HMI (Simulazione CC-Link IEF Basic)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. After logging into the HMI interface, enable ‘Enable Task’ to establish the communication connection between PLC and controller.
+1. Dopo l'accesso all'interfaccia HMI, abilitare "Enable Task" per stabilire la connessione di comunicazione tra PLC e controller.
 
 .. image:: custom_protocol_slave/027.png
    :width: 6in
    :align: center
 
-2. Click ‘01_MC_EnableRobot’ interface and then click ‘EnableRobot’ to enable the robot, and click ‘Reset’ to reset if there is any error during the process.
+2. Fare clic sull'interfaccia 01_MC_EnableRobot, quindi fare clic su "EnableRobot" per abilitare il robot. Se durante l'uso si verificano errori, fare clic su "Reset" per ripristinare.
 
 .. image:: custom_protocol_slave/028.png
    :width: 6in
    :align: center
 
-3. Click ‘02_MC_ToolData’ to enter the tool information interface, enter the parameters on the left and click WriteToolData to write the tool information; on the right, click ReadToolData to read the existing tool information.
+3. Fare clic su "02_MC_ToolData" per accedere all'interfaccia informazioni utensile. Inserire i parametri a sinistra e fare clic su WriteToolData per scrivere le informazioni utensile; a destra fare clic su ReadToolData per leggere le informazioni utensile esistenti.
    
 .. image:: custom_protocol_slave/029.png
    :width: 6in
    :align: center
 
-4. Click ‘03_MC_FrameData’ to enter the interface of workpiece information. On the left side, after inputting parameters, click WriteFrameData to write workpiece information; on the right side, click ReadFrameData to read existing workpiece information.
+4. Fare clic su "03_MC_FrameData" per accedere all'interfaccia informazioni pezzo. Inserire i parametri a sinistra e fare clic su WriteFrameData per scrivere le informazioni pezzo; a destra fare clic su ReadFrameData per leggere le informazioni pezzo esistenti.
    
 .. image:: custom_protocol_slave/030.png
    :width: 6in
    :align: center
 
-5. Click ‘04_MC_LoadData’ to enter the load information interface, enter the parameters on the left and click WriteLoadData to write load information; on the right, click ReadLoadData to read the existing load information.
+5. Fare clic su "04_MC_LoadData" per accedere all'interfaccia informazioni carico. Inserire i parametri a sinistra e fare clic su WriteLoadData per scrivere le informazioni carico; a destra fare clic su ReadLoadData per leggere le informazioni carico esistenti.
    
 .. image:: custom_protocol_slave/031.png
    :width: 6in
    :align: center
 
-6. Click ‘05_MC_RobotReferenceDynamics’ to enter the interface of Maximum Velocity and Maximum Acceleration of Robot, enter the parameters on the left side and then click WriteRobotRefD to write the information of Maximum Velocity and Maximum Acceleration; click ReadRobotRefD on the right side to read the information of Maximum Velocity and Maximum Acceleration. On the right side, click ReadRobotRefD to read the max speed and max acceleration information.
+6. Fare clic su "05_MC_RobotReferenceDynamics" per accedere all'interfaccia velocità massima e accelerazione massima del robot. Inserire i parametri a sinistra e fare clic su WriteRobotRefD per scrivere le informazioni velocità e accelerazione massime; a destra fare clic su ReadRobotRefD per leggere le informazioni velocità e accelerazione massime esistenti.
    
 .. image:: custom_protocol_slave/032.png
    :width: 6in
    :align: center
 
-7. Click ‘06_MC_Robot DefaultDynamics’ to enter the interface of robot default speed and default acceleration, enter the parameters on the left side and click WriteRobotDefD to write the default speed and default acceleration information; on the right side, click ReadRobotDefD to read the default speed and default acceleration information. on the left side, and then click WriteRobotDefD to write the default speed and default acceleration information; on the right side, click ReadRobotDefD to read the information.
+7. Fare clic su "06_MC_Robot DefaultDynamics" per accedere all'interfaccia velocità predefinita e accelerazione predefinita del robot. Inserire i parametri a sinistra e fare clic su WriteRobotDefD per scrivere le informazioni velocità e accelerazione predefinite; a destra fare clic su ReadRobotDefD per leggere le informazioni velocità e accelerazione predefinite esistenti.
    
 .. image:: custom_protocol_slave/033.png
    :width: 6in
    :align: center
 
-8. Click ‘07_MC_RobotSwLimits’ to enter the coordinate limit interface. On the left side, input the maximum limit and minimum limit parameter values and click WriteRobotSwLimits to write the limit parameter information; on the right side, click ReadRobotSwLimits to read the existing limit parameter information. parameter information.
+8. Fare clic su "07_MC_RobotSwLimits" per accedere all'interfaccia limiti di posizione. Inserire i valori dei parametri limite massimo e minimo a sinistra e fare clic su WriteRobotSwLimits per scrivere le informazioni parametri limite; a destra fare clic su ReadRobotSwLimits per leggere le informazioni parametri limite esistenti.
    
 .. image:: custom_protocol_slave/034.png
    :width: 6in
    :align: center
 
-9. Click ‘08_MC_ReadActualPosition’ to enter the read actual position interface, click ReadPosition to read the existing position information.
+9. Fare clic su "08_MC_ReadActualPosition" per accedere all'interfaccia lettura posizione effettiva. Fare clic su ReadPosition per leggere le informazioni posizione esistenti.
    
 .. image:: custom_protocol_slave/035.png
    :width: 6in
    :align: center
 
-10. Click ‘09_MC_MoveLinearAbsolute’ to enter the Linear Motion interface, input the coordinate parameter and click MoveLinearAbsolute to make the robot move linearly at the target position.
+10. Fare clic su "09_MC_MoveLinearAbsolute" per accedere all'interfaccia movimento lineare. Inserire i parametri di coordinate e fare clic su MoveLinearAbsolute per far muovere il robot linearmente verso la posizione target.
    
 .. image:: custom_protocol_slave/036.png
    :width: 6in
    :align: center
 
-11. Click ‘10_MC_MoveAxesAbsolute’ to enter the interface of axis coordinate movement, input the coordinate parameter and click MoveAxesAbsolute to make the robot move to the target position with the input axis coordinate as the end point.
+11. Fare clic su "10_MC_MoveAxesAbsolute" per accedere all'interfaccia movimento coordinate assi. Inserire i parametri di coordinate e fare clic su MoveAxesAbsolute per far muovere il robot verso la posizione target utilizzando le coordinate assi inserite come punto finale.
    
 .. image:: custom_protocol_slave/037.png
    :width: 6in
    :align: center
 
-12. Click ‘11_MC_MoveDirectAbsolute’ to enter the direct motion interface, input the coordinate parameter and click MoveDirectAbsolute to make the robot move directly to the target position with the input parameter as the end point.
+12. Fare clic su "11_MC_MoveDirectAbsolute" per accedere all'interfaccia movimento diretto. Inserire i parametri di coordinate e fare clic su MoveDirectAbsolute per far muovere il robot direttamente verso la posizione target utilizzando i parametri inseriti come punto finale.
    
 .. image:: custom_protocol_slave/038.png
    :width: 6in
    :align: center
 
-13. Click ‘12_MC_Groups’ to enter the direct motion interface, in which, clicking GroupInterrupt can interrupt the movement of the robot in the process of movement, and clicking GroupContinue can make the robot continue to move to the target position. Click GroupStop to stop (end) the ongoing position movement. If an alarm or error is triggered during the process, click GroupReset to reset the robot to the error.
+13. Fare clic su "12_MC_Groups" per accedere all'interfaccia operazione movimento diretto. Qui, fare clic su GroupInterrupt per interrompere il movimento del robot durante lo spostamento, GroupContinue per far continuare il robot verso la posizione target. GroupStop per fermare (terminare) l'azione di movimento in corso. Se si verifica un allarme o un errore durante il processo, fare clic su GroupReset per ripristinare l'errore del robot.
    
 .. image:: custom_protocol_slave/039.png
    :width: 6in
    :align: center
 
-14. Click ‘13_MC_PositionConversion’ to enter the position conversion interface, XtoJ1 can be converted from Cartesian position to joint angle, and J1toX can be converted from joint angle to Cartesian position.
+14. Fare clic su "13_MC_PositionConversion" per accedere all'interfaccia conversione posizione. XtoJ1 può convertire la posa cartesiana in angoli giunto, J1toX può convertire gli angoli giunto in posa cartesiana.
    
 .. image:: custom_protocol_slave/040.png
    :width: 6in
    :align: center
 
-15. Click ‘14_MC_GroupJog’ to enter the interface of robot jogging, after the configuration is finished, drop down the axes to select the axis you need to jog, and then select the rotation direction of the axis. Click JogMove to move. MC_ChangeSpeedOverride on the right side can adjust the moving speed of the robot arm.
+15. Fare clic su "14_MC_GroupJog" per accedere all'interfaccia jogging del robot. Dopo la configurazione, selezionare l'asse da muovere tramite jog dal menu a discesa degli assi di coordinate, quindi selezionare la direzione di rotazione dell'asse. Fare clic su JogMove per eseguire il jog. A destra, MC_ChangeSpeedOverride può regolare la velocità di movimento del braccio robotico.
    
 .. image:: custom_protocol_slave/041.png
    :width: 6in
    :align: center
 
-HMI setting (Profinet emulation)
+Configurazione HMI (Simulazione Profinet)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. After opening the programme, click on ‘HMI_1[ktp700 Basic PN]’ in the project tree, and then click on ‘Online’→‘Simulation’→‘Start’ in the menu bar. Click ‘Online’→‘Simulation’→‘Start’ in the menu bar. Wait for the software to compile and simulate.
+1. Dopo aver aperto il programma, fare clic per selezionare "HMI_1[ktp700 Basic PN]" nell'albero del progetto, quindi nella barra dei menu fare clic su "Online" -> "Simulazione" -> "Avvia". Attendere la compilazione e l'avvio della simulazione da parte del software.
 
-2. The function after emulation is the same as the content of the Velcro screen (CC-Link IEF Basic). You can refer to the above content to set up.
+2. Dopo la simulazione, le funzioni corrispondono a quelle dello schermo Weintek (CC-Link IEF Basic). Per le impostazioni, fare riferimento al contenuto sopra descritto.
    
 .. image:: custom_protocol_slave/042.png
    :width: 6in
@@ -534,43 +524,43 @@ HMI setting (Profinet emulation)
    :width: 6in
    :align: center
 
-Robot Slave Mode Operation Manual
----------------------------------------------------------
+Spiegazioni sulle Operazioni Relative alla Modalità Slave del Robot
+---------------------------------------------------------------------------
 
-Loading Slave Mode
+Caricamento Modalità Slave
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step 1**: Open the WebApp, navigate to Initial Setup -> Peripherals -> Board Communication -> Manual Configuration.
+**Step 1**: Aprire WebApp, andare a Impostazioni Iniziali -> Periferiche -> Comunicazione Schede -> Configurazione Manuale.
 
 .. image:: custom_protocol_slave/047.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.3-1 Board Communication Manual Configuration
+.. centered:: Figura 17.3-1 Configurazione Manuale Comunicazione Schede
 
-First, configure the IP address of the FRJ-PCIeN board. If left blank, the board will use the default IP: 192.168.0.100 for startup configuration. Currently, IP configuration only applies to EIP and CC-Link IEF Basic protocols. For PN protocol, the IP is assigned by the PLC master station scanning slave devices.
+Innanzitutto, configurare l'indirizzo IP della scheda FRJ-PCIeN. Se lasciato vuoto, la scheda si avvierà con l'IP predefinito: 192.168.0.100. Attualmente la configurazione IP è applicabile solo ai protocolli EIP e CC-Link IEF Basic. Per il protocollo PN, l'indirizzo IP dello slave viene assegnato dal master PLC durante la scansione dei dispositivi slave.
 
-.. note:: After changing the IP address on the page, you need to load the slave mode for the changes to take effect.
+.. note:: Dopo aver modificato l'indirizzo IP nella pagina, è necessario caricare la modalità slave per renderlo effettivo.
 
-Select the required mapping functions for DI, DO, and AO (see Appendix 1). The parameters are defined as follows:
+Selezionare in sequenza le funzioni di mappatura richieste per DI, DO, AO (vedi Appendice 1). Il significato dei parametri è il seguente:
 
-- DI (Robot Control): The robot slave accepts external input signals and executes the mapped functions.
+- DI è Controllo Robot: il robot slave accetta segnali di ingresso esterni ed esegue le funzioni mappate;
   
-- DO (Robot Status Output): The robot slave feeds back status signals to the master station.
+- DO è Uscita Stato Robot: il robot slave restituisce segnali di stato al master;
   
-- AO (Robot Status Feedback): The robot slave feeds back status data to the master station. AO0~AO15 are signed integers (int16), and AO16~AO31 are single-precision floating-point numbers (float).
+- AO è Feedback Stato Robot: il robot slave restituisce dati di stato al master. AO0~AO15 sono interi con segno (int16), AO16~AO31 sono numeri in virgola mobile a precisione singola (float).
 
-**Step 2**: Click the "Configure" button to generate the open protocol Lua file.
+**Step 2**: Fare clic sul pulsante "Configura" per generare il file lua del protocollo aperto.
 
 .. image:: custom_protocol_slave/048.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.3-2 Device Operation and Status
+.. centered:: Figura 17.3-2 Operazioni e Stato Dispositivo
 
-.. note:: The open protocol Lua file supports download and can be imported in the auto-configuration interface.
+.. note:: Il file lua del protocollo aperto supporta il download. È possibile importare il file lua del protocollo aperto nell'interfaccia di configurazione automatica.
 
-Example generated program:
+Esempio di programma generato:
 
 .. code-block:: console
    :linenos:
@@ -580,11 +570,11 @@ Example generated program:
    local funcDI = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
    local DOState = {0, 0, 0, 0, 0, 0, 0, 0}
    local AOState = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-   -- Launch the board communication process
+   -- Avvia il processo di comunicazione della scheda
    LoadFieldBusSlave()
    sleep_ms(8000)
    while(1) do
-      -- Set the DO status
+      -- Imposta lo stato DO
       CtrlBoxDO, CtrlBoxCO, CtrlBoxDI, CtrlBoxCI, errState, motionState, moveToOriginState, robotStartDoneState, modeChangeState, programStartStopState, emergencyState, reduceState, collision, enablestate, safetyStop0, safetyStop1, pauseState, interfereState = GetRobotFuncDOState()
       DOState[1] = CtrlBoxDO
       DOState[2] = CtrlBoxCO
@@ -610,7 +600,7 @@ Example generated program:
       DOState[6] = ctrlWord1
       SetFieldBusDOState(DOState)
 
-      -- Set the AO status
+      -- Imposta lo stato AO
       mainErrCode, subErrCode, TCPSpeed, axisPos1, axisPos2, axisPos3, axisPos4, axisPos5, axisPos6, jointVelFeedback1, jointVelFeedback2, jointVelFeedback3, jointVelFeedback4, jointVelFeedback5, jointVelFeedback6, jointCurFeedback1, jointCurFeedback2, jointCurFeedback3,jointCurFeedback4,jointCurFeedback5,jointCurFeedback6, jointTorqueFeedback1, jointTorqueFeedback2,jointTorqueFeedback3,jointTorqueFeedback4, jointTorqueFeedback5, jointTorqueFeedback6, cartPosx, cartPosy, cartPosz, cartPosrx, cartPosry, cartPosrz = GetRobotFuncAOState()
       AOState[1] = mainErrCode
       AOState[2] = subErrCode
@@ -629,8 +619,8 @@ Example generated program:
       SetFieldBusAOState(AOState)
       sleep_ms(10) 
 
-      -- Set the DI status
-      -- Configure the DI function and update it in real-time
+      -- Imposta lo stato DI
+      -- Configura la funzione DI e aggiornala in tempo reale
       ctrlDI[1],ctrlDI[2],ctrlDI[3],ctrlDI[4],ctrlDI[5],ctrlDI[6] = GetFieldBusDIState()
       funcDI[1] = ctrlDI[1] 
       funcDI[2] = ctrlDI[2] 
@@ -657,52 +647,48 @@ Example generated program:
       sleep_ms(10)
    end
 
-**Step 3**: Click the "Load" button to load the robot slave mode.
+**Step 3**: Fare clic sul pulsante Carica per caricare la modalità slave del robot.
 
 .. image:: custom_protocol_slave/049.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.3-3 Loading Slave Mode
+.. centered:: Figura 17.3-3 Caricamento Modalità Slave
 
-.. note:: After successfully loading the robot slave mode, the auto-start function is supported. To use remote mode, unload the slave mode first.
+.. note:: Dopo il caricamento riuscito della modalità slave del robot, è supportata la funzione di avvio automatico. Per utilizzare la modalità remota, rimuovere prima la modalità slave.
 
-**Step 4**: Click the status bar button on the right to monitor DI, DO, AI, and AO interaction information. The parameters are as follows:
+**Step 4**: Fare clic sul pulsante della barra di stato a destra per monitorare le informazioni di interazione DI, DO, AI, AO. Descrizione parametri:
 
-- CtrlDO: Input signal value from the master device controlling the robot control box DO.
+- CtrlDO è il valore del segnale di ingresso da parte del dispositivo master per controllare i DO del control cabinet robot;
   
-- DI: Input signal value from the external master control.
+- DI è il valore di ingresso del segnale di controllo dal master esterno;
   
-- DO: Output signal value fed back by the robot slave.
+- DO è il valore di uscita del segnale di feedback dal robot slave;
   
-- AI: Input value from the external master. AI0~AI15 are int16 type, and AI16~AI31 are float type.
+- AI è il valore di ingresso dal master esterno, AI0~AI15 sono di tipo int16, AI16~AI31 sono di tipo float;
   
-- AO: Output value from the robot slave. AO0~AO15 are int16 type, and AO16~AO31 are float type.
+- AO è il valore di uscita dal robot slave, AO0~AO15 sono di tipo int16, AO16~AO31 sono di tipo float.
 
 .. image:: custom_protocol_slave/050.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.3-4 DI, DO, AI, AO Interaction Information
+.. centered:: Figura 17.3-4 Informazioni Interazione DI, DO, AI, AO
 
-**Step 5**:After loading is complete, you can use the Teach Program -> Communication Command -> Board Card to generate Lua commands for the board. This allows you to:
-
-1) Set Slave DO (Digital Output) and AO (Analog Output).
-2) Read Slave DI (Digital Input) and AI (Analog Input).
-3) Wait for Slave DI and AI signals.
+**Step 5**: Dopo il caricamento, è possibile generare istruzioni lua per la scheda tramite Insegnamento Programma -> Istruzioni Comunicazione -> Scheda, per implementare l'impostazione di DO, AO slave, l'acquisizione di DI, AI slave, l'attesa di DI, AI slave.
 
 .. image:: custom_protocol_slave/051.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 17.3-5 Board Lua Commands
+.. centered:: Figura 17.3-5 Generazione Istruzioni Lua Scheda
 
-:download:`Appendix 1: Slave Mode Address Mapping Table <../_static/_doc/Control box slave mode address comparison table.xlsx>`
+:download:`Appendice 1: Tabella Mappatura Indirizzi Modalità Slave <../_static/_doc/Control box slave mode address comparison table.xlsx>`
 
 Appendice
 -------------------
 
-Instruction List
+Lista Istruzioni
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
@@ -710,83 +696,83 @@ Instruction List
    :header-rows: 1
    :align: center
 
-   * - Command code
-     - Command description
+   * - Codice Comando
+     - Descrizione Istruzione
 
    * - 0x1000
-     - Robot enablement
+     - Abilitazione Robot
 
    * - 0x1001
-     - Reset all error
+     - Ripristina Tutti gli Errori
 
    * - 0x1002
-     - Robot stops moving
+     - Arresto Movimento Robot
 
    * - 0x1003
-     - Read actual position
+     - Lettura Posizione Effettiva
 
    * - 0x1004
-     - Set robot speed
+     - Impostazione Velocità Robot
 
    * - 0x1005
-     - Resume robot motion
+     - Ripresa Movimento Robot
 
    * - 0x1006
-     - Robot pauses motion
+     - Pausa Movimento Robot
 
    * - 0x1007
-     - Calculate the Cartesian position from the joint position
+     - Calcola Posizione Cartesiana da Posizione Giunto
 
    * - 0x1008
-     - Calculate joint position from Cartesian position
+     - Calcola Posizione Giunto da Posizione Cartesiana
 
    * - 0x2000
-     - Write tool information
+     - Scrittura Informazioni Utensile
 
    * - 0x2001
-     - Read tool information
+     - Lettura Informazioni Utensile
 
    * - 0x2002
-     - Write workpiece information
+     - Scrittura Informazioni Pezzo
 
    * - 0x2003
-     - Read workpiece information
+     - Lettura Informazioni Pezzo
 
    * - 0x2004
-     - Write load information
+     - Scrittura Informazioni Carico
 
    * - 0x2005
-     - Read load information
+     - Lettura Informazioni Carico
 
    * - 0x2006
-     - Write reference dynamic information
+     - Scrittura Informazioni Dinamiche Riferimento
 
    * - 0x2007
-     - Read reference dynamic information
+     - Lettura Informazioni Dinamiche Riferimento
 
    * - 0x2008
-     - Write default dynamic information
+     - Scrittura Informazioni Dinamiche Predefinite
 
    * - 0x2009
-     - Read default dynamic information
+     - Lettura Informazioni Dinamiche Predefinite
 
    * - 0x2010
-     - Write soft limit information
+     - Scrittura Informazioni Limiti Software
 
    * - 0x2011
-     - Read soft limit information
+     - Lettura Informazioni Limiti Software
 
    * - 0x3000
-     - MoveAxes (based on joint angle)
+     - MoveAxes (basato su angoli giunto)
 
    * - 0x3001
      - MoveLinear
 
    * - 0x3002
-     - MoveDirect (based on Cartesian coordinate system)
+     - MoveDirect (basato su sistema di coordinate cartesiane)
 
    * - 0x3003
-     - jog motion
+     - Movimento jog
 
    * - 0x3004
-     - jog stop
+     - Arresto jog

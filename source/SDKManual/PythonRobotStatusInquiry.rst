@@ -1,302 +1,302 @@
-Status query
-===============
+Query dello Stato del Robot
+==========================================
 
 .. toctree::
     :maxdepth: 5
 
-Get the current joint position (angle).
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Posizione Corrente dei Giunti (Gradi)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetActualJointPosDegree(flag=1)``"
-    "Description", "Get the current position (angle) of the joint."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking, default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: current joint position (angle)"
+    "Prototipo", "``GetActualJointPosDegree(flag=1)``"
+    "Descrizione", "Ottiene la posizione corrente dei giunti (gradi)"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: Posizione corrente dei giunti (gradi)"
 
-Get the current joint position in radians.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Posizione Corrente dei Giunti (Radianti)
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetActualJointPosRadian(flag=1)``"
-    "Description", "Get the current position (in radians) of the joint."
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: current joint position (in radians)"
+    "Prototipo", "``GetActualJointPosRadian(flag=1)``"
+    "Descrizione", "Ottiene la posizione corrente dei giunti (radianti)"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: Posizione corrente dei giunti (radianti)"
 
-Get joint feedback speed -deg/s
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Velocità di Feedback dei Giunti - deg/s
++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetActualJointSpeedsDegree(flag=1)``"
-    "Description", "Get joint feedback speed -deg/s"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``speed=[j1,j2,j3,j4,j5,j6]``: joint feedback speed -deg/s"
+    "Prototipo", "``GetActualJointSpeedsDegree(flag=1)``"
+    "Descrizione", "Ottiene la velocità di feedback dei giunti - deg/s"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``speed=[j1,j2,j3,j4,j5,j6]``: Velocità di feedback dei giunti - deg/s"
 
-Obtain joint feedback acceleration-deg/s^2
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere l'Accelerazione di Feedback dei Giunti - deg/s²
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetActualJointAccDegree(flag=1)``"
-    "Description", "Obtain joint feedback acceleration-deg/s^2"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``： 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``acc=[j1,j2,j3,j4,j5,j6]``：Joint feedback acceleration-deg/s^2"
+    "Prototipo", "``GetActualJointAccDegree(flag=1)``"
+    "Descrizione", "Ottiene l'accelerazione di feedback dei giunti - deg/s²"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``acc=[j1,j2,j3,j4,j5,j6]``: Accelerazione di feedback dei giunti - deg/s²"
 
-Get TCP command synthesis speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Velocità Composita TCP di Comando
++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetTargetTCPCompositeSpeed(flag=1)``"
-    "Description", "Get TCP command synthesis speed"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``[tcp_speed,ori_speed]``: tcp_speed - linear closing speed ori_speed - attitude closing speed"
+    "Prototipo", "``GetTargetTCPCompositeSpeed(flag=1)``"
+    "Descrizione", "Ottiene la velocità composita TCP di comando"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``[tcp_speed,ori_speed]``: tcp_speed-velocità composita lineare, ori_speed-velocità composita di orientamento"
 
-Getting TCP Feedback Hopping Speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Velocità Composita TCP di Feedback
+++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetActualTCPCompositeSpeed(flag=1)``"
-    "Description", "Get TCP feedback closing speed"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``[tcp_speed,ori_speed]``: tcp_speed - linear closing speed ori_speed - attitude closing speed"
+    "Prototipo", "``GetActualTCPCompositeSpeed(flag=1)``"
+    "Descrizione", "Ottiene la velocità composita TCP di feedback"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``[tcp_speed,ori_speed]``: tcp_speed-velocità composita lineare, ori_speed-velocità composita di orientamento"
 
-Get TCP command speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Velocità TCP di Comando
+++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetTargetTCPSpeed(flag=1)``"
-    "Description", "Get TCP command speed"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``speed=[x,y,z,rx,ry,rz]``: TCP command speed, mm/s"
+    "Prototipo", "``GetTargetTCPSpeed(flag=1)``"
+    "Descrizione", "Ottiene la velocità TCP di comando"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``speed=[x,y,z,rx,ry,rz]``: Velocità TCP di comando, mm/s"
 
-Getting TCP feedback speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Velocità TCP di Feedback
+++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetActualTCPSpeed(flag=1)``"
-    "Description", "Get TCP feedback on speed"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``speed=[x,y,z,rx,ry,rz]``: TCP feedback speed"
+    "Prototipo", "``GetActualTCPSpeed(flag=1)``"
+    "Descrizione", "Ottiene la velocità TCP di feedback"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``speed=[x,y,z,rx,ry,rz]``: Velocità TCP di feedback"
 
-Get current tool position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Posa Corrente dello Strumento
+++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetActualTCPPose(flag=1)``"
-    "Description", "Get current tool position"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``tcp_pose=[x,y,z,rx,ry,rz]``: current tool pose"
+    "Prototipo", "``GetActualTCPPose(flag=1)``"
+    "Descrizione", "Ottiene la posa corrente dello strumento"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``tcp_pose=[x,y,z,rx,ry,rz]``: Posa corrente dello strumento"
 
-Get the current tool coordinate system number
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere il Numero del Sistema di Coordinate dello Strumento Corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetActualTCPNum(flag=1)``"
-    "Description", "Get the current tool coordinate system number"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``tool_id``: tool coordinate system number"
+    "Prototipo", "``GetActualTCPNum(flag=1)``"
+    "Descrizione", "Ottiene il numero del sistema di coordinate dello strumento corrente"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``tool_id``: Numero del sistema di coordinate dello strumento"
 
-Get the current workpiece coordinate system number
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere il Numero del Sistema di Coordinate del Pezzo in Lavorazione Corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetActualWObjNum(flag=1)``"
-    "Description", "Get the current workpiece coordinate system number"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``wobj_id``: the workpiece coordinate system number"
+    "Prototipo", "``GetActualWObjNum(flag=1)``"
+    "Descrizione", "Ottiene il numero del sistema di coordinate del pezzo in lavorazione corrente"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``wobj_id``: Numero del sistema di coordinate del pezzo in lavorazione"
 
-Get the current end flange position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Posa Corrente della Flangia Terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetActualToolFlangePose(flag=1)``"
-    "Description", "Get current end flange position"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``flange_pose=[x,y,z,rx,ry,rz]``: current end flange pose"
+    "Prototipo", "``GetActualToolFlangePose(flag=1)``"
+    "Descrizione", "Ottiene la posa corrente della flangia terminale"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "- ``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``flange_pose=[x,y,z,rx,ry,rz]``: Posa corrente della flangia terminale"
 
-Get current joint torque
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Coppia Corrente dei Giunti
++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetJointTorques(flag=1)``"
-    "Description", "Get the current joint torque"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``torques=[j1,j2,j3,j4,j5,j6]``: joint torques."
+    "Prototipo", "``GetJointTorques(flag=1)``"
+    "Descrizione", "Ottiene la coppia corrente dei giunti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "``flag``: 0-blocco, 1-non bloccante, predefinito 1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``torques=[j1,j2,j3,j4,j5,j6]``: Coppia dei giunti"
 
-Get system time
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere l'Ora di Sistema
++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSystemClock()``"
-    "Description", "Get system time"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``t_ms``: system time in [ms]"
+    "Prototipo", "``GetSystemClock()``"
+    "Descrizione", "Ottiene l'ora di sistema"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``t_ms``: Ora di sistema, unità [ms]"
 
-Queries whether robot motion is complete
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Verificare se il Movimento del Robot è Completato
+++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotMotionDone()``"
-    "Description", "Query if robot movement is complete"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``state``: state of robot motion, 0 - unfinished, 1 - finished"
+    "Prototipo", "``GetRobotMotionDone()``"
+    "Descrizione", "Verifica se il movimento del robot è completato"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``state``: Stato del movimento del robot, 0-non completato, 1-completato"
 
-Query the cache length of the robot motion queue
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Verificare la Lunghezza della Coda di Movimento del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetMotionQueueLength()``"
-    "Description", "Query the cache length of the robot motion queue"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``len``：Cache length"
+    "Prototipo", "``GetMotionQueueLength()``"
+    "Descrizione", "Verifica la lunghezza della coda di movimento del robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``len``: Lunghezza della coda"
 
-Obtain the emergency stop status of the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere lo Stato di Arresto di Emergenza del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotEmergencyStopState()``"
-    "Description", "Obtain the emergency stop status of the robot"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``state``：Emergency stop status: 0- non-emergency stop, 1- emergency stop"
+    "Prototipo", "``GetRobotEmergencyStopState()``"
+    "Descrizione", "Ottiene lo stato di arresto di emergenza del robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``state``: Stato di arresto di emergenza, 0-normale, 1-arresto di emergenza"
 
-Obtain the communication status between the SDK and the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere lo Stato di Comunicazione SDK-Robot
++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSDKComState()``"
-    "Description", "Obtain the communication status between the SDK and the robot"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``state``：Communication status: 0- Normal communication, 1- Abnormal communication"
+    "Prototipo", "``GetSDKComState()``"
+    "Descrizione", "Ottiene lo stato di comunicazione SDK-robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``state``: Stato di comunicazione, 0-normale, 1-anomalo"
 
-Obtain the safety stop signal
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere il Segnale di Arresto di Sicurezza
+++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSafetyStopState()``"
-    "Description", "Obtain the safety stop signal"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``[si0_state,si1_state]``：si0_state safety stop signal SI0, 0- invalid, 1- valid si1_state safety stop signal SI1, 0- invalid, 1- valid"
+    "Prototipo", "``GetSafetyStopState()``"
+    "Descrizione", "Ottiene il segnale di arresto di sicurezza"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``[si0_state,si1_state]``: si0_state segnale di arresto di sicurezza SI0, 0-invalido, 1-valido; si1_state segnale di arresto di sicurezza SI1, 0-invalido, 1-valido"
 
-Obtain the current temperature of the joint drive(℃)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Temperatura Corrente dei Driver dei Giunti (°C)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetJointDriverTemperature()``"
-    "Description", "Obtain the current temperature of the joint drive(℃)"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``data=[t1,t2,t3,t4,t5,t6]``：The current temperatures of each joint"
+    "Prototipo", "``GetJointDriverTemperature()``"
+    "Descrizione", "Ottiene la temperatura corrente dei driver dei giunti (°C)"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``data=[t1,t2,t3,t4,t5,t6]``: Temperatura corrente di ciascun giunto"
 
-Obtain the current torque of the joint drive(Nm)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere la Coppia Corrente dei Driver dei Giunti (Nm)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetJointDriverTorque()``"
-    "Description", "Obtain the current torque of the joint drive(Nm)"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``data=[j1,j2,j3,j4,j5,j6]``：Joint torque [fx,fy,fz,tx,ty,tz]"
+    "Prototipo", "``GetJointDriverTorque()``"
+    "Descrizione", "Ottiene la coppia corrente dei driver dei giunti (Nm)"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``data=[j1,j2,j3,j4,j5,j6]``: Coppia dei giunti [fx,fy,fz,tx,ty,tz]"
 
-Obtain the status of the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Ottenere lo Stato del Robot
++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotRealTimeState()``"
-    "Description", "Obtain the status of the robot"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``robot_state_pkg``：Robot state structure"
+    "Prototipo", "``GetRobotRealTimeState()``"
+    "Descrizione", "Ottiene lo stato del robot"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``robot_state_pkg``: Struttura dello stato del robot"
 
-Robot status query code example
+Esempio di Codice per la Query dello Stato del Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce la connessione con il controller del robot, restituisce un oggetto robot se ha successo
     robot = Robot.RPC('192.168.58.2')
     error,[yangle, zangle] = robot.GetRobotInstallAngle()
     print(f"yangle:{yangle},zangle:{zangle}")
@@ -345,70 +345,70 @@ Robot status query code example
     error,pkg = robot.GetRobotRealTimeState()
     robot.CloseRPC()
 
-Inverse kinematics solution
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Soluzione di Cinematica Inversa
+++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetInverseKin(type,desc_pos,config=-1)``"
-    "Description", "Inverse kinematics, Cartesian position solving for joint positions "
-    "Mandatory parameters", "- ``type``: 0-absolute position (base coordinate system), 1-relative position (base coordinate system), 2-relative position (tool coordinate system)
-    - ``desc_pose``:[x,y,z,rx,ry,rz], tool position in [mm][°]"
-    "Default parameters", "- ``config``: joint configuration, [-1] - solved with reference to current joint position, [0~7] - solved based on joint configuration Default -1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: inverse kinematics solution, Cartesian positional solution for joint positions"
+    "Prototipo", "``GetInverseKin(type,desc_pos,config=-1)``"
+    "Descrizione", "Cinematica inversa, posa cartesiana per risolvere la posizione dei giunti"
+    "Parametri Obbligatori", "- ``type``: 0-posa assoluta (sistema di coordinate base), 1-posa relativa (sistema di coordinate base), 2-posa relativa (sistema di coordinate strumento)
+    - ``desc_pose``: [x,y,z,rx,ry,rz], posa dello strumento, unità [mm][°]"
+    "Parametri Predefiniti", "- ``config``: Configurazione dei giunti, [-1]-risolvi con riferimento alla posizione corrente dei giunti, [0~7]-risolvi secondo la configurazione dei giunti, predefinito -1"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: Soluzione di cinematica inversa, posa cartesiana per risolvere la posizione dei giunti"
 
-Inverse Kinematics Solution - Specifying Reference Positions
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Soluzione di Cinematica Inversa - Posizione di Riferimento Specificata
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetInverseKinRef(type,desc_pos,joint_pos_ref)``"
-    "Description", "Inverse kinematics, tool position solving for joint positions, solving with reference to specified joint positions"
-    "Mandatory parameters", "- ``type``: 0-absolute position (base coordinate system), 1-relative position (base coordinate system), 2-relative position (tool coordinate system)
-    - ``desc_pos``: [x,y,z,rx,ry,rz] tool position in [mm][°]
-    - ``joint_pos_ref``: [j1,j2,j3,j4,j5,j6], joint reference position in [°]"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: inverse kinematics solution, tool position solving for joint position"
+    "Prototipo", "``GetInverseKinRef(type,desc_pos,joint_pos_ref)``"
+    "Descrizione", "Cinematica inversa, posa dello strumento per risolvere la posizione dei giunti, risolvi con riferimento alla posizione dei giunti specificata"
+    "Parametri Obbligatori", "- ``type``: 0-posa assoluta (sistema di coordinate base), 1-posa relativa (sistema di coordinate base), 2-posa relativa (sistema di coordinate strumento)
+    - ``desc_pos``: [x,y,z,rx,ry,rz] posa dello strumento, unità [mm][°]
+    - ``joint_pos_ref``: [j1,j2,j3,j4,j5,j6], posizione di riferimento dei giunti, unità [°]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: Soluzione di cinematica inversa, posa dello strumento per risolvere la posizione dei giunti"
 
-Inverse kinematics solving-whether there is a solution
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Soluzione di Cinematica Inversa - Esistenza della Soluzione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetInverseKinHasSolution(type,desc_pos,joint_pos_ref)``"
-    "Description", "Inverse kinematics, tool position solving for joint position Is there a solution"
-    "Mandatory parameters", "- ``type``: 0-absolute position (base coordinate system), 1-relative position (base coordinate system), 2-relative position (tool coordinate system)
-    - ``desc_pos``: [x,y,z,rx,ry,rz] tool position in [mm][°]
-    - ``joint_pos_ref``: [j1,j2,j3,j4,j5,j6], joint reference position in [°]"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``result``: ``True``-with solution, ``False``-without solution"
+    "Prototipo", "``GetInverseKinHasSolution(type,desc_pos,joint_pos_ref)``"
+    "Descrizione", "Cinematica inversa, verifica se esiste una soluzione per la posa dello strumento per risolvere la posizione dei giunti"
+    "Parametri Obbligatori", "- ``type``: 0-posa assoluta (sistema di coordinate base), 1-posa relativa (sistema di coordinate base), 2-posa relativa (sistema di coordinate strumento)
+    - ``desc_pos``: [x,y,z,rx,ry,rz] posa dello strumento, unità [mm][°]
+    - ``joint_pos_ref``: [j1,j2,j3,j4,j5,j6], posizione di riferimento dei giunti, unità [°]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``result``: True-esiste soluzione, False-nessuna soluzione"
 
-Positive kinematics solving
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Soluzione di Cinematica Diretta
++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetForwardKin(joint_pos)``"
-    "Description", "Positive Kinematics, Joint Position Solving Tool Posture"
-    "Mandatory parameters", "- ``joint_pos``:[j1,j2,j3,j4,j5,j6]: joint position in [°]"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``desc_pos=[x,y,z,rx,ry,rz]``: positive kinematics solution, joint position solver tool position"
+    "Prototipo", "``GetForwardKin(joint_pos)``"
+    "Descrizione", "Cinematica diretta, posizione dei giunti per risolvere la posa dello strumento"
+    "Parametri Obbligatori", "- ``joint_pos``: [j1,j2,j3,j4,j5,j6]: Posizione dei giunti, unità [°]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``desc_pos=[x,y,z,rx,ry,rz]``: Soluzione di cinematica diretta, posizione dei giunti per risolvere la posa dello strumento"
 
-Example code for robot forward and inverse kinematics calculation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice per il Calcolo della Cinematica Diretta/Inversa del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce la connessione con il controller del robot, restituisce un oggetto robot se ha successo
     robot = Robot.RPC('192.168.58.2')
     j1 = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     desc_pos1 = [-419.524, -13.000, 351.569, -178.118, 0.314, 3.833]
@@ -425,56 +425,56 @@ Example code for robot forward and inverse kinematics calculation
           f"{forwordResult[3]}, {forwordResult[4]}, {forwordResult[5]}")
     robot.CloseRPC()
 
-Query Robot Teaching Management Points Data
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. csv-table:: 
+Query dei Dati dei Punti di Gestione dell'Insegnamento del Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotTeachingPoint(name)``"
-    "Description", "Query Robot Demonstration and Management point data"
-    "Mandatory parameters", "``name``: name of point"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``[x,y,z,rx,ry,rz,j1,j2,j3,j4,j5,j6,TOOL,WOBJ,SPEED,ACC,E1,E2,E3,E4]``: point data"
+    "Prototipo", "``GetRobotTeachingPoint(name)``"
+    "Descrizione", "Interroga i dati dei punti di gestione dell'insegnamento del robot"
+    "Parametri Obbligatori", "``name``: Nome del punto"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``[x,y,z,rx,ry,rz,j1,j2,j3,j4,j5,j6,tool,wobj,speed,acc,e1,e2,e3,e4]``: Dati del punto"
 
-Get DH compensation parameters
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere i Parametri di Compensazione DH
++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.1
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetDHCompensation()``"
-    "Description", "Get DH compensation parameters"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``dhCompensation=[cmpstD1,cmpstA2,cmpstA3,cmpstD4,cmpstD5,cmpstD6]``: Robot DH Parameter Compensation Values (mm)"
+    "Prototipo", "``GetDHCompensation()``"
+    "Descrizione", "Ottiene i parametri di compensazione DH"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``dhCompensation=[cmpstD1,cmpstA2,cmpstA3,cmpstD4,cmpstD5,cmpstD6]``: Valori di compensazione dei parametri DH del robot (mm)"
 
-Obtain the SN code of the control box
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Codice SN del Controllore
+++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotSN()``"
-    "Description", "Obtain the SN code of the control box"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``SNCode``: SN of the control box"
+    "Prototipo", "``GetRobotSN()``"
+    "Descrizione", "Ottiene il codice SN del controllore"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``SNCode``: Codice SN del controllore"
 
-Query robot teaching management point data code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice per la Query dei Dati dei Punti di Gestione dell'Insegnamento del Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce la connessione con il controller del robot, restituisce un oggetto robot se ha successo
     robot = Robot.RPC('192.168.58.2')
     name = "P1"
     rtn, data = robot.GetRobotTeachingPoint(name)
@@ -490,149 +490,149 @@ Query robot teaching management point data code example
     print(f"robot SN is {sn[0]}")
     robot.CloseRPC()
 
-Get the tool coordinate system according to the number
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate dello Strumento per Numero
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetToolCoordWithID(id)``"
-    "Description", "Get the tool coordinate system according to the number"
-    "Mandatory parameters", "- ``id``: Tool coordinate system number"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetToolCoordWithID(id)``"
+    "Descrizione", "Ottiene il sistema di coordinate dello strumento per numero"
+    "Parametri Obbligatori", "- ``id``: Numero del sistema di coordinate dello strumento"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-The workpiece coordinate system is obtained according to the No
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate del Pezzo in Lavorazione per Numero
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetWObjCoordWithID(id)``"
-    "Description", "The workpiece coordinate system is obtained according to the No"
-    "Mandatory parameters", "- ``id``: Workpiece coordinate system number"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetWObjCoordWithID(id)``"
+    "Descrizione", "Ottiene il sistema di coordinate del pezzo in lavorazione per numero"
+    "Parametri Obbligatori", "- ``id``: Numero del sistema di coordinate del pezzo in lavorazione"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-The external tool coordinate system is obtained according to the number
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate dello Strumento Esterno per Numero
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetExToolCoordWithID(id)``"
-    "Description", The external tool coordinate system is obtained according to the number
-    "Mandatory parameters", "- ``id``：External tool coordinate system No"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetExToolCoordWithID(id)``"
+    "Descrizione", "Ottiene il sistema di coordinate dello strumento esterno per numero"
+    "Parametri Obbligatori", "- ``id``: Numero del sistema di coordinate dello strumento esterno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-The extended axis coordinate system is obtained according to the No
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate dell'Asse Esteso per Numero
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetExAxisCoordWithID(id)``"
-    "Description", "The extended axis coordinate system is obtained according to the No"
-    "Mandatory parameters", "- ``id``：Extended axis coordinate system No"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetExAxisCoordWithID(id)``"
+    "Descrizione", "Ottiene il sistema di coordinate dell'asse esteso per numero"
+    "Parametri Obbligatori", "- ``id``: Numero del sistema di coordinate dell'asse esteso"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-Get the load mass and centroid according to the number
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Massa del Carico e Centro di Gravità per Numero
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetTargetPayloadWithID(id)``"
-    "Description", "Get the load mass and centroid according to the number"
-    "Mandatory parameters", "- ``id``：Extended axis coordinate system No"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``weight``: Quality of load
-    - ``cog``: Centroid of the load"
+    "Prototipo", "``GetTargetPayloadWithID(id)``"
+    "Descrizione", "Ottiene massa del carico e centro di gravità per numero"
+    "Parametri Obbligatori", "- ``id``: Numero del sistema di coordinate dell'asse esteso"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``weight``: Massa del carico
+    - ``cog``: Centro di gravità del carico"
 
-Gets the current tool coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate dello Strumento Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetCurToolCoord()``"
-    "Description", "Gets the current tool coordinate system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetCurToolCoord()``"
+    "Descrizione", "Ottiene il sistema di coordinate dello strumento corrente"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-Gets the current workpiece coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate del Pezzo in Lavorazione Corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetCurWObjCoord()``"
-    "Description", "Gets the current workpiece coordinate system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetCurWObjCoord()``"
+    "Descrizione", "Ottiene il sistema di coordinate del pezzo in lavorazione corrente"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-Gets the current external tool coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate dello Strumento Esterno Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetCurExToolCoord()``"
-    "Description", "Gets the current external tool coordinate system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetCurExToolCoord()``"
+    "Descrizione", "Ottiene il sistema di coordinate dello strumento esterno corrente"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-Gets the current extended axis coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il Sistema di Coordinate dell'Asse Esteso Corrente
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.6
 
-.. csv-table:: 
+.. csv-table::
     :stub-columns: 1
     :widths: 10 30
 
-    "原型", "``GetCurExAxisCoord()``"
-    "描述", "Gets the current extended axis coordinate system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``coord``: Coordinate system value"
+    "Prototipo", "``GetCurExAxisCoord()``"
+    "Descrizione", "Ottiene il sistema di coordinate dell'asse esteso corrente"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
+    - ``coord``: Valore del sistema di coordinate"
 
-Get robot coordinate system and load code sample
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice per Ottenere i Sistemi di Coordinate e il Carico del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce la connessione con il controller del robot, restituisce un oggetto robot se ha successo
     robot = Robot.RPC('192.168.58.2')
     id = 1
     toolCoord = [0.0] * 6
@@ -640,7 +640,7 @@ Get robot coordinate system and load code sample
     wobjCoord = [0.0] * 6
     exAxisCoord = [0.0] * 6
     for i in range(100):
-        print(f"当前ID为:{id}")
+        print(f"L'ID corrente è:{id}")
         coordSet0 = [0.0] * 6
         coordSet = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
         etcp = [10.0, 20.0, 30.0, 40.0, 50.0, 60.0]
@@ -699,4 +699,4 @@ Get robot coordinate system and load code sample
         rtn, weight, getCog = robot.GetTargetPayloadWithID(id)
         print(f"GetTargetPayloadWithID {id},{weight},{getCog[0]},{getCog[1]},{getCog[2]}")
         time.sleep(0.5)
-        print(f"times {i}")
+        print(f"volte {i}")

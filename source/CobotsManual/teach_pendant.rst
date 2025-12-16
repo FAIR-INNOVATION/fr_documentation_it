@@ -1,89 +1,89 @@
-Teach pendant
+Insegnatore
 ===============
 
-.. toctree::
+.. toctree:: 
    :maxdepth: 6
 
-Teach pendant activation
-----------------------------
+Abilitazione dell'Insegnatore
+----------------------------------------------
 
-1. Connect the control box to the teach pendant and start it.
+1. Collegare l'insegnatore alla scatola di controllo e avviare il sistema.
 
-2. Log in with the account admin and password 123. Enter the page, click System Settings-General Settings, and confirm that the teach pendant is enabled.
+2. Accedere con l'account "admin" e password "123". Nella pagina principale, cliccare su "Impostazioni di Sistema" > "Impostazioni Generali" per confermare che l'insegnatore sia in stato abilitato.
 
 .. image:: teach_pendant/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.1‑1 Teaching pendant activation status
+.. centered:: Figura 16.1-1 Stato dell'Insegnatore Abilitato
 
-Teach pendant multi-language setting
---------------------------------------
+Impostazione Multilingua dell'Insegnatore
+-----------------------------------------------------------------
 
-1. On the login interface (or the first activation interface), select the language in the upper right corner.
+1. Nella schermata di login (o nella schermata di attivazione iniziale), selezionare la lingua nell'angolo in alto a destra.
 
 .. image:: teaching_pendant_software/062.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑1 Activation interface language setting
+.. centered:: Figura 16.2-1 Impostazione Lingua nella Schermata di Attivazione
 
 .. image:: teaching_pendant_software/063.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑2 Login interface language setting
+.. centered:: Figura 16.2-2 Impostazione Lingua nella Schermata di Login
 
-2. Taking the login interface multi-language setting as an example, select the language. If the following prompt (corresponding to different languages) appears, the setting is successful. Restart the control box to complete the language setting.
+2. Come esempio, selezionare la lingua desiderata nella schermata di login. Dopo la selezione, verrà visualizzato un messaggio corrispondente (in base alla lingua scelta) per confermare l'avvenuta impostazione. Riavviare la scatola di controllo per completare l'impostazione della lingua.
 
 .. image:: teach_pendant/004.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑3 Set Chinese
+.. centered:: Figura 16.2-3 Impostazione Cinese
 
 .. image:: teach_pendant/005.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑4 Set English
+.. centered:: Figura 16.2-4 Impostazione Inglese
 
-Input method switch
-++++++++++++++++++++++++++++++
+Cambio della Tastiera
+++++++++++++++++++++++++++++
 
-The default input method is English input method.
+La tastiera predefinita è quella inglese.
 
-1. Open the soft keyboard in the lower right corner and click the input box, such as the user name input box.
+1. Aprire la tastiera virtuale nell'angolo in basso a destra e cliccare sul campo di immissione, ad esempio il campo per il nome utente.
 
-2. Switch to Chinese Pinyin input method.
+2. Cambiare la tastiera in cinese (Pinyin).
 
-Click the CTRL key twice, the key status turns red, and click the spacebar to select the input method. The following is the Chinese input method.
+Premere due volte il tasto "CTRL", il tasto diventerà rosso. Premere il tasto "Spazio" per selezionare la tastiera desiderata. Di seguito è mostrata la tastiera cinese.
 
 .. image:: teach_pendant/006.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑5 Chinese Pinyin Input Method
+.. centered:: Figura 16.2-5 Tastiera Cinese (Pinyin)
 
-3. Switch to English Input Method
+3. Cambiare la tastiera in inglese.
 
-Click the CTRL key twice, the key status turns red, click the spacebar to select the input method, the following is the English input method.
+Premere due volte il tasto "CTRL", il tasto diventerà rosso. Premere il tasto "Spazio" per selezionare la tastiera desiderata. Di seguito è mostrata la tastiera inglese.
 
 .. image:: teach_pendant/007.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑6 English Input Method
+.. centered:: Figura 16.2-6 Tastiera Inglese
 
-After successful login, the system will load the model and other data, and enter the initial page after loading.
+Dopo un login riuscito, il sistema caricherà i dati del modello. Al termine del caricamento, verrà visualizzata la pagina iniziale.
 
-The language of the teaching pendant and webApp is inconsistent
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Lingua dell'Insegnatore e di webApp Non Corrispondente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-After the teach pendant is enabled, the teach pendant and webApp language verification will be triggered on the login interface. When the teach pendant language is inconsistent with the webApp language, the following prompt will appear.
+Dopo l'abilitazione dell'insegnatore, nella schermata di login verrà verificata la corrispondenza tra la lingua dell'insegnatore e quella di webApp. Se le lingue non corrispondono, verrà visualizzato il seguente messaggio.
 
 .. image:: teach_pendant/008.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 16.2‑7 The language of the teaching pendant and webApp is inconsistent
+.. centered:: Figura 16.2-7 Messaggio di Discrepanza Lingua tra Insegnatore e webApp

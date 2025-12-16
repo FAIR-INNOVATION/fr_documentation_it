@@ -1,35 +1,14 @@
+Operazioni Funzionali CNDE
+==========================================
 
-CNDE function operation
-===========================
+Configurazione Input e Dati di Input
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Input configuration and input data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Il client invia frame di dati al robot tramite CNDE per controllare uscite DO, AO, registri di input, ecc. Prima di inviare dati di input, è necessario configurare il contenuto funzionale da controllare. La Tabella 2-1 mostra il formato del contenuto della configurazione di input CNDE, che include il numero di ricetta e una serie di nomi di funzioni di configurazione di input (Tabella 1-2); la corrispondente Tabella 3-2 mostra il formato del contenuto dei dati di input, che include il numero di ricetta e il gruppo di byte dei dati di input.
 
-The client sends data frames to the robot through CNDE to control the robot's DO, AO output, input registers, etc. Before sending the input data, it is necessary to configure the functional content to be controlled. Table 2-1 shows the format of CNDE input configuration content, including recipe number and a series of input configuration function names (Table 1-2); The corresponding table 3-2 is the content format of input data, including recipe number and input data byte group.
+CNDE supporta un massimo di 8 ricette per l'input dei dati. Quando vengono inviati dati di input, il robot abbina il numero di ricetta nei dati ricevuti al corrispondente gruppo di nomi di funzioni configurato per quella ricetta, analizza i dati per ottenere il valore di input per ciascun nome di funzione e quindi esegue operazioni di controllo del robot in base ai dati di input.
 
-CNDE data input supports up to 8 recipes. When sending input data, the robot will match the recipe number in the received data to the corresponding recipe configuration function name group, and analyze the data to get the input data value of each function name, and then control the robot according to the input data.
-
-.. centered:: Table 3-1 Input Configuration Content Format
-
-.. list-table::
-   :widths: 40 20 40
-   :header-rows: 0
-   :align: center
-   :class: sheet-center
-
-   * - **Name**
-     - **Recipe number**
-     - **Function name string**
-
-   * - Length (byte)
-     - 1
-     - --
-
-   * - Content
-     - 0 ~ 7
-     - A series of input data function names
-
-.. centered:: Table 3-2 Input Data Content Format
+.. centered:: Tabella 3-1 Formato contenuto configurazione input
 
 .. list-table::
    :widths: 40 20 40
@@ -37,65 +16,85 @@ CNDE data input supports up to 8 recipes. When sending input data, the robot wil
    :align: center
    :class: sheet-center
 
-   * - **Name**
-     - **Recipe number**
-     - **Data byte group**
+   * - **Nome**
+     - **Numero Ricetta**
+     - **Stringa Nomi Funzione**
 
-   * - Length(byte)
+   * - Lunghezza(byte)
      - 1
      - --
 
-   * - Content
+   * - Contenuto
      - 0 ~ 7
-     - Input data content
+     - Serie di nomi funzioni dati input
 
-When inputting configuration, the robot controller will check each name after receiving the configuration name group. If the configured function names are correct, the robot will feed back the data type names of all configured functions divided by ","; If the configured function name is wrong, the robot will feed back the corresponding error content. An example of the input configuration data frame (hexadecimal) is as follows:
+.. centered:: Tabella 3-2 Formato contenuto dati input
+
+.. list-table::
+   :widths: 40 20 40
+   :header-rows: 0
+   :align: center
+   :class: sheet-center
+
+   * - **Nome**
+     - **Numero Ricetta**
+     - **Gruppo Byte Dati**
+
+   * - Lunghezza(byte)
+     - 1
+     - --
+
+   * - Contenuto
+     - 0 ~ 7
+     - Contenuto dati input
+
+Durante la configurazione dell'input, dopo aver ricevuto il gruppo di nomi di configurazione, il controller del robot verifica ciascun nome. Se i nomi delle funzioni configurati sono corretti, il robot restituisce i nomi dei tipi di dati di tutte le funzioni configurate, separati da ","; se ci sono errori nei nomi delle funzioni configurate, il robot restituisce il contenuto di errore corrispondente. Un esempio di frame di dati di configurazione input (esadecimale) è il seguente:
 
 .. image:: cnde/001.png
    :width: 6in
    :align: center
 
-Among them, the total length of the configured input function name group is 54 bytes, plus 1 byte of the input recipe number, which is 55 bytes, which is converted into hexadecimal as 0x0037. In the Little-Endian mode, the data length in the corresponding input data frame is "37 00".
+La lunghezza totale del gruppo di nomi delle funzioni di input configurate è di 54 byte, più 1 byte per il numero di ricetta input, per un totale di 55 byte. Convertito in esadecimale è 0x0037. In modalità little-endian, la lunghezza dei dati corrispondente nel frame di dati di input è "37 00".
 
-At this time, the robot will feed back a data frame with the type of messages (Message in section 3.3.1 of this article):
+In questo caso, il robot restituirà un frame di dati di tipo messaggio di testo (messaggio di testo nella Sezione 3.3.1 di questo documento):
 
 .. image:: cnde/002.png
    :width: 6in
    :align: center
 
-The message type "00" indicates that this is a successful feedback message. The client can extract the "Input Data Configuration Type" and compare it with Table 1-3 to get the byte length of the input configuration. In this example, the total data length is 1*5+4*30+8*30 = 365 bytes.
+Il tipo di messaggio "00" indica che si tratta di un messaggio di feedback di esecuzione riuscita. Il client può estrarre il "Tipo configurazione dati input" e confrontarlo con la Tabella 1-3 per ottenere la lunghezza in byte della configurazione input. In questo esempio, la lunghezza totale dei dati è 1*5 + 4*30 + 8*30 = 365 byte.
 
-If the configuration name is entered incorrectly:
+Se il nome della configurazione input è errato:
 
 .. image:: cnde/003.png
    :width: 6in
    :align: center
 
-The corresponding feedback information is:
+Il feedback corrispondente è:
 
 .. image:: cnde/004.png
    :width: 6in
    :align: center
 
-The input data can be input circularly according to a certain period, or only when necessary. The fastest period that the robot can process during cyclic input is 1ms, but the faster input period will bring some resource expenses to the robot system. It is suggested that you set the data input period reasonably according to the actual situation. 
+I dati di input possono essere inviati ciclicamente a un certo periodo, o solo quando necessario. Durante l'input ciclico, il periodo minimo gestibile dal robot è 1ms, ma un periodo di input troppo rapido comporta un certo carico sulle risorse di sistema del robot. Si consiglia di impostare ragionevolmente il periodo di input dei dati in base alla situazione effettiva.
 
-In addition, when sending a data frame to the robot, the robot will not have feedback information unless the length of the sent data frame or the data is abnormal. An example of an input data frame is as follows, in which the input data recipe number and the input data byte length should be consistent with the input configuration:
+Inoltre, quando si invia un frame di dati al robot, il robot non invierà feedback a meno che la lunghezza del frame di dati o i dati non siano anomali. Un esempio di frame di dati di input è il seguente. Il numero di ricetta dei dati di input e la lunghezza del gruppo di byte dei dati di input devono corrispondere alla configurazione di input:
 
 .. image:: cnde/005.png
    :width: 6in
    :align: center
 
-Output configuration and output data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione Output e Dati di Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The client can customize the content and period of the state feedback through CNDE. Using the state feedback of the robot CNDE requires the following three steps: ①output configuration; ②Start the output; ③Receiving output data.
+Il client può personalizzare il contenuto e il periodo del feedback di stato quando ottiene il feedback di stato del robot tramite CNDE. L'utilizzo del feedback di stato CNDE del robot richiede i seguenti tre passaggi: ① Configurazione output; ② Avvio output; ③ Ricezione dati output.
 
-Output configuration
+Configurazione Output
 +++++++++++++++++++++++
 
-The output configuration frame includes the output period and the output function name group (see Table 1-1 for all configurable names). The configurable range of the output period is 1 ~ 200ms, and the maximum number of output data bytes supports 4096byte. The output function name group is a series of output function name strings separated by ",".After the client sends the output configuration frame, the robot will check the configured function names. If the configured function names are all supported by the current robot CNDE, the robot will feed back a series of data type combinations separated by ","; Otherwise, if the verification of the output configuration name fails, the corresponding error message is fed back.
+Il contenuto del frame di configurazione output include il periodo di output e il gruppo di nomi delle funzioni di output (tutti i nomi configurabili sono nella Tabella 1-1). L'intervallo di configurazione del periodo di output è 1 ~ 200 ms. Il numero massimo di byte dei dati di output supportato è 4096 byte. Il gruppo di nomi delle funzioni di output è una serie di stringhe di nomi di funzioni di output separate da ",". Dopo che il client invia il frame di configurazione output, il robot verifica i nomi delle funzioni configurati. Se tutti i nomi delle funzioni configurati sono supportati dal CNDE del robot corrente, il robot restituisce una serie di combinazioni di tipi di dati separate da ","; altrimenti, se la verifica dei nomi di configurazione output fallisce, restituisce le informazioni di errore corrispondenti.
 
-.. centered:: Table 3-3 Output Configuration Contents
+.. centered:: Tabella 3-3 Contenuto configurazione output
 
 .. list-table::
    :widths: 40 20 40
@@ -103,52 +102,52 @@ The output configuration frame includes the output period and the output functio
    :align: center
    :class: sheet-center
 
-   * - **Nmae**
-     - **Output period (ms)**
-     - **Function name string**
+   * - **Nome**
+     - **Periodo Output(ms)**
+     - **Stringa Nomi Funzione**
 
-   * - Length (byte)
+   * - Lunghezza(byte)
      - 2
      - --
 
-   * - 内容
+   * - Contenuto
      - 1-200
-     - Output function name group
+     - Gruppo nomi funzioni output
 
-If the output configuration frame is as follows:
+Ad esempio, il frame di configurazione output è il seguente:
 
 .. image:: cnde/006.png
    :width: 6in
    :align: center
 
-Among them, the total length of the configured output function name group is 48 bytes, plus 2 bytes of the output period, totaling 50 bytes, which is converted into hexadecimal as 0x0032. In the Little-Endian mode, the data length in the corresponding input data frame is "32 00".
+La lunghezza totale del gruppo di nomi delle funzioni di output configurate è di 48 byte, più 2 byte per il periodo di output, per un totale di 50 byte. Convertito in esadecimale è 0x0032. In modalità little-endian, la lunghezza dei dati corrispondente nel frame di dati di input è "32 00".
 
-At this time, the robot will feed back a data frame with the type of message (Message in section 3.3.1 of this article):
+In questo caso, il robot restituirà un frame di dati di tipo messaggio di testo (messaggio di testo nella Sezione 3.3.1 di questo documento):
 
 .. image:: cnde/007.png
    :width: 6in
    :align: center
 
-The message type "00" indicates that this is a successful feedback message. The client can extract the "output data configuration type" and compare it with Table 1-3 to get the byte length of the output configuration. In this example, the total data length is 1+8*10+4 = 85 bytes.
+Il tipo di messaggio "00" indica che si tratta di un messaggio di feedback di esecuzione riuscita. Il client può estrarre il "Tipo configurazione dati output" e confrontarlo con la Tabella 1-3 per ottenere la lunghezza in byte della configurazione output. In questo esempio, la lunghezza totale dei dati è 1 + 8*10 + 4 = 85 byte.
 
-If the input configuration name is wrong, such as "queue" wrongly written as "quene":
+Se il nome della configurazione input è errato, ad esempio "queue" scritto erroneamente come "quene":
 
 .. image:: cnde/008.png
    :width: 6in
    :align: center
 
-The corresponding feedback information is:
+Il feedback corrispondente è:
 
 .. image:: cnde/009.png
    :width: 6in
    :align: center
 
-Output start and stop
-+++++++++++++++++++++++++
+Avvio e Arresto Output
+++++++++++++++++++++++++++++++++++
 
-After the CNDE output configuration of the robot is completed, send a start command to start the CNDE output, and the robot will perform state feedback output according to the configured output period and output content, and also send a CNDE stop output command, and the robot will stop the state feedback output. CNDE start and stop commands have no command content, and the corresponding data length is 0.
+Dopo aver completato la configurazione output CNDE del robot, inviando il comando di avvio output CNDE, il robot inizierà a fornire feedback di stato in base al periodo e al contenuto di output configurati. Allo stesso modo, inviando il comando di arresto output CNDE, il robot interromperà il feedback di stato. I comandi di avvio e arresto CNDE non hanno contenuto, quindi la lunghezza dei dati corrispondente è 0.
 
-.. centered:: Table 3-4 Start and Stop Contents of CNDE Output
+.. centered:: Tabella 3-4 Contenuto Avvio/Arresto Output CNDE
 
 .. list-table::
    :widths: 40 40
@@ -156,27 +155,27 @@ After the CNDE output configuration of the robot is completed, send a start comm
    :align: center
    :class: sheet-center
 
-   * - **Name**
-     - **Data byte group**
+   * - **Nome**
+     - **Gruppo Byte Dati**
 
-   * - Length (byte)
+   * - Lunghezza(byte)
      - 0
 
-   * - Content
-     - without
+   * - Contenuto
+     - Nessuno
 
-An example of starting the robot CNDE to output data frames is as follows:
+Un esempio di frame di dati per avviare l'output CNDE del robot è il seguente:
 
 .. image:: cnde/010.png
    :width: 3in
    :align: center
 
-The client receives the output data
-+++++++++++++++++++++++++++++++++++++++
+Ricezione Dati Output da Parte del Client
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-After the CNDE data output of the robot is started, the client needs a cycle to receive the data information fed back by the robot, and the cycle receiving frequency of the client is higher than the configured output data frequency, otherwise data packet loss may occur. The contents of robot output data are shown in Table 3-5. The length of the byte group of robot output data is the sum of the byte lengths of all the function data configured for output, and the byte array is a combination of all the state data in the order of configured functions with 1 byte alignment.
+Dopo aver avviato l'output dati CNDE del robot, il client deve impostare un ciclo per ricevere le informazioni di dati restituite dal robot. La frequenza di ricezione ciclica del client deve essere superiore alla frequenza di output dati configurata, altrimenti potrebbero verificarsi perdite di pacchetti. Il contenuto dei dati di output del robot è mostrato nella Tabella 3-5; la lunghezza del gruppo di byte dei dati di output del robot è la somma delle lunghezze in byte di tutti i dati delle funzioni configurate per l'output. L'array di byte è una combinazione di tutti i dati di stato in ordine di funzione configurata, allineato a 1 byte.
 
-.. centered:: Table 3-5 CNDE Output Data Content
+.. centered:: Tabella 3-5 Contenuto dati output CNDE
 
 .. list-table::
    :widths: 40 40
@@ -184,32 +183,32 @@ After the CNDE data output of the robot is started, the client needs a cycle to 
    :align: center
    :class: sheet-center
 
-   * - **Name**
-     - **Data byte group**
+   * - **Nome**
+     - **Gruppo Byte Dati**
 
-   * - Length(byte)
+   * - Lunghezza(byte)
      - --
 
-   * - Content
-     - Output data byte group
+   * - Contenuto
+     - Gruppo byte dati output
 
-Examples of robot output data frames are as follows:
+Un esempio di frame di dati di output del robot è il seguente:
 
 .. image:: cnde/011.png
    :width: 4in
    :align: center
 
-CNDE auxiliary function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzioni Ausiliarie CNDE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Messages
-++++++++++++++++++
+Messaggio di Testo
+++++++++++++++++++++++++++++++
 
-The client and the robot can send messages to each other through CNDE, including message types and message strings (Table 3-6), where the message types are defined in Table 3-7. When the CNDE client sends commands such as input configuration, output configuration, output start and output stop to the robot, the robot replies with a message. 
+Il client e il robot possono scambiarsi messaggi di testo tramite CNDE. Il contenuto del messaggio include il tipo di messaggio e la stringa del messaggio (Tabella 3-6), dove il tipo di messaggio è definito nella Tabella 3-7. Quando il client CNDE invia comandi al robot come configurazione input, configurazione output, avvio output, arresto output, ecc., il robot risponde sempre con un messaggio di testo.
 
-If the above commands are executed successfully, the feedback message type of the robot is "successful", and the numerical code of the corresponding message type is 0x00；; On the other hand, if the above commands fail to be executed, the message type fed back by the robot is "error", and the corresponding message type value is 0x03. The client can judge the command execution result according to the feedback message type, and if the message type is "error", the error information can be extracted to analyze the cause of the error.
+Se i comandi sopra menzionati vengono eseguiti con successo, il robot restituisce un tipo di messaggio "Successo", corrispondente al valore 0x00; al contrario, se l'esecuzione fallisce, il robot restituisce un tipo di messaggio "Errore", corrispondente al valore 0x03. Il client può determinare il risultato dell'esecuzione del comando in base al tipo di messaggio restituito. Se il tipo di messaggio è "Errore", è possibile estrarre le informazioni di errore per analizzarne la causa.
 
-.. centered:: Table 3-6 Content of Message
+.. centered:: Tabella 3-6 Contenuto messaggio di testo
 
 .. list-table::
    :widths: 40 20 40
@@ -217,19 +216,19 @@ If the above commands are executed successfully, the feedback message type of th
    :align: center
    :class: sheet-center
 
-   * - **Name**
-     - **Message type**
-     - **Message string**
+   * - **Nome**
+     - **Tipo Messaggio**
+     - **Stringa Messaggio**
 
-   * - Length(byte)
+   * - Lunghezza(byte)
      - 1
      - --
 
-   * - Content
+   * - Contenuto
      - 0 ~ 4
-     - Message string
+     - Stringa messaggio
 
-.. centered:: Table 3-7 Robot CNDE Message Types
+.. centered:: Tabella 3-7 Tipi messaggio di testo CNDE robot
 
 .. list-table::
    :widths: 40 40
@@ -237,30 +236,30 @@ If the above commands are executed successfully, the feedback message type of th
    :align: center
    :class: sheet-center
 
-   * - **Type**
-     - **Numerical value**
+   * - **Tipo**
+     - **Valore**
 
-   * - SUCCESS
+   * - Successo
      - 0x00
 
-   * - INFORMATION
+   * - Informazione
      - 0x01
 
-   * - WARINING
+   * - Avviso
      - 0x02
 
-   * - ERROR
+   * - Errore
      - 0x03
 
-   * - FAULT
+   * - Guasto
      - 0x04
 
-Switch the version number of CNDE protocol of robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Cambiare Numero Versione Protocollo CNDE Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-At present, there is only one version of the robot CNDE, and the version number is "FR-CNDE-V0001", so this function is reserved and has not been put into use yet.
+Attualmente, il CNDE del robot ha solo una versione, il numero di versione è "FR-CNDE-V0001". Pertanto, questa funzione è riservata e non è ancora disponibile per l'uso.
 
-Acquire that version information of the robot soft firmware
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Informazioni Versione Software/Firmware Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The client sends an command to get the software firmware version information to the robot through CNDE, and the command content is empty. After receiving the request, the robot will feed back a message, including the robot model, robot software version, robot firmware version, robot hardware version and other related information.
+Il client invia un comando al robot tramite CNDE per richiedere informazioni sulla versione software/firmware. Il contenuto del comando è vuoto. Dopo aver ricevuto la richiesta, il robot risponderà con un messaggio di testo che include informazioni come il modello del robot, la versione del software del robot, la versione del firmware del robot, la versione hardware del robot, ecc.

@@ -1,53 +1,53 @@
-Movement
-============
+Movimento del Robot
+===========================
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 5
 
-jog point and click
-++++++++++++++++++++++++++++++++++++++++++++
+Jog Inching
++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``StartJOG(ref,nb,dir,max_dis,vel=20.0,acc=100.0)``"
-    "description", "jog dot motion"
-    "Mandatory parameters","- ``ref``: 0 - joint point movement, 2 - base coordinate system point movement, 4 - tool coordinate system point movement, 8 - workpiece coordinate system point movement;
-    - ``nb``: 1-1 joint (x-axis), 2-2 joint (y-axis), 3-3 joint (z-axis), 4-4 joint (rx), 5-5 joint (ry), 6-6 joint (rz).
-    - ``dir``: 0 - negative direction, 1 - positive direction.
-    - ``max_dis``: maximum angle/distance of a single tap in ° or mm;"
-    "Default Parameters", "- ``vel``: percentage of speed, [0 to 100] default 20;
-    - ``acc``: acceleration percentage, [0~100] default 100;"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``StartJOG(ref,nb,dir,max_dis,vel=20.0,acc=100.0)``"
+    "Descrizione", "Jog inching"
+    "Parametri obbligatori", "- ``ref``：0-joint inching,2-sistema base inching,4-sistema utensile inching,8-sistema pezzo inching；
+    - ``nb``：1-1° giunto(asse x),2-2° giunto(asse y),3-3° giunto(asse z),4-4° giunto(rx),5-5° giunto(ry),6-6° giunto(rz);
+    - ``dir``：0-direzione negativa，1-direzione positiva;
+    - ``max_dis``：angolo/distanza massimo singolo inching，unità ° o mm;"
+    "Parametri predefiniti", "- ``vel``：percentuale velocità，[0~100] default 20;
+    - ``acc``：percentuale accelerazione，[0~100] default 100;"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-jog tap to decelerate and stop
-++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``StopJOG(ref)``"
-    "description", "jog nudging deceleration stop"
-    "Mandatory parameters", "- ``ref``: 1 - joint point stop, 3 - base coordinate system point stop, 5 - tool coordinate system point stop, 9 - workpiece coordinate system point stop"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Immediate stop for jog taps
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arresto decelerazione jog inching
++++++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ImmStopJOG()``"
-    "Description", "jog nudging stops immediately"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``StopJOG(ref)``"
+    "Descrizione", "Arresto decelerazione jog inching"
+    "Parametri obbligatori", "- ``ref``：1-arresto joint inching,3-arresto sistema base inching,5-arresto sistema utensile inching,9-arresto sistema pezzo inching"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-Robot point control code example
+Arresto immediato jog inching
++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ImmStopJOG()``"
+    "Descrizione", "Arresto immediato jog inching"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
+
+Esempio codice controllo inching robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
@@ -55,7 +55,7 @@ Robot point control code example
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
     robot = Robot.RPC('192.168.58.2')
     for i in range(6):
         robot.StartJOG(0, i + 1, 0, 20.0, 20.0, 30.0)
@@ -79,151 +79,151 @@ Robot point control code example
         time.sleep(1)
     robot.CloseRPC()
 
-Joint space motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento spazio giunti
++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype","``MoveJ(joint_pos, tool, user, desc_pos = [0.0,0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 0.0, ovl = 100.0, exaxis_pos = [0.0,0.0,0.0,0.0], blendT = -1.0, offset_flag = 0, offset_pos = [0.0,0.0,0.0,0.0,0.0,0.0])``"
-    "description", "joint space motion"
-    "Mandatory parameters", "- ``joint_pos``: target joint position in [°];
-    - ``tool``: tool number, [0 to 14];
-    - ``user``: artifact number, [0 to 14];"
-    "Default parameters","- ``desc_pos``: target Cartesian position in [mm][°] Default initial value [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls positive kinematics to solve for the return value.
-    - ``vel``: percentage of speed, [0~100] default 20.0.
-    - ``acc``: percentage of acceleration, [0~100], not open yet;
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0.
-    - ``exaxis_pos``: external axis 1 position ~ external axis 4 position Default [0.0,0.0,0.0,0.0].
-    - ``blendT``:[-1.0]-motion in place (blocking), [0~500.0]-smoothing time (non-blocking) in [ms] default -1.0;
-    - ``offset_flag``:[0]-no offset, [1]-offset in workpiece/base coordinate system, [2]-offset in tool coordinate system Default 0;
-    - ``offset_pos``: position offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0];"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveJ(joint_pos, tool, user, desc_pos = [0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 0.0, ovl = 100.0, exaxis_pos = [0.0,0.0,0.0,0.0], blendT = -1.0, offset_flag = 0, offset_pos = [0.0,0.0,0.0,0.0,0.0,0.0])``"
+    "Descrizione", "Movimento spazio giunti"
+    "Parametri obbligatori", "- ``joint_pos``: posizione giunti target，unità[°]；
+    - ``tool``: numero utensile，[0~14]；
+    - ``user``: numero pezzo，[0~14]；"
+    "Parametri predefiniti", "- ``desc_pos``: posa cartesiana target，unità [mm][°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica diretta restituisce valore;
+    - ``vel``: percentuale velocità，[0~100] default 20.0;
+    - ``acc``: percentuale accelerazione，[0~100]，non aperto attualmente；
+    - ``ovl``: fattore scala velocità，[0~100] default 100.0;
+    - ``exaxis_pos``: asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
+    - ``blendT``:[-1.0]-movimento a posizione (bloccante)，[0~500.0]-tempo smooth (non bloccante)，unità [ms] default -1.0;
+    - ``offset_flag``:[0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
+    - ``offset_pos``: quantità offset posa，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0];"
+    "Valore restituito", "Codice errore  Successo-0  Fallimento- errcode"
 
-Cartesian linear motion in space
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento lineare spazio cartesiano
++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype","``MoveL(desc_pos, tool, user, joint_pos = [0.0,0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 0.0 , ovl = 100.0, blendR = -1.0, blendMode = 0, exaxis_pos = [0.0,0.0, 0.0,0.0], search = 0, offset_flag = 0, offset_pos = [0.0,0.0,0.0,0.0,0.0,0.0],config=-1,velAccParamMode=0,overSpeedStrategy=0,speedPercent=10)``"
-    "Description", "Cartesian linear motion in space"
-    "Mandatory parameters", "- ``desc_pos``: target Cartesian position in [mm][°];
-    - ``tool``: tool number, [0 to 14];
-    - ``user``: artifact number, [0 to 14];"
-    "Default parameters","- ``joint_pos``: target joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``vel``: percentage of speed, [0~100] default 20.0;
-    - ``acc``: acceleration percentage, [0~100], not open Default 0.0;
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0;
-    - ``blendR``:[-1.0]-movement in place (blocking), [0~1000]-smoothing radius (non-blocking) in [mm] default -1.0;
-    - ``blendMode``:Transitional mode 0- Internal cutting transition 1- Corner transition, default -0;
-    - ``exaxis_pos``: external axis 1 position ~ external axis 4 position Default [0.0,0.0,0.0,0.0].
-    - ``search``: [0] - no wire search, [1] - wire search;
-    - ``offset_flag``:[0]-no offset, [1]-offset in workpiece/base coordinate system, [2]-offset in tool coordinate system Default 0;
-    - ``offset_pos``: position offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]
-    - ``config``: Reverse the joint space configuration, [-1]- calculate based on the current joint position, [0~7]- solve based on the specific joint space configuration, default -1
-    - ``velAccParamMode``: Speed acceleration parameter mode; 0- percentage; 1 -Physical velocity (mm/s) Acceleration (mm/s2) Default 0
-    - ``overSpeedStrategy``: over speed handling strategy, 0 - strategy off; 1 - standard; 2 - stop on error when over speeding; 3 - adaptive speed reduction, default 0
-    - ``speedPercent``: Percentage of allowable speed reduction threshold [0-100], default 10%
+    "Prototipo", "``MoveL(desc_pos, tool, user, joint_pos = [0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 0.0 , ovl = 100.0, blendR = -1.0, blendMode = 0, exaxis_pos = [0.0,0.0,0.0,0.0], search = 0, offset_flag = 0, offset_pos = [0.0,0.0,0.0,0.0,0.0,0.0],config=-1,velAccParamMode=0,overSpeedStrategy=0,speedPercent=10)``"
+    "Descrizione", "Movimento lineare spazio cartesiano"
+    "Parametri obbligatori", "- ``desc_pos``: posa cartesiana target，unità[mm][°]；
+    - ``tool``: numero utensile，[0~14]；
+    - ``user``: numero pezzo，[0~14]；"
+    "Parametri predefiniti", "- ``joint_pos``: posizione giunti target，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
+    - ``vel``: percentuale velocità，[0~100] default 20.0；
+    - ``acc``: percentuale accelerazione，[0~100]，non aperto attualmente default 0.0；
+    - ``ovl``: fattore scala velocità，[0~100] default 100.0；
+    - ``blendR``:[-1.0]-movimento a posizione (bloccante)，[0~1000]-raggio smooth (non bloccante)，unità [mm] default -1.0;
+    - ``blendMode``: modalità transizione；0-transizione tangente interna；1-transizione angolo, default-0;
+    - ``exaxis_pos``: asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
+    - ``search``:[0]-nessuna ricerca filo saldatura，[1]-ricerca filo saldatura；
+    - ``offset_flag``:[0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
+    - ``offset_pos``: quantità offset posa，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0];
+    - ``config``: configurazione spazio giunti cinematica inversa，[-1]-calcolo riferimento posizione giunti corrente，[0~7]-soluzione basata specifica configurazione spazio giunti，default -1
+    - ``velAccParamMode``: modalità parametri velocità accelerazione；0-percentuale；1-velocità fisica(mm/s) accelerazione(mm/s2) default 0
+    - ``overSpeedStrategy``: strategia gestione sovravelocità，0-strategia disattivata；1-standard；2-errore e arresto sovravelocità；3-decelerazione adattativa，default 0
+    - ``speedPercent``: percentuale soglia decelerazione consentita[0-100]，default 10%
     "
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-Circular motion in Cartesian space
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento arco spazio cartesiano
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``MoveC(desc_pos_p, tool_p, user_p, desc_pos_t, tool_t, user_t, joint_pos_p =[0.0,0.0,0.0,0.0,0.0,0.0], joint_pos_t =[0.0,0.0,0.0,0.0 ,0.0,0.0], vel_p = 20.0,acc_p=100.0, exaxis_pos_p = [0.0,0.0,0.0,0.0], offset_flag_p = 0, offset_pos_p = [0.0,0.0,0.0,0.0,0.0,0.0], vel_t= 20.0, acc_t= 100.0,exaxis_pos_t=[0.0,0.0,0.0,0.0], offset_flag_t = 0, offset_pos_t = [0.0,0.0,0.0,0.0,0.0,0.0,0.0], ovl = 100.0, blendR = -1.0, config=-1,velAccParamMode=0)``"
-    "Description", "Circular motion in Cartesian space"
-    "Mandatory parameters", "- ``desc_pos_p``: path point Cartesian position in [mm][°];
-    - ``tool_p``: pathpoint tool number, [0~14].
-    - ``user_p``: pathpoint artifact number, [0~14].
-    - ``desc_pos_t``: Cartesian position of the target point in [mm][°].
-    - ``tool_t``: tool number, [0 to 14];
-    - ``user_t``: artifact number, [0~14];"
-    "Default parameters","- ``joint_pos_p``: path point joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``joint_pos_t``: target point joint position in [°] default initial value [0.0,0.0,0.0,0.0,0.0,0.0,0.0] default value calls inverse kinematics to solve for the return value.
-    - ``vel_p``: path point velocity percentage, [0~100] default 20.0.
-    - ``acc_p``: path point acceleration percentage, [0~100] not open yet, default 0.0; ``acc_p``: path point acceleration percentage, [0~100] not open yet, default 0.0.
-    - ``exaxis_pos_p``: path point external axis 1 position ~ external axis 4 position default [0.0,0.0,0.0,0.0];
-    - ``offset_flag_p``: whether the path point is offset [0] - no offset, [1] - offset in the workpiece/base coordinate system, [2] - offset in the tool coordinate system Default 0;
-    - ``vel_t``: percentage of velocity at target point, [0~100] default 20.0; ``vel_t``: percentage of velocity at target point, [0~100] default 20.0.
-    - ``acc_t``: target point acceleration percentage, [0~100] not open yet default 0.0.
-    - ``exaxis_pos_t``: target point external axis 1 position ~ external axis 4 position Default [0.0,0.0,0.0,0.0];
-    - ``offset_flag_t``: whether the target point is offset or not [0]-no offset, [1]-offset in the workpiece/base coordinate system, [2]-offset in the tool coordinate system Default 0;
-    - ``offset_pos_t``: target point attitude offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0].
-    - ``ovl:``: velocity scaling factor, [0~100] default 100.0.
-    - ``blendR``:[-1.0]-motion in place (blocking), [0~1000]-smoothing radius (non-blocking) in [mm] default -1.0;
-    - ``config``: Reverse the joint space configuration, [-1]- calculate based on the current joint position, [0~7]- solve based on the specific joint space configuration, default -1
-    - ``velAccParamMode``: Speed acceleration parameter mode; 0- percentage; 1 -Physical velocity (mm/s) Acceleration (mm/s2) Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveC(desc_pos_p, tool_p, user_p, desc_pos_t, tool_t, user_t, joint_pos_p =[0.0,0.0,0.0, 0.0,0.0,0.0],joint_pos_t=[0.0,0.0,0.0,0.0,0.0,0.0], vel_p = 20.0,acc_p=100.0, exaxis_pos_p =[0.0,0.0,0.0,0.0], offset_flag_p = 0, offset_pos_p = [0.0,0.0,0.0,0.0,0.0,0.0], vel_t= 20.0, acc_t=100.0,exaxis_pos_t=[0.0,0.0,0.0,0.0], offset_flag_t = 0, offset_pos_t = [0.0,0.0,0.0, 0.0,0.0,0.0], ovl = 100.0, blendR = -1.0, config=-1,velAccParamMode=0)``"
+    "Descrizione", "Movimento arco spazio cartesiano"
+    "Parametri obbligatori", "- ``desc_pos_p``: posa cartesiana punto percorso，unità[mm][°]；
+    - ``tool_p``: numero utensile punto percorso，[0~14];
+    - ``user_p``: numero pezzo punto percorso，[0~14];
+    - ``desc_pos_t``: posa cartesiana punto target，unità [mm][°];
+    - ``tool_t``: numero utensile，[0~14]；
+    - ``user_t``: numero pezzo，[0~14]；"
+    "Parametri predefiniti", "- ``joint_pos_p``: posizione giunti punto percorso，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
+    - ``joint_pos_t``: posizione giunti punto target，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
+    - ``vel_p``: percentuale velocità punto percorso，[0~100] default 20.0;
+    - ``acc_p``: percentuale accelerazione punto percorso，[0~100] non aperto attualmente, default 0.0;
+    - ``exaxis_pos_p``: punto percorso asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
+    - ``offset_flag_p``: punto percorso se offset [0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
+    - ``vel_t``: percentuale velocità punto target，[0~100] default 20.0;
+    - ``acc_t``: percentuale accelerazione punto target，[0~100] non aperto attualmente default 0.0;
+    - ``exaxis_pos_t``: punto target asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
+    - ``offset_flag_t``: punto target se offset [0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
+    - ``offset_pos_t``: quantità offset posa punto target，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0];
+    - ``ovl:``: fattore scala velocità，[0~100] default 100.0;
+    - ``blendR``:[-1.0]-movimento a posizione (bloccante)，[0~1000]-raggio smooth (non bloccante)，unità [mm] default -1.0;
+    - ``config``: configurazione spazio giunti cinematica inversa，[-1]-calcolo riferimento posizione giunti corrente，[0~7]-soluzione basata specifica configurazione spazio giunti，default -1;
+    - ``velAccParamMode``: modalità parametri velocità accelerazione；0-percentuale；1-velocità fisica(mm/s) accelerazione(mm/s2) default 0"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-Whole circle motion in Cartesian space
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento cerchio completo spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``Circle(desc_pos_p,tool_p,user_p,desc_pos_t,tool_t,user_t,joint_pos_p=[0.0,0.0,0.0,0.0,0.0,0.0], joint_pos_t = [0.0,0.0,0.0, 0.0,0.0,0.0,0.0], vel_p = 20.0, acc_p=0.0, exaxis_pos_p= [0.0,0.0, 0.0,0.0], vel_t=20.0, acc_t = 0.0, exaxis_pos_t = [0.0,0.0,0.0,0.0], ovl=100.0, offset_flag=0, offset_pos= [0.0,0.0,0.0,0.0,0.0,0.0],oacc=100.0,blendR=-1,config=-1,velAccParamMode=0)``"
-    "Description", "Cartesian Space Integral Circular Motion"
-    "Mandatory parameters", "- ``desc_pos_p``: path point Cartesian position in [mm][°];
-    - ``tool_p``: tool number, [0 to 14];
-    - ``user_p``: artifact number, [0~14];
-    - ``desc_pos_t``: Cartesian position of the target point in [mm][°];
-    - ``tool_t``: tool number, [0 to 14];
-    - ``user_t``: artifact number, [0~14];"
-    "Default parameters","- ``joint_pos_p``: path point joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``joint_pos_t``: target point joint position in [°] default initial value [0.0,0.0,0.0,0.0,0.0,0.0,0.0] default value calls inverse kinematics to solve for the return value.
-    - ``vel_p``: velocity percentage, [0~100] default 20.0.
-    - ``acc_p``: path point acceleration percentage, [0~100] not open yet default 0.0.
-    - ``exaxis_pos_p``: path point external axis 1 position ~ external axis 4 position default [0.0,0.0,0.0,0.0];
-    - ``vel_t``: percentage of velocity at target point, [0~100] default 20.0; ``vel_t``: percentage of velocity at target point, [0~100] default 20.0.
-    - ``acc_t``: target point acceleration percentage, [0~100] not open yet default 0.0.
-    - ``exaxis_pos_t``: point external axis 1 position ~ external axis 4 position default [0.0,0.0,0.0,0.0]
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0.
-    - ``offset_flag``: whether or not to offset [0] - no offset, [1] - offset in the workpiece/base coordinate system, [2] - offset in the tool coordinate system Default 0;
-    - ``offset_pos``: position offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]
-    - ``oacc``:Acceleration percentage, default: 100;
-    - ``blendR``:-1: Blockage 0 to 1000: Smooth radius, default: -1;
-    - ``config``: Reverse the joint space configuration, [-1]- calculate based on the current joint position, [0~7]- solve based on the specific joint space configuration, default -1
-    - ``velAccParamMode``: Speed acceleration parameter mode; 0- percentage; 1 -Physical velocity (mm/s) Acceleration (mm/s2) Default 0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``Circle(desc_pos_p,tool_p,user_p,desc_pos_t,tool_t,user_t,joint_pos_p=[0.0,0.0,0.0,0.0,0.0,0.0], joint_pos_t = [0.0,0.0,0.0,0.0,0.0,0.0], vel_p = 20.0, acc_p=0.0, exaxis_pos_p= [0.0,0.0, 0.0,0.0], vel_t=20.0, acc_t = 0.0, exaxis_pos_t =[0.0,0.0,0.0,0.0], ovl=100.0, offset_flag=0, offset_pos= [0.0,0.0,0.0,0.0,0.0,0.0],oacc=100.0,blendR=-1,config=-1,velAccParamMode=0)``"
+    "Descrizione", "Movimento cerchio completo spazio cartesiano"
+    "Parametri obbligatori", "- ``desc_pos_p``: posa cartesiana punto percorso，unità[mm][°]；
+    - ``tool_p``: numero utensile，[0~14]；
+    - ``user_p``: numero pezzo，[0~14]；
+    - ``desc_pos_t``: posa cartesiana punto target，unità[mm][°]；
+    - ``tool_t``: numero utensile，[0~14]；
+    - ``user_t``: numero pezzo，[0~14]；"
+    "Parametri predefiniti", "- ``joint_pos_p``: posizione giunti punto percorso，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
+    - ``joint_pos_t``: posizione giunti punto target，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
+    - ``vel_p``: percentuale velocità，[0~100] default 20.0;
+    - ``acc_p``: percentuale accelerazione punto percorso，[0~100] non aperto attualmente default 0.0;
+    - ``exaxis_pos_p``: punto percorso asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
+    - ``vel_t``: percentuale velocità punto target，[0~100] default 20.0;
+    - ``acc_t``: percentuale accelerazione punto target，[0~100] non aperto attualmente default 0.0;
+    - ``exaxis_pos_t``: punto target asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0]
+    - ``ovl``: fattore scala velocità，[0~100] default 100.0;
+    - ``offset_flag``: se offset [0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
+    - ``offset_pos``: quantità offset posa，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]
+    - ``oacc``: percentuale accelerazione，default：100；
+    - ``blendR``:-1：bloccante；0~1000：raggio smooth, default：-1；
+    - ``config``: configurazione spazio giunti cinematica inversa，[-1]-calcolo riferimento posizione giunti corrente，[0~7]-soluzione basata specifica configurazione spazio giunti，default -1;
+    - ``velAccParamMode``: modalità parametri velocità accelerazione；0-percentuale；1-velocità fisica(mm/s) accelerazione(mm/s2) default 0"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-Point-to-point motion in Cartesian space
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento punto a punto spazio cartesiano
+++++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MoveCart(desc_pos, tool, user, vel = 20.0, acc = 0.0, ovl = 100.0, blendT = -1.0, config = -1)``"
-    "Description", "Point-to-point motion in Cartesian space"
-    "Mandatory parameters", "- ``desc_pos``: target Cartesian position;
-    - ``tool``: tool number, [0 to 14];
-    - ``user``: artifact number, [0 to 14];"
-    "Default parameters", "- ``vel``: velocity, range [0 to 100], default 20.0;
-    - ``acc``: acceleration, range [0-100], not available, default 0.0; 
-    - ``ovl``: velocity scaling factor, [0 to 100], default 100.0.
-    - ``blendT``:[-1.0]-motion in place (blocking), [0~500]-smoothing time (non-blocking) in [ms] default -1.0;
-    - ``config``: joint configuration, [-1] - solve with reference to current joint position, [0~7] - solve based on joint configuration default is -1"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveCart(desc_pos, tool, user, vel = 20.0, acc = 0.0, ovl = 100.0, blendT = -1.0, config = -1)``"
+    "Descrizione", "Movimento punto a punto spazio cartesiano"
+    "Parametri obbligatori", "- ``desc_pos``: posizione cartesiana target；
+    - ``tool``: numero utensile，[0~14]；
+    - ``user``: numero pezzo，[0~14]；"
+    "Parametri predefiniti", "- ``vel``: velocità，range [0~100]，default 20.0;
+    - ``acc``: accelerazione，range [0~100]，non aperto attualmente, default 0.0;
+    - ``ovl``: fattore scala velocità，[0~100]，default 100.0;
+    - ``blendT``:[-1.0]-movimento a posizione (bloccante)，[0~500]-tempo smooth (non bloccante)，unità [ms] default -1.0;
+    - ``config``: configurazione giunti，[-1]-soluzione riferimento posizione giunti corrente，[0~7]-soluzione basata configurazione giunti default -1"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-Sample robot basic motion commands code
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio codice comandi movimento base robot
++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
     robot = Robot.RPC('192.168.58.2')
     j1 = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     j2 = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
@@ -259,38 +259,38 @@ Sample robot basic motion commands code
     print(f"MoveCart errcode: {rtn}")
     robot.CloseRPC()
 
-Spiral motion in Cartesian space
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento spirale spazio cartesiano
+++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``NewSpiral(desc_pos, tool, user, param, joint_pos = [0.0,0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 0.0, exaxis_pos = [0.0,0.0,0.0,0.0], ovl = 100.0, offset_flag = 0, offset_pos = [0.0,0.0,0.0,0.0,0.0,0.0], config = -1)``"
-    "Description", "Spiral motion in Cartesian space"
-    "Mandatory parameters", "- ``desc_pos``: target Cartesian position in [mm][°];
-    - ``tool``: tool number, [0 to 14].
-    - ``user``: artifact number, [0 to 14].
-    - ``param=[circle_num, circle_angle, rad_init, rad_add, rotaxis_add, rot_direction, velAccMode]``: circle_num: number of spiral turns; circle_angle: spiral inclination; rad_init: initial radius of the spiral. rad_add: radius increment; rotaxis_add: rotational direction increment; rot_direction: rotational direction, 0-clockwise, 1-counterclockwise,velAccMode speed acceleration parameter mode: 0- constant angular velocity, 1- constant linear velocity;"
-    "Default parameters","- ``joint_pos``: target joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``vel``: percentage of speed, [0~100] default 20.0.
-    - ``acc``: percentage of acceleration, [0~100] default 100.0.
-    - ``exaxis_pos``: external axis 1 position ~ external axis 4 position Default [0.0,0.0,0.0,0.0].
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0.
-    - ``offset_flag``:[0]-no offset, [1]-offset in workpiece/base coordinate system, [2]-offset in tool coordinate system Default 0;
-    - ``offset_pos``: position offset in [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]
-    - ``config``: Reverse the joint space configuration, [-1]- calculate based on the current joint position, [0~7]- solve based on the specific joint space configuration, default -1"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``NewSpiral(desc_pos, tool, user, param, joint_pos = [0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 0.0, exaxis_pos = [0.0,0.0,0.0,0.0], ovl = 100.0, offset_flag = 0, offset_pos = [0.0,0.0,0.0,0.0,0.0,0.0], config = -1)``"
+    "Descrizione", "Movimento spirale spazio cartesiano"
+    "Parametri obbligatori", "- ``desc_pos``: posa cartesiana target，unità[mm][°];
+    - ``tool``: numero utensile，[0~14];
+    - ``user``: numero pezzo，[0~14];
+    - ``param=[circle_num, circle_angle, rad_init, rad_add, rotaxis_add, rot_direction, velAccMode]``：circle_num: numero giri spirale;circle_angle: angolo inclinazione spirale;rad_init: raggio iniziale spirale;rad_add: incremento raggio;rotaxis_add: incremento direzione asse rotazione;rot_direction: direzione rotazione，0-orario，1-antiorario, velAccMode modalità parametri velocità accelerazione：0-velocità angolare costante，1-velocità lineare costante;"
+    "Parametri predefiniti", "- ``joint_pos``: posizione giunti target，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
+    - ``vel``: percentuale velocità，[0~100] default 20.0;
+    - ``acc``: percentuale accelerazione，[0~100] default 100.0;
+    - ``exaxis_pos``: asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
+    - ``ovl``: fattore scala velocità，[0~100] default 100.0;
+    - ``offset_flag``:[0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
+    - ``offset_pos``: quantità offset posa，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]
+    - ``config``: configurazione spazio giunti cinematica inversa，[-1]-calcolo riferimento posizione giunti corrente，[0~7]-soluzione basata specifica configurazione spazio giunti，default -1"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-code example
-++++++++++++++++++++++++++++++++++++++++++
+Esempio codice
+++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
     robot = Robot.RPC('192.168.58.2')
     j = [67.957, -81.482, 87.595, -95.691, -94.899, -9.727]
     desc_pos = [-123.142, -551.735, 430.549, 178.753, -4.757, 167.754]
@@ -313,59 +313,59 @@ code example
     robot.CloseRPC()
     return 0
 
-Start of servo motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio movimento servo
+++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ServoMoveStart()``"
-    "Description", "Servo motion start, used with ServoJ, ServoCart commands"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ServoMoveStart()``"
+    "Descrizione", "Inizio movimento servo，utilizzato con comandi ServoJ、ServoCart"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-End of servo motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``ServoMoveEnd()``"
-    "Description", "End of servo motion, used with ServoJ, ServoCart commands"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Joint space servo mode motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine movimento servo
+++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ServoJ(joint_pos, axisPos, acc = 0.0, vel = 0.0, cmdT = 0.008, filterT = 0.0, gain = 0.0, id=0)``"
-    "Description", "Joint space servo mode motion"
-    "Mandatory parameters", "- ``joint_pos``: target joint position in [°];
-    - ``axisPos``: external axis position in mm;"
-    "Default parameter", "- ``acc``: acceleration, range [0~100], not open yet, default 0.0.
-    - ``vel``: velocity, range [0~100], not open, default 0.0.
-    - ``cmdT``: command send cycle, unit s, recommended range [0.001~0.0016], default is 0.008.
-    - ``filterT``: filter time in [s], not open, default is 0.0; ``filterT``: filter time in [s], not open, default is 0.0.
-    - ``gain``: proportional amplifier for target position, not open yet, default 0.0;
-    - ``id``: servoJ command ID, default 0."
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ServoMoveEnd()``"
+    "Descrizione", "Fine movimento servo，utilizzato con comandi ServoJ、ServoCart"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-Example of joint space servo mode motion code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento modalità servo spazio giunti
+++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ServoJ(joint_pos, axisPos, acc = 0.0, vel = 0.0, cmdT = 0.008, filterT = 0.0, gain = 0.0, id=0)``"
+    "Descrizione", "Movimento modalità servo spazio giunti"
+    "Parametri obbligatori", "- ``joint_pos``: posizione giunti target，unità[°]；
+    - ``axisPos``: posizione asse esterno, unitàmm；"
+    "Parametri predefiniti", "- ``acc``: accelerazione，range [0~100]，non aperto attualmente，default 0.0;
+    - ``vel``: velocità，range [0~100]，non aperto attualmente，default 0.0;
+    - ``cmdT``: periodo invio comando，unitàs，range consigliato [0.001~0.0016], default 0.008;
+    - ``filterT``: tempo filtro，unità [s]，non aperto attualmente， default 0.0;
+    - ``gain``: amplificatore proporzionale posizione target，non aperto attualmente， default 0.0;
+    - ``id``: ID comando servoJ, default 0;"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
+
+Esempio codice movimento modalità servo spazio giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
     robot = Robot.RPC('192.168.58.2')
     j = [0.0] * 6
     epos = [0.0] * 4
@@ -399,57 +399,57 @@ Example of joint space servo mode motion code
         print(f"GetActualJointPosDegree errcode:{ret}")
     robot.CloseRPC()
 
-Joint torque control begins
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio controllo coppia giunti
+++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ServoJTStart()``"
-    "Description", "Joint torque control begins"
-    "Mandatory parameters", "NULL"
-    "Default_parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ServoJTStart()``"
+    "Descrizione", "Inizio controllo coppia giunti"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
-Joint torque control
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``ServoJT(torque, interval, checkFlag=0, jPowerLimit=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], jVelLimit=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0])``"
-    "Description", "Joint Torque Control"
-    "Required Parameters", "- ``torque``: Torque for joints j1~j6, unit: Nm
-                            - ``interval``: Command cycle, unit: s, range: [0.001~0.008]
-                            - ``checkFlag``: Detection strategy 0-No restrictions; 1-Power limit; 2-Velocity limit; 3-Both power and velocity limits, default: 0
-                            - ``jPowerLimit``: Default parameter jPowerLimit Maximum joint power limit (W), default: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-                            - ``jVelLimit``: Maximum joint velocity (°/s), default: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
-    "Default Parameters", "None"
-    "Return Value", "Error code Success-0 Failure- errcode"
-
-Joint torque control is completed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllo Coppia Giunti
++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ServoJTEnd()``"
-    "Description", "Joint torque control is completed"
-    "Mandatory parameters", "NULL"
-    "Default_parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ServoJT(torque, interval, checkFlag=0, jPowerLimit=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],jVelLimit=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0])``"
+    "Descrizione", "Controllo coppia giunti"
+    "Parametri Obbligatori", "- ``torque``:coppia giunti j1~j6, unità Nm
+                - ``interval``:periodo istruzione, unità s, range [0.001~0.008]
+                - ``checkFlag``:strategia rilevamento 0-nessun limite; 1-limite potenza; 2-limite velocità; 3-limite potenza e velocità simultaneo, default 0
+                - ``jPowerLimit``:parametro predefinito jPowerLimit limite potenza massima giunti (W), default [0.0,0.0,0.0,0.0,0.0,0.0]
+                - ``jVelLimit``:velocità massima giunti (°/s), default [0.0,0.0,0.0,0.0,0.0,0.0]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Sample code for joint torque control
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Controllo Coppia Giunti
++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ServoJTEnd()``"
+    "Descrizione", "Fine controllo coppia giunti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+
+Esempio Codice Controllo Coppia Giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     robot.DragTeachSwitch(1)
     # torques = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -464,65 +464,34 @@ Sample code for joint torque control
     robot.DragTeachSwitch(0)
     robot.CloseRPC()
 
-Joint Torque Control Code Example with Overspeed Protection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. code-block:: python
-    :linenos:
-
-    from fairino import Robot
-    import time
-    robot = Robot.RPC('192.168.58.2')
-    robot.ResetAllError()
-    time.sleep(0.5)
-    torques = [0.0] * 6
-    rtn, torques = robot.GetJointTorques(1)
-    robot.ServoJTStart()
-    robot.DragTeachSwitch(1)
-    checkFlag = 3
-    jPowerLimit = [10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
-    jVelLimit = [181,80,80,80,80,80]
-    count = 800000
-    error = 0
-    while count > 0:
-        torques[2] = torques[2] + 0.01
-        error = robot.ServoJT(torques, 0.008, checkFlag, jPowerLimit, jVelLimit)
-        print(f"ServoJT rtn is {error}")
-        count = count - 1
-        time.sleep(0.001)
-        rtn,pkg = robot.GetRobotRealTimeState()
-        print(f"maincode {pkg.main_code},subcode {pkg.sub_code}")
-    robot.DragTeachSwitch(0)
-    error = robot.ServoJTEnd()
-
-Servo-mode motion in Cartesian space
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Modalità Servo Spazio Cartesiano
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ServoCart(mode, desc_pos, pos_gain = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0] , acc = 0.0, vel = 0.0, cmdT = 0.008, filterT = 0.0, gain = 0.0)``"
-    "Description", "Servo mode motion in Cartesian space"
-    "Mandatory parameters", "- ``mode``: [0]-absolute motion (base coordinate system), [1]-incremental motion (base coordinate system), [2]-incremental motion (tool coordinate system);
-    - ``desc_pos``: target Cartesian position/target Cartesian position increment;"
-    "Default_parameters", "- ``pos_gain``: bit-pose incremental scale factor, valid only for incremental motion, range [0~1], default [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
-    - ``acc``: acceleration, range [0 to 100], not open, default 0.0.
-    - ``vel``: velocity, range [0~100], not open, default 0.0.
-    - ``cmdT``: command send cycle, unit s, recommended range [0.001~0.0016], default is 0.008.
-    - ``filterT``: filter time in [s], not open, default is 0.0; ``filterT``: filter time in [s], not open, default is 0.0.
-    - ``gain``: proportional amplifier for target position, not open yet, default 0.0;"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ServoCart(mode, desc_pos, pos_gain = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0] , acc = 0.0, vel = 0.0, cmdT = 0.008, filterT = 0.0, gain = 0.0)``"
+    "Descrizione", "Movimento modalità servo spazio cartesiano"
+    "Parametri Obbligatori", "- ``mode``:[0]-movimento assoluto (sistema base), [1]-movimento incrementale (sistema base), [2]-movimento incrementale (sistema utensile);
+    - ``desc_pos``:posizione target cartesiana/incremento posizione target cartesiana;"
+    "Parametri Predefiniti", "- ``pos_gain``:fattore proporzionale incremento posa, efficace solo movimento incrementale, range [0~1], default [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+    - ``acc``:accelerazione, range [0~100], non ancora disponibile, default 0.0;
+    - ``vel``:velocità, range [0~100], non ancora disponibile, default 0.0;
+    - ``cmdT``:periodo invio istruzione, unità s, range consigliato [0.001~0.0016], default 0.008;
+    - ``filterT``:tempo filtro, unità [s], non ancora disponibile, default 0.0;
+    - ``gain``:amplificatore proporzionale posizione target, non ancora disponibile, default 0.0;"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Example of Cartesian space servo mode motion code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento Modalità Servo Spazio Cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     desc_pos_dt = [0.0,0.0,0.0,0.0,0.0,0.0]  # [x, y, z, rx, ry, rz]
     desc_pos_dt[2] = -0.5 
@@ -542,55 +511,55 @@ Example of Cartesian space servo mode motion code
         time.sleep(cmdT)
     robot.CloseRPC()
 
-Start of spline motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Movimento Spline
+++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SplineStart()``"
-    "Description", "Sample movement begins"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SplineStart()``"
+    "Descrizione", "Inizio movimento spline"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Sample motion PTP
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Spline PTP
+++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SplinePTP(joint_pos, tool, user, desc_pos = [0.0,0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 100.0, ovl = 100.0)``"
-    "Description", "Sample Motion PTP"
-    "Mandatory parameters", "- ``joint_pos``: target joint position in [°];
-    - ``tool``: tool number, [0 to 14];
-    - ``user``: artifact number, [0 to 14];"
-    "Default parameters", "- ``desc_pos``: target Cartesian position in [mm][°] Default initial value [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls positive kinematics to solve for the return value.
-    - ``vel``: velocity, range [0-100], default 20.0.
-    - ``acc``: acceleration, range [0 to 100], default 100.0.
-    - ``ovl``: velocity scaling factor, [0 to 100], default 100.0"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SplinePTP(joint_pos, tool, user, desc_pos = [0.0,0.0,0.0,0.0,0.0,0.0],  vel = 20.0,  acc = 100.0, ovl = 100.0)``"
+    "Descrizione", "Movimento spline PTP"
+    "Parametri Obbligatori", "- ``joint_pos``:posizione target giunti, unità[°];
+    - ``tool``:numero utensile, [0~14];
+    - ``user``:numero pezzo, [0~14];"
+    "Parametri Predefiniti", "- ``desc_pos``:posa target cartesiana, unità [mm][°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0], default chiama risultato calcolo cinematica diretta;
+    - ``vel``:velocità, range [0~100], default 20.0;
+    - ``acc``:accelerazione, range [0~100], default 100.0;
+    - ``ovl``:fattore scala velocità, [0~100], default 100.0"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-End of spline motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Movimento Spline
+++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SplineEnd()``"
-    "Description", "End of spline motion"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Spline motion code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+    "Prototipo", "``SplineEnd()``"
+    "Descrizione", "Fine movimento spline"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+    
+Esempio Codice Movimento Spline
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     joint_points = [
         [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256],  # j1
@@ -612,7 +581,7 @@ Spline motion code example
     flag = 0 
     robot.SetSpeed(20)
     err1 = robot.MoveJ(joint_pos=joint_points[0],tool=tool, user=user,vel=vel)
-    print(f"MoveJ 错误码: {err1}")
+    print(f"MoveJ errore: {err1}")
     robot.SplineStart()
     robot.SplinePTP(joint_pos=joint_points[0],tool=tool, user=user)
     robot.SplinePTP(joint_pos=joint_points[1],tool=tool, user=user)
@@ -621,65 +590,65 @@ Spline motion code example
     robot.SplineEnd()
     robot.CloseRPC()
 
-New spline movement begins
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Nuovo Movimento Spline
++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: python SDK-v2.0.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``NewSplineStart(type,averageTime=2000)``"
-    "Description", "New Sample Movement Begins"
-    "Mandatory parameters", "- ``type``: 0 - arc transition, 1 - given point path point"
-    "Default Parameters", "- ``averageTime``: global average articulation time (ms) defaults to 2000"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``NewSplineStart(type,averageTime=2000)``"
+    "Descrizione", "Inizio nuovo movimento spline"
+    "Parametri Obbligatori", "- ``type``:0-transizione arco, 1-punti percorso dati"
+    "Parametri Predefiniti", "- ``averageTime``:tempo medio transizione globale (ms) default 2000"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-New spline command point
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Punto Istruzione Nuova Spline
++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype","``NewSplinePoint(desc_pos,tool,user,lastFlag,joint_pos=[0.0,0.0,0.0,0.0,0.0,0.0], vel = 0.0, acc = 0.0, ovl = 100.0 ,blendR = 0.0 )``"
-    "description", "new spline command point"
-    "Mandatory parameters", "- ``desc_pos``: target Cartesian position in [mm][°].
-    - ``tool``: tool number, [0 to 14];
-    - ``user``: artifact number, [0 to 14];
-    - ``lastFlag``: whether it is the last point, 0 - no, 1 - yes;"
-    "Default parameters","- ``joint_pos``: target joint position in [°] Default initial value is [0.0,0.0,0.0,0.0,0.0,0.0,0.0], default value calls inverse kinematics to solve for the return value.
-    - ``vel``: velocity, range [0~100], not open yet, default is 0.0;;
-    - ``acc``: acceleration, range [0 to 100], not open, default 0.0.
-    - ``ovl``: velocity scaling factor, [0~100] default 100.0.
-    - ``blendR``: [0~1000]-smoothing radius in [mm] default 0.0;"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``NewSplinePoint(desc_pos,tool,user,lastFlag,joint_pos=[0.0,0.0,0.0,0.0,0.0,0.0], vel = 0.0, acc = 0.0, ovl = 100.0 ,blendR = 0.0 )``"
+    "Descrizione", "Punto istruzione nuova spline"
+    "Parametri Obbligatori", "- ``desc_pos``:posa target cartesiana, unità [mm][°];
+    - ``tool``:numero utensile, [0~14];
+    - ``user``:numero pezzo, [0~14];
+    - ``lastFlag``:se ultimo punto, 0-no, 1-sì;"
+    "Parametri Predefiniti", "- ``joint_pos``:posizione target giunti, unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0], default chiama risultato calcolo cinematica inversa;
+    - ``vel``:velocità, range [0~100], non ancora disponibile, default 0.0;;
+    - ``acc``:accelerazione, range [0~100], non ancora disponibile, default 0.0;
+    - ``ovl``:fattore scala velocità, [0~100] default 100.0;
+    - ``blendR``: [0~1000]-raggio smoothing, unità [mm] default 0.0;"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-End of new spline movement
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Nuovo Movimento Spline
++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``NewSplineEnd()``"
-    "Description", "End of New Sample Campaign"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``NewSplineEnd()``"
+    "Descrizione", "Fine nuovo movimento spline"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Example of new spline motion code
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Nuovo Movimento Spline
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     j1 = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     j2 = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
     j3 = [-61.954, -84.409, 108.153, -116.316, -91.283, 74.260]
     j4 = [-89.575, -80.276, 102.713, -116.302, -91.284, 74.267]
-    j5 = [-95.228, -54.621, 73.691, -112.245, -91.280, 74.268]
+    j5 = [-95.228, -54.621, 73.691, -112.245, -91.280, 74.267]
     desc_pos1 = [-419.524, -13.000, 351.569, -178.118, 0.314, 3.833]
     desc_pos2 = [-321.222, 185.189, 335.520, -179.030, -1.284, -29.869]
     desc_pos3 = [-327.622, 402.230, 320.402, -178.067, 2.127, -46.207]
@@ -696,7 +665,7 @@ Example of new spline motion code
     flag = 0
     robot.SetSpeed(20)
     err1 = robot.MoveJ(joint_pos=j1, tool=tool, user=user, vel=vel)
-    print(f"movej errcode:{err1}")
+    print(f"movej errore:{err1}")
     robot.NewSplineStart(1, 2000)
     robot.NewSplinePoint(desc_pos=desc_pos1, tool=tool, user=user, vel=vel, lastFlag=-1, blendR=0)
     robot.NewSplinePoint(desc_pos=desc_pos2, tool=tool, user=user, vel=vel, lastFlag=-1, blendR=0)
@@ -706,50 +675,50 @@ Example of new spline motion code
     robot.NewSplineEnd()
     robot.CloseRPC()
 
-Robot termination motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Terminazione Movimento Robot
+++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``StopMotion()``"
-    "Description", "Terminate motion, use of terminate motion requires motion instruction to be non-blocking"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``StopMotion()``"
+    "Descrizione", "Termina movimento, usare con istruzioni movimento non bloccanti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Robot pause
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pausa Movimento Robot
+++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``PauseMotion()``"
-    "Description", "Pause motion. Using pause motion requires the motion instruction to be in a non-blocking state"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PauseMotion()``"
+    "Descrizione", "Pausa movimento, usare con istruzioni movimento non bloccanti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Robot resume motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ripresa Movimento Robot
+++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``ResumeMotion()``"
-    "Description", "Resume motion, using resume motion requires the motion instruction to be in a non-blocking state"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ResumeMotion()``"
+    "Descrizione", "Riprende movimento, usare con istruzioni movimento non bloccanti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Motion pause, resume, and stop code examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Pausa, Ripresa, Stop Movimento
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     j1 =[-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     j5 =[-95.228, -54.621, 73.691, -112.245, -91.280, 74.268]
@@ -776,39 +745,39 @@ Motion pause, resume, and stop code examples
     time.sleep(1)
     robot.CloseRPC()
 
-Overall shift in points begins
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Offset Globale Punti
++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``PointsOffsetEnable(flag,offset_pos)``"
-    "Description", "Point Overall Offset Begins"
-    "Mandatory parameters", "- ``flag``: 0 - offset in base or work coordinate system, 2 - offset in tool coordinate system;
-    - ``offset_pos``: offset in [mm][°]."
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PointsOffsetEnable(flag,offset_pos)``"
+    "Descrizione", "Inizio offset globale punti"
+    "Parametri Obbligatori", "- ``flag``:0-offset in sistema base o pezzo, 2-offset in sistema utensile;
+    - ``offset_pos``:valore offset, unità [mm][°]."
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Overall offset of points ends
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Offset Globale Punti
++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``PointsOffsetDisable()``"
-    "Description", "End of overall point offset"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PointsOffsetDisable()``"
+    "Descrizione", "Fine offset globale punti"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Point offset code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Offset Punti
++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     j1 = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     j2 = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
@@ -834,76 +803,76 @@ Point offset code example
     robot.PointsOffsetDisable()
     robot.CloseRPC()
 
-Control box motion AO start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Movimento AO Box Controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype","``MoveAOStart(AONum,maxTCPSpeed=1000,maxAOPercent=100,zeroZoneCmp=20)``"
-    "Description", "Control Box Motion AO Start"
-    "Mandatory parameters", "- ``AONum``: control box AO number"
-    "Default Parameters", "
-    - ``maxTCPSpeed``: Maximum TCP speed value [1-5000mm/s], default 1000;
-    - ``maxAOPercent``: percentage of AO corresponding to the maximum TCP speed value, default 100%;
-    - ``zeroZoneCmp``: deadzone compensation value AO percentage, shaped, default 20%, range [0-100]."
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveAOStart(AONum,maxTCPSpeed=1000,maxAOPercent=100,zeroZoneCmp=20)``"
+    "Descrizione", "Inizio movimento AO box controllo"
+    "Parametri Obbligatori", "- ``AONum``:numero AO box controllo"
+    "Parametri Predefiniti", "
+    - ``maxTCPSpeed``:valore massimo velocità TCP [1-5000mm/s], default 1000;
+    - ``maxAOPercent``:percentuale AO corrispondente valore massimo velocità TCP, default 100%;
+    - ``zeroZoneCmp``:valore compensazione zona morta percentuale AO, intero, default 20%, range [0-100]."
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-End of control box movement AO
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Movimento AO Box Controllo
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``MoveAOStop()``"
-    "Description", "End of control box motion AO"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveAOStop()``"
+    "Descrizione", "Fine movimento AO box controllo"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-End Motion AO Start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Movimento AO Terminale
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype","``MoveToolAOStart(AONum,maxTCPSpeed=1000,maxAOPercent=100,zeroZoneCmp =20)``"
-    "Description", "End Motion AO Start"
-    "Mandatory parameters", "- ``AONum``: end AO number"
-    "Default Parameters", "
-    - ``maxTCPSpeed``: Maximum TCP speed value [1-5000mm/s], default 1000;
-    - ``maxAOPercent``: percentage of AO corresponding to the maximum TCP speed value, default 100%;
-    - ``zeroZoneCmp``: deadzone compensation value AO percentage, shaped, default 20%, range [0-100]."
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``MoveToolAOStart(AONum,maxTCPSpeed=1000,maxAOPercent=100,zeroZoneCmp =20)``"
+    "Descrizione", "Inizio movimento AO terminale"
+    "Parametri Obbligatori", "- ``AONum``:numero AO terminale"
+    "Parametri Predefiniti", "
+    - ``maxTCPSpeed``:valore massimo velocità TCP [1-5000mm/s], default 1000;
+    - ``maxAOPercent``:percentuale AO corrispondente valore massimo velocità TCP, default 100%;
+    - ``zeroZoneCmp``:valore compensazione zona morta percentuale AO, intero, default 20%, range [0-100]."
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-End movement AO end
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Movimento AO Terminale
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``MoveToolAOStop()``"
-    "Description", "end movement AO end"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-AO flyshot code example
-+++++++++++++++++++++++++++++++++++++++++++++++
+    "Prototipo", "``MoveToolAOStop()``"
+    "Descrizione", "Fine movimento AO terminale"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+      
+Esempio Codice AO Fly Shoot
++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     j1 = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     j2 = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
@@ -931,73 +900,73 @@ AO flyshot code example
     robot.MoveToolAOStop()
     robot.CloseRPC()
 
-Start Ptp motion FIR filtering
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Filtro FIR Movimento Ptp
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.2
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``PtpFIRPlanningStart(maxAcc, maxJek)``"
-    "Description", "Start Ptp motion FIR filtering"
-    "Mandatory parameters", "- ``maxAcc``:Maximum acceleration extremum(deg/s2)
-    - ``maxJek``:Unify the extreme values of joint urgency (deg/s3)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PtpFIRPlanningStart(maxAcc, maxJek)``"
+    "Descrizione", "Inizio filtro FIR movimento Ptp"
+    "Parametri Obbligatori", "- ``maxAcc``:valore estremo accelerazione massima (deg/s2)
+    - ``maxJek``:valore estremo jerk giunti unificato (deg/s3)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Disable Ptp motion FIR filtering
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Filtro FIR Movimento Ptp
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``PtpFIRPlanningEnd()``"
-    "Description", "Disable Ptp motion FIR filtering"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``PtpFIRPlanningEnd()``"
+    "Descrizione", "Fine filtro FIR movimento Ptp"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-LIN, ARC motion FIR filtering is started
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Filtro FIR Movimento LIN, ARC
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``LinArcFIRPlanningStart(maxAccLin,maxAccDeg,maxJerkLin,maxJerkDeg)``"
-    "Description", "LIN, ARC motion FIR filtering is started"
-    "Mandatory parameter", "- ``maxAccLin``:Linear acceleration extremum(mm/s2)
-    - ``maxAccDeg``:Angular acceleration extremum(deg/s2)
-    - ``maxJerkLin``:Linear plus acceleration extremum(mm/s3)
-    - ``maxJerkDeg``:Angle plus acceleration extremum(deg/s3)"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``LinArcFIRPlanningStart(maxAccLin,maxAccDeg,maxJerkLin,maxJerkDeg)``"
+    "Descrizione", "Inizio filtro FIR movimento LIN, ARC"
+    "Parametri Obbligatori", "- ``maxAccLin``:valore estremo accelerazione lineare (mm/s2)
+    - ``maxAccDeg``:valore estremo accelerazione angolare (deg/s2)
+    - ``maxJerkLin``:valore estremo jerk lineare (mm/s3)
+    - ``maxJerkDeg``:valore estremo jerk angolare (deg/s3)"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Turn off LIN and ARC motion FIR filtering
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fine Filtro FIR Movimento LIN, ARC
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
     
-    "Prototype", "``LinArcFIRPlanningEnd()``"
-    "Description", "Turn off LIN and ARC motion FIR filtering"
-    "Mandatory parameter", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"  
-    
-FIR filtering code example
+    "Prototipo", "``LinArcFIRPlanningEnd()``"
+    "Descrizione", "Fine filtro FIR movimento LIN, ARC"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"   
+
+Esempio Codice Filtro FIR
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     startjointPos = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     startjointPos = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
@@ -1026,7 +995,7 @@ FIR filtering code example
     print(f"LinArcFIRPlanningEnd rtn is {rtn}")
     robot.CloseRPC()
 
-Acceleration smooth on
+Attivazione Smoothing Accelerazione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -1034,13 +1003,13 @@ Acceleration smooth on
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AccSmoothStart(saveFlag_flag)``"
-    "Description", "Acceleration smooth on"
-    "Mandatory parameters", "- ``saveFlag_flag``: Power off and save"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AccSmoothStart(saveFlag_flag)``"
+    "Descrizione", "Attiva smoothing accelerazione"
+    "Parametri Obbligatori", "- ``saveFlag_flag``：salvataggio dopo spegnimento"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Acceleration smooth closing
+Disattivazione Smoothing Accelerazione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.1
 
@@ -1048,19 +1017,19 @@ Acceleration smooth closing
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AccSmoothEnd(saveFlag_flag)``"
-    "Description", "Acceleration smooth closing"
-    "Mandatory parameters", "- ``saveFlag_flag``: Power off and save"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``AccSmoothEnd(saveFlag_flag)``"
+    "Descrizione", "Disattiva smoothing accelerazione"
+    "Parametri Obbligatori", "- ``saveFlag_flag``：salvataggio dopo spegnimento"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
 
-Acceleration smoothing code example
+Esempio Codice Smoothing Accelerazione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     startjointPos = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     endjointPos = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
@@ -1075,41 +1044,41 @@ Acceleration smoothing code example
     rtn = robot.AccSmoothEnd(0)
     print(f"AccSmoothEnd rtn is {rtn}")
 
-Setting the machine's specified attitude speed on
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione Velocità Orientamento Specifica Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AngularSpeedStart(ratio)``"
-    "Description", "Specifies that attitude speed is on."
-    "Mandatory parameters", "- ``ratio``: percentage of attitude velocity [0-300]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``AngularSpeedStart(ratio)``"
+    "Descrizione", "Attiva velocità orientamento specifica"
+    "Parametri Obbligatori", "- ``ratio``:percentuale velocità orientamento [0-300]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode "
 
-Specify Attitude Velocity Off
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Disattivazione Velocità Orientamento Specifica
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``AngularSpeedEnd()``"
-    "Description", "Specify Attitude Velocity Off"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``AngularSpeedEnd()``"
+    "Descrizione", "Disattiva velocità orientamento specifica"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode "
 
-Robot specified pose velocity code example
+Esempio Codice Velocità Orientamento Specifica Robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     startjointPos = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     endjointPos = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
@@ -1125,46 +1094,46 @@ Robot specified pose velocity code example
     print(f"AngularSpeedEnd rtn is {rtn}")
     robot.CloseRPC()
 
-Odd-position protection on.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attivazione Protezione Posizioni Singolari
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SingularAvoidStart(protectMode, minShoulderPos=100, minElbowPos=50, minWristPos=10)``"
-    "Description", "Turn on odd-bit posture protection."
-    "Mandatory parameters", "
-    - ``protectMode``: singular position protection protection mode: 0 - articulated mode; 1 - Cartesian mode
+    "Prototipo", "``SingularAvoidStart(protectMode, minShoulderPos=100, minElbowPos=50, minWristPos=10)``"
+    "Descrizione", "Attiva protezione posizioni singolari"
+    "Parametri Obbligatori", "
+    - ``protectMode``：modalità protezione posizioni singolari: 0-modalità giunti; 1-modalità cartesiana
     "
-    "Default Parameters", "- ``minShoulderPos``: Shoulder singularity adjustment range (mm), default 100.0
-    - ``minElbowPos``: elbow singularity adjustment range (mm), default 50.0
-    - ``minWristPos``: range of wrist singularity adjustment (°), default 10.0"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Parametri Predefiniti", "- ``minShoulderPos``：intervallo regolazione singolarità spalla (mm), default 100.0
+    - ``minElbowPos``：intervallo regolazione singolarità gomito (mm), default 50.0
+    - ``minWristPos``：intervallo regolazione singolarità polso (°), default 10.0"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
 
-Odd position protection off
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Disattivazione Protezione Posizioni Singolari
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SingularAvoidEnd()``"
-    "Description", "Turn off odd-position protection"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Prototipo", "``SingularAvoidEnd()``"
+    "Descrizione", "Disattiva protezione posizioni singolari"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
 
-Example of robot singular pose protection code
+Esempio Codice Protezione Posizioni Singolari Robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos: 
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     startjointPos = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     endjointPos = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
@@ -1180,79 +1149,79 @@ Example of robot singular pose protection code
     print(f"SingularAvoidEnd rtn is {rtn}")
     robot.CloseRPC()
 
-Clear the motor command queue
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Svuotamento Coda Istruzioni Movimento
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``MotionQueueClear()``"
-    "Description", "Clear the motor command queue"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errcode Success-0 Failure- errcode"
+    "Prototipo", "``MotionQueueClear()``"
+    "Descrizione", "Svuota coda istruzioni movimento"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
 
-Clear Motion Command Queue
-+++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``MoveToIntersectLineStart(mainPoint, piecePoint, tool, wobj, vel, acc, ovl, oacc, moveType,mainExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],pieceExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],extAxisFlag=0,exaxisPos=[0.0,0.0,0.0,0.0],moveDirection=0,offset=[0.0,0.0,0.0,0.0,0.0,0.0])``"
-    "Description", "Clear motion command queue"
-    "Required Parameters", "
-    - ``mainPoint``：Cartesian poses of 6 taught points on the main pipe
-    - ``piecePoint``：Cartesian poses of 6 taught points on the branch pipe
-    - ``tool``：Tool coordinate system number
-    - ``wobj``：Workpiece coordinate system number
-    - ``vel``：Velocity percentage
-    - ``acc``：Acceleration percentage
-    - ``ovl``：Velocity scaling factor
-    - ``oacc``：Acceleration scaling factor
-    - ``moveType``：Motion type; 0-PTP; 1-LIN
-    - ``mainExaxisPos``：Extended axis positions for 6 taught points on the main pipe, default [[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
-    - ``pieceExaxisPos``：Extended axis positions for 6 taught points on the branch pipe, default [[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
-    - ``extAxisFlag``：Whether to enable extended axis; 0-Disable; 1-Enable
-    - ``exaxisPos``：Start point extended axis position [0.0,0.0,0.0,0.0]
-    - ``moveDirection``：Motion direction; 0-Clockwise; 1-Counterclockwise
-    - ``offset``：Offset value
-    "
-    "Default Parameters", "None"
-    "Return Value", "- Error code Success-0 Failure- errcode"
-
-Intersecting Line Motion
-+++++++++++++++++++++++++++++++++
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``MoveIntersectLine(mainPoint, piecePoint, tool, wobj, vel, acc, ovl, oacc, moveDirection,mainExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],pieceExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],extAxisFlag=0,exaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],offset=[0.0,0.0,0.0,0.0,0.0,0.0])``"
-    "Description", "Intersecting line motion"
-    "Required Parameters", "
-    - ``mainPoint``：Cartesian poses of 6 taught points on the main pipe
-    - ``piecePoint``：Cartesian poses of 6 taught points on the branch pipe
-    - ``tool``：Tool coordinate system number
-    - ``wobj``：Workpiece coordinate system number
-    - ``vel``：Velocity percentage
-    - ``acc``：Acceleration percentage
-    - ``ovl``：Velocity scaling factor
-    - ``oacc``：Acceleration scaling factor
-    - ``moveDirection``：Motion direction; 0-Clockwise; 1-Counterclockwise
-    - ``mainExaxisPos``：Extended axis positions for 6 taught points on the main pipe, default [[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
-    - ``pieceExaxisPos``：Extended axis positions for 6 taught points on the branch pipe, default [[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
-    - ``extAxisFlag``：Whether to enable extended axis; 0-Disable; 1-Enable
-    - ``exaxisPos``：Start point extended axis position [0.0,0.0,0.0,0.0]
-    - ``offset``：Offset value
-    "
-    "Default Parameters", "None"
-    "Return Value", "- Error code Success-0 Failure- errcode"
-
-Robot Intersecting Line Motion Code Example
+Movimento a Inizio Linea Intersecante
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``MoveToIntersectLineStart(mainPoint, piecePoint, tool, wobj, vel, acc, ovl, oacc, moveType,mainExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],pieceExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],extAxisFlag=0,exaxisPos=[0.0,0.0,0.0,0.0],moveDirection=0,offset=[0.0,0.0,0.0,0.0,0.0,0.0])``"
+    "Descrizione", "Movimento a inizio linea intersecante"
+    "Parametri Obbligatori", "
+    - ``mainPoint``：6 pose cartesiane punti insegnamento tubo principale
+    - ``piecePoint``：6 pose cartesiane punti insegnamento tubo secondario
+    - ``tool``：numero sistema coordinate utensile
+    - ``wobj``：numero sistema coordinate pezzo
+    - ``vel``：percentuale velocità
+    - ``acc``：percentuale accelerazione
+    - ``ovl``：fattore scala velocità
+    - ``oacc``：fattore scala accelerazione
+    - ``moveType``：tipo movimento; 0-PTP; 1-LIN
+    - ``mainExaxisPos``：posizioni assi estesi 6 punti insegnamento tubo principale, default[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
+    - ``pieceExaxisPos``：posizioni assi estesi 6 punti insegnamento tubo secondario, default[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
+    - ``extAxisFlag``：abilita assi estesi; 0-disabilitato; 1-abilitato
+    - ``exaxisPos``：posizione assi estesi punto iniziale [0.0,0.0,0.0,0.0]
+    - ``moveDirection``：direzione movimento; 0-orario; 1-antiorario
+    - ``offset``：valore offset
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
+
+Movimento Linea Intersecante
++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``MoveIntersectLine(mainPoint, piecePoint, tool, wobj, vel, acc, ovl, oacc, moveDirection,mainExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],pieceExaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],extAxisFlag=0,exaxisPos=[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]],offset=[0.0,0.0,0.0,0.0,0.0,0.0])``"
+    "Descrizione", "Movimento linea intersecante"
+    "Parametri Obbligatori", "
+    - ``mainPoint``：6 pose cartesiane punti insegnamento tubo principale
+    - ``piecePoint``：6 pose cartesiane punti insegnamento tubo secondario
+    - ``tool``：numero sistema coordinate utensile
+    - ``wobj``：numero sistema coordinate pezzo
+    - ``vel``：percentuale velocità
+    - ``acc``：percentuale accelerazione
+    - ``ovl``：fattore scala velocità
+    - ``oacc``：fattore scala accelerazione
+    - ``moveDirection``：direzione movimento; 0-orario; 1-antiorario
+    - ``mainExaxisPos``：posizioni assi estesi 6 punti insegnamento tubo principale, default[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
+    - ``pieceExaxisPos``：posizioni assi estesi 6 punti insegnamento tubo secondario, default[[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0],[0.0,0.0,0.0,0.0]]
+    - ``extAxisFlag``：abilita assi estesi; 0-disabilitato; 1-abilitato
+    - ``exaxisPos``：posizione assi estesi punto iniziale [0.0,0.0,0.0,0.0]
+    - ``offset``：valore offset
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore Ritorno", "- Codice errore successo-0 fallimento- errcode"
+
+Esempio Codice Movimento Linea Intersecante Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos: 

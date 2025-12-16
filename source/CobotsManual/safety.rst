@@ -1,545 +1,543 @@
-Safety
+Sicurezza
 ===============
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 6
 
-Stop mode
---------------
+Arresto di Sicurezza
+-----------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Stop mode" submenu to enter the configuration interface, set the safety stop mode and safety stop policy parameters function.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Arresto di sicurezza" per accedere all'interfaccia di configurazione. Impostare la modalità di arresto di sicurezza e i parametri della strategia di arresto di sicurezza.
 
 .. image:: safety/001.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.1-1 Safe Stop Configuration
+.. centered:: Diagramma 7.1-1 Configurazione Arresto di Sicurezza
 
-Safe speed
---------------
+Velocità di Sicurezza
+-----------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Safe speed" submenu to enter the configuration interface, set the safe speed.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Velocità di sicurezza" per accedere all'interfaccia di configurazione. Impostare la velocità di sicurezza.
 
-.. note:: TCP manual speed is less than 250mm/s.
+.. note:: La velocità manuale TCP è inferiore a 250 mm/s.
 
 .. image:: safety/002.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.2-1 Safe manual speed configuration
+.. centered:: Diagramma 7.2-1 Configurazione Velocità Manuale Sicura
 
-I/O safety
---------------
+Sicurezza I/O
+----------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "I/O safety" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Sicurezza I/O" per accedere all'interfaccia di configurazione.
 
-The HMI provides the setting of the safety status of 16 digital inputs and 16 digital outputs, which can be set to valid or invalid status. When the controller determines that it is in a safe state, the 16 digital inputs and 16 digital outputs are set to a safe state.
+L'HMI consente di impostare lo stato di sicurezza per 16 ingressi digitali e 16 uscite digitali, che possono essere configurati come validi o non validi. Quando il controller rileva che il sistema è in uno stato sicuro, i 16 ingressi digitali e le 16 uscite digitali vengono impostati nello stato di sicurezza.
 
 .. image:: safety/003.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.3-1 DIO safety status configuration
+.. centered:: Diagramma 7.3-1 Configurazione Stato Sicurezza I/O
 
-On Linux:
-   The I/O safety function is provided in "DIO Safety". The safety function is dual-channel DI or DO. When a safety DI signal is detected or the safety status flag is triggered, DO is output.
+Nel sistema LA:
+    "Sicurezza I/O" fornisce la funzione di sicurezza DIO, che è un DI a doppio canale o DO. Quando viene rilevato un segnale DI di sicurezza o viene attivato un flag di stato di sicurezza, viene emesso il DO.
 
 .. image:: safety/004.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.3-2 DIO safety function configuration
+.. centered:: Diagramma 7.3-2 Configurazione Funzione Sicurezza I/O
 
-Emergency stop
----------------------
+Arresto di Emergenza
+-------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Emergency stop" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Arresto di emergenza" per accedere all'interfaccia di configurazione.
 
-Emergency stop types 0, 1a, 1b, 2 can be set, stop time limit can be set, and stop distance limit can be set.
+È possibile configurare i tipi di arresto di emergenza 0, 1a, 1b, 2, impostare i limiti di tempo di arresto e i limiti di distanza di arresto.
 
- - Send the control box board through the controller, and the emergency stop type 0 control box board directly cuts off the power;
-
- - Emergency stop type 1a is to cut off the power supply of the main body after deceleration stop;
-
- - Emergency stop type 1b is to not cut off the power supply of the main body after deceleration stop, and the main body is disabled;
-
-- Emergency stop type 2 indicates pressing the emergency stop button, the robot decelerates to stop and maintains enable status. After releasing the emergency stop, the robot should be able to operate normally.
+- Attraverso il controller inviato alla scheda del quadro di controllo, il tipo di arresto di emergenza 0 interrompe immediatamente l'alimentazione alla scheda del quadro di controllo;
   
+- Il tipo di arresto di emergenza 1a interrompe l'alimentazione al corpo del robot dopo l'arresto in decelerazione;
+  
+- Il tipo di arresto di emergenza 1b disabilita il corpo del robot dopo l'arresto in decelerazione, senza interrompere l'alimentazione al corpo;
+
+- Il tipo di arresto di emergenza 2 significa che quando viene premuto l'emergenza, il robot si arresta in decelerazione e mantiene l'abilitazione. Dopo aver rilasciato l'emergenza, il robot dovrebbe funzionare normalmente.
+
 .. image:: safety/005.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.4-1 Emergency stop configuration
+.. centered:: Diagramma 7.4-1 Configurazione Arresto di Emergenza
 
-Safety Stop Recovery Optional Auto Enable Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione opzionale di abilitazione automatica al ripristino dell'arresto di sicurezza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 +++++++++++++++++++++
 
-After the robot experiences a Category 1b emergency stop, it provides two modes for the user to choose from: Manual Enable and Auto Enable. When Manual Enable is selected, the user needs to change the robot's operation mode to Automatic after releasing the emergency stop button and manually click the enable button to enable the robot. When Auto Enable is selected, the robot will enable automatically after the user releases the emergency stop button.
+Dopo aver subito un arresto di emergenza di tipo 1b, il robot offre due modalità: abilitazione manuale e abilitazione automatica, per consentire agli utenti di scegliere autonomamente. Quando si seleziona l'abilitazione manuale, l'utente deve, dopo aver rilasciato il pulsante di emergenza, cambiare la modalità di funzionamento del robot in automatica e fare clic manualmente sul pulsante di abilitazione per abilitare il robot; quando si seleziona l'abilitazione automatica, dopo che l'utente ha rilasciato il pulsante di emergenza, il robot si abilita automaticamente.
 
-Operation Process
+Procedura operativa
 +++++++++++++++++++++++++++
 
-**Step1**: Click the "Initial Setup" -> "Safety" -> "Emergency Stop" button. Select "Category 1b" for "Stop Type", and set the "Stop Time Limit" and "Stop Distance Limit" parameters as needed. The "Enable Strategy After E-stop Reset" can be set to "Manual Enable" or "Auto Enable", as shown in Figure 2-1.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Arresto di emergenza", selezionare "Tipo 1b" come "Tipo di arresto" e, in base alle esigenze effettive, impostare i parametri "Limite tempo arresto" e "Limite distanza arresto". "Strategia abilitazione dopo reset emergenza" può essere selezionata come "Abilitazione manuale" o "Abilitazione automatica", come mostrato nella Figura 2-1.
 
 .. image:: safety/046.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.4-2 Enable Strategy Setting
+.. centered:: Diagramma 7.4-2 Impostazioni Strategia Abilitazione
 
-**Step2**: When "Auto Enable" is selected, the robot will enable automatically after the user releases the emergency stop button. When "Manual Enable" is selected, the user must manually click the enable button in Automatic mode after releasing the emergency stop button to enable the robot, as shown in Figure 2-2.
+**Step2**: Quando si seleziona "Abilitazione automatica", dopo che l'utente ha rilasciato il pulsante di emergenza, il robot si abilita automaticamente; quando si seleziona "Abilitazione manuale", l'utente deve, dopo aver rilasciato il pulsante di emergenza, in modalità automatica, fare clic manualmente sul pulsante di abilitazione per abilitare il robot, come mostrato nella Figura 2-2.
 
 .. image:: safety/047.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.4-3 Manual Enable Operation
+.. centered:: Diagramma 7.4-3 Operazione Abilitazione Manuale
 
-Protective stop
----------------------
+Arresto Protettivo
+-------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Protective stop" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Arresto protettivo" per accedere all'interfaccia di configurazione.
 
-Protective stop type 0, 1, 2. Protective stop type 0: the control box board directly cuts off the power. Protective stop type 1: the control box board first notifies the controller to control the robot to stop and then the controller feeds back to cut off the power of the control box board. Protective stop type 2: the control box board notifies the controller to control the robot to stop.
+Tipi di arresto protettivo 0, 1, 2. Il tipo di arresto protettivo 0 interrompe immediatamente l'alimentazione alla scheda del quadro di controllo; il tipo di arresto protettivo 1 fa sì che la scheda del quadro di controllo notifichi prima al controller di fermare il robot, quindi il controller segnala alla scheda del quadro di controllo di interrompere l'alimentazione; il tipo di arresto protettivo 2 fa sì che la scheda del quadro di controllo notifichi al controller di fermare il robot.
 
 .. image:: safety/006.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.5-1 Protective shutdown configuration
+.. centered:: Diagramma 7.5-1 Configurazione Arresto Protettivo
 
 .. important::
-   The safety data status flag and control box carrier board fault feedback are obtained through the Web terminal and the controller status feedback. When the flag bit is 1, the safety data status is abnormal in the WebAPP alarm status. After the control box carrier board fault is obtained, the specific error information is displayed in the WebAPP alarm status according to the error code.
+    I flag di stato dei dati di sicurezza e il feedback dei guasti della scheda del quadro di controllo vengono acquisiti tramite l'interfaccia Web e il feedback dello stato del controller. Quando il flag è impostato a 1, lo stato anomalo dei dati di sicurezza viene segnalato nello stato di allarme WebAPP. Dopo l'acquisizione del guasto della scheda del quadro di controllo, il codice di errore specifico viene visualizzato nello stato di allarme WebAPP in base al codice di errore.
 
 .. image:: safety/007.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.5-2 WebAPP alarm status 
+.. centered:: Diagramma 7.5-2 Stato Allarme WebAPP
 
-Interference zone configuration
-------------------------------------------------
+Configurazione Zona di Interferenza
+--------------------------------------------------
 
-In the menu bar of "Initial" -> "Safety", click "Interference Zone" to enter the interference area configuration function interface. Click on the "Shaft interference" card to enter the interface, then toggle the "Feature Enabled" slider.
+Sotto la barra dei menu "Impostazioni iniziali" -> "Sicurezza" -> "Zona di interferenza", fare clic sulla sottovoce "Singola" per accedere all'interfaccia di configurazione della funzione di zona di interferenza.
 
-First of all, we need to configure the interference mode and the operation of entering the interference area. The interference mode is divided into "Shaft interference" and "cube interference". When enabled, the activation sign will be displayed. First, enter the interference zone motion configuration "continue motion" or "stop".
+Innanzitutto, è necessario configurare la modalità di interferenza e l'operazione di ingresso nella zona di interferenza. Le modalità di interferenza sono suddivise in "Interferenza asse" e "Interferenza cubo".
 
 .. image:: safety/025.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 7.6‑1 Interference zone configuration
+.. centered:: Diagramma 7.6‑1 Modalità Zona di Interferenza
 
-Next, set the configuration of dragging into the interference area. Users can set the strategy after entering the interference area in drag mode according to their needs, without restricting dragging, impedance callback and switching back to manual mode.
+Controllare l'attivazione tramite l'interruttore a cursore. Innanzitutto, configurare il movimento nella zona di interferenza come "Continua movimento" o "Arresta". Successivamente, configurare l'operazione di trascinamento all'ingresso nella zona di interferenza. Gli utenti possono impostare la strategia dopo l'ingresso nella zona di interferenza in modalità trascinamento in base alle proprie esigenze: nessuna limitazione al trascinamento, callback di impedenza o ritorno alla modalità manuale.
 
 .. image:: safety/026.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 7.6‑2 Interference area drag configuration
+.. centered:: Diagramma 7.6‑2 Configurazione Zona di Interferenza
 
-To select Shaft interference, you need to configure the parameters of Shaft interference. The detection method is divided into two types: "command position" and "feedback position". The interference area mode is divided into two types: "interference within the range" and "interference outside the range". Next Set the range of each joint and whether each joint range is enabled, you can enter the value, or you can record the current position of the robot through the "Robot Teaching" button, and finally click Apply.
+Selezionare l'interferenza asse, è necessario configurare i parametri dell'interferenza asse. Il metodo di rilevamento è suddiviso in "Posizione comando" e "Posizione feedback" due tipi. La modalità zona di interferenza è suddivisa in "Interferenza all'interno del range" e "Interferenza all'esterno del range" due tipi. Successivamente, impostare il range per ogni giunto e se abilitare il range di ciascun giunto. È possibile inserire valori numerici o utilizzare l'"icona di aggiornamento" dopo "Valore minimo" e "Valore massimo" per registrare la posizione corrente del robot. Infine, fare clic su Configura.
 
 .. image:: safety/027.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 7.6‑3 Shaft interference configuration
+.. centered:: Diagramma 7.6‑3 Configurazione Interferenza Asse
 
-To choose cube interference, you need to configure the parameters of cube interference. The detection method is divided into two types: "command position" and "feedback position". The interference area mode is divided into "interference within range" and "interference outside range". The system is divided into "base coordinates" and "workpiece coordinates", which can be selected and set according to actual use. Next, set the range setting. The range setting is divided into two methods. First, look at the first method "two-point method", which is composed of two diagonal vertices of the cube. We can record the position through input or robot teaching. Finally click Apply.
+Selezionare l'interferenza cubo, è necessario configurare i parametri dell'interferenza cubo. Il metodo di rilevamento è suddiviso in "Posizione comando" e "Posizione feedback" due tipi. La modalità zona di interferenza è suddivisa in "Interferenza all'interno del range" e "Interferenza all'esterno del range" due tipi. Il sistema di coordinate di riferimento è suddiviso in "Coordinate base" e "Coordinate utensile", selezionare in base all'uso effettivo. Successivamente, procedere con l'impostazione del range. L'impostazione del range è suddivisa in due metodi. Per prima cosa, vedere il primo metodo "Metodo a due punti", ovvero i due vertici diagonali del cubo. Possiamo registrare la posizione tramite inserimento o insegnamento del robot. Infine, fare clic su Applica.
 
 .. image:: safety/028.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 7.6‑4 Cube Interferometric Configuration
+.. centered:: Diagramma 7.6‑4 Configurazione Interferenza Cubo
 
-Next, look at the second method "center point + side length", that is, the center point of the cube and the side length of the cube form an interference area, and we can record the position through input or robot teaching. Finally click Apply.
+Successivamente, vedere il secondo metodo "Punto centrale + lunghezza lato", ovvero il punto centrale della posizione del cubo e la lunghezza del lato del cubo costituiscono la zona di interferenza. Possiamo registrare la posizione tramite inserimento o insegnamento del robot. Infine, fare clic su Applica.
 
 .. image:: safety/029.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 7.6‑5 Cube Interferometric Configuration
+.. centered:: Diagramma 7.6‑5 Configurazione Interferenza Cubo
 
-Safety Callback Function for Force Sensor-Assisted Dragging into Shaft interference Zone
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di callback di sicurezza per l'ingresso in interferenza asse con trascinamento assistito da sensore di forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 +++++++++++++++++++++++++
 
-The safety callback function for force sensor-assisted dragging into Shaft interference zones automatically switches the robot to dragging mode with impedance callback effect when entering an interference zone during force sensor-assisted dragging, and reverts to force sensor-assisted dragging when exiting. This satisfies various user scenarios during force sensor-assisted operations.
+La funzione di callback di sicurezza per l'ingresso in interferenza asse con trascinamento assistito da sensore di forza è quando il trascinamento assistito da sensore di forza e la zona di interferenza coesistono. Quando il robot entra nella zona di interferenza, il robot passa automaticamente alla modalità di trascinamento, con effetto di callback di impedenza; quando il robot esce dalla zona di interferenza, il robot ritorna automaticamente al trascinamento assistito da sensore di forza. Ciò consente di soddisfare molteplici scenari d'uso per gli utenti che utilizzano il trascinamento assistito da sensore di forza.
 
-Operation Procedure
+Procedura operativa
 ++++++++++++++++++++++++
 
-Joint Limit Ring
+Anello di limitazione articolare
 ********************************
-
-**Step1**: Log into the web interface, toggle the "Joint Limit Ring" switch, and the joint limit rings will appear on robot joints as shown below.
+**Step1**: Accedere all'interfaccia web, fare clic sull'interruttore "Anello di limitazione articolare". Un anello di limitazione articolare apparirà sulle articolazioni del robot, come mostrato nella figura sottostante.
 
 .. image:: safety/030.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑6 Joint Limit Ring on Web Interface
+.. centered:: Diagramma 7.6‑6 Anello di limitazione articolare interfaccia web
 
-**Step2**: The white marker on the ring indicates actual joint angle; the gap represents soft limit positions (gap size varies with limit settings); rings remain stationary relative to joints during motion.
+**Step2**: Il puntatore bianco sull'anello di limitazione articolare rappresenta l'angolo effettivo dell'articolazione; l'intaglio rappresenta la posizione del limite morbido dell'articolazione corrispondente, la dimensione dell'intaglio dell'anello di limitazione articolare cambia con la dimensione del limite morbido; quando l'articolazione si muove, l'anello di limitazione articolare rimane relativamente stazionario rispetto all'articolazione.
 
-Shaft interference Configuration
+Configurazione interferenza asse
 ********************************
+**Step1**: Configurare e attivare l'interferenza asse. Fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Zona di interferenza" -> "Singola", accedere alla pagina di configurazione della zona di interferenza, fare clic sulla scheda "Interferenza asse" per accedere all'interfaccia, attivare l'interruttore "Funzione attiva".
 
-**Step1**: Configure and activate Shaft interference. Navigate to: "Initial" → "Safety" → "Interference Zone" → "Single", select "Shaft interference" and toggle "Enable".
-
-**Step2**: Set "Motion Strategy" to "Continue Motion", select "Dragging Strategy" as "Impedance Callback" and configure parameters (e.g., recommended value "5" for callback force intensity).
+**Step2**: È possibile impostare la "Strategia di movimento" su "Continua movimento", selezionare "Strategia di trascinamento" come "Callback di impedenza" e impostare i parametri di callback di impedenza, come mostrato nella figura sottostante. I parametri di callback di impedenza rappresentano la forza di rimbalzo durante la callback di impedenza, valori più alti indicano una forza di rimbalzo maggiore. Si consiglia di configurare il parametro a "5".
 
 .. image:: safety/031.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑7 Shaft interference Configuration
+.. centered:: Diagramma 7.6‑7 Interfaccia di configurazione interferenza asse
 
-**Step3**: Set interference ranges. Choose "Feedback Position" detection mode, select "Inside Range" or "Outside Range" interference mode, then enable ranges for each axis.
+**Step3**: Impostare il range della zona di interferenza asse. È possibile impostare la "Modalità di rilevamento" su "Posizione feedback", la "Modalità zona di interferenza" può essere selezionata tra le due modalità "Interferenza all'interno del range" e "Interferenza all'esterno del range"; impostare il range di interferenza per ciascuna articolazione, selezionare "Abilita" per attivare il range di interferenza dell'asse corrispondente, come mostrato nella figura sottostante.
 
 .. image:: safety/032.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑8 Interference Range Configuration
+.. centered:: Diagramma 7.6‑8 Interfaccia configurazione range zona di interferenza
 
-**Step4**: In "Inside Range" mode, green indicates free movement zones and yellow shows interference zones on the web interface.
+**Step4**: Impostare la "Modalità zona di interferenza" su "Interferenza all'interno del range". Nell'interfaccia web, l'anello di limitazione articolare mostra in verde l'area di movimento libero, in giallo l'area di interferenza, e l'area in cui si trova il puntatore bianco è evidenziata, come mostrato nella figura sottostante.
 
 .. image:: safety/033.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑9 Limit Ring Display (Inside Range)
+.. centered:: Diagramma 7.6‑9 Visualizzazione anello di limitazione articolare in modalità "Interferenza all'interno del range"
 
-**Step5**: In "Outside Range" mode, the color scheme reverses while maintaining the same display logic.
+**Step5**: Impostare la "Modalità zona di interferenza" su "Interferenza all'esterno del range". Nell'interfaccia web, l'anello di limitazione articolare mostra in verde l'area di movimento libero, in giallo l'area di interferenza, e l'area in cui si trova il puntatore bianco è evidenziata, come mostrato nella figura sottostante.
 
 .. image:: safety/034.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑10 Limit Ring Display (Outside Range)
+.. centered:: Diagramma 7.6‑10 Visualizzazione anello di limitazione articolare in modalità "Interferenza all'esterno del range"
 
-Entering Shaft interference Zone with Force Sensor Assistance
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ingresso in zona di interferenza asse con trascinamento assistito da sensore di forza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-**Step1**: Enable force sensor assistance at: "Auxiliary Applications"→"Tool App"→"Drag Lock", then activate interference zone options.
+**Step1**: Fare clic in sequenza su "Applicazioni ausiliarie" -> "Applicazioni utensile" -> "Blocco trascinamento", cambiare l'interruttore "Stato" della funzione di blocco assistito da sensore di forza su "Attivo", selezionare "Attiva" per l'opzione zona di interferenza, impostare i coefficienti correlati e applicare, come mostrato nella figura sottostante.
 
 .. image:: safety/035.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑11 Force Sensor Drag Configuration
+.. centered:: Diagramma 7.6‑11 Interfaccia di configurazione trascinamento assistito da sensore di forza
 
-**Step2**: During force-assisted dragging, the system automatically switches to current-loop dragging with impedance callback when entering interference zones, then reverts upon exit.
+**Step2**: Trascinare il robot con trascinamento assistito da sensore di forza. Quando l'angolo dell'articolazione del robot raggiunge il range della zona di interferenza, la modalità del robot passa al trascinamento a loop di corrente, con effetto di callback di impedenza, consentendo di allontanarsi dalla zona di interferenza asse; dopo l'uscita dal range della zona di interferenza asse, la modalità del robot ritorna al trascinamento assistito da sensore di forza.
 
-Cuboid Interference Configuration
-++++++++++++++++++++++++++++++++++
+Configurazione interferenza cubo
+++++++++++++++++++++++++++++++++++++++++++
 
-**Step1**: Configure cuboid interference at: "Initial" → "Safety" → "Interference Zone" → "Single". Click on the "Cube Interference" card to enter the interface, and turn on the "Feature Enabled" slider.
+**Step1**: Impostare la zona di interferenza cubo. Fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Zona di interferenza" -> "Singola", accedere alla pagina di configurazione della zona di interferenza, fare clic sulla scheda "Interferenza cubo" per accedere all'interfaccia, attivare l'interruttore "Funzione attiva".
 
-**Step2**: Set "Motion Strategy" to "Continue Motion" and "Dragging Strategy" to "Unrestricted Dragging".
+**Step2**: È possibile impostare la "Strategia di movimento" su "Continua movimento", selezionare "Strategia di trascinamento" come "Nessuna limitazione al trascinamento", come mostrato nella figura sottostante.
 
 .. image:: safety/036.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑12 Cuboid Interference Settings
+.. centered:: Diagramma 7.6‑12 Configurazione zona di interferenza cubo
 
-**Step3**: Configure parameters including "Base Coordinate" reference and "Two-Point" or "Center+Edge Length" teaching methods.
+**Step3**: Configurare i parametri della zona di interferenza cubo. È possibile impostare la "Modalità di rilevamento" su "Posizione feedback", la "Modalità zona di interferenza" può essere selezionata tra le due modalità "Interferenza all'interno del range" e "Interferenza all'esterno del range", impostare "Coordinate di riferimento" su "Coordinate base".
 
-**Step4**: Virtual cuboids appear on the web interface (40% opacity yellow/green for normal state, 90% when triggered).
+**Step4**: Selezionare il metodo di insegnamento del range della zona di interferenza cubo come "Metodo a due punti". Insegnare al robot due punti, rispettivamente il punto minimo e il punto massimo nello spazio cartesiano, fare clic su "Applica". Successivamente, un cubo virtuale apparirà nell'interfaccia web, come mostrato nella figura sottostante.
 
 .. image:: safety/037.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑13 Two-Point Teaching Method
+.. centered:: Diagramma 7.6‑13 Impostazione zona di interferenza cubo con "Metodo a due punti"
 
 .. image:: safety/038.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑14 Web interface virtual wall display
+.. centered:: Diagramma 7.6‑14 Visualizzazione cubo virtuale nell'interfaccia web
 
-**Step5**：The teaching method for selecting the interference zone of the cube is "center point + side length." Teach the robot a point, set the side lengths along the X, Y, and Z axes with the taught point as the center, as shown in the figure below. After clicking "Apply," a virtual cube will appear on the web interface.
+**Step5**: Selezionare il metodo di insegnamento del range della zona di interferenza cubo come "Punto centrale + lunghezza lato". Insegnare al robot un punto, impostare la lunghezza dei tre assi X, Y, Z centrata sul punto insegnato, come mostrato nella figura sottostante, fare clic su "Applica". Successivamente, un cubo virtuale apparirà nell'interfaccia web.
 
 .. image:: safety/039.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑15 "Center point + side length" to set cube interference zone
+.. centered:: Diagramma 7.6‑15 Impostazione zona di interferenza cubo con "Punto centrale + lunghezza lato"
 
-**Step6**：Set the "interference zone mode" to "interference within range." When the robot end is outside the cubic range, the virtual cube on the web interface appears as yellow with 40% transparency. When the robot end is within the cubic range, the cube turns yellow with 90% transparency, and an "Entering interference zone" warning appears, as shown in the figure below.
+**Step6**: Impostare la "Modalità zona di interferenza" su "Interferenza all'interno del range". Quando l'estremità del robot è all'esterno del range del cubo, il cubo virtuale nell'interfaccia web viene visualizzato in giallo con trasparenza del 40%; quando l'estremità del robot è all'interno del range del cubo, il cubo appare in giallo con trasparenza del 90% e viene visualizzato l'avviso "Ingresso zona di interferenza", come mostrato nella figura sottostante.
 
 .. image:: safety/040.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑16 "In-range interference" mode when entering the cubic interference zone
+.. centered:: Diagramma 7.6‑16 Ingresso nella zona di interferenza cubo in modalità "Interferenza all'interno del range"
 
-**Step7**：Set the "Interference Zone Mode" to "Interference Outside the Range". When the robot end is within the cube range, the virtual cube on the web interface is displayed as 40% transparency green. When the robot end is outside the cube range, the cube appears as 90% transparency green, and an "Entering Interference Zone" warning is displayed, as shown in the figure below.
+**Step7**: Impostare la "Modalità zona di interferenza" su "Interferenza all'esterno del range". Quando l'estremità del robot è all'interno del range del cubo, il cubo virtuale nell'interfaccia web viene visualizzato in verde con trasparenza del 40%; quando l'estremità del robot è all'esterno del range del cubo, il cubo appare in verde con trasparenza del 90% e viene visualizzato l'avviso "Ingresso zona di interferenza", come mostrato nella figura sottostante.
 
 .. image:: safety/041.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑17 "Out-of-Range Interference" mode cube interference zone display
+.. centered:: Diagramma 7.6‑17 Visualizzazione zona di interferenza cubo in modalità "Interferenza all'esterno del range"
 
-Safety plane
-++++++++++++++++++++++++++++++++++++++++++
-**Step1**: Configure up to 8 safety walls at: "Initial"→"Safety"→"Safety plane". Enabled walls appear as 40% orange translucent objects.
+Configurazione parete di sicurezza
+++++++++++++++++++++++++++++++++++++++++++++++++++
+**Step1**: Impostare la parete di sicurezza. Fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Parete di sicurezza" per accedere all'interfaccia di configurazione della parete di sicurezza. L'interfaccia web supporta l'impostazione simultanea di massimo 8 pareti di sicurezza. Selezionare la parete di sicurezza e configurarla. Dopo aver completato la configurazione, attivare la parete di sicurezza corrispondente. Un muro virtuale arancione con trasparenza del 40% apparirà nell'interfaccia web, come mostrato nella figura sottostante.
 
 .. image:: safety/042.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑18 Safety Wall Setup
+.. centered:: Diagramma 7.6‑18 Configurazione parete di sicurezza
 
 .. image:: safety/043.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑19 Web interface virtual wall display
+.. centered:: Diagramma 7.6‑19 Visualizzazione muro virtuale nell'interfaccia web
 
-**Step2**: Walls turn 90% opaque orange with warnings when breached.
+**Step2**: Quando l'estremità del robot entra nella parete di sicurezza, il muro virtuale diventa arancione con trasparenza del 90% e viene visualizzato l'avviso "Ingresso parete di sicurezza", come mostrato nella figura sottostante.
 
 .. image:: safety/044.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.6‑20 Triggered Safety Wall
+.. centered:: Diagramma 7.6‑20 Visualizzazione muro virtuale nell'interfaccia web quando l'estremità del robot entra nella parete di sicurezza
 
-Reduction Mode
------------------------
+Modalità Ridotta
+-----------------------------
 
-Click on the "Initial" -> "Safety" in the menu bar, then select the "Reduction Mode" submenu to enter the configuration interface, and choose the "Level 1/2 reduction Mode" to configure joint speed and end TCP speed.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Modalità ridotta" per accedere all'interfaccia di configurazione. Selezionare "Modalità livello 1/livello 2" per configurare la velocità dell'articolazione e la velocità TCP dell'estremità.
 
 .. image:: safety/045.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.7-1 Reduction Mode
+.. centered:: Diagramma 7.7-1 Modalità Ridotta
 
-Safety plane
----------------------------------
+Parete di Sicurezza
+-----------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Safety plane" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Configurazione parete di sicurezza" per accedere all'interfaccia di configurazione.
 
--  **Safety Plane Configuration**:Click the enable button to enable the corresponding security plane. When the security plane is not configured with a security range, an error will be prompted. Click the drop-down box, select the security plane you want to set, and automatically bring out the security distance (you can not set it, the default value is 0), and then click the "Setting" button to set it successfully.
-  
+-  **Configurazione parete di sicurezza**: Fare clic sul pulsante Attiva per attivare la parete di sicurezza corrispondente. Se la parete di sicurezza non è configurata con un range di sicurezza, verrà visualizzato un messaggio di errore. Fare clic sulla casella a discesa, selezionare la parete di sicurezza che si desidera impostare, la distanza di sicurezza verrà automaticamente visualizzata (può essere lasciata non impostata, predefinita 0), quindi fare clic sul pulsante "Imposta" per completare l'impostazione.
+
 .. image:: safety/008.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.8-1 Safety Plane Configuration
+.. centered:: Diagramma 7.8-1 Configurazione Parete di Sicurezza
 
--  **SSafety Plane Reference Point Configuration**:After selecting a security plane, four reference points can be set. The first three points are plane reference points, which are used to confirm the plane of the safety wall set. The fourth point is the safety range reference point, which is used to confirm the safety range of the set safety wall.
+-  **Configurazione punti di riferimento parete di sicurezza**: Dopo aver selezionato la parete di sicurezza, è possibile impostare quattro punti di riferimento. I primi tre punti sono punti di riferimento planari, utilizzati per confermare il piano della parete di sicurezza impostata. Il quarto punto è il punto di riferimento del range di sicurezza, utilizzato per confermare il range di sicurezza della parete di sicurezza impostata.
 
 .. important::
-   If the reference point is set successfully, the green light will be on. Otherwise, the yellow light is on. It turns green until the reference point is set successfully. When the four reference points are all set successfully, the safety range can be calculated, and the safety range parameter point status will return to the default after the calculation is successful.
+   Se il punto di riferimento è impostato correttamente, la spia è verde. In caso contrario, è gialla. Fino a quando il punto di riferimento non viene impostato correttamente, diventa verde. Quando tutti e quattro i punti di riferimento sono impostati correttamente, è possibile calcolare il range di sicurezza. Dopo il calcolo riuscito, lo stato del parametro del range di sicurezza ritorna predefinito.
 
 .. image:: safety/009.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.8-2 Safe range reference point setting
+.. centered:: Diagramma 7.8-2 Impostazione punti di riferimento range di sicurezza
 
--  Apply effects: The successfully configured security plane is enabled. Drag the robot, if the TCP at the end of the robot is within the set safety range, the system is normal. If it is outside the set safety range, an error will be prompted.
+-  Effetto applicazione: Attivare la parete di sicurezza configurata con successo. Trascinare il robot. Se l'estremità TCP del robot si trova all'interno del range di sicurezza impostato, il sistema è normale. Se si trova al di fuori del range di sicurezza impostato, viene segnalato un errore.
 
 .. image:: safety/010.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.8-3 The effect picture after the security range is set successfully
+.. centered:: Diagramma 7.8-3 Effetto dopo l'impostazione riuscita del range di sicurezza
 
-Daemon
----------------------------------
+Programma in Background di Sicurezza
+---------------------------------------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Daemon" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Programma in background di sicurezza" per accedere all'interfaccia di configurazione.
 
-The user clicks the "function enabled" button to open or close the setting of the daemon. Select "Unexpected Situation" and "Background Program", and click the "Settings" button to configure the parameters of the unexpected situation handling logic.
+L'utente fa clic sul pulsante "Attiva funzione" per attivare o disattivare le impostazioni del programma in background di sicurezza. Selezionare "Situazione imprevista" e "Programma in background", fare clic sul pulsante "Imposta" per configurare i parametri della logica di gestione delle situazioni impreviste.
 
-Enable the security background program and set the unexpected scene and background program. When the user starts to run the program and the unexpected situation matches the set unexpected situation, the robot will execute the corresponding background program to play a role of security protection.
+Attivare il programma in background di sicurezza e impostare lo scenario di situazione imprevista e il programma in background. Quando l'utente inizia a eseguire il programma, se si verifica uno scenario di situazione imprevista che corrisponde alla situazione imprevista impostata, il robot eseguirà il programma in background corrispondente, svolgendo un ruolo di protezione della sicurezza.
 
 .. image:: safety/011.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.9-1 Daemon
+.. centered:: Diagramma 7.9-1 Programma in Background di Sicurezza
 
-Direction limit (Only used in Linux systems)
----------------------------------------------
+Limitazione Direzione Utensile (utilizzabile solo nel sistema LA)
+-------------------------------------------------------------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Direction limit" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Limitazione direzione utensile" per accedere all'interfaccia di configurazione.
 
-Tool direction limit is a protective function that acts on the Cartesian space of the robot tool end to limit the range of motion of the robot end posture, including function enablement settings, reference tool direction settings, and maximum offset angle settings. The maximum offset angle defines the maximum angle limit between the Z axis of the Cartesian coordinate system of the tool end and the reference tool direction, which can usually be understood as a conical space.
+La limitazione della direzione dell'utensile è una funzione protettiva che agisce sullo spazio cartesiano dell'estremità dell'utensile del robot, utilizzata per limitare il range di movimento dell'orientamento dell'estremità del robot. Include l'impostazione dell'attivazione della funzione, l'impostazione della direzione di riferimento dell'utensile e l'impostazione dell'angolo di deviazione massimo. L'angolo di deviazione massimo definisce il valore limite dell'angolo massimo tra l'asse Z del sistema di coordinate cartesiane dell'estremità dell'utensile e la direzione di riferimento dell'utensile, generalmente comprensibile come uno spazio conico.
 
 .. image:: safety/012.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.10-1 Direction limit
+.. centered:: Diagramma 7.10-1 Limitazione Direzione Utensile
 
-Robot limit (Only used in Linux systems)
----------------------------------------------
+Limiti del Robot (utilizzabile solo nel sistema LA)
+-------------------------------------------------------------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Robot limit" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Limiti del robot" per accedere all'interfaccia di configurazione.
 
-Robot limits include momentum and power, where the momentum limit is used to limit the robot's maximum momentum, and the power limit is used to limit the mechanical work done by the robot.
+I limiti del robot includono la quantità di moto e la potenza, dove il limite di quantità di moto è utilizzato per limitare la quantità di moto massima del robot, e il limite di potenza è utilizzato per limitare il lavoro meccanico svolto dal robot.
 
 .. image:: safety/013.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.13-1 Robot limit
+.. centered:: Diagramma 7.11-1 Limiti del Robot
 
-Power detection (Only used in QX systems)
----------------------------------------------
+Rilevamento Potenza (utilizzabile solo nel sistema QX)
+-------------------------------------------------------------------------------
 
-Click "Initial" -> "Safety" in the menu bar, and then click the "Power detection" submenu to enter the configuration interface.
+Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Rilevamento potenza" per accedere all'interfaccia di configurazione.
 
-When acting directly on the current loop of the robot (only with the command servoJT), it is used to limit the work done by the robot. When it is detected that the integral of the robot speed and torque exceeds the limit, power protection is performed.
+Quando agisce direttamente sul loop di corrente del robot (solo il comando servoJT), viene utilizzato per limitare il lavoro svolto dal robot. Rilevando che l'integrale di velocità e coppia del robot supera il limite, viene attivata la protezione di potenza.
 
 .. image:: safety/014.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.12-1 Power detection
+.. centered:: Diagramma 7.12-1 Rilevamento Potenza
 
-Motion Configuration
+Configurazione Movimento
 ---------------------------------------------
 
-T-Shaped Velocity Optimization + Blending Smoothing Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ottimizzazione caratteristica velocità a T + funzione blending di levigatura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++++++++++
 
-Performing blending between two trajectory segments can avoid frequent start-stop issues caused by complete stops, thereby improving the robot's motion efficiency.
+Il blending tra due segmenti di traiettoria può evitare i frequenti avvii e arresti causati dall'arresto completo, migliorando così l'efficienza del movimento del robot.
 
-This function mainly applies to blending between PTP-PTP, LIN-LIN, ARC-ARC, LIN-ARC, and ARC-LIN commands. Blending between other commands is not effective.
+Questa funzione si applica principalmente al blending tra istruzioni PTP-PTP, LIN-LIN, ARC-ARC, LIN-ARC, ARC-LIN. Il blending tra altre istruzioni non è efficace.
 
-Operation Process
+Procedura operativa
 ++++++++++++++++++++++
 
-Since the operation methods for each command are similar, this manual uses PTP-PTP blending as an example to explain the operation method. This function can be implemented in two ways: using Lua commands or using the motion configuration switch.
+Poiché le modalità operative delle varie istruzioni sono simili, questo manuale prende come esempio il blending PTP-PTP per illustrare il metodo operativo di questa funzione. Questa funzione può essere implementata in due modi: utilizzando l'istruzione Lua e utilizzando l'interruttore di configurazione del movimento.
 
-Using Lua Commands
-*****************************
+Metodo utilizzando l'istruzione Lua
+*********************************************************
 
-**Step 1**: Select the teaching points for the PTP function. This manual uses "A0" to "A5" as the names of the teaching points.
+**Step1**: Selezionare i punti di insegnamento per eseguire la funzione PTP. Questo manuale utilizza "A0"~"A5" come nomi dei punti di insegnamento.
 
-**Step 2**: Click "Teaching Program" -> "Program Programming," select the "Point-to-Point" command under "Motion Commands," choose the teaching point in the "Command Edit" section, set the debugging speed, select "Acceleration Smoothing Mode" for motion protection, and set the "Smooth Transition" parameter at the points where smoothing is required.
+**Step2**: Fare clic sul pulsante "Programmazione insegnamento" -> "Programmazione programma", selezionare l'istruzione "Punto a punto" nelle "Istruzioni di movimento", nell'"Editor istruzioni" selezionare il punto di insegnamento e impostare la velocità di debug, selezionare "Modalità levigatura accelerazione" per la protezione del movimento, impostare il parametro "Transizione levigata" nei punti in cui è necessaria la levigatura.
 
 .. image:: safety/020.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.13-1 Blending Command Settings for Acceleration Smoothing PTP
+.. centered:: Diagramma 7.13-1 Impostazione istruzione blending PTP con levigatura accelerazione
 
-**Step 3**: Generate and run the Lua program to implement PTP-PTP blending. This method only applies the optimized T-shaped velocity to commands between `AccSmoothStart()` and `AccSmoothEnd()`, while using the original T-shaped velocity for other commands.
+**Step3**: Generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-PTP. Questo metodo utilizza la velocità a T ottimizzata solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza la velocità a T originale per le altre istruzioni.
 
 .. image:: safety/021.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.13-2 Typical Program for PTP-PTP Blending Using Lua Commands
+.. centered:: Diagramma 7.13-2 Programma tipico per blending PTP-PTP con istruzioni Lua
 
-Using Motion Configuration Switch
-***********************************
+Metodo utilizzando l'interruttore di configurazione del movimento
+*****************************************************************************
 
-**Step 1**: Click "Initial" -> "Safety" -> "Motion Configuration," and turn on the "Acceleration Smoothing Mode" switch.
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento", attivare l'interruttore "Modalità levigatura accelerazione".
 
 .. image:: safety/022.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.13-3 Acceleration Smoothing Mode Configuration Switch Settings
+.. centered:: Diagramma 7.13-3 Impostazione interruttore configurazione modalità levigatura accelerazione
 
-**Step 2**: Select the teaching points for the PTP-PTP function. This manual uses "A0" to "A5" as the names of the teaching points.
+**Step2**: Selezionare i punti di insegnamento per eseguire la funzione PTP-PTP. Questo manuale utilizza "A0"~"A5" come nomi dei punti di insegnamento.
 
-**Step 3**: Click "Teaching Program" -> "Coding," select the "Point-to-Point" command under "Motion Commands," choose the teaching point in the "Command Edit" section, set the debugging speed, select "None" for motion protection, and set the "Smooth Transition" parameter at the points where smoothing is required.
+**Step3**: Fare clic sul pulsante "Programmazione insegnamento" -> "Programmazione programma", selezionare l'istruzione "Punto a punto" nelle "Istruzioni di movimento", nell'"Editor istruzioni" selezionare il punto di insegnamento e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, impostare il parametro "Transizione levigata" nei punti in cui è necessaria la levigatura.
 
 .. image:: safety/023.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.13-4 Blending Command Settings for Regular PTP
+.. centered:: Diagramma 7.13-4 Impostazione istruzione blending PTP convenzionale
 
-**Step 4**: Generate and run the Lua program to implement PTP-PTP blending. The typical program is the same as a regular PTP program. This method applies the optimized T-shaped velocity to all commands.
+**Step4**: Generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-PTP. Il programma tipico è lo stesso del programma PTP convenzionale. Questo metodo utilizza la velocità a T ottimizzata per tutte le istruzioni.
 
 .. image:: safety/024.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.13-5 Typical Program for PTP-PTP Blending Using Configuration Switch
+.. centered:: Diagramma 7.13-5 Programma tipico per blending PTP-PTP con interruttore di configurazione
 
-FIR Adaptive Parameter Function + FIR Pause/Resume Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione parametri adattativi FIR + Funzione pausa/ripresa FIR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++++++++++
 
-The robot's time-optimal mode parameter adaptive configuration function eliminates the need to manually debug and configure parameters. This function adaptively configures the parameters of the time-optimal mode based on the robot's current operating state, improving debugging efficiency.
+La funzione di configurazione adattativa dei parametri della modalità tempo ottimale del robot realizza la configurazione automatica dei suoi vari parametri senza necessità di debug. Questa funzione adatta automaticamente i parametri della modalità tempo ottimale in base allo stato operativo corrente del robot, migliorando l'efficienza del debug.
 
-Operation Process
+Procedura operativa
 ++++++++++++++++++++++
 
-The usage of basic robot motion commands (PTP, LIN, and ARC) is similar. This example uses the time-optimal mode PTP motion command as the primary example.
+Le istruzioni di movimento di base del robot PTP, LIN e ARC hanno modalità d'uso simili. Questo esempio utilizza principalmente l'istruzione di movimento PTP in modalità tempo ottimale.
 
-**Step 1**: On the robot's web control interface, navigate to "Initial" -> "Safety" -> "Motion Configuration" to enter the "Motion Configuration" interface.
+**Step1**: Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per accedere all'interfaccia "Configurazione movimento".
 
 .. image:: safety/015.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.13-6 Motion Configuration Interface
+.. centered:: Diagramma 7.13-6 Interfaccia Configurazione Movimento
 
-**Step 2**: In the "Motion Configuration" interface, click the "Time-Optimal Mode" switch to enter the "Time-Optimal Mode" interface.
+**Step2**: Nell'interfaccia "Configurazione movimento", fare clic sull'interruttore "Modalità tempo ottimale" per accedere all'interfaccia "Modalità tempo ottimale".
 
 .. image:: safety/016.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 7.13-7 Time-Optimal Mode Interface
+.. centered:: Diagramma 7.13-7 Interfaccia Modalità Tempo Ottimale
 
-.. note:: In the "Parameter Configuration" section of the "Time-Optimal Mode" interface, the "Adjustment Coefficient" can be set from -100 to 100, representing a scaling ratio to control the time-optimal degree of motion commands. The default value is 1.
+.. note:: Nella barra "Configurazione parametri" dell'interfaccia "Modalità tempo ottimale", il "Coefficiente di regolazione" può essere impostato da -100 a 100, che rappresenta il fattore di scala utilizzato per controllare il grado di ottimizzazione temporale dell'istruzione di movimento. Il valore predefinito è 1.
 
-**Step 3**: Determine the teaching points for the PTP motion. This example uses "A0" to "A5" as the names of the teaching points.
+**Step3**: Determinare i punti di insegnamento per eseguire il movimento PTP. Questo esempio utilizza "A0"~"A5" come nomi dei punti di insegnamento.
 
-**Step 4**: On the robot's web control interface, navigate to "Teaching Program" -> "Program Programming" to enter the "Motion Commands" interface.
+**Step4**: Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Programmazione insegnamento" -> "Programmazione programma" per accedere all'interfaccia "Istruzioni di movimento".
 
 .. image:: safety/017.png
    :width: 2in
    :align: center
 
-.. centered:: Figure 7.13-8 Motion Commands Interface
+.. centered:: Diagramma 7.13-8 Interfaccia Istruzioni di Movimento
 
-**Step 5**: In the "Motion Commands" interface, click "Point-to-Point" to enter the "PTP" command editing interface. Select the teaching point from the "Point Name" dropdown, set the desired speed ratio in the "Debugging Speed" section, choose "Stop" in the "At This Point" section, select "No" in the "Offset" dropdown, and choose "None" in the "Motion Protection" section. Then, click "Add."
+**Step5**: Nell'interfaccia "Istruzioni di movimento", fare clic su "Punto a punto" per accedere all'interfaccia di modifica istruzioni "PTP". Selezionare rispettivamente il punto di insegnamento nella casella a discesa "Nome punto", impostare la proporzione della velocità desiderata nella barra "Velocità debug", selezionare "Arresta" nella barra "In questo punto", selezionare "No" nella casella a discesa "Spostamento" e selezionare "Nessuna" nella barra "Protezione movimento", quindi fare clic su "Aggiungi".
 
 .. image:: safety/018.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7.13-9 PTP Motion Command Editing Interface
+.. centered:: Diagramma 7.13-9 Interfaccia modifica istruzione movimento PTP
 
-**Step 6**: In the "PTP" motion command editing interface, click "Apply" to automatically generate the corresponding Lua program.
+**Step6**: Nell'interfaccia di modifica istruzioni "PTP", fare clic su "Applica" per generare automaticamente il programma LUA corrispondente.
 
 .. image:: safety/019.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 7.13-10 Typical Time-Optimal Mode PTP Motion Lua Program
+.. centered:: Diagramma 7.13-10 Programma LUA tipico per movimento PTP in modalità tempo ottimale
 
 .. note:: 
-   The typical time-optimal mode PTP motion Lua program is the same as a regular PTP motion Lua program, except that the "Time-Optimal Mode" function is enabled in Step 2.
+   Il programma LUA tipico per movimento PTP in modalità tempo ottimale non è diverso dal programma LUA per movimento PTP generale. La differenza è che nel passaggio Step2 è già stata attivata la funzione "Modalità tempo ottimale".
 
-   When the "Time-Optimal Mode" function switch is enabled, all basic robot motion commands (PTP, LIN, and ARC) operate in time-optimal mode. Disabling the switch restores the commands to their basic state.
-   The "Acceleration Smoothing Mode" function switch cannot be enabled simultaneously in this interface.
+   Attivando l'interruttore della funzione "Modalità tempo ottimale", le attuali istruzioni di movimento di base del robot PTP, LIN e ARC sono tutte in modalità tempo ottimale. Disattivando l'interruttore della funzione "Modalità tempo ottimale" in questa interfaccia, si ripristina lo stato delle istruzioni di movimento di base PTP, LIN e ARC.
+   In questa interfaccia non è possibile attivare contemporaneamente l'interruttore della funzione "Modalità levigatura accelerazione".

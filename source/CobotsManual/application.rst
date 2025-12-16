@@ -1,139 +1,146 @@
-Applications
-==============================
+Applicazioni Strumento
+======================
 
-.. toctree::
+.. toctree:: 
    :maxdepth: 6
 
-Robot Packing
+Imballaggio Robot
 -----------------
 
-Under the "Applications" -> "Tool App" menu bar, click the "Robot Packing" button to enter the one-click robot packing interface.
+Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare clic sul pulsante “Imballaggio Robot” per accedere all’interfaccia di imballaggio rapido del robot.
 
-.. important::
-   Before operating the packing function, please confirm the robot's surrounding environment and status to prevent collisions.
+.. important:: 
+   Prima di eseguire la funzione di imballaggio, verificare attentamente l’ambiente circostante e lo stato del robot per evitare collisioni.
+   
+   In caso di spedizione dalla fabbrica, prima dell’imballaggio accedere a Impostazioni di Sistema → Impostazioni Generali ed eseguire il ripristino alle impostazioni di fabbrica.
 
-   If leaving the factory, first go to System Settings -> General Settings and perform a factory reset before packing.
+**Passo 1**: Prima di spostare il robot al punto di imballaggio, portarlo alla posizione zero.
 
-**Step1**: Before moving to the packing point, first move the robot to the zero point.
+**Passo 2**: Fare clic sul pulsante “Vai a Zero” e confermare che lo zero meccanico del robot sia corretto; le tacche sugli snodi (indicate dai cerchi arancioni nell’immagine) devono essere allineate.
 
-**Step2**: Click the "Move to Zero Point" button, confirm the robot's mechanical zero point is correct, and ensure the gaps in each joint are aligned as shown in the orange circles in the figure.
-
-**Step3**: Click the "Move to Packing Point" button, the robot will move to the packing point according to the axis angles specified in the packaging process.
+**Passo 3**: Fare clic sul pulsante “Vai al Punto Imballaggio”; il robot si muoverà automaticamente alla posizione di imballaggio con gli angoli degli assi predefiniti dal processo di confezionamento.
 
 .. image:: application/001.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.1‑1 One-Click Robot Packing
+.. centered:: Figura 14.1‑1 Imballaggio rapido del robot
 
-Data Backup
-----------------------
 
-Under the "Applications" -> "Tool App" menu bar, click "Data Backup" to enter the data backup interface, as shown below.
+Backup Dati
+-----------
 
-The backup package data includes tool coordinate system data, system configuration files, taught point data, user programs, template programs, and user configuration files. When users need to transfer this robot's related data to another robot for use, they can quickly achieve this through this function.
+Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare clic su “Backup Dati” per accedere all’interfaccia di backup.
+
+Il pacchetto di backup include: dati del sistema di coordinate utensile, file di configurazione di sistema, punti di insegnamento, programmi utente, programmi modello e file di configurazione utente. Questa funzione consente di trasferire rapidamente tutti i dati rilevanti da un robot a un altro.
 
 .. image:: application/002.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.2‑1 Data Backup Interface
+.. centered:: Figura 14.2‑1 Interfaccia Backup Dati
 
-To avoid potential safety hazards during backup package import that may arise from inconsistencies in installation methods and other configurations, a validation function for key parameters during backup package import has been added.
+Per evitare potenziali rischi legati a incongruenze nelle configurazioni (ad esempio modalità di installazione) durante l’importazione del backup, è stata introdotta una funzione di verifica dei parametri critici.
 
-Backup Package Import Validation Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di Verifica durante l’Importazione del Backup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A validation function is added during backup package import. The backup package must be compared with the target robot for key parameters, as listed in the table below. Inaccurate settings of these parameters can pose safety risks. The backup package can only be imported normally when all parameters match exactly. If inconsistent, an error will be prompted, and the key parameters in the target robot need to be checked for consistency with the backup package.
+Durante l’importazione, il pacchetto di backup viene confrontato con il robot destinatario in base a specifici parametri chiave, elencati nella tabella seguente. Questi parametri, se non corrispondono esattamente, possono comportare rischi per la sicurezza. L’importazione avviene solo se tutti i parametri coincidono; in caso contrario, verrà visualizzato un messaggio di errore e sarà necessario verificare la coerenza tra il robot e il pacchetto.
 
-Table of 5 key parameters for comparison:
+Tabella dei 5 parametri chiave da verificare:
 
 .. list-table::
    :widths: 15 40 100
    :header-rows: 0
    :class: sheet-center
 
-   * - **No.**
-     - **Key Parameter**
-     - **Specific Meaning**
+   * - **N.**
+     - **Parametro Chiave**
+     - **Descrizione**
 
    * - 1
      - ROBOT_TYPE
-     - Robot Model
+     - Modello del robot
 
    * - 2
      - INSTALL_POS
-     - Installation Method
+     - Modalità di installazione
 
    * - 3
      - INSTALL_YANGLE
-     - Base Tilt Angle
+     - Angolo di inclinazione della base
 
    * - 4
      - INSTALL_ZANGLE
-     - Base Rotation Angle
+     - Angolo di rotazione della base
 
    * - 5
      - NEW_TEACH_ENABLE
-     - Dynamic Configuration
+     - Configurazione dinamica
 
 .. image:: application/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 14.2‑2 Interface Prompts Error When Key Parameters Are Inconsistent
+.. centered:: Figura 14.2‑2 Messaggio di errore quando i parametri chiave non corrispondono
 
-10s Data Recording
-------------------------
+Registrazione Dati 10s
+----------------------
 
-Under the "Applications" -> "Tool App" menu bar, click "10s Data Recording" to enter the 10s data recording function interface.
+Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare clic su “Registrazione Dati 10s” per accedere all’interfaccia dedicata.
 
-First, select the recording type, which is divided into default parameter recording and self-selected parameter recording. Default parameter recording uses system-automated settings for the recorded data. For self-selected parameter recording, users can choose the parameters to record, with a maximum of 15 parameters. After selecting the parameter list, choose the parameters to record and click the "Move Right" button to add the parameters to the parameter list. Click "Start Recording" for the robot to begin recording data, click "Stop Recording" for the robot to stop recording data, and click "Download Data" to download the last 10 seconds of data.
+È possibile scegliere tra due tipi di registrazione:
+- **Registrazione parametri predefiniti**: dati selezionati automaticamente dal sistema.
+- **Registrazione parametri personalizzati**: l’utente può selezionare fino a 15 parametri da registrare.
+
+Dopo aver scelto i parametri desiderati, utilizzare il pulsante “Sposta a destra” per aggiungerli all’elenco. Cliccare su “Avvia Registrazione” per iniziare, “Interrompi Registrazione” per fermarla e “Scarica Dati” per scaricare gli ultimi 10 secondi di dati registrati.
 
 .. image:: application/004.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.3‑1 10s Data Recording
+.. centered:: Figura 14.3‑1 Registrazione Dati 10s
 
-End-Effector LED
-----------------------------
+LED Terminale
+--------------
 
-Under the "Applications" -> "Tool App" menu bar, click "End-Effector LED" to enter the end-effector LED color configuration function interface.
+Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare clic su “LED Terminale” per accedere all’interfaccia di configurazione del colore del LED.
 
-The LED color can be configured to green, blue, or white-cyan. Users can configure the LED color for Auto mode, Manual mode, and Drag mode according to their needs. Different modes cannot be configured with the same color.
+È possibile impostare il colore del LED su verde, blu o ciano. L’utente può assegnare un colore diverso per ciascuna delle tre modalità operative: automatica, manuale e trascinamento. Non è consentito assegnare lo stesso colore a più modalità contemporaneamente.
 
 .. image:: application/005.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.4‑1 End-Effector LED Configuration
+.. centered:: Figura 14.4‑1 Configurazione LED Terminale
 
-Drag Locking
-----------------------------
+Blocco Trascinamento
+--------------------
 
-Under the "Applications" -> "Tool App" menu bar, click "Drag Locking" to enter the drag teaching lock configuration function interface.
+Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare clic su “Blocco Trascinamento” per accedere all’interfaccia di configurazione del blocco dei gradi di libertà durante il trascinamento.
 
-A degree-of-freedom locking function has been added for drag teaching. When the drag teaching function switch is set to enable, the degree-of-freedom parameters take effect when the user drags the robot. For example, when the parameters are set to X:10, Y:0, Z:10, RX:10, RY:10, RZ:10, dragging the robot in drag mode restricts movement to only the Y direction. If you need to keep the robot's posture unchanged during dragging and only move in the X, Y, Z directions, set X, Y, Z to 0 and RX, RY, RZ to 10.
+Questa funzione consente di limitare il movimento del robot durante il trascinamento. Quando la funzione è abilitata, i valori impostati per ciascun grado di libertà (X, Y, Z, RX, RY, RZ) determinano la libertà di movimento. Ad esempio:
+- Impostando X:10, Y:0, Z:10, RX:10, RY:10, RZ:10, il robot potrà muoversi solo lungo l’asse Y.
+- Per mantenere fissa l’orientazione e consentire solo spostamenti traslazionali (X, Y, Z), impostare X, Y, Z a 0 e RX, RY, RZ a 10.
 
 .. image:: application/006.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.5‑1 Drag Teaching Lock Configuration
+.. centered:: Figura 14.5‑1 Configurazione Blocco Trascinamento
 
-Normal Collision Protection Triggering Under Force Sensor Assisted Dragging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protezione Anticollisione Attiva anche in Trascinamento con Sensore di Forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
+Panoramica
 ++++++++++++++++++++++
 
-Currently, FR robots cannot trigger collision protection under force sensor assisted dragging. This enhancement adds the capability to trigger collision protection during force sensor assisted dragging, increasing robot safety and reducing operational risks.
+Nei robot FR, precedentemente, la protezione anticollisione non veniva attivata durante il trascinamento assistito dal sensore di forza. Ora questa funzione è stata implementata per migliorare la sicurezza e ridurre i rischi operativi.
 
-Collision Protection
-++++++++++++++++++++++++++++++++++++++++++++
+Protezione Anticollisione
++++++++++++++++++++++++++
 
-**Step1**: Click "Applications" -> "Tool App" -> "Drag Locking" to enter the Force Sensor Assisted Locking configuration interface. Set the "Status Switch" and "Collision Detection" to ON, as shown below.
+**Passo 1**: Accedere tramite “Applicazioni Ausiliarie” → “Applicazioni Strumento” → “Blocco Trascinamento”. Nell’interfaccia di configurazione del trascinamento assistito dal sensore di forza, attivare sia “Interruttore di Stato” che “Rilevamento Collisione”, come mostrato nelle figure seguenti.
 
 .. image:: application/007.png
    :width: 4in
@@ -143,366 +150,383 @@ Collision Protection
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.5‑2 Configuring Force Sensor Assisted Locking
+.. centered:: Figura 14.5‑2 Configurazione del trascinamento assistito dal sensore di forza
 
-**Step2**: Drag the robot. During robot movement, apply external force to the joints to trigger collision protection. The web interface will report the error "Force Sensor Assisted Dragging Collision Fault", and you can quickly resume/disable force sensor assisted dragging via the web interface, as shown. Click "Resume" to clear the error and resume force sensor assisted dragging; click "Disable" to clear the error and keep force sensor assisted dragging disabled.
+**Passo 2**: Durante il trascinamento, applicare una forza esterna sugli snodi del robot per attivare la protezione anticollisione. L’interfaccia web visualizzerà l’errore “Guasto: collisione durante trascinamento con sensore di forza”. È possibile ripristinare rapidamente la funzione tramite l’interfaccia:
+- Cliccare su “Ripristina” per cancellare l’errore e riattivare il trascinamento assistito.
+- Cliccare su “Disattiva” per cancellare l’errore e mantenere disattivato il trascinamento assistito.
 
 .. image:: application/009.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 14.5‑3 Collision Triggered Under Force Sensor Assisted Dragging
+.. centered:: Figura 14.5‑3 Collisione attivata durante il trascinamento con sensore di forza
 
-.. note::
-   Under force sensor assisted dragging, the robot itself is in a stopped state. During dragging, there is a difference between the joint torque command and feedback. It is recommended to set the collision level to level 7 or higher. Setting the collision level too low may cause false collision errors during dragging.
+.. note:: 
+   Durante il trascinamento assistito dal sensore di forza, il robot è in stato di arresto. La differenza tra il comando di coppia e il valore misurato può causare falsi allarmi. Si consiglia di impostare il livello di sensibilità alla collisione a 7 o superiore. Livelli troppo bassi potrebbero generare errori di collisione durante il normale trascinamento.
 
-Parameters Calibration of Joint Torque Sensor on the Whole Machine
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calibrazione Parametri Sensori di Coppia sugli Snodi
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Overview
+Panoramica
 ************************
 
-Joint torque sensor sensitivity refers to the sensor's responsiveness to torque changes, describing the proportional relationship between the sensor's output voltage and the actual joint torque being measured. Linearity measures how well a regression model fits the observed data. Hysteresis error is the maximum difference between measurements during forward stroke (from small to large) and reverse stroke (from large to small) under the same test conditions for the joint torque sensor's raw data. Repeatability is the ratio of the current test result to the previous test result, used to determine the repeatability accuracy of the joint torque sensor.
+La sensibilità del sensore di coppia misura la sua capacità di rispondere alle variazioni di coppia, rappresentando il rapporto tra la tensione in uscita e la coppia reale applicata allo snodo.  
+La linearità indica quanto bene un modello regressivo approssima i dati misurati.  
+L’isteresi è la massima differenza tra i valori misurati durante un ciclo ascendente (da coppia minima a massima) e discendente (da massima a minima), nelle stesse condizioni.  
+La ripetibilità è il rapporto tra il risultato attuale e quello del test precedente, e serve a valutare la precisione del sensore.
 
-The parameter calibration method involves running the robot through a predetermined trajectory, and calculating the joint torque sensor's sensitivity, linearity, hysteresis error, and repeatability accuracy by acquiring joint gravity torque and joint torque sensor raw data under different postures.
+Il metodo di calibrazione prevede di far eseguire al robot una traiettoria prestabilita, acquisendo dati sulla coppia gravitazionale e sui valori grezzi del sensore in diverse posizioni, per calcolare sensibilità, linearità, isteresi e ripetibilità.
 
-Parameter Calibration
-********************************
+Calibrazione Parametri
+**********************
 
-**Step1**: Set the tool coordinate system to "Tool0". Click "Auxiliary Applications" -> "Tool Applications" -> "Drag Lock". In the joint torque sensor whole-machine drag module, click "Function Enable", as shown in Figure 2-1.
+**Passo 1**: Impostare il sistema di coordinate utensile su “Tool0”. Accedere a “Applicazioni Ausiliarie” → “Applicazioni Strumento” → “Blocco Trascinamento” e attivare la funzione “Calibrazione Coppia Snodi”, come mostrato in Figura 2-1.
 
 .. image:: application/037.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.5‑4 Function Enable
+.. centered:: Figura 14.5‑4 Abilitazione funzione
 
-**Step2**: After clicking "Function Enable", proceed with sensitivity calibration, as shown in Figure 2-2. Click "Generate Program" to deploy the internal controller Lua script. Switch the robot to automatic mode and set the run speed to "10". Click "Run" and wait for the robot to move.
+**Passo 2**: Dopo aver attivato la funzione, procedere con la calibrazione della sensibilità (Figura 2-2). Cliccare su “Genera Programma” per inviare uno script Lua interno al controllore. Passare il robot in modalità automatica, impostare la velocità a “10” e fare clic su “Esegui”, attendendo il completamento del movimento.
 
 .. image:: application/038.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.5‑5 Sensitivity Calibration
+.. centered:: Figura 14.5‑5 Calibrazione sensibilità
 
-.. note:: If the joint torque sensor sensitivity calibration is already completed, you can proceed directly to drag function parameter settings.
+.. note:: Se la sensibilità è già stata calibrata in precedenza, è possibile saltare questo passo e procedere direttamente con la configurazione del trascinamento.
 
-**Step3**: After the robot completes running the predetermined trajectory, the sensitivity, linearity, hysteresis error, and repeatability calibration results are automatically displayed on the web interface. Click "Set" to apply, as shown in Figure 2-3.
+**Passo 3**: Al termine del movimento, i risultati di calibrazione (sensibilità, linearità, isteresi, ripetibilità) vengono visualizzati automaticamente nell’interfaccia web. Cliccare su “Applica” per salvare i parametri, come mostrato in Figura 2-3.
 
 .. image:: application/039.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.5‑6 Parameter Calibration Results
+.. centered:: Figura 14.5‑6 Risultati calibrazione
 
-Intersection Point Generation (Laser Point Capture Motion)
-----------------------------------------------------------------------------------
+Generazione Punto di Intersezione (Movimento con Presa Laser)
+-------------------------------------------------------------
 
-During welding, the laser point capture motion can be configured with posture, enabling the robot to achieve the expected posture when reaching the position point. This easily handles special scenarios such as fillet welds and groove welds.
+Durante la saldatura, il movimento con presa laser consente di configurare l’orientazione del robot in modo che, al raggiungimento del punto, assuma la posa desiderata. Questa funzione è particolarmente utile per giunti d’angolo o saldature a smusso.
 
-Laser Point Capture Motion Function Operation Process
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Procedura Operativa per il Movimento con Presa Laser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Before using the laser sensor, first apply the "Welding Torch" tool coordinate system to the current tool coordinate system. Open the Teach Page, click "Initial Setup", "Basic", "Tool Coordinates" in sequence, select "Welding Torch" as the coordinate system name and apply it. The tool coordinate system in the system status bar will display as Tool1.
+**Passo 1**: Prima di utilizzare il sensore laser, applicare il sistema di coordinate “Pistola Saldatrice” come sistema utensile corrente. Nella pagina di insegnamento, andare su “Impostazioni Iniziali” → “Base” → “Coordinate Utensile”, selezionare “Pistola Saldatrice” e applicare. La barra di stato mostrerà Tool1 come sistema utensile attivo.
 
 .. figure:: application/010.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑1 Apply Welding Torch Coordinate System
+.. centered:: Figura 14.6‑1 Applicazione del sistema di coordinate pistola saldatrice
 
-**Step2**: Write the laser point capture motion Lua program. Click "Teach Program" -> "Program Programming" -> "New Button" in sequence, and create a new user program "testPointRecord.lua".
+**Passo 2**: Creare un programma Lua per il movimento con presa laser. Andare su “Programmi di Insegnamento” → “Programmazione” → “Nuovo” e creare un nuovo programma utente denominato “testPointRecord.lua”.
 
 .. figure:: application/011.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑2 New Laser Point Capture Motion Program
+.. centered:: Figura 14.6‑2 Creazione nuovo programma per presa laser
 
-**Step3**: Configure the reference posture teach point (Optional). In manual mode, drag the robot to the desired welding posture. On the Teach Page, click "Teach Point Record", "Name Point" in sequence, and save the posture teach point as "referencePoint".
+**Passo 3**: (Opzionale) Configurare un punto di riferimento per l’orientazione. In modalità manuale, trascinare il robot nella posa desiderata per la saldatura. Nella pagina di insegnamento, andare su “Registrazione Punti” → “Salva Punto con Nome” e salvare la posa come “referencePoint”.
 
 .. figure:: application/012.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑3 Save Posture Reference Teach Point
+.. centered:: Figura 14.6‑3 Salvataggio punto di riferimento per orientazione
 
-**Step4**: Generate the laser point capture motion program. Click "Teach Program" -> "Program Programming" -> "Welding Instructions", "Laser Tracking" in sequence, scroll down to the Sensor Point Capture Motion section, select the required "Motion Mode", "Debug Speed", and posture reference point to generate the corresponding laser point capture LUA program.
+**Passo 4**: Generare il programma per il movimento con presa laser. Andare su “Programmi di Insegnamento” → “Programmazione” → “Istruzioni Saldatura” → “Tracciamento Laser”, scorrere fino alla sezione “Movimento con Presa Sensore”, selezionare il “Tipo di Movimento”, la “Velocità Debug” e il punto di riferimento per l’orientazione. Il sistema genererà automaticamente il programma Lua corrispondente.
 
-If no posture reference point is selected, the posture at the point of capture is maintained by default during motion. If a posture reference point is selected, the robot moves to the laser-captured point using the reference posture.
+Se non viene selezionato alcun punto di riferimento, il robot manterrà l’orientazione al momento della presa. Se invece viene selezionato, assumerà tale orientazione nel punto rilevato dal laser.
 
 .. figure:: application/013.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 14.6‑4 Select Posture Reference Teach Point
+.. centered:: Figura 14.6‑4 Selezione del punto di riferimento per orientazione
 
-Execute the laser point capture motion. Drag the robot so that the laser sensor beam points to the desired weld seam point. The laser sensor will acquire the weld seam position and capture the point. After executing the laser point capture motion, the welding torch will move to the point scanned by the laser sensor using the reference posture.
+Esecuzione del movimento con presa laser: trascinare il robot in modo che il raggio laser punti sul punto di saldatura desiderato. Il sensore rileverà la posizione della giunzione. Al termine, la pistola saldatrice si sposterà al punto rilevato assumendo l’orientazione di riferimento.
 
 .. figure:: application/014.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑5 Laser Acquires Weld Seam Position
+.. centered:: Figura 14.6‑5 Rilevamento posizione giunzione con laser
 
 .. figure:: application/015.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑6 Welding Torch Points to Weld Seam Position with Reference Posture
+.. centered:: Figura 14.6‑6 Pistola saldatrice orientata verso la giunzione
 
-Finding Intersection Coordinates Using Three-Point and Four-Point Seam Finding
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Calcolo Punto di Intersezione con Tre o Quattro Punti
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When it is inconvenient to directly teach the position of a fillet weld, the collaborative robot can calculate the intersection point of the two plate planes by manually teaching or finding the positions on both sides of the fillet weld, thereby generating the location of the fillet weld.
+Quando non è possibile insegnare direttamente la posizione di una giunzione d’angolo, il robot collaborativo può calcolare il punto di intersezione tra due piani (es. lastre metalliche) acquisendo punti di contatto su ciascun piano.
 
-For right-angle fillet welds, the three-point seam finding method can be used to calculate the intersection coordinates; for non-right-angle fillet welds, the four-point seam finding method is used.
+- Per giunzioni ad angolo retto: utilizzare il metodo a **tre punti**.
+- Per giunzioni non ortogonali: utilizzare il metodo a **quattro punti**.
 
-Both command and Lua script methods are provided to obtain the intersection coordinates for seam finding motion, and a reference posture can be configured, allowing the robot carrying the welding torch to move to the intersection point with the posture of the reference teach point.
+Sono disponibili due modalità: tramite interfaccia grafica o script Lua. In entrambi i casi è possibile specificare un’orientazione di riferimento, in modo che il robot si muova al punto calcolato con la posa desiderata.
 
-Command-based Intersection Calculation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Punto di Intersezione tramite Interfaccia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Three-Point Intersection Calculation
-***************************************************************
+Tre Punti – Calcolo Intersezione
+********************************
 
-**Step1**: Collect three plane contact points and save them as teach points; configure a reference teach point.
+**Passo 1**: Acquisire tre punti di contatto e salvarli come punti di insegnamento; configurare (opzionalmente) un punto di riferimento per l’orientazione.
 
 .. figure:: application/016.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑7 Select Three Seam Finding Points
+.. centered:: Figura 14.6‑7 Selezione di tre punti di ricerca
 
-The collected contact points include three points, where two points lie on the same plane and the other point lies on the perpendicular plane.
+Due punti appartengono allo stesso piano, il terzo a un piano perpendicolare.
 
-.. note:: If no posture reference point is selected, the generated intersection point's posture is consistent with point P3 by default. If a posture reference point is selected, it matches the posture of the reference teach point.
+.. note:: Se non viene selezionato un punto di riferimento, l’orientazione del punto calcolato sarà uguale a quella del punto P3. Altrimenti, assumerà l’orientazione del punto di riferimento.
 
-**Step2**: On the Teach Page, click "Applications" -> "Tool App" -> "Intersection Generation", and find the Three-Point and Four-Point Intersection Calculation function module.
+**Passo 2**: Nella pagina di insegnamento, andare su “Applicazioni Ausiliarie” → “Applicazioni Strumento” → “Generazione Punto di Intersezione” e aprire il modulo per il calcolo con tre o quattro punti.
 
 .. figure:: application/017.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑8 Select Seam Finding Points for Intersection Calculation
+.. centered:: Figura 14.6‑8 Selezione punti per calcolo intersezione
 
-**Step3**: Select "Three-Point Seam Finding" from the dropdown, sequentially select the three collected contact points, click Calculate, check if the displayed intersection point in the 3D model is correct, name the intersection point, and save it.
+**Passo 3**: Selezionare “Ricerca a Tre Punti”, scegliere i tre punti acquisiti e fare clic su “Calcola”. Verificare visivamente nel modello 3D che il punto generato sia corretto, assegnargli un nome e salvarlo.
 
 .. figure:: application/018.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑9 Calculate Intersection Coordinates and Save
+.. centered:: Figura 14.6‑9 Calcolo e salvataggio punto di intersezione
 
-**Step4**: Save the teach point, and teach motion can be performed.
+**Passo 4**: Il punto salvato può ora essere utilizzato nei movimenti di insegnamento.
 
 .. figure:: application/019.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 14.6‑10 Save Intersection Coordinates as a Teach Point
+.. centered:: Figura 14.6‑10 Salvataggio punto di intersezione come punto di insegnamento
 
-Four-Point Intersection Calculation
-***************************************************************
+Quattro Punti – Calcolo Intersezione
+*******************************************
 
-**Step1**: Collect four plane contact points and save them as teach points; configure a reference teach point.
+**Passo 1**: Acquisire quattro punti di contatto e salvarli come punti di insegnamento; configurare (opzionalmente) un punto di riferimento per l’orientazione.
 
 .. figure:: application/020.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑11 Select Four Seam Finding Points
+.. centered:: Figura 14.6‑11 Selezione di quattro punti di ricerca
 
-The collected contact points include four points, where the first two points lie on the same plane and the last two points lie on the perpendicular plane.
+I primi due punti appartengono a un piano, gli altri due a un piano adiacente (non necessariamente perpendicolare).
 
-.. note:: If no posture reference point is selected, the generated intersection point's posture is consistent with point P4 by default. If a posture reference point is selected, it matches the posture of the reference teach point.
+.. note:: Se non viene selezionato un punto di riferimento, l’orientazione del punto calcolato sarà uguale a quella del punto P4. Altrimenti, assumerà l’orientazione del punto di riferimento.
 
-**Step2**: On the Teach Page, click "Initial Setup", "Peripherals", "Tracking", "Sensors" in sequence, and find the Three-Point and Four-Point Intersection Calculation function module.
+**Passo 2**: Nella pagina di insegnamento, andare su “Impostazioni Iniziali” → “Periferiche” → “Tracciamento” → “Sensore” e aprire il modulo per il calcolo con tre o quattro punti.
 
 .. figure:: application/021.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑12 Select Seam Finding Points and Reference Point for Intersection Calculation
+.. centered:: Figura 14.6‑12 Selezione punti e punto di riferimento
 
-**Step3**: Select "Four-Point Seam Finding" from the dropdown, sequentially select the four collected contact points, click Calculate, check if the displayed intersection point in the 3D model is correct, name the intersection point, and save it.
+**Passo 3**: Selezionare “Ricerca a Quattro Punti”, scegliere i quattro punti acquisiti e fare clic su “Calcola”. Verificare il risultato nel modello 3D, assegnare un nome e salvare il punto.
 
 .. figure:: application/022.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑13 Calculate Intersection Coordinates and Save
+.. centered:: Figura 14.6‑13 Calcolo e salvataggio punto di intersezione
 
-**Step4**: Save the teach point, and teach motion can be performed.
+**Passo 4**: Il punto salvato può ora essere utilizzato nei movimenti di insegnamento.
 
 .. figure:: application/023.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 14.6‑14 Save Intersection Coordinates as a Teach Point
+.. centered:: Figura 14.6‑14 Salvataggio punto di intersezione come punto di insegnamento
 
-Lua Script for Intersection Seam Finding Motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo Punto di Intersezione tramite Script Lua
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Three-Point Intersection Calculation
-***************************************************************
+Tre Punti – Movimento con Ricerca
+*********************************
 
-**Step1**: Collect three plane contact points and save them as teach points; configure a reference teach point.
+**Passo 1**: Acquisire tre punti di contatto e salvarli come punti di insegnamento; configurare (opzionalmente) un punto di riferimento per l’orientazione.
 
 .. figure:: application/016.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑15 Select Three Seam Finding Points
+.. centered:: Figura 14.6‑15 Selezione di tre punti di ricerca
 
-The collected contact points include three points, where two points lie on the same plane and the other point lies on the perpendicular plane.
+Due punti appartengono allo stesso piano, il terzo a un piano perpendicolare.
 
-.. note:: If no posture reference point is selected, the generated intersection point's posture is consistent with point P3 by default. If a posture reference point is selected, it matches the posture of the reference teach point.
+.. note:: Se non viene selezionato un punto di riferimento, l’orientazione del punto calcolato sarà uguale a quella del punto P3. Altrimenti, assumerà l’orientazione del punto di riferimento.
 
-**Step2**: Write the three-point intersection seam finding motion Lua program. Click "Teach Program" -> "Program Programming" -> "New Button" in sequence, and create a new user program "test3point.lua".
+**Passo 2**: Creare uno script Lua per il movimento con ricerca a tre punti. Andare su “Programmi di Insegnamento” → “Programmazione” → “Nuovo” e creare un nuovo programma denominato “test3point.lua”.
 
 .. figure:: application/024.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑16 New Three-Point Intersection Seam Finding Motion Program
+.. centered:: Figura 14.6‑16 Creazione nuovo programma per ricerca a tre punti
 
-**Step3**: Generate the three-point intersection seam finding motion program. Click "Teach Program" -> "Program Programming" -> "Welding Instructions" -> "Laser Tracking" in sequence, scroll down to the Seam Finding Intersection Motion section, select the "Three-Point Seam Finding" method, use the dropdowns to sequentially select the collected contact points "Point 1", "Point 2", "Point 3", and the posture reference point, select the required "Motion Mode" and "Debug Speed", then click the "Add" and "Apply" buttons to generate the corresponding three-point intersection seam finding motion program.
+**Passo 3**: Generare lo script. Andare su “Programmi di Insegnamento” → “Programmazione” → “Istruzioni Saldatura” → “Tracciamento Laser”, scorrere fino a “Movimento con Ricerca Intersezione”, selezionare “Ricerca a Tre Punti”, scegliere i punti “Punto1”, “Punto2”, “Punto3” e il punto di riferimento per l’orientazione, impostare “Tipo di Movimento” e “Velocità Debug”, quindi fare clic su “Aggiungi” e “Applica” per generare lo script.
 
 .. figure:: application/025.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑17 Three-Point Intersection Seam Finding Motion
+.. centered:: Figura 14.6‑17 Movimento con ricerca a tre punti
 
-**Step4**: In Auto mode, click the Run button to automatically perform the three-point intersection calculation. The robot will drag the welding torch and move to the intersection position using the reference posture.
+**Passo 4**: In modalità automatica, fare clic su “Esegui”: il robot calcolerà automaticamente il punto di intersezione e si sposterà alla posizione con l’orientazione di riferimento.
 
-Four-Point Intersection Calculation
-***************************************************************
+Quattro Punti – Movimento con Ricerca
+*********************************************
 
-**Step1**: Collect four plane contact points and save them as teach points; configure a reference teach point.
+**Passo 1**: Acquisire quattro punti di contatto e salvarli come punti di insegnamento; configurare (opzionalmente) un punto di riferimento per l’orientazione.
 
 .. figure:: application/020.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑18 Select Four Seam Finding Points
+.. centered:: Figura 14.6‑18 Selezione di quattro punti di ricerca
 
-The collected contact points include four points, where the first two points lie on one plane and the last two points lie on another plane.
+Due punti appartengono a un piano, gli altri due a un piano adiacente.
 
-.. note:: If no posture reference point is selected, the generated intersection point's posture is consistent with point P4 by default. If a posture reference point is selected, it matches the posture of the reference teach point.
+.. note:: Se non viene selezionato un punto di riferimento, l’orientazione del punto calcolato sarà uguale a quella del punto P4. Altrimenti, assumerà l’orientazione del punto di riferimento.
 
-**Step2**: Write the four-point intersection seam finding motion Lua program. Click "Teach Program" -> "Program Programming" -> "New Button" in sequence, and create a new user program "test4point.lua".
+**Passo 2**: Creare uno script Lua per il movimento con ricerca a quattro punti. Andare su “Programmi di Insegnamento” → “Programmazione” → “Nuovo” e creare un nuovo programma denominato “test4point.lua”.
 
 .. figure:: application/026.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑19 New Four-Point Intersection Seam Finding Motion Program
+.. centered:: Figura 14.6‑19 Creazione nuovo programma per ricerca a quattro punti
 
-**Step3**: Generate the four-point intersection seam finding motion program. As shown in Figure 2-14, click "Teach Program" -> "Program Programming" -> "Welding Instructions" -> "Laser Tracking" -> scroll down to the Seam Finding Intersection Motion section, select the "Four-Point Seam Finding" method, use the dropdowns to sequentially select the collected contact points "Point 1", "Point 2", "Point 3", "Point 4", and the posture reference point, select the required "Motion Mode" and "Debug Speed", then click the "Add" and "Apply" buttons to generate the corresponding four-point intersection seam finding motion program.
+**Passo 3**: Generare lo script. Andare su “Programmi di Insegnamento” → “Programmazione” → “Istruzioni Saldatura” → “Tracciamento Laser”, scorrere fino a “Movimento con Ricerca Intersezione”, selezionare “Ricerca a Quattro Punti”, scegliere i punti “Punto1”, “Punto2”, “Punto3”, “Punto4” e il punto di riferimento per l’orientazione, impostare “Tipo di Movimento” e “Velocità Debug”, quindi fare clic su “Aggiungi” e “Applica”.
 
 .. figure:: application/027.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 14.6‑20 Four-Point Intersection Seam Finding Motion
+.. centered:: Figura 14.6‑20 Movimento con ricerca a quattro punti
 
-**Step4**: In Auto mode, click the Run button to automatically perform the four-point intersection calculation. The robot will drag the welding torch and move to the intersection position using the reference posture.
+**Passo 4**: In modalità automatica, fare clic su “Esegui”: il robot calcolerà automaticamente il punto di intersezione e si sposterà alla posizione con l’orientazione di riferimento.
 
-Peripheral Protocol
----------------------------------
+Protocollo Periferiche
+----------------------
 
-Under the "Applications" -> "Tool App" menu bar, click "Peripheral Protocol" to enter the peripheral protocol configuration function interface.
+Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare clic su “Protocollo Periferiche” per accedere all’interfaccia di configurazione.
 
-This page is for configuring peripheral protocols. Users can configure the protocol based on the currently used peripheral device.
+Questa pagina permette di configurare il protocollo di comunicazione in base alla periferica utilizzata.
 
 .. image:: application/028.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.7‑1 Peripheral Protocol Configuration
+.. centered:: Figura 14.7‑1 Configurazione protocollo periferiche
 
-Lua interfaces for reading and writing registers based on Modbus-RTU communication have been added in program teaching. The input register address is 0x1000 with 50 registers, totaling 100 bytes of data content; the holding register address is 0x2000 with 50 registers, totaling 100 bytes of data content.
-
-::
-
-   ModbusRegRead(fun_code, reg_add, reg_num): Read Registers;
-
-   fun_code: Function code, 0x03 - Holding Register, 0x04 - Input Register
-
-   reg_add: Register Address
-
-   reg_num: Number of Registers
+Nella programmazione è stato aggiunto un’interfaccia Lua per la comunicazione Modbus-RTU:
+- Registro ingressi: indirizzo 0x1000, 50 registri (100 byte)
+- Registro holding: indirizzo 0x2000, 50 registri (100 byte)
 
 ::
 
-   ModbusRegWrite(fun_code, reg_add, reg_num, reg_value): Write Registers;
+   ModbusRegRead(fun_code, reg_add, reg_num): lettura registri;
 
-   fun_code: Function code, 0x06 - Single Register, 0x10 - Multiple Registers
-
-   reg_add: Register Address
-
-   reg_num: Number of Registers
-
-   reg_value: Byte Array
+   fun_code: codice funzione — 0x03 per registri holding, 0x04 per registri ingressi
+   reg_add: indirizzo registro
+   reg_num: numero di registri
 
 ::
 
-   ModbusRegGetData(reg_num): Get Register Data;
+   ModbusRegWrite(fun_code, reg_add, reg_num, reg_value): scrittura registri;
 
-   reg_num: Number of Registers
+   fun_code: codice funzione — 0x06 per singolo registro, 0x10 per registri multipli
+   reg_add: indirizzo registro
+   reg_num: numero di registri
+   reg_value: array di byte
 
-   Return value description:
+::
 
-   reg_value: Array variable
+   ModbusRegGetData(reg_num): recupera dati dai registri;
 
-Example program screenshot:
+   reg_num: numero di registri
+
+   Valore restituito:
+   reg_value: variabile array
+
+Esempio di programma:
 
 .. image:: application/029.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.7‑2 Modbus-RTU Communication Lua Program Example
+.. centered:: Figura 14.7‑2 Esempio programma Lua con comunicazione Modbus-RTU
 
-G-code to Robot Trajectory Planning Function
------------------------------------------------------------------------------------
+Funzione di Conversione da Codice G a Traiettoria Robot
+-------------------------------------------------------
 
-Function Overview
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Panoramica Funzione
+~~~~~~~~~~~~~~~~~~~
 
-The G-code to Robot Trajectory Planning function uses CAD software to convert paths (lines, arcs, full circles, splines) into G-code files with the ".gcode" extension. The G-code for spline paths consists of many small line segments. Importing the generated G-code file on the Web端 converts it and generates a LUA file.
+Questa funzione consente di convertire file G-code (estensione “.gcode”), generati da software CAD/CAM con percorsi composti da linee rette, archi, cerchi completi o spline (approssimate con segmenti rettilinei), in file LUA eseguibili dal robot.
 
-G-code to Robot Trajectory Planning function description:
+Caratteristiche della conversione:
 
-(1) The Web can only import G-code files with the ".gcode" extension. Upon successful conversion, a LUA file with the same name as the G-code file is generated. If a LUA file with the same name already exists before conversion, the conversion will fail.
+(1) L’interfaccia web accetta solo file con estensione “.gcode”. Al termine della conversione viene generato un file LUA con lo stesso nome. Se esiste già un file LUA con lo stesso nome, la conversione fallisce.
 
-(2) Currently, it can convert rapid move G0, linear interpolation G1, clockwise arc interpolation G2, and counterclockwise arc interpolation G3 commands in G-code. G0 corresponds to the MoveJ instruction, G1 corresponds to MoveL, arcs (G2/G3) correspond to MoveC, and full circles (G2/G3) correspond to the Circle instruction.
+(2) Sono supportate le istruzioni G-code:
 
-(3) Currently, only G-code for arcs and circles in the XY plane can be converted.
+- G0 (movimento rapido) → MoveJ
+- G1 (interpolazione lineare) → MoveL
+- G2/G3 (archi orari/antiorari) → MoveC
+- G2/G3 per cerchi completi → Circle
 
-(4) The spindle speed S set in G-code instructions corresponds to the speed in the MoveJ instruction. The unit of spindle speed is revolutions per minute (RPM), corresponding to millimeters per minute (mm/min) for move speed. The feedrate F corresponds to the speed in MoveL, MoveC, and Circle. The unit of feedrate is millimeters per minute (mm/min), consistent with the move speed unit. The speed settings in G-code must not exceed the robot's maximum moving speed.
+(3) Attualmente la conversione è supportata solo per archi e cerchi nel piano XY.
 
-(5) When executing the converted LUA file, the robot needs to have the speed percentage in the upper right corner of the Web interface changed to 100.
+(4) Nel G-code:
 
-Operation Process
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Il parametro S (velocità mandrino in giri/minuto) viene mappato sulla velocità di MoveJ (mm/minuto).
+- Il parametro F (avanzamento in mm/minuto) viene mappato sulle velocità di MoveL, MoveC e Circle.
+- I valori di velocità non devono superare la velocità massima del robot.
 
-The calculation of the robot's posture along the working path is shown in the figure below.
+(5) Durante l’esecuzione del file LUA generato, impostare la percentuale di velocità nell’angolo in alto a destra dell’interfaccia web al 100%.
+
+Procedura Operativa
+~~~~~~~~~~~~~~~~~~~
+
+L’orientazione del robot lungo il percorso viene calcolata come illustrato nella figura seguente.
 
 .. image:: application/030.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 14.8-1 Robot Posture Calculation Schematic
+.. centered:: Figura 14.8-1 Schema calcolo orientazione robot
 
-Where P-xyz is the posture of the recorded reference posture teach point, and O-xy is the coordinate system of the CAD drawing. The robot's posture at the starting point A is the reference posture. Based on the angle between the Z-axis of the reference posture and the CAD drawing plane, and the angle between the projection of the Z-axis on the CAD drawing plane and the tangent at the path's starting point, the robot's posture at intermediate point B and endpoint C of the path is calculated.
+Dove:
+- P-xyz: orientazione del punto di riferimento insegnato
+- O-xy: sistema di coordinate del disegno CAD
 
-The functional operation process is as follows:
+All’inizio del percorso (punto A), il robot assume l’orientazione di riferimento. Nei punti successivi (B, C), l’orientazione viene calcolata in base:
+- All’angolo tra l’asse Z del riferimento e il piano CAD
+- All’angolo tra la proiezione di Z sul piano CAD e la tangente al percorso nel punto iniziale
 
-**Step 1**: Use CAD software with CAM functionality to convert the machining path into a G-code file, and use a G-code simulator, such as NC Viewer, to verify the correctness of the tool path.
+Procedura dettagliata:
 
-**Step 2**: Before converting G-code to robot trajectory, first calibrate the tool coordinate system and the workpiece coordinate system. Note that the workpiece coordinate system needs to coincide with the machine coordinate system in the CAD software.
+**Passo 1**: Utilizzare un software CAD con funzionalità CAM per generare il file G-code. Verificare il percorso con un simulatore (es. NC Viewer).
+
+**Passo 2**: Prima della conversione, calibrare il sistema di coordinate utensile e pezzo. Il sistema pezzo deve coincidere con il sistema macchina del software CAD.
 
 .. image:: application/031.png
    :width: 4in
@@ -512,36 +536,36 @@ The functional operation process is as follows:
    :width: 4in
    :align: center
 
-.. centered:: Figure 14.8-2 Tool and Workpiece Coordinate System Calibration Interface
+.. centered:: Figura 14.8-2 Interfacce calibrazione utensile e pezzo
 
-**Step 3**: Under the calibrated tool coordinate system and workpiece coordinate system, record a reference posture teach point. The robot's posture along the working path will be calculated using the posture of this reference point.
+**Passo 3**: Registrare un punto di riferimento per l’orientazione nel sistema calibrato. Tale orientazione verrà utilizzata per calcolare la posa lungo il percorso.
 
-**Step 4**: Click "Applications", "Tool App", "G-code Conversion" button in sequence to enter the G-code file to robot motion LUA file interface.
+**Passo 4**: Accedere a “Applicazioni Ausiliarie” → “Applicazioni Strumento” → “Conversione G-code” per aprire l’interfaccia di conversione.
 
 .. image:: application/033.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 14.8-3 G-code Conversion Interface
+.. centered:: Figura 14.8-3 Interfaccia conversione G-code
 
-**Step 5**: Click the "Select File" button to find the G-code file that needs conversion. Note that the file extension of the G-code file must be ".gcode". Select the reference posture point recorded in Step 2. Upon successful selection, the tool coordinate system and workpiece coordinate system of the currently selected teach point will be displayed below. Finally, click the "Convert" button. Upon successful conversion, a "G-code Conversion Successful" message will appear. Additionally, if a LUA file with the same name as the G-code file already exists, clicking the "Convert" button will prompt that the filename already exists.
+**Passo 5**: Cliccare su “Seleziona File”, scegliere il file G-code (deve avere estensione “.gcode”). Selezionare il punto di riferimento per l’orientazione (registrato al Passo 3); l’interfaccia mostrerà i sistemi di coordinate associati. Cliccare su “Converti”. In caso di successo, apparirà un messaggio di conferma. Se esiste già un file LUA con lo stesso nome, la conversione verrà bloccata.
 
 .. image:: application/034.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 14.8-4 G-code Conversion Success Interface
+.. centered:: Figura 14.8-4 Conversione completata con successo
 
 .. image:: application/035.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 14.8-5 G-code Conversion Failure Interface
+.. centered:: Figura 14.8-5 Conversione fallita (nome file già esistente)
 
-**Step 6**: Click "Teach Programming" -> "Program Programming" button, open the LUA file generated after G-code conversion, switch the robot to Auto mode, and click the Start button. The robot will then replicate the path from the G-code file.
+**Passo 6**: Andare su “Programmazione Insegnamento” → “Programmazione”, aprire il file LUA generato, passare il robot in modalità automatica e fare clic su “Avvia” per eseguire il percorso.
 
 .. image:: application/036.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 14.8-6 Open the Converted LUA File
+.. centered:: Figura 14.8-6 Apertura file LUA generato

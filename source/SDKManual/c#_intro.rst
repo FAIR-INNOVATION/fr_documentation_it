@@ -1,18 +1,18 @@
 C#
 ==============
 
-This document is the C# version of the secondary development interface document.
+Questo documento è la guida per l'interfaccia di sviluppo secondario per la versione C#.
 
 .. important::
 
-    Description of robot parameter units: robot position in millimeters (mm) and attitude in degrees (°).
+    Spiegazione delle unità di misura dei parametri del robot: l'unità per la posizione è il millimetro (mm) e l'unità per l'orientamento è il grado (°).
 
-.. important::
+.. important:: 
 
-    1) All code examples in the documentation default to the robot being powered on and enabled unless otherwise specified;
-    2) All code examples in the documentation default to no interference in the robot's workspace;
-    3) Please use the data of the robot in the field for actual use testing.
-    4) Before using this SDK, you need to find the “xmlrpcnet” package through NuGet and add it to the project reference;
+    1) Negli esempi di codice non specificati diversamente, si presuppone che il robot sia normalmente acceso e abilitato;
+    2) In tutti gli esempi di codice in questo documento si presuppone che non ci siano ostacoli all'interno dello spazio di lavoro del robot;
+    3) Per l'uso pratico e i test, si prega di utilizzare i dati del robot reale in loco.
+    4) Prima di utilizzare questo SDK, è necessario cercare il pacchetto "xmlrpcnet" tramite NuGet e aggiungerlo ai riferimenti del progetto.
 
 
 .. toctree:: 

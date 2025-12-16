@@ -1,170 +1,170 @@
-Robot basics
-==========================
+Fondamenti del Robot
+====================
 
 .. toctree:: 
     :maxdepth: 5
 
-Instantiate robot
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Istanziazione del Robot
+++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Robot interface class constructor
+    * @brief  Costruttore della classe interfaccia robot
     */
     Robot robot = new Robot(); 
 
-Establish communication with controller
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Stabilire Comunicazione con il Controllore
++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Establish communication with robot controller
-    * @param [in] ip Controller ip address, default is 192.168.58.2
-    * @return Error code
+    * @brief  Stabilisce comunicazione con il controllore del robot
+    * @param  [in] ip  Indirizzo IP del controllore, di fabbrica default 192.168.58.2
+    * @return Codice errore
     */
     int RPC(String ip);
 
-Close communication with robot
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chiudere Comunicazione con il Robot
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Close communication with robot
-    * @return Error code 
+    * @brief Chiude la comunicazione con il robot
+    * @return Codice errore 
     */ 
     int CloseRPC(); 
 
-Query sdk version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Interrogare Numero Versione SDK
+++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Query sdk version 
-    * @return Version number 
+    * @brief Interroga il numero di versione SDK 
+    * @return Numero versione 
     */  
     String GetSDKVersion();
 
-Get controller ip
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere IP Controllore
++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get controller ip
-    * @param [out] ip Controller ip
-    * @return Error code
+    * @brief  Ottiene l'IP del controllore
+    * @param  [out] ip  IP controllore
+    * @return  Codice errore
     */
     int GetControllerIP(String[] ip);
 
-Control robot to enter or exit drag teaching mode
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare Ingresso/Uscita Robot dalla Modalità Insegnamento Trascinamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Control robot to enter or exit drag teaching mode
-    * @param [in] state 0-exit drag teaching mode, 1-enter drag teaching mode
-    * @return Error code
+    * @brief  Controlla l'ingresso o l'uscita del robot dalla modalità di insegnamento trascinamento
+    * @param  [in] state 0-esci dalla modalità insegnamento trascinamento, 1-entra nella modalità insegnamento trascinamento
+    * @return  Codice errore
     */
     int DragTeachSwitch(int state);
 
-Query whether robot is in drag teaching mode
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Interrogare Se il Robot è in Modalità Insegnamento Trascinamento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Query whether robot is in drag teaching mode
-    * @param [in] state 0-not in drag teaching mode, 1-in drag teaching mode
-    * @return Error code
+    * @brief  Interroga se il robot è in modalità insegnamento trascinamento
+    * @param  [in] state 0-non in modalità insegnamento trascinamento, 1-in modalità insegnamento trascinamento
+    * @return  Codice errore
     */
     int IsInDragTeach(List<Number> state);
 
-Control robot enable or disable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare Abilitazione/Disabilitazione del Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Control robot enable or disable, robot is enabled by default after power on
-    * @param [in] state 0-disable, 1-enable
-    * @return Error code
+    * @brief  Controlla l'abilitazione o la disabilitazione del robot, dopo l'accensione il robot è abilitato automaticamente di default
+    * @param  [in] state  0-disabilita, 1-abilita
+    * @return  Codice errore
     */
     int RobotEnable(int state); 
 
-Control robot manual/auto mode switch
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Controllare Passaggio Modalità Manuale/Automatica del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Control robot manual/auto mode switch
-    * @param [in] mode 0-auto mode, 1-manual mode
-    * @return Error code
+    * @brief Controlla il passaggio tra modalità manuale e automatica del robot
+    * @param [in] mode 0-modalità automatica, 1-modalità manuale
+    * @return Codice errore
     */
     int Mode(int mode);
 
-Shut down robot os
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Spegnere Sistema Operativo Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.4-3.8.1
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Shut down robot os
-    * @return Error code
+    * @brief Spegne il sistema operativo del robot
+    * @return Codice errore
     */
     int ShutDownRobotOS();
 
-Set robot communication reconnect parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Parametri Reconnessione Comunicazione con il Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set robot communication reconnect parameters
-    * @param [in] enable Whether to enable, true:enable, false:disable
-    * @param [in] times Reconnect times
-    * @param [in] period Reconnect interval
-    * @return Error code
+    * @brief Imposta i parametri di riconnessione per la comunicazione con il robot
+    * @param [in] enable Se abilitare, true: abilita, false: non abilitare
+    * @param [in] times Numero tentativi di riconnessione
+    * @param [in] period Intervallo di tempo tra riconnessioni
+    * @return Codice errore
     */
     int SetReconnectParam(boolean enable, int times, int period);
 
-Initialize log parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizializzare Parametri Log
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Initialize log parameters
-    * @param [in] logType Output mode, DIRECT-direct output; BUFFER-buffer output; ASYNC-async output
-    * @param [in] logLevel Log filter level, ERROR-error; WARNING-warning; INFO-information; DEBUG-debug
-    * @param [in] filePath File save path, e.g. "D://Log/"
-    * @param [in] saveFileNum Save file count, files exceeding both save file count and save file days will be deleted
-    * @param [in] saveDays Save file days, files exceeding both save file count and save file days will be deleted
-    * @return Error code
+    * @brief Inizializza i parametri del log
+    * @param [in] logType Modalità di output, DIRECT-output diretto; BUFFER-output bufferizzato; ASYNC-output asincrono
+    * @param [in] logLevel Livello di filtro log, ERROR-errore; WARNING-avviso; INFO-informazione; DEBUG-debug
+    * @param [in] filePath Percorso salvataggio file, es. "D://Log/"
+    * @param [in] saveFileNum Numero file da salvare, i file che superano sia il numero di file salvati che i giorni di salvataggio saranno eliminati
+    * @param [in] saveDays Giorni di salvataggio file, i file che superano sia il numero di file salvati che i giorni di salvataggio saranno eliminati
+    * @return Codice errore
     */
     int LoggerInit(FrLogType logType, FrLogLevel logLevel, String filePath, int saveFileNum, int saveDays)
 
-Set log filter level
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Livello di Filtro Log
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set log filter level
-    * @param [in] logLevel Log filter level, ERROR-error; WARNING-warning; INFO-information; DEBUG-debug
-    * @return Error code
+    * @brief Imposta il livello di filtro del log
+    * @param [in] logLevel Livello di filtro log, ERROR-errore; WARNING-avviso; INFO-informazione; DEBUG-debug
+    * @return Codice errore
     */
     int SetLoggerLevel(FrLogLevel logLevel)
 
-Robot basic control code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Controllo Base Robot
++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -176,11 +176,11 @@ Robot basic control code example
         int rtn = robot.RPC("192.168.58.2");
         if(rtn == 0)
         {
-            System.out.println("Rpc connection success");
+            System.out.println("Connessione Rpc success");
         }
         else
         {
-            System.out.println("Rpc connection fail");
+            System.out.println("Connessione Rpc fail");
             return ;
         }
         String[] ip={""};
@@ -188,98 +188,98 @@ Robot basic control code example
         version=robot.GetSDKVersion();
         System.out.println("SDK version : " + version);
         int rtn = robot.GetControllerIP(ip);
-        System.out.println("Controller ip : " +  ip[0] + "  " + rtn);
-        robot.Mode(1);//1-manual mode  0-auto mode
+        System.out.println("controller ip : " +  ip[0] + "  " + rtn);
+        robot.Mode(1);//1-modalità manuale  0-modalità automatica
         robot.Sleep(1000);
-        robot.DragTeachSwitch(1);//Enter drag mode
+        robot.DragTeachSwitch(1);//entra in modalità trascinamento
         robot.Sleep(1000);
         ROBOT_STATE_PKG pkg = robot.GetRobotRealTimeState();
-        System.out.println("Drag state : " + pkg.robot_state);
+        System.out.println("drag state : " + pkg.robot_state);
         robot.Sleep(1000);
-        robot.DragTeachSwitch(0);//Exit drag mode
+        robot.DragTeachSwitch(0);//esce dalla modalità trascinamento
         robot.Sleep(1000);
         pkg = robot.GetRobotRealTimeState();
-        System.out.println("Drag state : " + pkg.robot_state);
+        System.out.println("drag state : " + pkg.robot_state);
         
         if (pkg.robot_state ==4){
-           System.out.println("Drag mode");
+           System.out.println("modalità trascinamento");
         }else {
-           System.out.println("Non-drag mode");
+           System.out.println("non in modalità trascinamento");
         }
     }
 
-Get robot software version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Versione Software Robot
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get robot software version
-    * @param [out] robotModel Robot model
-    * @param [out] webVersion Web version
-    * @param [out] controllerVersion Controller version
-    * @return Error code 
+    * @brief Ottiene la versione software del robot
+    * @param [out] robotModel Modello robot
+    * @param [out] webVersion Versione web
+    * @param [out] controllerVersion Versione controllore
+    * @return Codice errore 
     */
     int GetSoftwareVersion(String robotModel, String webVersion, String controllerVersion);
 
-Get robot hardware version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Versione Hardware Robot
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get robot hardware version
-    * @param [out] ctrlBoxBoardVersion Control box board hardware version
-    * @param [out] driver1Version Driver 1 hardware version
-    * @param [out] driver2Version Driver 2 hardware version
-    * @param [out] driver3Version Driver 3 hardware version
-    * @param [out] driver4Version Driver 4 hardware version
-    * @param [out] driver5Version Driver 5 hardware version
-    * @param [out] driver6Version Driver 6 hardware version
-    * @param [out] endBoardVersion End board hardware version
-    * @return Error code 
+    * @brief Ottiene la versione hardware del robot
+    * @param [out] ctrlBoxBoardVersion Versione hardware scheda principale del cabinet di controllo
+    * @param [out] driver1Version Versione hardware azionamento 1
+    * @param [out] driver2Version Versione hardware azionamento 2
+    * @param [out] driver3Version Versione hardware azionamento 3
+    * @param [out] driver4Version Versione hardware azionamento 4
+    * @param [out] driver5Version Versione hardware azionamento 5
+    * @param [out] driver6Version Versione hardware azionamento 6
+    * @param [out] endBoardVersion Versione hardware scheda terminale
+    * @return Codice errore 
     */
     int GetHardwareVersion(String ctrlBoxBoardVersion, String driver1Version, String driver2Version, String driver3Version,
                                           String driver4Version, String driver5Version, String driver6Version, String endBoardVersion);
 
-Get robot firmware version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Versione Firmware Robot
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get robot firmware version
-    * @param [out] ctrlBoxBoardVersion Control box board firmware version
-    * @param [out] driver1Version Driver 1 firmware version
-    * @param [out] driver2Version Driver 2 firmware version
-    * @param [out] driver3Version Driver 3 firmware version
-    * @param [out] driver4Version Driver 4 firmware version
-    * @param [out] driver5Version Driver 5 firmware version
-    * @param [out] driver6Version Driver 6 firmware version
-    * @param [out] endBoardVersion End board firmware version
-    * @return Error code 
+    * @brief Ottiene la versione firmware del robot
+    * @param [out] ctrlBoxBoardVersion Versione firmware scheda principale del cabinet di controllo
+    * @param [out] driver1Version Versione firmware azionamento 1
+    * @param [out] driver2Version Versione firmware azionamento 2
+    * @param [out] driver3Version Versione firmware azionamento 3
+    * @param [out] driver4Version Versione firmware azionamento 4
+    * @param [out] driver5Version Versione firmware azionamento 5
+    * @param [out] driver6Version Versione firmware azionamento 6
+    * @param [out] endBoardVersion Versione firmware scheda terminale
+    * @return Codice errore 
     */
     int GetFirmwareVersion(String ctrlBoxBoardVersion, String driver1Version, String driver2Version, String driver3Version,
                                           String driver4Version, String driver5Version, String driver6Version, String endBoardVersion);
 
-Get robot software/firmware version code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di Codice Ottenimento Versioni Software/Firmware Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public static void main(String[] args)
     {
         Robot robot = new Robot();
-        robot.SetReconnectParam(true,20,500);//Set reconnect times and interval
+        robot.SetReconnectParam(true,20,500);//imposta numero tentativi di riconnessione, intervallo
         robot.LoggerInit(FrLogType.DIRECT, FrLogLevel.INFO, "D://log", 10, 10);
         int rtn = robot.RPC("192.168.58.2");
         if(rtn == 0)
         {
-            System.out.println("Rpc connection success");
+            System.out.println("Connessione Rpc success");
         }
         else
         {
-            System.out.println("Rpc connection fail");
+            System.out.println("Connessione Rpc fail");
             return ;
         }
         String ctrlBoxBoardVersion = "";

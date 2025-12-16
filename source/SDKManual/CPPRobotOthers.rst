@@ -1,51 +1,51 @@
-Other Interfaces
+Altre Interfacce
 =================
 
 .. toctree:: 
     :maxdepth: 5
 
-Get SSH Public Key
+Ottenere la chiave pubblica SSH
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get SSH public key
-    * @param [out] keygen Public key
-    * @return Error code
+    * @brief Ottiene la chiave pubblica SSH
+    * @param [out] keygen Chiave pubblica
+    * @return Codice di errore
     */
     errno_t GetSSHKeygen(char keygen[1024]);
 
-Send SCP Command
+Inviare comando SCP
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Send SCP command
-    * @param [in] mode 0-Upload (host->controller), 1-Download (controller->host)
-    * @param [in] sshname Host username
-    * @param [in] sship Host IP address
-    * @param [in] usr_file_url Host file path
-    * @param [in] robot_file_url Robot controller file path
-    * @return Error code
+    * @brief Invia comando SCP
+    * @param [in] mode 0-Upload (computer->controller), 1-Download (controller->computer)
+    * @param [in] sshname Nome utente computer
+    * @param [in] sship Indirizzo IP computer
+    * @param [in] usr_file_url Percorso file computer
+    * @param [in] robot_file_url Percorso file controller robot
+    * @return Codice di errore
     */
     errno_t SetSSHScpCmd(int mode, char sshname[32], char sship[32], char usr_file_url[128], char robot_file_url[128]);
 
-Calculate MD5 Value of Specified File
-+++++++++++++++++++++++++++++++++++++++++++++
+Calcolare il valore MD5 del file nel percorso specificato
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Calculate MD5 value of specified file
-    * @param [in] file_path File path including filename, default Traj folder path: "/fruser/traj/", e.g. "/fruser/traj/trajHelix_aima_1.txt"
-    * @param [out] md5 File MD5 value
-    * @return Error code
+    * @brief Calcola il valore MD5 del file nel percorso specificato
+    * @param [in] file_path Percorso file incluso nome file, percorso cartella Traj predefinito: "/fruser/traj/", es. "/fruser/traj/trajHelix_aima_1.txt"
+    * @param [out] md5 Valore MD5 file
+    * @return Codice di errore
     */
     errno_t ComputeFileMD5(char file_path[256], char md5[256]);
 
-Robot SSH/MD5 Command Code Example
+Esempio di codice per comandi SSH e MD5 del robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
@@ -85,36 +85,36 @@ Robot SSH/MD5 Command Code Example
       return 0;
     }
 
-Set Robot Port 20004 Feedback Cycle
-++++++++++++++++++++++++++++++++++++++++++
+Impostare il periodo di feedback della porta 20004 del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set robot port 20004 feedback cycle
-    * @param [in] period Robot port 20004 feedback cycle (ms)
-    * @return Error code
+    * @brief Imposta il periodo di feedback della porta 20004 del robot
+    * @param [in] period Periodo di feedback porta 20004 del robot (ms)
+    * @return Codice di errore
     */
     errno_t SetRobotRealtimeStateSamplePeriod(int period);
 
-Get Robot Port 20004 Feedback Cycle
-++++++++++++++++++++++++++++++++++++++++++
+Ottenere il periodo di feedback della porta 20004 del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot port 20004 feedback cycle
-    * @param [out] period Robot port 20004 feedback cycle (ms)
-    * @return Error code
+    * @brief Ottiene il periodo di feedback della porta 20004 del robot
+    * @param [out] period Periodo di feedback porta 20004 del robot (ms)
+    * @return Codice di errore
     */
     errno_t GetRobotRealtimeStateSamplePeriod(int& period);
 
-Robot Port 20004 State Feedback Cycle Configuration Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per configurazione periodo feedback stato in tempo reale porta 20004 robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
 .. code-block:: c++
     :linenos:
@@ -140,37 +140,37 @@ Robot Port 20004 State Feedback Cycle Configuration Example
       return 0;
     }
 
-Robot Software Upgrade
-++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento software del robot
++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Robot software upgrade
-    * @param [in] filePath Full path of software upgrade package
-    * @param [in] block Whether to block until upgrade completes (true: block; false: non-block)
-    * @return Error code
+    * @brief Aggiornamento software del robot
+    * @param [in] filePath Percorso completo pacchetto aggiornamento software
+    * @param [in] block Se bloccare fino al completamento aggiornamento true: bloccante; false: non bloccante
+    * @return Codice di errore
     */
     errno_t SoftwareUpgrade(std::string filePath, bool block);
 
-Get Robot Software Upgrade Status
-++++++++++++++++++++++++++++++++++++++++++
+Ottenere lo stato dell'aggiornamento software del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot software upgrade status
-    * @param [out] state Robot software upgrade status (0-Idle or uploading upgrade package; 1~100: Upgrade completion percentage; -1: Upgrade failed; -2: Verification failed; -3: Version verification failed; -4: Decompression failed; -5: User configuration upgrade failed; -6: Peripheral configuration upgrade failed; -7: Extended axis configuration upgrade failed; -8: Robot configuration upgrade failed; -9: DH parameter configuration upgrade failed)
-    * @return Error code
+    * @brief Ottiene lo stato dell'aggiornamento software del robot
+    * @param [out] state Stato aggiornamento pacchetto software robot (0-Inattivo o caricamento pacchetto aggiornamento; 1~100: percentuale completamento aggiornamento; -1: aggiornamento software fallito; -2: verifica fallita; -3: verifica versione fallita; -4: decompressione fallita; -5: aggiornamento configurazione utente fallito; -6: aggiornamento configurazione periferiche fallito; -7: aggiornamento configurazione assi estesi fallito; -8: aggiornamento configurazione robot fallito; -9: aggiornamento parametri DH fallito)
+    * @return Codice di errore
     */
     errno_t GetSoftwareUpgradeState(int &state);
 
-Robot Software Upgrade Code Example
-+++++++++++++++++++++++++++++++++++++++
+Esempio di codice per aggiornamento software robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
 .. code-block:: c++
     :linenos:
@@ -199,7 +199,7 @@ Robot Software Upgrade Code Example
       return 0;
     }
 
-Download Point Table Database
+Download database tabella punti
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
@@ -208,14 +208,14 @@ Download Point Table Database
     :linenos:
 
     /**
-    * @brief Download point table database
-    * @param [in] pointTableName Point table name to download    pointTable1.db
-    * @param [in] saveFilePath Storage path for downloaded point table   C://test/
-    * @return Error code
+    * @brief Download database tabella punti
+    * @param [in] pointTableName Nome tabella punti da scaricare    pointTable1.db
+    * @param [in] saveFilePath Percorso di salvataggio tabella punti scaricata   C://test/
+    * @return Codice di errore
     */
     errno_t PointTableDownLoad(const std::string &pointTableName, const std::string &saveFilePath);
 
-Upload Point Table Database
+Upload database tabella punti
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
@@ -224,13 +224,13 @@ Upload Point Table Database
     :linenos:
 
     /**
-    * @brief Upload point table database
-    * @param [in] pointTableFilePath Full path name of point table to upload   C://test/pointTable1.db
-    * @return Error code
+    * @brief Upload database tabella punti
+    * @param [in] pointTableFilePath Nome percorso completo tabella punti da caricare   C://test/pointTable1.db
+    * @return Codice di errore
     */
     errno_t PointTableUpLoad(const std::string &pointTableFilePath);
 
-Update Lua File for Point Table
+Aggiornamento file Lua tabella punti
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: C++SDK-v2.1.1.0
@@ -239,15 +239,15 @@ Update Lua File for Point Table
     :linenos:
 
     /**
-    * @brief Update Lua file for point table
-    * @param [in] pointTableName Point table name to switch to   "pointTable1.db", when empty (""), means updating Lua program to initial program without applied point table
-    * @param [in] luaFileName Lua file name to update   "testPointTable.lua"
-    * @param [out] errorStr Error message for switching point table
-    * @return Error code
+    * @brief Aggiornamento file Lua tabella punti
+    * @param [in] pointTableName Nome tabella punti da attivare   "pointTable1.db", quando la tabella punti è vuota, cioè "", significa aggiornare il programma Lua al programma iniziale senza tabella punti applicata
+    * @param [in] luaFileName Nome file Lua da aggiornare   "testPointTable.lua"
+    * @param [out] errorStr Informazioni errore attivazione tabella punti
+    * @return Codice di errore
     */
     errno_t PointTableUpdateLua(const std::string &pointTableName, const std::string &luaFileName);
 
-Robot Point Table Operation Code Example
+Esempio di codice per operazioni tabella punti robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
@@ -280,7 +280,7 @@ Robot Point Table Operation Code Example
       return 0;
     }
 
-Controller Log Download
+Download log controller
 +++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.1-3.8.1
 
@@ -288,13 +288,13 @@ Controller Log Download
     :linenos:
 
     /**
-    * @brief Controller log download
-    * @param [in] savePath Save file path "D://zDown/"
-    * @return Error code
+    * @brief Download log controller
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return Codice di errore
     */
     errno_t RbLogDownload(std::string savePath);
 
-All Data Source Download
+Download tutte le sorgenti dati
 +++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.1-3.8.1
 
@@ -302,13 +302,13 @@ All Data Source Download
     :linenos:
 
     /**
-    * @brief All data source download
-    * @param [in] savePath Save file path "D://zDown/"
-    * @return Error code
+    * @brief Download tutte le sorgenti dati
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return Codice di errore
     */
     errno_t AllDataSourceDownload(std::string savePath);
 
-Data Backup Package Download
+Download pacchetto backup dati
 +++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.1-3.8.1
 
@@ -316,13 +316,13 @@ Data Backup Package Download
     :linenos:
 
     /**
-    * @brief Data backup package download
-    * @param [in] savePath Save file path "D://zDown/"
-    * @return Error code
+    * @brief Download pacchetto backup dati
+    * @param [in] savePath Percorso salvataggio file "D://zDown/"
+    * @return Codice di errore
     */
     errno_t DataPackageDownload(std::string savePath);
 
-Download Controller Data Code Example
+Esempio di codice per download dati controller
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
@@ -350,62 +350,62 @@ Download Controller Data Code Example
       return 0;
     }
 
-Set Joint Firmware Upgrade
+Impostare aggiornamento firmware giunti
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set joint firmware upgrade
-    * @param [in] type Upgrade file type: 1-Firmware upgrade (requires boot mode); 2-Slave config file upgrade (requires robot disable)
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Imposta aggiornamento firmware giunti
+    * @param [in] type Tipo file aggiornamento; 1-Aggiornamento firmware (prima dell'uso, far entrare il robot in modalità boot); 2-Aggiornamento file configurazione slave (prima dell'uso, disabilitare il robot)
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice di errore
     */
     errno_t SetJointFirmwareUpgrade(int type, std::string path);
-  
-Set Controller Firmware Upgrade
+
+Impostare aggiornamento firmware scatola di controllo
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set controller firmware upgrade
-    * @param [in] type Upgrade file type: 1-Firmware upgrade (requires boot mode); 2-Slave config file upgrade (requires robot disable)
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Imposta aggiornamento firmware scatola di controllo
+    * @param [in] type Tipo file aggiornamento; 1-Aggiornamento firmware (prima dell'uso, far entrare il robot in modalità boot); 2-Aggiornamento file configurazione slave (prima dell'uso, disabilitare il robot)
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice di errore
     */
     errno_t SetCtrlFirmwareUpgrade(int type, std::string path);
-  
-Set End-Effector Firmware Upgrade
+
+Impostare aggiornamento firmware terminale
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set end-effector firmware upgrade
-    * @param [in] type Upgrade file type: 1-Firmware upgrade (requires boot mode); 2-Slave config file upgrade (requires robot disable)
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Imposta aggiornamento firmware terminale
+    * @param [in] type Tipo file aggiornamento; 1-Aggiornamento firmware (prima dell'uso, far entrare il robot in modalità boot); 2-Aggiornamento file configurazione slave (prima dell'uso, disabilitare il robot)
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice di errore
     */
     errno_t SetEndFirmwareUpgrade(int type, std::string path);
 
-Joint Full Parameter Configuration Upgrade
+Aggiornamento file configurazione parametri completi giunti
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Joint full parameter configuration upgrade (requires robot disable)
-    * @param [in] path Full local upgrade package path (D://zUP/XXXXX.bin)
-    * @return Error code
+    * @brief Aggiornamento file configurazione parametri completi giunti (prima dell'uso, disabilitare il robot)
+    * @param [in] path Percorso completo pacchetto aggiornamento locale (D://zUP/XXXXX.bin)
+    * @return Codice di errore
     */
     errno_t JointAllParamUpgrade(std::string path);
-    
-Robot Slave Firmware Upgrade Code Example
+
+Esempio di codice per aggiornamento firmware slave robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
@@ -442,42 +442,42 @@ Robot Slave Firmware Upgrade Code Example
     return 0;
     }
 
-Robot Operating System Upgrade (LA Control Box)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aggiornamento sistema operativo robot (Scatola di controllo LA)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Robot Operating System Upgrade (LA Control Box)
-    * @param [in] filePath Full path of the operating system upgrade package
-    * @return Error code
+    * @brief Aggiornamento sistema operativo robot (Scatola di controllo LA)
+    * @param [in] filePath Percorso completo pacchetto aggiornamento sistema operativo
+    * @return Codice di errore
     */
     errno_t KernelUpgrade(std::string filePath);
-        
-Get Robot Operating System Upgrade Result (LA Control Box)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ottenere risultato aggiornamento sistema operativo robot (Scatola di controllo LA)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Robot Operating System Upgrade Result (LA Control Box)
-    * @param [out] result Upgrade result: 0: Success; -1: Failure
-    * @return Error code
+    * @brief Ottiene risultato aggiornamento sistema operativo robot (Scatola di controllo LA)
+    * @param [out] result Risultato aggiornamento: 0: successo; -1: fallito
+    * @return Codice di errore
     */
     errno_t GetKernelUpgradeResult(int& result);
 
-Robot MCU log generation
+Generazione log MCU robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+    
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief robot MCU log generation
-    * @return error code
+    * @brief Generazione log MCU robot
+    * @return Codice di errore
     */
-    Errno RobotMCULogCollect();
+    errno_t RobotMCULogCollect();

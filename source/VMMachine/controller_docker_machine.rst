@@ -1,30 +1,25 @@
-Virtual Machine - Docker
-=================================
+Macchina Virtuale - Docker
+================================
 
-Linux Docker Image Deployment
-----------------------------------
+Distribuzione di Immagini Docker su Linux
+------------------------------------------
 
-Operating Environment
-~~~~~~~~~~~~~~~~~~~~~~~~
+Ambiente Operativo
+~~~~~~~~~~~~~~~~~~
 
-Virtual machine operating system: Ubuntu 18.04.6;
+- Sistema operativo dell'ambiente di esecuzione della macchina virtuale: Ubuntu 18.04.6;
+- Specifiche dell'ambiente di esecuzione della macchina virtuale: RAM 4G, ROM 50G, CPU 6 core;
+- Permessi operativi: utilizzare i privilegi di amministratore root, il metodo di impostazione è descritto nell'Appendice 3;
+- File di installazione Docker: fr_docker.tar.gz;
+- Immagine FAIRINO SimMachine: FAIRINOSimMachine.tar;
 
-Virtual machine operating environment: RAM 4G, ROM 50G, 6-core CPU;
+Installazione di Docker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Operation permissions: Use super administrator root privileges. Setting method see Appendix 3;
+Se l'utente ha già installato e distribuito Docker, saltare questa sezione e procedere alla sezione 1.3 "Distribuzione dell'immagine".
 
-Docker installation file: fr_docker.tar.gz;
-
-FAIRINO SimMachine image: FAIRINOSimMachine.tar;
-
-Install Docker
-~~~~~~~~~~~~~~
-
-If the user has already installed and deployed Docker, skip this section and proceed to section 1.3 Image Deployment.
-
-1. Download fr_docker.tar.gz and place it in the Ubuntu file path /opt/.
-
-2. Extract fr_docker.tar.gz. Using /opt/ directory as an example:
+1. Scaricare fr_docker.tar.gz e posizionarlo nel percorso dei file Ubuntu /opt/.
+2. Decomprimere fr_docker.tar.gz, ad esempio nella directory /opt/:
 
 .. code-block:: console
    :linenos:
@@ -35,28 +30,27 @@ If the user has already installed and deployed Docker, skip this section and pro
    :width: 6in
    :align: center
 
-3. Execute the Docker installation script:
+3. Eseguire lo script di installazione di Docker:
 
 .. code-block:: console
    :linenos:
 
    sh install.sh docker-27.0.3.tgz
 
-After the script finishes executing, if the version number appears, it indicates successful installation.
+Dopo l'esecuzione dello script, se appare il numero di versione, significa che l'installazione è riuscita.
 
 .. image:: controller_virtual_machine/037.png
    :width: 6in
    :align: center
 
-Image Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione dell'Immagine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Import Docker Image
-++++++++++++++++++++
+Importazione dell'Immagine Docker
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1. Download the virtual machine image FAIRINOSimMachine.tar and extract it.
-
-2. Check the Docker version to confirm installation.
+1. Scaricare l'immagine della macchina virtuale FAIRINOSimMachine.tar e decomprimerla.
+2. Verificare la versione di Docker per confermare l'installazione.
 
 .. code-block:: console
    :linenos:
@@ -67,50 +61,50 @@ Import Docker Image
    :width: 6in
    :align: center
 
-3. Import the image
+3. Importare l'immagine
 
 .. code-block:: console
    :linenos:
 
    docker load -i ./FAIRINOSimMachine.tar
 
-The appearance of `fairno_simmachine:latest` indicates the import is complete.
+Quando appare "fairno_simmachine:latest" significa che l'importazione è completata.
 
 .. image:: controller_virtual_machine/039.png
    :width: 6in
    :align: center
 
-4. Execute `docker images` to check if the import was successful.
+4. Eseguire `docker images` per verificare se l'importazione è riuscita.
 
-Create Custom Bridge Network
-++++++++++++++++++++++++++++++++++
+Creazione di una Rete Bridge Personalizzata
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1. Execute the following command to create a bridge network named `fairino-net` with subnet `192.168.58.0/24`.
+1. Eseguire il seguente comando per creare una rete bridge chiamata "fairino-net" con segmento di rete 192.168.58.0/24.
 
 .. code-block:: console
    :linenos:
 
    docker network create --driver bridge --subnet 192.168.58.0/24 --gateway 192.168.58.1 fairino-net
 
-2. View the network
+2. Visualizzare la rete
 
 .. code-block:: console
    :linenos:
 
    docker network ls
 
-The presence of the `fairino-net` network indicates successful creation.
+Se esiste la rete "fairino-net", significa che la creazione è riuscita.
 
 .. image:: controller_virtual_machine/040.png
    :width: 6in
    :align: center
 
-First-time Docker Container Startup
-++++++++++++++++++++++++++++++++++++++++
+Avvio Iniziale del Contenitore Docker
++++++++++++++++++++++++++++++++++++++
 
-1. Create and start the container
+1. Creare e avviare il contenitore
 
-Start the container using the `fairino-net` network and the `fairino_simmachine` image.
+Utilizzare la rete "fairino-net" e l'immagine "fairino_simmachine" per avviare il contenitore.
 
 .. code-block:: console
    :linenos:
@@ -126,99 +120,99 @@ Start the container using the `fairino-net` network and the `fairino_simmachine`
 
    docker ps
 
-Check if the container started successfully. The appearance of `fairino-container` indicates successful startup.
+Verificare se il contenitore è stato avviato correttamente: se appare "fairino-container", l'avvio è riuscito.
 
 .. image:: controller_virtual_machine/042.png
    :width: 6in
    :align: center
 
-Web Operation of Virtual Robot
-----------------------------------------
+Operare il Robot Virtuale tramite Web
+-------------------------------------
 
-Container Normal Startup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Avvio Normale del Contenitore
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section applies to non-first-time container startups, such as when the container is not running in the background due to computer restart or Docker shutdown.
+Questa sezione si riferisce ai casi in cui il contenitore non è in esecuzione in background a causa di riavvii del computer, arresti di Docker, ecc., non al primo avvio del contenitore.
 
-1. Start Docker:
+1. Avviare Docker:
 
 .. code-block:: console
    :linenos:
 
    systemctl start docker
 
-2. Check Docker status:
+2. Verificare lo stato di Docker:
 
 .. code-block:: console
    :linenos:
 
    systemctl status docker
 
-Green `active(running)` indicates successful startup.
+"Green active(running)" significa che l'avvio è riuscito.
 
 .. image:: controller_virtual_machine/043.png
    :width: 6in
    :align: center
 
-3. Execute `docker ps -a` to view the container ID.
+3. Eseguire `docker ps -a` per visualizzare l'ID del contenitore.
 
 .. image:: controller_virtual_machine/044.png
    :width: 6in
    :align: center
 
-4. Execute `docker start [Container ID]`.
+4. Eseguire `docker start [ID del contenitore]`.
 
 .. image:: controller_virtual_machine/045.png
    :width: 6in
    :align: center
 
-5. After successful execution, execute `docker ps` again to confirm the container is running.
+5. Se l'esecuzione è riuscita, eseguire nuovamente `docker ps` per verificare che il contenitore sia in esecuzione.
 
 .. image:: controller_virtual_machine/046.png
    :width: 6in
    :align: center
 
-Operating the Virtual Robot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Operare il Robot Virtuale
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Confirm the Docker container is running.
+1. Confermare che il contenitore Docker sia in esecuzione.
 
 .. code-block:: console
    :linenos:
 
    docker ps
 
-The appearance of `fairino-container` indicates it is running.
+Se appare "fairino-container", significa che è in esecuzione.
 
 .. image:: controller_virtual_machine/047.png
    :width: 6in
    :align: center
 
-2. Open a browser, enter the default IP: 192.168.58.2, to access the web interface and operate the virtual robot.
+2. Aprire il browser, inserire l'IP predefinito: 192.168.58.2, per accedere all'interfaccia web e operare il robot virtuale.
 
 .. image:: controller_virtual_machine/048.png
    :width: 6in
    :align: center
 
-3. Log in with the admin account, password: 123.
+3. Accedere con l'account "admin", password: 123.
 
 .. image:: controller_virtual_machine/049.png
    :width: 6in
    :align: center
 
-User IP Address Modification
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Modifica dell'Indirizzo IP da parte dell'Utente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: controller_virtual_machine/050.png
    :width: 6in
    :align: center
 
-1. Open a browser, enter the default IP: 192.168.58.2, to open the web page;
-2. Log in with the admin account, password: 123;
-3. Navigate to "System Settings" → "General Settings" → "Network Settings", modify the IP to the target IP address, subnet mask, and gateway. Click "Set Network";
-4. Open the terminal, stop the container;
+1. Aprire il browser, inserire l'IP predefinito: 192.168.58.2, per aprire la pagina web;
+2. Accedere con l'account "admin", password: 123;
+3. Entrare in "Impostazioni di Sistema" → "Impostazioni Generali" → "Impostazioni di Rete", modificare l'IP con l'indirizzo IP target, la subnet mask e il gateway. Fare clic su "Imposta Rete";
+4. Aprire il terminale e arrestare il contenitore;
 
-View the container ID:
+Visualizzare l'ID del contenitore:
 
 .. code-block:: console
    :linenos:
@@ -229,113 +223,113 @@ View the container ID:
    :width: 6in
    :align: center
 
-Stop the container:
+Arrestare il contenitore:
 
 .. code-block:: console
    :linenos:
 
-   docker stop [Container ID]
+   docker stop [ID del contenitore]
 
 .. image:: controller_virtual_machine/053.png
    :width: 6in
    :align: center
 
-5. Reconfigure the container network;
+5. Riconfigurare la rete del contenitore;
 
-Delete the original network:
+Eliminare la rete precedente:
 
 .. code-block:: console
    :linenos:
 
    docker network rm fairino-net
 
-Create a new network:
+Creare una nuova rete:
 
 .. code-block:: console
    :linenos:
 
-   docker network create --driver bridge --subnet [Target IP/Subnet Mask] --gateway [Gateway IP] fairino-net
+   docker network create --driver bridge --subnet [IP target/subnet mask] --gateway [IP gateway] fairino-net
 
-Using 192.168.56.0/24 as an example: `docker network create --driver bridge --subnet 192.168.56.0/24 --gateway 192.168.56.1 fairino-net`
+Esempio con 192.168.56.0/24: docker network create --driver bridge --subnet 192.168.56.0/24 --gateway 192.168.56.1 fairino-net
 
 .. image:: controller_virtual_machine/054.png
    :width: 6in
    :align: center
 
-6. Reconnect the container to the newly created network;
+6. Ricollegare il contenitore alla nuova rete creata;
 
 .. code-block:: console
    :linenos:
 
-   docker network connect fairino-net [Container ID]
+   docker network connect fairino-net [ID del contenitore]
 
 .. image:: controller_virtual_machine/055.png
    :width: 6in
    :align: center
 
-7. Restart the container;
+7. Riavviare il contenitore;
 
 .. code-block:: console
    :linenos:
 
-   docker start [Container ID]
+   docker start [ID del contenitore]
 
-8. Now open the browser, enter the modified IP address, to access the web interface and operate the virtual robot.
+8. Ora aprire il browser, inserire l'indirizzo IP modificato, per accedere all'interfaccia web e operare il robot virtuale.
 
 .. image:: controller_virtual_machine/056.png
    :width: 6in
    :align: center
 
-Virtual Machine Version Upgrade/Downgrade
--------------------------------------------------------------
+Aggiornamento e Downgrade della Versione della Macchina Virtuale
+---------------------------------------------------------------------------
 
-Overview
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Panoramica
+~~~~~~~~~~
 
-This manual details the standard procedure for performing software upgrades and downgrades when using the FAIRINO SimMachine Docker virtual machine, and systematically outlines key considerations during the version change process.
+Questo manuale descrive in dettaglio la procedura standard per eseguire operazioni di aggiornamento e downgrade del software durante l'utilizzo della macchina virtuale FAIRINO SimMachine Docker, e sistematicamente elenca le precauzioni da considerare durante il processo di cambio versione.
 
-Upgrade/Downgrade Preparation and Considerations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Preparazione e Precauzioni per Aggiornamento/Downgrade
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Operation Preparation
+Preparazione Operativa
 ++++++++++++++++++++++
 
-1. A deployed and normally functioning FAIRINO SimMachine Docker virtual machine. Deployment tutorial see "User Manual - Linux Docker Image Deployment";
-2. Software upgrade package for the Docker virtual machine version. Download location see "Data Download - FAIRINO SimMachine Docker". After extraction, contents include the latest version docker image FAIRINOSimMachine.tar and the software upgrade package software.tar.gz.
+1. Macchina virtuale FAIRINO SimMachine Docker già distribuita e funzionante normalmente. La guida alla distribuzione è disponibile nel "Manuale Utente - Distribuzione dell'Immagine Docker su Linux";
+2. Pacchetto di aggiornamento del software per la versione della macchina virtuale Docker, il link per il download è disponibile in "Download Materiali - FAIRINO SimMachine Docker". Dopo l'estrazione, il contenuto include l'immagine Docker dell'ultima versione FAIRINOSimMachine.tar e il pacchetto di aggiornamento del software software.tar.gz.
 
-Considerations
-+++++++++++++++++
+Precauzioni
++++++++++++
 
-1. Data Backup: It is recommended to perform a backup before upgrading, method see "Data Backup" chapter, to avoid data loss due to upgrade anomalies.
-2. Version Restrictions:
+1. Backup dei dati: Si consiglia di eseguire un backup prima dell'aggiornamento, il metodo è descritto nel capitolo "Backup dei dati", per evitare la perdita di dati in caso di anomalie durante l'aggiornamento.
+2. Limitazioni di versione:
 
-.. centered:: Table 2.3-1 Upgrade/Downgrade Version Restrictions
+.. centered:: Tabella 2.3-1 Limitazioni di Aggiornamento/Downgrade
 
 .. list-table::
    :widths: 50 50 50
    :header-rows: 0
    :align: center
 
-   * - **Operation Type**
-     - **Condition/Restriction**
-     - **Step Description**
+   * - **Tipo di Operazione**
+     - **Condizione/Limitazione**
+     - **Descrizione dei Passaggi**
 
-   * - **Version Upgrade**
-     - Current Version >= 3.7.8
-     - Can upgrade directly
+   * - **Aggiornamento di Versione**
+     - Versione corrente >= 3.7.8
+     - Aggiornamento diretto possibile
 
-   * - **Version Upgrade**
-     - Current Version < 3.7.8
-     - Must first upgrade to version 3.7.5 or use the compatibility solution
+   * - **Aggiornamento di Versione**
+     - Versione corrente < 3.7.8
+     - Prima aggiornare alla versione 3.7.5 o utilizzare la soluzione compatibile
 
-   * - **Version Downgrade**
-     - Current AND Target Version >= 3.7.8
-     - Can downgrade directly
+   * - **Downgrade di Versione**
+     - Versione corrente e target >= 3.7.8
+     - Downgrade diretto possibile
 
-   * - **Version Downgrade**
-     - Current OR Target Version < 3.7.8
-     - Use the compatibility solution
+   * - **Downgrade di Versione**
+     - Versione corrente o target < 3.7.8
+     - Utilizzare la soluzione compatibile
 
-   * - **Compatibility Solution**
-     - Applicable for both upgrade/downgrade anomalies
-     - See "Compatibility Solution" chapter for detailed steps
+   * - **Soluzione Compatibile**
+     - Applicabile sia per aggiornamenti/downgrade con anomalie
+     - Vedere il capitolo "Soluzione Compatibile" per i dettagli dei passaggi

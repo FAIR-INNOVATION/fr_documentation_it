@@ -1,95 +1,95 @@
-Appendix
+Appendice
 =================
 
-.. toctree:: 
+.. toctree::
     :maxdepth: 5
 
-Source Code Download
+Download del Codice Sorgente
 ------------------------------------------------
 
-On the Fairino documentation site (https://fairino-doc-en.readthedocs.io/latest/), locate the "Resources Download" section, click the "CPP SDK" button, then click "FAIRINO CPP SDK" on the right page and wait for the browser to complete the download.
+Nel sito della documentazione di Faoro (https://fairino-doc-it.readthedocs.io/latest/), trova il modulo "Download materiali", clicca sul pulsante "CPP SDK", nella pagina a destra clicca su "FAIRINO CPP SDK", attendi che il download si completi nel browser.
 
 .. image:: image/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.1‑1 C++SDK Source Code Download
+.. centered:: Figura 15.1‑1 Download del codice sorgente C++ SDK
 
-After extracting the package, the directory structure is as shown below, including:
+Dopo aver decompresso l'archivio, la struttura della directory dei file scaricati è come mostrato in figura, dove:
 
-- windows: Header files and library files (.lib and .dll) compiled for common environments like VS2015~VS2019, including both Debug and Release modes
-- linux: Header files and library files (.so) for common environments like gcc, rk3399, rk3568
-- libfairino: C++SDK source code
+- windows: file di intestazione e librerie (.lib e .dll) compilati in ambienti come VS2015~VS2019, contenenti le modalità Debug e Release;
+- linux: file di intestazione e librerie (.so) per ambienti comuni come gcc, rk3399, rk3568;
+- libfairino: codice sorgente del C++ SDK;
 
 .. image:: image/002.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑2 C++SDK Source Directory
+.. centered:: Figura 15.1‑2 Directory del codice sorgente C++ SDK
 
-Windows Platform Compilation
-------------------------------------------------
-① Open Visual Studio, click "Continue without code" at bottom right;
+Compilazione del Codice Sorgente su Piattaforma Windows
+--------------------------------------------------------------
+① Apri Visual Studio, clicca su "Continua senza codice (W)" in basso a destra;
 
 .. image:: image/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2‑1 Opening Visual Studio
+.. centered:: Figura 15.2‑1 Aprire Visual Studio
 
-② Navigate to "File" → "Open" → "CMake", select the "CMakeLists.txt" file from the downloaded C++SDK source code (\libfairino\CMakeLists.txt). Visual Studio will automatically load the project based on CMakeLists.txt definitions.
+② Clicca in sequenza su "File", "Apri", "CMake (M)", si aprirà una finestra di selezione file, scegli il file "\\libfairino\\CMakeLists.txt" dal codice sorgente C++ SDK scaricato. Visual Studio caricherà automaticamente il progetto in base alle definizioni nel file CMakeLists.txt.
 
 .. image:: image/004.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2‑2 Opening CMake Project
+.. centered:: Figura 15.2‑2 Aprire il progetto CMake
 
-③ Select build platform ("x64-Debug" or "x64-Release" etc.) and set startup item to "fairino.dll".
+③ In base alle esigenze, scegli la piattaforma di compilazione "x64-Debug" o "x64-Release", ecc., e seleziona l'elemento di avvio come "fairino.dll".
 
 .. image:: image/005.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2‑3 Selecting Startup Item
+.. centered:: Figura 15.2‑3 Selezionare l'elemento di avvio
 
-④ Navigate to "Build" → "Rebuild fairino.dll" in the menu bar to start compilation.
+④ Nella barra dei menu, clicca in sequenza su "Compila", "Ricompila fairino.dll", il compilatore inizierà automaticamente la compilazione.
 
 .. image:: image/006.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2‑4 Building fairino.dll
+.. centered:: Figura 15.2‑4 Generare fairino.dll
 
-⑤ Locate the compiled fairino.dll and fairino.lib files in the "build" folder under project directory.
+⑤ Nella directory del progetto a destra, trova la cartella "build", e al suo interno i file fairino.dll e fairino.lib ottenuti dalla compilazione.
 
 .. image:: image/007.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.2‑5 Locating fairino.lib and fairino.dll
+.. centered:: Figura 15.2‑5 Trovare fairino.lib e fairino.dll
 
-⑥ To use the C++SDK: First copy the three header files ("robot.h", "robot_error.h", "robot_type.h") from \libfairino\src\include\Robot-CN\ to your project directory. Add fairino.lib to link libraries, then place fairino.dll in the executable directory.
+⑥ Quando utilizzi il C++ SDK del robot collaborativo, prima trova i file di intestazione compilati dell'SDK del robot nella directory del progetto a destra: /libfairino/src/include/Robot-CN/, copia i tre file di intestazione "robot.h", "robot_error.h" e "robot_type.h" da questa cartella nella directory del progetto, aggiungi fairino.lib alle librerie di collegamento, e infine posiziona fairino.dll nella directory del file eseguibile per poterlo utilizzare.
 
-Linux Platform Compilation
-------------------------------------------------
+Compilazione del Codice Sorgente su Piattaforma Linux
+-------------------------------------------------------------------
 
-Before compiling on Linux, ensure gcc, g++ compilers and cmake build system (v3.10+) are installed.
+Prima della compilazione del codice sorgente su Linux, assicurati che nel sistema siano installati il compilatore gcc, g++ e il sistema di build cmake (versione 3.10 o superiore).
 
-The "buildGcc.sh" script in \libfairino\linuxBuild\ contains commands for: "cmake..", "make", and copying final header/library files to \linuxBuild\. Execute this script to compile the C++SDK.
+Nella directory del codice sorgente C++ \\libfairino\\linuxBuild\\, lo script "buildGcc.sh" contiene istruzioni come "cmake ..", "make", copiare i file di intestazione e le librerie finali nella cartella \\linuxBuild\\, ecc. Eseguendo questo script si completerà la compilazione del codice sorgente del C++ SDK.
 
-① Open terminal, navigate to \libfairino\linuxBuild\, execute: "sh buildGcc.sh" and wait for completion.
+① Apri un terminale, entra nella directory \\libfairino\\linuxBuild\\, inserisci il comando: "sh buildGcc.sh" e premi invio, l'SDK inizierà a compilare, attendi il completamento della compilazione.
 
 .. image:: image/008.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.3‑1 Executing Build Script
+.. centered:: Figura 15.3‑1 Inserire il comando dello script di compilazione
 
-② After compilation, the \include\ and \lib\ directories under \libfairino\linuxBuild\ will contain required header and library files.
+② Dopo il completamento della compilazione, entra di nuovo nella directory \\libfairino\\linuxBuild\\, trova la cartella \\include\\ e la cartella \\lib\\, che sono rispettivamente le directory dei file di intestazione e delle librerie necessarie.
 
 .. image:: image/009.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.3‑2 Compilation Results
+.. centered:: Figura 15.3‑2 Risultato della compilazione

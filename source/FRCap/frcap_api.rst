@@ -1,35 +1,35 @@
-API description
+Spiegazione API
 =========================
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 6
 
-act command 
--------------
+Istruzioni Act
+--------------
 
-All the following act instructions use POST, and the URL is /action/act.
+Tutte le seguenti istruzioni act utilizzano POST, l'URL è /action/act.
 
-Save teaching points
-++++++++++++++++++++++++++
+Salvare Punti di Insegnamento
+++++++++++++++++++++++++++++++
 
-Command name: save_point. 
+Nome istruzione: save_point.
 
-Command parameters: 
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
-    * @param  string name The name of the teaching point recorded by string name
-    * @param  string speed speed
-    * @param  string elbow_speed elbow speed
-    * @param  string acc acceleration
-    * @param  string elbow_acc elbow acceleration
-    * @param  string toolnum Tool number
-    * @param  string workpiecenum Workpiece number
-    */ 
+    /**
+    * @param  string name nome del punto di insegnamento registrato
+    * @param  string speed velocità
+    * @param  string elbow_speed velocità del gomito
+    * @param  string acc accelerazione
+    * @param  string elbow_acc accelerazione del gomito
+    * @param  string toolnum numero utensile
+    * @param  string workpiecenum numero pezzo in lavorazione
+    */
 
-Instruction example:
+Esempio istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -47,29 +47,29 @@ Instruction example:
         }
     }
 
-Command feedback:
+Feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
+    /**
     * @return status:200 "success"
     * @return status:404 "fail"
-    */ 
+    */
 
-sta command
--------------
+Istruzioni Sta
+--------------
 
-All the following sta instructions use POST, and the URL is /action/ sta .
+Tutte le seguenti istruzioni sta utilizzano POST, l'URL è /action/sta.
 
-Get robot status data
-++++++++++++++++++++++++++++++++++++++++
+Ottenere Dati di Stato del Robot
++++++++++++++++++++++++++++++++++
 
-Command name: basic. 
+Nome istruzione: basic.
 
-Command parameters: none.
+Parametri istruzione: Nessuno.
 
-Instruction example:
+Esempio istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -78,16 +78,16 @@ Instruction example:
         cmd: "basic",
     }
 
-Command feedback:
+Feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
-    * @return status:200 
-    * @param  object joints joint position
-    * @param  object tcp Descartes pose
-    * @param  array exAxisPos External axis position
+    /**
+    * @return status:200
+    * @param  object joints posizione giunti
+    * @param  object tcp posa cartesiana
+    * @param  array exAxisPos posizione assi esterni
     * @return status:404 "fail"
     */
     {
@@ -101,7 +101,7 @@ Command feedback:
         },
         tcp: {
             x: "100",
-            x: "100",
+            y: "100",
             z: "100",
             rx: "90",
             ry: "90",
@@ -110,19 +110,19 @@ Command feedback:
         exAxisPos: [0,0,0,0]
     }
 
-get command
--------------
+Istruzioni Get
+--------------
 
-All the following get instructions use POST, and the URL is /action/get.
+Tutte le seguenti istruzioni get utilizzano POST, l'URL è /action/get.
 
-Get teaching points 
-++++++++++++++++++++++++++
+Ottenere Punti di Insegnamento
++++++++++++++++++++++++++++++++
 
-Command name: get_points().
+Nome istruzione: get_points().
 
-Command parameters: none.
+Parametri istruzione: Nessuno.
 
-Instruction example:
+Esempio istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -131,18 +131,18 @@ Instruction example:
         cmd: "get_points"
     }
 
-Command feedback:
+Feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
+    /**
     * @return status:200 "success"
-    * @param  ${point_name}: object teaching point related information
+    * @param  ${point_name}: object informazioni correlate al punto di insegnamento
     * @return status:404 "fail"
-    */ 
+    */
 
-Instruction feedback case:
+Esempio feedback istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -169,21 +169,20 @@ Instruction feedback case:
             "speed": "1",
             "acc": "1",
             "E1": "1",
-            "E2: "1",
+            "E2": "1",
             "E3": "1",
             "E4": "1"
         }
     }
 
+Ottenere Configurazione di Sistema
++++++++++++++++++++++++++++++++++++
 
-Get system configuration 
-++++++++++++++++++++++++++
+Nome istruzione: get_syscfg().
 
-Command name: get_syscfg().
+Parametri istruzione: Nessuno.
 
-Command parameters: none.
-
-Instruction example:
+Esempio istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -192,20 +191,20 @@ Instruction example:
         cmd: "get_syscfg"
     }
 
-Command feedback:
+Feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
+    /**
     * @return status:200 "success"
-    * @param  string log_count Maximum number of log days recorded
-    * @param  string language Currently using language pack
-    * @param  string lifespan overtime time
-    * * @return status:404 "fail"
-    */ 
+    * @param  string log_count numero massimo di giorni di log registrati
+    * @param  string language pacchetto lingua attualmente in uso
+    * @param  string lifespan tempo di timeout
+    * @return status:404 "fail"
+    */
 
-Instruction feedback case:
+Esempio feedback istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -216,27 +215,27 @@ Instruction feedback case:
         lifespan:"1800"
     }
 
-set command
--------------
+Istruzioni Set
+--------------
 
-All the following set instructions use POST, and the URL is /action/set.
+Tutte le seguenti istruzioni set utilizzano POST, l'URL è /action/set.
 
-Issue system variable instructions
-++++++++++++++++++++++++++++++++++++
+Inviare Istruzioni Variabili di Sistema
++++++++++++++++++++++++++++++++++++++++
 
-Command name: 511.
+Nome istruzione: 511.
 
-Command parameters: 
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
-    * @param int index system variable serial number: 1-20
-    * @param int value system variable value
-    */ 
+    /**
+    * @param int index numero variabile di sistema: 1-20
+    * @param int value valore variabile di sistema
+    */
 
-Instruction example:
+Esempio istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -248,38 +247,38 @@ Instruction example:
         }
     }
 
-Command feedback:
+Feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
-    * @return status:200 1: represents success, 0: represents 
+    /**
+    * @return status:200 1: rappresenta successo, 0: rappresenta fallimento
     * @return status:404 "fail"
     */
 
-Instruction feedback case:
+Esempio feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
     1
 
-Get system variable instructions 
-++++++++++++++++++++++++++++++++++++++
+Ottenere Istruzioni Variabili di Sistema
++++++++++++++++++++++++++++++++++++++++++
 
-Command name: 512.
+Nome istruzione: 512.
 
-Command parameters: 
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
-    * @param int index system variable serial number: 1-20
-    * /
+    /**
+    * @param int index numero variabile di sistema: 1-20
+    */
 
-Instruction example:
+Esempio istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -291,108 +290,108 @@ Instruction example:
         }
     }
 
-Command feedback:
+Feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
-    /** 
+    /**
     * @return status:200
-    * @param int value system variable value 
+    * @param int value valore variabile di sistema
     * @return status:404 "fail"
-    * /
+    */
 
-Instruction feedback case:
+Esempio feedback istruzione:
 
 .. code-block:: c++
     :linenos:
 
     1
 
-better-sqlite3 directive 
-----------------------------------
+Istruzioni better-sqlite3
+-------------------------
 
-Query the first row of records in the database
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Interrogare Prima Riga di Record nel Database
++++++++++++++++++++++++++++++++++++++++++++++
 
-Command parameters: 
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @param string db_name Database name (including absolute path)
-    * @param string sql sql statement
-    * @return string result The first row of records queried
+    * @param string db_name nome database (include percorso assoluto)
+    * @param string sql istruzione sql
+    * @return string result prima riga di record interrogata
     */
 
-Instruction content:
+Contenuto istruzione:
 
 .. code-block:: c++
     :linenos:
 
     queryget(string db_name, string sql);
 
-Query all records in the database 
-++++++++++++++++++++++++++++++++++++++++++
+Interrogare Tutti i Record nel Database
+++++++++++++++++++++++++++++++++++++++++
 
-Command parameters: 
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @param string db_name Database name (including absolute path)
-    * @param string sql sql statement
-    * @return string result All records queried
+    * @param string db_name nome database (include percorso assoluto)
+    * @param string sql istruzione sql
+    * @return string result tutti i record interrogati
     */
 
-Instruction content:
+Contenuto istruzione:
 
 .. code-block:: c++
     :linenos:
 
     queryall(string db_name, string sql);
 
-Execute database statements
-++++++++++++++++++++++++++++++++++++++++++
+Eseguire Istruzioni Database
+++++++++++++++++++++++++++++
+
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @param string db_name Database name (including absolute path)
-    * @param string sql sql statement
-    * @param object obj sql Parameters required for sql statement execution
+    * @param string db_name nome database (include percorso assoluto)
+    * @param string sql istruzione sql
+    * @param object obj parametri richiesti per esecuzione istruzione sql
     * @return \
     */
 
-Command parameters: 
+Contenuto istruzione:
 
 .. code-block:: c++
     :linenos:
 
     exec(string db_name, string sql, object obj);
 
-Instruction content:
+Istruzioni Socket
+-----------------
 
-socket command
------------------------
+Socket Send
+++++++++++++++++++
 
-socket send
-++++++++++++++++++++++
-
-Command parameters: 
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @param string send_content socket Socket communication command sends content
+    * @param string send_content contenuto inviato istruzione comunicazione socket
     * @return \
     */
 
-Instruction content:
+Contenuto istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -400,19 +399,19 @@ Instruction content:
     socket_cmd.send(string send_content);//8065
     socket_file.send(string send_content);//8067
 
-socket recv
-+++++++++++++++++++++
+Socket Recv
++++++++++++
 
-Command parameters: 
+Parametri istruzione:
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @return string recv_content socket Socket communication command reply content
+    * @return string recv_content contenuto risposta istruzione comunicazione socket
     */
 
-Instruction content:
+Contenuto istruzione:
 
 .. code-block:: c++
     :linenos:
@@ -420,109 +419,103 @@ Instruction content:
     socket_cmd.recv();//8065
     socket_file.recv();//8067
 
+Istruzioni Operazioni File
+--------------------------
 
-File Operation Commands
----------------------------
-
-Write File Content
-++++++++++++++++++++++++++++++++
+Scrivere Contenuto File
++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @param String filename File path
-    * @param string content Content to write
-    * @param Function callback Callback function with (error) parameter (not needed for LA version)
+    * @param String filename percorso file
+    * @param string content contenuto da scrivere
     * @return true/false
     */
 
-    write(filename, content, callback);
+    write(filename, content);
 
-Read File Content
-++++++++++++++++++++++++++++++++
+Leggere Contenuto File
+++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @param String filename File path
-    * @param string content Content to write
-    * @param Function callback Callback function with (error) parameter (not needed for LA version)
-    * @return String File content
+    * @param String filename percorso file
+    * @return String contenuto file
     */
 
-    read(filename, callback);
+    read(filename);
 
-Modify File Permissions
-++++++++++++++++++++++++++++++++
+Modificare Permessi File
+++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
-    
+
     /**
-    * @param String filename File path
-    * @param Number mode Permission mode (e.g. 0644)
-    * @param Function callback Callback function with (error) parameter (not needed for LA version)
+    * @param String filename percorso file
+    * @param Number mode modalità permessi (es. 0644)
     * @return true/false
     */
 
-    chmod(filename, mode, callback);
+    chmod(filename, mode);
 
-Read Directory Contents (Including Subdirectories)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Leggere Contenuto Directory, Include Sottodirectory
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
-    
+
     /**
-    * @param String path File path
-    * @param Function callback Callback function with (error) parameter (not needed for LA version)
-    * @return Array Filename array
+    * @param String path percorso file
+    * @return Array array nomi file
     */
 
-    readdir(path, callback);
+    readdir(path);
 
-Compression/Decompression Commands
----------------------------------------------
+Istruzioni Compressione/Decompressione
+--------------------------------------
 
-.. note:: 
-    Distinguish between LA and QX versions (LA version doesn't need callback parameter).
+.. note::
+    Distinguere versioni LA e QX:
 
-    LA module import: var execSync = require('child_process').execSync;
+    Importazione modulo LA: var execSync = require('child_process').execSync;
 
-    QX module import: var tar_utils = require('/usr/local/etc/node/sys/tools/tar_utils');
+    Importazione modulo QX: var tar_utils = require('/usr/local/etc/node/sys/tools/tar_utils');
 
-Create tar.gz Archive
-+++++++++++++++++++++++++++++++++
+Creare File Compresso tar.gz
++++++++++++++++++++++++++++++
 
-Create tar.gz example (LA):
+Esempio creazione file compresso tar.gz (LA):
 
 .. code-block:: javascript
     :linenos:
-    
+
     var cmd = 'cd / && tar -zcvf ' + FILENAME + '-C ' + DIR;
     execSync(cmd);
-    
-Create tar.gz command description (QX):
+
+Descrizione istruzione creazione file compresso tar.gz (QX):
 
 .. code-block:: c++
     :linenos:
-    
+
     /**
-    * @param {Array|String} sourcePaths Source file/directory path array or single path
-    * @param String targetFile Target archive path
-    * @param Function callback Callback function with (error) parameter (not needed for LA version)
-    * @param String basePath Base path, defaults to '/'
+    * @param {Array|String} sourcePaths array percorsi file/directory sorgente o percorso singolo
+    * @param String targetFile percorso file compresso target
+    * @param Function callback funzione callback, parametro (error)
+    * @param String basePath percorso base, default '/'
     * @return \
     */
 
     createTarGz(sourcePaths, targetFile, callback, basePath);
 
-Extract tar.gz File
-+++++++++++++++++++++++++++++++++
+Decomprimere File tar.gz
+++++++++++++++++++++++++
 
-Extract tar.gz example (LA):
+Esempio decompressione file tar.gz (LA):
 
 .. code-block:: javascript
     :linenos:
@@ -530,15 +523,15 @@ Extract tar.gz example (LA):
     var cmd = 'cd / && tar -zxvf ' + FILENAME;
     execSync(cmd);
 
-Extract tar.gz command description (QX):
+Descrizione istruzione decompressione file tar.gz (QX):
 
 .. code-block:: c++
     :linenos:
-    
+
     /**
-    * @param String sourceFile Source archive path
-    * @param String targetDir Target extraction directory
-    * @param Function callback Callback function with (error) parameter (not needed for LA version)
+    * @param String sourceFile percorso file compresso sorgente
+    * @param String targetDir directory target decompressione
+    * @param Function callback funzione callback, parametro (error)
     * @return \
     */
     extractTarGz(sourceFile, targetDir, callback);

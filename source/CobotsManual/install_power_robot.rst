@@ -1,273 +1,270 @@
-Install and power on the robot
-=================================
+Installazione del robot e accensione
+=========================================================
 
 .. toctree:: 
    :maxdepth: 6
 
-Install the robot arm
-------------------------
+Installazione del braccio del robot
+-------------------------------------------
 
-When the collaborative robot is installed on the mounting base, use a compliant number of bolts (strength not less than 8.8) to tighten and fix the robot on the mounting base;
-it is recommended to use two compliant pin holes and pins on the mounting base for robot positioning to improve the installation accuracy of the robot and prevent the robot from moving due to collisions.
-When the robot has high running precision requirements, be sure to add pins to position the robot.
+Quando il robot collaborativo è installato sulla base di montaggio, utilizzare il numero appropriato di viti (con una resistenza non inferiore al grado 8.8) per fissare il robot alla base di montaggio; si consiglia di utilizzare due fori di posizione conformi nella base di montaggio con perni per migliorare la precisione di installazione del robot e prevenire il movimento del robot a causa di collisioni o altri motivi. Quando il robot ha requisiti elevati di precisione di movimento, è fondamentale utilizzare i perni per posizionare il robot.
 
-.. centered:: Table 1.1-1 Robot mounting parts standard
+.. centered:: Tabella 1.1-1 Standard dei componenti per l'installazione del robot
 
 .. list-table::
    :widths: 80 50 50 50
    :header-rows: 0
    :align: center
 
-   * - **Collaborative robot model**
-     - **Bolt**
-     - **Bolt torque**
-     - **Pin Hole Specifications**
+   * - **Modello del robot collaborativo**
+     - **Viti**
+     - **Torque delle viti**
+     - **Specifiche dei fori di posizione**
 
    * - FR3
-     - 4 pieces of M6
+     - 4 viti M6
      - ≥10Nm
      - φ5mm
 
    * - FR3-WMS
-     - 4 pieces of M6
+     - 4 viti M6
      - ≥10Nm
      - φ5mm
 
    * - FR3-WML
-     - 4 pieces of M6
+     - 4 viti M6
      - ≥10Nm
      - φ5mm
 
    * - FR3-C
-     - 4 pieces of M6
+     - 4 viti M6
      - ≥10Nm
      - φ5mm
 
    * - FR5
-     - 4 pieces of M8
+     - 4 viti M8
      - ≥20Nm
      - φ8mm
 
    * - FR10
-     - 4 pieces of M8
+     - 4 viti M8
      - ≥25Nm
      - φ8mm
 
    * - FR16
-     - 4 pieces of M8
+     - 4 viti M8
      - ≥25Nm
      - φ8mm
 
    * - FR20
-     - 6 pieces of M10
+     - 6 viti M10
      - ≥45Nm
      - φ8mm
 
    * - FR30
-     - 6 pieces of M10
+     - 6 viti M10
      - ≥45Nm
      - φ8mm
 
    * - FR30L
-     - 6 pieces of M10
+     - 6 viti M10
      - ≥45Nm
      - φ8mm
 
 .. important:: 
-   It is recommended that the robot mounting base meet the following requirements to ensure that the robot is installed firmly and stably:
-   
-    (1)The robot mount needs to be strong enough and have sufficient load-bearing capacity. It should be able to carry at least 5 times the weight of the robot and at least 10 times the 1-axis torque.
+   Si consiglia che la base di montaggio del robot soddisfi i seguenti requisiti per garantire una solida e stabile installazione:
 
-    (2)The surface of the robot mounting seat should be flat to ensure close contact with the contact surface of the robot;
+   (1) La base di montaggio del robot deve essere sufficientemente solida e avere una capacità di carico sufficiente, in grado di sopportare almeno 5 volte il peso del robot e almeno 10 volte il torque dell'asse 1.
 
-    (3)The robot mounting base should be strong enough, fixed firmly, and will not resonate with the robot;
+   (2) La superficie della base di montaggio del robot deve essere piana per garantire una stretta aderenza tra la superficie di contatto del robot e la base;
 
-    (4)When the robot and other parts move at the same time, the mounting base should be isolated from other moving parts, and should not be fixed together to avoid vibration interference during the movement;
+   (3) La base di montaggio del robot deve avere una rigidità sufficiente per fissare il robot senza vibrazioni o risonanza;
 
-    (5)If the robot is installed on a mobile platform or an external axis, the acceleration of the mobile platform or external axis should be as low as possible;
+   (4) Quando il robot e altri componenti si muovono simultaneamente, la base di montaggio deve essere separata da altri componenti in movimento per evitare interferenze dovute a vibrazioni;
 
-Connect the control box
--------------------------
+   (5) Se il robot è installato su una piattaforma mobile o su un asse esterno, l'accelerazione della piattaforma mobile o dell'asse esterno deve essere mantenuta il più bassa possibile.
 
-This series of robots can be configured with three control boxes with different power inputs. For details on the control box power input, see the control box nameplate information.
-The robot needs to be electrically grounded. The external wiring of the manipulator control system is connected using pluggable and quickly installed plugs.
+Connessione del quadro di controllo
+-------------------------------------------
 
-A. 30-60VDC
-B. 176-264VAC~50-60Hz
+Questa serie di robot può essere configurata con tre diverse opzioni di ingresso di alimentazione per il quadro di controllo. Le informazioni sul tipo di alimentazione sono disponibili sulla targhetta del quadro di controllo. Il robot deve essere messo a terra elettricamente. Tutti i collegamenti esterni del sistema di controllo del braccio utilizzano connettori staccabili e facili da installare.
+
+A. 30-60VDC  
+B. 176-264VAC~50-60Hz  
 C. 100-240VAC~50-60HZ
 
-.. note:: The AC input control box has two versions: narrow voltage and wide voltage. The control box wiring terminals and appearance are consistent, and cannot be distinguished by appearance alone. Please confirm by the control box nameplate and power on after confirmation.
+.. note:: I quadri di controllo con ingresso AC sono disponibili in due versioni, a bassa tensione e ad alta tensione. I terminali di collegamento e l'aspetto sono identici, quindi non possono essere distinti solo dall'aspetto. Si prega di confermare tramite la targhetta del quadro di controllo e accertarsi prima di accendere il sistema.
 
-The wiring panel of the collaborative robot is shown in the following figure:
+Il pannello di collegamento del robot collaborativo è mostrato nel diagramma sottostante:
 
 .. image:: installation/037.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 1.2-1 Control box wiring panel
+.. centered:: Diagramma 1.2-1 Pannello di collegamento del quadro di controllo
 
-The button box interface is the control port of the teach pendant by default, and the IP address is 192.168.58.2. Use a network cable to connect the button box interface and the computer. The computer IP address is set to 192.168.58.10 or the same network segment. Open the Google browser and enter 192.168.58.2 You can access the teach pendant page.
+L'interfaccia della scatola dei tasti è predefinita come porta di controllo del teach pendant. L'indirizzo IP è 192.168.58.2. Collega l'interfaccia della scatola dei tasti al computer utilizzando un cavo di rete, con l'indirizzo IP del computer impostato su 192.168.58.10 o in un segmento di rete simile. Apri Google Chrome e inserisci 192.168.58.2 per accedere alla pagina del teach pendant.
 
-Know the button box and end LED
----------------------------------
+Conoscere la scatola dei tasti e il LED finale
+------------------------------------------------
 
-The button box
-~~~~~~~~~~~~~~~~
+Scatola dei tasti
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-60 Button Box (POE) (BX01)
-+++++++++++++++++++++++++++++++++++
+Scatola dei tasti 60 (POE) (BX01)
+++++++++++++++++++++++++++++++++++++++++++
 
 .. figure:: installation/058.png
 	:align: center
 	:width: 6in
 
-.. centered:: Figure 1.3-1 60 Button Box (POE) (BX01)
+.. centered:: Diagramma 1.3-1 Scatola dei tasti 60 (POE)
 
-60 Button Box (POE) (BX02)-V1.0
-+++++++++++++++++++++++++++++++++++
+Scatola dei tasti 60 (POE) (BX02)-V1.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: installation/059.png
-	:align: center
-	:width: 6in
+.. image:: installation/059.png
+   :width: 6in
+   :align: center
 
-.. centered:: Figure 1.3-2 60 Button Box (POE) (BX02)-V1.0
+.. centered:: Diagramma 1.3-2 Pannello di collegamento del quadro di controllo
 
-.. centered:: Table 1.3-1 Control box wiring panel button description
+.. centered:: Tabella 1.3-1 Descrizione dei tasti del pannello del quadro di controllo
 
 .. list-table::
-   :widths: 80 200
+   :widths: 50 200
    :header-rows: 0
    :align: center
 
-   * - **Name**
-     - **Function**
+   * - **Nome del tasto**
+     - **Funzione**
 
-   * - Emergency stop switch
-     - When pressing the emergency stop switch, the robot enters the state of emergency stop.
+   * - Tasto di emergenza
+     - Quando il tasto di emergenza è premuto, il robot entra in modalità di arresto di emergenza
 
-   * - Start/Stop
-     - Start/stop running program.
+   * - Avvio/fermata
+     - Avvia/ferma l'esecuzione del programma
 
-   * - Ethernet
-     - Connect to the teaching pendant.
+   * - Porta di rete
+     - Connessione al teach pendant via web
 
-   * - Turn off
-     - No enabled.
+   * - Spegnimento
+     - Non abilitato
 
-   * - Record point
-     - Record the teaching point.
+   * - Salvataggio punto
+     - Salva il punto di insegnamento
 
-   * - Teaching mode
-     - Enter/exit with the teaching pendant state.
+   * - Modalità insegnamento
+     - Entra/esce dalla modalità di insegnamento
 
-   * - Working mode
-     - Automatic/manual mode switch.
+   * - Modalità di esecuzione
+     - Passa dalla modalità automatica alla manuale
 
-   * - Dragging mode
-     - Enter/exit drag mode.
+   * - Modalità di trascinamento
+     - Entra/esce dalla modalità di trascinamento
 
-60 Button Box (POE) (BX02)-V2.0
-+++++++++++++++++++++++++++++++++++
+Scatola dei tasti 60 (POE) (BX02)-V2.0
+++++++++++++++++++++++++++++++++++++++++++++
 
 .. image:: installation/079.png
-  :width: 6in
-  :align: center
+   :width: 6in
+   :align: center
 
-.. centered:: Figure 1.3-3 60 Button Box (POE) (BX02)-V2.0
+.. centered:: Diagramma 1.3-3 Pannello di collegamento del quadro di controllo
 
-.. centered:: Table 1.3-2 Control box wiring panel button description
-
-.. list-table::
-  :widths: 50 200
-  :header-rows: 0
-  :align: center
-
-  * - **Button name**
-    - **Function**
-
-  * - Emergency stop switch
-    - When the emergency stop switch is pressed, the robot enters the emergency stop state
-
-  * - Start stop
-    - Start/stop running the program
-
-  * - Network port
-    - Connect to web teach pendant
-
-  * - IP reset
-    - Reset network port IP
-
-  * - Record point
-    - Record teaching point
-
-  * - One-click clear
-    - Clear all recoverable errors
-
-  * - Running mode
-    - Automatic/manual mode switching
-
-  * - Drag mode
-    - Enter/exit drag mode
-
-The end LED
-~~~~~~~~~~~~~~~~
-
-.. centered:: Table 1.3-4 The end LED definition table
+.. centered:: Tabella 1.3-2 Descrizione dei tasti del pannello del quadro di controllo
 
 .. list-table::
-   :widths: 50 50
+   :widths: 50 200
    :header-rows: 0
    :align: center
 
-   * - **Function**
-     - **LED color**
+   * - **Nome del tasto**
+     - **Funzione**
 
-   * - When communication is not established
-     - "Off", "Red", "Green" and "Blue" alternately
+   * - Tasto di emergenza
+     - Quando il tasto di emergenza è premuto, il robot entra in modalità di arresto di emergenza
 
-   * - Automatic mode
-     - Blue long bright
+   * - Avvio/fermata
+     - Avvia/ferma l'esecuzione del programma
 
-   * - Manual mode
-     - Green long bright
+   * - Porta di rete
+     - Connessione al teach pendant via web
 
-   * - Drag Mode
-     - White cyan long bright
+   * - Ripristino IP
+     - Ripristina l'indirizzo IP della porta di rete
 
-   * - Button box record point (only when using button box)
-     - Purple blinks twice
+   * - Salvataggio punto
+     - Salva il punto di insegnamento
 
-   * - Start running (only when using the button box)
-     - Cyan blue flashes twice
+   * - Reset completo
+     - Cancella tutti gli errori recuperabili
 
-   * - Enter the state of unmatched button box (only when using the button box)
-     - Blue flashes twice
+   * - Modalità di esecuzione
+     - Passa dalla modalità automatica alla manuale
 
-   * - Stop operation (only when using the button box)
-     - Red flashes twice
+   * - Modalità di trascinamento
+     - Entra/esce dalla modalità di trascinamento
 
-   * - Error reporting (only when using the button box)
-     - Red long bright
+LED finale
+~~~~~~~~~~~~~~
 
-   * - Zero calibration completed
-     - White cyan flashes three times
+.. centered:: Tabella 1.3-3 Definizione dei LED finali
 
-   * - Enable
-     - Yellow flashes twice
+.. list-table::
+   :widths: 120 100
+   :header-rows: 0
+   :align: center
 
-Power on enable
-----------------
+   * - **Funzione**
+     - **Colore LED**
 
-Before powering on, please confirm that the emergency stop button of the button box is released, press the red switch button of the control box to power on, and the LED light at the end will be in a steady green state after enabling successfully.
+   * - Comunicazione non stabilita
+     - "Spento", "Rosso", "Verde", "Blu" alternati
 
-Power Off
+   * - Modalità automatica
+     - Blu acceso fisso
+
+   * - Modalità manuale
+     - Verde acceso fisso
+
+   * - Modalità trascinamento
+     - Ciano acceso fisso
+
+   * - Salvataggio punto (solo quando si usa la scatola dei tasti)
+     - Viola lampeggia due volte
+
+   * - Modalità non associata (solo quando si usa la scatola dei tasti)
+     - Azzurro lampeggia due volte
+
+   * - Inizio esecuzione (solo quando si usa la scatola dei tasti)
+     - Blu lampeggia due volte
+
+   * - Ferma esecuzione (solo quando si usa la scatola dei tasti)
+     - Rosso lampeggia due volte
+
+   * - Errore (solo quando si usa la scatola dei tasti)
+     - Rosso acceso fisso
+
+   * - Reset zero completato
+     - Ciano lampeggia tre volte
+
+   * - Disabilitato
+     - Giallo lampeggia due volte
+
+Abilitazione all'accensione
+-------------------------------------------
+
+Prima di accendere, assicurarsi che il pulsante di emergenza della scatola dei tasti sia in stato di rilascio. Premere il pulsante rosso sul quadro di controllo per accendere l'alimentazione. Dopo l'abilitazione, il LED finale deve essere verde fisso.
+
+Spegnimento
 ----------------
 
 .. important:: 
-  When using this device, please make sure to stop all running programs, disable the status query function, and confirm that the operating status is "Stopped" before turning off the power. This operation is to protect the safety of the device and stored data and avoid data loss or system damage caused by sudden power outages.
+  Quando si spegne questo dispositivo, assicurarsi di fermare tutti i programmi in esecuzione, disabilitare le funzioni di verifica dello stato e confermare che lo stato di funzionamento sia "Stopped". Questa operazione è volta a proteggere la sicurezza dei dati e dei dispositivi, evitando perdite di dati o danni al sistema causati da un'interruzione improvvisa dell'alimentazione.
 
 .. image:: installation/078.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 1.5-1 Turn off the power button
+.. centered:: Diagramma 1.5-1 Pulsante di spegnimento

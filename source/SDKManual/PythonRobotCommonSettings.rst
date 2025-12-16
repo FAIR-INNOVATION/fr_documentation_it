@@ -1,131 +1,131 @@
-Common Robot Settings
-====================================================================
+Impostazioni comuni del robot
+==============================
 
-.. toctree:. 
+.. toctree:: 
     :maxdepth: 5
 
-Setting Tool Reference Points - Six-Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti riferimento utensile - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetToolPoint(point_num)``"
-    "Description", "Setting Tool Reference Points - Six Point Method"
-    "Mandatory parameters", "- ``point_num``: point number, range [1~6]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetToolPoint(point_num)``"
+    "Descrizione", "Imposta i punti di riferimento dell'utensile - Metodo a sei punti"
+    "Parametri obbligatori", "- ``point_num``: Numero del punto, intervallo [1~6]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Calculation tool coordinate system - six-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate utensile - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputeTool()``"
-    "Description", "Calculate the tool coordinate system - six-point method (after setting the six tool reference points)"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``tcp_pose=[x,y,z,rx,ry,rz]``: tool coordinate system"
+    "Prototipo", "``ComputeTool()``"
+    "Descrizione", "Calcola il sistema di coordinate dell'utensile - Metodo a sei punti (calcolo dopo aver impostato sei punti di riferimento)"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``tcp_pose=[x,y,z,rx,ry,rz]``: Sistema di coordinate dell'utensile"
 
-Setting Tool Reference Points - Four Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti riferimento utensile - Metodo a quattro punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetTcp4RefPoint(point_num)``"
-    "Description", "Setting Tool Reference Points - Four Point Method"
-    "Mandatory parameter", "``point_num``: point number, range [1~4]"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``tcp_pose=[x,y,z,rx,ry,rz]``: tool coordinate system"
+    "Prototipo", "``SetTcp4RefPoint(point_num)``"
+    "Descrizione", "Imposta i punti di riferimento dell'utensile - Metodo a quattro punti"
+    "Parametri obbligatori", "``point_num``: Numero del punto, intervallo [1~4]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``tcp_pose=[x,y,z,rx,ry,rz]``: Sistema di coordinate dell'utensile"
 
-Calculation Tool Coordinate System - Four Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate utensile - Metodo a quattro punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``ComputeTcp4()``"
-    "Description", "Calculate tool coordinate system - four-point method (after setting the four tool reference points)"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``tcp_pose=[x,y,z,rx,ry,rz]``: tool coordinate system"
+    "Prototipo", "``ComputeTcp4()``"
+    "Descrizione", "Calcola il sistema di coordinate dell'utensile - Metodo a quattro punti (calcolo dopo aver impostato quattro punti di riferimento)"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``tcp_pose=[x,y,z,rx,ry,rz]``: Sistema di coordinate dell'utensile"
 
-Calculate the tool coordinate system based on the point information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate utensile in base alle informazioni dei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputeToolCoordWithPoints(method, pos)``"
-    "Description", "Calculate the tool coordinate system based on the point information"
-    "Mandatory parameters", "- ``method``:Calculation method; 0-four point method; One - six point method
-    - ``pos``:The array length of the joint position group is 4 in the four-point method and 6 in the six-point method"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode  
-    - ``tcp_offset=[x,y,z,rx,ry,rz]``:Tool coordinate system calculated from point information, unit [mm][°]"
+    "Prototipo", "``ComputeToolCoordWithPoints(method, pos)``"
+    "Descrizione", "Calcola il sistema di coordinate dell'utensile in base alle informazioni dei punti"
+    "Parametri obbligatori", "- ``method``: Metodo di calcolo; 0-Metodo a quattro punti; 1-Metodo a sei punti
+    - ``pos``: Gruppo di posizioni articolari, lunghezza array 4 per metodo a 4 punti, 6 per metodo a 6 punti"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode 
+    - ``tcp_offset=[x,y,z,rx,ry,rz]``: Sistema di coordinate utensile calcolato in base alle informazioni dei punti, unità [mm][°]"
 
-Setting the tool coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione sistema di coordinate utensile
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetToolCoord(id,t_coord,type,install,toolID,loadNum)``"
-    "Description", "Setting the tool coordinate system"
-    "Mandatory parameters", "- ``id``: coordinate system number, range [1~15];
-    - ``t_coord``: Position of the tool center point relative to the center of the end flange in [mm][°];
-    - ``type``: 0 - tool coordinate system, 1 - sensor coordinate system;
-    - ``install``: installation position, 0 - robot end, 1 - robot exterior
-    - ``toolID``: tool ID
-    - ``loadNum``: load number"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetToolCoord(id,t_coord,type,install,toolID,loadNum)``"
+    "Descrizione", "Imposta il sistema di coordinate dell'utensile"
+    "Parametri obbligatori", "- ``id``: Numero del sistema di coordinate, intervallo [1~15];
+    - ``t_coord``: Posa del centro utensile rispetto al centro della flangia terminale, unità [mm][°];
+    - ``type``: 0-Sistema di coordinate utensile, 1-Sistema di coordinate sensore;
+    - ``install``: Posizione di installazione, 0-Terminale del robot, 1-Esterno del robot
+    - ``toolID``: ID utensile
+    - ``loadNum``: Numero del carico"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the tool coordinate system list
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione lista dei sistemi di coordinate utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetToolList(id,t_coord ,type, install, loadNum)``"
-    "Description", "Set up a list of tool coordinate systems"
-    "Mandatory parameters", "- ``id``: coordinate system number, range [1~15];
-    - ``t_coord``: [x,y,z,rx,ry,rz] Tool center point relative to end flange center position in [mm][°];
-    - ``type``: 0 - tool coordinate system, 1 - sensor coordinate system;
-    - ``install``: installation position, 0 - robot end, 1 - robot exterior
-    - ``loadNum``: load number"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetToolList(id,t_coord ,type, install, loadNum)``"
+    "Descrizione", "Imposta la lista dei sistemi di coordinate dell'utensile"
+    "Parametri obbligatori", "- ``id``: Numero del sistema di coordinate, intervallo [1~15];
+    - ``t_coord``: [x,y,z,rx,ry,rz] Posa del centro utensile rispetto al centro della flangia terminale, unità [mm][°];
+    - ``type``: 0-Sistema di coordinate utensile, 1-Sistema di coordinate sensore;
+    - ``install``: Posizione di installazione, 0-Terminale del robot, 1-Esterno del robot
+    - ``loadNum``: Numero del carico"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Get the current tool coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento sistema di coordinate utensile corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetTCPOffset(flag=1)``"
-    "Description", "Get current tool coordinate system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``tcp_offset=[x,y,z,rx,ry,rz]``: Relative position of the current tool coordinate system in [mm][°]"
+    "Prototipo", "``GetTCPOffset(flag=1)``"
+    "Descrizione", "Ottiene il sistema di coordinate dell'utensile corrente"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "``flag``: 0-Bloccante, 1-Non bloccante  Predefinito 1"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``tcp_offset=[x,y,z,rx,ry,rz]``: Posa relativa del sistema di coordinate utensile corrente, unità [mm][°]"
 
-Robot tool coordinate system manipulation code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di codice operazioni sistema di coordinate utensile robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     p1Desc = [186.331, 487.913, 209.850, 149.030, 0.688, -114.347]
     p2Desc = [69.721, 535.073, 202.882, -144.406, -14.775, -89.012]
@@ -174,68 +174,68 @@ Robot tool coordinate system manipulation code example
     print(f"GetTCPOffset    {rtn}  coord is {getCoord[0]} {getCoord[1]} {getCoord[2]} {getCoord[3]} {getCoord[4]} {getCoord[5]}")
     robot.CloseRPC()
 
-Setting External Tool Reference Points-Six-Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti riferimento utensile esterno - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetExTCPPoint(point_num)``"
-    "Description", "Setting the external tool reference point - three-point method"
-    "Mandatory parameters", "- ``point_num``: point number, range [1~3]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetExTCPPoint(point_num)``"
+    "Descrizione", "Imposta i punti di riferimento dell'utensile esterno - Metodo a tre punti"
+    "Parametri obbligatori", "- ``point_num``: Numero del punto, intervallo [1~3]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Calculation of the external tool coordinate system - Six-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate utensile esterno - Metodo a sei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputeExTCF(point_num)``"
-    "Description", "Calculate external tool coordinate system - three-point method (after setting three reference points)"
-    "Mandatory parameter", "``point_num``: point number, range [1~3]"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``etcp=[x,y,z,rx,ry,rz]``: external tool coordinate system"
+    "Prototipo", "``ComputeExTCF(point_num)``"
+    "Descrizione", "Calcola il sistema di coordinate dell'utensile esterno - Metodo a tre punti (calcolo dopo aver impostato tre punti di riferimento)"
+    "Parametri obbligatori", "``point_num``: Numero del punto, intervallo [1~3]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode 
+    - ``etcp=[x,y,z,rx,ry,rz]``: Sistema di coordinate dell'utensile esterno"
 
-Setting the external tool coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione sistema di coordinate utensile esterno
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetExToolCoord(id,etcp,etool)``"
-    "Description", "Setting the external tool coordinate system"
-    "Mandatory parameters", "- ``id``: coordinate system number, range [0~14];
-    - ``etcp``: External tool coordinate system in [mm][°];
-    - ``etool``: end-tool coordinate system in [mm] [°];"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetExToolCoord(id,etcp,etool)``"
+    "Descrizione", "Imposta il sistema di coordinate dell'utensile esterno"
+    "Parametri obbligatori", "- ``id``: Numero del sistema di coordinate, intervallo [0~14];
+    - ``etcp``: Sistema di coordinate dell'utensile esterno, unità [mm][°];
+    - ``etool``: Sistema di coordinate dell'utensile terminale, unità [mm][°];"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting up a list of external tool coordinate systems
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione lista dei sistemi di coordinate utensile esterno
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetExToolList(id,etcp ,etool)``"
-    "Description", "Set the list of external tool coordinate systems"
-    "Mandatory parameters", "- ``id``: coordinate system number, range [0~14];
-    - ``etcp``: External tool coordinate system in [mm][°];
-    - ``etool``: end-tool coordinate system in [mm] [°];"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetExToolList(id,etcp ,etool)``"
+    "Descrizione", "Imposta la lista dei sistemi di coordinate dell'utensile esterno"
+    "Parametri obbligatori", "- ``id``: Numero del sistema di coordinate, intervallo [0~14];
+    - ``etcp``: Sistema di coordinate dell'utensile esterno, unità [mm][°];
+    - ``etool``: Sistema di coordinate dell'utensile terminale, unità [mm][°];"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Example code for robot external tool coordinate system operation
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di codice operazioni sistema di coordinate utensile esterno robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     p1Desc = [-89.606, 779.517, 193.516, 178.000, 0.476, -92.484]
     p1Joint = [-108.145, -50.137, 85.818, -125.599, -87.946, 74.329]
@@ -258,97 +258,97 @@ Example code for robot external tool coordinate system operation
     robot.SetExToolList(1, coordRtn, offdese)
     robot.CloseRPC()
 
-Setting the workpiece reference point - three-point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punti riferimento pezzo - Metodo a tre punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetWObjCoordPoint(point_num)``"
-    "Description", "Setting the workpiece reference point - 3-point method"
-    "Mandatory parameter", "``point_num``: point number, range [1~3]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetWObjCoordPoint(point_num)``"
+    "Descrizione", "Imposta i punti di riferimento del pezzo - Metodo a tre punti"
+    "Parametri obbligatori", "``point_num``: Numero del punto, intervallo [1~3]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Calculation of the workpiece coordinate system - three-point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate pezzo - Metodo a tre punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputeWObjCoord(method, refFrame)``"
-    "Description", "Calculate the workpiece coordinate system - three-point method (three reference points are set and then calculated);"
-    "Mandatory parameters","- ``method``: calculation method 0: origin-x-axis-z-axis, 1: origin-x-axis-xy-plane
-    - ``refFrame``: reference coordinate system"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode 
-    - ``wobj_pose=[x,y,z,rx,ry,rz]``: workpiece coordinate system"
+    "Prototipo", "``ComputeWObjCoord(method, refFrame)``"
+    "Descrizione", "Calcola il sistema di coordinate del pezzo - Metodo a tre punti (calcolo dopo aver impostato tre punti di riferimento);"
+    "Parametri obbligatori", "- ``method``: Metodo di calcolo 0: Origine-Asse X-Asse Z, 1: Origine-Asse X-Piano XY
+    - ``refFrame``: Sistema di coordinate di riferimento"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode 
+    - ``wobj_pose=[x,y,z,rx,ry,rz]``: Sistema di coordinate del pezzo"
 
-Setting the workpiece coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione sistema di coordinate pezzo
++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetWObjCoord(id, coord, refFrame)``"
-    "Description", "Setting the workpiece coordinate system"
-    "Mandatory parameters", "- ``id``: coordinate system number, range [0~14];
-    - ``COORD``: Position of the workpiece in the coordinate system relative to the center of the end flange in [mm][°].
-    - ``refFrame``: reference coordinate system"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetWObjCoord(id, coord, refFrame)``"
+    "Descrizione", "Imposta il sistema di coordinate del pezzo"
+    "Parametri obbligatori", "- ``id``: Numero del sistema di coordinate, intervallo [0~14];
+    - ``coord``: Posa del sistema di coordinate del pezzo rispetto al centro della flangia terminale, unità [mm][°]
+    - ``refFrame``: Sistema di coordinate di riferimento"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the list of workpiece coordinate systems
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione lista dei sistemi di coordinate pezzo
++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``SetWObjList(id, coord, refFrame)``"
-    "Description", "Set the list of workpiece coordinate systems"
-    "Mandatory parameters", "- ``id``: coordinate system number, range [0~14];
-    - ``COORD``: Position of the workpiece in the coordinate system relative to the center of the end flange in [mm][°].
-    - ``refFrame``: reference coordinate system"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetWObjList(id, coord, refFrame)``"
+    "Descrizione", "Imposta la lista dei sistemi di coordinate del pezzo"
+    "Parametri obbligatori", "- ``id``: Numero del sistema di coordinate, intervallo [0~14];
+    - ``coord``: Posa del sistema di coordinate del pezzo rispetto al centro della flangia terminale, unità [mm][°]
+    - ``refFrame``: Sistema di coordinate di riferimento"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Calculate the workpiece coordinate system based on the point information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolo sistema di coordinate pezzo in base alle informazioni dei punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.8
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputeWObjCoordWithPoints(method, pos, refFrame)``"
-    "Description", "Calculate the workpiece coordinate system based on the point information"
-    "Mandatory parameters", "- ``method``:Calculation method; 0: origin - X-axis - Z-axis 1: origin - X-axis -xy plane
-    - ``pos``:Three TCP location groups
-    - ``refFrame``: reference coordinate system"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode 
-    - ``wobj_offset=[x,y,z,rx,ry,rz]``:Workpiece coordinate system calculated from point information, unit [mm][°]"
+    "Prototipo", "``ComputeWObjCoordWithPoints(method, pos, refFrame)``"
+    "Descrizione", "Calcola il sistema di coordinate del pezzo in base alle informazioni dei punti"
+    "Parametri obbligatori", "- ``method``: Metodo di calcolo; 0: Origine-Asse X-Asse Z  1: Origine-Asse X-Piano XY
+    - ``pos``: Tre gruppi di posizioni TCP
+    - ``refFrame``: Sistema di coordinate di riferimento"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode 
+    - ``wobj_offset=[x,y,z,rx,ry,rz]``: Sistema di coordinate del pezzo calcolato in base alle informazioni dei punti, unità [mm][°]"
 
-Get the current workpiece coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento sistema di coordinate pezzo corrente
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "prototype", "``GetWObjOffset(flag=1)``"
-    "Description", "Get current workpiece coordinate system"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "``flag``: 0-blocking, 1-non-blocking, default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``wobj_offset=[x,y,z,rx,ry,rz]``: Relative position of the current workpiece coordinate system in [mm][°]"
+    "Prototipo", "``GetWObjOffset(flag=1)``"
+    "Descrizione", "Ottiene il sistema di coordinate del pezzo corrente"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "``flag``: 0-Bloccante, 1-Non bloccante, Predefinito 1"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``wobj_offset=[x,y,z,rx,ry,rz]``: Posa relativa del sistema di coordinate del pezzo corrente, unità [mm][°]"
 
-Example of robot workpiece coordinate system manipulation code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice operazioni sistema di coordinate pezzo robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     p1Desc = [-89.606, 779.517, 193.516, 178.000, 0.476, -92.484]
     p2Desc = [-24.656, 850.384, 191.361, 177.079, -2.058, -95.355]
@@ -375,169 +375,169 @@ Example of robot workpiece coordinate system manipulation code
     print(f"GetWObjOffset    {rtn}  coord is {getWobjDesc[0]} {getWobjDesc[1]} {getWobjDesc[2]} {getWobjDesc[3]} {getWobjDesc[4]} {getWobjDesc[5]}")
     robot.CloseRPC()
 
-Setting the global speed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione velocità globale
+++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetSpeed(vel)``"
-    "Description", "Set global speed"
-    "Mandatory parameter", "- ``vel``: percentage of speed, range [0~100]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetSpeed(vel)``"
+    "Descrizione", "Imposta la velocità globale"
+    "Parametri obbligatori", "- ``vel``: Percentuale velocità, intervallo [0~100]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting robot acceleration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione accelerazione robot
++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetOaccScale(acc)``"
-    "Description", "Setting the robot acceleration"
-    "Mandatory parameter", "- ``acc``: percentage of robot acceleration"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetOaccScale(acc)``"
+    "Descrizione", "Imposta l'accelerazione del robot"
+    "Parametri obbligatori", "- ``acc``: Percentuale accelerazione robot"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Getting the default speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento velocità predefinita
++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetDefaultTransVel()``"
-    "Description", "Get Default Speed"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``vel``: default speed in [mm/s]"
+    "Prototipo", "``GetDefaultTransVel()``"
+    "Descrizione", "Ottiene la velocità predefinita"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``vel``: Velocità predefinita, unità [mm/s]"
 
-Setting the end load weight
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione peso carico terminale
++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetLoadWeight(loadNum, weight)``"
-    "Description", "Set the end load weight, incorrect load weight setting may cause the robot to go out of control in drag mode"
-    "Mandatory parameters", "- ``loadNum``:load number
-    - ``weight``: unit [kg]"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetLoadWeight(loadNum, weight)``"
+    "Descrizione", "Imposta il peso del carico terminale, un'impostazione errata del peso del carico potrebbe causare la perdita di controllo del robot in modalità trascinamento"
+    "Parametri obbligatori", "- ``loadNum``: Numero del carico
+    - ``weight``: Unità [kg]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the end load center of mass coordinates
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coordinate centro di massa carico terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetLoadCoord(x,y,z,loadNum = 0)``"
-    "Description", "Set end-load center of mass coordinates, incorrect load center of mass setting may cause robot to go out of control in drag mode"
-    "Mandatory parameter", "- ``x``: center of mass coordinates in [mm].
-    - ``y``: coordinates of the center of mass in [mm].
-    - ``z``: coordinates of the center of mass in [mm]"
-    "Default parameters", "- ``loadNum``: Payload number, 0 by default"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetLoadCoord(x,y,z,loadNum = 0)``"
+    "Descrizione", "Imposta le coordinate del centro di massa del carico terminale, un'impostazione errata del centro di massa del carico potrebbe causare la perdita di controllo del robot in modalità trascinamento"
+    "Parametri obbligatori", "- ``x``: Coordinata centro di massa, unità [mm]
+    - ``y``: Coordinata centro di massa, unità [mm]
+    - ``z``: Coordinata centro di massa, unità [mm]"
+    "Parametri predefiniti", "- ``loadNum``: Numero del carico, predefinito 0"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Get the weight of the current load
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento peso carico corrente
++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetTargetPayload(flag=1)``"
-    "Description", "Get the quality of the current load"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``weight``: current load weight in [kg]"
+    "Prototipo", "``GetTargetPayload(flag=1)``"
+    "Descrizione", "Ottiene la massa del carico corrente"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "``flag``: 0-Bloccante, 1-Non bloccante  Predefinito 1"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``weight``: Peso del carico corrente, unità [kg]"
 
-Get the center of mass of the current load
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento centro di massa carico corrente
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetTargetPayloadCog(flag=1)``"
-    "Description", "Get the center of mass of the current load"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "``flag``: 0-blocking, 1-non-blocking Default 1"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``cog=[x,y,z]``: coordinates of the current center of mass in [mm]"
+    "Prototipo", "``GetTargetPayloadCog(flag=1)``"
+    "Descrizione", "Ottiene il centro di massa del carico corrente"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "``flag``: 0-Bloccante, 1-Non bloccante  Predefinito 1"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``cog=[x,y,z]``: Coordinate del centro di massa corrente, unità [mm]"
 
-Setting the robot mounting method - fixed mounting
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione modalità installazione robot - Installazione fissa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetRobotInstallPos(method)``"
-    "description", "set robot mounting method - fixed mounting, wrong mounting method setting can cause robot to lose control in drag mode"
-    "Mandatory parameters", "- ``method``: 0-flat loading, 1-side loading, 2-hanging loading"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode "
+    "Prototipo", "``SetRobotInstallPos(method)``"
+    "Descrizione", "Imposta la modalità di installazione del robot - Installazione fissa, un'impostazione errata della modalità di installazione potrebbe causare la perdita di controllo del robot in modalità trascinamento"
+    "Parametri obbligatori", "- ``method``: 0-Montaggio a terra, 1-Montaggio laterale, 2-Montaggio a soffitto"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the robot mounting angle - free mounting
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione angolo installazione robot - Installazione libera
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetRobotInstallAngle(yangle,zangle)``"
-    "Description", "Setting the robot mounting angle - free mounting, wrong mounting angle setting can cause the robot to go out of control in drag mode"
-    "Mandatory parameters", "- ``yangle``: angle of inclination;
-    - ``zangle``: angle of rotation"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetRobotInstallAngle(yangle,zangle)``"
+    "Descrizione", "Imposta l'angolo di installazione del robot - Installazione libera, un'impostazione errata dell'angolo di installazione potrebbe causare la perdita di controllo del robot in modalità trascinamento"
+    "Parametri obbligatori", "- ``yangle``: Angolo di inclinazione
+    - ``zangle``: Angolo di rotazione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Getting the robot mounting angle
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento angolo installazione robot
++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotInstallAngle()``"
-    "Description", "Get robot mounting angle"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``[yangle,zangle]``: yangle - angle of inclination, zangle - angle of rotation."
+    "Prototipo", "``GetRobotInstallAngle()``"
+    "Descrizione", "Ottiene l'angolo di installazione del robot"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``[yangle,zangle]``: yangle-angolo di inclinazione, zangle-angolo di rotazione"
 
-Setting system variable values
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione valore variabile di sistema
++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetSysVarValue(id,value)``"
-    "Description", "Setting System Variables"
-    "Mandatory parameters", "- ``id``: variable number, in the range [1~20].
-    - ``value``: variable value"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetSysVarValue(id,value)``"
+    "Descrizione", "Imposta la variabile di sistema"
+    "Parametri obbligatori", "- ``id``: Numero della variabile, intervallo [1~20];
+    - ``value``: Valore della variabile"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Getting system variable values
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento valore variabile di sistema
+++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetSysVarValue(id)``"
-    "Description", "Get system variable values"
-    "Mandatory parameters", "- ``id``: system variable number, range [1~20]"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``var_value``: system variable value"
+    "Prototipo", "``GetSysVarValue(id)``"
+    "Descrizione", "Ottiene il valore della variabile di sistema"
+    "Parametri obbligatori", "- ``id``: Numero della variabile di sistema, intervallo [1~20]"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``var_value``: Valore della variabile di sistema"
 
-Robot common setup code examples
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice impostazioni comuni robot
+++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     for i in range(1, 100):
         robot.SetSpeed(i)
@@ -564,73 +564,73 @@ Robot common setup code examples
     print(f"GetRobotInstallAngle x: {anglex}; y: {angley}")
     robot.CloseRPC()
 
-Joint Friction Compensation Switch
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Interruttore compensazione attrito giunti
+++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FrictionCompensationOnOff(state)``"
-    "Description", "Joint Friction Compensation Switch"
-    "Mandatory parameters", "- ``state``: 0-off, 1-on"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``FrictionCompensationOnOff(state)``"
+    "Descrizione", "Interruttore compensazione attrito giunti"
+    "Parametri obbligatori", "- ``state``: 0-Spegnimento, 1-Accensione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the joint friction compensation coefficients - positive loading
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente compensazione attrito giunti - Montaggio normale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetFrictionValue_level(coeff)``"
-    "Description", "Setting the joint friction compensation coefficient - Fixed mounting - Positive mounting"
-    "Mandatory parameters", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: six joint compensation coefficients"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetFrictionValue_level(coeff)``"
+    "Descrizione", "Imposta il coefficiente di compensazione attrito giunti - Installazione fissa - Montaggio normale"
+    "Parametri obbligatori", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: Sei coefficienti di compensazione dei giunti"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the joint friction compensation coefficient - side mounting
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente compensazione attrito giunti - Montaggio laterale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetFrictionValue_wall(coeff)``"
-    "Description", "Setting the joint friction compensation coefficient - fixed mounting - side mounting"
-    "Mandatory parameters", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: six joint compensation coefficients"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetFrictionValue_wall(coeff)``"
+    "Descrizione", "Imposta il coefficiente di compensazione attrito giunti - Installazione fissa - Montaggio laterale"
+    "Parametri obbligatori", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: Sei coefficienti di compensazione dei giunti"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the Joint Friction Compensation Factor - Inverted
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente compensazione attrito giunti - Montaggio a soffitto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetFrictionValue_ceiling(coeff)``"
-    "Description", "Setting the joint friction compensation coefficient - fixed mounting - inverted mounting"
-    "Mandatory parameters", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: six joint compensation coefficients"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetFrictionValue_ceiling(coeff)``"
+    "Descrizione", "Imposta il coefficiente di compensazione attrito giunti - Installazione fissa - Montaggio a soffitto"
+    "Parametri obbligatori", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: Sei coefficienti di compensazione dei giunti"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Setting the joint friction compensation factor - free mounting
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente compensazione attrito giunti - Installazione libera
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetFrictionValue_freedom(coeff)``"
-    "Description", "Setting the joint friction compensation factor - free mounting"
-    "Mandatory parameters", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: six joint compensation coefficients"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetFrictionValue_freedom(coeff)``"
+    "Descrizione", "Imposta il coefficiente di compensazione attrito giunti - Installazione libera"
+    "Parametri obbligatori", "- ``coeff=[j1,j2,j3,j4,j5,j6]``: Sei coefficienti di compensazione dei giunti"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Robot setup joint friction compensation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice impostazione compensazione attrito giunti robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     lcoeff = [0.9, 0.9, 0.9, 0.9, 0.9, 0.9]
     wcoeff = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4]
@@ -648,39 +648,39 @@ Robot setup joint friction compensation code example
     print(f"SetFrictionValue_freedom rtn is {rtn}")
     robot.CloseRPC()
 
-Query Robot Error Code
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Query codice errore robot
+++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetRobotErrorCode()``"
-    "Description", "Query Robot Error Code"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- errorcode Success-0 Failure- errcode
-    - ``[maincode subcode]``: robot error code, maincode - main error code, subcode - suberror code"
+    "Prototipo", "``GetRobotErrorCode()``"
+    "Descrizione", "Query codice errore robot"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``[maincode subcode]``: Codice errore robot, maincode-codice errore principale, subcode-codice errore secondario"
 
-Error state clearing
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Cancellazione stato errore
++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ResetAllError()``"
-    "Description", "Error state clearing, only resettable errors can be cleared"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``ResetAllError()``"
+    "Descrizione", "Cancellazione stato errore, può cancellare solo errori resettabili"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Robot fault state acquisition and clearing error code examples
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice ottenimento stato guasto robot e cancellazione errori
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     p1Joint = [-108.145, -50.137, 85.818, -125.599, -87.946, 74.329]
     robot.MoveJ(joint_pos=p1Joint, tool=5, user=2, vel=50)
@@ -694,46 +694,46 @@ Robot fault state acquisition and clearing error code examples
     print(f"robot maincode is {maincode}; subcode is {subcode}")
     robot.CloseRPC()
 
-Set the monitoring parameters for the temperature and fan speed of the wide-voltage control box
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione parametri monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetWideBoxTempFanMonitorParam(enable, period)``"
-    "Description", "Set the monitoring parameters for the temperature and fan speed of the wide-voltage control box"
-    "Mandatory parameters", "- ``enable``: 0- Monitoring is not enabled; 1- Enable monitoring
-    - ``period``: Monitoring period (s), ranging from 1 to 100"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetWideBoxTempFanMonitorParam(enable, period)``"
+    "Descrizione", "Imposta i parametri di monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga"
+    "Parametri obbligatori", "- ``enable``: 0-Disabilita monitoraggio; 1-Abilita monitoraggio
+    - ``period``: Periodo di monitoraggio (s), intervallo 1-100"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Obtain the monitoring parameters of the temperature and fan speed of the wide-voltage control box
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento parametri monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.3
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetWideBoxTempFanMonitorParam()``"
-    "Description", "Obtain the monitoring parameters of the temperature and fan speed of the wide-voltage control box"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``enable``: 0- Monitoring is not enabled; 1- Enable monitoring
-    - ``period``: Monitoring period (s), ranging from 1 to 100"
+    "Prototipo", "``GetWideBoxTempFanMonitorParam()``"
+    "Descrizione", "Ottiene i parametri di monitoraggio temperatura e velocità ventilatore quadro controllo tensione larga"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``enable``: 0-Disabilita monitoraggio; 1-Abilita monitoraggio
+    - ``period``: Periodo di monitoraggio (s), intervallo 1-100"
 
-Sample code for obtaining wide voltage control box temperature and fan current status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di codice ottenimento stato temperatura e corrente ventilatore quadro controllo tensione larga
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     robot.SetWideBoxTempFanMonitorParam(1, 2)
     error, enable, period = robot.GetWideBoxTempFanMonitorParam()
@@ -752,92 +752,92 @@ Sample code for obtaining wide voltage control box temperature and fan current s
         time.sleep(0.1)
     robot.CloseRPC()
 
-Sets the focus point
-+++++++++++++++++++++++++++++++++++++++++++++
+Impostazione punto calibrazione fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetFocusCalibPoint(pointNum, point)``"
-    "Description", "Sets the focus point"
-    "Mandatory parameters", "- ``pointNum``：The number of the focus calibration point 1-8
-    - ``point``：Coordinate the points"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetFocusCalibPoint(pointNum, point)``"
+    "Descrizione", "Imposta il punto di calibrazione del fuoco"
+    "Parametri obbligatori", "- ``pointNum``: Numero punto calibrazione fuoco 1-8
+    - ``point``: Coordinate del punto di calibrazione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Calculate the focus calibration result
-+++++++++++++++++++++++++++++++++++++++++++++
+Calcolo risultato calibrazione fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``ComputeFocusCalib(pointNum)``"
-    "Description", "Calculate the focus calibration result"
-    "Mandatory parameters", "- ``pointNum``：Number of calibration points"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``resultPos``：Calibration result XYZ
-    - ``accuracy``：Calibration accuracy error"
+    "Prototipo", "``ComputeFocusCalib(pointNum)``"
+    "Descrizione", "Calcola il risultato della calibrazione del fuoco"
+    "Parametri obbligatori", "- ``pointNum``: Numero di punti di calibrazione"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``resultPos``: Risultato calibrazione XYZ
+    - ``accuracy``: Errore di accuratezza della calibrazione"
 
-Enable focus following
-+++++++++++++++++++++++++++++++++++++++++++++
+Avvio inseguimento fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FocusStart(kp=50.0, kpredic=19.0, aMax=1440, vMax=180, type=0)``"
-    "Description", "Enable focus following"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "- ``kp``：Scale parameter. Default is 50.0
-    - ``kpredic``：Feedforward parameter, default 19.0
-    - ``aMax``：Maximum angular acceleration limit, default 1440°/s^2
-    - ``vMax``：Maximum angular speed limit, default 180°/s
-    - ``type``：Lock X-axis pointing (0-reference input vector; 1-level; 2- vertical), 0 by default"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``FocusStart(kp=50.0, kpredic=19.0, aMax=1440, vMax=180, type=0)``"
+    "Descrizione", "Avvia l'inseguimento del fuoco"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "- ``kp``: Parametro proporzionale, predefinito 50.0
+    - ``kpredic``: Parametro feedforward, predefinito 19.0
+    - ``aMax``: Limite massima accelerazione angolare, predefinito 1440°/s^2
+    - ``vMax``: Limite massima velocità angolare, predefinito 180°/s
+    - ``type``: Blocco direzione asse X (0-Vettore input di riferimento; 1-Orizzontale; 2-Verticale), predefinito 0"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Stop focusing following
-+++++++++++++++++++++++++++++++++++++++++++++
+Arresto inseguimento fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``FocusEnd()``"
-    "Description", "Stop focusing following"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``FocusEnd()``"
+    "Descrizione", "Arresta l'inseguimento del fuoco"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Set the focus coordinates
-+++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coordinate fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.4
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetFocusPosition(pos)``"
-    "Description", "Set the focus coordinates"
-    "Mandatory parameters", "- ``pos``：Focus coordinate XYZ"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetFocusPosition(pos)``"
+    "Descrizione", "Imposta le coordinate del fuoco"
+    "Parametri obbligatori", "- ``pos``: Coordinate fuoco XYZ"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Robot focus following code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Esempio di codice inseguimento fuoco robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    import threading
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     p1Desc = [186.331, 487.913, 209.850, 149.030, 0.688, -114.347]
     p1Joint = [-127.876, -75.341, 115.417, -122.741, -59.820, 74.300]
@@ -884,99 +884,96 @@ Robot focus following code example
     robot.FocusEnd()
     robot.CloseRPC()
 
-Joint torque sensor sensitivity calibration function is enabled
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Abilitazione funzione calibrazione sensibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``JointSensitivityEnable(status)``"
-    "Description", "Joint torque sensor sensitivity calibration function is enabled"
-    "Mandatory parameters", "- ``status``：0- closed; 1- On"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``JointSensitivityEnable(status)``"
+    "Descrizione", "Abilita la funzione di calibrazione sensibilità sensore coppia giunti"
+    "Parametri obbligatori", "- ``status``: 0-Disabilita; 1-Abilita"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-Joint torque sensor sensitivity data acquisition
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Raccolta dati sensibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``JointSensitivityCollect()``"
-    "Description", "Joint torque sensor sensitivity data acquisition"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``JointSensitivityCollect()``"
+    "Descrizione", "Raccolta dati sensibilità sensore coppia giunti"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-The sensitivity calibration results of the joint torque sensor were obtained
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento risultato calibrazione sensibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``JointSensitivityCalibration()``"
-    "Description", "The sensitivity calibration results of the joint torque sensor were obtained"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``calibResult``：j1~j6 Joint sensitivity [0-1]
-    - ``linearityn``：j1~j6 joint linearity[0-1]"
+    "Prototipo", "``JointSensitivityCalibration()``"
+    "Descrizione", "Ottiene il risultato della calibrazione sensibilità sensore coppia giunti"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``calibResult``: Sensibilità giunti j1~j6 [0-1]
+    - ``linearityn``: Linearità giunti j1~j6 [0-1]"
 
-Get Joint Torque Sensor Hysteresis Error
-+++++++++++++++++++++++++++++++++++++++++++++
-
+Ottenimento errore isteresi sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``JointHysteresisError()``"
-    "Description", "Get joint torque sensor hysteresis error"
-    "Required Parameters", "None"
-    "Default Parameters", "None"
-    "Return Value", "- Error code Success-0 Failure- errcode
-    - ``hysteresisError``：j1~j6 joint hysteresis error"
+    "Prototipo", "``JointHysteresisError()``"
+    "Descrizione", "Ottiene l'errore di isteresi del sensore coppia giunti"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``hysteresisError``: Errore di isteresi giunti j1~j6"
 
-Get Joint Torque Sensor Repeatability
-+++++++++++++++++++++++++++++++++++++++++++++
-
+Ottenimento ripetibilità sensore coppia giunti
++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``JointRepeatability()``"
-    "Description", "Get joint torque sensor repeatability"
-    "Required Parameters", "None"
-    "Default Parameters", "None"
-    "Return Value", "- Error code Success-0 Failure- errcode
-    - ``repeatability``：j1~j6 joint repeatability"
+    "Prototipo", "``JointRepeatability()``"
+    "Descrizione", "Ottiene la ripetibilità del sensore coppia giunti"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``repeatability``: Ripetibilità giunti j1~j6"
 
-Set Joint Force Sensor Parameters
-+++++++++++++++++++++++++++++++++++++++++++++
-
+Impostazione parametri sensore forza giunti
+++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetAdmittanceParams(M, B, K, threshold, sensitivity, setZeroFlag)``"
-    "Description", "Set joint force sensor parameters"
-    "Required Parameters", "
-    - ``M``：J1-J6 mass coefficient [0.001 ~ 10]
-    - ``B``：J1-J6 damping coefficient [0.001 ~ 10]
-    - ``K``：J1-J6 stiffness coefficient [0.001 ~ 10]
-    - ``threshold``：Force control threshold, Nm
-    - ``sensitivity``：Sensitivity, Nm/V, [0 ~ 10]
-    - ``setZeroFlag``：Function enable flag; 0-Off; 1-On; 2-Record zero point at position 1; 3-Record zero point at position 2"
-    "Default Parameters", "None"
-    "Return Value", "- Error code Success-0 Failure- errcode"
+    "Prototipo", "``SetAdmittanceParams(M, B, K, threshold, sensitivity, setZeroFlag)``"
+    "Descrizione", "Imposta i parametri del sensore forza giunti"
+    "Parametri obbligatori", "
+    - ``M``: Coefficiente massa J1-J6 [0.001 ~ 10]
+    - ``B``: Coefficiente smorzamento J1-J6 [0.001 ~ 10]
+    - ``K``: Coefficiente rigidezza J1-J6 [0.001 ~ 10]
+    - ``threshold``: Soglia controllo forza, Nm
+    - ``sensitivity``: Sensibilità, Nm/V, [0 ~ 10]
+    - ``setZeroFlag``: Flag abilitazione funzione; 0-Disabilita; 1-Abilita; 2-Registra zero posizione1; 3-Registra zero posizione2"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode"
 
-Sample code for automatic calibration of joint torque sensor sensitivity
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice calibrazione automatica sensibilità sensore coppia giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
@@ -1099,51 +1096,51 @@ Sample code for automatic calibration of joint torque sensor sensitivity
     print(f"SetAdmittanceParams rtn is {rtn}")
     robot.CloseRPC()
 
-The number of error frames at eight slave ports of the robot is obtained
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.1.7
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``GetSlavePortErrCounter()``"
-    "Description", "The number of error frames at eight slave ports of the robot is obtained"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``inRecvErr``：Input the number of error frames received
-    - ``inCRCErr``：Input the number of CRC error frames
-    - ``inTransmitErr``：Input the number of forwarding error frames
-    - ``inLinkErr``：Enter the number of link error frames
-    - ``outRecvErr``：Outputs the number of frames received incorrectly
-    - ``outCRCErr``：The number of CRC error frames is output
-    - ``outTransmitErr``：Outputs the number of forwarding error frames
-    - ``outLinkErr``：Output link error frames"
-
-Slave port error frame reset
-+++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.1.7
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototype", "``JointSensitivityEnable(slaveID)``"
-    "Description", "Slave port error frame reset"
-    "Mandatory parameters", "- ``slaveID``：Slave station numbers 0 to 7"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
-
-Get sample slave port error frame code
+Ottenimento conteggio frame errore 8 porte slave robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.1.7
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetSlavePortErrCounter()``"
+    "Descrizione", "Ottiene il conteggio frame errore 8 porte slave robot"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``inRecvErr``: Conteggio frame errore ricezione input
+    - ``inCRCErr``: Conteggio frame errore CRC input
+    - ``inTransmitErr``: Conteggio frame errore trasmissione input
+    - ``inLinkErr``: Conteggio frame errore collegamento input
+    - ``outRecvErr``: Conteggio frame errore ricezione output
+    - ``outCRCErr``: Conteggio frame errore CRC output
+    - ``outTransmitErr``: Conteggio frame errore trasmissione output
+    - ``outLinkErr``: Conteggio frame errore collegamento output"
+
+Azzera conteggio frame errore porte slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.1.7
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``JointSensitivityEnable(slaveID)``"
+    "Descrizione", "Azzera il conteggio frame errore porte slave"
+    "Parametri obbligatori", "- ``slaveID``: Numero slave 0~7"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
+
+Esempio di codice ottenimento conteggio frame errore porte slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
     import threading
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     inRecvErr = [0] * 8
     inCRCErr = [0] * 8
@@ -1176,44 +1173,44 @@ Get sample slave port error frame code
         robot.SlavePortErrCounterClear(i)
     robot.CloseRPC()
 
-Set the feed-forward coefficient of each axis speed
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione coefficiente feedforward velocità assi
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``SetVelFeedForwardRatio(radio)``"
-    "Description", "Set the feed-forward coefficient of each axis speed"
-    "Mandatory parameters", "- ``radio``：Each axis velocity feedforward coefficient"
-    "Default parameters", "NULL"
-    "Return Value", "Error Code Success-0 Failure- errcode"
+    "Prototipo", "``SetVelFeedForwardRatio(radio)``"
+    "Descrizione", "Imposta il coefficiente feedforward velocità assi"
+    "Parametri obbligatori", "- ``radio``: Coefficiente feedforward velocità assi"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "Codice di errore Successo-0  Fallimento- errcode"
 
-The velocity feedforward coefficients of each axis are obtained
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenimento coefficiente feedforward velocità assi
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.7
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototype", "``GetVelFeedForwardRatio()``"
-    "Description", "The velocity feedforward coefficients of each axis are obtained"
-    "Mandatory parameters", "NULL"
-    "Default parameters", "NULL"
-    "Return Value", "- Error Code Success-0 Failure- errcode
-    - ``radio``：Each axis velocity feedforward coefficient"
+    "Prototipo", "``GetVelFeedForwardRatio()``"
+    "Descrizione", "Ottiene il coefficiente feedforward velocità assi"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore di ritorno", "- Codice di errore Successo-0  Fallimento- errcode
+    - ``radio``: Coefficiente feedforward velocità assi"
 
-Robot velocity feedforward coefficient code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice coefficiente feedforward velocità robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
     import threading
-    # Establish a connection with the robot controller and return a robot object if the connection is successful
+    # Stabilisce una connessione con il controllore robot, restituisce un oggetto robot se la connessione ha successo
     robot = Robot.RPC('192.168.58.2')
     setRadio = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
     robot.SetVelFeedForwardRatio(setRadio)

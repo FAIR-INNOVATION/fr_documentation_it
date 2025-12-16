@@ -1,33 +1,33 @@
-Backstage management
+Gestione Backend
 =========================
 
 .. toctree:: 
    :maxdepth: 6
 
-Backend upgrade
-------------------
-In the "Software Download" section of this document, you can download the latest FRCap background system upgrade package. After the downloaded upgrade package is uploaded successfully, the background will automatically upgrade.
+Aggiornamento Backend
+---------------------------------
+Nella sezione "Download Software" di questo documento, è possibile scaricare il pacchetto di aggiornamento più recente per il sistema backend FRCap. Dopo aver caricato con successo il pacchetto di aggiornamento scaricato, il backend eseguirà automaticamente l'aggiornamento.
 
-The upgrade is successful as shown in the picture below.
+Un aggiornamento riuscito è mostrato nella figura seguente.
 
 .. image:: frcap_pictures/008.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 4-1  FRCap background system upgrade successful
+.. centered:: Figura 4-1 Aggiornamento Riuscito Sistema Backend FRCap
 
-.. note:: After the upgrade is successful, you need to restart the robot control box for it to take effect.
+.. note:: Dopo un aggiornamento riuscito, è necessario riavviare il pannello di controllo del robot affinché le modifiche abbiano effetto.
 
-Modules version
--------------------
+Versioni Moduli
+-----------------------
 
-The initial versions of each module of the FRCap backend system in the first version:
+Versioni dei moduli per la prima versione iniziale del sistema backend FRCap:
 
-- Node.js:v20.10.0.
-- FRCapSys:v1.0.0.
-- FRCap:v0.0.1.
-- FRCapTools:v1.0.0.
+- Node.js: v20.10.0.
+- FRCapSys: v1.0.0.
+- FRCap: v0.0.1.
+- FRCapTools: v1.0.0.
 
-For specific version update content, please see the version update instructions.
+Per i dettagli specifici sui contenuti degli aggiornamenti di versione, consultare le note di rilascio.
 
-.. note:: Node.js will not be upgraded with versions at this time.
+.. note:: Node.js attualmente non viene aggiornato automaticamente con le nuove versioni.

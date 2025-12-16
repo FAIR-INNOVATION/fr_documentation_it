@@ -1,39 +1,39 @@
-Status
-===============
+Stato dell'informazione
+===================================
 
 .. toctree:: 
    :maxdepth: 6
 
-System log
-----------------------
+Registro di sistema
+-----------------------
 
-When you enter the "Status Information" -> "System Log" interface for the first time, all types of log data for the day are displayed by default.
+L'accesso alla sezione "Stato dell'informazione - Registro di sistema" mostra, per impostazione predefinita, tutti i dati del registro del giorno corrente.
 
-The log data is classified into levels, currently divided into: all, error warnings, basic settings, security settings, peripheral settings, main unit operations, teaching programs, tool applications, system settings, and file import and export.
+I dati del registro sono suddivisi in livelli, attualmente distinti in: tutti, avviso di errore, configurazione di base, configurazione di sicurezza, configurazione di periferica, operazioni sull'entità, programma di insegnamento, applicazione strumento, impostazioni di sistema e importazione/esportazione file.
 
-There is a search input box in the upper right corner of the data table. Users can enter the filter content according to their search needs. The interface is as follows:
+Nell'angolo in alto a destra della tabella dei dati c'è una casella di input di ricerca, dove gli utenti possono inserire il contenuto da filtrare secondo le loro esigenze. L'interfaccia è la seguente:
 
 .. image:: status/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.1-1 System log interface
+.. centered:: Figura 13.1‑1 Interfaccia del registro di sistema
 
-Status Query
--------------------
+Interrogazione dello stato
+------------------------------------
 
-Function Usage
+Utilizzo delle funzioni
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Turn on the control box and connect the Ethernet cable to the PC;
-2. Open a browser on the PC and visit the target URL: 192.168.58.2. Log in with the account "admin" and password "123" to access the page;
-3. Click the "Status Information" -> "Status Query" option in the left menu bar to enter the status query interface, as shown below;
+1. Accendere lo scatola di controllo e connettere il cavo di rete al PC;
+2. Aprire il browser sul PC e visitare l'indirizzo 192.168.58.2, accedere con l'account admin e la password 123, entrare nella pagina;
+3. Fare clic su "Stato dell'informazione" - "Interrogazione dello stato" nel menu a sinistra per accedere all'interfaccia di interrogazione dello stato, come mostrato nella figura sotto;
 
 .. image:: status/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑1 Status Query
+.. centered:: Figura 13.2‑1 Interrogazione dello stato
 
 .. note:: 
    .. image:: status/006.png
@@ -41,9 +41,9 @@ Function Usage
       :height: 0.75in
       :align: left
 
-   Name: **Query Button**
+   Nome:**Pulsante di query**
    
-   Function: Click to send an instruction to query chart/trajectory data, indicating an unqueried state.
+   Funzione: Fare clic per inviare l'istruzione di query grafico/dati tracciato, rappresenta lo stato non interrogato
 
 .. note:: 
    .. image:: status/007.png
@@ -51,9 +51,9 @@ Function Usage
       :height: 0.75in
       :align: left
 
-   Name: **Right Arrow Button**
+   Nome:**Pulsante di spostamento verso destra**
    
-   Function: Click to add the selected item on the left to the sub-items on the right.
+   Funzione: Fare clic per aggiungere l'elemento selezionato a sinistra nell'elenco secondario a destra
 
 .. note:: 
    .. image:: status/008.png
@@ -61,9 +61,9 @@ Function Usage
       :height: 0.75in
       :align: left
 
-   Name: **Delete Button**
+   Nome:**Pulsante di eliminazione**
    
-   Function: Click to delete the selected sub-item on the right.
+   Funzione: Fare clic per eliminare l'elemento secondario selezionato a destra
 
 .. note:: 
    .. image:: status/009.png
@@ -71,75 +71,75 @@ Function Usage
       :height: 0.75in
       :align: left
 
-   Name: **Clear Button**
+   Nome:**Pulsante di svuotamento**
    
-   Function: Click to clear all sub-items on the right.
+   Funzione: Fare clic per svuotare tutti gli elementi secondari a destra
 
-4. Select "Chart Display," fill in the waveform time, and choose the desired query parameters in the "Parameter Configuration" section on the left. Click the "Right Arrow" button to add the parameters to the list on the right;
+4. Selezionare la visualizzazione del grafico, compilare il tempo ondulatorio, scegliere i parametri da interrogare dall'elenco a sinistra nella configurazione dei parametri, fare clic sul pulsante "spostamento verso destra" per configurare i parametri nell'elenco a destra;
 
-.. note:: The waveform time can be customized (10-30s), and a maximum of 6 parameters can be selected.
+.. note:: Il tempo ondulatorio può essere definito nell'intervallo (10-30s), la configurazione dei parametri consente di selezionare fino a 6 opzioni.
 
-5. Click the "Query" button to start the query. Based on the parameter configuration, real-time data will be displayed as a line chart, as shown below;
+5. Fare clic sul pulsante "query" per iniziare la query, in base alla configurazione dei parametri, viene visualizzato un grafico a linee dei dati in tempo reale, come mostrato nella figura sotto;
 
 .. image:: status/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑2 Chart Display
+.. centered:: Figura13.2‑2 Visualizzazione del grafico
 
-Chart Export
+Esportazione del grafico
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Click the chart title to open a dialog box where you can directly modify the title, as shown below:
+1. Fare clic sulla finestra di dialogo del titolo del grafico per modificarlo direttamente, come mostrato nella figura sotto:
 
 .. image:: status/004.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑3 Rename Chart Title
+.. centered:: Figura13.2‑3 Rinominare il titolo del grafico
 
-2. After clicking the "Stop Query" button to successfully stop the query, a download button will appear. Click it, and the browser will download the chart file with the chart title as the filename, as shown below:
+2. Dopo aver fatto clic con successo sul pulsante di arresto della query, viene visualizzato il pulsante di download, fare clic per scaricare, il browser propone il download del file del grafico con il nome del titolo del grafico. Come mostrato nella figura sotto:
 
 .. image:: status/005.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑4 Chart Export
+.. centered:: Figura13.2‑4 Esportazione del grafico
 
-Data View Display
+Visualizzazione dei dati
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. After stopping the query, click the "Show Data View" button in the upper-right corner of the chart, as shown below:
+1. Dopo aver arrestato la query, fare clic sul pulsante della vista dati nell'angolo in alto a destra del grafico, come mostrato nella figura sotto:
 
 .. image:: status/010.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑5 Data View Button
+.. centered:: Figura13.2‑5 Pulsante della vista dati
 
-2. The data in the view is shown below, and the content supports copying.
+2. I dati nella vista sono come mostrato nella figura, il contenuto dei dati supporta la copia.
 
 .. image:: status/011.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑6 Data View Display
+.. centered:: Figura13.2‑6 Visualizzazione dei dati
 
-Data Filtering
+Filtro dei dati
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. After stopping the query, input the minimum/maximum values for x/y, and the chart data range will change accordingly, as shown in the figure below:
+1. Dopo aver arrestato la query, inserire i valori minimo/massimo x/y, l'intervallo dei dati del grafico cambierà di conseguenza, come mostrato nella figura sotto:
 
 .. image:: status/012.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑7 Data Filtering Interface
+.. centered:: Figura13.2‑7 Interfaccia di filtro dei dati
 
-2. Click the restore button, and the chart data range will revert to the default, as shown in the figure below:
+2. Fare clic sul pulsante di ripristino, l'intervallo dei dati del grafico tornerà alle impostazioni predefinite, come mostrato nella figura sotto:
 
 .. image:: status/013.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 13.2‑8 Data Restoration
+.. centered:: Figura13.2‑8 Ripristino dei dati

@@ -1,228 +1,214 @@
-Installation
-========================
+Installazione Hardware
+==========================
 
-.. toctree:: 
-	:maxdepth: 5
+.. toctree::
+   :maxdepth: 5
 
-Instructions for security
-----------------------------
+Avvertenze di Sicurezza
+-------------------------
 
-Brief introduction
-~~~~~~~~~~~~~~~~~~~~~
-
-This manual will use the following warnings. The role of these warnings is to ensure the safety of personal and equipment. When you read this manual, you must comply with and execute all the assembly instructions and guidelines in other chapters in this manual. This is very important. Pay special attention to text related to warning signs.
-
-.. important:: 
-    - If the robot (robot body, control box, teaching pendant, or button box) is damaged, changed or modified due to anthropogenic causes, FAIR INNOVATION refuses to bear all responsibilities;
-    - FAIR INNOVATION is not responsible for any damage caused by the robot or any other device due to errors written by customers or any other device.
-
-Personnel safety
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-When running the robot system, we must first ensure the safety of the operators. The general precautions are listed below. Please take corresponding measures to ensure the safety of the operator.
-
-1. All operators who use the robot system should be trained through training courses sponsored by the FAIR INNOVATION (Suzhou) ROBOTIC SYSTEM COMPANY. Users need to ensure that they fully grasp the safe and standardized operating processes and have the qualifications for robotic operations. For training details, please check with our company, the mailbox is jiling@frtech.fr.
-
-2. All operators who use the robot system, please do not wear loose clothes or jewelry. Make sure the long hair beam is behind the head when operating the robot.
-
-3. During the operation of the device, even if the robot seems to have stopped, it may be because the robot is waiting to start the signal and is in a state of motion. Even in such a state, the robot should be regarded as in action.
-
-4. The lines should be drawn on the floor to mark the scope of the robot, so that the operator understands the action range of the robot includes holding tools (robotics, tools, etc.).
-
-5. Ensure safety measures (such as guardrails, ropes, or protective screens) near the robotic operation area to protect operators and surrounding people. Locks should be set up as needed, so that those who are responsible for operations cannot reach the power supply of the robot.
-
-6. When using the operating panel and teaching pendant, because you may have an operational error in wearing gloves, you must work after taking off the gloves.
-
-7. Under the emergency and abnormalities of people being pinched or wrapped inside by a robot, pushing or pulling the robot arm by force (at least 700 N) to force joint movements. With a power-free driver, the arm of the manual mobile robot is limited to emergency and may damage the joint.
-
-Danger recognition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Risk assessment should consider all potential contact between operators and robots during normal use and foreseeable misunderstandings. The operator's neck, face, and head should not be exposed to avoid touch. Using robots without using peripheral safety protection devices requires the first risk assessment to determine whether the relevant hazards will constitute an unacceptable risk, such as
-
--  There may be danger of using a sharp end actuator or tool connector;
-
--  There may be danger of treatment of toxicity or other harmful substances;
-
--  The operator's finger has the danger of being clamped by a robot base or joint;
-
--  The danger of collision by robots;
-
--  The danger of robots or tools connected to the end not being fixed in place;
-
--  The risk of the impact between the effective load and the strong surface of the robot.
-
-Integrates must measure such dangers and related risk levels through risk assessment, and determine and implement corresponding measures to reduce the risk to acceptable levels. Please note that there may be other major dangers in specific robots.
-
-By combining the inherent security design measures used by FR robots with the safety specifications or risk assessment implemented by integrated and end users, the risks related to FR collaborative operations will be reduced to a reasonable and feasible level. Through this document, any remaining risk of the robot can be conveyed to the integrated and end users before installation. If the risk assessment of the integrator determines that the existence of a specific application that may have unacceptable risks that may constitute unacceptable risks, integrators must
-appropriate risk reduction measures must be taken to eliminate or minimize these dangers until the risk is reduced to acceptable levels. It is not safe to use before taking appropriate risk reduction measures (if necessary).
-
-If the robot is installed in non-synergistic installation (for example, when using a hazardous tool), risk assessment may infer the integrated provider to connect additional safety equipment (such as safety startup equipment) to ensure personnel and equipment safety when programming.
-
-Nameplate information
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. figure:: installation/002.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-1 FR3 model collaborative robot
-
-.. figure:: installation/106.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-2 FR3-WMS model collaborative robot
-
-.. figure:: installation/107.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-3 FR3-WML model collaborative robot
-
-.. figure:: installation/108.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-4 FR3-C model collaborative robot
-
-.. figure:: installation/003.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-5 FR5 model collaborative robot
-
-.. figure:: installation/004.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-6 FR10 model collaborative robot
-
-.. figure:: installation/005.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-7 FR16 model collaborative robot
-
-.. figure:: installation/006.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-8 FR20 model collaborative robot
-
-.. figure:: installation/007.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-9 FR30 model collaborative robot
-
-.. figure:: installation/125.png
-	:align: center
-	:width: 6in
-
-.. centered:: Figure 3.1-10 FR30L model collaborative robot
-
-Effectiveness and responsibility
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The information in this manual does not include a complete robot application in design, installation and operation, nor does it contain all peripheral equipment that may affect the security of this complete system. The design and installation of this complete system must meet the safety requirements established in the standards and specifications of the country's installation.
-
-The integrated integrator of FAIR INNOVATION is responsible for ensuring that it follows the laws and regulations of relevant countries, and there is no major danger in the complete robotic application. This includes but not limited to the following:
-
--  Do a risk assessment of the complete robot system
-
--  Connect other machinery and additional safety equipment defined by risk assessment and definition
-
--  Establish appropriate security settings in software
-
--  Make sure that users will not modify any security measures
-
--  Confirm that the design and installation of the entire robot system is accurate
-
--  Clear instructions for use
-
--  Kark the relevant signs and contact information of integrators on the robot
-
--  Collect all the documents in the technical file, including this manual
-
-Limited responsibility
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Any security information contained in this manual shall not be regarded as a general robot safety guarantee. Even if you comply with all security descriptions, it may still cause personnel damage or equipment damage.
-
-The warning signs in this manual
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following flag defines the explanation of the danger level provisions contained in this manual. The product also uses the same warning signs.
-
-.. important:: 
-	.. figure:: installation/008.png
-		:width: 60
-		:height: 50
-		:align: left
-
-	Danger: This refers to the power consumption that is about to cause danger. If it is not avoided, it can lead to death or severe damage.
-
-.. important:: 
-	.. figure:: installation/009.png
-		:width: 60
-		:height: 50
-		:align: left
-
-	Electric shock danger: This refers to the upcoming electric shock situation that is about to cause danger.
-
-.. important:: 
-	.. figure:: installation/010.png
-		:width: 60
-		:height: 50
-		:align: left
-
-	Dangerous burns: This refers to the hot surface that may cause danger. If you do not avoid contact, it can cause personnel to hurt.
-	
-
-Pre-use evaluation
-~~~~~~~~~~~~~~~~~~~~~~~
-
-After using a robot or any modification for the first time, the robot's default speed is less than 250mm/s. Do not log in to the administrator to modify the speed to enter the high-speed mode. After that, the following test must be performed. It is confirmed that all security input and output are correct and the connection is correct. Test whether all connected security input and output (including multiple machines or robots shared equipments) are normal. So you must:
-
--  Test whether the emergency stop button and input can stop the robot and start the brake.
-
--  Test whether the protection input can stop the robot movement. If the protection reset is configured, check if you need activation before recovery.
-
--  The test operation mode can switch the operation mode, see the icon in the upper right corner of the user interface.
-
--  Test whether the 3rd gear actuation device must be pressed to activate in manual mode, and the robot is under deceleration control (the robot software version V3.0 does not support this function).
-
--  Test whether the system emergency stop output can bring the entire system to a safe state.
-
-Emergency stop
+Introduzione
 ~~~~~~~~~~~~~~
 
-The emergency stop button is type 0 stop. Press the emergency stop button to stop all the movements of the robot immediately.
+Questo manuale di istruzioni utilizza i seguenti avvisi, il cui scopo è garantire la sicurezza delle persone e delle attrezzature. Quando si legge questo manuale, è essenziale osservare ed eseguire tutte le istruzioni di montaggio e linee guida presenti negli altri capitoli. Particolare attenzione deve essere prestata ai testi associati ai simboli di avvertenza.
 
-The following table shows the stop distance and stop time of the type 0 stop. These measurement results correspond to the following configuration of the robot:
+.. important::
+    - Se il robot (corpo del robot, unità di controllo, teach pendant o scatola pulsanti) viene danneggiato, alterato o modificato per cause umane, Farobot (FAROBOT) declina ogni responsabilità.
+    - Farobot (FAROBOT) non è responsabile per eventuali danni al robot o a qualsiasi altra apparecchiatura causati da errori nei programmi scritti dal cliente.
 
--  Extension: 100%(the robotic arm is fully expanded)
+Sicurezza del Personale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Speed: 100%(Robot general speed is set to 100%, moved at a joint speed of 180 °/s)
+Durante il funzionamento del sistema robotico, è imperativo garantire innanzitutto la sicurezza degli operatori. Di seguito sono elencate le precauzioni generali. Si prega di adottare le misure appropriate per garantire la sicurezza del personale.
 
--  Effective load: Maximum effective load
+1. Tutti gli operatori che utilizzano il sistema robotico devono ricevere formazione attraverso i corsi di addestramento organizzati da Farobot (Suzhou) Robot System Co., Ltd. L'utente deve assicurarsi che abbiano pienamente padroneggiato le procedure operative sicure e standardizzate e siano qualificati per l'operazione robotica. Per i dettagli sulla formazione, si prega di contattare la nostra azienda all'indirizzo email: jiling@frtech.fr.
 
-Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to the ground. Joint 2, joint 3, joint 4, joint 5 testing robots follow the vertical trajectory, the rotating shaft is parallel to the ground, and stops when the robot moves down.
+2. Gli operatori che utilizzano il sistema robotico non devono indossare indumenti larghi o gioielli. Durante l'operazione del robot, assicurarsi che i capelli lunghi siano legati indietro.
 
-.. centered:: Table 3.1-1 Category 0 stop distance(rad)
+3. Durante il funzionamento dell'apparecchiatura, anche se il robot sembra fermo, potrebbe essere in uno stato di pronto all'azione in attesa di un segnale di avvio. Anche in questo stato, il robot deve essere considerato come in movimento.
+
+4. Dovrebbero essere tracciate linee sul pavimento per delimitare l'area di movimento del robot, in modo che l'operatore comprenda l'area di movimento del robot, inclusi gli utensili (pinze, attrezzi, ecc.) che esso trattiene.
+
+5. Assicurarsi che siano stabilite misure di sicurezza (ad esempio, barriere, corde o schermi protettivi) vicino all'area operativa del robot per proteggere l'operatore e le persone circostanti. Se necessario, dovrebbero essere installati dispositivi di blocco in modo che persone diverse dall'operatore responsabile non possano accedere all'alimentazione del robot.
+
+6. Quando si utilizzano il pannello di controllo e il teach pendant, poiché indossare guanti potrebbe portare a errori operativi, è imperativo lavorare senza guanti.
+
+7. In caso di emergenza o situazione anomala in cui una persona viene bloccata o intrappolata dal robot, forzare lo spostamento del giunto spingendo o tirando il braccio del robot con forza (almeno 700 N). Lo spostamento manuale del braccio del robot senza alimentazione elettrica è limitato a situazioni di emergenza e potrebbe danneggiare il giunto.
+
+Identificazione dei Pericoli
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La valutazione del rischio deve considerare tutti i potenziali contatti tra l'operatore e il robot durante l'uso normale, nonché i possibili usi errati prevedibili. Il collo, il viso e la testa dell'operatore non devono essere esposti al rischio di contatto. L'utilizzo del robot senza dispositivi di protezione periferici richiede prima una valutazione del rischio per determinare se i pericoli correlati costituiscono un rischio inaccettabile, ad esempio:
+
+- L'utilizzo di utensili terminali affilati o connettori per utensili può presentare pericoli;
+- La manipolazione di sostanze tossiche o altre sostanze pericolose può presentare pericoli;
+- Pericolo di schiacciamento delle dita dell'operatore tra la base del robot o i giunti;
+- Pericolo di collisione con il robot;
+- Pericoli derivanti da un fissaggio inadeguato del robot o dell'utensile collegato all'estremità;
+- Pericoli derivanti dall'impatto tra il carico utile del robot e una superficie solida.
+
+L'integratore deve valutare tali pericoli e i relativi livelli di rischio attraverso una valutazione del rischio, e determinare e implementare misure appropriate per ridurre i rischi a un livello accettabile. Si noti che attrezzature robotiche specifiche potrebbero presentare altri pericoli significativi.
+
+Combinando le misure di sicurezza intrinseche applicate dal robot FR con le norme di sicurezza implementate dall'integratore e dall'utente finale o con la valutazione del rischio, i rischi associati all'operazione collaborativa FR possono essere ridotti al livello più basso ragionevolmente praticabile. Attraverso questo documento, eventuali rischi residui esistenti prima dell'installazione del robot possono essere comunicati all'integratore e all'utente finale. Se la valutazione del rischio dell'integratore determina che nella sua applicazione specifica esistono pericoli che potrebbero costituire un rischio inaccettabile per l'utente, l'integratore deve adottare misure appropriate di riduzione del rischio per eliminare o minimizzare tali pericoli fino a ridurre il rischio a un livello accettabile. L'utilizzo prima dell'adozione di appropriate misure di riduzione del rischio (se necessarie) non è sicuro.
+
+Se il robot viene installato in modo non collaborativo (ad esempio, quando vengono utilizzati utensili pericolosi), la valutazione del rischio potrebbe indicare che l'integratore necessita di collegare dispositivi di sicurezza aggiuntivi (ad esempio, dispositivi di avvio sicuro) durante la programmazione per garantire la sicurezza delle persone e delle attrezzature.
+
+Informazioni sulla Targhetta
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: installation/002.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-1 Robot Collaborativo Modello FR3
+
+.. figure:: installation/106.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-2 Robot Collaborativo Modello FR3-WMS
+
+.. figure:: installation/107.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-3 Robot Collaborativo Modello FR3-WML
+
+.. figure:: installation/108.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-4 Robot Collaborativo Modello FR3-C
+
+.. figure:: installation/003.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-5 Robot Collaborativo Modello FR5
+
+.. figure:: installation/126.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-6 Robot Collaborativo Modello FR5
+
+.. figure:: installation/004.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-7 Robot Collaborativo Modello FR10
+
+.. figure:: installation/005.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-8 Robot Collaborativo Modello FR16
+
+.. figure:: installation/006.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-9 Robot Collaborativo Modello FR20
+
+.. figure:: installation/007.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-10 Robot Collaborativo Modello FR30
+
+.. figure:: installation/125.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.1-11 Robot Collaborativo Modello FR30L
+
+Validità e Responsabilità
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Le informazioni in questo manuale non includono la progettazione, l'installazione e l'operazione di un'applicazione robotica completa, né includono tutte le apparecchiature periferiche che potrebbero influenzare la sicurezza di questo sistema completo. La progettazione e l'installazione di questo sistema completo devono conformarsi ai requisiti di sicurezza stabiliti negli standard e nelle normative del paese in cui il robot è installato.
+
+L'integratore di Farobot (FAROBOT) è responsabile di garantire il rispetto delle leggi e dei regolamenti pertinenti del paese, assicurando che nell'applicazione robotica completa non esistano pericoli significativi. Ciò include, ma non si limita a:
+
+- Eseguire una valutazione del rischio per il sistema robotico completo
+- Collegare insieme altre apparecchiature meccaniche e dispositivi di sicurezza aggiuntivi definiti dalla valutazione del rischio
+- Stabilire impostazioni di sicurezza appropriate nel software
+- Garantire che gli utenti non modifichino alcuna misura di sicurezza
+- Verificare che la progettazione e l'installazione dell'intero sistema robotico siano accurate
+- Fornire istruzioni per l'uso chiare
+- Segnalare sull'etichetta del robot il marchio e le informazioni di contatto dell'integratore
+- Raccogliere tutti i documenti nel fascicolo tecnico, incluso questo manuale
+
+Responsabilità Limitata
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Le informazioni sulla sicurezza contenute in questo manuale non devono essere considerate come una garanzia generale di sicurezza del robot. Anche rispettando tutte le istruzioni di sicurezza, è ancora possibile che si verifichino lesioni alle persone o danni alle attrezzature.
+
+Simboli di Avvertenza in Questo Manuale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I seguenti simboli definiscono le indicazioni sui livelli di pericolo contenute in questo manuale. Gli stessi simboli di avvertenza sono utilizzati anche sul prodotto.
+
+.. important::
+   .. figure:: installation/008.png
+      :width: 60
+      :height: 50
+      :align: left
+
+   **PERICOLO**: Si riferisce a situazioni elettriche imminenti e pericolose che, se non evitate, possono provocare morte o lesioni gravi.
+
+.. important::
+   .. figure:: installation/009.png
+      :width: 60
+      :height: 50
+      :align: left
+
+   **PERICOLO DI SCOSSA ELETTRICA**: Si riferisce a situazioni imminenti e pericolose di scossa elettrica che, se non evitate, possono provocare morte o lesioni gravi per scossa elettrica.
+
+.. important::
+   .. figure:: installation/010.png
+      :width: 60
+      :height: 50
+      :align: left
+
+   **PERICOLO DI USTIONE**: Si riferisce a superfici calde potenzialmente pericolose; il contatto può causare lesioni.
+
+Valutazione Prima dell'Uso
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Alla prima accensione del robot o dopo qualsiasi modifica, la velocità predefinita del robot è inferiore a 250 mm/s. Non accedere come amministratore per modificare la velocità in modalità ad alta velocità. Successivamente, è necessario eseguire i seguenti test. Confermare che tutti gli ingressi e le uscite di sicurezza siano corretti e correttamente collegati. Testare che tutte le connessioni degli ingressi e delle uscite di sicurezza (incluse le apparecchiature condivise tra più macchine o robot) funzionino correttamente. Pertanto, è necessario:
+
+- Testare che i pulsanti di arresto di emergenza e gli ingressi possano fermare il robot e attivare il freno.
+- Testare che gli ingressi di protezione possano fermare il movimento del robot. Se è configurato un ripristino della protezione, verificare se è necessario attivarlo prima di riprendere il movimento.
+- Testare che le modalità operative possano essere commutate, fare riferimento all'icona nell'angolo in alto a destra dell'interfaccia utente.
+- Testare che il dispositivo abilitante a 3 posizioni debba essere premuto per avviare il movimento in modalità manuale e che il robot sia sotto controllo di rallentamento (questa funzionalità non è supportata prima della versione software V3.0 del robot).
+- Testare che l'uscita di arresto di emergenza del sistema possa portare l'intero sistema in uno stato sicuro.
+
+Arresto di Emergenza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Il pulsante di arresto di emergenza è di classe 0. Premendo il pulsante di arresto di emergenza, si arresta immediatamente qualsiasi movimento del robot.
+
+La tabella seguente mostra la distanza e il tempo di arresto per un arresto di classe 0. Queste misurazioni corrispondono alla seguente configurazione del robot:
+
+- Estensione: 100% (braccio del robot completamente esteso orizzontalmente)
+- Velocità: 100% (velocità generale del robot impostata al 100%, movimento ad una velocità articolare di 180°/s)
+- Carico utile: Carico utile massimo
+
+I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazione perpendicolare al suolo. I giunti 2, 3, 4 e 5 testano il robot seguendo una traiettoria verticale, con l'asse di rotazione parallelo al suolo, e l'arresto mentre il robot si muove verso il basso.
+
+.. centered:: Tabella 3.1-1 Distanza di Arresto Classe 0 (rad)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
    :header-rows: 0
    :class: sheet-center
 
-   * - 
-     - **Joint 1**
-     - **Joint 2**
-     - **Joint 3**
-     - **Joint 4**
-     - **Joint 5**
-     - **Joint 6**
+   * -
+     - **Giunto 1**
+     - **Giunto 2**
+     - **Giunto 3**
+     - **Giunto 4**
+     - **Giunto 5**
+     - **Giunto 6**
 
    * - **FR3**
      - 0.47
@@ -296,19 +282,19 @@ Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to th
      - 0.31
      - 0.22
 
-.. centered:: Table 3.1-2 Category 0 stop time (ms)
+.. centered:: Tabella 3.1-2 Tempo di Arresto Classe 0 (ms)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
    :header-rows: 0
    :class: sheet-center
 
-   * - 
-     - **Joint 1**
-     - **Joint 2**
-     - **Joint 3**
-     - **Joint 4**
-     - **Joint 5**
-     - **Joint 6**
+   * -
+     - **Giunto 1**
+     - **Giunto 2**
+     - **Giunto 3**
+     - **Giunto 4**
+     - **Giunto 5**
+     - **Giunto 6**
 
    * - **FR3**
      - 400
@@ -382,32 +368,29 @@ Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to th
      - 260
      - 170
 
-After the emergency stop, turn off the power, rotate the emergency stop button, and turn on the power to restart the robot.
+Dopo un arresto di emergenza, spegnere l'alimentazione, ruotare il pulsante di arresto di emergenza per ripristinarlo, quindi riaccendere l'alimentazione per riavviare il robot.
 
-At the same time, the stop time and stop distance of the robot safety stop and soft limit stop are shown in the table below. These measurement results correspond to the following configuration of the robot:
+I tempi e le distanze di arresto per l'arresto di sicurezza del robot e l'arresto per limite software sono mostrati nelle tabelle seguenti. Queste misurazioni corrispondono alla seguente configurazione del robot:
 
--  Extension: 100%(the robotic arm is fully expanded)
+- Estensione: 100% (braccio del robot completamente esteso orizzontalmente)
+- Velocità: 100% (velocità generale del robot impostata al 100%, movimento ad una velocità articolare di 180°/s)
+- Carico utile: Carico utile massimo
 
--  Speed: 100%(Robot general speed is set to 100%, moved at a joint speed of 180 °/s)
+I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazione perpendicolare al suolo. I giunti 2, 3, 4 e 5 testano il robot seguendo una traiettoria verticale, con l'asse di rotazione parallelo al suolo, e l'arresto mentre il robot si muove verso il basso.
 
--  Effective load: Maximum effective load
-
-Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to the ground. Joint 2, joint 3, joint 4, joint 5 testing robots follow the vertical trajectory, the rotating shaft is parallel to the ground, and stops when the robot moves down.
-
-
-.. centered:: Table 3.1-3 Safety stop distance(rad)
+.. centered:: Tabella 3.1-3 Distanza di Arresto di Sicurezza (rad)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
    :header-rows: 0
    :class: sheet-center
 
-   * - 
-     - **Joint 1**
-     - **Joint 2**
-     - **Joint 3**
-     - **Joint 4**
-     - **Joint 5**
-     - **Joint 6**
+   * -
+     - **Giunto 1**
+     - **Giunto 2**
+     - **Giunto 3**
+     - **Giunto 4**
+     - **Giunto 5**
+     - **Giunto 6**
 
    * - **FR3**
      - 0.49
@@ -481,19 +464,19 @@ Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to th
      - 0.33
      - 0.25
 
-.. centered:: Table 3.1-4 Safety stop time(ms)
+.. centered:: Tabella 3.1-4 Tempo di Arresto di Sicurezza (ms)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
    :header-rows: 0
    :class: sheet-center
 
-   * - 
-     - **Joint 1**
-     - **Joint 2**
-     - **Joint 3**
-     - **Joint 4**
-     - **Joint 5**
-     - **Joint 6**
+   * -
+     - **Giunto 1**
+     - **Giunto 2**
+     - **Giunto 3**
+     - **Giunto 4**
+     - **Giunto 5**
+     - **Giunto 6**
 
    * - **FR3**
      - 410
@@ -567,19 +550,19 @@ Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to th
      - 280
      - 200
 
-.. centered:: Table 3.1-5 Soft limit stop distance(rad)
+.. centered:: Tabella 3.1-5 Distanza di Arresto per Limite Software (rad)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
    :header-rows: 0
    :class: sheet-center
 
-   * - 
-     - **Joint 1**
-     - **Joint 2**
-     - **Joint 3**
-     - **Joint 4**
-     - **Joint 5**
-     - **Joint 6**
+   * -
+     - **Giunto 1**
+     - **Giunto 2**
+     - **Giunto 3**
+     - **Giunto 4**
+     - **Giunto 5**
+     - **Giunto 6**
 
    * - **FR3**
      - 0.52
@@ -653,19 +636,19 @@ Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to th
      - 0.36
      - 0.27
 
-.. centered:: Table 3.1-6 Soft limit stop time(ms)
+.. centered:: Tabella 3.1-6 Tempo di Arresto per Limite Software (ms)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
    :header-rows: 0
    :class: sheet-center
 
-   * - 
-     - **Joint 1**
-     - **Joint 2**
-     - **Joint 3**
-     - **Joint 4**
-     - **Joint 5**
-     - **Joint 6**
+   * -
+     - **Giunto 1**
+     - **Giunto 2**
+     - **Giunto 3**
+     - **Giunto 4**
+     - **Giunto 5**
+     - **Giunto 6**
 
    * - **FR3**
      - 430
@@ -739,2041 +722,2013 @@ Joint 1, joint 6 testing robot levels, the rotating shaft is perpendicular to th
      - 300
      - 210
 
-.. important:: 
-	According to IEC 60204-1 and ISO 13850, emergency stop device is not a safe protection device. They are supplementary protection measures and do not need to prevent damage.
+.. important::
+   Secondo IEC 60204-1 e ISO 13850, i dispositivi di arresto di emergenza non sono dispositivi di protezione. Sono misure di protezione supplementari e non sono destinati a prevenire lesioni.
 
-Power-free movement
+Movimento Senza Alimentazione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Se si verifica una situazione in cui è necessario muovere i giunti del robot ma non è possibile alimentare il robot, o in altre situazioni di emergenza, contattare il rivenditore del robot. Se necessario, può essere utilizzata la forza per muovere forzatamente il robot per liberare una persona intrappolata.
+
+Trasporto dell'Attrezzatura
+---------------------------------
+
+Trasporto
+~~~~~~~~~~~~~~~~
+
+Il robot e l'unità di controllo sono calibrati come un set completo. Non separarli, poiché ciò richiederebbe una ricalibrazione.
+
+Il robot deve essere trasportato solo nella sua confezione originale. Se in futuro si deve spostare il robot, conservare i materiali di imballaggio in un luogo asciutto.
+
+Quando si sposta il robot dall'imballaggio allo spazio di installazione, sostenere entrambi i bracci del robot contemporaneamente. Sostenere il robot finché tutti i bulloni di montaggio della base del robot non siano completamente serrati.
+
+Movimentazione Manuale
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you must move the robot joint but cannot power the robot or other emergencies, please contact the robot dealer. If necessary, you can use violent means to force mobile robots to rescue the trapped persons.
+A seconda del modello, il robot collaborativo ha un peso totale (compresa la confezione) compreso tra 15 kg e 80 kg. Quando si solleva o si sposta manualmente il robot collaborativo, è richiesta l'assistenza di più persone; non è consigliato il sollevamento da parte di una sola persona. Durante il trasporto, è essenziale mantenere la stabilità per evitare ribaltamenti o scivolamenti dell'attrezzatura.
 
-Equipment transportation
-----------------------------
+.. warning::
+   - Se si utilizzano attrezzature professionali per la movimentazione, assicurarsi che personale qualificato con le opportune qualifiche operative utilizzi carroponte o carrelli elevatori per trasportare o spostare il robot collaborativo, altrimenti potrebbero verificarsi lesioni alle persone o altri incidenti.
+   - Se si utilizza la movimentazione manuale, prestare attenzione alla sicurezza personale durante il trasporto.
+   - Il robot collaborativo contiene componenti di precisione; durante il trasporto o la movimentazione si dovrebbero evitare vibrazioni o scosse violente, altrimenti le prestazioni dell'attrezzatura potrebbero ridursi.
 
-Transportation
-~~~~~~~~~~~~~~~~~~
+Stoccaggio
+~~~~~~~~~~~~~~
 
-Robot and control boxes have been calibrated as complete equipment. Do not separate them, that would require recalibration.
+Il robot collaborativo deve essere conservato in un ambiente a -25~60°C, senza condensa.
 
-You can only transport the robot in the original packaging. If you want to move the robot in the future, save the packaging material in a dry place.
+Manutenzione, Ispezione, Smaltimento
+------------------------------------------------------
 
-When the robot moves from the packaging to the installation space, the two arms of the robot are held at the same time. Hold the robot until all the installation bolts of the robot seat are tight.
+Manutenzione
+~~~~~~~~~~~~~~
 
-Carry
-~~~~~~
+Si prega di controllare l'arresto di emergenza e l'arresto protettivo ogni mese per verificare l'efficacia delle funzioni di sicurezza.
+Per il cablaggio dell'arresto di emergenza e dell'arresto protettivo, fare riferimento al capitolo sul cablaggio.
 
-According to different models, the total quality (including packaging) is 15kg-80 kg depending on the model. When manpower transports or transfers the collaborative robot, multiple people need to help lift it, don’t recommend single-person handling, it must be stable during transportation. Avoid equipment tilt or slipping.
+Manuale di Ispezione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: 
-	- If you use professional equipment for handling, be sure to use a crane or forklift to transport or carry the collaborative robot by using a crane or forklift, otherwise it may cause personnel damage or other accidents;
-	- If you use manual handling, please pay attention to the personal safety on the way to handle;
-	- The collaborative robot contains precision components, which should avoid severe vibration or shaking during transportation or transportation, otherwise it may reduce the performance of the equipment.
-
-Storage
-~~~~~~~~~
-
-The collaborative robot should be stored in -25 ~ 60 ° C, and there is no frost-free environment.
-
-Maintenance, inspection, and scrapping
--------------------------------------------
-
-Maintenance disposal
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Please check the emergency stop and protection stop for 1 month. Determine whether the security function is effective.
-
-Please refer to the wiring chapter for emergency stop and protective stop wiring.
-
-Inspection Plan
-~~~~~~~~~~~~~~~~~~~
-
-Preface
+Prefazione
 +++++++++++
 
-Safety Notice
-****************
+Avvertenze di Sicurezza
+******************************
 
-The following warnings are used in this manual. These warnings are intended to ensure personal and equipment safety. It is important that you observe and follow all assembly instructions and guidelines in other sections of this manual when reading this manual.
+Questo manuale di istruzioni utilizza i seguenti avvisi, il cui scopo è garantire la sicurezza delle persone e delle attrezzature. Quando si legge questo manuale, è essenziale osservare ed eseguire tutte le istruzioni di montaggio e linee guida presenti negli altri capitoli.
 
-Special attention should be paid to the text related to warning signs. Please read the user manual carefully before use. This manual is only used as a customer maintenance instruction manual. Maintenance operators need to have professional competence. Non-professional personnel operation. FAIRINO refuses to assume all responsibilities.
+Particolare attenzione deve essere prestata ai testi associati ai simboli di avvertenza. Leggere attentamente il manuale utente prima dell'uso. Questo manuale è destinato esclusivamente come guida alla manutenzione per i clienti. Il personale addetto alla manutenzione deve possedere competenze professionali. Farobot (FAROBOT) declina ogni responsabilità per operazioni eseguite da personale non qualificato.
 
-.. note:: If the robot (robot body, control box, teaching box) is damaged, changed or modified due tohumanreasons,FAIRINO rejects all responsibility; FAIRINO is not responsible for any damage to the robot or any other equipment caused by errors inthe programs written by thecustomer.
+.. note:: Se il robot (corpo del robot, unità di controllo, teach pendant) viene danneggiato, alterato o modificato per cause umane, Farobot (FAROBOT) declina ogni responsabilità; Farobot (FAROBOT) non è responsabile per eventuali danni al robot o a qualsiasi altra apparecchiatura causati da errori nei programmi scritti dal cliente.
 
-Effectiveness and accountability
-**************************************
-
-The information in this manual does not cover the design, installation and operation of a complete robot application, nor does it cover all peripheral equipment that may affect the safety of this complete system. The complete system is designed and installed to meet safety requirements established in the standards and codes of the country where the robot is installed.
-
-It is the responsibility of FAIRINO integrators to ensure compliance with relevant national laws and regulations and to ensure that there are no significant risks in the complete robot application. This includes but is not limited to the following:
-
-- Do a risk assessment of the complete robotic system
-- Connect other machinery and additional safety equipment defined by the risk assessment
-- Establish appropriate security settings in software
-- Ensure that users do not modify any security measures
-- Confirm that the design and installation of the entire robot system is correct
-- Clear instructions for use
-- Mark the relevant logo and contact information of the integrator on the robot
-- Collect all documents in technical files, including this manual
-
-Limited Liability
-*********************
-
-Any safety information contained in this manual should not be considered a general robot safety guarantee, and even if all safety instructions are followed, it may still cause personal injury or equipment damage.
-
-Warning signs in this manual
+Validità e Responsabilità
 *************************************
 
-The following symbols define the hazard classification specifications contained in this manual. The same warning signs are used on the products. 
+Le informazioni in questo manuale non includono la progettazione, l'installazione e l'operazione di un'applicazione robotica completa, né includono tutte le apparecchiature periferiche che potrebbero influenzare la sicurezza di questo sistema completo. La progettazione e l'installazione di questo sistema completo devono conformarsi ai requisiti di sicurezza stabiliti negli standard e nelle normative del paese in cui il robot è installato.
 
-.. note:: 
+L'integratore di Farobot (FAROBOT) è responsabile di garantire il rispetto delle leggi e dei regolamenti pertinenti del paese, assicurando che nell'applicazione robotica completa non esistano pericoli significativi. Ciò include, ma non si limita a:
+
+- Eseguire una valutazione del rischio per il sistema robotico completo
+- Collegare insieme altre apparecchiature meccaniche e dispositivi di sicurezza aggiuntivi definiti dalla valutazione del rischio
+- Stabilire impostazioni di sicurezza appropriate nel software
+- Garantire che gli utenti non modifichino alcuna misura di sicurezza
+- Verificare che la progettazione e l'installazione dell'intero sistema robotico siano accurate
+- Fornire istruzioni per l'uso chiare
+- Segnalare sull'etichetta del robot il marchio e le informazioni di contatto dell'integratore
+- Raccogliere tutti i documenti nel fascicolo tecnico, incluso questo manuale
+
+Responsabilità Limitata
+**********************************************
+
+Le informazioni sulla sicurezza contenute in questo manuale non devono essere considerate come una garanzia generale di sicurezza del robot. Anche rispettando tutte le istruzioni di sicurezza, è ancora possibile che si verifichino lesioni alle persone o danni alle attrezzature.
+
+Simboli di Avvertenza
+***********************
+
+I seguenti simboli definiscono le indicazioni sui livelli di pericolo contenute in questo manuale. Gli stessi simboli di avvertenza sono utilizzati anche sul prodotto.
+
+.. note::
    .. image:: installation/070.png
       :height: 0.75in
       :align: left
 
-   Name: **Danger**
-     
-   Function: This refers to an electrical situation that is about to cause danger and, if not avoided, could result in death or serious injury.
+   Nome: **PERICOLO**
 
-.. note:: 
+   Funzione: Si riferisce a situazioni elettriche imminenti e pericolose che, se non evitate, possono provocare morte o lesioni gravi.
+
+.. note::
    .. image:: installation/071.png
       :height: 0.75in
       :align: left
 
-   Name: **Electric shockhazard**
-   
-   Function: This refers to an imminent hazardous electric shock situation which, if not avoided, could result in electrocution or serious injury.
+   Nome: **PERICOLO DI SCOSSA ELETTRICA**
 
-.. note:: 
+   Funzione: Si riferisce a situazioni imminenti e pericolose di scossa elettrica che, se non evitate, possono provocare morte o lesioni gravi per scossa elettrica.
+
+.. note::
    .. image:: installation/072.png
       :height: 0.75in
       :align: left
 
-   Name: **Burnhazard**
-   
-   Function: This refers to hot surfaces that may cause hazards and, if touched, may cause injury to persons.
+   Nome: **PERICOLO DI USTIONE**
 
-Digital Input/Output Description of Control Box
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Funzione: Si riferisce a superfici calde potenzialmente pericolose; il contatto può causare lesioni.
 
-Precautions When Switching Digital Related Functions of Control Box
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Spiegazione degli Ingressi/Uscite Digitali dell'Unità di Controllo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. important:: 
+Precauzioni per la Modifica delle Funzioni degli I/O Digitali dell'Unità di Controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  (1) When switching digital input/output functions, the safety operation procedures of the robot must be followed to ensure the safety of operators and equipment.
-  (2) Avoid switching digital input/output functions during robot operation to prevent affecting the normal operation of the robot.
-  (3) Before switching digital input/output functions, the power supply of the robot must be cut off to prevent electric shock and unexpected machine movement, which may cause personal injury and equipment damage.
-  (4) Before switching functions, the requirements of the robot control system for digital input/output must be clarified, including signal type, voltage level, load capacity, etc.
-  (5) Ensure that the connection between digital input/output ports and external devices is correct, including whether the wiring is secure and whether the ports match.
-  (6) Avoid repeated signal allocation to ensure that each signal is uniquely allocated.
-  (7) After allocation is completed, the robot control system must be restarted to make the settings take effect.
-  (8) After completing the configuration, enter the I/O status interface to check whether the status of digital input/output signals is correct.
-  (9) Verify whether the digital input/output functions are working properly through actual operation or writing test programs.
-  (10) If digital input/output signals are related to program logic, check whether the processing of these signals in the program is correct.
+.. important::
 
-Digital Input Description of Control Box
-++++++++++++++++++++++++++++++++++++++++++++
+  (1) Quando si modificano le funzioni degli ingressi/uscite digitali, è necessario rispettare le procedure operative di sicurezza del robot per garantire la sicurezza degli operatori e delle attrezzature.
+  (2) Durante il funzionamento del robot, evitare di modificare le funzioni degli ingressi/uscite digitali per non influenzare il normale funzionamento del robot.
+  (3) Prima di eseguire operazioni di modifica delle funzioni degli ingressi/uscite digitali, assicurarsi di disattivare l'alimentazione del robot per prevenire scosse elettriche e movimenti imprevisti del robot, che potrebbero causare lesioni alle persone o danni alle attrezzature.
+  (4) Prima di modificare le funzioni, è necessario chiarire i requisiti del sistema di controllo del robot per gli ingressi/uscite digitali, inclusi tipo di segnale, livello di tensione, capacità di carico, ecc.
+  (5) Assicurarsi che le connessioni tra le porte degli ingressi/uscite digitali e le apparecchiature esterne siano corrette, inclusa la solidità del cablaggio e la compatibilità delle porte.
+  (6) Evitare l'assegnazione duplicata dei segnali, garantendo che ogni assegnazione di segnale sia univoca.
+  (7) Dopo aver completato l'assegnazione, riavviare il sistema di controllo del robot per rendere effettive le impostazioni.
+  (8) Dopo aver completato la configurazione, accedere all'interfaccia di stato I/O per verificare che lo stato dei segnali di ingresso/uscita digitale sia corretto.
+  (9) Verificare il corretto funzionamento delle funzioni degli ingressi/uscite digitali attraverso operazioni pratiche o scrivendo programmi di test.
+  (10) Se i segnali di ingresso/uscita digitale sono correlati alla logica del programma, verificare che l'elaborazione di questi segnali nel programma sia corretta.
 
-Summary of Digital Input of Control Box
-***************************************
+Spiegazione degli Ingressi Digitali dell'Unità di Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following lists the input types supported by the digital input of Faro robot integrated mini control box, as well as the corresponding wiring diagrams and configuration comparison tables.
+Riepilogo degli Ingressi Digitali dell'Unità di Controllo
+*******************************************************************
+
+Di seguito sono elencati i tipi di ingresso supportati dagli ingressi digitali dell'unità di controllo integrata mini di Farobot, insieme ai corrispondenti diagrammi di cablaggio e alle tabelle di configurazione.
 
 .. figure:: installation/080.png
-	:align: center
-	:width: 4in
+   :align: center
+   :width: 4in
 
-.. centered:: Figure 3.3-1 DI0-DI7 General Input Valid Status
+.. centered:: Figura 3.3-1 Stato Attivo Ingressi DI0-DI7
 
-.. centered:: Table 3.3-1 Control Box Digital Input Configuration Comparison Table
+.. centered:: Tabella 3.3-1 Tabella di Configurazione Ingressi Digitali Unità di Controllo
 
 .. list-table::
-   :widths: 15 15 35 10 10 10 10 
+   :widths: 15 15 35 10 10 10 10
    :header-rows: 0
    :align: center
 
-   * - **Control Box Type**
-     - **Input Type**
-     - **Connection Diagram**
-     - **High Level Valid (Switch Closed)** 
-     - **High Level Valid (Switch Open)** 
-     - **Low Level Valid (Switch Closed)**
-     - **Low Level Valid (Switch Open)**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Ingresso**
+     - **Diagramma di Connessione**
+     - **Alto Attivo (Interruttore Chiuso)**
+     - **Alto Attivo (Interruttore Aperto)**
+     - **Basso Attivo (Interruttore Chiuso)**
+     - **Basso Attivo (Interruttore Aperto)**
 
-   * - DC Control Box
-     - NPN Output
+   * - Unità di Controllo CC
+     - Uscita Tipo NPN
      - .. figure:: installation/081.png
           :align: center
           :width: 3in
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-   * - AC Narrow Voltage Control Box
-     - NPN Output
+   * - Unità di Controllo CA Tensione Stretta
+     - Uscita Tipo NPN
      - .. figure:: installation/082.png
           :align: center
           :width: 3in
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - NPN Output
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo NPN
      - .. figure:: installation/083.png
           :align: center
           :width: 3in
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - PNP Output
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo PNP
      - .. figure:: installation/084.png
           :align: center
           :width: 3in
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-Supported Types of Digital Input of Control Box
-*************************************************************
+Tipi di Ingresso Supportati dagli Ingressi Digitali dell'Unità di Controllo
+****************************************************************************************
 
-The digital input of DC control box and AC narrow voltage control box only supports NPN type input. The digital input of AC wide voltage control box supports optional NPN and PNP types, with NPN type as the default factory setting.
-
-.. list-table::
-   :widths: 50 50
-   :header-rows: 0
-   :align: center
-
-   * - **Control Box Type**
-     - **Input Type**
-
-   * - DC Control Box
-     - NPN Input
-
-   * - AC Narrow Voltage Control Box
-     - NPN Input
-
-   * - AC Wide Voltage Control Box
-     - NPN Input/PNP Input
-
-Wiring Diagram of Digital Input of Control Box
-**************************************************
-
-The digital input of DC control box and AC narrow voltage control box only supports NPN type input. The wiring diagram is as follows.
-
-	.. figure:: installation/085.png
-		:align: center
-		:width: 6in
-
-	.. centered:: Figure 3.3-2 Wiring Diagram of Digital Input for DC Control Box and AC Narrow Voltage Control Box
-
-The digital input of AC wide voltage control box supports optional NPN and PNP types, with NPN type as the default factory setting. The wiring diagrams are as follows:
+Gli ingressi digitali delle unità di controllo CC e CA a tensione stretta supportano solo ingressi di tipo NPN. Gli ingressi digitali delle unità di controllo CA a tensione ampia supportano opzionalmente ingressi NPN e PNP; la modalità predefinita di fabbrica è NPN.
 
 .. list-table::
    :widths: 50 50
    :header-rows: 0
    :align: center
 
-   * - **Input Type** 
-     - **Connection Diagram**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Ingresso**
 
-   * - NPN Input 
-     - 	.. figure:: installation/086.png
+   * - Unità di Controllo CC
+     - Ingresso Tipo NPN
+
+   * - Unità di Controllo CA Tensione Stretta
+     - Ingresso Tipo NPN
+
+   * - Unità di Controllo CA Tensione Ampia
+     - Ingresso Tipo NPN/PNP
+
+Diagramma di Cablaggio Ingressi Digitali Unità di Controllo
+********************************************************************************
+
+Gli ingressi digitali delle unità di controllo CC e CA a tensione stretta supportano solo ingressi di tipo NPN. Il loro diagramma di cablaggio è il seguente.
+
+.. figure:: installation/085.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.3-2 Diagramma di Collegamento Ingressi Digitali Unità di Controllo CC e CA Tensione Stretta
+
+Gli ingressi digitali delle unità di controllo CA a tensione ampia supportano opzionalmente ingressi NPN e PNP; la modalità predefinita di fabbrica è NPN. I loro diagrammi di cablaggio sono i seguenti:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 0
+   :align: center
+
+   * - **Tipo Ingresso**
+     - **Diagramma di Connessione**
+
+   * - Ingresso Tipo NPN
+     - .. figure:: installation/086.png
           :align: center
           :width: 3in
 
-   * - PNP Input
-     - 	.. figure:: installation/087.png
+   * - Ingresso Tipo PNP
+     - .. figure:: installation/087.png
           :align: center
           :width: 3in
 
-The input type of the wide voltage control box digital input is determined by the DIP switch inside the control box. If the user needs to change the input type, the DIP switch needs to be set to the corresponding position.
+Il tipo di ingresso degli ingressi digitali dell'unità di controllo a tensione ampia è determinato dagli switch DIP interni all'unità di controllo. Se l'utente necessita di modificare il tipo di ingresso, è necessario impostare l'interruttore DIP nella posizione corrispondente.
 
 .. list-table::
    :widths: 30 30 40
    :header-rows: 0
    :align: center
 
-   * -  
-     - DIP Switch Position
-     - DIP Switch Physical Position
+   * -
+     - Posizione Switch DIP
+     - Posizione Fisica Switch DIP
 
-   * - NPN Input 
+   * - Ingresso Tipo NPN
      - EX-24V
      - .. figure:: installation/088.png
           :align: center
           :width: 3in
 
-   * - PNP Input 
+   * - Ingresso Tipo PNP
      - EX-0V
-     - 	.. figure:: installation/089.png
+     - .. figure:: installation/089.png
           :align: center
           :width: 3in
 
-Software Settings Related to Digital Input of Control Box
-***************************************************************
+Impostazioni Software Relative agli Ingressi Digitali dell'Unità di Controllo
+***************************************************************************************
 
-The only software setting item for digital input is "DI0-DI7 General Input Valid Status", which represents the digital voltage level value corresponding to the detected valid input. This setting allows users to use digital input more flexibly.
+L'unico elemento di configurazione software relativo agli ingressi digitali è "Stato Attivo Ingressi DI0-DI7", che indica il livello di tensione digitale corrispondente quando viene rilevato un ingresso attivo. Questa impostazione consente all'utente di utilizzare gli ingressi digitali in modo più flessibile.
 
-	.. figure:: installation/090.png
-		:align: center
-		:width: 6in
+.. figure:: installation/090.png
+   :align: center
+   :width: 6in
 
-  .. centered:: Figure 3.3-3 DI0-DI7 General Input Valid Status
+.. centered:: Figura 3.3-3 Stato Attivo Ingressi DI0-DI7
 
-The comparison table of valid status detected by the software under different settings of "DI0-DI7 General Input Valid Status" when the external switch of digital input is in different states is as follows:
+La tabella di corrispondenza seguente mostra lo stato attivo rilevato dal software in diverse impostazioni di "Stato Attivo Ingressi DI0-DI7" quando l'interruttore esterno dell'ingresso digitale si trova in stati diversi:
 
-.. centered:: Table 3.3-2 Valid Status Comparison Table
+.. centered:: Tabella 3.3-2 Tabella di Corrispondenza Stato Attivo
 
 .. list-table::
    :widths: 15 15 15 15 15 15
    :header-rows: 0
    :align: center
 
-   * - **Control Box Type** 
-     - **Input Type**
-     - **High Level Valid (Switch Closed)**
-     - **High Level Valid (Switch Open)**
-     - **Low Level Valid (Switch Closed)**
-     - **Low Level Valid (Switch Open)**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Ingresso**
+     - **Alto Attivo (Interruttore Chiuso)**
+     - **Alto Attivo (Interruttore Aperto)**
+     - **Basso Attivo (Interruttore Chiuso)**
+     - **Basso Attivo (Interruttore Aperto)**
 
-   * - DC Control Box
-     - NPN Input
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+   * - Unità di Controllo CC
+     - Ingresso Tipo NPN
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-   * - AC Narrow Voltage Control Box
-     - NPN Input
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+   * - Unità di Controllo CA Tensione Stretta
+     - Ingresso Tipo NPN
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - NPN Input
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+   * - Unità di Controllo CA Tensione Ampia
+     - Ingresso Tipo NPN
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - PNP Input
-     - Invalid
-     - Valid
-     - Valid
-     - Invalid
+   * - Unità di Controllo CA Tensione Ampia
+     - Ingresso Tipo PNP
+     - Inattivo
+     - Attivo
+     - Attivo
+     - Inattivo
 
-Digital Output Description of Control Box
-+++++++++++++++++++++++++++++++++++++++++++++
+Spiegazione delle Uscite Digitali dell'Unità di Controllo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Summary of Digital Output of Control Box
-*************************************************
+Riepilogo delle Uscite Digitali dell'Unità di Controllo
+**************************************************************************
 
-The following lists the output types supported by the digital output of Faro robot integrated mini control box, as well as the corresponding wiring diagrams and configuration comparison tables.
+Di seguito sono elencati i tipi di uscita supportati dalle uscite digitali dell'unità di controllo integrata mini di Farobot, insieme ai corrispondenti diagrammi di cablaggio e alle tabelle di configurazione.
 
 .. figure:: installation/091.png
-	:align: center
-	:width: 4in
+   :align: center
+   :width: 4in
 
-.. centered:: Figure 3.3-4 Control Box DO Output During Power-On
+.. centered:: Figura 3.3-4 Uscita DO Unità di Controllo Durante l'Accensione
 
-.. centered:: Table 3.3-3 Control Box Digital Output Configuration Comparison Table
+.. centered:: Tabella 3.3-3 Tabella di Configurazione Uscite Digitali Unità di Controllo
 
 .. list-table::
    :widths: 10 10 30 10 10 10 10
    :header-rows: 0
    :align: center
 
-   * - **Control Box Type**
-     - **Input Type**
-     - **Connection Diagram**
-     - **High Level (Switch Set to ON)** 
-     - **High Level (Switch Set to OFF)** 
-     - **Low Level (Switch Set to ON)**
-     - **Low Level (Switch Set to OFF)**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Uscita**
+     - **Diagramma di Connessione**
+     - **Alto (Interruttore Impostato ON)**
+     - **Alto (Interruttore Impostato OFF)**
+     - **Basso (Interruttore Impostato ON)**
+     - **Basso (Interruttore Impostato OFF)**
 
-   * - DC Control Box
-     - NPN Output
-     - 	.. figure:: installation/093.png
+   * - Unità di Controllo CC
+     - Uscita Tipo NPN
+     - .. figure:: installation/093.png
           :align: center
           :width: 3in
-     - Valid 
-     - Valid
-     - Invalid
-     - Invalid
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
-   * - AC Narrow Voltage Control Box
-     - NPN Output
+   * - Unità di Controllo CA Tensione Stretta
+     - Uscita Tipo NPN
      - .. figure:: installation/094.png
           :align: center
           :width: 3in
-     - Valid 
-     - Valid
-     - Invalid
-     - Invalid
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - NPN Output
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo NPN
      - .. figure:: installation/095.png
           :align: center
           :width: 3in
-     - Valid 
-     - Valid
-     - Invalid
-     - Invalid
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - PNP Output
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo PNP
      - .. figure:: installation/096.png
           :align: center
           :width: 3in
-     - Valid 
-     - Valid
-     - Invalid
-     - Invalid
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
 .. figure:: installation/092.png
-  :align: center
-  :width: 4in
+   :align: center
+   :width: 4in
 
-.. centered:: Figure 3.3-5 General Output Valid Status
+.. centered:: Figura 3.3-5 Stato Attivo Uscite DO0-DO7
 
-.. centered:: Table 3.3-4 Control Box Digital Output Configuration Comparison Table
+.. centered:: Tabella 3.3-4 Tabella di Configurazione Uscite Digitali Unità di Controllo
 
 .. list-table::
-   :widths: 10 10 30 10 10 10 10 
+   :widths: 10 10 30 10 10 10 10
    :header-rows: 0
    :align: center
 
-   * - **Control Box Type**
-     - **Input Type**
-     - **Connection Diagram**
-     - **High Level Valid (Switch Set to ON)**
-     - **High Level Valid (Switch Set to OFF)**
-     - **Low Level Valid (Switch Set to ON)**
-     - **Low Level Valid (Switch Set to OFF)**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Uscita**
+     - **Diagramma di Connessione**
+     - **Alto Attivo (Interruttore Impostato ON)**
+     - **Alto Attivo (Interruttore Impostato OFF)**
+     - **Basso Attivo (Interruttore Impostato ON)**
+     - **Basso Attivo (Interruttore Impostato OFF)**
 
-   * - DC Control Box
-     - NPN Output
-     - 	.. figure:: installation/093.png
+   * - Unità di Controllo CC
+     - Uscita Tipo NPN
+     - .. figure:: installation/093.png
           :align: center
           :width: 3in
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-   * - AC Narrow Voltage Control Box
-     - NPN Output
+   * - Unità di Controllo CA Tensione Stretta
+     - Uscita Tipo NPN
      - .. figure:: installation/094.png
           :align: center
           :width: 3in
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-   * - AC Wide Voltage Control Box
-     - NPN Output
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo NPN
      - .. figure:: installation/095.png
           :align: center
           :width: 3in
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-   * - AC Wide Voltage Control Box
-     - PNP Output
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo PNP
      - .. figure:: installation/096.png
           :align: center
           :width: 3in
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-Supported Types of Digital Output of Control Box
-*****************************************************
+Tipi di Uscita Supportati dalle Uscite Digitali dell'Unità di Controllo
+************************************************************************************************
 
-The digital output of DC control box and AC narrow voltage control box only supports NPN type output. The digital output of AC wide voltage control box supports optional NPN and PNP types, with push-pull structure. It only needs to be wired according to the corresponding wiring diagram without special settings.
-
-.. list-table::
-   :widths: 50 50
-   :header-rows: 0
-   :align: center
-
-   * - **Control Box Type**
-     - **Input Type**
-
-   * - DC Control Box
-     - NPN Output
-
-   * - AC Narrow Voltage Control Box
-     - NPN Output
-
-   * - AC Narrow Voltage Control Box
-     - NPN Output/PNP Output
-
-Wiring Diagram of Digital Output of Control Box
-******************************************************
-
-The digital output of DC control box and AC narrow voltage control box only supports NPN type output. The wiring diagram is as follows.
-
-	.. figure:: installation/097.png
-		:align: center
-		:width: 6in
-
-	.. centered:: Figure 3.3-6 Wiring Diagram of Digital Output for DC Control Box and AC Narrow Voltage Control Box
-
-The digital output of AC wide voltage control box supports NPN and PNP types. The wiring diagrams are as follows:
+Le uscite digitali delle unità di controllo CC e CA a tensione stretta supportano solo uscite di tipo NPN. Le uscite digitali delle unità di controllo CA a tensione ampia supportano opzionalmente uscite NPN e PNP; la loro uscita è di tipo push-pull, è sufficiente collegarle secondo il rispettivo diagramma di cablaggio, non sono necessarie impostazioni speciali.
 
 .. list-table::
    :widths: 50 50
    :header-rows: 0
    :align: center
 
-   * - **Input Type** 
-     - **Connection Diagram**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Uscita**
 
-   * - NPN Input 
-     - 	.. figure:: installation/098.png
+   * - Unità di Controllo CC
+     - Uscita Tipo NPN
+
+   * - Unità di Controllo CA Tensione Stretta
+     - Uscita Tipo NPN
+
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo NPN/PNP
+
+Diagramma di Cablaggio Uscite Digitali Unità di Controllo
+*****************************************************************************
+
+Le uscite digitali delle unità di controllo CC e CA a tensione stretta supportano solo uscite di tipo NPN. Il loro diagramma di cablaggio è il seguente.
+
+.. figure:: installation/097.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 3.3-6 Diagramma di Collegamento Uscite Digitali Unità di Controllo CC e CA Tensione Stretta
+
+Le uscite digitali delle unità di controllo CA a tensione ampia supportano uscite NPN e PNP. I loro diagrammi di cablaggio sono i seguenti:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 0
+   :align: center
+
+   * - **Tipo Uscita**
+     - **Diagramma di Connessione**
+
+   * - Uscita Tipo NPN
+     - .. figure:: installation/098.png
           :align: center
           :width: 3in
 
-   * - PNP Input
-     - 	.. figure:: installation/099.png
+   * - Uscita Tipo PNP
+     - .. figure:: installation/099.png
           :align: center
           :width: 3in
 
-Software Settings Related to Digital Output of Control Box
-***************************************************************
+Impostazioni Software Relative alle Uscite Digitali dell'Unità di Controllo
+***************************************************************************************
 
-There are two software setting items for digital output: "Control Box DO Output During Power-On" and "DO0-D07 General Output Valid Status". "Control Box DO Output During Power-On" represents the output level during the power-on period of the control box when the control system has not completed initialization. It can correspond to different output valid states, which can flexibly meet the requirements for output status during power-on. "General Output Valid Status" represents the digital output voltage level value that needs to be controlled when the output is valid. This setting allows users to use digital output more flexibly.
+Per le uscite digitali, ci sono due elementi di configurazione software: "Uscita DO Unità di Controllo Durante l'Accensione" e "Stato Attivo Uscite DO0-DO7". Tra questi, "Uscita DO Unità di Controllo Durante l'Accensione" rappresenta il livello di tensione emesso durante l'accensione dell'unità di controllo, prima che il sistema di controllo sia completamente inizializzato. Questo può corrispondere a diversi stati attivi dell'uscita, offrendo flessibilità per affrontare scenari che richiedono uno stato di uscita specifico durante l'accensione. "Stato Attivo Uscite DO0-DO7" rappresenta il livello di tensione dell'uscita digitale che il sistema di controllo deve emettere quando l'uscita è attiva. Questa impostazione consente un utilizzo più flessibile delle uscite digitali da parte dell'utente.
 
-(1) The comparison table of valid status under different settings of "Control Box DO Output During Power-On" is as follows:
+(1) In diverse impostazioni di "Uscita DO Unità di Controllo Durante l'Accensione", la tabella di corrispondenza dello stato attivo per le uscite digitali è la seguente:
 
-	.. figure:: installation/100.png
-		:align: center
-		:width: 6in
+   .. figure:: installation/100.png
+      :align: center
+      :width: 6in
 
-	.. centered:: Figure 3.3-7 Control Box DO Output During Power-On
+   .. centered:: Figura 3.3-7 Uscita DO Unità di Controllo Durante l'Accensione
 
-.. centered:: Table 3.3-5 Valid Status Comparison Table
+.. centered:: Tabella 3.3-5 Tabella di Corrispondenza Stato Attivo
 
 .. list-table::
    :widths: 20 15 15 15 15 15
    :header-rows: 0
    :align: center
 
-   * - **Control Box Type** 
-     - **Input Type**
-     - **High Level Valid (Switch Set to ON)**
-     - **High Level Valid (Switch Set to OFF)**
-     - **Low Level Valid (Switch Set to ON)**
-     - **Low Level Valid (Switch Set to OFF)**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Uscita**
+     - **Alto Attivo (Interruttore Impostato ON)**
+     - **Alto Attivo (Interruttore Impostato OFF)**
+     - **Basso Attivo (Interruttore Impostato ON)**
+     - **Basso Attivo (Interruttore Impostato OFF)**
 
-   * - DC Control Box
-     - NPN Output
-     - Valid
-     - Valid
-     - Invalid
-     - Invalid
+   * - Unità di Controllo CC
+     - Uscita Tipo NPN
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
-   * - AC Narrow Voltage Control Box
-     - NPN Output
-     - Valid
-     - Valid
-     - Invalid
-     - Invalid
+   * - Unità di Controllo CA Tensione Stretta
+     - Uscita Tipo NPN
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - NPN Output
-     - Valid
-     - Valid
-     - Invalid
-     - Invalid
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo NPN
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
-   * - AC Wide Voltage Control Box
-     - PNP Output
-     - Valid
-     - Valid
-     - Invalid
-     - Invalid
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo PNP
+     - Attivo
+     - Attivo
+     - Inattivo
+     - Inattivo
 
-(2) The comparison table of valid status under different settings of "DO0-D07 General Output Valid Status" is as follows:
+(2) In diverse impostazioni di "Stato Attivo Uscite DO0-DO7", la tabella di corrispondenza dello stato attivo per le uscite digitali è la seguente:
 
-	.. figure:: installation/101.png
-		:align: center
-		:width: 6in
+   .. figure:: installation/101.png
+      :align: center
+      :width: 6in
 
-	.. centered:: Figure 3.3-8 DO0-D07 General Output Valid Status
+   .. centered:: Figura 3.3-8 Stato Attivo Uscite DO0-DO7
 
-.. centered:: Table 3.3-6 Valid Status Comparison Table
+.. centered:: Tabella 3.3-6 Tabella di Corrispondenza Stato Attivo
 
 .. list-table::
    :widths: 20 15 15 15 15 15
    :header-rows: 0
    :align: center
 
-   * - **Control Box Type** 
-     - **Input Type**
-     - **High Level Valid (Switch Set to ON)**
-     - **High Level Valid (Switch Set to OFF)**
-     - **Low Level Valid (Switch Set to ON)**
-     - **Low Level Valid (Switch Set to OFF)**
+   * - **Tipo Unità di Controllo**
+     - **Tipo Uscita**
+     - **Alto Attivo (Interruttore Impostato ON)**
+     - **Alto Attivo (Interruttore Impostato OFF)**
+     - **Basso Attivo (Interruttore Impostato ON)**
+     - **Basso Attivo (Interruttore Impostato OFF)**
 
-   * - DC Control Box
-     - NPN Output
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+   * - Unità di Controllo CC
+     - Uscita Tipo NPN
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-   * - AC Narrow Voltage Control Box
-     - NPN Output
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+   * - Unità di Controllo CA Tensione Stretta
+     - Uscita Tipo NPN
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-   * - AC Wide Voltage Control Box
-     - NPN Output
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo NPN
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-   * - AC Wide Voltage Control Box
-     - PNP Output
-     - Valid
-     - Invalid
-     - Invalid
-     - Valid
+   * - Unità di Controllo CA Tensione Ampia
+     - Uscita Tipo PNP
+     - Attivo
+     - Inattivo
+     - Inattivo
+     - Attivo
 
-Inspection maintenance plan
-++++++++++++++++++++++++++++++++++
+Piano di Manutenzione e Controllo
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Robotic arm
-**************
+Braccio Robotico
+******************************
 
-1. Inspection plan
+1. Piano di Controllo
 
-Below is a checklist of checklists that FAIRINO Robots recommends performing based on the marked time intervals. If the inspection reveals that the condition of the relevant parts is unqualified, please correct it immediately.
+Di seguito è riportato l'elenco di controllo consigliato da Farobot per i robot, da eseguire agli intervalli di tempo indicati. Se un controllo rivela una condizione insoddisfacente delle parti interessate, correggere immediatamente.
 
-.. note:: F=Functional check,V=visual inspection,*=Must be checked after severe collision.
+.. note:: F=Controllo Funzionale, V=Ispezione Visiva, *=Da controllare obbligatoriamente dopo una collisione grave.
 
 .. list-table::
    :widths: 10 40 20 20 20 20
    :header-rows: 0
    :align: center
 
-   * - 
-     - **Check item**
-     - 
-     - **Monthly**
-     - **Semi-annually**
-     - **Annually**
+   * -
+     - **Elemento di Controllo**
+     - **Requisito**
+     - **Mensilmente**
+     - **Semestralmente**
+     - **Annualmente**
 
    * - 1
-     - Check joint rear cover *
+     - Controllo coperture posteriori dei giunti*
      - V
-     - 
+     -
      - ✔
-     - 
+     -
 
    * - 2
-     - Check joint rear cover screws
+     - Controllo viti delle coperture posteriori dei giunti
      - F
-     - 
+     -
      - ✔
-     - 
+     -
 
    * - 3
-     - Check joint rubber ring
+     - Controllo guarnizioni in gomma dei giunti
      - V
-     - 
+     -
      - ✔
-     - 
+     -
 
    * - 4
-     - Check robot cables
+     - Controllo cavi del robot
      - V
-     - 
+     -
      - ✔
-     - 
+     -
 
    * - 5
-     - Check robot cable links
+     - Controllo connessioni dei cavi del robot
      - V
-     - 
+     -
      - ✔
-     - 
+     -
 
    * - 6
-     - Check robot base mounting bolts *
+     - Controllo bulloni di montaggio della base del robot*
      - F
      - ✔
-     - 
-     - 
+     -
+     -
 
    * - 7
-     - Check End Tool Mounting Bolts *
+     - Controllo bulloni di montaggio dell'utensile terminale*
      - F
      - ✔
-     - 
-     - 
+     -
+     -
 
 .. figure:: installation/073.png
-  :align: center
-  :width: 3in
+   :align: center
+   :width: 3in
 
-2. Visual inspection
-   
-.. note:: Do not use compressed air to clean robot arms as it may damage components. Do not store the robot for more than 6 months without visual inspection. 
+2. Ispezione Visiva
 
-- If possible, move the robot arm to the zero position. 
-- Turn off and disconnect the power cord of the control box. 
-- Check the cable between the control box and the robot arm for any damage. 
-- Check whether the base mounting bolts are properly tightened. 
-- Check whether the tool flange bolts are properly tightened. 
-- Check whether the flat ring is worn and damaged.
-- Check all joint backs for any cracks or damage. 
-- Check that the screws for the articulated rear cover are seated and tightened correctly. 
+.. note:: Non utilizzare mai aria compressa per pulire il braccio del robot, poiché potrebbe danneggiare i componenti. Non conservare il robot per più di 6 mesi senza effettuare un'ispezione visiva.
 
-.. note:: If the robot shows any damage during the warranty period, please contact the dealer who purchased the robot.
+- Se possibile, portare il braccio del robot nella posizione zero.
+- Spegnere e scollegare il cavo di alimentazione dell'unità di controllo.
+- Controllare se il cavo tra l'unità di controllo e il braccio del robot presenta danni.
+- Controllare che i bulloni di montaggio della base siano correttamente serrati.
+- Controllare che i bulloni della flangia dell'utensile siano correttamente serrati.
+- Controllare le guarnizioni piatte per usura e danni.
+- Controllare tutte le coperture posteriori dei giunti per eventuali crepe o danni.
+- Controllare che le viti per le coperture posteriori dei giunti siano in posizione e correttamente serrate.
 
-3. Function check
+.. note:: Se si riscontra qualsiasi danno al robot durante il periodo di garanzia, contattare il rivenditore da cui è stato acquistato il robot.
 
-The purpose of the functional inspection is to ensure that screws, bolts, tools and robot arms are not loose. The screws/bolts mentioned in the inspection planshall be checked with torque wrenches and the torque shall comply with the standard specifications, which can be found in chapter of the Installation Specifications of the User Manual for the specifications of the mounting bolts of the robot arm.
+3. Controllo Funzionale
 
-4. Cleaning
+Lo scopo del controllo funzionale è garantire che viti, bulloni, utensili e braccio del robot non siano allentati. Le viti/bulloni menzionati nel piano di controllo devono essere verificati utilizzando una chiave dinamometrica, e la coppia deve conformarsi alle specifiche standard. Per le specifiche dei bulloni di montaggio del braccio robotico, fare riferimento alle specifiche di installazione nel "Manuale Utente".
 
-You can wipe off any dust/dirt/grease observed on the robot arm using a cloth and one of the following cleaners: water, isopropyl alcohol, 10% ethanol or 10% naphtha. If the robot is operating in harsh environments, such as cutting fluids, coolants, etc., it is recommended to clean or replacethe rubber ringregularly.
+4. Pulizia
 
-Do not use bleach. Do not use bleach in any diluted cleaning solution.
+È possibile rimuovere polvere/sporco/olio osservati sul braccio del robot utilizzando un panno e uno dei seguenti detergenti: acqua, alcool isopropilico, etanolo al 10% o nafta al 10%. Se il robot opera in ambienti difficili, ad esempio con fluidi di taglio, refrigeranti, ecc., si consiglia di pulire o sostituire regolarmente le guarnizioni in gomma.
 
-In rare cases, a very small amount of grease can be seen from the joint. This does not affect the function, use or longevity of the joint. 
+Non utilizzare candeggina. Non utilizzare candeggina in nessuna soluzione detergente diluita. In rari casi, può essere visibile una quantità minima di grasso dai giunti. Ciò non influisce sulla funzionalità, sull'uso o sulla durata del giunto.
 
-Control box, teaching device, button box
-******************************************
+Unità di Controllo, Teach Pendant, Scatola Pulsanti
+********************************************************************
 
-1. Inspection plan
+1. Piano di Controllo
 
-Below is a checklist of checklists that FAIRINO Robots recommends performing based on the marked time intervals. If the inspection reveals that the condition of the relevant parts is unqualified, please correct it immediately.
+Di seguito è riportato l'elenco di controllo consigliato da Farobot per le unità di controllo, teach pendant e scatole pulsanti, da eseguire agli intervalli di tempo indicati. Se un controllo rivela una condizione insoddisfacente delle parti interessate, correggere immediatamente.
 
-.. note:: F=Functional check,V=Visual inspection.
+.. note:: F=Controllo Funzionale, V=Ispezione Visiva.
 
 .. list-table::
    :widths: 10 40 20 20 20 20
    :header-rows: 0
    :align: center
 
-   * - 
-     - **Check item**
-     - 
-     - **Monthly**
-     - **Semi-annually**
-     - **Annually**
+   * -
+     - **Elemento di Controllo**
+     - **Requisito**
+     - **Mensilmente**
+     - **Semestralmente**
+     - **Annualmente**
 
    * - 1
-     - Emergency stop button on test button box (teach pendant)
+     - Verifica del pulsante di arresto di emergenza sulla scatola pulsanti (teach pendant)
      - F
      - ✔
-     - 
-     - 
+     -
+     -
 
    * - 2
-     - Safety input and output functions on the test terminal strip
+     - Verifica della funzionalità di ingresso/uscita di sicurezza sulla barra terminali
      - F
      - ✔
-     - 
-     - 
+     -
+     -
 
    * - 3
-     - Detection button box start/stop, mode switching function
+     - Verifica delle funzioni avvio/arresto e commutazione modalità della scatola pulsanti
      - F
      - ✔
-     - 
-     - 
+     -
+     -
 
    * - 4
-     - Test button box (teach pendant) cable
+     - Controllo del cavo della scatola pulsanti (teach pendant)
      - V
-     - 
+     -
      - ✔
-     - 
+     -
 
    * - 5
-     - Check and clean the air filter on the control box
+     - Controllo e pulizia del filtro dell'aria sull'unità di controllo
      - V
      - ✔
-     - 
-     - 
+     -
+     -
 
    * - 6
-     - Check whether the terminals of the control box are firm
+     - Verifica della solidità dei terminali dell'unità di controllo
      - F
-     - 
+     -
      - ✔
-     - 
+     -
 
    * - 7
-     - Ground resistance of detection control box ≤1Ω
+     - Verifica della resistenza di terra dell'unità di controllo ≤1Ω
      - F
-     - 
-     - 
+     -
+     -
      - ✔
 
    * - 8
-     - Check the main power supply of the control box
+     - Verifica dell'alimentazione principale dell'unità di controllo
      - F
-     - 
-     - 
+     -
+     -
      - ✔
 
 .. figure:: installation/074.png
-  :align: center
-  :width: 3in
-
-2. Visual inspection
-
-- Unplug the power cord from the control box.
-
-- Check that the terminals of the control board are inserted correctly and there are no loose wires.
-
-- Check whether there is dirt/dust in the control box. Use an ESD vacuum cleaner for cleaning if necessary. 
-
-.. note:: Do not use compressed air to clean the inside of the control box as this may damage components. 
-
-3. Function check
-
-.. note:: Robot safety features are important and it is recommended to test once a month to ensure proper functionality.
-
-- Emergency stop button onteach pendant/button box:
-  
-  A. Press the emergency stop button on the teach pendant/button box. 
-  B. Observe that the robot stops and turns off the joint power. 
-  C. Turn on the robot power again. 
-
-	.. figure:: installation/075.png
-		:align: center
-		:width: 4in
-
-	.. figure:: installation/076.png
-		:align: center
-		:width: 4in
-
-- Other safety inputs and outputs remain operational
-  
-  Check which safety inputs and outputs are active and whether they can be triggered by PolyScope or external devices.
-
-- Date and clock
-  
-  Check that the date and clock in the Log tab are correct. Incorrect dates and clocks indicate low CMOS battery charge. CMOS batteries have a shelf life of up to5 years.
-
-- Check whether the terminal snaps are in place
-  
-	.. figure:: installation/077.png
-		:align: center
-		:width: 4in
-
-4. Cleaning
-
-- Teaching device
-  
-  You may need to clean the teach pendant screen. It is recommended to use a standard mild industrial cleaner that does not contain diluents or any corrosive additives. Do not wipe the screen with abrasive materials. FAIRINO don't market specific cleaning agents.
-
-- The button box 
-  
-  Do not need to be cleaned regularly when it is not normal. If the key identification is blurred and affects the recognition operation, please clean it with detergent at any time.
-
-- Control box
-  
-  The control box contains two filters, one on each side of the control box.
-
-  A. The filter can be observed from the left and right side vents of the control box. Under normal circumstances, you can see the honeycomb structure of the filter.
-  B. Remove the filter for cleaning. Clean with low pressure air or change filters as needed. Remember to clean each side. If it is dirty or damaged, replace it (worse, remove the upper cover of the controller and replace the filter from inside the upper cover). 
-  C. Listen to the sound of the fan when running. If the sound is abnormal, please contact the service provider or replace it.
-
-Check program registration card
-******************************************************************
-
-1. Robotic arm
-  
-.. list-table::
-   :widths: 40 20 20 20 40
-   :header-rows: 0
    :align: center
+   :width: 3in
 
-   * - **InspectionItem**
-     - **Inspected**
-     - **Inspector**
-     - **Data**
-     - **Remark**
+2. Ispezione Visiva
 
-   * - **Check joint rear cover**
-     - 
-     - 
-     - 
-     - 
+- Scollegare il cavo di alimentazione dall'unità di controllo.
+- Controllare che i terminali della scheda di controllo siano correttamente inseriti e non vi siano fili allentati.
+- Controllare l'interno dell'unità di controllo per sporco/polvere. Se necessario, pulire utilizzando un aspirapolvere ESD.
 
-   * - **Check joint rear cover screws**
-     - 
-     - 
-     - 
-     - 
+.. note:: Non utilizzare mai aria compressa per pulire l'interno dell'unità di controllo, poiché ciò potrebbe danneggiare i componenti.
 
-   * - **Check joint rubber ring**
-     - 
-     - 
-     - 
-     - 
+3. Controllo Funzionale
 
-   * - **Check robot cables**
-     - 
-     - 
-     - 
-     - 
+.. note:: Le funzioni di sicurezza del robot sono prioritarie. Si consiglia di testarle mensilmente per garantirne il corretto funzionamento.
 
-   * - **Check robot cable links**
-     - 
-     - 
-     - 
-     - 
+- Pulsante di arresto di emergenza sul teach pendant/scatola pulsanti:
 
-   * - **Check robot base mounting bolts**
-     - 
-     - 
-     - 
-     - 
+  A. Premere il pulsante di arresto di emergenza sul teach pendant/scatola pulsanti.
+  B. Osservare che il robot si fermi e l'alimentazione dei giunti venga disattivata.
+  C. Riaccendere l'alimentazione del robot.
 
-   * - **Check End Tool Mounting Bolts**
-     - 
-     - 
-     - 
-     - 
-  
-2. Control box, teaching device, button box
+   .. figure:: installation/075.png
+      :align: center
+      :width: 4in
+
+   .. figure:: installation/076.png
+      :align: center
+      :width: 4in
+
+- Altri ingressi e uscite di sicurezza ancora operativi
+
+  Controllare quali ingressi e uscite di sicurezza sono attivi e se possono essere attivati tramite PolyScope o dispositivi esterni.
+
+- Data e ora
+
+  Controllare che la data e l'ora nella scheda "Log" siano corrette. Una data o un'ora non corretta indica una batteria CMOS scarica. La durata di conservazione della batteria CMOS è fino a 5 anni.
+
+- Verifica del fissaggio dei terminali a molla
+
+  .. figure:: installation/077.png
+     :align: center
+     :width: 4in
+
+4. Pulizia
+
+- Teach pendant
+
+  Potrebbe essere necessario pulire lo schermo del teach pendant. Si consiglia di utilizzare un detergente industriale standard e delicato, senza solventi o additivi corrosivi. Non utilizzare materiali abrasivi per pulire lo schermo. Farobot non promuove detergenti specifici.
+
+- Scatola pulsanti del teach pendant
+
+  Normalmente non è richiesta una pulizia periodica. Se le identificazioni dei tasti diventano sbiadite e influenzano il riconoscimento operativo, pulire con un detergente quando necessario.
+
+- Unità di controllo
+
+  L'unità di controllo contiene due filtri, uno su ciascun lato.
+
+  A. È possibile osservare lo stato dei filtri dalle prese d'aria sui lati sinistro e destro dell'unità di controllo. Normalmente, è visibile la struttura a nido d'ape del filtro.
+  B. Rimuovere i filtri per la pulizia. Pulire con aria a bassa pressione o sostituire i filtri secondo necessità. Ricordarsi di pulire ciascun lato. Se molto sporchi o danneggiati, sostituire (la sostituzione richiede la rimozione del coperchio superiore del controllore e la sostituzione del filtro dall'interno del coperchio).
+  C. Ascoltare il suono della ventola durante il funzionamento; se il suono è anomalo, contattare il fornitore di servizi o sostituire.
+
+Scheda di Registrazione del Piano di Controllo
+**********************************************************
+
+1. Braccio Robotico
 
 .. list-table::
    :widths: 40 20 20 20 40
    :header-rows: 0
    :align: center
 
-   * - **InspectionItem**
-     - **Inspected**
-     - **Inspector**
+   * - **Elemento di Controllo**
+     - **Controllato**
+     - **Ispettore**
      - **Data**
-     - **Remark**
+     - **Note**
 
-   * - **Emergency stop button on test button box (teach pendant)**
-     - 
-     - 
-     - 
-     - 
+   * - **Controllo coperture posteriori dei giunti**
+     -
+     -
+     -
+     -
 
-   * - **Safety input and output functions on the test terminal strip**
-     - 
-     - 
-     - 
-     - 
+   * - **Controllo viti delle coperture posteriori dei giunti**
+     -
+     -
+     -
+     -
 
-   * - **Detection button box start/stop, mode switching function**
-     - 
-     - 
-     - 
-     - 
+   * - **Controllo guarnizioni in gomma dei giunti**
+     -
+     -
+     -
+     -
 
-   * - **Test button box (teach pendant) cable**
-     - 
-     - 
-     - 
-     - 
+   * - **Controllo cavi del robot**
+     -
+     -
+     -
+     -
 
-   * - **Check and clean the air filter on the control box**
-     - 
-     - 
-     - 
-     - 
+   * - **Controllo connessioni dei cavi del robot**
+     -
+     -
+     -
+     -
 
-   * - **Check whether the terminals of the control box are firm**
-     - 
-     - 
-     - 
-     - 
+   * - **Controllo bulloni di montaggio della base del robot**
+     -
+     -
+     -
+     -
 
-   * - **Ground resistance of detection control box ≤1Ω**
-     - 
-     - 
-     - 
-     - 
+   * - **Controllo bulloni di montaggio dell'utensile terminale**
+     -
+     -
+     -
+     -
 
-   * - **Check the main power supply of the control box**
-     - 
-     - 
-     - 
-     - 
+2. Unità di Controllo, Teach Pendant, Scatola Pulsanti
 
-Robot waste disposal
-~~~~~~~~~~~~~~~~~~~~~~
+.. list-table::
+   :widths: 40 20 20 20 40
+   :header-rows: 0
+   :align: center
 
-FR robots need to be disposed of according to the applicable national laws and regulations and national standards. For details, you can contact manufacturers.
+   * - **Elemento di Controllo**
+     - **Controllato**
+     - **Ispettore**
+     - **Data**
+     - **Note**
 
-Installation specifications
----------------------------------
+   * - **Verifica del pulsante di arresto di emergenza sulla scatola pulsanti (teach pendant)**
+     -
+     -
+     -
+     -
 
-Robot arm installation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+   * - **Verifica della funzionalità di ingresso/uscita di sicurezza sulla barra terminali**
+     -
+     -
+     -
+     -
+
+   * - **Verifica delle funzioni avvio/arresto e commutazione modalità della scatola pulsanti**
+     -
+     -
+     -
+     -
+
+   * - **Controllo del cavo della scatola pulsanti (teach pendant)**
+     -
+     -
+     -
+     -
+
+   * - **Controllo e pulizia del filtro dell'aria sull'unità di controllo**
+     -
+     -
+     -
+     -
+
+   * - **Verifica della solidità dei terminali dell'unità di controllo**
+     -
+     -
+     -
+     -
+
+   * - **Verifica della resistenza di terra dell'unità di controllo ≤1Ω**
+     -
+     -
+     -
+     -
+
+   * - **Verifica dell'alimentazione principale dell'unità di controllo**
+     -
+     -
+     -
+     -
+
+Smaltimento
+~~~~~~~~~~~~~~
+
+I robot FR devono essere smaltiti secondo le leggi, i regolamenti nazionali applicabili e gli standard nazionali. Per dettagli, contattare il produttore.
+
+Specifiche di Installazione
+----------------------------------------
+
+Installazione del Braccio del Robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. important::
-  The recommended robot installation base meets the following requirements to ensure a secure and stable installation of the robot:
-  
-  (1)The robot mounting base needs to be strong enough and have sufficient load-bearing capacity, which should be able to bear at least 5 times the weight of the robot and at least 10 times the 1-axis torque.
+   Si raccomanda che la piattaforma di montaggio del robot soddisfi i seguenti requisiti per garantire che il robot sia installato in modo sicuro e stabile:
 
-  (2)The surface of the robot mounting base should be flat to ensure close contact with the robot contact surface.
+   (1) La piattaforma di montaggio del robot deve essere sufficientemente robusta e avere una capacità portante adeguata; dovrebbe essere in grado di supportare almeno 5 volte il peso del robot e resistere ad almeno 10 volte la coppia dell'asse 1.
 
-  (3)The robot mounting base should have sufficient stiffness, be firmly fixed, and not resonate with the robot.
+   (2) La superficie della piattaforma di montaggio del robot deve essere piana per garantire un contatto stretto con la superficie di contatto del robot.
 
-  (4)When the robot and other components are moving simultaneously, the mounting base should be separated from other moving components and not fixed together to avoid vibration interference during the movement process.
+   (3) La piattaforma di montaggio del robot deve essere sufficientemente rigida, fissata saldamente e non deve risuonare con il robot.
 
-  (5)If the robot is installed on a mobile platform or external axis, the acceleration of the mobile platform or external axis should be as low as possible.
+   (4) Quando il robot e altri componenti si muovono simultaneamente, la piattaforma di montaggio dovrebbe essere isolata dagli altri componenti in movimento e non fissata insieme per evitare interferenze vibrazionali durante il movimento.
 
-.. warning:: 
-  The following installation methods should be avoided:
+   (5) Se il robot è installato su una piattaforma mobile o su un asse esterno, l'accelerazione della piattaforma mobile o dell'asse esterno dovrebbe essere il più bassa possibile.
 
-  (I)Avoid fixing the robot to other moving devices.
+.. warning::
+   Dovrebbero essere evitate le seguenti modalità di installazione:
 
-  .. figure:: installation/064.png
-    :align: center
-    :width: 3in
+   (I) Evitare di fissare il robot su altre apparecchiature in movimento.
 
-  .. centered:: Figure 3.4-1 Avoid installing on other sports equipment
+   .. figure:: installation/064.png
+      :align: center
+      :width: 3in
 
-  Make sure the robot arm is installed correctly and safely. Unstable installation will cause accidents.
+   .. centered:: Figura 3.4-1 Evitare l'installazione su altre apparecchiature in movimento
 
-.. note:: 
-	You can purchase accurate bases as attachments. Figure 3.4-2、3.4-5、3.4-8、3.4-11 show the position of the sales hole and the location of the screw.
+   Assicurarsi che il braccio del robot sia installato correttamente e in sicurezza. Un'installazione instabile può causare incidenti.
 
-Installation requirements for FR3/FR3-WMS/FR3-WML/FR3-C robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. note::
+   È possibile acquistare una base precisa come accessorio da utilizzare. Le Figure 3.4-2, 3.4-5, 3.4-8, 3.4-11 mostrano le posizioni dei fori per perno e delle viti di montaggio.
 
-When installing the robot on the mounting base, use four M6 bolts with a strength of not less than 8.8 to fix the robot on the mounting base. The bolts must be tightened with a torque of not less than 10Nm.Suggest using two on the mounting base φ 5mm pin hole matched with pins for robot positioning to improve robot installation accuracy and prevent robot movement due to collisions and other factors.When the robot has high operating accuracy requirements, please be sure to add pins to position the robot.
+Requisiti di Installazione del Braccio Robotico per Modelli FR3/FR3-WMS/FR3-WML/FR3-C
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni M6 di grado minimo 8.8 per fissare il robot alla piattaforma. I bulloni devono essere serrati con una coppia non inferiore a 10 Nm. Si consiglia di utilizzare due fori per perno di φ5 mm sulla piattaforma di montaggio, insieme a perni, per il posizionamento del robot, al fine di migliorare la precisione di installazione e prevenire lo spostamento del robot a causa di collisioni, ecc. Quando sono richieste elevate precisioni operative per il robot, è imperativo utilizzare perni per il posizionamento del robot.
 
 .. figure:: installation/025.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.4-2 FR3/FR3-WMS/FR3-WML/FR3-C model collaborative robot installation size
+.. centered:: Figura 3.4-2 Dimensioni di Installazione per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C
 
-.. important:: 
-  According to different application scenarios, we recommend several robot installation bases as follows
+.. important::
+   Per diversi scenari applicativi, si raccomandano le seguenti basi di installazione per il robot:
 
-  (I)For situations where the motion speed is not too fast, the running speed is not too large, the accuracy requirements are average, and it is not convenient to fix the robot on the ground, the recommended installation base for the robot is as follows.
+   (I) Per scenari con velocità di movimento non troppo elevate, forze operative non eccessive, requisiti di precisione generali e dove non è conveniente fissare a terra, si raccomanda la seguente base di installazione per il robot:
 
-  .. figure:: installation/062.png
-    :align: center
-    :width: 3in
+   .. figure:: installation/062.png
+      :align: center
+      :width: 3in
 
-  .. centered:: Figure 3.4-3 FR3/FR3-WMS/FR3-WML/FR3-C model collaborative robot low requirement mounting base
-  
-  (II)For situations where the motion speed is fast, the running speed is high, and the accuracy requirements are high, it is recommended to install the robot on the following base and fix it on a solid ground.
+   .. centered:: Figura 3.4-3 Base di Installazione a Bassa Richiesta per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C
 
-  .. figure:: installation/067.png
-    :align: center
-    :width: 3in
+   (II) Per scenari con velocità di movimento elevate, forze operative elevate e requisiti di precisione elevati, si raccomanda la seguente base di installazione per il robot, fissando il robot su un pavimento solido:
 
-  .. centered:: Figure 3.4-4 FR3/FR3-WMS/FR3-WML/FR3-C Model Collaborative Robot High Demand Mounting Base
+   .. figure:: installation/067.png
+      :align: center
+      :width: 3in
 
-Installation requirements for FR5 robot
-++++++++++++++++++++++++++++++++++++++++++++
+   .. centered:: Figura 3.4-4 Base di Installazione ad Alta Richiesta per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C
 
-When installing the robot on the mounting base, use four M8 bolts with a strength of not less than 8.8 to fix the robot on the mounting base. The bolts must be tightened with a torque of not less than 20Nm.Suggest using two on the mounting base φ 8mm pin hole matched with pins for robot positioning to improve robot installation accuracy and prevent robot movement due to collisions and other factors.When the robot has high operating accuracy requirements, please be sure to add pins to position the robot.
+Requisiti di Installazione del Braccio Robotico per Modello FR5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni M8 di grado minimo 8.8 per fissare il robot alla piattaforma. I bulloni devono essere serrati con una coppia non inferiore a 20 Nm. Si consiglia di utilizzare due fori per perno di φ8 mm sulla piattaforma di montaggio, insieme a perni, per il posizionamento del robot, al fine di migliorare la precisione di installazione e prevenire lo spostamento del robot a causa di collisioni, ecc. Quando sono richieste elevate precisioni operative per il robot, è imperativo utilizzare perni per il posizionamento del robot.
 
 .. figure:: installation/026.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.4-5 FR5 model collaborative robot installation size
+.. centered:: Figura 3.4-5 Dimensioni di Installazione per Robot Collaborativo Modello FR5
 
-.. important:: 
-  According to different application scenarios, we recommend several robot installation bases as follows
+.. important::
+   Per diversi scenari applicativi, si raccomandano le seguenti basi di installazione per il robot:
 
-  (I)For situations where the motion speed is not too fast, the running speed is not too large, the accuracy requirements are average, and it is not convenient to fix the robot on the ground, the recommended installation base for the robot is as follows.
+   (I) Per scenari con velocità di movimento non troppo elevate, forze operative non eccessive, requisiti di precisione generali e dove non è conveniente fissare a terra, si raccomanda la seguente base di installazione per il robot:
 
-  .. figure:: installation/062.png
-    :align: center
-    :width: 3in
+   .. figure:: installation/062.png
+      :align: center
+      :width: 3in
 
-  .. centered:: Figure 3.4-6 FR5 Model Collaborative Robot High Demand Mounting Base
-  
-  (II)For situations where the motion speed is fast, the running speed is high, and the accuracy requirements are high, it is recommended to install the robot on the following base and fix it on a solid ground.
+   .. centered:: Figura 3.4-6 Base di Installazione a Bassa Richiesta per Robot Collaborativo Modello FR5
 
-  .. figure:: installation/067.png
-    :align: center
-    :width: 3in
-  
-  .. centered:: Figure 3.4-7 FR5 model collaborative robot low requirement mounting base
+   (II) Per scenari con velocità di movimento elevate, forze operative elevate e requisiti di precisione elevati, si raccomanda la seguente base di installazione per il robot, fissando il robot su un pavimento solido:
 
-Installation requirements for FR10&FR16 robot
-++++++++++++++++++++++++++++++++++++++++++++++++
+   .. figure:: installation/067.png
+      :align: center
+      :width: 3in
 
-When installing the robot on the mounting base, use four M8 bolts with a strength of not less than 8.8 to fix the robot on the mounting base. The bolts must be tightened with a torque of not less than 25Nm.Suggest using two on the mounting base φ 8mm pin hole matched with pins for robot positioning to improve robot installation accuracy and prevent robot movement due to collisions and other factors.When the robot has high operating accuracy requirements, please be sure to add pins to position the robot.
+   .. centered:: Figura 3.4-7 Base di Installazione ad Alta Richiesta per Robot Collaborativo Modello FR5
+
+Requisiti di Installazione del Braccio Robotico per Modelli FR10, FR16
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni M8 di grado minimo 8.8 per fissare il robot alla piattaforma. I bulloni devono essere serrati con una coppia non inferiore a 25 Nm. Si consiglia di utilizzare due fori per perno di φ8 mm sulla piattaforma di montaggio, insieme a perni, per il posizionamento del robot, al fine di migliorare la precisione di installazione e prevenire lo spostamento del robot a causa di collisiones, ecc. Quando sono richieste elevate precisioni operative per il robot, è imperativo utilizzare perni per il posizionamento del robot.
 
 .. figure:: installation/027.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.4-8 FR10&FR16 model collaborative robot installation size
+.. centered:: Figura 3.4-8 Dimensioni di Installazione per Robot Collaborativo Modelli FR10, FR16
 
-.. important:: 
-  According to different application scenarios, we recommend several robot installation bases as follows
+.. important::
+   Per diversi scenari applicativi, si raccomandano le seguenti basi di installazione per il robot:
 
-  (I)For situations where the motion speed is not too fast, the running speed is not too large, the accuracy requirements are average, and it is not convenient to fix the robot on the ground, the recommended installation base for the robot is as follows.
+   (I) Per scenari con velocità di movimento non troppo elevate, forze operative non eccessive, requisiti di precisione generali e dove non è conveniente fissare a terra, si raccomanda la seguente base di installazione per il robot:
 
-  .. figure:: installation/065.png
-    :align: center
-    :width: 3in
+   .. figure:: installation/065.png
+      :align: center
+      :width: 3in
 
-  .. centered:: Figure 3.4-9 FR10&FR16 model collaborative robot low requirement mounting base
-  
-  (II)For situations where the motion speed is fast, the running speed is high, and the accuracy requirements are high, it is recommended to install the robot on the following base and fix it on a solid ground.
+   .. centered:: Figura 3.4-9 Base di Installazione a Bassa Richiesta per Robot Collaborativo Modelli FR10, FR16
 
-  .. figure:: installation/067.png
-    :align: center
-    :width: 3in
+   (II) Per scenari con velocità di movimento elevate, forze operative elevate e requisiti di precisione elevati, si raccomanda la seguente base di installazione per il robot, fissando il robot su un pavimento solido:
 
-  .. centered:: Figure 3.4-10 FR10&FR16 Model Collaborative Robot High Demand Mounting Base
+   .. figure:: installation/067.png
+      :align: center
+      :width: 3in
 
-Installation requirements for FR20&FR30&FR30L robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   .. centered:: Figura 3.4-10 Base di Installazione ad Alta Richiesta per Robot Collaborativo Modelli FR10, FR16
 
-When installing the robot on the mounting base, use six M10 bolts with a strength of not less than 8.8 to fix the robot on the mounting base. The bolts must be tightened with a torque of not less than 45Nm.Suggest using two on the mounting base φ 8mm pin hole matched with pins for robot positioning to improve robot installation accuracy and prevent robot movement due to collisions and other factors.When the robot has high operating accuracy requirements, please be sure to add pins to position the robot.
+Requisiti di Installazione del Braccio Robotico per Modelli FR20, FR30, FR30L
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Quando si installa il robot sulla piattaforma di montaggio, utilizzare 6 bulloni M10 di grado minimo 8.8 per fissare il robot alla piattaforma. I bulloni devono essere serrati con una coppia non inferiore a 45 Nm. Si consiglia di utilizzare due fori per perno di φ8 mm sulla piattaforma di montaggio, insieme a perni, per il posizionamento del robot, al fine di migliorare la precisione di installazione e prevenire lo spostamento del robot a causa di collisiones, ecc. Quando sono richieste elevate precisioni operative per il robot, è imperativo utilizzare perni per il posizionamento del robot.
 
 .. figure:: installation/029.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.4-11 FR20&FR30&FR30L model collaborative robot installation size
+.. centered:: Figura 3.4-11 Dimensioni di Installazione per Robot Collaborativo Modelli FR20, FR30, FR30L
 
-.. important:: 
-  Because the FR20 and FR30 robots have a large weight and running inertia, it is recommended to be directly fixed on the ground. The recommended base is as follows.
+.. important::
 
-  .. figure:: installation/066.png
-    :align: center
-    :width: 4in
+   Poiché i robot FR20 e FR30 hanno un peso proprio elevato e inerzie operative elevate, si consiglia di fissarli direttamente al pavimento. Si raccomanda la seguente base:
 
-  .. centered:: Figure 3.4-12 FR20&FR30 model collaborative robot low requirement mounting base
+   .. figure:: installation/066.png
+      :align: center
+      :width: 3in
 
-Tool end installation
-~~~~~~~~~~~~~~~~~~~~~~~
+   .. centered:: Figura 3.4-12 Base di Installazione per Robot Collaborativo Modelli FR20, FR30
 
-There are four M6 thread holes in the robot tool, which can be used to connect the tool to the robot. The M6 bolt must be tightened with 8nm torque, and its strength level is not less than 8.8. In order to accurately regain the tools, please use the nails in the reserved ø6 sales holes.
+Installazione dell'Utensile Terminale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La flangia dell'utensile del robot ha quattro fori filettati M6 che possono essere utilizzati per collegare l'utensile al robot. I bulloni M6 devono essere serrati con una coppia di 8 Nm e il loro grado di resistenza deve essere almeno 8.8. Per riposizionare accuratamente l'utensile, utilizzare perni nei fori per perno Ø6 riservati.
 
 .. figure:: installation/030.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.4-13 FR3/FR3-WMS/FR3-WML/FR3-C/FR5/FR10/FR16 model robot end flange drawing
+.. centered:: Figura 3.4-13 Disegno della Flangia Terminale per Robot Modelli FR3/FR3-WMS/FR3-WML/FR3-C/FR5/FR10/FR16
 
 .. figure:: installation/031.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.4-14 FR20/FR30/FR30L model robot end flange drawing
+.. centered:: Figura 3.4-14 Disegno della Flangia Terminale per Robot Modelli FR20/FR30/FR30L
 
-.. important:: 
-	- Make sure the tools are installed correctly and safely.
-	- Ensure the safety architecture of the tools, and no parts of parts fall into danger.
-	- Installing M6 bolts with a length of more than 8mm on the robot flange may destroy tool flanges and cause damage that cannot be repaired, causing a tool to change tools.
+.. important::
+   - Assicurarsi che l'utensile sia installato correttamente e in sicurezza.
+   - Assicurarsi della struttura di sicurezza dell'utensile, che non vi siano parti che potrebbero cadere accidentalmente creando pericoli.
+   - L'installazione di bulloni M6 più lunghi di 8 mm sulla flangia dell'utensile del robot potrebbe danneggiare la flangia dell'utensile e causare danni irreparabili, portando alla necessità di sostituire la flangia dell'utensile.
 
-Installation environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ambiente di Installazione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When installing and using a collaborative robot, make sure to meet the following requirements:
+Durante l'installazione e l'uso del robot collaborativo, assicurarsi di soddisfare i seguenti requisiti:
 
--  Environmental temperature 0-45 ℃
+- Temperatura ambiente: 0-45°C
+- Umidità: 20-80% RH, senza condensa
+- Nessun impatto meccanico e vibrazioni
+- Requisito di altitudine: sotto i 2000 m
+- Nessun gas corrosivo, liquidi, gas esplosivi, sporco di olio, nebbia salina, polvere o polvere metallica, materiali radioattivi, rumore elettromagnetico, materiali infiammabili
+- Evitare che l'apparecchiatura operi in condizioni di corrente instabile
+- L'utente deve aggiungere un interruttore automatico prima dell'alimentazione del robot e si consiglia di aggiungere un filtro EMC
 
--  Humidity 20-80RH is not exposed
+.. note::
+   Se è necessario sollevare o installare il robot collaborativo su una superficie verticale, contattarci.
 
--  No mechanical impact and shock
+Capacità di Carico del Pavimento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Altitude requires less than 2000M
+Installare il robot su una superficie solida che sia sufficiente a supportare almeno 5 volte il peso del braccio del robot, e che tale superficie non sia soggetta a vibrazioni.
 
--  No corrosive gases, no liquid, no explosive gases, no oil pollution, no salt fog, no dust or metal powder, no radioactive material, no electromagnetic noise, non-flammable items
+Curve di Carico per Tutti i Modelli
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Avoid the device from working under the unstable conditions of the current
+Panoramica
++++++++++++++
 
--  Users need to add an air switch before the robot power supply, and it is recommended to add an EMC filter
+Le curve di carico descritte in questa sezione si basano su test condotti su ciascun modello lungo traiettorie specifiche. Le curve di carico per ciascun modello presentano due parti: "Prestazione Completa" e "Capacità di Carico Estesa". Nello specifico:
 
-.. note:: 
-	If you want to hang or install the collaborative robot, please contact us.
+(1) L'ambiente operativo per "Prestazione Completa" è: coefficiente di compensazione dell'attrito per ciascun giunto pari a 1; livello di collisione per ciascun giunto pari a 10; velocità operativa impostata al 100% nell'interfaccia web e accelerazione di 360°/s²; Dinamica 2.0. In questo ambiente, la parte "Prestazione Completa" della curva di carico si adatta alla maggior parte delle traiettorie operative.
+(2) Se il carico utile terminale si trova nella zona "Capacità di Carico Estesa", è necessario attivare la "Modalità Ottimizzata per il Tempo" e rispettare le limitazioni di accelerazione, oppure ridurre l'area di lavoro del robot.
 
-Floor carrier capacity
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Descrizione dei Parametri
++++++++++++++++++++++++++++++++++
 
-Installing the robot on a strong surface, the surface should be sufficient to withstand the weight of the robotic arm at least 5 times, and the surface cannot be vibrated.
+Il carico utile nominale del robot dipende dall'offset del centro di gravità del carico utile, dove l'offset del centro di gravità è definito come la distanza tra il centro della flangia terminale e il centro di gravità del carico utile aggiuntivo.
 
-Load curves for all FR series models
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Curva di Carico per Robot Collaborativo Modello FR3
+*******************************************************************
 
-Overview
-+++++++++++++++
+Il carico utile massimo trasportabile per il robot collaborativo modello FR3 è di 5 kg, con un carico utile nominale di 3 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-The load curves in this section are based on the tests of each model under specific trajectories. The load curves of each model have two parts: "full performance" and "extended load capacity", as follows:
+(1) FR3 può trasportare carichi fino a 3 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 3 kg e 5 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-(1) The operating environment of "full performance" is: the friction compensation coefficient of each joint is 1; the collision level of each joint is 10; the web interface is set to 100% operating speed and 360deg/s2 acceleration; dynamics 2.0. In this environment, the "full performance" part of the load curve is suitable for most operating trajectories.
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 360°/s²;
 
-(2) If the end load is in the "extended load capacity", the "time optimal mode" must be turned on and the acceleration limit must be met, or the robot's working range must be reduced.
-
-Parameter Description
-++++++++++++++++++++++++
-
-The rated payload of the robot depends on the center of gravity offset of the payload, where the center of gravity offset is defined as the distance between the center of the end flange and the center of gravity of the attached payload.
-
-FR3 Model Collaborative Robot Load Curve
-***********************************************
-
-The maximum load that the FR3 collaborative robot can carry is 5kg, and the rated load is 3kg. The load curve is shown in Figure 1. The specific interpretation of the load curve is as follows:
-
-(1) FR3 can carry a load of 3kg or less at full performance, see the "blue envelope";
-
-(2) When the load is 3kg to 5kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
-
-  ① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 360deg/s\ :sup:`2`;
-
-  ② Reduce the robot's working range or reduce the operating speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/032.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-15 FR3 Model Collaborative Robot Load Curve
+.. centered:: Figura 3.4-15 Curva di Carico per Robot Collaborativo Modello FR3
 
-FR3-WMS Model Collaborative Robot Load Curve
-***********************************************
+Curva di Carico per Robot Collaborativo Modello FR3-WMS
+*************************************************************************************
 
-The maximum load that the FR3-WMS collaborative robot can carry is 5kg, and the rated load is 3kg. The load curve is shown in Figure 1. The specific interpretation of the load curve is as follows:
+Il carico utile massimo trasportabile per il robot collaborativo modello FR3-WMS è di 5 kg, con un carico utile nominale di 3 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-(1) FR3-WMS can carry a load of 3kg or less at full performance, see the "blue envelope";
+(1) FR3-WMS può trasportare carichi fino a 3 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 3 kg e 5 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-(2) When the load is 3kg to 5kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 360°/s²;
 
-  ① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 360deg/s\ :sup:`2`;
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
-  ② Reduce the robot's working range or reduce the operating speed.
+.. figure:: installation/109.png
+   :align: center
+   :width: 5in
 
-.. figure:: installation/032.png
-	:align: center
-	:width: 5in
+.. centered:: Figura 3.4-16 Curva di Carico per Robot Collaborativo Modello FR3-WMS
 
-.. centered:: Figure 3.4-16 FR3-WMS Model Collaborative Robot Load Curve
+Curva di Carico per Robot Collaborativo Modello FR3-WML
+*************************************************************************************
 
-FR3-WML Model Collaborative Robot Load Curve
-***********************************************
+Il carico utile massimo trasportabile per il robot collaborativo modello FR3-WML è di 4 kg, con un carico utile nominale di 3 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-The maximum load that the FR3-WML collaborative robot can carry is 4kg, and the rated load is 3kg. The load curve is shown in Figure 1. The specific interpretation of the load curve is as follows:
+(1) FR3-WML può trasportare carichi fino a 3 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 3 kg e 4 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-(1) FR3-WML can carry a load of 3kg or less at full performance, see the "blue envelope";
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 360°/s²;
 
-(2) When the load is 3kg to 4kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
-
-  ① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 360deg/s\ :sup:`2`;
-
-  ② Reduce the robot's working range or reduce the operating speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/110.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-17 FR3-WML Model Collaborative Robot Load Curve
+.. centered:: Figura 3.4-17 Curva di Carico per Robot Collaborativo Modello FR3-WML
 
-FR3-C Model Collaborative Robot Load Curve
-***********************************************
+Curva di Carico per Robot Collaborativo Modello FR3-C
+*************************************************************************************
 
-The maximum load that the FR3-C collaborative robot can carry is 5kg, and the rated load is 3kg. The load curve is shown in Figure 1. The specific interpretation of the load curve is as follows:
+Il carico utile massimo trasportabile per il robot collaborativo modello FR3-C è di 5 kg, con un carico utile nominale di 3 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-(1) FR3-C can carry a load of 3kg or less at full performance, see the "blue envelope";
+(1) FR3-C può trasportare carichi fino a 3 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 3 kg e 5 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-(2) When the load is 3kg to 5kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 360°/s²;
 
-  ① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 360deg/s\ :sup:`2`;
-
-  ② Reduce the robot's working range or reduce the operating speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/111.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-18 FR3-C Model Collaborative Robot Load Curve
+.. centered:: Figura 3.4-18 Curva di Carico per Robot Collaborativo Modello FR3-C
 
-FR5 Model Collaborative Robot Load Curve
-*******************************************
+Curva di Carico per Robot Collaborativo Modello FR5
+*******************************************************************
 
-The maximum load that the FR5 collaborative robot can carry is 7kg, and the rated load is 5kg. The load curve is shown in the figure. The specific interpretation of the load curve is as follows:
+Il carico utile massimo trasportabile per il robot collaborativo modello FR5 è di 7 kg, con un carico utile nominale di 5 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-(1) FR5 can carry a load of 5kg or less at full performance, see the "blue envelope";
-(2) When the load is 5kg to 7kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
+(1) FR5 può trasportare carichi fino a 5 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 5 kg e 7 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 360deg/s\ :sup:`2`;
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 360°/s²;
 
-② Reduce the robot's working range or reduce the running speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/033.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-19 FR5 Model Collaborative Robot Load Curve
+.. centered:: Figura 3.4-19 Curva di Carico per Robot Collaborativo Modello FR5
 
-FR10 Model Collaborative Robot Load Curve
-*******************************************
+Curva di Carico per Robot Collaborativo Modello FR10
+*******************************************************************
 
-The maximum load that the FR10 collaborative robot can carry is 14kg, and the rated load is 10kg. The load curve is shown in Figure 3. The specific interpretation of the load curve is as follows:
+Il carico utile massimo trasportabile per il robot collaborativo modello FR10 è di 14 kg, con un carico utile nominale di 10 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-(1) FR10 can carry a load of 10kg or less at full performance, see the "blue envelope";
+(1) FR10 può trasportare carichi fino a 10 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 10 kg e 14 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-(2) When the load is 10kg to 14kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 180°/s²;
 
-  ① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 180deg/s\ :sup:`2`;
-
-  ② Reduce the robot's working range or reduce the operating speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/034.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-20 FR10 Model Collaborative Robot Load Curve
-  
-FR16 Model Collaborative Robot Load Curve
-**********************************************
+.. centered:: Figura 3.4-20 Curva di Carico per Robot Collaborativo Modello FR10
 
-The maximum load that the FR16 collaborative robot can carry is 20kg, and the rated load is 16kg. The load curve is shown in the figure. The specific interpretation of the load curve is as follows:
+Curva di Carico per Robot Collaborativo Modello FR16
+*******************************************************************
 
-(1) FR16 can carry a load of 16kg or less at full performance, see the "blue envelope";
+Il carico utile massimo trasportabile per il robot collaborativo modello FR16 è di 20 kg, con un carico utile nominale di 16 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-(2) When the load is 16kg to 20kg, it is the extended load capacity, see the "red envelope", and the robot can operate in the following states:
+(1) FR16 può trasportare carichi fino a 16 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 16 kg e 20 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-① Turn on the "time optimal mode", and it is recommended to set the acceleration to less than 180deg/s\ :sup:`2`;
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 180°/s²;
 
-② Reduce the robot's working range or reduce the operating speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/035.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-21 FR16 Model Collaborative Robot Load Curve
+.. centered:: Figura 3.4-21 Curva di Carico per Robot Collaborativo Modello FR16
 
-FR20 Model Collaborative Robot Load Curve
-*************************************************
+Curva di Carico per Robot Collaborativo Modello FR20
+*******************************************************************
 
-The maximum load that the FR20 collaborative robot can carry is 25kg, and the rated load is 20kg. The load curve is shown in the figure. The specific interpretation of the load curve is as follows:
+Il carico utile massimo trasportabile per il robot collaborativo modello FR20 è di 25 kg, con un carico utile nominale di 20 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-(1) FR20 can carry a load of 20kg or less at full performance, see the "blue envelope";
+(1) FR20 può trasportare carichi fino a 20 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 20 kg e 25 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-(2) When the load is 20kg to 25kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 150°/s²;
 
-  ① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 150deg/s\ :sup:`2`;
-
-  ② Reduce the robot's working range or reduce the operating speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/036.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-22 FR20 Model Collaborative Robot Load Curve
+.. centered:: Figura 3.4-22 Curva di Carico per Robot Collaborativo Modello FR20
 
-FR30 Model Collaborative Robot Load Curve
-*************************************************
+Curva di Carico per Robot Collaborativo Modello FR30
+*****************************************************************
 
-The maximum load that the FR30 collaborative robot can carry is 35kg, and the rated load is 30kg. The load curve is shown in the figure.
+Il carico utile massimo trasportabile per il robot collaborativo modello FR30 è di 35 kg, con un carico utile nominale di 30 kg. La curva di carico è mostrata in figura. L'interpretazione specifica della curva di carico è la seguente:
 
-(1) FR30 can carry a load of 30kg or less at full performance, see the "blue envelope";
+(1) FR30 può trasportare carichi fino a 30 kg sotto prestazioni complete, vedi "inviluppo blu".
+(2) Quando il carico è compreso tra 30 kg e 35 kg, si tratta di capacità di carico estesa, vedi "inviluppo rosso". In questo caso, il robot può operare nelle seguenti condizioni:
 
-(2) When the load is 30kg to 35kg, it is the extended load capacity, see the "red envelope", at this time the robot can operate in the following states:
+  ① Attivare la "Modalità Ottimizzata per il Tempo", si consiglia di impostare l'accelerazione sotto 150°/s²;
 
-① Turn on the "time optimal mode", it is recommended to set the acceleration to less than 150deg/s\ :sup:`2`;
-
-② Reduce the robot's working range or reduce the operating speed.
+  ② Ridurre l'area di lavoro del robot o diminuire la velocità operativa.
 
 .. figure:: installation/069.png
-	:align: center
-	:width: 5in
+   :align: center
+   :width: 5in
 
-.. centered:: Figure 3.4-23 FR30 Model Collaborative Robot Load Curve
+.. centered:: Figura 3.4-23 Curva di Carico per Robot Collaborativo Modello FR30
 
-Control connection
-------------------------
+Connessioni di Controllo
+----------------------------------
 
-Controller interface
-~~~~~~~~~~~~~~~~~~~~~~~~
+Interfacce del Controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This series of robots can be equipped with three control boxes with different power inputs. For details on the control box power input, refer to the control box nameplate information. The robot needs to be electrically grounded.
+Questa serie di robot può essere configurata con tre diversi tipi di unità di controllo con alimentazione in ingresso diversa. Le informazioni sull'alimentazione in ingresso dell'unità di controllo sono riportate sulla targhetta dell'unità di controllo. Il robot richiede una messa a terra elettrica.
 
 .. list-table::
    :widths: 20 40 40
    :header-rows: 0
    :align: center
 
-   * - 
-     - **Maximum Input (for customers to configure the front-stage power supply)**
-     - **Maximum output Output (maximum output peak)**
+   * -
+     - **Ingresso Massimo Input (per la configurazione della potenza dell'alimentazione primaria da parte del cliente)**
+     - **Uscita Massima Output (picco massimo di uscita)**
 
-   * - **DC 2kW**
-     - 30-60VDC/30A
-     - 2000W/48VDC/41A
+   * - **CC 2kW**
+     - 30-60 V CC / 30 A
+     - 2000 W / 48 V CC / 41 A
 
-   * - **DC 5kW**
-     - 30-60VDC/40A
-     - 5000W/48VDC/104A
+   * - **CC 5kW**
+     - 30-60 V CC / 40 A
+     - 5000 W / 48 V CC / 104 A
 
-   * - **AC narrow voltage 2kW**
-     - 176-264VDC/10A/Single Machine/50Hz
-     - 2000W/48VDC/41A
+   * - **CA Tensione Stretta 2kW**
+     - 176-264 V CA / 10 A / monofase / 50 Hz
+     - 2000 W / 48 V CC / 41 A
 
-   * - **AC wide voltage 2kW**
-     - 100-240VDC/10A/Single Machine/50-60Hz
-     - 2000W/48VDC/41A
+   * - **CA Tensione Ampia 2kW**
+     - 100-240 V CA / 10 A / monofase / 50-60 Hz
+     - 2000 W / 48 V CC / 41 A
 
-   * - **AC wide voltage 5kW**
-     - 100-240VDC/16A/Single Machine/50-60Hz
-     - 5000W/48VDC/104A
-  
-.. warning:: 
-	Before wiring, please ensure that the power supply is turned off and hang a safety warning sign next to it.
+   * - **CA Tensione Ampia 5kW**
+     - 100-240 V CA / 16 A / monofase / 50-60 Hz
+     - 5000 W / 48 V CC / 104 A
 
-The external wiring of this series of robotic arm control systems is connected using pluggable and quickly installable plugs. The wiring panel of the collaborative robot is shown in Figure 3.5-1.
+.. warning::
+   Prima di effettuare qualsiasi connessione elettrica, assicurarsi che l'alimentazione sia spenta e appendere un cartello di avvertimento di sicurezza nelle vicinanze.
 
--  Make sure the power button on the control box is off (the button is turned to 0) and connect the power cord to the power socket.
+Tutte le connessioni esterne del sistema di controllo del robot in questa serie utilizzano connettori estraibili per un'installazione rapida. Il pannello di connessione del robot collaborativo è mostrato nella figura seguente.
 
--  Connect the robot body overload cable to the control box overload interface.
-
--  Insert the button box aviation plug into the control box teaching device interface.
-
--  The heat dissipation ports on both sides of the control box should be spaced at least 15CM apart.
-
--  At the front of the control box (user Table metal, switch power button, heavy load and teaching pendant wiring harness), the spacing distance should not be less than 25CM.
-
--  The control box is 0.6-1.5m above the ground.
-
--  Do not allow users to replace power cables on their own.
+- Assicurarsi che il pulsante di alimentazione dell'unità di controllo sia spento (pulsante in posizione 0) quando si collega il cavo di alimentazione alla presa di alimentazione.
+- Collegare il cavo pesante del corpo del robot all'interfaccia pesante dell'unità di controllo.
+- Inserire il connettore aereo della scatola pulsanti nell'interfaccia del teach pendant dell'unità di controllo.
+- Mantenere una distanza di almeno 15 cm dalle prese di ventilazione sui lati dell'unità di controllo.
+- Mantenere una distanza di almeno 25 cm dalla parte anteriore dell'unità di controllo (dove si trovano la lamiera utente, l'interruttore di alimentazione, il cavo pesante e il fascio cavi del teach pendant).
+- Posizionare l'unità di controllo a un'altezza compresa tra 0,6 e 1,5 m dal suolo.
+- Non è consentito all'utente sostituire autonomamente i cavi di alimentazione.
 
 .. figure:: installation/037.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-1 Robot wiring schematic diagram
+.. centered:: Figura 3.5-1 Schema di Connessione del Robot
 
-Controller I/O panel
+Pannello I/O del Controller
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can use the I/O in the control box to control various devices, including the stop button of pneumatic relay, PLC, and tight limit device. Figure 3.5-2 shows the electrical interface group of the control box. Figure 3.5-3 shows the electrical interface group that is easy to manufacture control box.
+È possibile utilizzare gli I/O all'interno dell'unità di controllo per gestire vari dispositivi, inclusi relè pneumatici, PLC e pulsanti di arresto di emergenza. La Figura 3.5-2 mostra il gruppo di interfacce elettriche dell'unità di controllo standard, la Figura 3.5-3 mostra il gruppo di interfacce elettriche dell'unità di controllo "Easy Manufacturing".
 
 .. figure:: installation/038.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-2 Control box electrical interface schematic diagram
+.. centered:: Figura 3.5-2 Schema delle Interfacce Elettriche dell'Unità di Controllo
 
 .. figure:: installation/039.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-3 Easy to manufacture control box electrical interface schematic diagram
+.. centered:: Figura 3.5-3 Schema delle Interfacce Elettriche dell'Unità di Controllo Easy Manufacturing
 
-RJ45 network interface group
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Gruppo Interfacce di Rete RJ45
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The network interface group address in the control box is shown in figure below. Note that the graph corresponds to the sequence of the address order of the internal network port of the control box, and the default port of the robot is prohibited from insertion. The user's network port can be used to communicate with the camera and other devices. The IP address is 192.168.57.2. The button box interface is default to the faculty control port, and the IP address is 192.168.58.2. Use the network cable connection button box interface and computer. The computer IP address is set to 192.168.58.10 or the same network segment as it. You can access the teaching pendant page. Easy to manufacture control boxes to access the pages of the oscillator through the network port of the connection button box.
+Gli indirizzi del gruppo di interfacce di rete all'interno dell'unità di controllo sono mostrati nella figura seguente. Notare che questa immagine corrisponde all'ordine degli indirizzi delle porte di rete all'interno dell'unità di controllo. Le porte predefinite del robot non devono essere scollegate. La porta utente può essere utilizzata per comunicare con dispositivi come telecamere, indirizzo IP: 192.168.57.2. L'interfaccia della scatola pulsanti è per impostazione predefinita la porta di controllo del teach pendant, indirizzo IP: 192.168.58.2. Collegando un cavo Ethernet tra l'interfaccia della scatola pulsanti e un computer, impostando l'indirizzo IP del computer su 192.168.58.10 o su un altro indirizzo nella stessa sottorete, aprire il browser Google Chrome e digitare 192.168.58.2 per accedere alla pagina del teach pendant. L'unità di controllo Easy Manufacturing accede alla pagina del teach pendant tramite la porta di rete collegata alla scatola pulsanti.
 
 .. figure:: installation/040.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-4 Significant diagram of network interface group
+.. centered:: Figura 3.5-4 Schema del Gruppo Interfacce di Rete
 
-End plate
-~~~~~~~~~~~~~
+Scheda Terminale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can use the end -panel's I/O and 485 communication interfaces to control various devices, including pneumatic relay, PLC and emergency stop buttons. The PIN foot distribution and its PIN foot explanation is shown in figure below. The I/O connector model is M12 connector 8 cores.
+È possibile utilizzare gli I/O e l'interfaccia di comunicazione 485 della scheda terminale per controllare vari dispositivi, inclusi relè pneumatici, PLC e pulsanti di arresto di emergenza. La distribuzione dei pin e la loro descrizione sono mostrate nella figura seguente. Il connettore I/O è un connettore M12 femmina a 8 poli.
 
-.. note:: End board I/O and 485 interfaces are prohibited from hot plugging.
+.. note:: Le interfacce I/O e 485 della scheda terminale non devono mai essere collegate/disconnessee a caldo (hot-plug).
 
 .. figure:: installation/041.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-5 The schematic diagram of the end version of the electrical interface
+.. centered:: Figura 3.5-5 Schema delle Interfacce Elettriche della Scheda Terminale
 
-Ground
-~~~~~~~~~~~~~~
+Spiegazione della Messa a Terra
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. The control box is located at the M4 combination screw in the upper left of the power switch, as shown in figure below.
+1. Il punto di messa a terra dell'unità di controllo si trova in alto a sinistra dell'interruttore di alimentazione, in corrispondenza della vite composita M4, come mostrato nella figura seguente.
 
 .. figure:: installation/042.png
-	:align: center
-	:width: 8in
+   :align: center
+   :width: 8in
 
-.. centered:: Figure 3.5-6 Demonstration diagram of the control box
+.. centered:: Figura 3.5-6 Schema della Messa a Terra dell'Unità di Controllo
 
-1. The body is located on the right side of the base of the base, as shown in figure below.
+2. Il punto di messa a terra del corpo si trova sulla destra della posizione di uscita del cavo della base, come mostrato nella figura seguente.
 
 .. figure:: installation/043.png
-	:align: center
-	:width: 4in
+   :align: center
+   :width: 4in
 
-.. centered:: Figure 3.5-7 Dragon schematic diagram of the body
+.. centered:: Figura 3.5-7 Schema della Messa a Terra del Corpo
 
-The protective wire used alone, the cross -sectional area should not be less than:
+I conduttori di protezione utilizzati singolarmente devono avere una sezione non inferiore a:
 
-- 2.5mm\ :sup:`2` copper or 16mm\ :sup:`2` aluminum，if mechanical injury protection is provided (wire pipe, pipeline, etc.)
-- 4mm\ :sup:`2` copper or 16mm\ :sup:`2` aluminum，if no mechanical damage protection is provided
+- 2,5 mm² di rame o 16 mm² di alluminio, se è fornita protezione contro danni meccanici (condotto, tubazione, ecc.)
+- 4 mm² di rame o 16 mm² di alluminio, se non è fornita protezione contro danni meccanici
 
-The common specifications of all digital I/O
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Specifiche Generali per Tutti gli I/O Digitali
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section stipulates the electrical specifications of the following control box 24 volt digital input/output:
+Questa sezione specifica le specifiche elettriche per i seguenti ingressi/uscite digitali a 24 volt dell'unità di controllo:
 
--  Safety I/O
+- I/O di sicurezza
+- I/O digitali generali
 
--  Universal digital amount I/O
+Il robot deve essere installato secondo le specifiche elettriche.
 
-Robots must be installed in accordance with electrical specifications.
-
-By configured the "Power Communication" interface, you can use the internal or external 24V power supply to power the digital I/O. The above two terminals (EX24V and EXON) in the interface are 24V and ground with external power supply, and the two terminals (24V and GND) below are 24V and land of internal power supply. The default configuration uses internal power, as shown in figure below.
+Configurando l'interfaccia "Alimentazione Comunicazione", è possibile utilizzare l'alimentazione interna o esterna a 24 V per alimentare gli I/O digitali. In questa interfaccia, i due terminali superiori (ex24V e exon) sono rispettivamente il 24V e la massa dell'alimentazione esterna, mentre i due terminali inferiori (24V e GND) sono il 24V e la massa dell'alimentazione interna. La configurazione predefinita utilizza l'alimentazione interna, come mostrato nella figura seguente.
 
 .. figure:: installation/044.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-8 Power communication schematic diagram 01
+.. centered:: Figura 3.5-8 Schema Alimentazione Comunicazione 01
 
-If the load power is large, you can connect the external power supply as shown in figure below.
+Se la potenza del carico è elevata, è possibile collegare un'alimentazione esterna come mostrato nella figura seguente.
 
 .. figure:: installation/045.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-9 Power communication schematic diagram 02
+.. centered:: Figura 3.5-9 Schema Alimentazione Comunicazione 02
 
-The electrical specifications of internal and external power are shown in table below Internal and external electrical specifications:
+Le specifiche elettriche per l'alimentazione interna ed esterna sono riportate nella tabella seguente:
 
-.. centered:: Table 2.5‑1 Internal and external power supply electrical specifications
+.. centered:: Tabella 3.5-1 Specifiche Elettriche Alimentazione Interna/Esterna
 .. list-table::
-   :widths: 50 20 6 4 6 4
+   :widths: 30 20 10 10 10 10
    :header-rows: 0
    :align: center
 
-   * - **Terminal**
-     - **Parameter**
-     - **Mininum**
-     - **Typical**
-     - **Maximum**
-     - **Unit**
+   * - **Terminale**
+     - **Parametro**
+     - **Minimo**
+     - **Tipico**
+     - **Massimo**
+     - **Unità**
 
-   * - | Internal 24V power supply
+   * - | Alimentazione 24V interna
        | [ex24V -exGND]
        | [ex24V -exGND]
-     - | 
-       | Voltage
-       | Current
-     - | 
+     - |
+       | Tensione
+       | Corrente
+     - |
        | 23
        | 0
-     - | 
+     - |
        | 24
        | -
-     - | 
+     - |
        | 25
        | 2
-     - | 
+     - |
        | V
        | A
 
-   * - | Internal 24V power supply
+   * - | Alimentazione 24V interna
        | [24V- GND]
        | [24V- GND]
-     - | 
-       | Voltage
-       | Current
-     - | 
+     - |
+       | Tensione
+       | Corrente
+     - |
        | 23
        | 0
-     - | 
+     - |
        | 24
        | -
-     - | 
+     - |
        | 25
        | 1.5
-     - | 
+     - |
        | V
        | A
 
-The electrical specifications of digital I/O are shown in table below Digital I/O Electric Specifications:
+Le specifiche elettriche per gli I/O digitali sono riportate nella tabella seguente:
 
-.. centered:: Table 2.5‑2 Digital I/O Electric Specification
+.. centered:: Tabella 3.5‑2 Specifiche Elettriche I/O Digitali
 .. list-table::
-   :widths: 30 40 6 4 6 4
+   :widths: 30 20 10 10 10 10
    :header-rows: 0
    :align: center
 
-   * - **Terminal**
-     - **Parameter**
-     - **Mininum**
-     - **Typical**
-     - **Maximum**
-     - **Unit**
+   * - **Terminale**
+     - **Parametro**
+     - **Minimo**
+     - **Tipico**
+     - **Massimo**
+     - **Unità**
 
-   * - | Digital output
+   * - | Uscita digitale
        | [COx/DOx]
        | [COx/DOx]
        | [COx/DOx]
-     - | 
-       | Current
-       | Pressure drop
-       | Leakage current
-     - | 
+     - |
+       | Corrente
+       | Caduta di tensione
+       | Corrente di dispersione
+     - |
        | 0
        | 0
        | 0
-     - | 
+     - |
        | -
        | -
        | -
-     - | 
+     - |
        | 1
        | 0.5
        | 0.1
-     - | 
+     - |
        | A
        | V
        | mA
 
    * - [COx/DOx]
-     - function
+     - Funzione
      - | -
      - NPN
      - | -
-     - Type
+     - Tipo
 
-   * - | Digital output
+   * - | Ingresso digitale
        | [EIx/SIx/CIx/DIx]
        | [EIx/SIx/CIx/DIx]
        | [EIx/SIx/CIx/DIx]
-     - | 
+     - |
        | OFF
        | ON
-       | Current(11~30)
-     - | 
+       | Corrente (11~30A)
+     - |
        | -3
        | 11
        | 2
-     - | 
+     - |
        | -
        | -
        | -
-     - | 
+     - |
        | 5
        | 30
        | 15
-     - | 
+     - |
        | V
        | V
        | mA
 
    * - [EIx/SIx/CIx/DIx]
-     - function
+     - Funzione
      - | -
      - NPN
      - | -
-     - Type
+     - Tipo
 
-Safety I/O
-~~~~~~~~~~~~~~~
+I/O di Sicurezza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section describes the electrical specifications of security I/O, and must abide by the general electrical specifications in Section 3.5.6.
+Questa sezione descrive le specifiche elettriche per gli I/O di sicurezza. Devono essere rispettate le specifiche elettriche generali della Sezione 3.5.6.
 
-Safety devices and equipment must be installed in accordance with the safety description and risk assessment, see section 3.1. All security I/O is paired (redundant) and must be stored as two independent branches. Single failures should not cause loss of security function.
+I dispositivi e le apparecchiature di sicurezza devono essere installati secondo le istruzioni di sicurezza e la valutazione del rischio, vedere Sezione 3.1. Tutti gli I/O di sicurezza sono accoppiati (ridondanti) e devono essere mantenuti come due rami indipendenti. Un singolo guasto non dovrebbe portare alla perdita della funzione di sicurezza.
 
-Safety I/O includes emergency stop and security stop. Urgent stop input is only used for emergency stop equipment, and safely stops input for various security -related protection equipment. Functional differences are shown in table below:
+Gli I/O di sicurezza includono l'arresto di emergenza e l'arresto di sicurezza. L'ingresso di arresto di emergenza è destinato esclusivamente ai dispositivi di arresto di emergenza, mentre l'ingresso di arresto di sicurezza è destinato a vari dispositivi di protezione correlati alla sicurezza. Le differenze funzionali sono riportate nella tabella seguente:
 
-.. centered:: Table 2.5-3 Functional difference
+.. centered:: Tabella 3.5-3 Differenze Funzionali
 .. list-table::
-   :widths: 100 60 60
+   :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - 
-     - **Emergency stop**
-     - **Safe stop**
+   * -
+     - **Arresto di Emergenza**
+     - **Arresto di Sicurezza**
 
-   * - **Robot stops moving**
-     - Yes
-     - Yes
+   * - **Il robot smette di muoversi**
+     - Sì
+     - Sì
 
-   * - **Stop Category**
-     - Category 0
-     - Category 1
+   * - **Categoria di arresto**
+     - Categoria 0
+     - Categoria 1
 
-   * - **Program execution**
-     - Stop
-     - Pause
+   * - **Esecuzione programma P**
+     - Arresta
+     - Pausa
 
-   * - **Robot power supply**
-     - Close
-     - Open
+   * - **Alimentazione del robot**
+     - Disattiva
+     - Attiva
 
-   * - **Restart**
-     - Manual
-     - Automatic or manual
+   * - **Riavvio**
+     - Manuale
+     - Automatico o manuale
 
-   * - **Frequency of use**
-     - Infrequent
-     - Often
+   * - **Frequenza d'uso**
+     - Non frequente
+     - Frequente
 
-   * - **Reinitialization required**
-     - Need
-     - Needless
+   * - **Richiede reinizializzazione**
+     - Richiesto
+     - Non richiesto
 
+.. warning::
+   - Non collegare mai segnali di sicurezza a PLC che non hanno il corretto livello di sicurezza. Il mancato rispetto di questo avvertimento potrebbe portare a lesioni gravi o morte poiché una delle funzioni di arresto di sicurezza potrebbe essere bypassata. I segnali dell'interfaccia di sicurezza devono essere separati dai segnali dell'interfaccia I/O normale.
+   - Tutti gli I/O correlati alla sicurezza sono costruiti in modo ridondante (due canali indipendenti). I due canali devono essere mantenuti separati in modo che un singolo guasto non porti alla perdita della funzione di sicurezza.
+   - Prima di mettere in funzione il robot, è necessario verificare la funzione di sicurezza dell'arresto di emergenza (alimentare il robot e abilitarlo, premere il pulsante di arresto di emergenza, il robot si spegne e si ferma, spegnere l'alimentazione, ruotare il pulsante di arresto di emergenza per ripristinarlo, accendere l'alimentazione, il robot si riattiva e si abilita). Le funzioni di sicurezza devono essere testate periodicamente.
+   - L'installazione del robot deve conformarsi a queste specifiche. In caso contrario, potrebbe causare lesioni gravi o morte poiché la funzione di arresto di sicurezza potrebbe essere bypassata.
 
-.. warning:: 
-	- Do not connect the security signal to a PLC that does not have the correct and safe level. If this warning does not follow, it may cause serious damage or death because one of the security stop function may be covered. Security interface signals must be separated from normal I/O interface signals.
-	- All I/O is a redundant -related I/O built (two independent channels). Two channels must be kept separately so that a single failure will not cause security function.
-	- Before the robot is put into operation, it is necessary to verify the emergency stop safety function (the robot is powered on, press the emergency stop button, the robot is disconnected, the power is turned off, the rotating emergency stop button, the power is turned on, and the robot is re -power to enable it). Safety functions must be tested regularly.
-	- Robot installation should comply with these specifications. Otherwise, it may lead to severe damage or death, because the safety stop function may be over.
+Le sottosezioni seguenti forniscono alcuni esempi di come utilizzare gli I/O di sicurezza.
 
-The following sections are given some examples of how to use security I/O.
-
-**Default safety configuration**
-When the robot leaves the factory, it has the default configuration. It can be operated without any additional safety devices. Please refer to figure below.
+**Configurazione di Sicurezza Predefinita**
+Il robot viene fornito con una configurazione predefinita che consente l'operazione senza alcun dispositivo di sicurezza aggiuntivo, vedere la figura seguente:
 
 .. figure:: installation/049.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-10 Safety protection schematic diagram 01
+.. centered:: Figura 3.5-10 Schema di Protezione di Sicurezza 01
 
-**Connect the emergency stop button**
-In most applications, one or more additional emergency stop buttons need to be used. Please refer to figure below.
+**Collegamento di un Pulsante di Arresto di Emergenza**
+Nella maggior parte delle applicazioni, è necessario utilizzare uno o più pulsanti di arresto di emergenza aggiuntivi, vedere la figura seguente:
 
 .. figure:: installation/050.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-11 Safety protection schematic diagram 02
+.. centered:: Figura 3.5-11 Schema di Protezione di Sicurezza 02
 
-**Connect the security stop button**
-An example of a safe stop device is the door switch that the robot stops when the door is turned on. Please refer to figure below.
+**Collegamento di un Pulsante di Arresto di Sicurezza**
+Un esempio di dispositivo di arresto di sicurezza è un interruttore a porta che ferma il robot quando la porta viene aperta, vedere la figura seguente:
 
 .. figure:: installation/051.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-12 Safety protection schematic diagram 03
+.. centered:: Figura 3.5-12 Schema di Protezione di Sicurezza 03
 
-Universal digital amount I/O
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I/O Digitali Generali
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section describes the electrical specifications of the general digital I/O, and must abide by the general electrical specifications in Section 3.5.6.
+Questa sezione descrive le specifiche elettriche per gli I/O digitali generali. Devono essere rispettate le specifiche elettriche generali della Sezione 3.5.6.
 
-The general digital amount I/O can be used to drive relays, solenoid valves and other devices or interact with other PLCs.
+Gli I/O digitali generali possono essere utilizzati per pilotare relè, valvole solenoids, ecc. o per interagire con altri PLC.
 
-**Digital quantity output control load**
+**Controllo del Carico mediante Uscita Digitale**
 
-This example demonstrates how to connect the digital quantity output to control the load, Please refer to figure below.
+Questo esempio mostra come collegare un'uscita digitale per controllare un carico, vedere la figura seguente:
 
 .. figure:: installation/052.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-13 Great digital quantity output schematic diagram 01
+.. centered:: Figura 3.5-13 Schema Uscita Digitale Generale 01
 
-Digital input from the button
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ingresso Digitale da un Pulsante
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example demonstrates how to connect the simple button to the digital quantity input.
+L'esempio seguente mostra come collegare un semplice pulsante a un ingresso digitale.
 
 .. figure:: installation/053.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-14 Great digital quantity output schematic diagram 02
+.. centered:: Figura 3.5-14 Schema Uscita Digitale Generale 02
 
-Interact with other devices or PLC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interazione con Altri Dispositivi o PLC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example demonstrates how to interact with other devices or PLC digital input output.
+L'esempio seguente mostra come interagire digitalmente in ingresso/uscita con altri dispositivi o PLC.
 
 .. figure:: installation/054.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-15 Interactive diagram with other devices or PLC
+.. centered:: Figura 3.5-15 Schema di Interazione con Altri Dispositivi o PLC
 
-Simulation I/O
+I/O Analogici
 ~~~~~~~~~~~~~~~~
 
-.. centered:: Table 2.5-4 Simulation current voltage
+.. centered:: Tabella 3.5-4 Corrente/Tensione Analogica
 .. list-table::
-   :widths: 50 20 6 4 6 4
+   :widths: 30 20 10 10 10 10
    :header-rows: 0
    :align: center
 
-   * - **Terminal**
-     - **Parameter**
-     - **Mininum**
-     - **Typical**
-     - **Maximum**
-     - **Unit**
+   * - **Terminale**
+     - **Parametro**
+     - **Minimo**
+     - **Tipico**
+     - **Massimo**
+     - **Unità**
 
-   * - | Analog current input
+   * - | Ingresso corrente analogico
        | [AIx-END]
        | [AIx-END]
        | [AIx-END]
-     - | 
-       | Current
-       | Impedance
-       | Resolution
-     - | 
+     - |
+       | Corrente
+       | Impedenza
+       | Risoluzione
+     - |
        | 0
        | -
        | -
-     - | 
+     - |
        | -
        | 500
        | 12
-     - | 
+     - |
        | 20
        | -
        | -
-     - | 
+     - |
        | mA
        | ohm
        | bit
 
-   * - | Analog voltage input
+   * - | Ingresso tensione analogico
        | [AIx-END]
        | [AIx-END]
        | [AIx-END]
-     - | 
-       | Voltage
-       | Impedance
-       | Resolution
-     - | 
+     - |
+       | Tensione
+       | Impedenza
+       | Risoluzione
+     - |
        | 0
        | -
        | -
-     - | 
+     - |
        | -
        | 510
        | 12
-     - | 
+     - |
        | 10
        | -
        | -
-     - | 
+     - |
        | V
        | Kohm
        | bit
 
-   * - | Analog current input
+   * - | Uscita corrente analogica
        | [AOx-END]
        | [AOx-END]
        | [AOx-END]
-     - | 
-       | Current
-       | Voltage
-       | Resolution
-     - | 
+     - |
+       | Corrente
+       | Tensione
+       | Risoluzione
+     - |
        | 0
        | 0
        | -
-     - | 
+     - |
        | -
        | -
        | 12
-     - | 
+     - |
        | 20
        | 10
        | -
-     - | 
+     - |
        | mA
        | V
        | bit
 
-   * - | Analog voltage input
+   * - | Uscita tensione analogica
        | [AOx-END]
        | [AOx-END]
        | [AOx-END]
        | [AOx-END]
-     - | 
-       | Voltage
-       | Current
-       | Impedance
-       | Resolution
-     - | 
+     - |
+       | Tensione
+       | Corrente
+       | Impedenza
+       | Risoluzione
+     - |
        | 0
        | 0
        | -
        | -
-     - | 
+     - |
        | -
        | -
        | 100
        | 12
-     - | 
+     - |
        | 10
        | 20
        | -
        | -
-     - | 
+     - |
        | V
        | mA
        | ohm
        | bit
 
-The simulation I/O is used to set or measure the voltage (0-10V) or current (0-20mA) of other devices.
+Gli I/O analogici sono utilizzati per impostare o misurare la tensione (0-10V) o la corrente (0-20mA) di altri dispositivi.
 
-In order to achieve high precision, the following methods are recommended.
+Per ottenere un'elevata precisione, si raccomanda quanto segue:
 
--  The equipment and control box use the same ground (GND).
+- Utilizzare la stessa massa (GND) per il dispositivo e l'unità di controllo.
+- Utilizzare cavi schermati o a doppino intrecciato.
 
--  Use shielding cables or twisted wires.
+I seguenti esempi mostrano come utilizzare gli I/O analogici.
 
-The following example demonstrates how to use analog I/O.
+**Utilizzo di un'Uscita Analogica**
 
-**Use analog output**
-
-The following example is to demonstrate the use of analog output control conveyor belt.
+L'esempio seguente mostra come utilizzare un'uscita analogica per controllare un nastro trasportatore.
 
 .. figure:: installation/056.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-16 Simulation output schematic diagram
+.. centered:: Figura 3.5-16 Schema Uscita Analogica
 
-**Use analog input**
+**Utilizzo di un Ingresso Analogico**
 
-The following example is to demonstrate the simulation input connection simulation sensor.
+L'esempio seguente mostra come utilizzare un ingresso analogico per collegare un sensore analogico.
 
 .. figure:: installation/057.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
-.. centered:: Figure 3.5-17 Simulation input schematic diagram
+.. centered:: Figura 3.5-17 Schema Ingresso Analogico
 
-FR3MT&3C Optional Modules
+Modulo Opzionale FR3MT&3C
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Preface
+Prefazione
 +++++++++++++++++++++++++
 
-The definition of collaborative robots complies with international ISO standards and national regulations to ensure operator safety. We do not recommend directly applying the robot body in scenarios where the operation target is the human body. However, if the robot user or developer has a specific need to involve human targets, they must conduct thorough evaluations and ensure personnel safety by configuring a reliable, fully tested, and certified safety protection system for the robot body.
+La definizione di robot collaborativo segue gli standard internazionali ISO e le normative nazionali pertinenti per proteggere la sicurezza dell'operatore. Non raccomandiamo di applicare direttamente il corpo del robot in scenari in cui l'oggetto dell'operazione è il corpo umano. Tuttavia, se l'utente o lo sviluppatore dell'applicazione robotica ha effettivamente bisogno di coinvolgere scenari in cui l'oggetto dell'operazione robotica è il corpo umano, è necessario che l'utente o lo sviluppatore dell'applicazione valuti pienamente e, sotto la premessa che la sicurezza delle persone sia garantita, configuri per il corpo del robot un sistema di protezione sicuro e affidabile, adeguatamente testato e certificato, per proteggere la sicurezza delle persone.
 
-Safety Notice
+Avvertenze di Sicurezza
 ***************************
 
-This manual serves only as a safety certification guide for customers. Maintenance operators must possess professional expertise. FaRo (法奥) assumes no responsibility for any incidents caused by non-professionals.
+Questo manuale è destinato esclusivamente come guida alla certificazione di sicurezza per i clienti. Il personale addetto alla manutenzione deve possedere competenze professionali. Farobot (FAROBOT) declina ogni responsabilità per operazioni eseguite da personale non qualificato.
 
-.. important:: If the robot (robot body, power module, or extension module) is damaged, altered, or modified due to human factors, FaRo refuses to bear any responsibility. FaRo is not liable for any damage caused to the robot or other equipment due to programming errors made by the customer.
+.. important:: Se il robot (corpo del robot, modulo di alimentazione, modulo di espansione) viene danneggiato, alterato o modificato per cause umane, Farobot (FAROBOT) declina ogni responsabilità; Farobot (FAROBOT) non è responsabile per eventuali danni al robot o a qualsiasi altra apparecchiatura causati da errori nei programmi scritti dal cliente.
 
-Validity and Responsibility
+Validità e Responsabilità
 ***************************
 
-The information in this manual does not cover the design, installation, or operation of a complete robot application, nor does it account for all peripheral devices that may affect the safety of the system. The design and installation of the complete system must comply with the safety requirements established by the standards and regulations of the country where the robot is installed.
+Le informazioni in questo manuale non includono la progettazione, l'installazione e l'operazione di un'applicazione robotica completa, né includono tutte le apparecchiature periferiche che potrebbero influenzare la sicurezza di questo sistema completo. La progettazione e l'installazione di questo sistema completo devono conformarsi ai requisiti di sicurezza stabiliti negli standard e nelle normative del paese in cui il robot è installato.
 
-FaRo’s integrators are responsible for ensuring compliance with relevant national laws and regulations, guaranteeing that the complete robot application poses no significant hazards. This includes but is not limited to:
+L'integratore di Farobot (FAROBOT) è responsabile di garantire il rispetto delle leggi e dei regolamenti pertinenti del paese, assicurando che nell'applicazione robotica completa non esistano pericoli significativi. Ciò include, ma non si limita a:
 
-- Conducting a risk assessment for the complete robot system
-- Connecting additional mechanical and safety devices as defined in the risk assessment
-- Establishing appropriate safety settings in the software
-- Ensuring users do not modify any safety measures
-- Verifying the correct design and installation of the entire robot system
-- Providing clear usage instructions
-- Marking the integrator’s logo and contact information on the robot
-- Collecting all documentation, including this manual, in the technical file
+- Eseguire una valutazione del rischio per il sistema robotico completo
+- Collegare insieme altre apparecchiature meccaniche e dispositivi di sicurezza aggiuntivi definiti dalla valutazione del rischio
+- Stabilire impostazioni di sicurezza appropriate nel software
+- Garantire che gli utenti non modifichino alcuna misura di sicurezza
+- Verificare che la progettazione e l'installazione dell'intero sistema robotico siano accurate
+- Fornire istruzioni per l'uso chiare
+- Segnalare sull'etichetta del robot il marchio e le informazioni di contatto dell'integratore
+- Raccogliere tutti i documenti nel fascicolo tecnico, incluso questo manuale
 
-Limited Liability
+Responsabilità Limitata
 ***************************
 
-The safety information in this manual does not constitute a general safety guarantee for robots. Even if all safety instructions are followed, personnel injury or equipment damage may still occur.
+Le informazioni sulla sicurezza contenute in questo manuale non devono essere considerate come una garanzia generale di sicurezza del robot. Anche rispettando tutte le istruzioni di sicurezza, è ancora possibile che si verifichino lesioni alle persone o danni alle attrezzature.
 
-Safety Warning Signs
-***************************
+Simboli di Avvertenza di Sicurezza
+******************************************************************
 
-The following safety warning signs are used on the product.
+Sul prodotto sono utilizzati i seguenti simboli di avvertenza di sicurezza.
 
-.. important:: 
-	.. figure:: installation/008.png
-		:width: 60
-		:height: 50
-		:align: left
+.. important::
+   .. figure:: installation/008.png
+      :width: 60
+      :height: 50
+      :align: left
 
-	Name: **DANGER**  
+   Nome: **PERICOLO**
 
-	Purpose: Indicates an imminent electrical hazard that could result in death or serious injury if not avoided.
+   Funzione: Si riferisce a situazioni elettriche imminenti e pericolose che, se non evitate, possono provocare morte o lesioni gravi.
 
-.. important:: 
-	.. figure:: installation/009.png
-		:width: 60
-		:height: 50
-		:align: left
+.. important::
+   .. figure:: installation/009.png
+      :width: 60
+      :height: 50
+      :align: left
 
-	Name: **ELECTRIC SHOCK HAZARD** 
+   Nome: **PERICOLO DI SCOSSA ELETTRICA**
 
-	Purpose: Indicates an imminent electric shock hazard that could result in death or serious injury if not avoided.
+   Funzione: Si riferisce a situazioni imminenti e pericolose di scossa elettrica che, se non evitate, possono provocare morte o lesioni gravi per scossa elettrica.
 
-.. important:: 
-	.. figure:: installation/010.png
-		:width: 60
-		:height: 50
-		:align: left
+.. important::
+   .. figure:: installation/010.png
+      :width: 60
+      :height: 50
+      :align: left
 
-	Name: **BURN HAZARD**  
+   Nome: **PERICOLO DI USTIONE**
 
-	Purpose: Indicates a hot surface that could cause injury if touched.
+   Funzione: Si riferisce a superfici calde potenzialmente pericolose; il contatto può causare lesioni.
 
-.. important:: 
-	.. figure:: installation/112.png
-		:width: 60
-		:height: 50
-		:align: left
+.. important::
+   .. figure:: installation/112.png
+      :width: 60
+      :height: 50
+      :align: left
 
-	Name: **GROUNDING**  
-  
-	Purpose: Indicates that the device must be properly grounded.
-	                                           
-FR3MT&3C Base and Module Interface Definitions
+   Nome: **MESSA A TERRA**
+
+   Funzione: Indica che l'apparecchiatura richiede una messa a terra affidabile.
+
+Definizione delle Interfacce della Base e dei Moduli FR3MT&3C
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Base Interface Definitions
-***************************
+Definizione delle Interfacce della Base
+*****************************************************
 
-The base of the robot has seven external buttons and interfaces, defined as follows:
+La parte della base del corpo ha complessivamente 7 pulsanti e interfacce esterne, definiti come segue:
 
 .. figure:: installation/113.png
-	:align: center
-	:width: 4in
+   :align: center
+   :width: 4in
 
-.. centered:: Figure 3.5-18 Base Buttons and Interfaces
+.. centered:: Figura 3.5-18 Pulsanti e Interfacce della Parte Base del Corpo
 
-.. note:: The pin definitions for base interfaces are viewed from the installation reference plane.
+.. note:: Le viste della definizione dei pin dell'interfaccia della base sono tutte dalla prospettiva del piano di riferimento di installazione.
 
-**1. Controller Power Button**: Powers on automatically by default.
+**1. Pulsante accensione/spegnimento del controller:** Di default si accende automaticamente all'alimentazione.
 
-**2. M8-A Type-4P-Female Socket Pin Definitions**:  
-User Ethernet port (IP: 192.168.57.2). Connector: M8-A Type-4P-Female (with M8-A Type-4P-Male plug). Complies with IEC 61076-2-101.
+**2. Definizione dei pin dell'interfaccia M8-A-4P-Femmina:**
+Porta utente Ethernet. Indirizzo: 192.168.57.2. Connettore: M8-A-4P-Femmina [lato terminale con connettore M8-A-4P-Maschile], conforme allo standard IEC 61076-2-101.
 
 .. figure:: installation/114.png
-	:align: center
-	:width: 2in
+   :align: center
+   :width: 2in
 
 .. list-table::
    :widths: 20 30 50
@@ -2781,179 +2736,179 @@ User Ethernet port (IP: 192.168.57.2). Connector: M8-A Type-4P-Female (with M8-A
    :align: center
 
    * - **Pin**
-     - **Definition**
-     - **Description**
+     - **Definizione**
+     - **Descrizione**
 
    * - 1
      - TX+
-     - Data Transmit Positive
+     - Trasmissione dati positiva
 
    * - 2
      - RX+
-     - Data Receive Positive
+     - Ricezione dati positiva
 
    * - 3
      - RX-
-     - Data Receive Negative
+     - Ricezione dati negativa
 
    * - 4
      - TX-
-     - Data Transmit Negative
+     - Trasmissione dati negativa
 
-**3. M12-L Type-5P-Male Socket Pin Definitions**:  
-Connector: M12-L Type-5P-Male (with M12-L Type-5P-Female plug). Complies with IEC 61076-2-101.
+**3. Definizione dei pin dell'interfaccia M12-L-5P-Maschile:**
+Connettore: M12-L-5P-Maschile [lato terminale con connettore M12-L-5P-Femmina], conforme allo standard IEC 61076-2-101.
 
 .. figure:: installation/115.png
-	:align: center
-	:width: 2in
+   :align: center
+   :width: 2in
 
 .. list-table::
-   :widths: 10 15 15 20 40 
+   :widths: 10 15 15 20 40
    :header-rows: 0
    :align: center
 
    * - **Pin**
-     - **Color**
-     - **Definition**
-     - **Description**
-     - **Remarks**
+     - **Colore**
+     - **Definizione**
+     - **Descrizione**
+     - **Note**
 
    * - 1
-     - Black
+     - Nero1
      - 0V
-     - Control Power Negative
-     - Robot control power negative (backup power, no connection needed)
+     - Negativo alimentazione controllo
+     - Negativo alimentazione controllo robot [alimentazione di riserva unità di controllo, non necessario collegare]
 
    * - 2
-     - Brown
+     - Marrone2
      - 24V
-     - Control Power Positive
-     - Robot control power positive (backup power, no connection needed)
+     - Positivo alimentazione controllo
+     - Positivo alimentazione controllo robot [alimentazione di riserva unità di controllo, non necessario collegare]
 
    * - 3
-     - White
+     - Bianco3
      - 48V
-     - Power Supply Positive
-     - Robot power supply positive
+     - Positivo alimentazione potenza
+     - Positivo alimentazione potenza robot
 
    * - 4
-     - Blue
+     - Blu4
      - 0V
-     - Power Supply Negative
-     - Robot power supply negative
+     - Negativo alimentazione potenza
+     - Negativo alimentazione potenza robot
 
    * - 5
-     - Gray
+     - Grigio5
      - PE
-     - Ground
-     - Safety ground
-  
-.. note:: 
-  ① The base includes a 48V-to-24V power converter.  
-  ② The 48V-to-24V converter serves as a backup for the 24V input.
+     - Messa a terra
+     - Messa a terra di sicurezza
+
+.. note::
+   ① All'interno della base è progettato un alimentatore di controllo da 48V a 24V.
+   ② L'alimentatore da 48V a 24V all'interno della base funge da alimentazione di backup per l'alimentazione a 24V fornita dalla porta di alimentazione.
 
 .. figure:: installation/116.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-19 48V-to-24V Power Conversion Diagram
+.. centered:: Figura 3.5-19 Schema Alimentatore da 48V a 24V all'interno della Base
 
-**4. M12-A Type-12P-Female Socket Pin Definitions**:  
-Connector: M12-A Type-12P-Female (with M12-A Type-12P-Male plug). Complies with IEC 61076-2-101.
+**4. Definizione dei pin dell'interfaccia M12-A-12P-Femmina:**
+Connettore: M12-A-12P-Femmina [lato terminale con connettore M12-A-12P-Maschile], conforme allo standard IEC 61076-2-101.
 
 .. figure:: installation/117.png
-	:align: center
-	:width: 2in
+   :align: center
+   :width: 2in
 
 .. list-table::
-   :widths: 10 15 15 20 40 
+   :widths: 10 15 15 20 40
    :header-rows: 0
    :align: center
 
    * - **Pin**
-     - **Color**
-     - **Definition**
-     - **Description**
-     - **Remarks**
+     - **Colore**
+     - **Definizione**
+     - **Descrizione**
+     - **Note**
 
    * - 1
-     - Blue
+     - Blu
      - AGND
-     - Analog Ground
-     - Analog reference ground
+     - Massa analogica
+     - Riferimento di massa analogico
 
    * - 2
-     - Brown
+     - Marrone
      - 0V
-     - 24V Power Negative
-     - Control power negative
+     - Negativo alimentazione 24V
+     - Negativo alimentazione controllo
 
    * - 3
-     - Red
+     - Rosso
      - 485-A
-     - RS485 Communication A
-     - Reserved for expansion
+     - Comunicazione 485 A
+     - Comunicazione 485 per espansione di riserva
 
    * - 4
-     - Gray
+     - Grigio
      - 485-B
-     - RS485 Communication B
-     - Reserved for expansion
+     - Comunicazione 485 B
+     - Comunicazione 485 per espansione di riserva
 
    * - 5
-     - Black
+     - Nero
      - DI0/DO0
-     - Digital Input/Output 0
-     - Configurable as input or output (mutually exclusive)
+     - Ingresso/Uscita digitale 0
+     - Pin 5, 6, 7 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 6
-     - Yellow
+     - Giallo
      - DI1/DO1
-     - Digital Input/Output 1
-     - Configurable as input or output (mutually exclusive)
+     - Ingresso/Uscita digitale 1
+     - Pin 5, 6, 7 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 7
-     - Pink
+     - Rosa
      - DI2/DO2
-     - Digital Input/Output 2
-     - Configurable as input or output (mutually exclusive)
+     - Ingresso/Uscita digitale 2
+     - Pin 5, 6, 7 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 8
-     - Dark Green
+     - Verde scuro
      - AI0/AO0
-     - Analog Input/Output 0
-     - Configurable as input or output (mutually exclusive)
+     - Ingresso/Uscita analogico 0
+     - Pin 8, 9 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 9
-     - White
+     - Bianco
      - AI1/AO1
-     - Analog Input/Output 1
-     - Configurable as input or output (mutually exclusive)
+     - Ingresso/Uscita analogico 1
+     - Pin 8, 9 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 10
-     - Purple
+     - Viola
      - 24V
-     - 24V Power Positive
-     - Control power positive
+     - Positivo alimentazione 24V
+     - Positivo alimentazione controllo
 
    * - 11
-     - Orange
+     - Arancione
      - DI3/DO3
-     - Digital Input/Output 3
-     - Configurable as input or output (mutually exclusive)
+     - Ingresso/Uscita digitale 3
+     - Pin 11, 12 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 12
-     - Light Green
+     - Verde chiaro
      - DI4/DO4
-     - Digital Input/Output 4
-     - Configurable as input or output (mutually exclusive)
+     - Ingresso/Uscita digitale 4
+     - Pin 11, 12 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
-**5. M8-A Type-4P-Female Socket Pin Definitions**:  
-Debug Ethernet port (IP: 192.168.58.2). Connector: M8-A Type-4P-Female (with M8-A Type-4P-Male plug). Complies with IEC 61076-2-101.
+**5. Definizione dei pin dell'interfaccia M8-A-4P-Femmina:**
+Porta Ethernet di debug. Indirizzo: 192.168.58.2. Connettore: M8-A-4P-Femmina [lato terminale con connettore M8-A-4P-Maschile], conforme allo standard IEC 61076-2-101.
 
 .. figure:: installation/114.png
-	:align: center
-	:width: 2in
+   :align: center
+   :width: 2in
 
 .. list-table::
    :widths: 20 30 50
@@ -2961,36 +2916,37 @@ Debug Ethernet port (IP: 192.168.58.2). Connector: M8-A Type-4P-Female (with M8-
    :align: center
 
    * - **Pin**
-     - **Definition**
-     - **Description**
+     - **Definizione**
+     - **Descrizione**
 
    * - 1
      - TX+
-     - Data Transmit Positive
+     - Trasmissione dati positiva
 
    * - 2
      - RX+
-     - Data Receive Positive
+     - Ricezione dati positiva
 
    * - 3
      - RX-
-     - Data Receive Negative
+     - Ricezione dati negativa
 
    * - 4
      - TX-
-     - Data Transmit Negative
+     - Trasmissione dati negativa
 
-**6. USB-A Port**: USB 2.0 for internal debugging.  
-**7. HDMI-A Port**: HDMI display for internal debugging.
+**6.** Interfaccia USB-A, USB 2.0 - per debug interno.
 
-Power Module Interface Definitions
-******************************************************
+**7.** Interfaccia HDMI-A, display HDMI - per debug interno.
 
-The power module uses a Meanwell NDR-480-48. Pin definitions:
+Definizione delle Interfacce del Modulo di Alimentazione
+*******************************************************************
+
+L'alimentatore utilizza il modello Mean Well NDR-480-48. La definizione delle interfacce è la seguente:
 
 .. figure:: installation/118.png
-	:align: center
-	:width: 3in
+   :align: center
+   :width: 3in
 
 .. list-table::
    :widths: 20 20 20 40
@@ -2998,53 +2954,53 @@ The power module uses a Meanwell NDR-480-48. Pin definitions:
    :align: center
 
    * - **Pin**
-     - **Definition**
-     - **Description**
-     - **Remarks**
+     - **Definizione**
+     - **Descrizione**
+     - **Note**
 
    * - 1
      - L
-     - Live Wire
-     - Input 100-240V AC
+     - Fase
+     - Ingresso 100-240 V CA
 
    * - 2
      - N
-     - Neutral Wire
-     - Input 100-240V AC
+     - Neutro
+     - Ingresso 100-240 V CA
 
    * - 3
      - PE
-     - Ground
-     - Earth connection
+     - Terra
+     - Punto di messa a terra
 
    * - 4
      - +V
      - 48V
-     - Output 48V/10A
+     - Uscita 48V/10A
 
    * - 5
      - +V
      - 48V
-     - Output 48V/10A
+     - Uscita 48V/10A
 
    * - 6
      - -V
      - 0V
-     - Output 48V return
+     - Uscita 48V/10A
 
    * - 7
      - -V
      - 0V
-     - Output 48V return
+     - Uscita 48V/10A
 
-Extension Module Interface Definitions
+Definizione delle Interfacce del Modulo di Espansione
 ******************************************************
 
-The extension module includes emergency stop and energy discharge functions. External terminals and internal topology:
+Il modulo di espansione dispone di funzionalità di arresto di emergenza e di dissipazione dell'energia. I terminali esterni e lo schema topologico interno del modulo di espansione sono i seguenti:
 
 .. figure:: installation/119.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
 .. list-table::
    :widths: 20 30 50
@@ -3052,426 +3008,434 @@ The extension module includes emergency stop and energy discharge functions. Ext
    :align: center
 
    * - **Pin**
-     - **Definition**
-     - **Description**
+     - **Definizione**
+     - **Descrizione**
 
    * - 1
      - 48-IN
-     - 48V Input Positive
+     - Positivo ingresso 48V
 
    * - 2
      - 0V
-     - 48V Input Negative
+     - Negativo ingresso 48V
 
    * - 3
      - PE
-     - Ground
+     - Conduttore di terra
 
    * - 4
      - PE
-     - Ground
+     - Conduttore di terra
 
    * - 5
      - 24V
-     - Control Power Positive
+     - Positivo alimentazione controllo
 
    * - 6
      - 0V
-     - Control Power Negative
+     - Negativo alimentazione controllo
 
    * - 7
      - 0V
-     - Power Supply Negative
+     - Negativo alimentazione potenza
 
    * - 8
      - 48-OUT
-     - Power Supply Positive
+     - Positivo alimentazione potenza
 
    * - 9
      - ESW1
-     - Emergency Stop Button 1 Positive
+     - Positivo pulsante arresto emergenza 1
 
    * - 10
      - 0V
-     - Emergency Stop Button 1 Negative
+     - Negativo pulsante arresto emergenza 1
 
    * - 11
      - ESW2
-     - Emergency Stop Button 2 Positive
+     - Positivo pulsante arresto emergenza 2
 
    * - 12
      - 0V
-     - Emergency Stop Button 2 Negative
+     - Negativo pulsante arresto emergenza 2
 
    * - 13
      - E-O-2
-     - Passive Normally Open 2
+     - Contatto normalmente aperto senza alimentazione 2
 
    * - 14
      - E-O-1
-     - Passive Normally Open 1
+     - Contatto normalmente aperto senza alimentazione 1
 
    * - 15
      - E-C-2
-     - Passive Normally Closed 2
+     - Contatto normalmente chiuso senza alimentazione 2
 
    * - 16
      - E-C-1
-     - Passive Normally Closed 1
+     - Contatto normalmente chiuso senza alimentazione 1
 
-FR3MT&3C Application Scenarios
+Scenari Applicativi FR3MT&3C
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Most scenarios only require the user cable kit. Specific use cases:
+Nella maggior parte degli scenari d'uso, agli utenti è sufficiente selezionare il cavo utente. Gli scenari d'uso specifici sono i seguenti:
 
 .. list-table::
-   :widths: 10 15 15 20 40 
+   :widths: 10 15 15 20 40
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Scenario**
-     - **Power Supply**
-     - **Functional Requirements**
-     - **Recommended Configuration**
+   * - **N.**
+     - **Categoria Scenario**
+     - **Condizioni Alimentazione Utente**
+     - **Requisiti Funzionali Utente**
+     - **Soluzione Consigliata**
 
    * - 1
-     - Basic Application
-     - 48V/10A DC available
-     - No E-stop/energy discharge
-     - User cable kit
+     - Applicazione Base
+     - Possiede alimentazione CC 48V/10A
+     - Nessuna funzione arresto emergenza/dissipazione energia
+     - Cavo utente
 
    * - 2
-     - Safety Extended
-     - 48V/10A DC available
-     - E-stop + energy discharge
-     - User cable kit + extension module
+     - Espansione Sicurezza
+     - Possiede alimentazione CC 48V/10A
+     - Richiede funzione arresto emergenza + dissipazione energia
+     - Cavo utente + Modulo di espansione
 
    * - 3
-     - Independent Power
-     - No 48V/10A DC
-     - No E-stop/energy discharge
-     - User cable kit + power module + power cord
+     - Alimentazione Indipendente
+     - Nessuna alimentazione CC 48V/10A
+     - Nessuna funzione arresto emergenza/dissipazione energia
+     - Cavo utente + Modulo alimentazione + Cavo alimentazione
 
    * - 4
-     - Full Function
-     - No 48V/10A DC
-     - E-stop + energy discharge
-     - User cable kit + power module + power cord + extension module
+     - Integrazione Funzionalità Complete
+     - Nessuna alimentazione CC 48V/10A
+     - Richiede funzione arresto emergenza + dissipazione energia
+     - Cavo utente + Modulo alimentazione + Cavo alimentazione + Modulo di espansione
 
-Basic Application
+Applicazione Base
 ******************************************************
 
-Only user cable kit required. Connection steps:
+Seleziona solo il cavo utente. Modalità di connessione:
 
-1. Connect the M12-L-5P-Female power cable to the base (48V/0V/PE to user power supply; insulate 24V/0V).  
-2. Connect M12-A-12P-Male and M8-A-4P-Male to base.
+1. Collegare il connettore M12-L-5P-Femmina del cavo di alimentazione alla base. L'estremità ha 5 cavi con etichette 48V/0V/24V/0V/PE. Collegare i tre cavi 48V/0V/PE ai terminali corrispondenti dell'alimentazione utente. I cavi 24V/0V non vanno collegati; isolare le estremità.
+
+2. Collegare i connettori M12-A-12P-Maschile e M8-A-4P-Maschile ai terminali corrispondenti della base.
 
 .. figure:: installation/120.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-20 Only user cable kit required connection steps
+.. centered:: Figura 3.5-20 Modalità di Connessione per Cavo Utente Opzionale
 
-Safety Extended
+Espansione Sicurezza
 ******************************************************
 
-User cable kit + extension module. Connection steps:
+Seleziona cavo utente + modulo di espansione. Modalità di connessione:
 
-1. Connect the 0.5M extension cable (48V/0V/PE) to user power and module.  
-2. Connect M12-L-5P-Female to base (all 5 wires to module).  
-3. Connect M12-A-12P-Male and M8-A-4P-Male to base.
+1. Il cavo del modulo di espansione da 0,5 m ha alle due estremità tre cavi con etichette 48V/0V/PE. Collegare l'estremità di ingresso ai terminali corrispondenti dell'alimentazione utente. Inserire l'estremità di uscita nelle posizioni 48Vin/0V/PE del modulo di espansione.
+
+2. Collegare il connettore M12-L-5P-Femmina del cavo di alimentazione alla base. L'estremità ha 5 cavi con etichette 48V/0V/24V/0V/PE. Collegare i 5 cavi al modulo di espansione nelle posizioni 48Vout/0V/0V/24V/PE.
+
+3. Collegare i connettori M12-A-12P-Maschile e M8-A-4P-Maschile ai terminali corrispondenti della base.
 
 .. figure:: installation/121.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-21 User cable kit + extension module connection steps
+.. centered:: Figura 3.5-21 Modalità di Connessione per Cavo Utente + Modulo di Espansione Opzionali
 
-Independent Power
+Alimentazione Indipendente
 ******************************************************
 
-User cable kit + power module + power cord. Connection steps:
+Seleziona cavo utente + modulo alimentazione + cavo alimentazione. Modalità di connessione:
 
-1. Connect 1.5M power cord (L/N/PE) to NDR-480-48 input.  
-2. Connect M12-L-5P-Female to base (48V/0V/PE to power module; insulate 24V/0V).  
-3. Connect M12-A-12P-Male and M8-A-4P-Male to base.
+1. L'estremità del cavo di alimentazione da 1,5 m ha tre cavi con etichette L/N/PE. Collegarli alle posizioni dei terminali di ingresso corrispondenti dell'alimentatore NDR-480-48.
+
+2. Collegare il connettore M12-L-5P-Femmina del cavo di alimentazione alla base. L'estremità ha 5 cavi con etichette 48V/0V/24V/0V/PE. Collegare i tre cavi 48V/0V/PE ai terminali corrispondenti dell'alimentazione utente. I cavi 24V/0V non vanno collegati; isolare le estremità.
+
+3. Collegare i connettori M12-A-12P-Maschile e M8-A-4P-Maschile ai terminali corrispondenti della base.
 
 .. figure:: installation/122.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-22 User cable kit + power module + power cord connection steps
+.. centered:: Figura 3.5-22 Modalità di Connessione per Cavo Utente + Modulo Alimentazione + Cavo Alimentazione Opzionali
 
-Full Function
+Integrazione Funzionalità Complete
 ******************************************************
 
-User cable kit + power module + power cord + extension module. Connection steps:
+Seleziona cavo utente + modulo alimentazione + cavo alimentazione + modulo di espansione. Modalità di connessione:
 
-1. Connect 1.5M power cord (L/N/PE) to NDR-480-48.  
-2. Connect 0.5M extension cable (48V/0V/PE) between power module and extension.  
-3. Connect M12-L-5P-Female to base (all 5 wires to module).  
-4. Connect M12-A-12P-Male and M8-A-4P-Male to base.
+1. L'estremità del cavo di alimentazione da 1,5 m ha tre cavi con etichette L/N/PE. Collegarli alle posizioni dei terminali di ingresso corrispondenti dell'alimentatore NDR-480-48.
+
+2. Il cavo del modulo di espansione da 0,5 m ha alle due estremità tre cavi con etichette 48V/0V/PE. Collegare l'estremità di ingresso ai terminali di uscita corrispondenti dell'alimentatore NDR-480-48, il cavo PE è condiviso con l'ingresso. Inserire l'estremità di uscita nelle posizioni 48Vin/0V/PE del modulo di espansione.
+
+3. Collegare il connettore M12-L-5P-Femmina del cavo di alimentazione alla base. L'estremità ha 5 cavi con etichette 48V/0V/24V/0V/PE. Collegare i 5 cavi al modulo di espansione nelle posizioni 48Vout/0V/0V/24V/PE.
+
+4. Collegare i connettori M12-A-12P-Maschile e M8-A-4P-Maschile ai terminali corrispondenti della base.
 
 .. figure:: installation/123.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 3.5-23 User cable kit + power module + power cord + extension module connection steps
+.. centered:: Figura 3.5-23 Modalità di Connessione per Cavo Utente + Modulo Alimentazione + Cavo Alimentazione + Modulo di Espansione Opzionali
 
-Optional Parts List
+Lista Materiali per Opzioni
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-User Cable Kit (5M):
+Materiali per cavo utente 5M:
 
 .. list-table::
-   :widths: 20 60 20 
+   :widths: 20 60 20
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Name**
-     - **Qty**
+   * - **N.**
+     - **Nome**
+     - **Quantità**
 
    * - 1
-     - FR3MT&3C-DC Power Cable-5M
+     - FR3MT&3C-Cavo alimentazione CC-5M
      - 1
 
    * - 2
-     - FR3MT&3C-I/O Cable-5M
+     - FR3MT&3C-Cavo segnale I/O-5M
      - 1
 
    * - 3
-     - FR3MT&3C-Ethernet Cable-5M
+     - FR3MT&3C-Fascio cavi Ethernet-5M
      - 1
 
    * - 4
-     - M8 Straight Plug, M8-P4A-PLA05, 4-pin
+     - Connettore combinato diritto M8, M8-P4A-PLA05, 4 poli
      - 1
 
-User Cable Kit (1M):
+Materiali per cavo utente 1M:
 
 .. list-table::
-   :widths: 20 60 20 
+   :widths: 20 60 20
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Name**
-     - **Qty**
+   * - **N.**
+     - **Nome**
+     - **Quantità**
 
    * - 1
-     - FR3MT&3C-DC Power Cable-1M
+     - FR3MT&3C-Cavo alimentazione CC-1M
      - 1
 
    * - 2
-     - FR3MT&3C-I/O Cable-1M
+     - FR3MT&3C-Cavo segnale I/O-1M
      - 1
 
    * - 3
-     - FR3MT&3C-Ethernet Cable-1M
+     - FR3MT&3C-Fascio cavi Ethernet-1M
      - 1
 
    * - 4
-     - M8 Straight Plug, M8-P4A-PLA05, 4-pin
+     - Connettore combinato diritto M8, M8-P4A-PLA05, 4 poli
      - 1
 
-Power Module:
+Materiali per modulo alimentazione:
 
 .. list-table::
-   :widths: 20 60 20 
+   :widths: 20 60 20
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Name**
-     - **Qty**
+   * - **N.**
+     - **Nome**
+     - **Quantità**
 
    * - 1
-     - Meanwell Power Supply, NDR-480-48
+     - Alimentatore switching Mean Well, NDR-480-48
      - 1
 
-Power Cord:
+Materiali per cavo alimentazione:
 
 .. list-table::
-   :widths: 20 60 20 
+   :widths: 20 60 20
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Name**
-     - **Qty**
+   * - **N.**
+     - **Nome**
+     - **Quantità**
 
    * - 1
-     - FR3MT&3C-Power Cord-1.5M 
+     - FR3MT&3C-Cavo alimentatore-1.5M
      - 1
 
-Extension Module:
+Materiali per modulo di espansione:
 
 .. list-table::
-   :widths: 20 60 20 
+   :widths: 20 60 20
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Name**
-     - **Qty**
+   * - **N.**
+     - **Nome**
+     - **Quantità**
 
    * - 1
-     - FR3MT&3C Base-Extension Module
+     - FR3MT&3C Base-Modulo di espansione
      - 1
 
    * - 2
-     - FR3MT&3C Power-Extension Cable-0.5M
+     - FR3MT&3C Cavo di connessione alimentatore e modulo di espansione-0.5M
      - 1
 
-Demonstrate and end LED
----------------------------
+Teach Pendant e LED Terminale
+------------------------------------
 
-The robotic teaching pendant can use a computer or tablet to access and control the robot. The connection method can refer to Section 3.5.3 to explain. In addition, users can also use our FR-HMI osteter.
+Il teach pendant del robot può utilizzare un computer o un tablet per accedere e controllare il robot. Le modalità di connessione possono fare riferimento alla spiegazione nella Sezione 3.5.3. Inoltre, gli utenti possono utilizzare il nostro teach pendant FR-HMI, che è un componente opzionale.
 
-Introduction to the button box
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Introduzione alla Scatola Pulsanti
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-60 Button Box (POE) (BX01)
-+++++++++++++++++++++++++++++++++++++
+Scatola Pulsanti 60 (POE)(BX01)
+++++++++++++++++++++++++++++++++++++++++++
 
 .. figure:: installation/058.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 2.6-1 60 Button Box (POE) (BX01)
+.. centered:: Figura 3.6-1 Scatola Pulsanti 60 (POE)(BX01)
 
-**Emergency stop switch:**\  When pressing the emergency stop switch, the robot enters the state of emergency stop.
+**Interruttore arresto emergenza:** Quando premuto, il robot entra in stato di arresto di emergenza.
 
-**Type-c:**\ Connect the port of the web teaching pendant.
+**Interfaccia Type-C:** Porta per collegare il teach pendant web.
 
-**Button 1:**\ Short press automatic/manual mode switch, long press and enter/exit the drag mode.
+**Pulsante 1:** Premuta breve: commutazione modalità automatica/manuale. Premuta lunga: entrata/uscita modalità trascinamento.
 
-**Button 2:**\ Short press the record to show the teaching point, long press and enter/exit the state of no demonstrator.
+**Pulsante 2:** Premuta breve: registra punto di insegnamento. Premuta lunga: entra/esce da stato senza teach pendant associato.
 
-**Button 3:**\ Start/stop running program.
+**Pulsante 3:** Premuta breve: avvia/arresta l'esecuzione del programma.
 
-60 Button Box (POE) (BX02)-V1.0
-++++++++++++++++++++++++++++++++++++++
+Scatola Pulsanti 60 (POE)(BX02)-V1.0
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. figure:: installation/059.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 2.6-2 60 Button Box (POE) (BX02)-V1.0
+.. centered:: Figura 3.6-2 Scatola Pulsanti 60 (POE)(BX02)-V1.0
 
-**Emergency stop switch:**\ When pressing the emergency stop switch, the robot enters the state of emergency stop.
+**Interruttore arresto emergenza:** Quando premuto, il robot entra in stato di arresto di emergenza.
 
-**Start/Stop:**\ Start/stop running program.
+**Avvio/Arresto:** Avvia/arresta l'esecuzione del programma.
 
-**Ethernet:**\ Connect to the web teaching pendant.
+**Porta Ethernet:** Collega il teach pendant web.
 
-**Turn off:**\ No enabled.
+**Spegnimento:** Non ancora abilitato.
 
-**Record point:**\ Record the teaching point.
+**Registra punto:** Registra punto di insegnamento.
 
-**Teaching mode:**\ Enter/exit with the teaching pendant state.
+**Modalità insegnamento:** Entra/esce da stato con teach pendant associato.
 
-**Working mode:**\ Automatic/manual mode switch.
+**Modalità esecuzione:** Commutazione modalità automatica/manuale.
 
-**Drag mode:**\ Enter/exit drag mode.
+**Modalità trascinamento:** Entra/uscita modalità trascinamento.
 
-60 Button Box (POE) (BX02) - V2.0
-++++++++++++++++++++++++++++++++++++++
+Scatola Pulsanti 60 (POE)(BX02)-V2.0
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: installation/079.png
-	:align: center
-	:width: 6in
+.. image:: installation/079.png
+   :width: 6in
+   :align: center
 
-.. centered:: Figure 3.6-3 60 Button Box (POE) (BX02) - V2.0
+.. centered:: Figura 3.6-3 Scatola Pulsanti 60 (POE)(BX02)-V2.0
 
-**Emergency stop switch:** \ When the emergency stop switch is pressed, the robot enters an emergency stop state.
+**Interruttore arresto emergenza:** Quando premuto, il robot entra in stato di arresto di emergenza.
 
-**Start/Stop:** \ Start/Stop running the program.
+**Avvio/Arresto:** Avvia/arresta l'esecuzione del programma.
 
-**Network port:** \ Connect to a web teaching pendant.
+**Porta Ethernet:** Collega il teach pendant web.
 
-**IP reset:** \ Reset the network port IP.
+**Ripristino IP:** Reimposta l'indirizzo IP della porta di rete.
 
-**Record point:** \ Record teaching points.
+**Registra punto:** Registra punto di insegnamento.
 
-**One click clear:** \ Clear all recoverable errors.
+**Cancellazione rapida:** Cancella tutti gli errori recuperabili.
 
-**Operation mode:** \ Automatic/Manual mode switching.
+**Modalità esecuzione:** Commutazione modalità automatica/manuale.
 
-**Drag mode:** \ Enter/exit drag mode.
+**Modalità trascinamento:** Entra/uscita modalità trascinamento.
 
-FR-HMI Teach pendant introduction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Introduzione al Teach Pendant FR-HMI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: installation/060.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 2.6-3 FR-HMI teaching pendant front
+.. centered:: Figura 3.6-4 Fronte Teach Pendant FR-HMI
 
 .. figure:: installation/061.png
-	:align: center
-	:width: 6in
+   :align: center
+   :width: 6in
 
-.. centered:: Figure 2.6-4 FR-HMI teaching pendant back
+.. centered:: Figura 3.6-5 Retro Teach Pendant FR-HMI
 
-**Display:**\ Touch operation and display interface of the teaching pendant.
+**Schermo:** Interfaccia touch e display per il funzionamento del teach pendant.
 
-**Start key:**\ Start the program.
+**Tasto avvio:** Avvia il programma.
 
-**Stop key:**\ Stop the currently running program.
+**Tasto arresto:** Arresta il programma in esecuzione.
 
-**Joint button:**\ The joint node of the robot.
+**Tasto Joint:** Movimento giunto a giunto del robot.
 
-**Three -bit enable:**\ Manual mode enable robots
+**Abilitatore a tre posizioni:** Abilita il robot in modalità manuale.
 
-**Emergency stop switch:**\ When pressing the emergency stop switch, the robot enters the state of emergency stop.
+**Interruttore arresto emergenza:** Quando premuto, il robot entra in stato di arresto di emergenza.
 
-**Mode key:**\ Rotate the button to switch the automatic mode.
+**Tasto modalità:** Pulsante rotante per cambiare modalità manuale/automatica.
 
-End LED definition
-~~~~~~~~~~~~~~~~~~~~~
+Definizione LED Terminale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. centered:: Table 3.6‑1 The end LED definition table
+.. centered:: Tabella 3.6‑1 Tabella di Definizione LED Terminale
 .. list-table::
    :widths: 50 50
    :header-rows: 0
    :align: center
 
-   * - **Function**
-     - **LED color**
+   * - **Funzione**
+     - **Colore LED**
 
-   * - When communication is not established
-     - "Off", "Red", "Green" and "Blue" alternately
+   * - Comunicazione non stabilita
+     - "Spento", "Rosso", "Verde", "Blu" alternati
 
-   * - Automatic mode
-     - Blue long bright
+   * - Modalità automatica
+     - Blu acceso fisso
 
-   * - Manual mode
-     - Green long bright
+   * - Modalità manuale
+     - Verde acceso fisso
 
-   * - Drag Mode
-     - White cyan long bright
+   * - Modalità trascinamento
+     - Ciano bianco acceso fisso
 
-   * - Button box record point (only when using button box)
-     - Purple blinks twice
+   * - Registrazione punto scatola pulsanti (solo quando si utilizza la scatola pulsanti)
+     - Viola lampeggia due volte
 
-   * - Start running (only when using the button box)
-     - Cyan blue flashes twice
+   * - Entrata in stato senza scatola pulsanti associata (solo quando si utilizza la scatola pulsanti)
+     - Viola lampeggia due volte
 
-   * - Enter the state of unmatched button box (only when using the button box)
-     - Blue flashes twice
+   * - Avvio esecuzione (solo quando si utilizza la scatola pulsanti)
+     - Ciano bluastro lampeggia due volte
 
-   * - Stop operation (only when using the button box)
-     - Red flashes twice
+   * - Arresto esecuzione (solo quando si utilizza la scatola pulsanti)
+     - Rosso lampeggia due volte
 
-   * - Error reporting (only when using the button box)
-     - Red long bright
+   * - Errore (solo quando si utilizza la scatola pulsanti)
+     - Rosso acceso fisso
 
-   * - Zero calibration completed
-     - White cyan flashes three times
+   * - Azzeramento completato
+     - Ciano bianco lampeggia tre volte
 
-   * - Enable
-     - Yellow flashes twice
+   * - Disabilitato
+     - Giallo lampeggia due volte

@@ -1,169 +1,167 @@
-Robot Quick Programming
-=========================
+Programmazione Rapida del Robot
+=================================================
 
-Introduction to Simple Motion Instructions
----------------------------------------------
+Introduzione Istruzioni di Movimento Semplici
+-----------------------------------------------
 
-**PTP command**: Click the “PTP” icon to enter the PTP command editing interface.
+**Comando PTP**: Cliccare l'icona "Punto a Punto" per accedere all'interfaccia di modifica comando PTP.
 
-You can choose the point to be reached, and the smooth transition time setting can realize that the movement from this point to the next point is continuous. Whether to set the offset, you can choose to offset based on the base coordinate system and based on the tool coordinates, and pop up x, y, z, rx, ry, rz offset settings, PTP specific path is the optimal path automatically planned by the motion controller, click “Add” and “Apply” to save this command.
+È possibile selezionare il punto da raggiungere. L'impostazione del tempo di transizione morbida permette un movimento continuo da questo punto al successivo. È possibile impostare se applicare un offset, scegliendo tra offset basato sul sistema di coordinate base e offset basato sul sistema di coordinate strumento. Verranno visualizzati i campi per impostare gli offset x, y, z, rx, ry, rz. Il percorso specifico PTP è il percorso ottimizzato pianificato automaticamente dal controller di movimento. Cliccando "Aggiungi", "Applica" è possibile salvare questa istruzione.
 
 .. image:: teaching_pendant_software/055.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 5.1-1 PTP command interface
+.. centered:: Grafico 5.1‑1 Interfaccia comando PTP
 
-**Lin command**: Click the “Lin” icon to enter the Lin command editing interface.
+**Comando Lin**: Cliccare l'icona "Linea" per accedere all'interfaccia di modifica comando Lin.
 
-The function of this command is similar to the “PTP” command, but the path of the point reached by this command is a straight line.
+La funzione di questa istruzione è simile a quella del comando "PTP", ma il percorso per raggiungere il punto con questa istruzione è una linea retta.
 
 .. image:: teaching_pendant_software/057.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 5.1-2 Lin command interface
+.. centered:: Grafico 5.1‑2 Interfaccia comando Lin
 
-Operate on program files
---------------------------
+Operazioni sul File di Programma
+---------------------------------
 
-Use the toolbar at the top of the program tree to modify the program tree.
+Utilizzare la barra degli strumenti nella parte superiore dell'albero del programma per modificare l'albero del programma.
 
 .. note:: 
    .. image:: coding/006.png
       :height: 0.75in
       :align: left
 
-   name: **Open**
+   Nome: **Apri**
    
-   effect: Open user program file
+   Funzione: Aprire un file di programma utente
 
 .. note:: 
    .. image:: coding/007.png
       :height: 0.75in
       :align: left
 
-   name: **New build**
+   Nome: **Nuovo**
    
-   effect: Select a template to create a new program file
+   Funzione: Selezionare un modello per creare un nuovo file di programma
    
 .. note:: 
    .. image:: coding/008.png
       :height: 0.75in
       :align: left
 
-   name: **Import**
+   Nome: **Importa**
    
-   effect: Import the file into the user program folder
+   Funzione: Importare un file nella cartella dei programmi utente
 
 .. note:: 
    .. image:: coding/009.png
       :height: 0.75in
       :align: left
 
-   name: **Export**
+   Nome: **Esporta**
    
-   effect: Export user program files to a local point.
+   Funzione: Esportare un file di programma utente in un punto locale
 
 .. note:: 
    .. image:: coding/010.png
       :height: 0.75in
       :align: left
 
-   name: **Save**
+   Nome: **Salva**
    
-   effect: Save file edits
+   Funzione: Salvare il contenuto modificato del file.
 
 .. note:: 
    .. image:: coding/011.png
       :height: 0.75in
       :align: left
 
-   name: **Save as**
+   Nome: **Salva con nome**
    
-   effect: Rename the file and store it in the user program or template program folder.
+   Funzione: Rinominare il file e salvarlo nella cartella dei programmi utente o dei modelli di programma
 
 .. note:: 
    .. image:: coding/012.png
       :height: 0.75in
       :align: left
 
-   name: **Copy**
+   Nome: **Copia**
    
-   effect: Duplicates a node and allows it to be used for other operations (eg: paste it elsewhere in the program tree).
+   Funzione: Copiare un nodo, consentendone l'uso in altre operazioni (ad esempio: incollarlo in altre posizioni dell'albero del programma)
 
 .. note:: 
    .. image:: coding/013.png
       :height: 0.75in
       :align: left
 
-   name: **Paste**
+   Nome: **Incolla**
    
-   effect: Allows you to paste previously cut or copied nodes.
+   Funzione: Consente di incollare un nodo precedentemente tagliato o copiato
 
 .. note:: 
    .. image:: coding/014.png
       :height: 0.75in
       :align: left
 
-   name: **To cut**
+   Nome: **Taglia**
    
-   effect: Cuts a node and allows it to be used for other operations (eg: paste it elsewhere in the program tree).
+   Funzione: Tagliare un nodo, consentendone l'uso in altre operazioni (ad esempio: incollarlo in altre posizioni dell'albero del programma)
 
 .. note:: 
    .. image:: coding/015.png
       :height: 0.75in
       :align: left
 
-   name: **Delete**
+   Nome: **Elimina**
    
-   effect: Deletes a node from the program tree.
+   Funzione: Eliminare un nodo dall'albero del programma
 
 .. note:: 
    .. image:: coding/016.png
       :height: 0.75in
       :align: left
 
-   name: **Move up**
+   Nome: **Sposta su**
    
-   effect: Move the node up.
+   Funzione: Spostare il nodo verso l'alto
 
 .. note:: 
    .. image:: coding/017.png
       :height: 0.75in
       :align: left
 
-   name: **Move down**
+   Nome: **Sposta giù**
    
-   effect: Move the node down.
+   Funzione: Spostare il nodo verso il basso
 
 .. note:: 
    .. image:: coding/018.png
       :height: 0.75in
       :align: left
 
-   name: **Toggle edit mode**
+   Nome: **Cambia modalità modifica**
    
-   effect: The program tree mode and lua editing mode switch each other.
+   Funzione: Passare dalla modalità albero del programma alla modalità di modifica lua e viceversa
 
+Scrittura ed Esecuzione di un Programma
+----------------------------------------
 
-Write and run a program
--------------------------
+La parte sinistra è principalmente dedicata all'aggiunta di comandi di programma. Cliccando le icone sopra le parole chiave si accede all'interfaccia dettagliata a destra per l'aggiunta di comandi di programma. Le operazioni per aggiungere comandi di programma al file si dividono principalmente in due tipi:
 
-The left side is mainly for adding program commands. Click the icon above each keyword to enter the detailed interface. There are two main operations for adding program commands to files:
+- 1. Aprire l'istruzione correlata e cliccare il pulsante Applica per aggiungere l'istruzione al programma;
+- 2. Cliccare prima il pulsante "Aggiungi". A questo punto il comando non è salvato nel file di programma, è necessario cliccare "Applica" per salvare il comando nel file.
 
-- 1. Open the relevant command and click the Apply button to add the command to the program;
+Il secondo metodo si presenta spesso quando si devono inviare più istruzioni dello stesso tipo. Per questo tipo di comando è stata aggiunta la funzione di pulsante di aggiunta e visualizzazione del contenuto delle istruzioni già aggiunte. Cliccando il pulsante Aggiungi si aggiunge un'istruzione. La sezione delle istruzioni già aggiunte mostra tutte le istruzioni aggiunte. Cliccando "Applica" è possibile salvare le istruzioni aggiunte nel file aperto a destra.
 
-- 2. Click the "Add" button first. At this time, the command is not saved in the program file. You need to click "Apply" to save the command to the file.
+Cliccando il pulsante Avvia, si esegue il programma; cliccando il pulsante Ferma, si interrompe l'esecuzione del programma; cliccando il pulsante Pausa/Riprendi, si mette in pausa/riprende il programma. Durante l'esecuzione del programma, il nodo del programma attualmente in esecuzione viene evidenziato in verde.
 
-The second method often appears when multiple commands of the same type are issued. We add the Add button and display the added command content function for this type of command. Click the Add button to add an instruction. The Added Instructions display all added instructions. Click "Apply" to save the added instructions to the opened file on the right.
-
-Click the Start button to run the program; click the Stop button to stop the program; click the Pause/Resume button to pause/resume the program; when the program is running, the currently executed program node is highlighted in green.
-
-In manual mode, click the first icon on the right side of the node to make the robot execute the instruction alone, and the second icon is to edit the node content.
+In modalità manuale, cliccando la prima icona a destra di un nodo si può far eseguire al robot solo quell'istruzione; la seconda icona serve per modificare il contenuto di quel nodo.
 
 .. image:: coding/001.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 5.3-1 Program tree interface
+.. centered:: Grafico 5.3‑1 Interfaccia albero del programma

@@ -1,116 +1,116 @@
-The use of robot WebAPP programs
-=======================================
+Utilizzo Programmi WebAPP Robot
+======================================
 
 .. toctree:: 
     :maxdepth: 5
 
-Set the default job program to be automatically loaded upon startup
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Caricamento Automatico Programma Operativo Predefinito all'Accensione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief set the default job program to be automatically loaded upon startup
-    * @param [in] flag 0- Default programs are not automatically loaded upon startup, 1- Default programs are automatically loaded upon startup
-    * @param [in] program_name job program name and path, such as "/fruser/movej.lua", where "/fruser/" is the fixed path
-    * @return error code
-    * /
-    int LoadDefaultProgConfig(byte flag, string program_name);
+    /**
+    * @brief  Impostare Caricamento Automatico Programma Operativo Predefinito all'Accensione
+    * @param  [in] flag  0-non caricare automaticamente programma predefinito all'accensione, 1-caricare automaticamente programma predefinito all'accensione
+    * @param  [in] program_name Nome programma operativo e percorso, es. "/fruser/" è il percorso fisso per QX, mentre "/usr/local/etc/controller/lua/" è il percorso fisso per LA.
+    * @return   Codice errore
+    */
+    int LoadDefaultProgConfig(byte flag, string program_name); 
 
-Load the specified job program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Caricare Programma Operativo Specificato
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Load the specified job program
-    * @param [in] program_name job program name and path, such as "/fruser/movej.lua", where "/fruser/" is the fixed path
-    * @return error code
-    * /
-    int ProgramLoad(string program_name);
+    /**
+    * @brief  Caricare Programma Operativo Specificato
+    * @param  [in] program_name Nome programma operativo e percorso, es. "/fruser/" è il percorso fisso per QX, mentre "/usr/local/etc/controller/lua/" è il percorso fisso per LA.
+    * @return   Codice errore
+    */
+    int ProgramLoad(string program_name); 
 
-Get the name of the loaded job program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Nome Programma Operativo Caricato
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Get the name of the loaded job program
-    * @param [out] program_name job program name and path, such as "/fruser/movej.lua", where "/fruser/" is a fixed path
-    * @return error code
-    * /
-    int GetLoadedProgram(ref string program_name);
+    /**
+    * @brief  Ottenere Nome Programma Operativo Caricato
+    * @param  [out] program_name Nome programma operativo e percorso, es. "/fruser/" è il percorso fisso per QX, mentre "/usr/local/etc/controller/lua/" è il percorso fisso per LA.
+    * @return   Codice errore
+    */
+    int GetLoadedProgram(ref string program_name); 
 
-Obtain the execution line number of the current robot operation program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Numero Riga Esecuzione Corrente Programma Operativo Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief get the line number of the current robot job program being executed
-    * @param [out] line number
-    * @return error code
-    * /
+    /**
+    * @brief  Ottenere Numero Riga Esecuzione Corrente Programma Operativo Robot
+    * @param  [out] line  Numero riga
+    * @return   Codice errore
+    */   
     int GetCurrentLine(ref int line);
 
-Run the currently loaded job program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Eseguire Programma Operativo Corrente Caricato
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief run the currently loaded job program
-    * @return error code
-    * /
+    /**
+    * @brief  Eseguire Programma Operativo Corrente Caricato
+    * @return   Codice errore
+    */
     int ProgramRun();
 
-Pause the currently running job program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Mettere in Pausa Programma Operativo Corrente in Esecuzione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Suspend the currently running job program
-    * @return error code
-    * /
+    /**
+    * @brief  Mettere in Pausa Programma Operativo Corrente in Esecuzione
+    * @return   Codice errore
+    */ 
     int ProgramPause();
 
-Resume the currently suspended job procedure
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Riprendere Programma Operativo Corrente in Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Resume the currently suspended operation procedure
-    * @return error code
-    * /
-    int ProgramResume();
+    /**
+    * @brief  Riprendere Programma Operativo Corrente in Pausa
+    * @return   Codice errore
+    */ 
+    int ProgramResume(); 
 
-Terminate the currently running job program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Terminare Programma Operativo Corrente in Esecuzione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Terminate the currently running job program
-    * @return error code
-    * /
-    int ProgramStop();
+    /**
+    * @brief  Terminare Programma Operativo Corrente in Esecuzione
+    * @return   Codice errore
+    */ 
+    int ProgramStop();   
 
-Obtain the execution status of the robot's operation program
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Esecuzione Programma Operativo Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Get the execution status of the robot operation program
-    * @param [out] state 1- The program stops or no program runs, 2- the program is running, 3- the program is paused
-    * @return error code
-    * /
+    /**
+    * @brief  Ottenere Stato Esecuzione Programma Operativo Robot
+    * @param  [out]  state 1-programma fermo o nessun programma in esecuzione, 2-programma in esecuzione, 3-programma in pausa
+    * @return   Codice errore
+    */
     int GetProgramState(ref byte state);
 
-Example of robot LUA program operation code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Operazioni Programma LUA Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -140,71 +140,73 @@ Example of robot LUA program operation code
         Thread.Sleep(1000);
     }
 
-Download the Lua file
+Scaricare File Lua
 +++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-v1.0.5
 
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Download Lua files
-    * @param [in] fileName The job program to be downloaded is "test.lua" or "test.tar.gz"
-    * @param [in] savePath save the local path of the job program "D://Down/"
-    * @return error code
-    * /
-    int LuaDownLoad(string fileName, string savePath);
+    /** 
+    * @brief Scaricare File Lua
+    * @param [in] fileName Programma operativo da scaricare "test.lua" o "test.tar.gz"
+    * @param [in] savePath Percorso locale salvataggio programma operativo "D://Down/"
+    * @return Codice errore 
+    */
+    public int LuaDownLoad(string fileName, string savePath);
 
-Upload the Lua file
+Caricare File Lua
 +++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-v1.0.5
 
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Upload the Lua file
-    * @param [in] filePath local job path name "... /test.lua" or "... /test.tar.gz"
-    * @param [out] errStr error message
-    * @return error code
-    * /
-    int LuaUpload(string filePath, ref string errStr);
+    /** 
+    * @brief Caricare File Lua
+    * @param [in] filePath Nome percorso programma operativo locale ".../test.lua" o ".../test.tar.gz"
+    * @param [out] errStr Informazioni errore
+    * @return Codice errore 
+    */
+    public int LuaUpload(string filePath, ref string errStr);
 
-Delete the Lua file
+Eliminare File Lua
 +++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C#SDK-v1.0.5
 
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Delete the Lua file
-    * @param [in] fileName Name of the job program to be deleted "test.lua"
-    * @return error code
-    * /
-    int LuaDelete(string fileName);
+    /** 
+    * @brief Eliminare File Lua
+    * @param [in] fileName Nome programma operativo da eliminare "test.lua"
+    * @return Codice errore 
+    */
+    public int LuaDelete(string fileName);
 
-Get the names of all current lua files
+Ottenere Nomi Tutti File Lua Correnti
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C#SDK-v1.0.5
 
 .. code-block:: c#
     :linenos:
 
-    / * *
-    * @brief Get the names of all current lua files
-    * @param [out] luaNames list of job program names
-    * @return error code
-    * /
-    int GetLuaList(ref List<string> luaNames) ;
+    /** 
+    * @brief Ottenere Nomi Tutti File Lua Correnti
+    * @param [out] luaNames Lista nomi programmi operativi
+    * @return Codice errore 
+    */
+    public int GetLuaList(ref List<string> luaNames) ;
 
-Code example for uploading and downloading robot LUA files
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Caricamento/Scaricamento File LUA Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. versionadded:: C#SDK-v1.0.5
 
 .. code-block:: c#
     :linenos:
-
 
     private void btnUploadLua_Click(object sender, EventArgs e)
     {

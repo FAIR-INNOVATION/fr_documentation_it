@@ -1,53 +1,53 @@
-Robot Peripheral Devices
-========================
+Periferiche del Robot
+============================
 
 .. toctree:: 
     :maxdepth: 5
 
-Configure Gripper
+Configurare la pinza
 ++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Configure gripper
-    * @param  [in] company  Gripper manufacturer (to be determined)
-    * @param  [in] device  Device number (currently unused, default 0)
-    * @param  [in] softvesion  Software version (currently unused, default 0)
-    * @param  [in] bus  Device bus location at end (currently unused, default 0)
-    * @return  Error code
+    * @brief  Configura la pinza
+    * @param  [in] company  Produttore pinza, da definire
+    * @param  [in] device  Numero dispositivo, attualmente non utilizzato, predefinito 0
+    * @param  [in] softvesion  Numero versione software, attualmente non utilizzato, predefinito 0
+    * @param  [in] bus  Posizione bus terminale su cui è montato il dispositivo, attualmente non utilizzato, predefinito 0
+    * @return  Codice di errore
     */
     errno_t  SetGripperConfig(int company, int device, int softvesion, int bus);
 
-Get Gripper Configuration
-++++++++++++++++++++++++++
+Ottenere la configurazione della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get gripper configuration
-    * @param  [in] company  Gripper manufacturer (to be determined)
-    * @param  [in] device  Device number (currently unused, default 0)
-    * @param  [in] softvesion  Software version (currently unused, default 0)
-    * @param  [in] bus  Device bus location at end (currently unused, default 0)
-    * @return  Error code
+    * @brief  Ottiene la configurazione della pinza
+    * @param  [in] company  Produttore pinza, da definire
+    * @param  [in] device  Numero dispositivo, attualmente non utilizzato, predefinito 0
+    * @param  [in] softvesion  Numero versione software, attualmente non utilizzato, predefinito 0
+    * @param  [in] bus  Posizione bus terminale su cui è montato il dispositivo, attualmente non utilizzato, predefinito 0
+    * @return  Codice di errore
     */
     errno_t  GetGripperConfig(int *company, int *device, int *softvesion, int *bus);
 
-Activate Gripper
+Attivare la pinza
 ++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Activate gripper
-    * @param  [in] index  Gripper number
-    * @param  [in] act  0-reset, 1-activate
-    * @return  Error code
+    * @brief  Attiva la pinza
+    * @param  [in] index  Numero pinza
+    * @param  [in] act  0-Ripristina, 1-Attiva
+    * @return  Codice di errore
     */
     errno_t  ActGripper(int index, uint8_t act);
 
-Control Gripper
+Controllare la pinza
 ++++++++++++++++++++++++++
 .. versionchanged:: C++SDK-v2.1.5.0
 
@@ -55,141 +55,141 @@ Control Gripper
     :linenos:
 
     /**
-	 * @brief  Control gripper
-	 * @param  [in] index  Gripper number
-	 * @param  [in] pos  Position percentage [0~100]
-	 * @param  [in] vel  Speed percentage [0~100]
-	 * @param  [in] force  Torque percentage [0~100]
-	 * @param  [in] max_time  Maximum wait time [0~30000], unit ms
-	 * @param  [in] block  0-blocking, 1-non-blocking
-	 * @param  [in] type  Gripper type, 0-parallel gripper; 1-rotary gripper
-	 * @param  [in] rotNum  Rotation turns
-	 * @param  [in] rotVel  Rotation speed percentage [0-100]
-	 * @param  [in] rotTorque  Rotation torque percentage [0-100]
-	 * @return  Error code
-	 */
-	errno_t MoveGripper(int index, int pos, int vel, int force, int max_time, uint8_t block, int type, double rotNum, int rotVel, int rotTorque);
+     * @brief  Controlla la pinza
+     * @param  [in] index  Numero pinza
+     * @param  [in] pos  Percentuale posizione, intervallo [0~100]
+     * @param  [in] vel  Percentuale velocità, intervallo [0~100]
+     * @param  [in] force  Percentuale coppia, intervallo [0~100]
+     * @param  [in] max_time  Tempo massimo attesa, intervallo [0~30000], unità ms
+     * @param  [in] block  0-Blocco, 1-Non bloccante
+     * @param  [in] type Tipo pinza, 0-Pinza parallela; 1-Pinza rotante
+     * @param  [in] rotNum Numero rotazioni
+     * @param  [in] rotVel Percentuale velocità rotazione [0-100]
+     * @param  [in] rotTorque Percentuale coppia rotazione [0-100]
+     * @return  Codice di errore
+     */
+    errno_t MoveGripper(int index, int pos, int vel, int force, int max_time, uint8_t block, int type, double rotNum, int rotVel, int rotTorque);
 
-Get Gripper Motion Status
-++++++++++++++++++++++++++
+Ottenere lo stato di movimento della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get gripper motion status
-     * @param  [out] fault  0-no error, 1-error
-     * @param  [out] staus  0-motion not completed, 1-motion completed
-     * @return  Error code
+     * @brief  Ottiene lo stato di movimento della pinza
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] staus  0-Movimento non completato, 1-Movimento completato
+     * @return  Codice di errore
      */
     errno_t  GetGripperMotionDone(uint16_t *fault, uint8_t *status);
 
-Get Gripper Activation Status
-++++++++++++++++++++++++++++++++++++++
+Ottenere lo stato di attivazione della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get gripper activation status
-     * @param  [out] fault  0-no error, 1-error
-     * @param  [out] status  bit0~bit15 correspond to gripper numbers 0~15, bit=0 not activated, bit=1 activated
-     * @return  Error code
+     * @brief  Ottiene lo stato di attivazione della pinza
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] status  bit0~bit15 corrisponde ai numeri pinza 0~15, bit=0 non attivata, bit=1 attivata
+     * @return  Codice di errore
      */
     errno_t  GetGripperActivateStatus(uint16_t *fault, uint16_t *status);
 
-Get Gripper Position
-++++++++++++++++++++++++++
+Ottenere la posizione della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get gripper position
-     * @param  [out] fault  0-no error, 1-error
-     * @param  [out] position  Position percentage, range 0~100%
-     * @return  Error code
+     * @brief  Ottiene la posizione della pinza
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] position  Percentuale posizione, intervallo 0~100%
+     * @return  Codice di errore
      */
     errno_t  GetGripperCurPosition(uint16_t *fault, uint8_t *position);
 
-Get Gripper Speed
-++++++++++++++++++++++++++
+Ottenere la velocità della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get gripper speed
-     * @param  [out] fault  0-no error, 1-error
-     * @param  [out] speed  Speed percentage, range 0~100%
-     * @return  Error code
+     * @brief  Ottiene la velocità della pinza
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] speed  Percentuale velocità, intervallo 0~100%
+     * @return  Codice di errore
      */
     errno_t  GetGripperCurSpeed(uint16_t *fault, int8_t *speed);
 
-Get Gripper Current
-++++++++++++++++++++++++++
+Ottenere la corrente della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get gripper current
-     * @param  [out] fault  0-no error, 1-error
-     * @param  [out] current  Current percentage, range 0~100%
-     * @return  Error code
+     * @brief  Ottiene la corrente della pinza
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] current  Percentuale corrente, intervallo 0~100%
+     * @return  Codice di errore
      */
     errno_t  GetGripperCurCurrent(uint16_t *fault, int8_t *current);
 
-Get Gripper Voltage
-++++++++++++++++++++++++++
+Ottenere la tensione della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get gripper voltage
-     * @param  [out] fault  0-no error, 1-error
-     * @param  [out] voltage  Voltage, unit 0.1V
-     * @return  Error code
+     * @brief  Ottiene la tensione della pinza
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] voltage  Tensione, unità 0.1V
+     * @return  Codice di errore
      */
     errno_t  GetGripperVoltage(uint16_t *fault, int *voltage);
 
-Get Gripper Temperature
-++++++++++++++++++++++++++
+Ottenere la temperatura della pinza
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Get gripper temperature
-     * @param  [out] fault  0-no error, 1-error
-     * @param  [out] temp  Temperature, unit ℃
-     * @return  Error code
+     * @brief  Ottiene la temperatura della pinza
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] temp  Temperatura, unità ℃
+     * @return  Codice di errore
      */
     errno_t  GetGripperTemp(uint16_t *fault, int *temp);
 
-Calculate Pre-Pick Point - Vision
-++++++++++++++++++++++++++++++++++++++
+Calcolare punto pre-presa - visione
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Calculate pre-pick point - vision
-     * @param  [in] desc_pos  Pick point Cartesian pose
-     * @param  [in] zlength  Z-axis offset
-     * @param  [in] zangle   Rotation offset around Z-axis
-     * @return  Error code 
+     * @brief  Calcola punto pre-presa - visione
+     * @param  [in] desc_pos  Posa cartesiana punto presa
+     * @param  [in] zlength   Spostamento asse z
+     * @param  [in] zangle    Spostamento rotazione asse z
+     * @return  Codice di errore 
      */
     errno_t  ComputePrePick(DescPose *desc_pos, double zlength, double zangle, DescPose *pre_pos);
 
-Calculate Retreat Point - Vision
-++++++++++++++++++++++++++++++++++++++
+Calcolare punto ritiro - visione
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief  Calculate retreat point - vision
-     * @param  [in] desc_pos  Pick point Cartesian pose
-     * @param  [in] zlength  Z-axis offset
-     * @param  [in] zangle   Rotation offset around Z-axis
-     * @return  Error code 
+     * @brief  Calcola punto ritiro - visione
+     * @param  [in] desc_pos  Posa cartesiana punto presa
+     * @param  [in] zlength   Spostamento asse z
+     * @param  [in] zangle    Spostamento rotazione asse z
+     * @return  Codice di errore 
      */
     errno_t  ComputePostPick(DescPose *desc_pos, double zlength, double zangle, DescPose *post_pos);
 
-Robot Gripper Operation Code Example
+Esempio di codice per operazioni pinza robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
@@ -264,24 +264,24 @@ Robot Gripper Operation Code Example
       return 0;
     }
 
-Get Rotation Count of Rotary Gripper
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere il numero di rotazioni della pinza rotante
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: Version 3.7.6
+.. versionadded:: 3.7.6版本加入
 
 .. code-block:: c++
     :linenos:
 
     /**
-	 * @brief  Get rotation count of rotary gripper
-	 * @param  [out] fault  0-no error, 1-error
-	 * @param  [out] num  Rotation count
-	 * @return  Error code
-	 */
-	errno_t GetGripperRotNum(uint16_t* fault, double* num);
+     * @brief  Ottiene il numero di rotazioni della pinza rotante
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] num  Numero rotazioni
+     * @return  Codice di errore
+     */
+    errno_t GetGripperRotNum(uint16_t* fault, double* num);
 
-Get Rotation Speed of Rotary Gripper
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la velocità di rotazione della pinza rotante
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: V3.7.6
 
@@ -289,15 +289,15 @@ Get Rotation Speed of Rotary Gripper
     :linenos:
 
     /**
-	 * @brief  Get rotation speed of rotary gripper
-	 * @param  [out] fault  0-no error, 1-error
-	 * @param  [out] speed  Rotation speed percentage
-	 * @return  Error code
-	 */
-	errno_t GetGripperRotSpeed(uint16_t* fault, int* speed);
+     * @brief  Ottiene la velocità di rotazione della pinza rotante
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] speed  Percentuale velocità rotazione
+     * @return  Codice di errore
+     */
+    errno_t GetGripperRotSpeed(uint16_t* fault, int* speed);
 
-Get Rotation Torque of Rotary Gripper
-+++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la coppia di rotazione della pinza rotante
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: V3.7.6
 
@@ -305,15 +305,15 @@ Get Rotation Torque of Rotary Gripper
     :linenos:
 
     /**
-	 * @brief  Get rotation torque of rotary gripper
-	 * @param  [out] fault  0-no error, 1-error
-	 * @param  [out] torque  Rotation torque percentage
-	 * @return  Error code
-	 */
-	errno_t GetGripperRotTorque(uint16_t* fault, int* torque);
+     * @brief  Ottiene la coppia di rotazione della pinza rotante
+     * @param  [out] fault  0-Nessun errore, 1-Errore presente
+     * @param  [out] torque  Percentuale coppia rotazione
+     * @return  Codice di errore
+     */
+    errno_t GetGripperRotTorque(uint16_t* fault, int* torque);
 
-Rotary Gripper Status Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per ottenere lo stato della pinza rotante
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
@@ -341,111 +341,110 @@ Rotary Gripper Status Code Example
       return 0;
     }
 
-
-Conveyor Start/Stop
+Avvio/arresto nastro trasportatore
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Conveyor start/stop
-    * @param [in] status State, 1-start, 0-stop 
-    * @return Error code
+    * @brief Avvio/arresto nastro trasportatore
+    * @param [in] status Stato, 1-Avvia, 0-Arresta 
+    * @return Codice di errore
     */
     errno_t ConveyorStartEnd(uint8_t status);
 
-Record IO Detection Point
+Registrare punto rilevamento IO
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Record IO detection point
-    * @return Error code
+    * @brief Registra punto rilevamento IO
+    * @return Codice di errore
     */
     errno_t ConveyorPointIORecord();
 
-Record Point A
+Registrare punto A
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Record point A
-    * @return Error code
+    * @brief Registra punto A
+    * @return Codice di errore
     */
     errno_t ConveyorPointARecord();
 
-Record Reference Point
+Registrare punto di riferimento
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Record reference point
-    * @return Error code
+    * @brief Registra punto di riferimento
+    * @return Codice di errore
     */
     errno_t ConveyorRefPointRecord();
 
-Record Point B
+Registrare punto B
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Record point B
-    * @return Error code
+    * @brief Registra punto B
+    * @return Codice di errore
     */
     errno_t ConveyorPointBRecord();
 
-Conveyor Workpiece IO Detection
+Rilevamento IO pezzo nastro trasportatore
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Conveyor workpiece IO detection
-    * @param [in] max_t Maximum detection time, unit ms
-    * @return Error code
+    * @brief Rilevamento IO pezzo nastro trasportatore
+    * @param [in] max_t Tempo massimo rilevamento, unità ms
+    * @return Codice di errore
     */
     errno_t ConveyorIODetect(int max_t);
 
-Get Current Object Position
+Ottenere posizione corrente oggetto
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get current object position
+    * @brief Ottiene posizione corrente oggetto
     * @param [in] mode 
-    * @return Error code
+    * @return Codice di errore
     */
     errno_t ConveyorGetTrackData(int mode);
 
-Conveyor Tracking Start
+Inizio tracciamento nastro trasportatore
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Conveyor tracking start
-    * @param [in] status State, 1-start, 0-stop 
-    * @return Error code
+    * @brief Inizio tracciamento nastro trasportatore
+    * @param [in] status Stato, 1-Avvia, 0-Arresta 
+    * @return Codice di errore
     */
     errno_t ConveyorTrackStart(uint8_t status);
 
-Conveyor Tracking Stop
+Fine tracciamento nastro trasportatore
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Conveyor tracking stop
-    * @return Error code
+    * @brief Fine tracciamento nastro trasportatore
+    * @return Codice di errore
     */
     errno_t ConveyorTrackEnd();
 
-Conveyor Parameter Configuration
+Configurazione parametri nastro trasportatore
 +++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: C++SDK-v2.2.1-3.8.1
 
@@ -453,75 +452,75 @@ Conveyor Parameter Configuration
     :linenos:
 
     /**
-    * @brief Conveyor parameter configuration
-    * @param [in] para[0] Encoder channel 1~2
-    * @param [in] para[1] Pulses per encoder revolution
-    * @param [in] para[2] Conveyor travel distance per encoder revolution
-    * @param [in] para[3] Workpiece coordinate system number (0 for tracking capture and TPD tracking)
-    * @param [in] para[4] Vision configuration 0-not configured 1-configured
-    * @param [in] para[5] Speed ratio for conveyor tracking capture (1-100), default 1 for other options
-    * @param [in] followType Tracking motion type, 0-tracking motion; 1-chase inspection motion
-    * @param [in] startDis For chase capture: tracking start distance (-1: auto calculate), unit mm, default 0
-    * @param [in] endDis For chase capture: tracking end distance, unit mm, default 100
-    * @return Error code
+    * @brief Configurazione parametri nastro trasportatore
+    * @param [in] para[0] Canale encoder 1~2
+    * @param [in] para[1] Impulsi per giro encoder
+    * @param [in] para[2] Distanza percorrenza nastro per giro encoder
+    * @param [in] para[3] Numero sistema coordinate pezzo Per funzione tracciamento movimento seleziona numero sistema coordinate pezzo, per tracciamento presa, tracciamento TPD imposta 0
+    * @param [in] para[4] Configura visione 0 non configurato 1 configurato
+    * @param [in] para[5] Rapporto velocità Per opzione tracciamento presa nastro trasportatore (1-100) Altre opzioni predefinite 1 
+    * @param [in] followType Tipo movimento tracciamento, 0-Movimento tracciamento; 1-Movimento inseguimento verifica
+    * @param [in] startDis Necessario per presa inseguimento verifica, distanza inizio tracciamento, -1: calcolo automatico (avvio automatico inseguimento verifica quando pezzo raggiunge sotto robot), unità mm, valore predefinito 0
+    * @param [in] endDis Necessario per presa inseguimento verifica, distanza fine tracciamento, unità mm, valore predefinito 100
+    * @return Codice di errore
     */
     errno_t ConveyorSetParam(float para[6], int followType = 0, int startDis = 0, int endDis = 100);
 
-Conveyor Capture Point Compensation
-+++++++++++++++++++++++++++++++++++++++++++++
+Compensazione punto presa nastro trasportatore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: C++SDK-v2.1.2.0
 
 .. code-block:: c++
     :linenos:
 
-	/**
-	 * @brief Conveyor capture point compensation
-	 * @param [in] cmp Compensation position double[3]{x, y, z}
-	 * @return Error code
-	 */
+    /**
+     * @brief Compensazione punto presa nastro trasportatore
+     * @param [in] cmp Posizione compensazione double[3]{x, y, z}
+     * @return Codice di errore
+     */
     errno_t ConveyorCatchPointComp(double cmp[3]);
 
-Conveyor Linear Motion
+Movimento lineare nastro trasportatore
 +++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Conveyor linear motion
-    * @param [in] status State, 1-start, 0-stop 
-    * @return Error code
+    * @brief Movimento lineare nastro trasportatore
+    * @param [in] status Stato, 1-Avvia, 0-Arresta 
+    * @return Codice di errore
     */
     errno_t TrackMoveL(char name[32], int tool, int wobj, float vel, float acc, float ovl, float blendR, uint8_t flag, uint8_t type);
 
-Conveyor Communication Input Detection
-++++++++++++++++++++++++++++++++++++++++++
+Rilevamento input comunicazione nastro trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.1-3.8.1
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Conveyor communication input detection
-    * @param [in] timeout Wait timeout time (ms)
-    * @return Error code
+    * @brief Rilevamento input comunicazione nastro trasportatore
+    * @param [in] timeout Tempo attesa timeout ms
+    * @return Codice di errore
     */
     errno_t ConveyorComDetect(int timeout);
 
-Conveyor Communication Input Detection Trigger
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Trigger rilevamento input comunicazione nastro trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.2.1-3.8.1
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Conveyor communication input detection trigger
-    * @return Error code
+    * @brief Trigger rilevamento input comunicazione nastro trasportatore
+    * @return Codice di errore
     */
     errno_t ConveyorComDetectTrigger();
 
-Robot Conveyor Operation Example Program
-++++++++++++++++++++++++++++++++++++++++
+Esempio programma operazioni nastro trasportatore robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
 .. code-block:: c++
     :linenos:
@@ -594,7 +593,7 @@ Robot Conveyor Operation Example Program
       return 0;
     }
 
-End Sensor Configuration
+Configurazione sensore terminale
 +++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
@@ -602,31 +601,31 @@ End Sensor Configuration
     :linenos:
 
     /**
-    * @brief End sensor configuration
-    * @param [in] idCompany Manufacturer, 18-JUNKONG; 25-HUIDE
-    * @param [in] idDevice Type, 0-JUNKONG/RYR6T.V1.0
-    * @param [in] idSoftware Software version, 0-J1.0/HuiDe1.0 (not yet available)
-    * @param [in] idBus Mounting position, 1-End port 1; 2-End port 2...8-End port 8 (not yet available)
-    * @return Error code
+    * @brief Configurazione sensore terminale
+    * @param [in] idCompany Produttore, 18-JUNKONG; 25-HUIDE
+    * @param [in] idDevice Tipo, 0-JUNKONG/RYR6T.V1.0
+    * @param [in] idSoftware Versione software, 0-J1.0/HuiDe1.0 (non ancora disponibile)
+    * @param [in] idBus Posizione montaggio, 1-Porta terminale 1; 2-Porta terminale 2...8-Porta terminale 8 (non ancora disponibile)
+    * @return Codice di errore
     */
     errno_t AxleSensorConfig(int idCompany, int idDevice, int idSoftware, int idBus);
 
-Get End Sensor Configuration
-+++++++++++++++++++++++++++++++++++++++
+Ottenere configurazione sensore terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Get end sensor configuration
-     * @param [out] idCompany Manufacturer, 18-JUNKONG; 25-HUIDE
-     * @param [out] idDevice Type, 0-JUNKONG/RYR6T.V1.0
-     * @return Error code
+     * @brief Ottiene configurazione sensore terminale
+     * @param [out] idCompany Produttore, 18-JUNKONG; 25-HUIDE
+     * @param [out] idDevice Tipo, 0-JUNKONG/RYR6T.V1.0
+     * @return Codice di errore
      */
     errno_t AxleSensorConfigGet(int& idCompany, int& idDevice);
 
-End Sensor Activation
+Attivazione sensore terminale
 +++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
@@ -634,13 +633,13 @@ End Sensor Activation
     :linenos:
 
     /**
-     * @brief End sensor activation
-     * @param [in] actFlag 0-Reset; 1-Activate
-     * @return Error code
+     * @brief Attivazione sensore terminale
+     * @param [in] actFlag 0-Ripristino; 1-Attivazione
+     * @return Codice di errore
      */
     errno_t AxleSensorActivate(int actFlag);
 
-End Sensor Register Write
+Scrittura registro sensore terminale
 +++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
@@ -648,19 +647,19 @@ End Sensor Register Write
     :linenos:
 
     /**
-     * @brief End sensor register write
-     * @param [in] devAddr Device address number 0-255
-     * @param [in] regHAddr Register address high 8 bits
-     * @param [in] regLAddr Register address low 8 bits
-     * @param [in] regNum Register count 0-255
-     * @param [in] data1 Write register value 1
-     * @param [in] data2 Write register value 2
-     * @param [in] isNoBlock 0-Blocking; 1-Non-blocking
-     * @return Error code
+     * @brief Scrittura registro sensore terminale
+     * @param [in] devAddr Numero indirizzo dispositivo 0-255
+     * @param [in] regHAddr Indirizzo registro alto 8 bit
+     * @param [in] regLAddr Indirizzo registro basso 8 bit
+     * @param [in] regNum Numero registri 0-255
+     * @param [in] data1 Valore registro scritto 1
+     * @param [in] data2 Valore registro scritto 2
+     * @param [in] isNoBlock 0-Blocco; 1-Non bloccante
+     * @return Codice di errore
      */
     errno_t AxleSensorRegWrite(int devAddr, int regHAddr, int regLAddr, int regNum, int data1, int data2, int isNoBlock);
 
-End Sensor Code Example
+Esempio di codice sensore terminale
 +++++++++++++++++++++++++++++++++++++++++++++++++++
     
 .. code-block:: c++
@@ -691,37 +690,37 @@ End Sensor Code Example
       robot.CloseRPC();
       return 0;
     }
-        
-Get Robot Peripheral Protocol
-++++++++++++++++++++++++++++++++++
+
+Ottenere protocollo periferiche robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.3.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get robot peripheral protocol
-    * @param [out] protocol Robot peripheral protocol number 4096-Extended axis control card; 4097-ModbusSlave; 4098-ModbusMaster
-    * @return Error code
+    * @brief Ottiene protocollo periferiche robot
+    * @param [out] protocol Numero protocollo periferiche robot 4096-Scheda controllo assi estesi; 4097-ModbusSlave; 4098-ModbusMaster
+    * @return Codice di errore
     */
     errno_t GetExDevProtocol(int *protocol);
 
-Set Robot Peripheral Protocol
-++++++++++++++++++++++++++++++++++
+Impostare protocollo periferiche robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.3.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set robot peripheral protocol
-    * @param [in] protocol Robot peripheral protocol number 4096-Extended axis control card; 4097-ModbusSlave; 4098-ModbusMaster
-    * @return Error code
+    * @brief Imposta protocollo periferiche robot
+    * @param [in] protocol Numero protocollo periferiche robot 4096-Scheda controllo assi estesi; 4097-ModbusSlave; 4098-ModbusMaster
+    * @return Codice di errore
     */
     errno_t SetExDevProtocol(int protocol);
 
-Set Robot Peripheral Protocol Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio programma impostazione protocollo periferiche robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.3.0
 
 .. code-block:: c++
@@ -748,185 +747,199 @@ Set Robot Peripheral Protocol Example
       return 0;
     }
 
-Get End Communication Parameters
-++++++++++++++++++++++++++++++++++
+Ottenere parametri comunicazione terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get end communication parameters
-    * @param param End communication parameters
-    * @return  Error code
+    * @brief Ottiene parametri comunicazione terminale
+    * @param param Parametri comunicazione terminale
+    * @return  Codice di errore
     */
     errno_t GetAxleCommunicationParam(AxleComParam* param);
 
-Set End Communication Parameters
-++++++++++++++++++++++++++++++++++
+Impostare parametri comunicazione terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set end communication parameters
-    * @param param  End communication parameters
-    * @return  Error code
+    * @brief Imposta parametri comunicazione terminale
+    * @param param  Parametri comunicazione terminale
+    * @return  Codice di errore
     */
     errno_t SetAxleCommunicationParam(AxleComParam param);
 
-Set End File Transfer Type
-++++++++++++++++++++++++++++++++++
+Impostare tipo trasferimento file terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set end file transfer type
-    * @param type 1-MCU upgrade file; 2-LUA file
-    * @return  Error code
+    * @brief Imposta tipo trasferimento file terminale
+    * @param type 1-File aggiornamento MCU; 2-File LUA
+    * @return  Codice di errore
     */
     errno_t SetAxleFileType(int type);
 
-Set Enable End LUA Execution
-++++++++++++++++++++++++++++++++++
+Impostare abilitazione esecuzione LUA terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set enable end LUA execution
-    * @param enable 0-Disable; 1-Enable
-    * @return  Error code
+    * @brief Imposta abilitazione esecuzione LUA terminale
+    * @param enable 0-Non abilitare; 1-Abilitare
+    * @return  Codice di errore
     */
     errno_t SetAxleLuaEnable(int enable);
 
-End LUA File Error Recovery
-++++++++++++++++++++++++++++++++++
+Ripristino errori anomali file LUA terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief End LUA file error recovery
-    * @param status 0-No recovery; 1-Recovery
-    * @return  Error code
+    * @brief Ripristino errori anomali file LUA terminale
+    * @param status 0-Non ripristinare; 1-Ripristinare
+    * @return  Codice di errore
     */
     errno_t SetRecoverAxleLuaErr(int status);
 
-Get End LUA Execution Enable Status
-+++++++++++++++++++++++++++++++++++++++
+Ripristino errori anomali file LUA terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get end LUA execution enable status
-    * @param status status[0]: 0-Not enabled; 1-Enabled
-    * @return  Error code
+    * @brief Ottiene stato abilitazione esecuzione LUA terminale
+    * @param status status[0]: 0-Non abilitato; 1-Abilitato
+    * @return  Codice di errore
     */
     errno_t GetAxleLuaEnableStatus(int status[]);
 
-Set End LUA End Device Enable Type
-++++++++++++++++++++++++++++++++++
+Impostare tipo dispositivo terminale abilitato per LUA terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set end LUA end device enable type
-    * @param forceSensorEnable Force sensor enable status, 0-Disable; 1-Enable
-    * @param gripperEnable Gripper enable status, 0-Disable; 1-Enable
-    * @param IOEnable IO device enable status, 0-Disable; 1-Enable
-    * @return  Error code
+    * @brief Imposta tipo dispositivo terminale abilitato per LUA terminale
+    * @param forceSensorEnable Stato abilitazione sensore forza, 0-Non abilitato; 1-Abilitato
+    * @param gripperEnable Stato abilitazione pinza, 0-Non abilitato; 1-Abilitato
+    * @param IOEnable Stato abilitazione dispositivo IO, 0-Non abilitato; 1-Abilitato
+    * @return  Codice di errore
     */
     errno_t SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable);
 
-Get End LUA End Device Enable Type
-++++++++++++++++++++++++++++++++++
+Impostare tipo dispositivo terminale abilitato per LUA terminale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
         
     /**
-    * @brief Get end LUA end device enable type
-    * @param enable enable[0]:forceSensorEnable Force sensor enable status, 0-Disable; 1-Enable
-    * @param enable enable[1]:gripperEnable Gripper enable status, 0-Disable; 1-Enable
-    * @param enable enable[2]:IOEnable IO device enable status, 0-Disable; 1-Enable
-    * @return  Error code
+    * @brief Ottiene tipo dispositivo terminale abilitato per LUA terminale
+    * @param enable enable[0]:forceSensorEnable Stato abilitazione sensore forza, 0-Non abilitato; 1-Abilitato
+    * @param enable enable[1]:gripperEnable Stato abilitazione pinza, 0-Non abilitato; 1-Abilitato
+    * @param enable enable[2]:IOEnable Stato abilitazione dispositivo IO, 0-Non abilitato; 1-Abilitato
+    * @return  Codice di errore
     */
     errno_t GetAxleLuaEnableDeviceType(int* forceSensorEnable, int* gripperEnable, int* IOEnable);
 
-Get Currently Configured End Devices
-+++++++++++++++++++++++++++++++++++++++
+Ottenere dispositivi terminali attualmente configurati
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get currently configured end devices
-    * @param forceSensorEnable Force sensor enable device number 0-Not enabled; 1-Enabled
-    * @param gripperEnable Gripper enable device number, 0-Disable; 1-Enable
-    * @param IODeviceEnable IO device enable device number, 0-Disable; 1-Enable
-    * @return  Error code
+    * @brief Ottiene dispositivi terminali attualmente configurati
+    * @param forceSensorEnable Numero dispositivo sensore forza abilitato 0-Non abilitato; 1-Abilitato
+    * @param gripperEnable Numero dispositivo pinza abilitato, 0-Non abilitato; 1-Abilitato
+    * @param IODeviceEnable Numero dispositivo IO abilitato, 0-Non abilitato; 1-Abilitato
+    * @return  Codice di errore
     */
     errno_t GetAxleLuaEnableDevice(int forceSensorEnable[], int gripperEnable[], int IODeviceEnable[]);
 
-Set Enable Gripper Action Control Function
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare abilitazione funzione controllo azioni pinza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Set enable gripper action control function
-    * @param id Gripper device number
-    * @param func func[0]-Gripper enable; func[1]-Gripper initialization; 2-Position setting; 3-Speed setting; 4-Torque setting; 6-Read gripper status; 7-Read initialization status; 8-Read fault code; 9-Read position; 10-Read speed; 11-Read torque
-    * @return  Error code
+    * @brief Imposta abilitazione funzione controllo azioni pinza
+    * @param id Numero dispositivo pinza
+    * @param func func[0]-Abilitazione pinza; func[1]-Inizializzazione pinza; 2-Impostazione posizione; 3-Impostazione velocità; 4-Impostazione coppia; 6-Lettura stato pinza; 7-Lettura stato inizializzazione; 8-Lettura codice errore; 9-Lettura posizione; 10-Lettura velocità; 11-Lettura coppia
+    * @return  Codice di errore
     */
     errno_t SetAxleLuaGripperFunc(int id, int func[]);
 
-Get Enable Gripper Action Control Function
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere abilitazione funzione controllo azioni pinza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get enable gripper action control function
-    * @param id Gripper device number
-    * @param func func[0]-Gripper enable; func[1]-Gripper initialization; 2-Position setting; 3-Speed setting; 4-Torque setting; 6-Read gripper status; 7-Read initialization status; 8-Read fault code; 9-Read position; 10-Read speed; 11-Read torque
-    * @return  Error code
+    * @brief Ottiene abilitazione funzione controllo azioni pinza
+    * @param id Numero dispositivo pinza
+    * @param func func[0]-Abilitazione pinza; func[1]-Inizializzazione pinza; 2-Impostazione posizione; 3-Impostazione velocità; 4-Impostazione coppia; 6-Lettura stato pinza; 7-Lettura stato inizializzazione; 8-Lettura codice errore; 9-Lettura posizione; 10-Lettura velocità; 11-Lettura coppia
+    * @return  Codice di errore
     */
     errno_t GetAxleLuaGripperFunc(int id, int func[]);
 
-Robot Ethercat Slave File Write
-++++++++++++++++++++++++++++++++++
+Scrittura file slave Ethercat robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Robot Ethercat slave file write
-    * @param type Slave file type, 1-Upgrade slave file; 2-Upgrade slave configuration file
-    * @param slaveID Slave number
-    * @param fileName Upload file name
-    * @return  Error code
+    * @brief Scrittura file slave Ethercat robot
+    * @param type Tipo file slave, 1-Aggiornamento file slave; 2-Aggiornamento file configurazione slave
+    * @param slaveID Numero slave
+    * @param fileName Nome file upload
+    * @return  Codice di errore
     */
     errno_t SlaveFileWrite(int type, int slaveID, std::string fileName);
 
-Upload End Lua Open Protocol File
+Upload file protocollo aperto Lua terminale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C++SDK-v2.1.5.0
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Upload file protocollo aperto Lua terminale
+    * @param filePath Percorso nome file lua locale ".../AXLE_LUA_End_DaHuan.lua"
+    * @return Codice di errore
+    */
+    errno_t AxleLuaUpload(std::string filePath);
+
+Modalità boot slave Ethercat robot
 ++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
@@ -934,27 +947,13 @@ Upload End Lua Open Protocol File
     :linenos:
 
     /**
-    * @brief Upload end Lua open protocol file
-    * @param filePath Local lua file path name ".../AXLE_LUA_End_DaHuan.lua"
-    * @return Error code
-    */
-    errno_t AxleLuaUpload(std::string filePath);
-
-Robot Ethercat Slave Enter Boot Mode
-+++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v2.1.5.0
-
-.. code-block:: c++
-    :linenos:
-
-    /**
-    * @brief Robot Ethercat slave enter boot mode
-    * @return  Error code
+    * @brief Modalità boot slave Ethercat robot
+    * @return  Codice di errore
     */
     errno_t SetSysServoBootMode();
 
-Robot End LUA File Operation Code Example
-++++++++++++++++++++++++++++++++++++++++++++
+Esempio codice operazioni file LUA terminale robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
@@ -1026,21 +1025,21 @@ Robot End LUA File Operation Code Example
       return 0;
     }
 
-Get SmartTool Button Status
+Ottenere stato pulsanti SmartTool
 ++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get SmartTool button status
-    * @param [out] state SmartTool handle button status; (bit0:0-Communication normal; 1-Communication lost; bit1-Undo; bit2-Clear program;
-    bit3-A button; bit4-B button; bit5-C button; bit6-D button; bit7-E button; bit8-IO button; bit9-Manual/Auto; bit10-Start)
-    * @return Error code
+    * @brief Ottiene stato pulsanti SmartTool
+    * @param [out] state Stato pulsanti manopola SmartTool; (bit0:0-Comunicazione normale; 1-Comunicazione interrotta; bit1-Annulla operazione; bit2-Svuota programma;
+    bit3-Pulsante A; bit4-Pulsante B; bit5-Pulsante C; bit6-Pulsante D; bit7-Pulsante E; bit8-Pulsante IO; bit9-Manuale/automatico; bit10-Avvio)
+    * @return Codice di errore
     */
     errno_t GetSmarttoolBtnState(int& state);
-    
-SmartTool Button Code Example
+
+Esempio codice pulsanti SmartTool
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
@@ -1066,53 +1065,53 @@ SmartTool Button Code Example
       }
     }
 
-Control Array Suction Cup
+Controllare ventose a matrice
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Control Array Suction Cup
-    * @param [in] slaveID Slave Station ID
-    * @param [in] len Length
-    * @param [in] ctrlValue Control Value
-    * @return Error Code
+    * @brief Controlla ventose a matrice
+    * @param [in] slaveID Numero slave
+    * @param [in] len Lunghezza
+    * @param [in] ctrlValue Valore controllo
+    * @return Codice di errore
     */
     errno_t FRRobot::SetSuckerCtrl(uint8_t slaveID, uint8_t len, uint8_t ctrlValue[20]);
 
-Get Array Suction Cup Status
+Ottenere stato ventose a matrice
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Get Array Suction Cup Status
-    * @param [in] slaveID Slave Station ID
-    * @param [out] state Adsorption Status 0-Release Object 1-Workpiece Detected, Adsorption Successful 2-No Object Adsorbed 3-Object Detached
-    * @param [out] pressValue Current Vacuum Level Unit kpa
-    * @param [out] error Current Error Code of the Suction Cup
-    * @return Error Code
+    * @brief Ottiene stato ventose a matrice
+    * @param [in] slaveID Numero slave
+    * @param [out] state Stato aspirazione 0-Rilascio oggetto 1-Rilevato pezzo aspirazione riuscita 2-Nessun oggetto aspirato 3-Oggetto distaccato
+    * @param [out] pressValue Vuoto corrente unità kpa 
+    * @param [out] error Codice errore corrente ventosa
+    * @return Codice di errore
     */
-	errno_t FRRobot::GetSuckerState(uint8_t slaveID, uint8_t* state, int* pressValue, int* error);
+    errno_t FRRobot::GetSuckerState(uint8_t slaveID, uint8_t* state, int* pressValue, int* error);
 
-Wait for Suction Cup Status
+Attendere stato ventosa
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Wait for Suction Cup Status
-    * @param [in] slaveID Slave Station ID
-    * @param [in] state Adsorption Status 0-Release Object 1-Workpiece Detected, Adsorption Successful 2-No Object Adsorbed 3-Object Detached
-    * @param [in] ms Maximum Wait Time (ms)
-    * @return Error Code
+    * @brief Attende stato ventosa
+    * @param [in] slaveID Numero slave
+    * @param [in] state Stato aspirazione 0-Rilascio oggetto 1-Rilevato pezzo aspirazione riuscita 2-Nessun oggetto aspirato 3-Oggetto distaccato
+    * @param [in] ms Tempo massimo attesa
+    * @return Codice di errore
     */
     errno_t FRRobot::WaitSuckerState(uint8_t slaveID, uint8_t state, int ms);
 
-Array Suction Cup Control Command Code Example
+Esempio codice comandi controllo ventose a matrice
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
@@ -1124,7 +1123,7 @@ Array Suction Cup Control Command Code Example
         FRRobot robot;
         uint8_t ctrl[20];
         uint8_t state;
-        int pressValue; // Corrected typo from pressVlaue
+        int pressVlaue;
         int error;
 
         robot.LoggerInit();
@@ -1135,33 +1134,33 @@ Array Suction Cup Control Command Code Example
             return;
         }
         robot.SetReConnectParam(true, 30000, 500);
-        //Upload and load the open protocol file
-        robot.OpenLuaUpload("E://Project/Peripheral SDK/CtrlDev_sucker.lua");
+        //Upload e caricamento file protocollo aperto
+        robot.OpenLuaUpload("E://项目/外设SDK/CtrlDev_sucker.lua");
         robot.Sleep(2000);
         robot.SetCtrlOpenLUAName(1, "CtrlDev_sucker.lua");
         robot.UnloadCtrlOpenLUA(1);
         robot.LoadCtrlOpenLUA(1);
         robot.Sleep(1000);
 
-        //Control suction cup in broadcast mode, adsorb at maximum capacity
+        //Controllo ventosa modalità broadcast, aspirazione massima capacità
         ctrl[0] = 1;
         robot.SetSuckerCtrl(0, 1, ctrl);
 
-        //Loop to monitor the status of suction cup 1 and suction cup 12
+        //Monitoraggio ciclo stato ventosa 1 e ventosa 12
         for (int i = 0; i < 100; i++)
         {
-            robot.GetSuckerState(1, &state, &pressValue, &error);
-            printf("sucker1 state is %d, pressValue is %d, error num is %d\n", state, pressValue, error);
-            robot.GetSuckerState(12, &state, &pressValue, &error);
-            printf("sucker12 state is %d, pressValue is %d, error num is %d\n", state, pressValue, error);
+            robot.GetSuckerState(1, &state, &pressVlaue, &error);
+            printf("sucker1 state is %d, pressVlaue is %d, error num is %d\n", state, pressVlaue, error);
+            robot.GetSuckerState(12, &state, &pressVlaue, &error);
+            printf("sucker12 state is %d, pressVlaue is %d, error num is %d\n", state, pressVlaue, error);
             robot.Sleep(100);
         }
 
-        //Wait for suction cup 1 to reach the state of having adsorbed an object, wait time 100ms
+        //Attesa ventosa 1 se in stato oggetto aspirato, tempo attesa 100ms
         int ret = robot.WaitSuckerState(1, 1, 100);
         printf("WaitSuckerState result is  %d\n", ret);
 
-        //Turn off suction cup 1 and 12 in unicast mode
+        //Modalità unicast spegnimento ventosa 1 e 12
         ctrl[0] = 3;
         robot.SetSuckerCtrl(1, 1, ctrl);
         robot.SetSuckerCtrl(12, 1, ctrl);
@@ -1169,126 +1168,126 @@ Array Suction Cup Control Command Code Example
         robot.CloseRPC();
     }
 
-Upload Peripheral Open Protocol LUA File
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-.. code-block:: c++
-    :linenos:
-
-	/**
-	 * @brief Upload Lua File
-	 * @param [in] filePath Local lua file path name
-	 * @return Error Code
-	 */
-    errno_t OpenLuaUpload(std::string filePath);
-
-Get Slave Board Parameters
+Upload file LUA protocollo aperto periferiche
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Get Slave Board Parameters
+     * @brief Upload file Lua
+     * @param [in] filePath Percorso nome file lua locale
+     * @return Codice di errore
+     */
+    errno_t OpenLuaUpload(std::string filePath);
+
+Ottenere parametri scheda slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief  Ottiene parametri scheda slave
     * @param  [out] type  0-Ethercat，1-CClink, 3-Ethercat, 4-EIP
-    * @param  [out] version  Protocol Version
-    * @param  [out] connState  0-Not Connected 1-Connected
-    * @return  Error Code
+    * @param  [out] version  Versione protocollo
+    * @param  [out] connState  0-Non connesso 1-Connesso
+    * @return  Codice di errore
     */
     errno_t GetFieldBusConfig(uint8_t* type, uint8_t* version, uint8_t* connState);
 
-Write Slave DO
+Scrivere DO slave
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Write Slave DO
-    * @param  [in] DOIndex  DO Number
-    * @param  [in] writeNum  Number to Write // Corrected typo from wirteNum
-    * @param  [in] status[8] Value to Write, maximum 8
-    * @return  Error Code
+    * @brief  Scrive DO slave
+    * @param  [in] DOIndex  Numero DO
+    * @param  [in] wirteNum  Quantità scritta
+    * @param  [in] status[8] Valori scritti, massimo 8
+    * @return  Codice di errore
     */
-    errno_t FieldBusSlaveWriteDO(uint8_t DOIndex, uint8_t writeNum, uint8_t status[8]);
+    errno_t FieldBusSlaveWriteDO(uint8_t DOIndex, uint8_t wirteNum, uint8_t status[8]);
 
-Write Slave AO
+Scrivere AO slave
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Write Slave AO
-    * @param  [in] AOIndex  AO Number
-    * @param  [in] writeNum  Number to Write // Corrected typo from wirteNum
-    * @param  [in] status[8] Value to Write, maximum 8
-    * @return  Error Code
+    * @brief  Scrive AO slave
+    * @param  [in] AOIndex  Numero AO
+    * @param  [in] wirteNum  Quantità scritta
+    * @param  [in] status[8] Valori scritti, massimo 8
+    * @return  Codice di errore
     */
-    errno_t FieldBusSlaveWriteAO(uint8_t AOIndex, uint8_t writeNum, int status[8]);
+    errno_t FieldBusSlaveWriteAO(uint8_t AOIndex, uint8_t wirteNum, int status[8]);
 
-Read Slave DI
+Leggere DI slave
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Read Slave DI
-    * @param  [in] DIIndex  DI Number // Corrected parameter name from DOIndex
-    * @param  [in] readNum  Number to Read // Corrected typo from readeNum
-    * @param  [out] status[8] Value Read, maximum 8
-    * @return  Error Code
+    * @brief  Legge DI slave
+    * @param  [in] DOIndex  Numero DI
+    * @param  [in] readeNum  Quantità letta
+    * @param  [out] status[8] Valori letti, massimo 8
+    * @return  Codice di errore
     */
-    errno_t FieldBusSlaveReadDI(uint8_t DIIndex, uint8_t readNum, uint8_t status[8]);
+    errno_t FieldBusSlaveReadDI(uint8_t DOIndex, uint8_t readNum, uint8_t status[8]);
 
-Read Slave AI
+Leggere AI slave
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Read Slave AI
-    * @param  [in] AIIndex  AI Number // Corrected parameter name from AOIndex
-    * @param  [in] readNum  Number to Read // Corrected typo from readeNum
-    * @param  [out] status[8] Value Read, maximum 8
-    * @return  Error Code
+    * @brief  Legge AI slave
+    * @param  [in] AOIndex  Numero AI
+    * @param  [in] readeNum  Quantità letta
+    * @param  [out] status[8] Valori letti, massimo 8
+    * @return  Codice di errore
     */
     errno_t FieldBusSlaveReadAI(uint8_t AIIndex, uint8_t readNum, int status[8]);
 
-Wait for Extended DI Input
+Attendere input DI esteso
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Wait for Extended DI Input
-    * @param [in] DIIndex DI Number
-    * @param [in] status 0-Low Level; 1-High Level
-    * @param [in] waitMs Maximum Wait Time (ms)
-    * @return Error Code
+    * @brief Attende input DI esteso
+    * @param [in] DIIndex Numero DI
+    * @param [in] status 0-Livello basso; 1-Livello alto
+    * @param [in] waitMs Tempo massimo attesa (ms)
+    * @return Codice di errore
     */
     errno_t FRRobot::FieldBusSlaveWaitDI(uint8_t DIIndex, bool status, int waitMs);
 
-Wait for Extended AI Input
+Attendere input AI esteso
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Wait for Extended AI Input
-    * @param [in] AIIndex AI Number
-    * @param [in] waitType 0-Greater Than; 1-Less Than
-    * @param [in] value AI Value
-    * @param [in] waitMs Maximum Wait Time (ms)
-    * @return Error Code
+    * @brief Attende input AI esteso
+    * @param [in] AIIndex Numero AI
+    * @param [in] waitType 0-Maggiore di; 1-Minore di
+    * @param [in] value Valore AI
+    * @param [in] waitMs Tempo massimo attesa (ms)
+    * @return Codice di errore
     */
     errno_t FRRobot::FieldBusSlaveWaitAI(uint8_t AIIndex, uint8_t waitType, double value, int waitMs);
 
-Slave Mode Related Interface Command Code Example
+Esempio codice interfacce modalità slave
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c++
@@ -1312,29 +1311,29 @@ Slave Mode Related Interface Command Code Example
             return;
         }
         robot.SetReConnectParam(true, 30000, 500);
-        //Upload and load the open protocol file
-        robot.OpenLuaUpload("E://Project/Peripheral SDK/CtrlDev_field.lua");
+        //Upload e caricamento file protocollo aperto
+        robot.OpenLuaUpload("E://项目/外设SDK/CtrlDev_field.lua");
         robot.Sleep(2000);
         robot.SetCtrlOpenLUAName(3, "CtrlDev_field.lua");
         robot.UnloadCtrlOpenLUA(3);
         robot.LoadCtrlOpenLUA(3);
         robot.Sleep(8000);
 
-        //Get the protocol type, software version, and connection status with the PLC of the slave board
+        //Ottenere tipo protocollo, versione software, stato connessione PLC scheda slave
         robot.GetFieldBusConfig(&type, &version, &connState);
         printf("type is %d, version is %d,connState is %d\n", type, version, connState);
 
-        //Write DO0 = 1, DO1 = 0, DO2 = 1
-        ctrl[0] = 1; // Corrected value from 0 to 1 based on comment (DO0=1)
-        ctrl[1] = 0;
+        //Scrittura DO0 = 1, DO1 = 0, DO2 = 1
+        ctrl[0] = 0;
+        ctrl[1] = 1;
         ctrl[2] = 1;
         robot.FieldBusSlaveWriteDO(0, 3, ctrl);
 
-        //Write AO2 = 0x1005 (value from ctrlAO[0])
+        //Scrittura AO2 = 0x1000
         ctrlAO[0] = 0x1005;
         robot.FieldBusSlaveWriteAO(2, 1, ctrlAO);
 
-        //Loop to monitor DI0~DI3 AI0~AI2
+        //Monitoraggio ciclo DI0~DI3 AI0~AI2
         for (int i = 0; i < 100; i++)
         {
             robot.FieldBusSlaveReadDI(0, 4, DI);
@@ -1344,18 +1343,18 @@ Slave Mode Related Interface Command Code Example
             robot.Sleep(10);
         }
 
-        //Wait for DI0 to become 1, wait time 100ms, and print the result
+        //Attesa DI0 se è 1, tempo attesa 100ms, stampa risultato
         int ret = robot.FieldBusSlaveWaitDI(0, 1, 100);
         printf("FieldBusSlaveWaitDI result is  %d\n", ret);
 
-        //Wait for AI0 to be greater than 400, wait time 100ms, and print the result
+        //Attesa AI0 se maggiore di 400, tempo attesa 100ms, stampa risultato
         ret = robot.FieldBusSlaveWaitAI(0,0,400.00,100);
         printf("FieldBusSlaveWaitAI result is  %d\n", ret);
 
         robot.CloseRPC();
     }
 
-Laser Peripheral On/Off
+Accensione/spegnimento periferica laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1363,14 +1362,14 @@ Laser Peripheral On/Off
     :linenos:
 
     /**
-     * @brief Laser Peripheral On/Off Function
-     * @param [in] OnOff 0- Off 1- On
-     * @param [in] weldId Weld ID, default is 0
-     * @return Error code
+     * @brief Funzione accensione/spegnimento periferica laser
+     * @param [in] OnOff 0-Spegni 1-Accendi
+     * @param [in] weldId ID saldatura predefinito 0
+     * @return Codice di errore
      */
     errno_t LaserTrackingLaserOnOff(int OnOff,int weldId);
-        
-Laser Tracking Start/Stop
+
+Inizio/fine tracciamento laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1378,14 +1377,14 @@ Laser Tracking Start/Stop
     :linenos:
 
     /**
-     * @brief Laser Tracking Start/Stop Function
-     * @param [in] OnOff 0- Stop 1- Start
-     * @param [in] coordId Laser peripheral tool coordinate system ID
-     * @return Error code
+     * @brief Funzione inizio/fine tracciamento laser
+     * @param [in] OnOff 0-Fine 1-Inizio
+     * @param [in] coordId Numero sistema coordinate utensile periferica laser
+     * @return Codice di errore
      */
-     errno_t LaserTrackingTrackOnOff(int OnOff, int coordId); 
-            
-Laser Seam Search Start - Fixed Direction
+    errno_t LaserTrackingTrackOnOff(int OnOff, int coordId); 
+
+Inizio posizionamento laser - direzione fissa
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1393,17 +1392,17 @@ Laser Seam Search Start - Fixed Direction
     :linenos:
 
     /**
-    * @brief Laser Seam Search - Fixed Direction
-    * @param [in] direction 0- X+ 1- X- 2- Y+ 3- Y- 4- Z+ 5- Z-
-    * @param [in] vel Speed, unit %
-    * @param [in] distance Maximum search distance, unit mm
-    * @param [in] timeout Search timeout time, unit ms
-    * @param [in] posSensorNum Laser calibrated tool coordinate number
-    * @return Error code
+    * @brief Posizionamento laser - direzione fissa
+    * @param [in] direction 0-x+ 1-x- 2-y+ 3-y- 4-z+ 5-z-
+    * @param [in] vel Velocità unità %
+    * @param [in] distance Distanza massima posizionamento unità mm
+    * @param [in] distance Tempo timeout posizionamento unità ms
+    * @param [in] posSensorNum Numero coordinate utensile calibrate laser
+    * @return Codice di errore
     */
     errno_t LaserTrackingSearchStart_xyz(int direction, int vel, int distance, int timeout, int posSensorNum);
-                
-Laser Seam Search Start - Arbitrary Point Direction
+
+Inizio posizionamento laser - direzione punto arbitrario
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1411,17 +1410,17 @@ Laser Seam Search Start - Arbitrary Point Direction
     :linenos:
 
     /**
-     * @brief Laser Seam Search - Arbitrary Direction
-     * @param [in] directionPoint Search input point's xyz coordinates
-     * @param [in] vel Speed, unit %
-     * @param [in] distance Maximum search distance, unit mm
-     * @param [in] timeout Search timeout time, unit ms
-     * @param [in] posSensorNum Laser calibrated tool coordinate number
-     * @return Error code
+     * @brief Posizionamento laser - direzione arbitraria
+     * @param [in] directionPoint Coordinate xyz punto input posizionamento
+     * @param [in] vel Velocità unità %
+     * @param [in] distance Distanza massima posizionamento unità mm
+     * @param [in] distance Tempo timeout posizionamento unità ms
+     * @param [in] posSensorNum Numero coordinate utensile calibrate laser
+     * @return Codice di errore
      */
     errno_t LaserTrackingSearchStart_point(DescTran directionPoint, int vel, int distance, int timeout, int posSensorNum);
-                    
-Laser Seam Search Stop
+
+Fine posizionamento laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1429,12 +1428,12 @@ Laser Seam Search Stop
     :linenos:
 
     /**
-     * @brief Laser Seam Search Stop
-     * @return Error code
+     * @brief Fine posizionamento laser
+     * @return Codice di errore
      */
     errno_t LaserTrackingSearchStop();
 
-Laser Network Parameter Configuration
+Configurazione parametri rete laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1442,14 +1441,14 @@ Laser Network Parameter Configuration
     :linenos:
 
     /**
-     * @brief Laser Network Parameter Configuration
-     * @param [in] ip Laser peripheral IP address
-     * @param [in] port Laser peripheral port number
-     * @return Error code
+     * @brief Configurazione parametri rete laser
+     * @param [in] ip Indirizzo IP periferica laser
+     * @param [in] port Numero porta periferica laser
+     * @return Codice di errore
      */
     errno_t LaserTrackingSensorConfig(std::string ip, int port);
-    
-Laser Peripheral Sampling Period Configuration
+
+Configurazione periodo campionamento periferica laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1457,13 +1456,13 @@ Laser Peripheral Sampling Period Configuration
     :linenos:
 
     /**
-    * @brief Laser Peripheral Sampling Period Configuration
-    * @param [in] period Laser peripheral sampling period, unit ms
-    * @return Error code
+    * @brief Configurazione periodo campionamento periferica laser
+    * @param [in] period Periodo campionamento periferica laser unità ms
+    * @return Codice di errore
     */
     errno_t LaserTrackingSensorSamplePeriod(int period);
-        
-Laser Peripheral Driver Load
+
+Caricamento driver periferica laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1471,13 +1470,13 @@ Laser Peripheral Driver Load
     :linenos:
 
     /**
-     * @brief Laser Peripheral Driver Load
-     * @param [in] type Laser peripheral driver protocol type 101- Ruiniu 102- Chuangxiang 103- Quanshi 104- Tongzhou 105- Aotai
-     * @return Error code
+     * @brief Caricamento driver periferica laser
+     * @param [in] type Tipo protocollo driver periferica laser 101-Ruiniu 102-Chuangxiang 103-Quanshi 104-Tongzhou 105-Aotai
+     * @return Codice di errore
      */
     errno_t LoadPosSensorDriver(int type);
-            
-Laser Peripheral Driver Unload
+
+Scaricamento driver periferica laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1485,12 +1484,12 @@ Laser Peripheral Driver Unload
     :linenos:
 
     /**
-     * @brief Laser Peripheral Driver Unload
-     * @return Error code
+     * @brief Scaricamento driver periferica laser
+     * @return Codice di errore
      */
     errno_t UnLoadPosSensorDriver();
-                
-Laser Seam Trajectory Recording
+
+Registrazione traiettoria saldatura laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1498,14 +1497,14 @@ Laser Seam Trajectory Recording
     :linenos:
 
     /**
-    * @brief Laser Seam Trajectory Recording
-    * @param [in] status 0- Stop recording 1- Real-time tracking  2- Start recording
-    * @param [in] delayTime Delay time, unit ms
-    * @return Error code
+    * @brief Registrazione traiettoria saldatura laser
+    * @param [in] status 0-Ferma registrazione 1-Tracciamento tempo reale  2-Inizia registrazione
+    * @param [in] delayTime Tempo ritardo unità ms
+    * @return Codice di errore
     */
     errno_t LaserSensorRecord1(int status, int delayTime); 
-                    
-Laser Seam Trajectory Replay
+
+Riproduzione traiettoria saldatura laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1513,14 +1512,14 @@ Laser Seam Trajectory Replay
     :linenos:
 
     /**
-     * @brief Laser Seam Trajectory Replay
-     * @param [in] delayTime Delay time, unit ms
-     * @param [in] speed Speed, unit %
-     * @return Error code
+     * @brief Riproduzione traiettoria saldatura laser
+     * @param [in] delayTime Tempo ritardo unità ms
+     * @param [in] speed Velocità unità %
+     * @return Codice di errore
      */
     errno_t LaserSensorReplay(int delayTime, double speed);
-                        
-Laser Tracking Replay
+
+Riproduzione tracciamento laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1528,12 +1527,12 @@ Laser Tracking Replay
     :linenos:
 
     /**
-     * @brief Laser Tracking Replay
-     * @return Error code
+     * @brief Riproduzione tracciamento laser
+     * @return Codice di errore
      */
     errno_t MoveLTR();
-                            
-Laser Seam Trajectory Recording and Replay
+
+Registrazione e riproduzione traiettoria saldatura laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1541,18 +1540,18 @@ Laser Seam Trajectory Recording and Replay
     :linenos:
 
     /**
-     * @brief Laser Seam Trajectory Recording and Replay
-     * @param [in] delayMode Mode 0- Delay time 1- Delay distance
-     * @param [in] delayTime Delay time, unit ms
-     * @param [in] delayDisExAxisNum Extended axis number
-     * @param [in] delayDis Delay distance, unit mm
-     * @param [in] sensitivePara Compensation sensitivity coefficient
-     * @param [in] speed Speed, unit %
-     * @return Error code
+     * @brief Registrazione e riproduzione traiettoria saldatura laser
+     * @param [in] delayMode Modalità 0-Tempo ritardo 1-Distanza ritardo
+     * @param [in] delayTime Tempo ritardo unità ms
+     * @param [in] delayDisExAxisNum Numero asse esteso ritardo
+     * @param [in] delayDis Distanza ritardo unità mm
+     * @param [in] sensitivePara Coefficiente sensibilità compensazione
+     * @param [in] speed Velocità unità %
+     * @return Codice di errore
      */
     errno_t LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum, double delayDis, double sensitivePara, double speed);
-                                
-Move to Laser Recorded Start Point
+
+Movimento al punto iniziale saldatura registrata
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1560,14 +1559,14 @@ Move to Laser Recorded Start Point
     :linenos:
 
     /**
-    * @brief Move to Laser Recorded Start Point
-    * @param [in] moveType 0- moveJ 1- moveL
-    * @param [in] ovl Speed, unit %
-    * @return Error code
+    * @brief Movimento al punto iniziale saldatura registrata
+    * @param [in] moveType 0-moveJ 1-moveL
+    * @param [in] ovl Velocità unità %
+    * @return Codice di errore
     */
     errno_t MoveToLaserRecordStart(int moveType, double ovl);
-                                    
-Move to Laser Recorded End Point
+
+Movimento al punto finale saldatura registrata
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1575,14 +1574,14 @@ Move to Laser Recorded End Point
     :linenos:
 
     /**
-    * @brief Move to Laser Recorded End Point
-    * @param [in] moveType 0- moveJ 1- moveL
-    * @param [in] ovl Speed, unit %
-    * @return Error code
+    * @brief Movimento al punto finale saldatura registrata
+    * @param [in] moveType 0-moveJ 1-moveL
+    * @param [in] ovl Velocità unità %
+    * @return Codice di errore
     */
     errno_t MoveToLaserRecordEnd(int moveType, double ovl);
-                                        
-Move to Laser Sensor Seam Search Point
+
+Movimento al punto posizionamento sensore laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1590,18 +1589,18 @@ Move to Laser Sensor Seam Search Point
     :linenos:
 
     /**
-    * @brief Move to Laser Sensor Seam Search Point
-    * @param [in] moveFlag Motion type: 0- PTP; 1- LIN
-    * @param [in] ovl Speed scaling factor, 0-100
-    * @param [in] dataFlag Seam buffer data selection: 0- Execute planned data; 1- Execute recorded data
-    * @param [in] plateType Plate type: 0- Corrugated plate; 1- Corrugated cardboard; 2- Fence plate; 3- Oil drum; 4- Corrugated shell steel
-    * @param [in] trackOffectType Laser sensor offset type: 0- No offset; 1- Base coordinate system offset; 2- Tool coordinate system offset; 3- Laser sensor raw data offset
-    * @param [in] offset Offset amount
-    * @return Error code
+    * @brief Movimento al punto posizionamento sensore laser
+    * @param [in] moveFlag Tipo movimento: 0-PTP; 1-LIN
+    * @param [in] ovl Fattore scala velocità, 0-100
+    * @param [in] dataFlag Selezione dati cache saldatura: 0-Esegui dati pianificati; 1-Esegui dati registrati
+    * @param [in] plateType Tipo lamiera: 0-Lastra ondulata; 1-Lastra ondulata a doppia onda; 2-Lastra recinzione; 3-Fusto; 4-Acciaio corazzato ondulato
+    * @param [in] trackOffectType Tipo offset sensore laser: 0-Nessun offset; 1-Offset sistema coordinate base; 2-Offset sistema coordinate utensile; 3-Offset dati originali sensore laser
+    * @param [in] offset Quantità offset
+    * @return Codice di errore
     */
     errno_t MoveToLaserSeamPos(int moveFlag, double ovl, int dataFlag, int plateType, int trackOffectType, DescPose offset);
-                                            
-Get Laser Sensor Seam Search Point Coordinates
+
+Ottenere coordinate punto posizionamento sensore laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
@@ -1609,20 +1608,20 @@ Get Laser Sensor Seam Search Point Coordinates
     :linenos:
 
     /**
-    * @brief Get Laser Sensor Seam Search Point Coordinate Information
-    * @param [in] trackOffectType Laser sensor offset type: 0- No offset; 1- Base coordinate system offset; 2- Tool coordinate system offset; 3- Laser sensor raw data offset
-    * @param [in] offset Offset amount
-    * @param [out] jPos Joint position [°]
-    * @param [out] descPos Cartesian position [mm]
-    * @param [out] tool Tool coordinate system
-    * @param [out] user Work object coordinate system
-    * @param [out] exaxis Extended axis position [mm]
-    * @return Error code
+    * @brief Ottiene informazioni coordinate punto posizionamento sensore laser
+    * @param [in] trackOffectType Tipo offset sensore laser: 0-Nessun offset; 1-Offset sistema coordinate base; 2-Offset sistema coordinate utensile; 3-Offset dati originali sensore laser
+    * @param [in] offset Quantità offset
+    * @param [out] jPos Posizione giunti [°]
+    * @param [out] descPos Posizione cartesiana [mm]
+    * @param [out] tool Sistema coordinate utensile
+    * @param [out] user Sistema coordinate pezzo
+    * @param [out] exaxis Posizione asse esteso [mm]
+    * @return Codice di errore
     */
     errno_t GetLaserSeamPos(int trackOffectType, DescPose offset, JointPos& jPos, DescPose& descPos, int& tool, int& user, ExaxisPos& exaxis); 
-                                                
-Laser Peripheral Sensor Parameter Configuration and Debugging Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Esempio codice configurazione e debug parametri sensore periferica laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
@@ -1645,22 +1644,22 @@ Laser Peripheral Sensor Parameter Configuration and Debugging Code Example
             return;
         }
         robot.SetReConnectParam(true, 30000, 500);
-        //Set IP address and port number
+        //Impostare indirizzo IP e numero porta
         robot.LaserTrackingSensorConfig("192.168.58.20", 5020);
-        //Set sampling period
+        //Impostare periodo campionamento
         robot.LaserTrackingSensorSamplePeriod(20);
-        //Load driver
+        //Caricare driver
         robot.LoadPosSensorDriver(101);
-        //Turn off laser peripheral
+        //Spegnere periferica laser
         robot.LaserTrackingLaserOnOff(0,0);
         robot.Sleep(3000);
-        //Turn on laser peripheral
+        //Accendere periferica laser
         robot.LaserTrackingLaserOnOff(1, 0);
         robot.CloseRPC();
     }
-                                                    
-Laser Trajectory Scanning and Trajectory Replay Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Esempio codice scansione traiettoria laser e riproduzione traiettoria
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
@@ -1684,7 +1683,7 @@ Laser Trajectory Scanning and Trajectory Replay Code Example
         }
         robot.SetReConnectParam(true, 30000, 500);
 
-        //Upload and load open protocol file
+        //Upload e caricamento file protocollo aperto
         robot.OpenLuaUpload("E://openlua/CtrlDev_laser_ruiniu-0117.lua");
         robot.Sleep(2000);
         robot.SetCtrlOpenLUAName(0, "CtrlDev_laser_ruiniu-0117.lua");
@@ -1694,35 +1693,35 @@ Laser Trajectory Scanning and Trajectory Replay Code Example
         int cnt = 1;
         while(cnt<31)
         { 
-            //Move to scan start point
+            //Movimento al punto iniziale scansione
             JointPos startjointPos(56.205, -117.951, 141.872, -118.149, -94.217, -122.176);
             DescPose startdescPose(-97.552, -282.855, 26.675, 174.182, -1.338, -91.707);
             ExaxisPos exaxisPos(0, 0, 0, 0);
             DescPose offdese(0, 0, 0, 0, 0, 0);
             robot.MoveL(&startjointPos, &startdescPose, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese, 1, 1);
-            //Start trajectory recording
+            //Inizio registrazione traiettoria
             robot.LaserSensorRecord1(2, 10);
-            //Move to the end point to be recorded
+            //Movimento al punto finale da registrare
             JointPos endjointPos(68.809, -87.100, 121.120, -127.233, -95.038, -109.555);
             DescPose enddescPose(-103.555, -464.234, 13.076, 174.179, -1.344, -91.709);
             robot.MoveL(&endjointPos, &enddescPose, 1, 0, 30, 100, 100, -1, &exaxisPos, 0, 0, &offdese, 1, 1);
-            //Stop recording
+            //Ferma registrazione
             robot.LaserSensorRecord1(0, 10);
-            //Move to the recorded seam start point
+            //Movimento al punto iniziale saldatura registrata
             robot.MoveToLaserRecordStart(1, 30);
-            //Start trajectory replay
+            //Inizio riproduzione traiettoria
             robot.LaserSensorReplay(10, 100);
             robot.MoveLTR();
-            //Stop trajectory replay
+            //Ferma riproduzione traiettoria
             robot.LaserSensorRecord1(0, 10);
-            printf("Laser scanning + trajectory replay stability test, %dth time\n", cnt);
+            printf("Test stabilità scansione laser + riproduzione traiettoria %d次\n", cnt);
             cnt++;
         }
         robot.CloseRPC();
     }
-                                                        
-Laser Seam Search and Real-time Tracking Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Esempio codice posizionamento laser e tracciamento tempo reale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
@@ -1747,7 +1746,7 @@ Laser Seam Search and Real-time Tracking Code Example
         }
         robot.SetReConnectParam(true, 30000, 500);
 
-        //Upload and load open protocol file
+        //Upload e caricamento file protocollo aperto
         robot.OpenLuaUpload("E://openlua/CtrlDev_laser_ruiniu-0117.lua");
         robot.Sleep(2000);
         robot.SetCtrlOpenLUAName(0, "CtrlDev_laser_ruiniu-0117.lua");
@@ -1757,7 +1756,7 @@ Laser Seam Search and Real-time Tracking Code Example
         int cnt = 1;
         while (cnt < 2)
         {
-            //Move to the starting point for seam search
+            //Movimento al punto iniziale posizionamento
             JointPos startjointPos(58.337, -119.628, 146.037, -116.358, -92.224, -117.654);
             DescPose startdescPose(-53.375, -255.363, 0.919, 178.054, 1.077, -94.026);
             ExaxisPos exaxisPos(0, 0, 0, 0);
@@ -1765,20 +1764,20 @@ Laser Seam Search and Real-time Tracking Code Example
             DescTran directionPoint;
             robot.MoveL(&startjointPos, &startdescPose, 1, 0, 100, 100, 100, -1, &exaxisPos, 0, 0, &offdese, 1, 1);
 
-            //Start search along the -Y direction
+            //Inizio posizionamento direzione -y
             int ret = robot.LaserTrackingSearchStart_xyz(3, 100, 300, 1000, 2);
             robot.LaserTrackingSearchStop();
-            //If search is successful
+            //Se posizionamento riuscito
             if (ret == 0)
             {
-                //Move to the search point
+                //Movimento al punto posizionamento
                 robot.MoveToLaserSeamPos(1, 30, 0, 0, 0, offdese);
-                //Start laser tracking along the search point
+                //Inizio tracciamento laser lungo punto posizionamento
                 robot.LaserTrackingTrackOnOff(1, 2);
                 JointPos endjointPos(70.580, -90.918, 126.593, -125.154, -92.162, -105.403);
                 DescPose enddescPose(-53.375, -419.020, 0.920, 178.054, 1.076, -94.026);
                 robot.MoveL(&endjointPos, &enddescPose, 1, 0, 20, 100, 100, -1, &exaxisPos, 0, 0, &offdese, 1, 1);
-                //Stop tracking
+                //Ferma tracciamento
                 robot.LaserTrackingTrackOnOff(0, 2);
 
             }
@@ -1786,9 +1785,9 @@ Laser Seam Search and Real-time Tracking Code Example
         }
         robot.CloseRPC();
     }
-                                                            
-Extended Axis and Robot Synchronized Laser Tracking Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Esempio codice tracciamento laser sincronizzato con assi estesi e robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v3.8.6
     
 .. code-block:: c++
@@ -1823,12 +1822,12 @@ Extended Axis and Robot Synchronized Laser Tracking Code Example
         int cnt = 1;
         while (cnt < 31)
         {
-            //Move to the starting point for seam search
+            //Movimento al punto iniziale posizionamento
             JointPos startjointPos(58.337, -119.628, 146.037, -116.358, -92.224, -117.654);
             DescPose startdescPose(-53.375, -255.363, 0.919, 178.054, 1.077, -94.026);
             robot.ExtAxisSyncMoveJ(startjointPos, startdescPose, 1, 0, 100, 100, 100, startexaxisPos, -1, 0, offdese);
 
-            //Start search along the -Y direction
+            //Inizio posizionamento direzione -y
             int ret = robot.LaserTrackingSearchStart_xyz(3, 100, 300, 1000, 2);
             robot.LaserTrackingSearchStop();
             int tool = 0;
@@ -1836,22 +1835,22 @@ Extended Axis and Robot Synchronized Laser Tracking Code Example
             robot.GetLaserSeamPos(0, offdese, seamjointPos, seamdescPose, tool, user, startexaxisPos);
             printf("%f, %f, %f,%f, %f, %f,%f, %f, %f,%f, %f, %f\n", seamjointPos.jPos[0], seamjointPos.jPos[1], seamjointPos.jPos[2], seamjointPos.jPos[3], seamjointPos.jPos[4], seamjointPos.jPos[5], seamdescPose.tran.x, seamdescPose.tran.y, seamdescPose.tran.z, seamdescPose.rpy.rx, seamdescPose.rpy.ry, seamdescPose.rpy.rz);
 
-            //If search is successful
+            //Se posizionamento riuscito
             if (ret == 0)
             {
-                //Robot and extended axis synchronously move to the search point
+                //Movimento sincrono robot e assi estesi al punto posizionamento
                 robot.ExtAxisSyncMoveJ(seamjointPos, seamdescPose, 1, 0, 100, 100, 100, seamexaxisPos, -1, 0, offdese);
 
-                //Start laser tracking along the search point and synchronously move with the extended axis
+                //Inizio tracciamento laser lungo punto posizionamento e movimento sincrono con assi estesi
                 robot.LaserTrackingTrackOnOff(1, 2);
                 JointPos endjointPos(70.580, -90.918, 126.593, -125.154, -92.162, -105.403);
                 DescPose enddescPose(-53.375, -419.020, 0.920, 178.054, 1.076, -94.026);
                 robot.ExtAxisSyncMoveL(endjointPos, enddescPose, 1, 0, 20, 100, 100, -1, endexaxisPos, 0, offdese);;
-                //Stop tracking
+                //Ferma tracciamento
                 robot.LaserTrackingTrackOnOff(0, 2);
             }
             cnt++;
-            printf("Extended axis and robot synchronized laser tracking, %dth time\n", cnt);
+            printf("Tracciamento laser sincronizzato con assi estesi e robot  第%d次\n", cnt);
         }
         robot.CloseRPC();
-    } 
+    }

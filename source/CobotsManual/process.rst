@@ -1,406 +1,406 @@
-Process Package
-==========================
+Pacchetti di Processo
+========================================
 
-.. toctree::
+.. toctree:: 
   :maxdepth: 5
 
-Welding Expert Library
---------------------------------
+Libreria Esperta di Saldatura
+------------------------------------------------
 
-Click the "Welding Expert Library" menu item under "Auxiliary Application" -> "Process Package" to enter the Welding Expert Library function interface, which includes Straight Welding, Arc Welding, Multi-Layer Multi-Pass Welding, and Posture Adjustment.
+Cliccare la voce di menu "Libreria Esperta di Saldatura" in "Applicazioni Ausiliarie" -> "Pacchetti di Processo" per accedere all'interfaccia della funzione della libreria esperta di saldatura, che include saldatura lineare, saldatura ad arco, saldatura multistrato multi-passata e regolazione della postura.
 
 .. image:: process/001.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑1 Extended Axis Configuration
+.. centered:: Grafico 15.1‑1 Configurazione asse esteso
 
-Straight Welding
+Saldatura Lineare
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click "Straight Welding" to enter the Straight Welding guidance interface. Based on the completion of basic robot settings, we can quickly generate welding teaching programs through a few simple steps. It mainly includes the following five steps. Due to functional mutual exclusion, the actual steps to generate one welding teaching program are fewer than five.
+Cliccare "Saldatura Lineare" per accedere all'interfaccia di guida della saldatura lineare. Sulla base del completamento delle varie configurazioni di base del robot, possiamo generare rapidamente un programma di insegnamento della saldatura attraverso alcuni semplici passaggi. Include principalmente i seguenti cinque passaggi. Poiché le funzioni si escludono a vicenda, i passaggi effettivi per generare un programma di insegnamento della saldatura sono inferiori a cinque.
 
-Step 1: Decide whether to use the extended axis. If using the extended axis, you need to configure the relevant coordinate system for the extended axis and enable it. Weaving function cannot be used when the extended axis is used.
+Passo uno, se utilizzare l'asse esteso. Se si utilizza l'asse esteso, è necessario configurare il corrispondente sistema di coordinate dell'asse esteso e abilitare l'asse esteso. Quando si utilizza l'asse esteso, non è possibile utilizzare la funzione di saldatura oscillante.
 
 .. image:: process/002.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑2 Extended Axis Configuration
+.. centered:: Grafico 15.1‑2 Configurazione asse esteso
 
-Step 2: Choose whether sensor tracking is needed. If yes, you need to edit the parameters of the laser search command. Weaving function cannot be used when sensor tracking is used.
+Passo due, scegliere se è necessario il tracciamento del sensore. In caso affermativo, è necessario modificare i parametri dell'istruzione di ricerca laser. Quando si utilizza il tracciamento del sensore, non è possibile utilizzare la funzione di saldatura oscillante.
 
 .. image:: process/003.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑3 Laser Search Configuration
+.. centered:: Grafico 15.1‑3 Configurazione ricerca laser
 
-Step 3: Choose whether weaving is needed. If weaving is needed, you need to edit the relevant weaving parameters.
+Passo tre, scegliere se è necessaria la saldatura oscillante. Se è necessaria la saldatura oscillante, è necessario modificare i relativi parametri.
 
 .. image:: process/004.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑4 Weaving Configuration
+.. centered:: Grafico 15.1‑4 Configurazione saldatura oscillante
 
-Step 4: Calibrate the Start Point, Start Safe Point, End Point, and End Safe Point. If the extended axis was selected in Step 1, the extended axis movement function will be loaded to assist with the calibration of the relevant points.
+Passo quattro, tarare il punto di inizio, il punto di sicurezza dell'inizio, il punto di fine e il punto di sicurezza della fine. Se al primo passo è stato selezionato l'asse esteso, verrà caricata la funzione di movimento dell'asse esteso, in combinazione con la taratura dei punti correlati.
 
 .. image:: process/005.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑5 Calibrating Relevant Points
+.. centered:: Grafico 15.1‑5 Taratura punti correlati
 
-Step 5: Name the program, and it will automatically open in the program teaching interface.
+Passo cinque, assegnare un nome al programma e aprirlo automaticamente nell'interfaccia di insegnamento del programma.
 
 .. image:: process/006.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑6 Saving the Program
+.. centered:: Grafico 15.1‑6 Salvataggio programma
 
-After the program is successfully saved, you can modify the welding speed in the Process Parameters.
+Dopo il salvataggio riuscito del programma, è possibile modificare la velocità di saldatura nei parametri del processo.
 
 .. image:: process/007.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑6 Process Parameters
+.. centered:: Grafico 15.1‑7 Parametri del processo
 
-Arc Welding
-~~~~~~~~~~~~~~~~~~~~~~~~
+Saldatura ad Arco
+~~~~~~~~~~~~~~~~~~~~
 
-Click "Arc Welding" under "Weldment Shape" to enter the Arc Welding guidance interface. Based on the completion of basic robot settings, we can quickly generate welding teaching programs through two simple steps. It mainly includes the following two steps.
+Cliccare "Saldatura ad Arco" sotto "Forma del pezzo da saldare" per accedere all'interfaccia di guida della saldatura ad arco. Sulla base del completamento delle varie configurazioni di base del robot, possiamo generare rapidamente un programma di insegnamento della saldatura attraverso due semplici passaggi. Include principalmente i seguenti due passaggi.
 
-Step 1: Calibrate the Start Point, Start Safe Point, Arc Transition Point, End Point, and End Safe Point.
+Passo uno, tarare il punto di inizio, il punto di sicurezza dell'inizio, il punto di transizione dell'arco, il punto di fine e il punto di sicurezza della fine.
 
 .. image:: process/008.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑8 Calibrating Points
+.. centered:: Grafico 15.1‑8 Taratura punti
 
-Step 2: Name the program, and it will automatically open in the program teaching interface.
+Passo due, assegnare un nome al programma e aprirlo automaticamente nell'interfaccia di insegnamento del programma.
 
 .. image:: process/009.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑9 Saving the Program
+.. centered:: Grafico 15.1‑9 Salvataggio programma
 
-After the program is successfully saved, you can modify the welding speed in the Process Parameters.
+Dopo il salvataggio riuscito del programma, è possibile modificare la velocità di saldatura nei parametri del processo.
 
 .. image:: process/010.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1‑10 Process Parameters
+.. centered:: Grafico 15.1‑10 Parametri del processo
 
-Multi-Layer Multi-Pass Welding
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Saldatura Multistrato Multi-Passata
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When the weld leg size is greater than 10mm, the Multi-Layer Multi-Pass Welding function is typically used. This function enables template-based configuration of welding programs, incorporates arc tracking function during the first pass of multi-layer multi-pass welding, and corrects weld deviation in subsequent multi-pass straight welding processes, thereby improving weld quality.
+Quando la dimensione del cordone di saldatura è superiore a 10 mm, di solito si utilizza la funzione di saldatura multistrato multi-passata. Questa funzione consente di configurare in modo modulare il programma di saldatura, aggiungendo la funzione di tracciamento dell'arco durante il primo passaggio di saldatura multistrato multi-passata e correggendo la deviazione del cordone nei successivi passaggi di saldatura lineare multi-passata, migliorando così la qualità della saldatura.
 
-The operation process for Arc Tracking Multi-Layer Multi-Pass Welding is as follows:
+Il flusso operativo della funzione di saldatura multistrato multi-passata con tracciamento dell'arco è il seguente:
 
-1) Set the Tool Coordinate System, enter the tool dimensions and posture of the welding torch.
+1) Impostare il sistema di coordinate dello strumento, inserendo le dimensioni e la postura dello strumento della torcia.
 
 .. note::
-   The values on the interface are for example only; use the actual tool status.
+   I valori nell'interfaccia sono solo esempi, fare riferimento allo stato effettivo dello strumento.
 
 .. image:: process/011.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-11 Setting Tool Coordinate System
+.. centered:: Grafico 15.1-11 Impostazione sistema coordinate strumento
 
-2) Click "Multi-Layer Multi-Pass Welding" to enter the interface.
+2) Cliccare "Saldatura Multistrato Multi-Passata" per accedere all'interfaccia.
 
 .. image:: process/012.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-12 Opening the Multi-Layer Multi-Pass Welding Interface
+.. centered:: Grafico 15.1-12 Apertura interfaccia saldatura multistrato multi-passata
 
-3) To use the arc tracking function, be sure to turn on the "First Layer Welding Weaving Function" switch and configure the corresponding weaving parameters.
+3) Per utilizzare la funzione di tracciamento dell'arco, è necessario attivare l'interruttore "Funzione di oscillazione saldatura primo strato" e configurare i corrispondenti parametri di oscillazione.
 
 .. image:: process/013.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-13 Enabling First Layer Welding Weaving Function
+.. centered:: Grafico 15.1-13 Attivazione funzione oscillazione saldatura primo strato
 
-4) Click the "Configure" button, edit the weaving parameters, then click "Configure".
+4) Cliccare il pulsante "Configura", modificare i parametri di oscillazione, poi cliccare "Configura".
 
 .. note::
-   If arc tracking requires left/right compensation, only "Triangle Wave Weaving" and "Sine Wave Weaving" types can be selected. The weaving frequency must not be lower than 0.5Hz, the weaving amplitude must not be less than 3mm, the left and right dwell times must be the same, and the weaving azimuth angle must be 0.
+   Se è necessario che il tracciamento dell'arco compensi a sinistra e a destra, è possibile scegliere solo i tipi "Oscillazione onda triangolare" e "Oscillazione onda sinusoidale". La frequenza di oscillazione non deve essere inferiore a 0,5 Hz, l'ampiezza di oscillazione non deve essere inferiore a 3 mm, il tempo di attesa sinistra e destra dell'oscillazione deve essere uguale e l'angolo azimutale dell'oscillazione deve essere 0.
 
 .. image:: process/014.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-14 Configuring Weaving Parameters
+.. centered:: Grafico 15.1-14 Configurazione parametri oscillazione
 
-5) Turn on the "Arc Tracking Function" switch and edit the corresponding up/down and left/right compensation parameters.
+5) Attivare l'interruttore "Funzione Tracciamento Arco", modificare i corrispondenti parametri di compensazione su/giù e sinistra/destra.
 
 .. note::
-   Configure the arc tracking parameters according to the actual welding situation, refer to the "Arc Tracking Function Operation Manual" or contact relevant technical personnel.
+   I parametri di tracciamento dell'arco vengono configurati in base alla situazione di saldatura effettiva, fare riferimento al "Manuale Operativo Funzione Tracciamento Arco" o contattare il personale tecnico correlato.
 
 .. image:: process/015.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-15 Configuring Arc Tracking Parameters
+.. centered:: Grafico 15.1-15 Configurazione parametri tracciamento arco
 
-6) Click the corresponding type according to the control type to enter the interface. First, in the first set of points, set the "Welding Point" as the welding start position; the "X+ Point" is a point in the X+ direction of the custom offset coordinate system relative to the welding point; the "Z+ Point" is a point in the Z+ direction of the custom offset coordinate system relative to the welding point; the "Safe Point" is the transition position from the completion of the last weld to the start of the next weld. After teaching and setting, automatically proceed to the second set of points.
+6) In base al tipo di controllo, cliccare sul tipo corrispondente per accedere all'interfaccia. Prima di tutto, nel primo gruppo di punti impostare "Punto saldatura" come posizione di inizio della saldatura; "Punto X+" come un punto sulla direzione X+ del sistema di coordinate offset personalizzato rispetto al punto di saldatura; "Punto Z+" come un punto sulla direzione Z+ del sistema di coordinate offset personalizzato rispetto al punto di saldatura; "Punto sicurezza" come posizione di transizione dal completamento della saldatura precedente all'inizio della saldatura successiva. Dopo l'insegnamento e l'impostazione, si passa automaticamente all'impostazione del secondo gruppo di punti.
 
 .. image:: process/016.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-16 Multi-Layer Multi-Pass Welding Straight Start Point Position Setting
+.. centered:: Grafico 15.1-16 Impostazione posizione punto di inizio linea saldatura multistrato multi-passata
 
-7) Select "Straight Point". Here, the "Welding Point" is the welding end position; the "X+ Point" is a point in the X+ direction of the custom offset coordinate system relative to the "Welding Point"; the "Z+ Point" is a point in the Z+ direction of the custom offset coordinate system relative to the "Welding Point". After teaching and setting, click the "Finish" button to set the multi-layer multi-pass welding parameters.
+7) Selezionare "Punto linea". Qui "Punto saldatura" è la posizione di fine saldatura; "Punto X+" è un punto sulla direzione X+ del sistema di coordinate offset personalizzato rispetto al "Punto saldatura"; "Punto Z+" è un punto sulla direzione Z+ del sistema di coordinate offset personalizzato rispetto al "Punto saldatura". Dopo l'insegnamento e l'impostazione, cliccare il pulsante "Completa" per impostare i parametri di saldatura multistrato multi-passata.
 
 .. image:: process/017.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-17 Multi-Layer Multi-Pass Welding Straight End Point Position Setting
+.. centered:: Grafico 15.1-17 Impostazione posizione punto di fine linea saldatura multistrato multi-passata
 
-8) On this page, you can set the number of multi-layer multi-pass welds and their distribution positions. Click the "On/Off" box in the parameter table to activate the corresponding offset position and angle values for the multi-layer multi-pass welding positions, and enter the desired offset positions and angles in the custom coordinate system in the "X", "Z", and "B" columns.
+8) In questa pagina è possibile impostare il numero di strati e passate della saldatura multistrato multi-passata e la loro distribuzione. Cliccare la casella "On/Off" nella tabella dei parametri per selezionare i valori corrispondenti alle posizioni di saldatura multistrato multi-passata attivate. Inserire le posizioni di offset e l'angolo corrispondenti nel sistema di coordinate personalizzato nelle colonne "X", "Z", "B".
 
 .. image:: process/018.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-18 Multi-Layer Multi-Pass Welding Parameter Setting
+.. centered:: Grafico 15.1-18 Impostazione parametri saldatura multistrato multi-passata
 
-9) At this point, all parameter configuration is complete. Enter the desired program name and click the "Save" button to automatically generate the corresponding multi-layer multi-pass welding program.
+9) A questo punto è stata completata tutta la configurazione dei parametri. Inserire il nome del programma che si desidera salvare, cliccare il pulsante "Salva" per generare automaticamente il corrispondente programma di saldatura multistrato multi-passata.
 
 .. image:: process/019.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 15.1-19 Multi-Layer Multi-Pass Welding Program Generation
+.. centered:: Grafico 15.1-19 Generazione programma saldatura multistrato multi-passata
 
-10) Click the "Open Program" button to read the Lua program saved in the previous step. The program content is shown in the figure below.
+10) Cliccare il pulsante "Apri programma" per leggere il programma lua salvato nel passaggio precedente. Il contenuto del programma è mostrato nella figura seguente.
 
 .. image:: process/020.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 15.1-20 Arc Tracking Multi-Layer Multi-Pass Welding Program Example
+.. centered:: Grafico 15.1-20 Esempio programma saldatura multistrato multi-passata con tracciamento arco
 
-Posture Adjustment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Regolazione della Postura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Posture Adaptive Configuration Steps
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Passaggi Configurazione Adattamento Postura
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-**Step1**: Enter the Posture Adjustment configuration interface, select the plate type and the actual robot working movement direction, adjust the robot posture, and set Posture Point A, Posture Point B, and Posture Point C respectively. Usually, A is the flat posture point, B is the rising edge posture point, and C is the falling edge posture point.
+**Step1**: Accedere all'interfaccia di configurazione della regolazione della postura, selezionare il tipo di lamiera e la direzione di movimento effettiva del robot, regolare la postura del robot, impostare rispettivamente il punto di postura A, il punto di postura B e il punto di postura C. Solitamente A è il punto di postura piano, B è il punto di postura del bordo ascendente, C è il punto di postura del bordo discendente.
 
 .. figure:: process/021.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.1‑21 Posture Adjustment Configuration
+.. centered:: Grafico 15.1‑21 Configurazione regolazione postura
 
-.. important::
-	The posture change between posture A and B, and posture A and C should be as small as possible while meeting the application requirements. The posture adaptive function is an auxiliary application function, usually used in conjunction with seam tracking.
+.. important:: 
+   Il cambio di postura tra la postura A e la postura B, e tra la postura A e la postura C, dovrebbe essere il più piccolo possibile pur soddisfacendo i requisiti dell'applicazione. La funzione di adattamento della postura è una funzione di applicazione ausiliaria, solitamente utilizzata in combinazione con il tracciamento del cordone di saldatura.
 
-**Step2**: Select the "Adjust" command in the program teaching command interface. Add instructions as needed according to the specific program teaching requirements.
+**Step2**: Nell'interfaccia dei comandi di insegnamento del programma, selezionare il comando "Adjust". In base alle specifiche esigenze di insegnamento del programma, aggiungere le istruzioni nei punti appropriati.
 
 .. figure:: process/022.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.1‑22 Posture Adjustment Command Editing
+.. centered:: Grafico 15.1‑22 Modifica istruzione regolazione postura
 
-Posture Adaptive Combined with Extended Axis and Laser Tracking Welding Teaching Program
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Programma di Insegnamento Saldatura con Adattamento Postura, Asse Esteso e Tracciamento Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **N.**
+     - **Formato Istruzione**
+     - **Commento**
 
    * - 1
      - EXT_AXIS_PTP(1,1laserstart)
-     - #External axis move to laser sensor start point
+     - #Movimento asse esterno punto iniziale sensore laser
 
    * - 2
      - PTP(laserstart,10,-1,0)
-     - #Robot move to laser sensor start point
+     - #Movimento robot punto iniziale sensore laser
 
    * - 3
      - LTSearchStart(3,20,10,10000)
-     - #Start search
+     - #Inizio ricerca posizione
 
    * - 4
      - LTSearchStop()
-     - #Stop search
+     - #Fine ricerca posizione
 
    * - 5
      - EXT_AXIS_PTP(1,1,seamPos)
-     - #External axis move to seam start point
+     - #Movimento asse esterno punto inizio saldatura
 
    * - 6
      - Lin(seamPos,20,-1,00,0)
-     - #Robot move to seam start point
+     - #Movimento robot punto inizio saldatura
 
    * - 7
      - LTTrackOn()
-     - #Laser tracking on
+     - #Tracciamento laser
 
    * - 8
      - ARCStart(0,10000)
-     - #Arc start
+     - #Accensione arco saldatrice
 
    * - 9
      - PostureAdjustOn(0,PosA,PosC,PosB,1000)
-     - #Posture adaptive adjustment on
+     - #Attivazione regolazione adattamento postura
 
    * - 10
      - EXT_AXIS_PTP(1,1,laserend)
-     - #External axis move to seam end point
+     - #Movimento asse esterno punto fine saldatura
 
    * - 11
      - Lin( laserend,10,-1,0,0)
-     - #Robot move to seam end point
+     - #Movimento robot punto fine saldatura
 
    * - 12
      - ARCEnd(0,10000)
-     - #Arc end
+     - #Spegnimento arco saldatrice
 
    * - 13
      - PostureAdjustOff(0)
-     - #Posture adaptive adjustment off
+     - #Disattivazione regolazione adattamento postura
 
    * - 14
      - LTTrackOff
-     - #Laser tracking off
+     - #Disattivazione tracciamento laser
 
-Palletizing System Configuration
----------------------------------------------
+Configurazione Sistema Pallettizzazione
+-------------------------------------------------------
 
-Palletizing System Configuration Steps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Passaggi Configurazione Sistema Pallettizzazione
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Click the "Palletizing" menu item under "Auxiliary Application" -> "Process Package" to enter the Palletizing System Configuration interface.
+**Step1**: In "Applicazioni Ausiliarie" -> "Pacchetti di Processo", cliccare la voce di menu "Pallettizzazione" per accedere all'interfaccia di configurazione del sistema di pallettizzazione.
 
-For first-time use, you need to first create a recipe. Click "Recipe Creation", enter the recipe name, click "Create". After successful creation, click "Start Configuration" to enter the palletizing configuration page.
+Al primo utilizzo, è necessario prima creare una ricetta. Cliccare "Crea Ricetta", inserire il nome della ricetta, cliccare "Crea". Dopo la creazione riuscita, cliccare "Inizia Configurazione" per accedere alla pagina di configurazione della pallettizzazione.
 
 .. figure:: process/023.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.2‑1 Palletizing Recipe Configuration
+.. centered:: Grafico 15.2‑1 Configurazione ricetta pallettizzazione
 
-**Step2**: In the Workpiece Configuration section, click "Configure" to enter the workpiece configuration pop-up window. Set the workpiece's "Length", "Width", "Height", and the workpiece pickup point. Click "Confirm Configuration" to complete the workpiece information setup.
+**Step2**: Nella barra di configurazione del pezzo, cliccare "Configura" per accedere alla finestra di configurazione del pezzo. Impostare "Lunghezza", "Larghezza", "Altezza" del pezzo e il punto di presa del pezzo. Cliccare "Conferma Configurazione" per completare l'impostazione delle informazioni del pezzo.
 
 .. figure:: process/024.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.2‑2 Palletizing Workpiece Configuration
+.. centered:: Grafico 15.2‑2 Configurazione pezzo pallettizzazione
 
-**Step3**: In the Pallet Configuration section, click "Configure" to enter the pallet configuration pop-up window. Set the pallet's "Front Edge", "Side Edge", and "Height", then set the station and station transition points. Click "Confirm Configuration" to complete the pallet information setup.
+**Step3**: Nella barra di configurazione del pallet, cliccare "Configura" per accedere alla finestra di configurazione del pallet. Impostare "Lato anteriore", "Lato laterale" e "Altezza" del pallet. Quindi impostare le postazioni di lavoro e i punti di transizione delle postazioni. Cliccare "Conferma Configurazione" per completare l'impostazione delle informazioni del pallet.
 
 .. figure:: process/025.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.2‑3 Palletizing Pallet Configuration
+.. centered:: Grafico 15.2‑3 Configurazione pallet pallettizzazione
 
-**Step4**: In the Palletizing Equipment Dimensions Configuration section, click "Configure" to enter the palletizing equipment dimensions configuration pop-up window. Set the equipment's "X", "Y", "Z", and "Angle". Click "Confirm Configuration" to complete the palletizing equipment dimensions configuration.
+**Step4**: Nella barra di configurazione dimensioni dispositivo pallettizzazione, cliccare "Configura" per accedere alla finestra di configurazione delle dimensioni del dispositivo di pallettizzazione. Impostare "X", "Y", "Z" e "Angolo" del dispositivo. Cliccare "Conferma Configurazione" per completare l'impostazione delle informazioni di configurazione delle dimensioni del dispositivo di pallettizzazione.
 
-.. important::
-   X, Y, Z are the absolute values of the coordinates of the upper right corner point of the left pallet or the upper left corner point of the right pallet relative to the robot base coordinate system. Angle is the rotation angle during robot installation, recommended to be 0 during installation.
+.. important:: 
+   X, Y, Z sono i valori assoluti delle coordinate del punto in alto a destra del pallet sinistro o in alto a sinistra del pallet destro rispetto al sistema di coordinate base del robot. L'Angolo è l'angolo di rotazione durante l'installazione del robot, si consiglia di impostarlo a 0 durante l'installazione.
 
 .. figure:: process/026.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.2‑4 Palletizing Equipment Dimensions Configuration
+.. centered:: Grafico 15.2‑4 Configurazione dimensioni dispositivo pallettizzazione
 
-**Step5**: In the Mode Configuration section, click "Configure" to enter the mode configuration pop-up window.
+**Step5**: Nella barra di configurazione della modalità, cliccare "Configura" per accedere alla finestra di configurazione della modalità.
 
-   **Mode B On/Off**: On: Can switch between Mode A/B, configure Mode B for each palletizing layer; Off: Cannot switch to Mode B, cannot configure Mode B for each palletizing layer;
+   **Attiva/Disattiva Modalità B**: Attiva: è possibile passare dalla modalità A/B e configurare la modalità B per ogni strato di pallettizzazione; Disattiva: non è possibile passare alla modalità B, non è possibile configurare la modalità B per ogni strato di pallettizzazione;
 
-   **Mode A/B Switch**: Select Mode A: Added workpieces are Mode A, workpiece numbers are A1, A2..., cannot adjust workpiece transparency; Select Mode B: Added workpieces are Mode B, workpiece numbers are B1, B2..., can then turn on/off "Show Mode A Configuration" to display Mode A workpieces;
+   **Passaggio Modalità A/B**: Selezionare Modalità A: aggiungere il pezzo come modalità A, il numero del pezzo è A1, A2..., non è possibile regolare la trasparenza del pezzo; Selezionare Modalità B: aggiungere il pezzo come modalità B, il numero del pezzo è B1, B2..., a questo punto è possibile attivare/disattivare "Mostra Configurazione Modalità A" per visualizzare i pezzi della modalità A;
 
-   **Show Mode A On/Off**: On: Adjust Mode B workpiece transparency to check if the A/B mode configuration effect is reasonable. At this time, only operations like selecting, adding, batch adding, deleting, and deleting all can be performed on Mode B workpieces; Off: Cannot set Mode B workpiece transparency;
+   **Attiva/Disattiva Mostra Modalità A**: Attiva: regolare la trasparenza dei pezzi della modalità B per verificare se l'effetto della configurazione delle modalità A/B è ragionevole, a questo punto è possibile eseguire solo le operazioni di selezione, aggiunta, aggiunta in batch, eliminazione ed eliminazione totale sui pezzi della modalità B; Disattiva: non è possibile impostare la trasparenza dei pezzi della modalità B;
 
-.. important::
-   When configuring workpieces, if workpieces collide, the workpiece background color turns red, and the above operations cannot be performed. If operation is needed, please configure the workpieces to have no collision.
+.. important:: 
+   Durante la configurazione del pezzo, se c'è collisione tra i pezzi, il colore di sfondo del pezzo diventa rosso. In questo caso, le operazioni sopra menzionate non possono essere eseguite. Se è necessario operare, configurare il pezzo senza collisioni.
 
-When configuring workpieces, first set the workpiece spacing. The right box simulates the placement of workpieces on the right pallet; you can add individually or in batches. Then set the number of palletizing layers and the mode for each layer. Click "Confirm Configuration" to complete the mode information setup.
+Durante la configurazione del pezzo, prima impostare l'intervallo tra i pezzi. Il riquadro a destra simula il modo in cui i pezzi vengono posizionati sul pallet destro, è possibile aggiungere singolarmente o in batch. Quindi impostare il numero di strati di pallettizzazione e la modalità di ogni strato. Cliccare "Conferma Configurazione" per completare l'impostazione delle informazioni della modalità.
 
-.. important::
-   Palletizing direction: Taking the right pallet as an example, the lower right corner is the farthest point. Place a row of workpieces vertically or horizontally from the lower right corner, then place the next row of workpieces horizontally or vertically above it, and so on (The web page has marked the palletizing direction, please check).
-
-   The left pallet places workpieces mirrored based on the right pallet mode.
+.. important:: 
+   Direzione pallettizzazione: prendendo come esempio il pallet destro, l'angolo in basso a destra è il punto più lontano. Posizionare una fila di pezzi verticalmente o orizzontalmente dall'angolo in basso a destra, poi posizionare un'altra fila di pezzi orizzontalmente o verticalmente sopra, e così via (la direzione di pallettizzazione è indicata nella pagina Web, si prega di controllare).
+   
+   Il pallet sinistro posiziona i pezzi specularmente in base alla modalità del pallet destro.
 
 .. figure:: process/027.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.2‑5 Palletizing Mode A Configuration
+.. centered:: Grafico 15.2‑5 Configurazione Modalità A Palletizzazione
 
 .. figure:: process/028.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.2‑6 Palletizing Mode B Configuration
+.. centered:: Grafico 15.2‑6 Configurazione Modalità B Palletizzazione
 
-**Step6**: In the Teaching Program Generation section, click "Advanced Configuration" to enter the advanced configuration pop-up window. Configure the "Pick Lift Height", "First Offset Distance", "Second Offset Distance", and "Suction Wait Time".
+**Step6**: Nella barra di generazione del programma di insegnamento, cliccare "Configurazione Avanzata" per accedere alla finestra di configurazione avanzata. A questo punto configurare "Altezza sollevamento presa materiale", "Distanza offset prima volta", "Distanza offset seconda volta" e "Tempo attesa aspirazione".
 
-   **Pick Lift Height**: User-defined height lifted after successful pickup from the pickup point;
+   **Altezza sollevamento presa materiale**: altezza di sollevamento dopo il successo della presa materiale dal punto di presa, definita dall'utente;
 
-   **First/Second Offset Distance**: User-defined offset distance for the robot to tilt and stack to the target point;
+   **Distanza offset prima/seconda volta**: distanza di offset per il posizionamento inclinato del robot fino al punto target, definita dall'utente;
+   
+   **Tempo attesa aspirazione**: tempo di attesa per l'aspirazione, definito dall'utente, per monitorare il segnale di raggiungimento del vuoto dopo l'aspirazione, ripetendo l'azione di aspirazione se non raggiunto;
 
-   **Suction Wait Time**: User-defined suction wait time, monitoring the negative pressure signal after suction, repeating the suction action if not到位;
-
-   **Smooth Transition**: Turn on the Smooth Transition button to configure parameters related to Palletizing/Depalletizing PTP smooth time and LIN smooth radius.
-
-   - PTP Smooth Time: No smooth transition time / Level 1 (200ms) / Level 2 (400ms) / Level 3 (600ms) / Level 4 (800ms) / Level 5 (1000ms)
-   - LIN Smooth Radius: No smooth transition radius / Level 1 (200mm) / Level 2 (400mm) / Level 3 (600mm) / Level 4 (800mm) / Level 5 (1000mm)
+   **Transizione morbida**: attivare il pulsante di transizione morbida per configurare i parametri correlati al tempo di transizione morbida PTP e al raggio di transizione morbida LIN per la pallettizzazione/depallettizzazione.
+   
+   - Tempo transizione morbida PTP: nessun tempo transizione morbida / livello 1 (200 ms) / livello 2 (400 ms) / livello 3 (600 ms) / livello 4 (800 ms) / livello 5 (1000 ms)
+   - Raggio transizione morbida LIN: nessun raggio transizione morbida / livello 1 (200 mm) / livello 2 (400 mm) / livello 3 (600 mm) / livello 4 (800 mm) / livello 5 (1000 mm)
 
 .. figure:: process/029.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.2‑7 Palletizing Advanced Configuration
+.. centered:: Grafico 15.2‑7 Configurazione Avanzata Palletizzazione
 
-**Step7**: In the Teaching Program Generation section, select "Method Selection", click "Generate Program", open the "Palletizing Monitor Page". On this page, you can view and check the "Generation Information", "Alarm Information", and "Palletizing Program".
+**Step7**: Nella barra di generazione del programma di insegnamento, selezionare "Scelta Metodo", cliccare "Genera Programma", aprire la "Pagina Monitoraggio Palletizzazione". In questa pagina è possibile visualizzare e controllare le "Informazioni di Generazione", le "Informazioni di Allarme" e il "Programma di Palletizzazione".
 
 .. figure:: process/030.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.2‑8 Palletizing System Monitoring
+.. centered:: Grafico 15.2‑8 Monitoraggio Sistema Palletizzazione
 
-**Step8**: If the palletizing running program reports an error midway and stops, the user should first clear the error, then select the palletizing program to run again. At this time, a "Last Program Interrupted" pop-up box will appear. Click the "Resume" button to continue running, or click the "Restart" button to restart the program.
+**Step8**: Se il programma di pallettizzazione segnala un errore durante l'esecuzione, il programma si interrompe. L'utente deve prima cancellare l'errore, quindi selezionare nuovamente il programma di pallettizzazione per l'esecuzione. A questo punto apparirà una finestra di dialogo "Interruzione Programma Precedente". Cliccare il pulsante "Continua" per riprendere l'esecuzione, cliccare il pulsante "Ricomincia" per ricominciare l'esecuzione del programma.
 
 .. figure:: process/031.png
    :align: center
    :width: 3in
 
-.. centered:: Figure 15.2‑9 Palletizing Program Resume
+.. centered:: Grafico 15.2‑9 Continuazione Programma Palletizzazione
 
-Conveyor Tracking
-----------------------------------
+Tracciamento Nastro Trasportatore
+---------------------------------------------------------
 
-Conveyor Tracking Configuration Steps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Passaggi Configurazione Tracciamento Nastro Trasportatore
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Step1**: Select the "Conveyor" menu item under "Auxiliary Application" -> "Process Package" to enter the Conveyor Tracking Configuration interface. Click the "Configure Conveyor IO" button to quickly configure the IO required for the conveyor function. Then, configure the corresponding parameters according to the actual function usage. Here, taking non-vision tracking picking function as an example, you need to configure the conveyor encoder channel, resolution, lead, and select "No" for vision pairing, then click Configure.
+**Step1**: In "Applicazioni Ausiliarie" -> "Pacchetti di Processo", selezionare la voce di menu "Nastro Trasportatore" per accedere all'interfaccia di configurazione del tracciamento del nastro trasportatore. Cliccare il pulsante "Configura I/O Nastro Trasportatore" per configurare rapidamente gli I/O necessari per la funzione del nastro trasportatore. Quindi configurare i parametri corrispondenti in base alla funzionalità effettivamente utilizzata. Prendendo come esempio la funzione di presa senza tracciamento visivo, è necessario configurare il canale dell'encoder del nastro trasportatore, la risoluzione, il passo della vite, selezionare "No" per l'abbinamento visivo, cliccare configura.
 
 .. figure:: process/032.png
    :align: center
@@ -410,234 +410,234 @@ Conveyor Tracking Configuration Steps
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.3‑1 Conveyor Configuration
+.. centered:: Grafico 15.3‑1 Configurazione nastro trasportatore
 
-**Step2**: Next, set the pickup point compensation values, which are the compensation distances in the X, Y, and Z directions. These can be set during debugging based on the actual situation.
+**Step2**: Successivamente impostare i valori di compensazione del punto di presa, che sono le distanze di compensazione nelle tre direzioni X, Y, Z. Possono essere impostati durante il debug in base alla situazione effettiva.
 
 .. figure:: process/034.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.3‑2 Conveyor Pickup Point Compensation Configuration
+.. centered:: Grafico 15.3‑2 Configurazione compensazione punto di presa nastro trasportatore
 
-**Step3**: Start the conveyor, move the calibrated object to the defined Point A position, then stop the conveyor. Move the robot to align the tip of the calibration rod at the robot end with the tip of the calibrated object. Click the Start Point A button. A dialog box will pop up, displaying the current encoder value and robot pose. Click Calibrate to complete the Start Point A calibration.
+**Step3**: Accendere il nastro trasportatore, spostare l'oggetto tarato nella posizione del punto A definito, fermare il nastro trasportatore. Spostare il robot, allineare la punta dell'asta di taratura all'estremità del robot con la punta dell'oggetto tarato, cliccare il pulsante Punto iniziale A. Apparirà una finestra di dialogo che mostra il valore corrente dell'encoder e la posa del robot. Cliccare Taratura per completare la taratura del punto iniziale A.
 
 .. figure:: process/035.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.3‑3 Start Point A Configuration
+.. centered:: Grafico 15.3‑3 Configurazione punto iniziale A
 
-**Step4**: Click the Reference Point button to enter reference point calibration. When recording the reference point, record the robot's height and posture during picking. Each tracking will use the recorded reference point height and posture for tracking and picking. It can be at a different height from Points A and B. Click Calibrate to complete the reference point calibration.
+**Step4**: Cliccare il pulsante Punto di riferimento per accedere alla taratura del punto di riferimento. Durante la registrazione del punto di riferimento, registrare l'altezza e la postura della presa del robot. Ogni volta che si traccia, verranno utilizzate l'altezza e la postura registrate del punto di riferimento per tracciare e afferrare. Può essere a un'altezza diversa dai punti A e B. Cliccare Taratura per completare la taratura del punto di riferimento.
 
 .. figure:: process/036.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.3‑4 Reference Point Configuration
+.. centered:: Grafico 15.3‑4 Configurazione punto di riferimento
 
-**Step5**: Start the conveyor, move the calibrated object to the defined Point B position, then stop the conveyor. Move the robot to align the tip of the calibration rod at the robot end with the tip of the calibrated object. Click the End Point B button. A dialog box will pop up, displaying the current encoder value and robot pose. Click Calibrate to complete the End Point B calibration.
+**Step5**: Accendere il nastro trasportatore, spostare l'oggetto tarato nella posizione del punto B definito, fermare il nastro trasportatore. Spostare il robot, allineare la punta dell'asta di taratura all'estremità del robot con la punta dell'oggetto tarato, cliccare il pulsante Punto finale B. Apparirà una finestra di dialogo che mostra il valore corrente dell'encoder e la posa del robot. Cliccare Taratura per completare la taratura del punto finale B.
 
 .. figure:: process/037.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.3‑5 End Point B Configuration
+.. centered:: Grafico 15.3‑5 Configurazione punto finale B
 
-Conveyor Tracking Teaching Program
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Programma di Insegnamento Tracciamento Nastro Trasportatore
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 50 80 80
    :header-rows: 0
    :align: center
 
-   * - **No.**
-     - **Command Format**
-     - **Comment**
+   * - **N.**
+     - **Formato Istruzione**
+     - **Commento**
 
    * - 1
      - PTP(conveyorstart,30,-1,0)
-     - #Robot move to pick start point
+     - #Punto di inizio presa robot
 
    * - 2
      - While(1) do
-     - #Loop picking
+     - #Ciclo di presa
 
    * - 3
      - ConveyorlODetect(10000)
-     - #IO real-time object detection
+     - #Rilevamento in tempo reale oggetto tramite IO
 
    * - 4
      - ConveyorGetTrackData(1)
-     - #Object position acquisition
+     - #Acquisizione posizione oggetto
 
    * - 5
      - ConveyorTrackStart(1)
-     - #Conveyor tracking start
+     - #Inizio tracciamento nastro trasportatore
 
    * - 6
      - Lin(cvrCatchPoint,10,-1,0,0)
-     - #Robot reach pickup point
+     - #Robot raggiunge punto di presa
 
    * - 7
      - MoveGripper(1,255,255,0,10000)
-     - #Gripper pick object
+     - #Pinza afferra oggetto
 
    * - 8
      - Lin(cvrRaisePoint,10,-1,0,0)
-     - #Robot lift up
+     - #Robot solleva
 
    * - 9
      - ConveyorTrackEnd()
-     - #Conveyor tracking end
+     - #Fine tracciamento nastro trasportatore
 
    * - 10
      - PTP(conveyorraise,30,-1,0)
-     - #Robot reach wait point
+     - #Robot raggiunge punto di attesa
 
    * - 11
      - PTP(conveyorend,30,-1,0)
-     - #Robot reach place point
+     - #Robot raggiunge punto di posizionamento
 
    * - 12
      - MoveGripper(1,0,255,0,10000)
-     - #Gripper release object
+     - #Pinza rilascia
 
    * - 13
      - PTP(conveyorstart,50,-1,0)
-     - #Robot return to pick start point, wait for next pick
+     - #Robot ritorna al punto di inizio presa, attende la prossima presa
 
    * - 14
      - end
-     - #End
+     - #Fine
 
-Robot Conveyor Tracking System Composition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Composizione del Sistema di Tracciamento Nastro Trasportatore Robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Conveyor Encoder Data Communication Connection Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Metodo di Connessione Comunicazione Dati Encoder Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-For machine tool processing, to achieve automated loading and unloading processes, a CNC function package based on FOCAS communication has been developed, enabling communication interaction and coordinated motion between collaborative robots and CNC machine tools.
+Per realizzare un processo automatizzato di carico e scarico nella lavorazione delle macchine utensili, è stato sviluppato un pacchetto funzionalità CNC basato sulla comunicazione FOCAS, che consente l'interazione comunicativa e il movimento coordinato tra robot collaborativo e macchina utensile CNC.
 
-As shown in the figure, FOCAS communication is based on Ethernet. By connecting the robot control box network port with the machine tool's embedded network port via an Ethernet cable, FOCAS communication between the robot and the machine tool can be established, enabling CNC control and machine tool status monitoring on the robot side.
+Come mostrato in figura, la comunicazione FOCAS è basata su Ethernet. Collegando tramite cavo di rete la porta di rete della scatola di controllo del robot e la porta di rete integrata nella macchina utensile, è possibile stabilire la comunicazione FOCAS tra robot e macchina utensile, realizzando il controllo CNC e il monitoraggio dello stato della macchina utensile dal lato robot.
 
 .. figure:: process/038.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑6 Robot Conveyor Tracking System Composition Topology
+.. centered:: Grafico 15.3‑6 Diagramma topologico composizione sistema di tracciamento nastro trasportatore robot
 
-In the system, (a) is the computer, (b) is the robot and its control box, (c) is the conveyor system consisting of the conveyor belt, photoelectric sensor, and encoder. The robot control box is connected to the photoelectric sensor and conveyor belt via digital IO communication, and connected to the conveyor encoder via RS485.
+Nel sistema, (a) è il computer, (b) è il robot e la sua scatola di controllo, (c) è il sistema nastro trasportatore composto da nastro trasportatore, sensore fotoelettrico ed encoder. La scatola di controllo del robot è collegata tramite comunicazione digitale IO al sensore fotoelettrico e al nastro trasportatore, e tramite RS485 all'encoder del nastro trasportatore.
 
-Conveyor Configuration
-+++++++++++++++++++++++++++++++++++
+Configurazione Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++
 
-Enter the Conveyor Tracking function configuration interface under "Basic Settings", "Peripherals", "Tracking" on the robot Web page to configure the conveyor tracking function properties.
+Accedere all'interfaccia di configurazione della funzione "Nastro Trasportatore" sotto "Impostazioni Base", "Periferiche", "Tracciamento" nella pagina Web del robot per configurare le proprietà della funzione di tracciamento del nastro trasportatore.
 
 .. figure:: process/039.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.3‑7 Conveyor Tracking Configuration Page
+.. centered:: Grafico 15.3‑7 Pagina configurazione tracciamento nastro trasportatore
 
-On the conveyor tracking configuration page, click the "Conveyor I/O One-Key Configuration" button to configure the conveyor physical connection with one click.
-Then, in the "Function Selection" dropdown under "Parameter Configuration", select "Tracking Motion". Subsequently, configure the encoder properties, tracking workpiece coordinate system workpiece axis, vision pairing, and select "Chase Motion" in the "Tracking Type" dropdown. Then you can input the tracking start distance and tracking end distance.
-Tracking Start Distance: After the tracking signal is triggered, the robot starts action after the conveyor runs the set distance. When set to -1, it triggers automatically.
-Tracking End Distance: The maximum distance the robot follows the conveyor in synchronous motion after starting action.
+Nella pagina di configurazione del tracciamento del nastro trasportatore, cliccare il pulsante "Configurazione I/O Nastro Trasportatore con un clic" per configurare con un clic il collegamento fisico del nastro trasportatore.
+Successivamente, nel menu a discesa "Scelta Funzione" sotto "Configurazione Parametri", selezionare "Movimento di Tracciamento". Quindi configurare le proprietà dell'encoder, l'asse del pezzo del sistema di coordinate del pezzo da tracciare, l'abbinamento visivo. Nel menu a discesa "Tipo Tracciamento" selezionare "Movimento di Inseguimento". A questo punto è possibile inserire la distanza di inizio tracciamento e la distanza di fine tracciamento.
+Distanza di inizio tracciamento: dopo il segnale di trigger del tracciamento, quando il nastro trasportatore ha percorso la distanza impostata, il robot inizia ad agire. Se impostata a -1, viene attivata automaticamente.
+Distanza di fine tracciamento: la distanza massima che il robot percorre in movimento sincrono con il nastro trasportatore dopo aver iniziato ad agire.
 
-Tracking Coordinate System Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Sistema Coordinate Tracciamento
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Tracking motion uses the workpiece coordinate system as the conveyor coordinate system, so the workpiece coordinate system needs to be set.
+Il movimento di tracciamento utilizza il sistema di coordinate del pezzo come sistema di coordinate del nastro trasportatore, quindi è necessario impostare il sistema di coordinate del pezzo.
 
-Click "Initial Setup", "Basic", select "Workpiece Coordinate System" under "Coordinate System", click to select a workpiece coordinate system other than "wobjcoord0" for calibration. The calibration method is not detailed here.
+Cliccare "Impostazioni Iniziali", "Base", in "Sistema di Coordinate" selezionare "Sistema di Coordinate Pezzo". Cliccare per selezionare un sistema di coordinate pezzo diverso da "wobjcoord0" per la taratura. Il metodo di taratura non verrà approfondito qui.
 
 .. figure:: process/040.png
    :align: center
    :width: 4in
 
-.. centered:: Figure 15.3‑8 Tracking Coordinate System Setup
+.. centered:: Grafico 15.3‑8 Impostazione sistema coordinate tracciamento
 
-Conveyor Tracking Chase Motion Function
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Funzione Movimento di Inseguimento Tracciamento Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Chase motion is a type of conveyor tracking motion. Compared to tracking motion, the teaching of motion points for chase motion does not need to be done above the workpiece coordinate system; it can be taught at any position in the workpiece coordinate system. Then, through the "Tracking Start Distance" parameter, the end effector synchronizes motion with the conveyor, making it a more flexible tracking method.
+Il movimento di inseguimento è un tipo di movimento di tracciamento del nastro trasportatore. Rispetto al movimento di tracciamento, i punti di movimento del movimento di inseguimento non devono essere insegnati sopra il sistema di coordinate del pezzo, ma possono essere insegnati in qualsiasi posizione del sistema di coordinate del pezzo. Attraverso il parametro "Distanza di inizio tracciamento", l'estremità del robot si muove in sincronia con il nastro trasportatore. È un metodo di tracciamento più flessibile.
 
-Conveyor Tracking Chase Motion Function Introduction
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Introduzione Funzione Movimento di Inseguimento Tracciamento Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following gives a chase motion example to introduce its motion characteristics.
+Di seguito viene fornito un esempio di movimento di inseguimento per introdurne le caratteristiche.
 
 .. figure:: process/041.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑9 Conveyor Tracking Chase Motion Teaching Example
+.. centered:: Grafico 15.3‑9 Esempio insegnamento movimento di inseguimento tracciamento nastro trasportatore
 
-Here, x is the direction of conveyor motion in the workpiece coordinate system, a is the conveyor plane, b is the target workpiece to be picked, c is the photoelectric sensor, d is the tracking start distance, e is the tracking end distance. P1 to P4 are the taught waypoints in sequential order, P2 to P3 are the same waypoint, including gripper motion.
+Dove, x è la direzione di movimento del nastro trasportatore nel sistema di coordinate del pezzo, a è il piano del nastro trasportatore, b è il pezzo target da afferrare, c è il sensore fotoelettrico, d è la distanza di inizio tracciamento, e è la distanza di fine tracciamento. Da P1 a P4 sono i punti di percorso insegnati e il loro ordine sequenziale, P2 e P3 sono gli stessi punti di percorso, inclusi i movimenti della pinza.
 
 .. figure:: process/042.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑10 Conveyor Tracking Chase Motion Execution Example After Teaching
+.. centered:: Grafico 15.3‑10 Esempio esecuzione dopo insegnamento movimento di inseguimento tracciamento nastro trasportatore
 
-When the above taught program starts running and the workpiece triggers the photoelectric switch signal, the robot will wait for the target to move under P1 before starting the tracking motion. The robot gripper will move along the trajectory shown in the figure above.
+Quando il programma di insegnamento sopra inizia l'esecuzione e il pezzo attiva il segnale del sensore fotoelettrico, il robot aspetterà che il target si sposti sotto P1 prima di iniziare il movimento di tracciamento. La pinza del robot si muoverà lungo la traiettoria mostrata nella figura sopra.
 
-Chase Motion Program Teaching
-+++++++++++++++++++++++++++++++++++
+Insegnamento Programma Movimento di Inseguimento
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The chase motion program logic is basically the same as the tracking motion logic, including acquiring the trigger signal, acquiring conveyor data, and starting the tracking motion.
+La logica del programma di movimento di inseguimento è fondamentalmente la stessa della logica del movimento di tracciamento, includendo l'acquisizione del segnale di trigger, l'acquisizione dei dati del nastro trasportatore e l'inizio del movimento di tracciamento.
 
-**Step 1**: Click "Teaching Program", "Program Programming", select and click the "Conveyor" button under "Peripheral Instructions" to enter the conveyor instruction configuration page.
+**Step 1**: Cliccare "Programmazione Insegnamento", "Programmazione Programma", selezionare e cliccare il pulsante "Nastro Trasportatore" sotto "Istruzione Periferica" per accedere alla pagina di configurazione delle istruzioni del nastro trasportatore.
 
 .. figure:: process/043.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑11 I/O Real-time Monitoring Instruction
+.. centered:: Grafico 15.3‑11 Istruzione monitoraggio IO in tempo reale
 
-**Step 2**: Click "I/O Real-time Monitoring" and set the "Max Wait Time (ms)" to detect the tracking trigger signal in real-time. Click "Add" and "Apply" to add the instruction to the program.
+**Step 2**: Cliccare "Monitoraggio IO in tempo reale" e impostare "Tempo massimo attesa insegnamento (ms)" per rilevare in tempo reale il segnale di trigger del tracciamento. Cliccare i pulsanti "Aggiungi" e "Applica" per aggiungere l'istruzione al programma.
 
 .. figure:: process/044.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑12 Position Real-time Detection Instruction
+.. centered:: Grafico 15.3‑12 Istruzione rilevamento posizione in tempo reale
 
-**Step 3**: Click "Position Real-time Detection" and select "Tracking Motion" for the working mode. Click "Add" and "Apply" to add the instruction to the program.
+**Step 3**: Cliccare "Rilevamento posizione in tempo reale" e selezionare la modalità di lavoro come "Movimento di Tracciamento". Cliccare i pulsanti "Aggiungi" e "Applica" per aggiungere l'istruzione al programma.
 
 .. figure:: process/045.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑13 Tracking Start Instruction
+.. centered:: Grafico 15.3‑13 Istruzione attivazione tracciamento
 
-**Step 4**: Click "Tracking Start" and select "Tracking Motion" for the working mode. Click "Add" and "Apply" to add the instruction to the program.
+**Step 4**: Cliccare "Attivazione Tracciamento" e selezionare la modalità di lavoro come "Movimento di Tracciamento". Cliccare i pulsanti "Aggiungi" e "Applica" per aggiungere l'istruzione al programma.
 
-**Step 5**: Teach the Cartesian space motion after tracking starts and the gripper peripheral motion. During the motion process, it will maintain synchronous tracking motion with the conveyor.
+**Step 5**: Insegnare il movimento nello spazio cartesiano dopo l'attivazione del tracciamento e il movimento periferico della pinza. Durante il movimento, verrà mantenuto il movimento sincrono di tracciamento con il nastro trasportatore.
 
 .. figure:: process/046.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑14 Tracking Stop Instruction
+.. centered:: Grafico 15.3‑14 Istruzione disattivazione tracciamento
 
-**Step 6**: Click "Tracking Stop" and click "Add" and "Apply" to add the instruction to the program.
+**Step 6**: Cliccare "Disattivazione Tracciamento" e cliccare i pulsanti "Aggiungi" e "Applica" per aggiungere l'istruzione al programma.
 
 .. figure:: process/047.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑15 A Typical Conveyor Program Tracking Motion Program
+.. centered:: Grafico 15.3‑15 Un tipico programma di movimento di tracciamento nastro trasportatore
 
-When two identical tracking motion targets are taught consecutively (may include offset distance), the robot motion will block at this target position, achieving continuous synchronous tracking until the tracking distance reaches the stop tracking distance.
+Quando si insegnano consecutivamente due target di movimento di tracciamento identici (possono includere una distanza di offset), il movimento del robot si bloccherà in quella posizione target, realizzando un tracciamento sincrono continuo fino a quando la distanza di tracciamento raggiunge la distanza di fine tracciamento.
 
 .. figure:: process/048.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 15.3‑11 A Typical Conveyor Blocking Tracking Picking Motion Program
+.. centered:: Grafico 15.3‑16 Un tipico programma di movimento di presa con tracciamento bloccante nastro trasportatore
 
-When two identical tracking motion targets are taught consecutively (may include offset distance), and gripper motion is inserted in between, the robot will continuously track the conveyor at this target position until the gripper motion is completed, achieving blocking tracking picking.
+Quando si insegnano consecutivamente due target di movimento di tracciamento identici (possono includere una distanza di offset), e contemporaneamente si inserisce un movimento della pinza nel mezzo, il robot continuerà a tracciare il nastro trasportatore in quella posizione target fino al completamento del movimento della pinza, realizzando una presa con tracciamento bloccante.

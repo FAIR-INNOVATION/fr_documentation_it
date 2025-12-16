@@ -1,26 +1,26 @@
-Robot parameter setting
-===========================
+Impostazioni Parametri del Robot
+==============================================
 
-Set the installation method
-----------------------------
+Impostazione Metodo di Installazione
+------------------------------------------------------
 
-The default installation mode of the robot is horizontal installation. When the installation mode of the robot is changed, the actual installation mode of the robot must be set in the "Initial - Base - Mounting" menu in time to ensure the normal operation of the robot.
+Il metodo di installazione predefinito del robot è orizzontale. Quando il metodo di installazione del robot viene modificato, è necessario impostare tempestivamente il metodo di installazione effettivo del robot in "Impostazioni Iniziali" -> "Base" -> "Installazione" per garantire il normale funzionamento del robot.
 
-To accommodate more flexible and diverse robot deployment scenarios, we offer a free installation feature. Users can click the 'Free Installation' tab under the "Initial - Base - Mounting" menu to access the robot free installation settings page. Manually adjust the "Base Tilt" and "Base Rotation" angles, and the 3D model will display the corresponding installation effect. After making changes, click the "Apply" button to complete the robot installation setup.
+Considerando scenari di distribuzione del robot più flessibili e ricchi, forniamo la funzione di installazione libera. L'utente clicca su "Impostazioni Iniziali" -> "Base" -> "Installazione" per accedere alla pagina di impostazione del metodo di installazione del robot. Regola manualmente gli angoli di "Inclinazione Base" e "Rotazione Base", il modello 3D mostrerà l'effetto dell'installazione corrispondente. Dopo la modifica, clicca il pulsante "Applica" per completare l'impostazione del metodo di installazione del robot.
 
 .. image:: teaching_pendant_software/026.png
    :width: 6in
    :align: center
    
-.. centered:: Figure 3.1-1 Robot installation
+.. centered:: Grafico 3.1-1 Installazione Robot
 
 .. important::
-   After the installation of the robot is completed, the installation method of the robot must be set correctly, otherwise it will affect the use of the robot's dragging function and collision detection function.
+    Dopo aver installato il robot, è necessario impostare correttamente il metodo di installazione del robot, altrimenti influenzerà l'uso della funzione di trascinamento e della funzione di rilevamento collisioni del robot.
 
-Set end load
---------------------
+Impostazione Carico Estremità
+--------------------------------------
 
-In the "Initial - Base - Payload" section, select the identification type for "Trajectory Identification" to enter the end effector load setting interface.
+In "Impostazioni Iniziali" -> "Base" -> "Carico", nel tipo di identificazione "Identificazione Traiettoria", accedere all'interfaccia di impostazione del carico all'estremità.
 
 .. note:: 
    .. image:: base/071.png
@@ -28,9 +28,9 @@ In the "Initial - Base - Payload" section, select the identification type for "T
       :height: 0.75in
       :align: left
 
-   name: **Apply button**
+   Nome: **Pulsante Applica**
    
-   effect: Click the application load number to view the corresponding load weight and center of gravity coordinates.
+   Funzione: Cliccare per applicare il peso del carico e le coordinate del centro di massa corrispondenti al numero del carico
 
 .. note:: 
    .. image:: base/072.png
@@ -38,9 +38,9 @@ In the "Initial - Base - Payload" section, select the identification type for "T
       :height: 0.75in
       :align: left
 
-   name: **Modify button**
+   Nome: **Pulsante Modifica**
    
-   effect: Click to open/close the motion recognition interface.
+   Funzione: Cliccare per aprire/chiudere l'interfaccia movimento identificazione
 
 .. note:: 
    .. image:: base/073.png
@@ -48,9 +48,9 @@ In the "Initial - Base - Payload" section, select the identification type for "T
       :height: 0.75in
       :align: left
 
-   name: **Rename button**
+   Nome: **Pulsante Rinomina**
    
-   effect: Rename load name
+   Funzione: Rinominare il nome del carico
 
 .. note:: 
    .. image:: base/074.png
@@ -58,44 +58,44 @@ In the "Initial - Base - Payload" section, select the identification type for "T
       :height: 0.75in
       :align: left
 
-   name: **Clear button**
+   Nome: **Pulsante Svuota**
    
-   effect: Clear current load information (set load weight and center of gravity coordinates to 0).
+   Funzione: Svuotare le informazioni del carico corrente (impostare peso carico e coordinate centro di massa a 0)
 
-When configuring the end load, you can directly input the mass of the end tool and the corresponding center of mass coordinates X, Y, and Z, then click the "Apply" button to complete the setup.
+Durante la configurazione del carico all'estremità, è possibile inserire direttamente la massa dello strumento terminale e le corrispondenti coordinate del centro di massa X, Y e Z, quindi cliccare il pulsante "Applica" per impostare.
 
-At the same time, you can click the "Edit" button to open the "Motion Identification" interface for automatic load identification, which will be applied after the identification process is completed.
+Allo stesso tempo, è possibile cliccare il pulsante "Modifica" per aprire l'interfaccia "Movimento Identificazione" per l'identificazione automatica del carico. Dopo il completamento dell'esecuzione dell'identificazione, applicare.
 
 .. important:: 
-   The load mass cannot exceed the maximum load range of the robot.
+   La massa del carico non deve superare il carico massimo del robot. I carichi corrispondenti ai modelli sono i seguenti:
 
-   - FR3:3kg
+   - FR3: 3 kg
 
-   - FR5:5kg
+   - FR5: 5 kg
 
-   - FR10:10kg
+   - FR10: 10 kg
 
-   - FR16:16kg
+   - FR16: 16 kg
    
-   - FR20:20kg
+   - FR20: 20 kg
+   
+   - FR30: 30 kg
 
-   - FR30:30kg
-
-   The center of mass coordinate setting range is 0-1000, unit mm.
+   L'intervallo di impostazione delle coordinate del centro di massa è 0-1000, unità mm.
 
 .. image:: base/016.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 3.2-1 Schematic diagram of load setting
-
+.. centered:: Grafico 3.2-1 Schema impostazione carico
+    
 .. important:: 
-   After the load is installed at the end of the robot, the weight of the end load and the coordinates of the center of mass must be set correctly, otherwise it will affect the drag function of the robot and the use of the collision detection function.
+    Dopo aver installato il carico all'estremità del robot, è necessario impostare correttamente il peso del carico all'estremità e le coordinate del centro di massa, altrimenti influenzerà l'uso della funzione di trascinamento e della funzione di rilevamento collisioni del robot.
 
-Set tool coordinates
---------------------
+Impostazione Coordinate Strumento
+-----------------------------------------
 
-Enter the tool coordinates page by going to "Initial Settings" -> "Basic" -> "Tool Coordinates".
+In "Impostazioni Iniziali" -> "Base" -> "Coordinate Strumento" accedere alla pagina delle coordinate dello strumento.
 
 .. note:: 
    .. image:: base/071.png
@@ -103,9 +103,9 @@ Enter the tool coordinates page by going to "Initial Settings" -> "Basic" -> "To
       :height: 0.75in
       :align: left
 
-   name: **Apply button**
+   Nome: **Pulsante Applica**
    
-   effect: Click to apply the tool coordinate system
+   Funzione: Cliccare per applicare il sistema di coordinate dello strumento
 
 .. note:: 
    .. image:: base/072.png
@@ -113,9 +113,9 @@ Enter the tool coordinates page by going to "Initial Settings" -> "Basic" -> "To
       :height: 0.75in
       :align: left
 
-   name: **Modify button**
+   Nome: **Pulsante Modifica**
    
-   effect: Click to open/close the coordinate system calibration interface
+   Funzione: Cliccare per aprire/chiudere l'interfaccia di taratura del sistema di coordinate
 
 .. note:: 
    .. image:: base/073.png
@@ -123,9 +123,9 @@ Enter the tool coordinates page by going to "Initial Settings" -> "Basic" -> "To
       :height: 0.75in
       :align: left
 
-   name: **Rename button**
+   Nome: **Pulsante Rinomina**
    
-   effect: Rename Tool Coordinate System Name
+   Funzione: Rinominare il nome del sistema di coordinate dello strumento
 
 .. note:: 
    .. image:: base/074.png
@@ -133,27 +133,27 @@ Enter the tool coordinates page by going to "Initial Settings" -> "Basic" -> "To
       :height: 0.75in
       :align: left
 
-   name: **Clear button**
+   Nome: **Pulsante Svuota**
    
-   effect: Clear current tool coordinate information
+   Funzione: Svuotare le informazioni delle coordinate dello strumento corrente
 
-Tool coordinates can be modified, cleared and applied. In the drop-down list of tool coordinate systems, after selecting the corresponding coordinate system(the coordinate system name can be customized), the corresponding coordinate value, tool type and installation location (only displayed under sensor type tools) will be displayed below. After selecting a coordinate system, click the "Apply" button, and the currently used tool coordinate system will become the selected coordinate, as shown below.
+Le coordinate dello strumento consentono di modificare, svuotare e applicare le coordinate dello strumento. Nell'elenco a discesa dei sistemi di coordinate dello strumento, selezionando il sistema di coordinate corrispondente, verranno visualizzati in basso i valori delle coordinate corrispondenti (il nome del sistema di coordinate può essere personalizzato), il tipo di strumento e la posizione di installazione (visualizzato solo per strumenti di tipo sensore). Dopo aver selezionato un sistema di coordinate, cliccando il pulsante "Applica", il sistema di coordinate dello strumento in uso diventa quello selezionato, come mostrato di seguito.
 
 .. image:: base/001.png
    :width: 4in
    :align: center
+   
+.. centered:: Grafico 3.3-1 Impostazione coordinate strumento
 
-.. centered:: Figure 3.3-1 Set tool coordinates
-
-Click "Modify" to reset the tool coordinate system of the number according to the prompt. The tool calibration method is divided into four-point method and six-point method. The four-point method only calibrates the tool TCP, that is, the position of the tool center point. Its posture is consistent with the end posture by default. The six-point method adds two points to the four-point method. , used to calibrate the pose of the tool.
+Cliccando "Modifica" è possibile reimpostare il sistema di coordinate dello strumento per quel numero in base alle istruzioni. I metodi di taratura dello strumento sono divisi in metodo a quattro punti e metodo a sei punti. Il metodo a quattro punti taratura solo il TCP dello strumento, cioè la posizione del punto centrale dello strumento, la cui postura è predefinita come coerente con la postura terminale. Il metodo a sei punti aggiunge due punti sulla base del metodo a quattro punti, utilizzati per tarare la postura dello strumento.
 
 .. image:: base/002.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 3.3-2 Tool Frame Calibration
+.. centered:: Grafico 3.3-2 Taratura sistema coordinate strumento
 
 .. important:: 
-   1. After the tool is installed at the end, the tool coordinate system must be calibrated and applied, otherwise the position and attitude of the tool center point will not meet the expected values when the robot executes the motion command.
+    1. Dopo aver installato lo strumento all'estremità, è necessario effettuare la taratura e l'applicazione del sistema di coordinate dello strumento, altrimenti la posizione e la postura del punto centrale dello strumento durante l'esecuzione delle istruzioni di movimento del robot non corrisponderanno ai valori previsti.
 
-   2. The tool coordinate system generally uses toolcoord1~toolcoord19, and toolcoord0 is used to indicate that the position center of the tool TCP is at the center of the end flange. When calibrating the tool coordinate system, it is first necessary to apply the tool coordinate system to toolcoord0, and then select other tool coordinate systems for calibration. Calibration and application.
+    2. I sistemi di coordinate dello strumento generalmente utilizzano toolcoord1~toolcoord19. Applicare toolcoord0 significa che la posizione centrale del TCP dello strumento si trova al centro della flangia terminale. Durante la taratura del sistema di coordinate dello strumento, è necessario prima applicare il sistema di coordinate dello strumento a toolcoord0, quindi selezionare altri sistemi di coordinate dello strumento per la taratura e l'applicazione.

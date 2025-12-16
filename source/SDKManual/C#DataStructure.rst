@@ -1,117 +1,113 @@
-Data Structure Description
-===================================================
+Descrizione delle strutture dati
+=============================================
 
 .. toctree:: 
     :maxdepth: 5
 
-Joint position data type
-++++++++++++++++++++++++++++++++++
+Tipo di dati della posizione dei giunti
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /** 
-    * @brief Joint position data type 
+    * @brief Tipo di dati della posizione dei giunti 
     */  
     struct JointPos
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] jPos; /* Six joint positions in deg */
+        public double[] jPos;   /* Posizioni dei sei giunti, unità deg */
     }
 
-Cartesian space position data type
-++++++++++++++++++++++++++++++++++
+Tipo di dati della posizione nello spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Cartesian spatial position datatype.
+    * @brief Tipo di dati della posizione nello spazio cartesiano
     */
     struct DescTran
     {
-        public double x; /* x-axis coordinate in mm */
-        public double y; /* y-axis coordinate in mm */
-        public double z; /* z-axis coordinate in mm */
+        public double x;    /* Coordinata dell'asse x, unità mm  */
+        public double y;    /* Coordinata dell'asse y, unità mm  */
+        public double z;    /* Coordinata dell'asse z, unità mm  */
     }
 
-Euler Angle Attitude data type
-++++++++++++++++++++++++++++++++++
+Tipo di dati dell'orientamento degli angoli di Eulero
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Euler Angle Attitude data type.
+    * @brief Tipo di dati dell'orientamento degli angoli di Eulero
     */
     struct Rpy
     {
-    public double rx; /* Angle of rotation around fixed axis X in deg */
-    public double ry; /* Angle of rotation around fixed axis Y in degrees */
-    public double rz; /* Angle of rotation about fixed axis Z in degrees */
+    public double rx;   /* Angolo di rotazione attorno all'asse fisso X, unità: deg  */
+    public double ry;   /* Angolo di rotazione attorno all'asse fisso Y, unità: deg  */
+    public double rz;   /* Angolo di rotazione attorno all'asse fisso Z, unità: deg  */
     }
 
-Cartesian space position data type
-++++++++++++++++++++++++++++++++++
+Tipo di dati della posa nello spazio cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    *@brief Cartesian space position type.
+    *@brief Tipo di dati della posa nello spazio cartesiano
     */
     struct DescPose
     {
-        public DescTran tran; /* Cartesian space position */
-        public Rpy rpy; /* Cartesian space pose */
+        public DescTran tran;     /* Posizione nello spazio cartesiano  */
+        public Rpy rpy;			/* Orientamento nello spazio cartesiano  */
     }
 
-Extended axis position data type
-++++++++++++++++++++++++++++++++++
+Tipo di dati della posizione dell'asse esteso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Extended axis position datatype.
+    * @brief Tipo di dati della posizione dell'asse esteso
     */
     struct ExaxisPos
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        public double[] ePos; /* Four extended axis positions in mm */
+        public double[] ePos;   /* Posizioni dei quattro assi estesi, unità mm */
     }
 
-Torque sensor data type
-++++++++++++++++++++++++++++++++++
+Tipo di dati del sensore di coppia
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Force components and moment components of a force sensor.
+    * @brief Componenti di forza e coppia del sensore di forza
     */
     struct ForceTorque
-    { public double fx; /* Force component along x-axis, in N */
-        public double fx; /* Force component along x-axis in N */
-        public double fy; /* Force component along y-axis in N */
-        public double fz; /* Component of force along z-axis in N */
-        public double tx; /* Component of moment around x-axis, unit Nm */ 
-        public double ty; /* Component of moment around y-axis, in Nm */
-        public double tz; /* Moment component around z-axis, in Nm */ 
+    {
+        public double fx;  /* Componente di forza lungo l'asse x, unità N  */
+        public double fy;  /* Componente di forza lungo l'asse y, unità N  */
+        public double fz;  /* Componente di forza lungo l'asse z, unità N  */
+        public double tx;  /* Componente di coppia attorno all'asse x, unità Nm */
+        public double ty;  /* Componente di coppia attorno all'asse y, unità Nm */
+        public double tz;  /* Componente di coppia attorno all'asse z, unità Nm */
     }
 
-Helix parameter data type
-++++++++++++++++++++++++++++++++++
+Tipo di dati dei parametri a spirale
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Spiral parameter data types
-    */
     public struct SpiralParam
     {
-        public int circle_num;           /* Number of spiral turns */
-        public float circle_angle;       /* Spiral inclination angle */
-        public float rad_init;           /* Initial spiral radius, unit: mm */
-        public float rad_add;            /* Radius increment */
-        public float rotaxis_add;        /* Rotation axis direction increment */
-        public uint rot_direction;       /* Rotation direction, 0-clockwise, 1-counterclockwise */
-        public int velAccMode;           // Velocity/acceleration parameter mode: 0-constant angular velocity; 1-constant linear velocity
-
+        public int circle_num;           /* Numero di spire  */
+        public float circle_angle;         /* Angolo di inclinazione della spirale  */
+        public float rad_init;             /* Raggio iniziale della spirale, unità mm  */
+        public float rad_add;              /* Incremento del raggio  */
+        public float rotaxis_add;          /* Incremento della direzione dell'asse di rotazione  */
+        public uint rot_direction;  /* Direzione di rotazione, 0-senso orario, 1-senso antiorario  */
+        public int velAccMode;      // Modalità parametri velocità/accelerazione: 0-velocità angolare costante; 1-velocità lineare costante
         public SpiralParam(int num, float angle, float initRad, float addRad, float axisAdd, uint direction, int mode)
         {
             circle_num = num;
@@ -124,161 +120,161 @@ Helix parameter data type
         }
     }
 
-Extended axis state type
-++++++++++++++++++++++++++++++++++
-.. versionchanged:: C#SDK-v1.0.7
+Tipo di stato dell'asse esteso
++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C#SDK-v1.0.6
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Extended axis state type
+    * @brief  Tipo di stato dell'asse esteso
     */
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct ROBOT_AUX_STATE
     {
-        public byte servoId; // servo drive ID number
-        public int servoErrCode; //servo drive error code
-        public int servoState; //servo drive state
-        public double servoPos; //Servo current position
-        public float servoVel; //Servo current speed
-        public float servoTorque; //Servo current torque
+        public byte servoId;           // ID driver servo
+        public int servoErrCode;       // Codice errore driver servo
+        public int servoState;         // Stato driver servo
+        public double servoPos;        // Posizione corrente servo
+        public float servoVel;         // Velocità corrente servo
+        public float servoTorque;      // Coppia corrente servo
     }
 
-Welding interrupt status
-+++++++++++++++++++++++++++
+Stato di interruzione della saldatura
++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct WELDING_BREAKOFF_STATE
     {
-        public byte breakOffState;  // Welding interrupt status
-        public byte weldArcState;   // Welding arc interrupted state
+        public byte breakOffState;  // Stato di interruzione della saldatura
+        public byte weldArcState;   // Stato di interruzione dell'arco di saldatura
     }
 
-Robot State Feedback Structures Types
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Tipo di struttura di feedback dello stato del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Robot status feedback struct type.
+    * @brief  Tipo di struttura di feedback dello stato del robot
     */
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct ROBOT_STATE_PKG
     {
-        public UInt16 frame_head;           //Frame header 0x5A5A
-        public byte frame_cnt;              //Frame count
-        public UInt16 data_len;             //Data length 5
-        public byte program_state;          //Program running state, 1-stop; 2-running; 3-pause
-        public byte robot_state;            //Robot motion state, 1-stop; 2-running; 3-pause; 4-drag 7
-        public int main_code;               //Main fault code
-        public int sub_code;                //Sub fault code
-        public byte robot_mode;             //Robot mode, 0-auto mode; 1-manual mode 16
+        public UInt16 frame_head;           // Intestazione del frame 0x5A5A
+        public byte frame_cnt;              // Contatore frame
+        public UInt16 data_len;             // Lunghezza dati  5
+        public byte program_state;          // Stato di esecuzione del programma, 1-arrestato; 2-in esecuzione; 3-in pausa
+        public byte robot_state;            // Stato di movimento del robot, 1-arrestato; 2-in esecuzione; 3-in pausa; 4-in trascinamento  7
+        public int main_code;               // Codice guasto principale
+        public int sub_code;                // Codice guasto secondario
+        public byte robot_mode;             // Modalità robot, 0-modalità automatica; 1-modalità manuale 16
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] jt_cur_pos;                             //Joint current position
+        public double[] jt_cur_pos;                             // Posizione corrente dei giunti
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] tl_cur_pos;                             //Tool current pose
+        public double[] tl_cur_pos;                             // Posa corrente dell'utensile
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] flange_cur_pos;                         //End flange current pose
+        public double[] flange_cur_pos;                         // Posa corrente della flangia finale
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] actual_qd;                              //Robot current joint velocity
+        public double[] actual_qd;                              // Velocità corrente dei giunti del robot
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] actual_qdd;                             //Robot current joint acceleration 16 + 8 * 6 * 5 = 256
+        public double[] actual_qdd;                             // Accelerazione corrente dei giunti del robot  16 + 8 * 6 * 5 = 256
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public double[] target_TCP_CmpSpeed;                    //Robot TCP composite command velocity                        
+        public double[] target_TCP_CmpSpeed;                    // Velocità di comando sintetica TCP del robot                        
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] target_TCP_Speed;                       //Robot TCP command velocity                        
+        public double[] target_TCP_Speed;                       // Velocità di comando TCP del robot                        
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public double[] actual_TCP_CmpSpeed;                    //Robot TCP composite actual velocity                     
+        public double[] actual_TCP_CmpSpeed;                    // Velocità effettiva sintetica TCP del robot                     
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] actual_TCP_Speed;                       //Robot TCP actual velocity                     
+        public double[] actual_TCP_Speed;                       // Velocità effettiva TCP del robot                     
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] jt_cur_tor;                             //Current torque       
-        public int tool;                        //Tool number
-        public int user;                        //Workpiece number
-        public byte cl_dgt_output_h;            //Digital output 15-8
-        public byte cl_dgt_output_l;            //Digital output 7-0
-        public byte tl_dgt_output_l;            //Tool digital output 7-0 (only bit0-bit1 valid)
-        public byte cl_dgt_input_h;             //Digital input 15-8
-        public byte cl_dgt_input_l;             //Digital input 7-0
-        public byte tl_dgt_input_l;             //Tool digital input 7-0 (only bit0-bit1 valid)                  
+        public double[] jt_cur_tor;                             // Coppia corrente       
+        public int tool;                        // Numero utensile
+        public int user;                        // Numero pezzo
+        public byte cl_dgt_output_h;            // Uscita digitale 15-8
+        public byte cl_dgt_output_l;            // Uscita digitale 7-0
+        public byte tl_dgt_output_l;            // Uscita digitale utensile 7-0 (solo bit0-bit1 validi)
+        public byte cl_dgt_input_h;             // Ingresso digitale 15-8
+        public byte cl_dgt_input_l;             // Ingresso digitale 7-0
+        public byte tl_dgt_input_l;             // Ingresso digitale utensile 7-0 (solo bit0-bit1 validi)                  
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public UInt16[] cl_analog_input;        //Control box analog input
-        public UInt16 tl_anglog_input;          //Tool analog input                            
+        public UInt16[] cl_analog_input;        // Ingresso analogico del quadro di controllo
+        public UInt16 tl_anglog_input;          // Ingresso analogico dell'utensile                            
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] ft_sensor_raw_data;     //Force/torque sensor raw data
+        public double[] ft_sensor_raw_data;     // Dati grezzi del sensore di forza/coppia
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] ft_sensor_data;         //Force/torque sensor data                          
-        public byte ft_sensor_active;           //Force/torque sensor activation state, 0-reset, 1-active
-        public byte EmergencyStop;              //Emergency stop flag
-        public int motion_done;                 //In-position signal
-        public byte gripper_motiondone;         //Gripper motion complete signal
-        public int mc_queue_len;                //Motion queue length
-        public byte collisionState;             //Collision detection, 1-collision; 0-no collision
-        public int trajectory_pnum;             //Trajectory point number
-        public byte safety_stop0_state;  /* Safety stop signal SI0 */
-        public byte safety_stop1_state;  /* Safety stop signal SI1 */
-        public byte gripper_fault_id;    /* Faulty gripper number */             
-        public UInt16 gripper_fault;     /* Gripper fault */
-        public UInt16 gripper_active;    /* Gripper activation state */
-        public byte gripper_position;    /* Gripper position */
-        public byte gripper_speed;       /* Gripper speed */
-        public byte gripper_current;     /* Gripper current */
-        public int gripper_tmp;          /* Gripper temperature */
-        public int gripper_voltage;      /* Gripper voltage */                 
-        public ROBOT_AUX_STATE auxState; /* 485 extension axis state */          
+        public double[] ft_sensor_data;         // Dati del sensore di forza/coppia                          
+        public byte ft_sensor_active;           // Stato di attivazione del sensore di forza/coppia, 0-ripristinato, 1-attivato
+        public byte EmergencyStop;              // Segnale arresto di emergenza
+        public int motion_done;                 // Segnale di posizione raggiunta
+        public byte gripper_motiondone;         // Segnale di completamento movimento pinza
+        public int mc_queue_len;                // Lunghezza coda movimento
+        public byte collisionState;             // Rilevamento collisione, 1-collisione; 0-nessuna collisione
+        public int trajectory_pnum;             // Numero punto traiettoria
+        public byte safety_stop0_state;  /* Segnale arresto sicurezza SI0 */
+        public byte safety_stop1_state;  /* Segnale arresto sicurezza SI1 */
+        public byte gripper_fault_id;    /* Numero pinza in errore */             
+        public UInt16 gripper_fault;     /* Guasto pinza */
+        public UInt16 gripper_active;    /* Stato di attivazione pinza */
+        public byte gripper_position;    /* Posizione pinza */
+        public byte gripper_speed;       /* Velocità pinza */
+        public byte gripper_current;     /* Corrente pinza */
+        public int gripper_tmp;          /* Temperatura pinza */
+        public int gripper_voltage;      /* Tensione pinza */                 
+        public ROBOT_AUX_STATE auxState; /* Stato asse esteso 485 */          
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        public EXT_AXIS_STATUS[] extAxisStatus;  /* UDP extension axis state */
+        public EXT_AXIS_STATUS[] extAxisStatus;  /* Stato asse esteso UDP */
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
-        public UInt16[] extDIState;        //Extended DI input
+        public UInt16[] extDIState;        // Ingresso DI esteso
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
-        public UInt16[] extDOState;        //Extended DO output
+        public UInt16[] extDOState;        // Uscita DO estesa
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        public UInt16[] extAIState;        //Extended AI input
+        public UInt16[] extAIState;        // Ingresso AI esteso
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        public UInt16[] extAOState;        //Extended AO output
-        public int rbtEnableState;       //Robot enable state
+        public UInt16[] extAOState;        // Uscita AO estesa
+        public int rbtEnableState;       // Stato di abilitazione del robot -- robot enable state
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] jointDriverTorque;               //Joint driver torque
+        public double[] jointDriverTorque;               // Coppia del driver del giunto
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] jointDriverTemperature;          //Joint driver temperature
-        public ROBOT_TIME robotTime;     //Robot system time
-        public int softwareUpgradeState; //Software upgrade state 0-idle or uploading upgrade package; 1~100: upgrade completion percentage; -1: upgrade software failed; -2: verification failed; -3: version verification failed; -4: decompression failed; -5: user configuration upgrade failed; -6: peripheral configuration upgrade failed; -7: extension axis configuration upgrade failed; -8: robot configuration upgrade failed; -9: DH parameter configuration upgrade failed
-        public UInt16 endLuaErrCode;    //End Lua running state 
+        public double[] jointDriverTemperature;          // Temperatura del driver del giunto
+        public ROBOT_TIME robotTime;     // Ora di sistema del robot
+        public int softwareUpgradeState; // Stato aggiornamento software  0-inattivo o caricamento pacchetto aggiornamento in corso; 1~100: percentuale completamento aggiornamento; -1: aggiornamento software fallito; -2: verifica fallita; -3: verifica versione fallita; -4: decompressione fallita; -5: aggiornamento configurazione utente fallito; -6: aggiornamento configurazione periferiche fallito; -7: aggiornamento configurazione asse esteso fallito; -8: aggiornamento configurazione robot fallito; -9: aggiornamento parametri DH fallito
+        public UInt16 endLuaErrCode;    // Stato di esecuzione LUA finale 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public UInt16[] cl_analog_output;  //Control box analog output
-        public UInt16 tl_analog_output;     //Tool analog output
-        public float gripperRotNum;           //Rotating gripper current rotation turns
-        public byte gripperRotSpeed;       //Rotating gripper current rotation speed percentage
-        public byte gripperRotTorque;	   //Rotating gripper current rotation torque percentage
-        public WELDING_BREAKOFF_STATE weldingBreakOffState;//Welding breakoff state
+        public  UInt16[] cl_analog_output;  // Uscita analogica del quadro di controllo				  Control box analog output
+        public UInt16 tl_analog_output;     // Uscita analogica dell'utensile				  Tool analog output
+        public float gripperRotNum;           // Numero di giri corrente della pinza rotante			  The current number of turns of the rotating clamp
+        public byte gripperRotSpeed;       // Percentuale velocità di rotazione corrente della pinza rotante	  Percentage of the current rotation speed of the rotary clamp
+        public byte gripperRotTorque;	   // Percentuale coppia di rotazione corrente della pinza rotante	  Percentage of the current rotating torque of the rotating clamp
+        public WELDING_BREAKOFF_STATE weldingBreakOffState;// Stato di interruzione della saldatura
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] jt_tgt_tor;//Joint command torque
-        public int smartToolState; //SmartTool handle button state
-        public float wideVoltageCtrlBoxTemp;        //Wide voltage control box temperature
-        public UInt16 wideVoltageCtrlBoxFanVel;   //Wide voltage control box fan current (mA)
+        public double[] jt_tgt_tor;// Coppia di comando dei giunti
+        public int smartToolState; // Stato pulsanti della maniglia SmartTool
+        public float wideVoltageCtrlBoxTemp;        // Temperatura del quadro di controllo a tensione ampia
+        public UInt16 wideVoltageCtrlBoxFanVel;   // Corrente ventola del quadro di controllo a tensione ampia (mA)
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] toolCoord;         //Tool coordinate system
+        public double[] toolCoord;         // Sistema di coordinate dell'utensile
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] wobjCoord;         //Workpiece coordinate system
+        public double[] wobjCoord;         // Sistema di coordinate del pezzo
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] extoolCoord;        //External tool coordinate system
+        public double[] extoolCoord;        // Sistema di coordinate dell'utensile esterno
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] exAxisCoord;          //Extension axis coordinate system
-        public double load;                   //Load mass
+        public double[] exAxisCoord;          // Sistema di coordinate dell'asse esteso
+        public double load;                   // Massa del carico
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
-        public double[] loadCog;           //Load center of gravity
+        public double[] loadCog;           // Centro di gravità del carico
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
-        public double[] lastServoTarget;//Last servoJ target position in queue
+        public double[] lastServoTarget;// Posizione target servoJ ultima nella coda
 
-        public int servoJCmdNum;// servoJ command count
-        public UInt16 check_sum;         /* Checksum */                 
+        public int servoJCmdNum;// Conteggio comandi servoJ
+        public UInt16 check_sum;         /* Checksum di somma */                     
     }

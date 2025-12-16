@@ -1,39 +1,39 @@
-FRCap case
+Casi Studio FRCap
 =========================
 
 .. toctree:: 
    :maxdepth: 6
 
-FAIRINO Palletizer
------------------------------
+FAIRINO Palletizer (Palletizzatore)
+---------------------------------------------
 
-It can be used after uploading the "Palletizer.plugin" under the build folder in the project to the WebApp and registering it.
+Dopo aver caricato, registrato e abilitato il file "码垛机Palletizer.plugin" dalla cartella "build" del progetto nel WebApp, sarà possibile utilizzarlo.
 
 .. image:: frcap_pictures/011.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 7-1 Use of FRCap for palletizing
+.. centered:: Figura 7.1 Utilizzo FRCap Palletizzazione
 
-Palletizing workpiece configuration 
-+++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Pezzo da Palletizzare
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name: palletizing_config_box. 
+Nome Comando: `palletizing_config_box`.
 
-Command parameters: 
+Parametri Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
-   * @param  int length piece length
-   * @param  int width workpiece speed
-   * @param  int height Work piece height
-   * @param  int payload artifact payload
-   * @param  string grip_point workpiece grip point
+   * @param  int length Lunghezza pezzo
+   * @param  int width Larghezza pezzo
+   * @param  int height Altezza pezzo
+   * @param  int payload Carico pezzo
+   * @param  string grip_point Punto di presa pezzo
    * /
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -49,7 +49,7 @@ Instruction example:
       }
    } 
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
@@ -59,25 +59,25 @@ Command feedback:
    * @return status:404 "fail"
    */
 
-Palletizing pallet configuration 
-+++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Pallet di Palletizzazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name: palletizing_config_pallet.
+Nome Comando: `palletizing_config_pallet`.
 
-Command parameters: 
+Parametri Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
-   * @param  int front tray front
-   * @param  int side tray side
-   * @param  int height Pallet height
-   * @param  int left_pallet left tray enabled
-   * @param  int right_pallet Right tray enabled
+   * @param  int front Lato anteriore pallet
+   * @param  int side Lato laterale pallet
+   * @param  int height Altezza pallet
+   * @param  int left_pallet Abilita pallet sinistro
+   * @param  int right_pallet Abilita pallet destro
    */
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -93,7 +93,7 @@ Instruction example:
          }
    }
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
@@ -103,28 +103,28 @@ Command feedback:
    * @return status:404 "fail"
    */ 
 
-Advanced palletizing configuration
-+++++++++++++++++++++++++++++++++++++++++++
+Configurazione Avanzata Palletizzazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name:  palletizing_advanced_cfg.
+Nome Comando: `palletizing_advanced_cfg`.
 
-Command parameters: 
+Parametri Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
-   * @param  string height grab point lifting height
-   * @param  string x1 palletizing progressive point 1: x offset in x direction, unit mm
-   * @param  string y1 palletizing progressive point 1: y offset in x direction, unit mm
-   * @param  string z1 palletizing progressive point 1: z offset in x direction, unit mm
-   * @param  string x2 palletizing progressive point 2: x offset in x direction, unit mm
-   * @param  string y2 palletizing progressive point 2: y offset in x direction, unit mm
-   * @param  string z2 palletizing progressive point 2: z offset in x direction, unit mm
-   * @param  string time suction waiting time, unit ms
+   * @param  string height Altezza sollevamento punto presa palletizzazione
+   * @param  string x1 Punto approccio 1 palletizzazione: offset direzione x, unità mm
+   * @param  string y1 Punto approccio 1 palletizzazione: offset direzione y, unità mm
+   * @param  string z1 Punto approccio 1 palletizzazione: offset direzione z, unità mm
+   * @param  string x2 Punto approccio 2 palletizzazione: offset direzione x, unità mm
+   * @param  string y2 Punto approccio 2 palletizzazione: offset direzione y, unità mm
+   * @param  string z2 Punto approccio 2 palletizzazione: offset direzione z, unità mm
+   * @param  string time Tempo attesa presa materiale, unità ms
    */ 
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -143,7 +143,7 @@ Instruction example:
          }
    }
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
@@ -153,24 +153,24 @@ Command feedback:
    * @return status:404 "fail"
    */
 
-Palletizing equipment size configuration
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Dimensioni Dispositivo Palletizzazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name: palletizing_config_device.
+Nome Comando: `palletizing_config_device`.
 
-Command parameters: 
+Parametri Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
-   * @param  int x absolute value of the upper right corner of the left pallet relative to the coordinate axis of the robot base coordinate system in the x direction
-   * @param  int y absolute value of the upper right corner of the left pallet relative to the coordinate axis of the robot base coordinate system in the y direction
-   * @param  int z absolute value of the upper right corner of the left pallet relative to the coordinate axis of the robot base coordinate system in the z direction
-   * @param  int angle angle when the robot is installed
+   * @param  int x Valore assoluto direzione x del punto superiore destro del pallet sinistro rispetto all'asse del sistema di coordinate base del robot
+   * @param  int y Valore assoluto direzione y del punto superiore destro del pallet sinistro rispetto all'asse del sistema di coordinate base del robot
+   * @param  int z Valore assoluto direzione z del punto superiore destro del pallet sinistro rispetto all'asse del sistema di coordinate base del robot
+   * @param  int angle Angolo di rotazione durante l'installazione del robot
    */ 
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -185,7 +185,7 @@ Instruction example:
       }
    }
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
@@ -195,30 +195,30 @@ Command feedback:
    * @return status:404 "fail"
    */
 
-Palletizing mode configuration 
-+++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Modello Palletizzazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name: palletizing_config_pattern.
+Nome Comando: `palletizing_config_pattern`.
 
-Command parameters: 
+Parametri Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
-   * @param  int layers palletizing layers
-   * @param  int box_gap Workpiece pixel spacing, unit: mm
-   * @param  string sequence palletizing working mode
-   * @param  int pattern_b_enable Whether mode b is turned on, 1: turned on, 0: not turned on
-   * @param  string left_pattern_a Left station mode a Cartesian coordinates
-   * @param  string left_pattern_b Left station mode b Cartesian coordinates
-   * @param  string right_pattern_a Right station mode a Cartesian coordinates
-   * @param  string right_pattern_b Right station mode b Cartesian coordinates
-   * @param  string origin_pattern_a Initial mode a Cartesian coordinates
-   * @param  string origin_pattern_b Initial mode b Cartesian coordinates
+   * @param  int layers Numero strati palletizzazione
+   * @param  int box_gap Intervallo punti pixel pezzo, unità: mm
+   * @param  string sequence Modalità lavoro palletizzazione
+   * @param  int pattern_b_enable Se abilitare modello b, 1: abilita, 0: non abilitare
+   * @param  string left_pattern_a Coordinate cartesiane modello a stazione sinistra
+   * @param  string left_pattern_b Coordinate cartesiane modello b stazione sinistra
+   * @param  string right_pattern_a Coordinate cartesiane modello a stazione destra
+   * @param  string right_pattern_b Coordinate cartesiane modello b stazione destra
+   * @param  string origin_pattern_a Coordinate cartesiane modello a iniziale
+   * @param  string origin_pattern_b Coordinate cartesiane modello b iniziale
    */
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -239,7 +239,7 @@ Instruction example:
       }
    }
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
@@ -247,25 +247,25 @@ Command feedback:
    /** 
    * @return status:200 "success"
    * @return status:404 "fail"
-   */
+   """
 
-Palletizing program generation
-++++++++++++++++++++++++++++++++++++++
+Generazione Programma Palletizzazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name: generate_palletizing_program.
+Nome Comando: `generate_palletizing_program`.
 
-Command parameters: 
+Parametri Comando:
 
 .. code-block:: c++
    :linenos:
 
    /**
-   * @param  string palletizing_name name
-   * @param  string depalletizing_name Destacking name
-   * @param  string flag the palletizing or depalletizing program is generated, 0-not generated, 1 generated
+   * @param  string palletizing_name Nome palletizzazione
+   * @param  string depalletizing_name Nome depalletizzazione
+   * @param  string flag Se generare programma palletizzazione o depalletizzazione, 0-non generare, 1-genera
    */ 
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -279,7 +279,7 @@ Instruction example:
       }
    }
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
@@ -287,23 +287,23 @@ Command feedback:
    /** 
    * @return status:200 "success"
    * @return status:404 "fail"
-   */
+   """
 
-Get palletizing recipe
-++++++++++++++++++++++++++++++
+Ottenere Ricetta Palletizzazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name: get_palletizing_formula.
+Nome Comando: `get_palletizing_formula`.
 
-Command parameters: 
+Parametri Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
-   * @param  string name palletizing recipe name
+   * @param  string name Nome ricetta palletizzazione
    */ 
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -315,25 +315,25 @@ Instruction example:
       }
    }
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
    * @return status:200 
-   * @param  object box_config artifact configuration
-   * @param  object pallet_config pallet configuration
-   * @param  object device_config Installation device location
-   * @param  object pattern_config Mode configuration
-   * @param  object program_config Procedural build configuration
-   * @param  object lefttransitionpoint left transition point
-   * @param  object righttransitionpoint Right transition point Cartesian coordinates
-   * @param  object advanced_config advanced configuration
+   * @param  object box_config Configurazione pezzo
+   * @param  object pallet_config Configurazione pallet
+   * @param  object device_config Posizione dispositivo installazione
+   * @param  object pattern_config Configurazione modello
+   * @param  object program_config Configurazione generazione programma
+   * @param  object lefttransitionpoint Coordinate cartesiane punto transizione sinistro
+   * @param  object righttransitionpoint Coordinate cartesiane punto transizione destro
+   * @param  object advanced_config Configurazione avanzata
    * @return status:404 "fail"
-   */
+   """
 
-Instruction feedback case:
+Esempio Feedback Comando:
 
 .. code-block:: c++
    :linenos:
@@ -408,14 +408,14 @@ Instruction feedback case:
       }
    }
 
-Get the list of existing formula names for palletizing
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Lista Nomi Ricette Palletizzazione Esistenti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Command name: get_palletizing_formula_list.
+Nome Comando: `get_palletizing_formula_list`.
 
-Command parameters: None
+Parametri Comando: Nessuno.
 
-Instruction example:
+Esempio Comando:
 
 .. code-block:: c++
    :linenos:
@@ -424,22 +424,20 @@ Instruction example:
       cmd: "get_palletizing_formula_list"
    }
 
-Command feedback:
+Feedback Comando:
 
 .. code-block:: c++
    :linenos:
 
    /** 
    * @return status:200 
-   * @param  Array ${name} palletizing name list
+   * @param  Array ${name} Lista nomi palletizzazione
    * @return status:404 "fail"
-   */
+   """
 
-Instruction feedback case:
+Esempio Feedback Comando:
 
 .. code-block:: c++
    :linenos:
 
    ["palletizing1"]
-
-

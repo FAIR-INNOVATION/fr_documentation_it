@@ -1,210 +1,210 @@
-Extended Axis
+Assi Estesi
 =================
 
 .. toctree:: 
     :maxdepth: 5
 
-Set 485 Extended Axis Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostazione Parametri Assi Estesi 485
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis parameters
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] param 485 extended axis parameters
-    * @return Error code 
+    * @brief Imposta parametri assi estesi 485
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [in] param Parametri asse esteso 485
+    * @return Codice errore 
     */
     int AuxServoSetParam(int servoId, Axis485Param param)
     
-Get 485 Extended Axis Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Parametri Assi Estesi 485
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get 485 extended axis configuration parameters
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [out] param 485 extended axis parameters
-    * @return Error code 
+    * @brief Ottiene parametri configurazione assi estesi 485
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [out] param Parametri asse esteso 485
+    * @return Codice errore 
     */
     int AuxServoGetParam(int servoId, Axis485Param param);
 
-Set 485 Extended Axis Enable/Disable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Abilitazione/Disabilitazione Assi Estesi 485
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis enable/disable
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] status Enable status, 0-disable, 1-enable
-    * @return Error code 
+    * @brief Imposta abilitazione/disabilitazione assi estesi 485
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [in] status Stato abilitazione, 0-disabilitato, 1-abilitato
+    * @return Codice errore 
     */
     int AuxServoEnable(int servoId, int status);
         
-Set 485 Extended Axis Control Mode
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Modalità Controllo Assi Estesi 485
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis control mode
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] mode Control mode, 0-position mode, 1-speed mode
-    * @return Error code 
+    * @brief Imposta modalità controllo assi estesi 485
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [in] mode Modalità controllo, 0-modalità posizione, 1-modalità velocità
+    * @return Codice errore 
     */
     int AuxServoSetControlMode(int servoId, int mode);
 
-Set 485 Extended Axis Target Position (Position Mode)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Posizione Target Asse Esteso 485 (Modalità Posizione)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis target position (position mode)
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] pos Target position, mm or °
-    * @param [in] speed Target speed, mm/s or °/s
-    * @param [in] acc Acceleration percentage [0-100]
-    * @return Error code 
+    * @brief Imposta posizione target asse esteso 485 (modalità posizione)
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [in] pos Posizione target, mm o °
+    * @param [in] speed Velocità target, mm/s o °/s
+    * @param [in] acc Percentuale accelerazione [0-100]
+    * @return Codice errore 
     */
     int AuxServoSetTargetPos(int servoId, double pos, double speed, double acc);
     
-Set 485 Extended Axis Target Torque (Torque Mode) - Not Yet Available
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Coppia Target Asse Esteso 485 (Modalità Coppia) - Non ancora disponibile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis target torque (torque mode) - Not yet available
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] torque Target torque, Nm
-    * @return Error code 
+    * @brief Imposta coppia target asse esteso 485 (modalità coppia) - Non ancora disponibile
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [in] torque Coppia target, Nm
+    * @return Codice errore 
     */
     int AuxServoSetTargetTorque(int servoId, double torque);
         
-Set 485 Extended Axis 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Homing Asse Esteso 485
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis homing
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] mode Homing mode, 1-current position homing; 2-negative limit homing; 3-positive limit homing
-    * @param [in] searchVel Homing speed, mm/s or °/s
-    * @param [in] latchVel Latch speed, mm/s or °/s
-    * @param [in] acc Acceleration percentage [0-100]
-    * @return Error code 
+    * @brief Imposta homing asse esteso 485
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [in] mode Modalità homing, 1-homing posizione corrente; 2-homing limite negativo; 3-homing limite positivo
+    * @param [in] searchVel Velocità ricerca homing, mm/s o °/s
+    * @param [in] latchVel Velocità aggancio, mm/s o °/s
+    * @param [in] acc Percentuale accelerazione [0-100]
+    * @return Codice errore 
     */
-    int AuxServoHoming(int servoId, int mode, double searchVel, double latchVel);
+    int AuxServoHoming(int servoId, int mode, double searchVel, double latchVel, double acc);
 
-Clear 485 Extended Axis Error Information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Cancellare Informazioni Errore Asse Esteso 485
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Clear 485 extended axis error information
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @return Error code 
+    * @brief Cancella informazioni errore asse esteso 485
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @return Codice errore 
     */
     int AuxServoClearError(int servoId);
 
-Get 485 Extended Axis Servo Status
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Stato Servo Asse Esteso 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get 485 extended axis servo status
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] servoErrCode Servo driver error code
-    * @param [in] servoState Servo driver status bit0:0-disabled; 1-enabled; bit1:0-not moving; 1-moving; bit4 0-positioning not completed; 1-positioning completed; bit5:0-homing not completed; 1-homing completed
-    * @param [in] servoPos Servo current position mm or °
-    * @param [in] servoSpeed Servo current speed mm/s or °/s
-    * @param [in] servoTorque Servo current torque Nm
-    * @return Error code 
+    * @brief Ottiene stato servo asse esteso 485
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [out] servoErrCode Codice errore driver servo
+    * @param [out] servoState Stato driver servo bit0:0-non abilitato; 1-abilitato; bit1:0-non in movimento; 1-in movimento; bit4 0-posizionamento non completato; 1-posizionamento completato; bit5：0-homing non completato; 1-homing completato
+    * @param [out] servoPos Posizione corrente servo mm o °
+    * @param [out] servoSpeed Velocità corrente servo mm/s o °/s
+    * @param [out] servoTorque Coppia corrente servo Nm
+    * @return Codice errore 
     */
     int AuxServoGetStatus(int servoId, int[] servoErrCode, int[] servoState, double[] servoPos, double[] servoSpeed, double[] servoTorque)
 
-Set 485 Extended Axis Target Speed (Speed Mode)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Velocità Target Asse Esteso 485 (Modalità Velocità)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis target speed (speed mode)
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @param [in] speed Target speed, mm/s or °/s
-    * @param [in] acc Acceleration percentage [0-100]
-    * @return Error code 
+    * @brief Imposta velocità target asse esteso 485 (modalità velocità)
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @param [in] speed Velocità target, mm/s o °/s
+    * @param [in] acc Percentuale accelerazione [0-100]
+    * @return Codice errore 
     */
     int AuxServoSetTargetSpeed(int servoId, double speed, double acc);
 
-Set Axis Number for Status Feedback of 485 Extended Axis
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare ID Asse Dati Assi Estesi 485 in Feedback Stato
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set axis number for status feedback of 485 extended axis
-    * @param [in] servoId Servo driver ID, range [1-16], corresponding to slave ID
-    * @return Error code 
+    * @brief Imposta ID asse dati assi estesi 485 in feedback stato
+    * @param [in] servoId ID driver servo, range [1-16], corrisponde all'ID slave
+    * @return Codice errore 
     */
-    int AuxServosetStatusID(int servoId);
+    int AuxServoSetStatusID(int servoId);
 
-Set 485 Extended Axis Motion Acceleration/Deceleration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Accelerazione/Decelerazione Movimento Assi Estesi 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis motion acceleration/deceleration
-    * @param [in] acc 485 extended axis motion acceleration
-    * @param [in] dec 485 extended axis motion deceleration
-    * @return Error code 
+    * @brief Imposta accelerazione/decelerazione movimento assi estesi 485
+    * @param [in] acc Accelerazione movimento asse esteso 485
+    * @param [in] dec Decelerazione movimento asse esteso 485
+    * @return Codice errore 
     */
     int AuxServoSetAcc(double acc, double dec)
 
-Set 485 Extended Axis Emergency Stop Acceleration/Deceleration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Accelerazione/Decelerazione Arresto Emergenza Assi Estesi 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Set 485 extended axis emergency stop acceleration/deceleration
-    * @param [in] acc 485 extended axis emergency stop acceleration
-    * @param [in] dec 485 extended axis emergency stop deceleration
-    * @return Error code 
+    * @brief Imposta accelerazione/decelerazione arresto emergenza assi estesi 485
+    * @param [in] acc Accelerazione arresto emergenza asse esteso 485
+    * @param [in] dec Decelerazione arresto emergenza asse esteso 485
+    * @return Codice errore 
     */
     int AuxServoSetEmergencyStopAcc(double acc, double dec)
 
-Get 485 Extended Axis Motion Acceleration/Deceleration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Accelerazione/Decelerazione Movimento Assi Estesi 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get 485 extended axis motion acceleration/deceleration
-    * @return List[0]: Error code; List[1]: 485 extended axis motion acceleration; List[2]: 485 extended axis motion deceleration 
+    * @brief Ottiene accelerazione/decelerazione movimento assi estesi 485
+    * @return List[0]:Codice errore; List[1]:Accelerazione movimento asse esteso 485; List[2]:Decelerazione movimento asse esteso 485 
     */
     List<Number> AuxServoGetAcc()
 
-Get 485 Extended Axis Emergency Stop Acceleration/Deceleration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Accelerazione/Decelerazione Arresto Emergenza Assi Estesi 485
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get 485 extended axis emergency stop acceleration/deceleration
-    * @return List[0]: Error code; List[1]: 485 extended axis emergency stop acceleration; List[2]: 485 extended axis emergency stop deceleration
+    * @brief Ottiene accelerazione/decelerazione arresto emergenza assi estesi 485
+    * @return List[0]:Codice errore; List[1]:Accelerazione arresto emergenza asse esteso 485; List[2]:Decelerazione arresto emergenza asse esteso 485
     */
     List<Number> AuxServoGetEmergencyStopAcc()
 
-Extended Axis Control Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Controllo Assi Estesi
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -290,190 +290,190 @@ Extended Axis Control Code Example
         return 0;
     }
 
-UDP Extended Axis Communication Parameter Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Parametri Comunicazione Assi Estesi UDP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.5-3.8.2
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis communication parameter configuration
-    * @param [in] param Communication parameters
-    * @return Error code
+    * @brief Configurazione parametri comunicazione assi estesi UDP
+    * @param [in] param Parametri comunicazione
+    * @return Codice errore
     */
     int ExtDevSetUDPComParam(UDPComParam param);     
 
-Get UDP Extended Axis Communication Parameter Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Configurazione Parametri Comunicazione Assi Estesi UDP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get UDP extended axis communication parameters
-    * @param [out] param Communication parameters
-    * @return Error code
+    * @brief Ottiene parametri comunicazione assi estesi UDP
+    * @param [out] param Parametri comunicazione
+    * @return Codice errore
     */
     int ExtDevGetUDPComParam(UDPComParam param);       
 
-Load UDP Communication
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Caricare Comunicazione UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Load UDP communication
-    * @return Error code
+    * @brief Carica comunicazione UDP
+    * @return Codice errore
     */
     int ExtDevLoadUDPDriver();
 
-Unload UDP Communication
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Scaricare Comunicazione UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Unload UDP communication
-    * @return Error code
+    * @brief Scarica comunicazione UDP
+    * @return Codice errore
     */
     int ExtDevUnloadUDPDriver();
 
-Reconnect After UDP Extended Axis Communication Exception Disconnection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ripristinare Connessione dopo Interruzione Anomala Comunicazione Assi Estesi UDP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Reconnect after UDP extended axis communication exception disconnection
-    * @return Error code
+    * @brief Ripristina connessione dopo interruzione anomala comunicazione assi estesi UDP
+    * @return Codice errore
     */
     int ExtDevUDPClientComReset();
 
-Close Communication After UDP Extended Axis Communication Exception Disconnection
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chiudere Comunicazione dopo Interruzione Anomala Assi Estesi UDP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Close communication after UDP extended axis communication exception disconnection
-    * @return Error code
+    * @brief Chiude comunicazione dopo interruzione anomala assi estesi UDP
+    * @return Codice errore
     */
     int ExtDevUDPClientComClose();
 
-UDP Extended Axis Parameter Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Parametri Assi Estesi UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis parameter configuration
-    * @param [in] axisID Axis number
-    * @param [in] axisType Extended axis type 0-translation; 1-rotation
-    * @param [in] axisDirection Extended axis direction 0-forward; 1-reverse
-    * @param [in] axisMax Extended axis maximum position mm
-    * @param [in] axisMin Extended axis minimum position mm
-    * @param [in] axisVel Speed mm/s
-    * @param [in] axisAcc Acceleration mm/s2
-    * @param [in] axisLead Lead mm
-    * @param [in] encResolution Encoder resolution
-    * @param [in] axisOffect Weld starting point extended axis offset
-    * @param [in] axisCompany Driver manufacturer 1-Hechuan; 2-Huichuan; 3-Panasonic
-    * @param [in] axisModel Driver model 1-Hechuan-SV-XD3EA040L-E, 2-Hechuan-SV-X2EA150A-A, 1-Huichuan-SV620PT5R4I, 1-Panasonic-MADLN15SG, 2-Panasonic-MSDLN25SG, 3-Panasonic-MCDLN35SG
-    * @param [in] axisEncType Encoder type 0-incremental; 1-absolute
-    * @return Error code
+    * @brief Configurazione parametri assi estesi UDP
+    * @param [in] axisID Numero asse
+    * @param [in] axisType Tipo asse esteso 0-traslazionale; 1-rotazionale
+    * @param [in] axisDirection Direzione asse esteso 0-positiva; 1-negativa
+    * @param [in] axisMax Posizione massima asse esteso mm
+    * @param [in] axisMin Posizione minima asse esteso mm
+    * @param [in] axisVel Velocità mm/s
+    * @param [in] axisAcc Accelerazione mm/s2
+    * @param [in] axisLead Passo vite mm
+    * @param [in] encResolution Risoluzione encoder
+    * @param [in] axisOffect Offset asse esteso punto inizio giunto saldatura
+    * @param [in] axisCompany Produttore driver 1-Hechuan; 2-Inovance; 3-Panasonic
+    * @param [in] axisModel Modello driver 1-Hechuan-SV-XD3EA040L-E, 2-Hechuan-SV-X2EA150A-A, 1-Inovance-SV620PT5R4I, 1-Panasonic-MADLN15SG, 2-Panasonic-MSDLN25SG, 3-Panasonic-MCDLN35SG
+    * @param [in] axisEncType Tipo encoder 0-incrementale; 1-assoluto
+    * @return Codice errore
     */
     int ExtAxisParamConfig(int axisID, int axisType, int axisDirection, double axisMax, double axisMin, double axisVel, double axisAcc, double axisLead, int encResolution, double axisOffect, int axisCompany, int axisModel, int axisEncType);
 
-Set Extended Axis Installation Position
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Posizione Installazione Asse Esteso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set extended axis installation position
-    * @param [in] installType 0-robot installed on external axis, 1-robot installed outside external axis
-    * @return Error code
+    * @brief Imposta posizione installazione asse esteso
+    * @param [in] installType 0-robot installato sull'asse esterno, 1-robot installato fuori dall'asse esterno
+    * @return Codice errore
     */
     int SetRobotPosToAxis(int installType);
 
-Set Extended Axis System DH Parameter Configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configurazione Parametri DH Sistema Assi Estesi
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set extended axis system DH parameter configuration
-    * @param [in]  axisConfig External axis configuration, 0-single degree of freedom linear slide, 1-two degree of freedom L-type positioner, 2-three degree of freedom, 3-four degree of freedom, 4-single degree of freedom positioner
-    * @param [in]  axisDHd1 External axis DH parameter d1 mm
-    * @param [in]  axisDHd2 External axis DH parameter d2 mm
-    * @param [in]  axisDHd3 External axis DH parameter d3 mm
-    * @param [in]  axisDHd4 External axis DH parameter d4 mm
-    * @param [in]  axisDHa1 External axis DH parameter a1 mm
-    * @param [in]  axisDHa2 External axis DH parameter a2 mm
-    * @param [in]  axisDHa3 External axis DH parameter a3 mm
-    * @param [in]  axisDHa4 External axis DH parameter a4 mm
-    * @return Error code
+    * @brief Configurazione parametri DH sistema assi estesi
+    * @param [in] axisConfig Configurazione asse esterno, 0-guida lineare a singolo grado di libertà, 1-posizionatore a L a due gradi di libertà, 2-tre gradi di libertà, 3-quattro gradi di libertà, 4-posizionatore a singolo grado di libertà
+    * @param [in] axisDHd1 Parametro DH asse esterno d1 mm
+    * @param [in] axisDHd2 Parametro DH asse esterno d2 mm
+    * @param [in] axisDHd3 Parametro DH asse esterno d3 mm
+    * @param [in] axisDHd4 Parametro DH asse esterno d4 mm
+    * @param [in] axisDHa1 Parametro DH asse esterno 11 mm
+    * @param [in] axisDHa2 Parametro DH asse esterno a2 mm
+    * @param [in] axisDHa3 Parametro DH asse esterno a3 mm
+    * @param [in] axisDHa4 Parametro DH asse esterno a4 mm
+    * @return Codice errore
     */
     int SetAxisDHParaConfig(int axisConfig, double axisDHd1, double axisDHd2, double axisDHd3, double axisDHd4, double axisDHa1, double axisDHa2, double axisDHa3, double axisDHa4);
 
-UDP Extended Axis Enable
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Abilitazione Asse Esteso UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis enable
-    * @param [in] axisID Axis number [1-4]
-    * @param [in] status 0-disable; 1-enable
-    * @return Error code
+    * @brief Abilitazione asse esteso UDP
+    * @param [in] axisID Numero asse [1-4]
+    * @param [in] status 0-disabilitato; 1-abilitato
+    * @return Codice errore
     */
     int ExtAxisServoOn(int axisID, int status);
 
-UDP Extended Axis Homing
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Homing Asse Esteso UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis homing
-    * @param [in] axisID Axis number [1-4]
-    * @param [in] mode Homing method 0-current position homing, 1-negative limit homing, 2-positive limit homing
-    * @param [in] searchVel Homing speed (mm/s)
-    * @param [in] latchVel Homing latch speed (mm/s)
-    * @return Error code
+    * @brief Homing asse esteso UDP
+    * @param [in] axisID Numero asse [1-4]
+    * @param [in] mode Modalità homing 0-homing posizione corrente, 1-homing limite negativo, 2-homing limite positivo
+    * @param [in] searchVel Velocità ricerca homing (mm/s)
+    * @param [in] latchVel Velocità aggancio homing (mm/s)
+    * @return Codice errore
     */
     int ExtAxisSetHoming(int axisID, int mode, double searchVel, double latchVel);
 
-UDP Extended Axis Jog Start
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inizio Jog Asse Esteso UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis jog start
-    * @param [in] axisID Axis number [1-4]
-    * @param [in] direction Rotation direction 0-reverse; 1-forward
-    * @param [in] vel Speed (mm/s)
-    * @param [in] acc Acceleration (mm/s2)
-    * @param [in] maxDistance Maximum jog distance
-    * @return Error code
+    * @brief Inizio jog asse esteso UDP
+    * @param [in] axisID Numero asse [1-4]
+    * @param [in] direction Direzione rotazione 0-negativa; 1-positiva
+    * @param [in] vel Velocità (mm/s)
+    * @param [in] acc Accelerazione (mm/s2)
+    * @param [in] maxDistance Distanza massima jog
+    * @return Codice errore
     */
     int ExtAxisStartJog(int axisID, int direction, double vel, double acc, double maxDistance);
     
-UDP Extended Axis Jog Stop
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arresto Jog Asse Esteso UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis jog stop
-    * @param [in] axisID Axis number [1-4]
-    * @return Error code
+    * @brief Arresto jog asse esteso UDP
+    * @param [in] axisID Numero asse [1-4]
+    * @return Codice errore
     */
     int ExtAxisStopJog(int axisID);
 
-UDP Extended Axis Configuration and Jog Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Configurazione e Jog Assi Estesi UDP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: Java
     :linenos:
@@ -522,97 +522,97 @@ UDP Extended Axis Configuration and Jog Code Example
         return 0;
     }
 
-Set Extended Axis Coordinate System Reference Point - Four-Point Method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Punto Riferimento Sistema Coordinate Assi Estesi - Metodo a Quattro Punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set extended axis coordinate system reference point - four-point method
-    * @param [in]  pointNum Point number [1-4]
-    * @return Error code
+    * @brief Imposta punto riferimento sistema coordinate assi estesi - metodo a quattro punti
+    * @param [in] pointNum Numero punto [1-4]
+    * @return Codice errore
     */
     int ExtAxisSetRefPoint(int pointNum);
 
-Calculate Extended Axis Coordinate System - Four-Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolare Sistema Coordinate Assi Estesi - Metodo a Quattro Punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Calculate extended axis coordinate system - four-point method
-    * @param [out]  coord Coordinate system value
-    * @return Error code
+    * @brief Calcola sistema coordinate assi estesi - metodo a quattro punti
+    * @param [out] coord Valori sistema coordinate
+    * @return Codice errore
     */
     int ExtAxisComputeECoordSys(DescPose coord);
 
-Positioner Coordinate System Reference Point Setting
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Punto Riferimento Sistema Coordinate Posizionatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Positioner coordinate system reference point setting
-    * @param [in]  pointNum Point number [1-4]
-    * @return Error code
+    * @brief Imposta punto riferimento sistema coordinate posizionatore
+    * @param [in] pointNum Numero punto [1-4]
+    * @return Codice errore
     */
     int PositionorSetRefPoint(int pointNum);
 
-Positioner Coordinate System Calculation - Four-Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Calcolare Sistema Coordinate Posizionatore - Metodo a Quattro Punti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Positioner coordinate system calculation - four-point method
-    * @param [out] coord Coordinate system value
-    * @return Error code
+    * @brief Calcola sistema coordinate posizionatore - metodo a quattro punti
+    * @param [out] coord Valori sistema coordinate
+    * @return Codice errore
     */
     int PositionorComputeECoordSys(DescPose coord);
 
-Set Calibration Reference Point Pose in Extended Axis End Coordinate System
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Posa Punto Riferimento Calibrazione nel Sistema Coordinate Estremità Posizionatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set calibration reference point pose in extended axis end coordinate system
-    * @param [in] pos Pose value
-    * @return Error code
+    * @brief Imposta posa punto riferimento calibrazione nel sistema coordinate estremità posizionatore
+    * @param [in] pos Valore posa
+    * @return Codice errore
     */
     int SetRefPointInExAxisEnd(DescPose pos);
 
-Apply Extended Axis Coordinate System
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Applicare Sistema Coordinate Assi Estesi
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Apply extended axis coordinate system
-    * @param [in]  applyAxisId Extended axis number bit0-bit3 corresponds to extended axis number 1-4, e.g., to apply extended axis 1 and 3, it is 0b 0000 0101; which is 5
-    * @param [in]  axisCoordNum Extended axis coordinate system number
-    * @param [in]  coord Coordinate system value
-    * @param [in]  calibFlag Calibration flag 0-no, 1-yes
-    * @return Error code
+    * @brief Applica sistema coordinate assi estesi
+    * @param [in] applyAxisId Numero asse esteso bit0-bit3 corrisponde a numero asse esteso 1-4, es. applica assi estesi 1 e 3, allora 0b 0000 0101; cioè 5
+    * @param [in] axisCoordNum Numero sistema coordinate assi estesi
+    * @param [in] coord Valori sistema coordinate
+    * @param [in] calibFlag Flag calibrazione 0-no, 1-sì
+    * @return Codice errore
     */
     int ExtAxisActiveECoordSys(int applyAxisId, int axisCoordNum, DescPose coord, int calibFlag);
 
-Get Extended Axis Coordinate System
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Sistema Coordinate Assi Estesi
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.5-3.8.2
 
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Get extended axis coordinate system
-    * @param [out] coord Extended axis coordinate system
-    * @return Error code
+    * @brief Ottiene sistema coordinate assi estesi
+    * @param [out] coord Sistema coordinate assi estesi
+    * @return Codice errore
     */
     int ExtAxisGetCoord(DescPose coord);
 
-Extended Axis Coordinate System Calibration Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Calibrazione Sistema Coordinate Assi Estesi
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -709,484 +709,483 @@ Extended Axis Coordinate System Calibration Code Example
         return 0;
     }
 
-UDP Extended Axis Motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Asse Esteso UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.7-3.8.4
 
 .. code-block:: Java
     :linenos:
 
     /**
-    *@ brief UDP Extended Axis Motion
-    *@ param [in] pos target location
-    *@ param [in] ovl speed percentage
-    *@ param [in] blend smoothing parameter (mm or ms)
-    *@ return error code
+    * @brief Movimento asse esteso UDP
+    * @param [in] pos Posizione target
+    * @param [in] ovl Percentuale velocità
+    * @param [in] blend Parametro smoothing (mm o ms)
+    * @return Codice errore
     */
-    int ExtAxisMove(ExaxisPos pos, double ovl, double blend);
+    int ExtAxisMove(ExaxisPos pos, double ovl, double blend)
 
-UDP Extended Axis Motion Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento Asse Esteso UDP
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    public static int TestUDPAxisCalib(Robot robot)
+    public static int TestUDPAxisMove(Robot robot)
     {
         ExaxisPos exaxisPos = new ExaxisPos( 20, 0, 0, 0 );
-        robot.ExtAxisMove(exaxisPos,40);
+        robot.ExtAxisMove(exaxisPos,40,0);
         robot.CloseRPC();
         return 0;
     }
 
-UDP Extended Axis and Robot Joint Motion Synchronous Motion
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Sincrono Assi Estesi UDP e Giunti Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis and robot joint motion synchronous motion
-    * @param [in] joint_pos  Target joint position, unit deg
-    * @param [in] desc_pos   Target Cartesian pose
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Speed percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not yet available
-    * @param [in] ovl  Speed scaling factor, range [0~100]
-    * @param [in] epos  Extended axis position, unit mm
-    * @param [in] blendT [-1.0]-motion到位(blocking), [0~500.0]-smoothing time (non-blocking), unit ms
-    * @param [in] offset_flag  0-no offset, 1-offset in base coordinate system/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] ffset_pos  Pose offset
-    * @return Error code
+    * @brief Movimento sincrono assi estesi UDP e giunti robot
+    * @param [in] joint_pos  Posizione target giunti, unità deg
+    * @param [in] desc_pos   Posa target cartesiana
+    * @param [in] tool  Numero sistema coordinate utensile, range [0~14]
+    * @param [in] user  Numero sistema coordinate pezzo, range [0~14]
+    * @param [in] vel  Percentuale velocità, range [0~100]
+    * @param [in] acc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param [in] ovl  Fattore scala velocità, range [0~100]
+    * @param [in] epos  Posizione assi estesi, unità mm
+    * @param [in] blendT [-1.0]-movimento in posizione (bloccante), [0~500.0]-tempo smoothing (non bloccante), unità ms
+    * @param [in] offset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param [in] offset_pos  Offset posa
+    * @return Codice errore
     */
     int ExtAxisSyncMoveJ(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, ExaxisPos epos, double blendT, int offset_flag, DescPose offset_pos);
 
-UDP extended axis and robot joint motion synchronous motion (automatic forward kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Sincrono Assi Estesi UDP e Giunti Robot (Calcolo Cinematica Diretta Automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis and robot joint motion synchronous motion (automatic forward kinematics calculation)
-    * @param [in] joint_pos  Target joint position, unit deg
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Velocity percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] epos  Extended axis position, unit mm
-    * @param [in] blendT [-1.0]-move to position (blocking), [0~500.0]-smoothing time (non-blocking), unit ms
-    * @param [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos  Pose offset
-    * @return Error code
+    * @brief Movimento sincrono assi estesi UDP e giunti robot (calcolo cinematica diretta automatico)
+    * @param  [in] joint_pos  Posizione target giunti, unità deg
+    * @param  [in] tool  Numero sistema coordinate utensile, range [0~14]
+    * @param  [in] user  Numero sistema coordinate pezzo, range [0~14]
+    * @param  [in] vel  Percentuale velocità, range [0~100]
+    * @param  [in] acc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore scala velocità, range [0~100]
+    * @param  [in] epos  Posizione assi estesi, unità mm
+    * @param  [in] blendT [-1.0]-movimento in posizione (bloccante), [0~500.0]-tempo smoothing (non bloccante), unità ms
+    * @param  [in] offset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param  [in] offset_pos  Offset posa
+    * @return  Codice errore
     */
-    int ExtAxisSyncMoveJ(JointPos joint_pos, int tool, int user, double vel, double acc, double ovl, ExaxisPos epos, double blendT, int offset_flag, DescPose offset_pos)
+    int ExtAxisSyncMoveJ(JointPos joint_pos, int tool, int user, double vel, double acc, double ovl, ExaxisPos epos, double blendT, int offset_flag, DescPose offset_pos) 
 
-UDP Extended Axis and Robot Joint Motion Synchronous Motion Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento Sincrono Assi Estesi UDP e Giunti Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public int testSyncMoveJ(Robot robot)
     {
-        //1. Calibrate and apply robot tool coordinate system. You can use the four-point or six-point method for tool coordinate system calibration and application. The interfaces involved are as follows:
-        //  int SetToolPoint(int point_num); //Set tool reference point - six-point method
-        //  int ComputeTool(ref DescPose tcp_pose); //Calculate tool coordinate system
-        //  int SetTcp4RefPoint(int point_num);  //Set tool reference point - four-point method
-        //  int ComputeTcp4(ref DescPose tcp_pose);  //Calculate tool coordinate system - four-point method
-        //  int SetToolCoord(int id, DescPose coord, int type, int install); //Set and apply tool coordinate system
-        //  int SetToolList(int id, DescPose coord, int type, int install);  //Set and apply tool coordinate system list
-        //2. Set UDP communication parameters and load UDP communication
+        //1. Calibrare e applicare sistema coordinate utensile robot, è possibile utilizzare metodo a quattro o sei punti per calibrazione e applicazione sistema coordinate utensile, interfacce coinvolte:
+        //  int SetToolPoint(int point_num); //Imposta punto riferimento utensile - metodo a sei punti
+        //  int ComputeTool(ref DescPose tcp_pose); //Calcola sistema coordinate utensile
+        //  int SetTcp4RefPoint(int point_num);  //Imposta punto riferimento utensile - metodo a quattro punti
+        //  int ComputeTcp4(ref DescPose tcp_pose);  //Calcola sistema coordinate utensile - metodo a quattro punti
+        //  int SetToolCoord(int id, DescPose coord, int type, int install); //Imposta e applica sistema coordinate utensile
+        //  int SetToolList(int id, DescPose coord, int type, int install);  //Imposta e applica lista sistemi coordinate utensile
+        //2. Impostare parametri comunicazione UDP e caricare comunicazione UDP
         UDPComParam param=new UDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10,0);
         robot.ExtDevSetUDPComParam(param);
         robot.ExtDevLoadUDPDriver();
-        //3. Set extended axis parameters, including extended axis type, extended axis driver parameters, and extended axis DH parameters
-        robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0); //Single-axis positioner and DH parameters
-        robot.SetRobotPosToAxis(1); //Extended axis installation position
-        robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0); //Servo driver parameters. This example is for a single-axis positioner, so only one driver parameter needs to be set. If you choose an extended axis type with multiple axes, each axis needs to be configured.
-        //4. Enable the selected axis and perform homing
+        //3. Impostare parametri assi estesi, incluso tipo asse esteso, parametri driver asse esteso, parametri DH asse esteso
+        robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0); //Posizionatore monoasse e parametri DH
+        robot.SetRobotPosToAxis(1); //Posizione installazione assi estesi
+        robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0); //Parametri driver servo, questo esempio è posizionatore monoasse, quindi basta un set di parametri driver, se si sceglie tipo asse esteso con più assi, ogni asse richiede parametri driver
+        //4. Impostare abilitazione e homing degli assi selezionati
         robot.ExtAxisServoOn(1, 0);
         robot.ExtAxisSetHoming(1, 0, 20, 3);
-        //5. Perform extended axis coordinate system calibration and application
-        DescPose pos = new DescPose(/* Enter your calibration point coordinates */ );
+        //5. Eseguire calibrazione e applicazione sistema coordinate assi estesi
+        DescPose pos = new DescPose(/* Inserire coordinate punto calibrazione */ );
         robot.SetRefPointInExAxisEnd(pos);
-        robot.PositionorSetRefPoint(1); /*You need to call this interface 4 times with different points to complete the calibration */
+        robot.PositionorSetRefPoint(1); /* Sono necessari quattro punti in posizioni diverse per calibrare asse esteso, quindi chiamare questa interfaccia 4 volte per completare calibrazione */
         DescPose coord = new DescPose();
-        robot.PositionorComputeECoordSys(coord); //Calculate extended axis calibration result
-        robot.ExtAxisActiveECoordSys(1, 1, coord, 1); //Apply the calibration result to the extended axis coordinate system
-        //6. Calibrate the workpiece coordinate system on the extended axis. You will need the following interfaces:
+        robot.PositionorComputeECoordSys(coord); //Calcola risultato calibrazione asse esteso
+        robot.ExtAxisActiveECoordSys(1, 1, coord, 1); //Applica risultato calibrazione a sistema coordinate asse esteso
+        //6. Calibrare sistema coordinate pezzo su asse esteso, necessarie seguenti interfacce
         //int SetWObjCoordPoint(int point_num);
         //int ComputeWObjCoord(int method, ref DescPose wobj_pose);
         //int SetWObjCoord(int id, DescPose coord);
         //int SetWObjList(int id, DescPose coord);
-        //7. Record your synchronous joint motion starting point
-        DescPose startdescPose = new DescPose(/*Enter your coordinates*/ );
-        JointPos startjointPos = new JointPos(/*Enter your coordinates*/ );
-        ExaxisPos startexaxisPos = new ExaxisPos(/* Enter your extended axis starting point coordinates */ );
-        //8. Record your synchronous joint motion end point coordinates
-        DescPose enddescPose = new DescPose(/*Enter your coordinates*/ );
-        JointPos endjointPos = new JointPos(/*Enter your coordinates*/ );
-        ExaxisPos endexaxisPos =new ExaxisPos(/* Enter your extended axis end point coordinates */);
-        //9. Write the synchronous motion program
-        //Move to the starting point, assuming the applied tool coordinate system and workpiece coordinate system are both 1
-        robot.ExtAxisMove(startexaxisPos, 20);
+        //7. Registrare punto di partenza movimento sincrono giunti
+        DescPose startdescPose = new DescPose(/*Inserire coordinate*/ );
+        JointPos startjointPos = new JointPos(/*Inserire coordinate*/ );
+        ExaxisPos startexaxisPos = new ExaxisPos(/* Inserire coordinate punto partenza asse esteso */ );
+        //8. Registrare coordinate punto arrivo movimento sincrono giunti
+        DescPose enddescPose = new DescPose(/*Inserire coordinate*/ );
+        JointPos endjointPos = new JointPos(/*Inserire coordinate*/ );
+        ExaxisPos endexaxisPos =new ExaxisPos(/* Inserire coordinate punto arrivo asse esteso */);
+        //9. Scrivere programma movimento sincrono
+        //Spostarsi al punto di partenza, assumendo sistemi coordinate utensile e pezzo applicati entrambi 1
+        robot.ExtAxisMove(startexaxisPos, 20, 0);
         DescPose offdese = new DescPose( 0, 0, 0, 0, 0, 0 );
         robot.MoveJ(startjointPos, startdescPose, 1, 1, 100, 100, 100, startexaxisPos, 0, 0, offdese);
-        //Start synchronous motion
+        //Iniziare movimento sincrono
         robot.ExtAxisSyncMoveJ(endjointPos, enddescPose, 1, 1, 100, 100, 100, endexaxisPos, -1, 0, offdese);
         robot.MoveJ(startjointPos, 1, 1, 100, 100, 100, startexaxisPos, 0, 0, offdese);
-        //Start synchronous motion
+        //Iniziare movimento sincrono
         robot.ExtAxisSyncMoveJ(endjointPos, 1, 1, 100, 100, 100, endexaxisPos, -1, 0, offdese);
-
         robot.CloseRPC();
         return 0;
     }
 
-UDP Extended Axis and Robot Linear Motion Synchronous Motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Lineare Sincrono Assi Estesi UDP e Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis and robot linear motion synchronous motion
-    * @param [in] joint_pos  Target joint position, unit deg
-    * @param [in] desc_pos   Target Cartesian pose
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Speed percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not yet available
-    * @param [in] ovl  Speed scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-motion到位(blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @param [in] epos  Extended axis position, unit mm
-    * @param [in] offset_flag  0-no offset, 1-offset in base coordinate system/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos  Pose offset
-    * @return Error code
+    * @brief Movimento lineare sincrono assi estesi UDP e robot
+    * @param [in] joint_pos  Posizione target giunti, unità deg
+    * @param [in] desc_pos   Posa target cartesiana
+    * @param [in] tool  Numero sistema coordinate utensile, range [0~14]
+    * @param [in] user  Numero sistema coordinate pezzo, range [0~14]
+    * @param [in] vel  Percentuale velocità, range [0~100]
+    * @param [in] acc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param [in] ovl  Fattore scala velocità, range [0~100]
+    * @param [in] blendR [-1.0]-movimento in posizione (bloccante), [0~1000.0]-raggio smoothing (non bloccante), unità mm
+    * @param [in] epos  Posizione assi estesi, unità mm
+    * @param [in] offset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param [in] offset_pos  Offset posa
+    * @return Codice errore
     */
     int ExtAxisSyncMoveL(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, ExaxisPos epos, int offset_flag, DescPose offset_pos);
 
-UDP extended axis and robot linear motion synchronous motion (automatic inverse kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Lineare Sincrono Assi Estesi UDP e Robot (Calcolo Cinematica Inversa Automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis and robot linear motion synchronous motion (automatic inverse kinematics calculation)
-    * @param [in] desc_pos  Target cartesian pose
-    * @param [in] tool  Tool coordinate number, range [0~14]
-    * @param [in] user  Workpiece coordinate number, range [0~14]
-    * @param [in] vel  Velocity percentage, range [0~100]
-    * @param [in] acc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @param [in] epos  Extended axis position, unit mm
-    * @param [in] offset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos  Pose offset
-    * @param [in] config Inverse kinematics joint space configuration, [-1]-calculate based on current joint position, [0~7]-solve according to specific joint space configuration
-    * @return Error code
+    * @brief  Movimento lineare sincrono assi estesi UDP e robot (calcolo cinematica inversa automatico)
+    * @param  [in] desc_pos   Posa target cartesiana
+    * @param  [in] tool  Numero sistema coordinate utensile, range [0~14]
+    * @param  [in] user  Numero sistema coordinate pezzo, range [0~14]
+    * @param  [in] vel  Percentuale velocità, range [0~100]
+    * @param  [in] acc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param  [in] ovl  Fattore scala velocità, range [0~100]
+    * @param  [in] blendR [-1.0]-movimento in posizione (bloccante), [0~1000.0]-raggio smoothing (non bloccante), unità mm
+    * @param  [in] epos  Posizione assi estesi, unità mm
+    * @param  [in] offset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param  [in] offset_pos  Offset posa
+    * @param  [in] config Configurazione spazio giunti soluzione inversa, [-1]-riferimento posizione giunti corrente, [0~7]-risoluzione basata specifica configurazione spazio giunti
+    * @return  Codice errore
     */
     int ExtAxisSyncMoveL(DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, ExaxisPos epos, int offset_flag, DescPose offset_pos,int config)
 
-UDP Extended Axis and Robot Linear Motion Synchronous Motion Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento Lineare Sincrono Assi Estesi UDP e Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public int testSyncMoveL(Robot robot)
     {
-        //1. Calibrate and apply robot tool coordinate system. You can use the four-point or six-point method for tool coordinate system calibration and application. The interfaces involved are as follows:
-        //  int SetToolPoint(int point_num); //Set tool reference point - six-point method
-        //  int ComputeTool(ref DescPose tcp_pose); //Calculate tool coordinate system
-        //  int SetTcp4RefPoint(int point_num);  //Set tool reference point - four-point method
-        //  int ComputeTcp4(ref DescPose tcp_pose);  //Calculate tool coordinate system - four-point method
-        //  int SetToolCoord(int id, DescPose coord, int type, int install); //Set and apply tool coordinate system
-        //  int SetToolList(int id, DescPose coord, int type, int install);  //Set and apply tool coordinate system list
-        //2. Set UDP communication parameters and load UDP communication
+        //1. Calibrare e applicare sistema coordinate utensile robot, è possibile utilizzare metodo a quattro o sei punti per calibrazione e applicazione sistema coordinate utensile, interfacce coinvolte:
+        //  int SetToolPoint(int point_num); //Imposta punto riferimento utensile - metodo a sei punti
+        //  int ComputeTool(ref DescPose tcp_pose); //Calcola sistema coordinate utensile
+        //  int SetTcp4RefPoint(int point_num);  //Imposta punto riferimento utensile - metodo a quattro punti
+        //  int ComputeTcp4(ref DescPose tcp_pose);  //Calcola sistema coordinate utensile - metodo a quattro punti
+        //  int SetToolCoord(int id, DescPose coord, int type, int install); //Imposta e applica sistema coordinate utensile
+        //  int SetToolList(int id, DescPose coord, int type, int install);  //Imposta e applica lista sistemi coordinate utensile
+        //2. Impostare parametri comunicazione UDP e caricare comunicazione UDP
         UDPComParam param=new UDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10,0);
         robot.ExtDevSetUDPComParam(param);
         robot.ExtDevLoadUDPDriver();
-        //3. Set extended axis parameters, including extended axis type, extended axis driver parameters, and extended axis DH parameters
-        robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0); //Single-axis positioner and DH parameters
-        robot.SetRobotPosToAxis(1); //Extended axis installation position
-        robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0); //Servo driver parameters. This example is for a single-axis positioner, so only one driver parameter needs to be set. If you choose an extended axis type with multiple axes, each axis needs to be configured.
-        //4. Enable the selected axis and perform homing
+        //3. Impostare parametri assi estesi, incluso tipo asse esteso, parametri driver asse esteso, parametri DH asse esteso
+        robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0); //Posizionatore monoasse e parametri DH
+        robot.SetRobotPosToAxis(1); //Posizione installazione assi estesi
+        robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0); //Parametri driver servo, questo esempio è posizionatore monoasse, quindi basta un set di parametri driver, se si sceglie tipo asse esteso con più assi, ogni asse richiede parametri driver
+        //4. Impostare abilitazione e homing degli assi selezionati
         robot.ExtAxisServoOn(1, 0);
         robot.ExtAxisSetHoming(1, 0, 20, 3);
-        //5. Perform extended axis coordinate system calibration and application
-        DescPose pos = new DescPose(/* Enter your calibration point coordinates */ );
+        //5. Eseguire calibrazione e applicazione sistema coordinate assi estesi
+        DescPose pos = new DescPose(/* Inserire coordinate punto calibrazione */ );
         robot.SetRefPointInExAxisEnd(pos);
-        robot.PositionorSetRefPoint(1); /*You need to call this interface 4 times with different points to complete the calibration */
+        robot.PositionorSetRefPoint(1); /* Sono necessari quattro punti in posizioni diverse per calibrare asse esteso, quindi chiamare questa interfaccia 4 volte per completare calibrazione */
         DescPose coord = new DescPose();
-        robot.PositionorComputeECoordSys(coord); //Calculate extended axis calibration result
-        robot.ExtAxisActiveECoordSys(1, 1, coord, 1); //Apply the calibration result to the extended axis coordinate system
-        //6. Calibrate the workpiece coordinate system on the extended axis. You will need the following interfaces:
+        robot.PositionorComputeECoordSys(coord); //Calcola risultato calibrazione asse esteso
+        robot.ExtAxisActiveECoordSys(1, 1, coord, 1); //Applica risultato calibrazione a sistema coordinate asse esteso
+        //6. Calibrare sistema coordinate pezzo su asse esteso, necessarie seguenti interfacce
         //int SetWObjCoordPoint(int point_num);
         //int ComputeWObjCoord(int method, ref DescPose wobj_pose);
         //int SetWObjCoord(int id, DescPose coord);
         //int SetWObjList(int id, DescPose coord);
-        //7. Record your synchronous joint motion starting point
-        DescPose startdescPose = new DescPose(/*Enter your coordinates*/ );
-        JointPos startjointPos = new JointPos(/*Enter your coordinates*/ );
-        ExaxisPos startexaxisPos = new ExaxisPos(/* Enter your extended axis starting point coordinates */ );
-        //8. Record your synchronous joint motion end point coordinates
-        DescPose enddescPose = new DescPose(/*Enter your coordinates*/ );
-        JointPos endjointPos = new JointPos(/*Enter your coordinates*/ );
-        ExaxisPos endexaxisPos =new ExaxisPos(/* Enter your extended axis end point coordinates */);
-        //9. Write the synchronous motion program
-        //Move to the starting point, assuming the applied tool coordinate system and workpiece coordinate system are both 1
-        robot.ExtAxisMove(startexaxisPos, 20);
+        //7. Registrare punto di partenza movimento lineare sincrono
+        DescPose startdescPose = new DescPose(/*Inserire coordinate*/ );
+        JointPos startjointPos = new JointPos(/*Inserire coordinate*/ );
+        ExaxisPos startexaxisPos = new ExaxisPos(/* Inserire coordinate punto partenza asse esteso */ );
+        //8. Registrare coordinate punto arrivo movimento lineare sincrono
+        DescPose enddescPose = new DescPose(/*Inserire coordinate*/ );
+        JointPos endjointPos = new JointPos(/*Inserire coordinate*/ );
+        ExaxisPos endexaxisPos =new ExaxisPos(/* Inserire coordinate punto arrivo asse esteso */);
+        //9. Scrivere programma movimento sincrono
+        //Spostarsi al punto di partenza, assumendo sistemi coordinate utensile e pezzo applicati entrambi 1
+        robot.ExtAxisMove(startexaxisPos, 20, 0);
         DescPose offdese = new DescPose( 0, 0, 0, 0, 0, 0 );
         robot.MoveJ(startjointPos, startdescPose, 1, 1, 100, 100, 100, startexaxisPos, 0, 0, offdese);
-        //Start synchronous motion
+        //Iniziare movimento sincrono
         robot.ExtAxisSyncMoveL(endjointPos, enddescPose, 1, 1, 100, 100, 100, 0, endexaxisPos, 0, offdese);
         robot.MoveJ(startjointPos, 1, 1, 100, 100, 100, startexaxisPos, 0, 0, offdese);
-        //Start synchronous motion
+        //Iniziare movimento sincrono
         robot.ExtAxisSyncMoveL(enddescPose, 1, 1, 100, 100, 100, 0, endexaxisPos, 0, offdese,-1);
         robot.CloseRPC();
         return 0;
     }
 
-UDP Extended Axis and Robot Arc Motion Synchronous Motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Arco Sincrono Assi Estesi UDP e Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis and robot arc motion synchronous motion
-    * @param [in] joint_pos_p  Path point joint position, unit deg
-    * @param [in] desc_pos_p   Path point Cartesian pose
-    * @param [in] ptool  Tool coordinate number, range [0~14]
-    * @param [in] puser  Workpiece coordinate number, range [0~14]
-    * @param [in] pvel  Speed percentage, range [0~100]
-    * @param [in] pacc  Acceleration percentage, range [0~100], not yet available
-    * @param [in] epos_p  Intermediate point extended axis position, unit mm
-    * @param [in] poffset_flag  0-no offset, 1-offset in base coordinate system/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos_p  Pose offset
-    * @param [in] joint_pos_t  Target point joint position, unit deg
-    * @param [in] desc_pos_t   Target point Cartesian pose
-    * @param [in] ttool  Tool coordinate number, range [0~14]
-    * @param [in] tuser  Workpiece coordinate number, range [0~14]
-    * @param [in] tvel  Speed percentage, range [0~100]
-    * @param [in] tacc  Acceleration percentage, range [0~100], not yet available
-    * @param [in] epos_t  Extended axis position, unit mm
-    * @param [in] toffset_flag  0-no offset, 1-offset in base coordinate system/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos_t  Pose offset
-    * @param [in] ovl  Speed scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-motion到位(blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @return Error code
+    * @brief Movimento arco sincrono assi estesi UDP e robot
+    * @param [in] joint_pos_p  Posizione giunti punto percorso, unità deg
+    * @param [in] desc_pos_p   Posa cartesiana punto percorso
+    * @param [in] ptool  Numero sistema coordinate utensile, range [0~14]
+    * @param [in] puser  Numero sistema coordinate pezzo, range [0~14]
+    * @param [in] pvel  Percentuale velocità, range [0~100]
+    * @param [in] pacc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param [in] epos_p  Posizione assi estesi punto intermedio, unità mm
+    * @param [in] poffset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param [in] offset_pos_p  Offset posa
+    * @param [in] joint_pos_t  Posizione giunti punto target, unità deg
+    * @param [in] desc_pos_t   Posa cartesiana punto target
+    * @param [in] ttool  Numero sistema coordinate utensile, range [0~14]
+    * @param [in] tuser  Numero sistema coordinate pezzo, range [0~14]
+    * @param [in] tvel  Percentuale velocità, range [0~100]
+    * @param [in] tacc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param [in] epos_t  Posizione assi estesi, unità mm
+    * @param [in] toffset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param [in] offset_pos_t  Offset posa
+    * @param [in] ovl  Fattore scala velocità, range [0~100]
+    * @param [in] blendR [-1.0]-movimento in posizione (bloccante), [0~1000.0]-raggio smoothing (non bloccante), unità mm
+    * @return Codice errore
     */
     int ExtAxisSyncMoveC(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR);
 
-UDP extended axis and robot circular motion synchronous motion (automatic inverse kinematics calculation)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Arco Sincrono Assi Estesi UDP e Robot (Calcolo Cinematica Inversa Automatico)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.8-3.8.5
 
-.. code-block:: java
+.. code-block:: Java
     :linenos:
 
     /**
-    * @brief UDP extended axis and robot circular motion synchronous motion (automatic inverse kinematics calculation)
-    * @param [in] desc_pos_p  Path point cartesian pose
-    * @param [in] ptool  Tool coordinate number, range [0~14]
-    * @param [in] puser  Workpiece coordinate number, range [0~14]
-    * @param [in] pvel  Velocity percentage, range [0~100]
-    * @param [in] pacc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] epos_p  Extended axis position, unit mm
-    * @param [in] poffset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos_p  Pose offset
-    * @param [in] desc_pos_t  Target point cartesian pose
-    * @param [in] ttool  Tool coordinate number, range [0~14]
-    * @param [in] tuser  Workpiece coordinate number, range [0~14]
-    * @param [in] tvel  Velocity percentage, range [0~100]
-    * @param [in] tacc  Acceleration percentage, range [0~100], not open yet
-    * @param [in] epos_t  Extended axis position, unit mm
-    * @param [in] toffset_flag  0-no offset, 1-offset in base/workpiece coordinate system, 2-offset in tool coordinate system
-    * @param [in] offset_pos_t  Pose offset
-    * @param [in] ovl  Velocity scaling factor, range [0~100]
-    * @param [in] blendR [-1.0]-move to position (blocking), [0~1000.0]-smoothing radius (non-blocking), unit mm
-    * @param [in] config Inverse kinematics joint space configuration, [-1]-calculate based on current joint position, [0~7]-solve according to specific joint space configuration
-    * @return Error code
+    * @brief  Movimento arco sincrono assi estesi UDP e robot (calcolo cinematica inversa automatico)
+    * @param  [in] desc_pos_p   Posa cartesiana punto percorso
+    * @param  [in] ptool  Numero sistema coordinate utensile, range [0~14]
+    * @param  [in] puser  Numero sistema coordinate pezzo, range [0~14]
+    * @param  [in] pvel  Percentuale velocità, range [0~100]
+    * @param  [in] pacc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param  [in] epos_p  Posizione assi estesi, unità mm
+    * @param  [in] poffset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param  [in] offset_pos_p  Offset posa
+    * @param  [in] desc_pos_t   Posa cartesiana punto target
+    * @param  [in] ttool  Numero sistema coordinate utensile, range [0~14]
+    * @param  [in] tuser  Numero sistema coordinate pezzo, range [0~14]
+    * @param  [in] tvel  Percentuale velocità, range [0~100]
+    * @param  [in] tacc  Percentuale accelerazione, range [0~100], non ancora disponibile
+    * @param  [in] epos_t  Posizione assi estesi, unità mm
+    * @param  [in] toffset_flag  0-nessun offset, 1-offset in sistema base/pezzo, 2-offset in sistema utensile
+    * @param  [in] offset_pos_t  Offset posa
+    * @param  [in] ovl  Fattore scala velocità, range [0~100]
+    * @param  [in] blendR [-1.0]-movimento in posizione (bloccante), [0~1000.0]-raggio smoothing (non bloccante), unità mm
+    * @param  [in] config Configurazione spazio giunti soluzione inversa, [-1]-riferimento posizione giunti corrente, [0~7]-risoluzione basata specifica configurazione spazio giunti
+    * @return  Codice errore
     */
     int ExtAxisSyncMoveC(DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR,int config)
 
-UDP Extended Axis and Robot Arc Motion Synchronous Motion Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento Arco Sincrono Assi Estesi UDP e Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public int testSyncMoveC(Robot robot)
     {
-        //1. Calibrate and apply robot tool coordinate system. You can use the four-point or six-point method for tool coordinate system calibration and application. The interfaces involved are as follows:
-        //  int SetToolPoint(int point_num); //Set tool reference point - six-point method
-        //  int ComputeTool(ref DescPose tcp_pose); //Calculate tool coordinate system
-        //  int SetTcp4RefPoint(int point_num);  //Set tool reference point - four-point method
-        //  int ComputeTcp4(ref DescPose tcp_pose);  //Calculate tool coordinate system - four-point method
-        //  int SetToolCoord(int id, DescPose coord, int type, int install); //Set and apply tool coordinate system
-        //  int SetToolList(int id, DescPose coord, int type, int install);  //Set and apply tool coordinate system list
-        //2. Set UDP communication parameters and load UDP communication
+        //1. Calibrare e applicare sistema coordinate utensile robot, è possibile utilizzare metodo a quattro o sei punti per calibrazione e applicazione sistema coordinate utensile, interfacce coinvolte:
+        //  int SetToolPoint(int point_num); //Imposta punto riferimento utensile - metodo a sei punti
+        //  int ComputeTool(ref DescPose tcp_pose); //Calcola sistema coordinate utensile
+        //  int SetTcp4RefPoint(int point_num);  //Imposta punto riferimento utensile - metodo a quattro punti
+        //  int ComputeTcp4(ref DescPose tcp_pose);  //Calcola sistema coordinate utensile - metodo a quattro punti
+        //  int SetToolCoord(int id, DescPose coord, int type, int install); //Imposta e applica sistema coordinate utensile
+        //  int SetToolList(int id, DescPose coord, int type, int install);  //Imposta e applica lista sistemi coordinate utensile
+        //2. Impostare parametri comunicazione UDP e caricare comunicazione UDP
         UDPComParam param=new UDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10,0);
         robot.ExtDevSetUDPComParam(param);
         robot.ExtDevLoadUDPDriver();
-        //3. Set extended axis parameters, including extended axis type, extended axis driver parameters, and extended axis DH parameters
-        robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0); //Single-axis positioner and DH parameters
-        robot.SetRobotPosToAxis(1); //Extended axis installation position
-        robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0); //Servo driver parameters. This example is for a single-axis positioner, so only one driver parameter needs to be set. If you choose an extended axis type with multiple axes, each axis needs to be configured.
-        //4. Enable the selected axis and perform homing
+        //3. Impostare parametri assi estesi, incluso tipo asse esteso, parametri driver asse esteso, parametri DH asse esteso
+        robot.SetAxisDHParaConfig(4, 200, 200, 0, 0, 0, 0, 0, 0); //Posizionatore monoasse e parametri DH
+        robot.SetRobotPosToAxis(1); //Posizione installazione assi estesi
+        robot.ExtAxisParamConfig(1, 0, 1, 100, -100, 10, 10, 12, 131072, 0, 1, 0, 0); //Parametri driver servo, questo esempio è posizionatore monoasse, quindi basta un set di parametri driver, se si sceglie tipo asse esteso con più assi, ogni asse richiede parametri driver
+        //4. Impostare abilitazione e homing degli assi selezionati
         robot.ExtAxisServoOn(1, 0);
         robot.ExtAxisSetHoming(1, 0, 20, 3);
-        //5. Perform extended axis coordinate system calibration and application
-        DescPose pos = new DescPose(/* Enter your calibration point coordinates */ );
+        //5. Eseguire calibrazione e applicazione sistema coordinate assi estesi
+        DescPose pos = new DescPose(/* Inserire coordinate punto calibrazione */ );
         robot.SetRefPointInExAxisEnd(pos);
-        robot.PositionorSetRefPoint(1); /*You need to call this interface 4 times with different points to complete the calibration */
+        robot.PositionorSetRefPoint(1); /* Sono necessari quattro punti in posizioni diverse per calibrare asse esteso, quindi chiamare questa interfaccia 4 volte per completare calibrazione */
         DescPose coord = new DescPose();
-        robot.PositionorComputeECoordSys(coord); //Calculate extended axis calibration result
-        robot.ExtAxisActiveECoordSys(1, 1, coord, 1); //Apply the calibration result to the extended axis coordinate system
-        //6. Calibrate the workpiece coordinate system on the extended axis. You will need the following interfaces:
+        robot.PositionorComputeECoordSys(coord); //Calcola risultato calibrazione asse esteso
+        robot.ExtAxisActiveECoordSys(1, 1, coord, 1); //Applica risultato calibrazione a sistema coordinate asse esteso
+        //6. Calibrare sistema coordinate pezzo su asse esteso, necessarie seguenti interfacce
         //int SetWObjCoordPoint(int point_num);
         //int ComputeWObjCoord(int method, ref DescPose wobj_pose);
         //int SetWObjCoord(int id, DescPose coord);
         //int SetWObjList(int id, DescPose coord);
-        //7. Record your synchronous arc motion starting point
-        DescPose startdescPose = new DescPose(/*Enter your coordinates*/ );
-        JointPos startjointPos = new JointPos(/*Enter your coordinates*/ );
-        ExaxisPos startexaxisPos = new ExaxisPos(/* Enter your extended axis starting point coordinates */ );
-        //8. Record your synchronous arc motion end point coordinates
-        DescPose enddescPose = new DescPose(/*Enter your coordinates*/ );
-        JointPos endjointPos = new JointPos(/*Enter your coordinates*/ );
-        ExaxisPos endexaxisPos = new ExaxisPos(/* Enter your extended axis end point coordinates */ );
-        //9. Record your synchronous arc motion intermediate point coordinates
-        DescPose middescPose = new DescPose(/*Enter your coordinates*/ );
-        JointPos midjointPos =new JointPos(/*Enter your coordinates*/ );
-        ExaxisPos midexaxisPos = new ExaxisPos(/* Enter the extended axis coordinates when the robot is at the arc intermediate point */ );
-        //10. Write the synchronous motion program
-        //Move to the starting point, assuming the applied tool coordinate system and workpiece coordinate system are both 1
-        robot.ExtAxisMove(startexaxisPos, 20);
+        //7. Registrare punto di partenza movimento arco sincrono
+        DescPose startdescPose = new DescPose(/*Inserire coordinate*/ );
+        JointPos startjointPos = new JointPos(/*Inserire coordinate*/ );
+        ExaxisPos startexaxisPos = new ExaxisPos(/* Inserire coordinate punto partenza asse esteso */ );
+        //8. Registrare coordinate punto arrivo movimento arco sincrono
+        DescPose enddescPose = new DescPose(/*Inserire coordinate*/ );
+        JointPos endjointPos = new JointPos(/*Inserire coordinate*/ );
+        ExaxisPos endexaxisPos = new ExaxisPos(/* Inserire coordinate punto arrivo asse esteso */ );
+        //9. Registrare coordinate punto intermedio movimento arco sincrono
+        DescPose middescPose = new DescPose(/*Inserire coordinate*/ );
+        JointPos midjointPos =new JointPos(/*Inserire coordinate*/ );
+        ExaxisPos midexaxisPos = new ExaxisPos(/* Inserire coordinate asse esteso a punto intermedio arco robot */ );
+        //10. Scrivere programma movimento sincrono
+        //Spostarsi al punto di partenza, assumendo sistemi coordinate utensile e pezzo applicati entrambi 1
+        robot.ExtAxisMove(startexaxisPos, 20, 0);
         DescPose offdese = new DescPose( 0, 0, 0, 0, 0, 0 );
         robot.MoveJ(startjointPos, startdescPose, 1, 1, 100, 100, 100, startexaxisPos, 0, 0, offdese);
-        //Start synchronous motion
+        //Iniziare movimento sincrono
         robot.ExtAxisSyncMoveC(midjointPos, middescPose, 1, 1, 100, 100, midexaxisPos, 0, offdese, endjointPos, enddescPose, 1, 1, 100, 100, endexaxisPos, 0, offdese, 100, 0);
         robot.MoveJ(startjointPos, 1, 1, 100, 100, 100, startexaxisPos, 0, 0, offdese);
-        //Start synchronous motion
+        //Iniziare movimento sincrono
         robot.ExtAxisSyncMoveC(middescPose, 1, 1, 100, 100, midexaxisPos, 0, offdese, enddescPose, 1, 1, 100, 100, endexaxisPos, 0, offdese, 100, 0,-1);
         robot.CloseRPC();
         return 0;
     }
 
-Set Extended DO
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare DO Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set extended DO
-    * @param [in] DONum DO number
-    * @param [in] bOpen Switch true-on; false-off
-    * @param [in] smooth Whether to smooth
-    * @param [in] block Whether to block
-    * @return Error code
+    * @brief Imposta DO esteso
+    * @param [in] DONum Numero DO
+    * @param [in] bOpen Interruttore true-acceso; false-spento
+    * @param [in] smooth Smoothing
+    * @param [in] block Blocco
+    * @return Codice errore
     */
     int SetAuxDO(int DONum, boolean bOpen, boolean smooth, boolean block);
 
-Set Extended AO
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare AO Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set extended AO
-    * @param [in] AONum AO number
-    * @param [in] value Analog value [0-4095]
-    * @param [in] block Whether to block
-    * @return Error code
+    * @brief Imposta AO esteso
+    * @param [in] AONum Numero AO
+    * @param [in] value Valore analogico [0-4095]
+    * @param [in] block Blocco
+    * @return Codice errore
     */
     int SetAuxAO(int AONum, double value, boolean block);
 
-Set Extended DI Input Filter Time
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Tempo Filtro Input DI Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set extended DI input filter time
-    * @param [in] filterTime Filter time (ms)
-    * @return  Error code
+    * @brief Imposta tempo filtro input DI esteso
+    * @param [in] filterTime Tempo filtro (ms)
+    * @return  Codice errore
     */
     int SetAuxDIFilterTime(int filterTime);
 
-Set Extended AI Input Filter Time
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Impostare Tempo Filtro Input AI Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Set extended AI input filter time
-    * @param [in] AONum AO number
-    * @param [in] filterTime Filter time (ms)
-    * @return Error code
+    * @brief Imposta tempo filtro input AI esteso
+    * @param [in] AONum Numero AO
+    * @param [in] filterTime Tempo filtro (ms)
+    * @return Codice errore
     */
     int SetAuxAIFilterTime(int AONum, int filterTime);
 
-Wait for Extended DI Input
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere Input DI Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Wait for extended DI input
-    * @param [in] DINum DI number
-    * @param [in] bOpen Switch 0-off; 1-on
-    * @param [in] time Maximum wait time (ms)
-    * @param [in] errorAlarm Whether to continue motion
-    * @return Error code
+    * @brief Attende input DI esteso
+    * @param [in] DINum Numero DI
+    * @param [in] bOpen Interruttore 0-spento; 1-acceso
+    * @param [in] time Tempo attesa massimo (ms)
+    * @param [in] errorAlarm Continuare movimento
+    * @return Codice errore
     */
     int WaitAuxDI(int DINum, boolean bOpen, int time, boolean errorAlarm);
 
-Wait for Extended AI Input
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Attendere Input AI Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Wait for extended AI input
-    * @param [in] AINum AI number
-    * @param [in] sign 0-greater than; 1-less than
-    * @param [in] value AI value
-    * @param [in] time Maximum wait time (ms)
-    * @param [in] errorAlarm Whether to continue motion
-    * @return Error code
+    * @brief Attende input AI esteso
+    * @param [in] AINum Numero AI
+    * @param [in] sign 0-maggiore; 1-minore
+    * @param [in] value Valore AI
+    * @param [in] time Tempo attesa massimo (ms)
+    * @param [in] errorAlarm Continuare movimento
+    * @return Codice errore
     */
     int WaitAuxAI(int AINum, int sign, int value, int time, boolean errorAlarm);
     
-Get Extended DI Value
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Valore DI Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get extended DI value
-    * @param [in] DINum DI number
-    * @param [in] isNoBlock Whether to block
-    * @return List[0]: Error code; List[1] : isOpen 0-off; 1-on
+    * @brief Ottiene valore DI esteso
+    * @param [in] DINum Numero DI
+    * @param [in] isNoBlock Non bloccante
+    * @return List[0]:Codice errore; List[1] : isOpen 0-spento; 1-acceso
     */
     List<Integer> GetAuxDI(int DINum, boolean isNoBlock)
 
-Get Extended AI Value
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere Valore AI Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Get extended AI value
-    * @param [in] AINum AI number
-    * @param [in] isNoBlock Whether to block
-    * @return List[0]: Error code; List[1] : value Input value
+    * @brief Ottiene valore AI esteso
+    * @param [in] AINum Numero AI
+    * @param [in] isNoBlock Non bloccante
+    * @return List[0]:Codice errore; List[1] : value Valore input
     */
     List<Integer> GetAuxAI(int AINum, boolean isNoBlock);
 
-Extended IO Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice IO Esteso
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -1230,89 +1229,89 @@ Extended IO Code Example
         return 0;
     }
 
-Movable Device Enable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Abilitazione Dispositivo Mobile
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Movable device enable
-    * @param [in] enable false-disable; true-enable
-    * @return Error code
+    * @brief Abilitazione dispositivo mobile
+    * @param [in] enable false-disabilitato; true-abilitato
+    * @return Codice errore
     */
     int TractorEnable(Boolean enable);
 
-Movable Device Homing
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Homing Dispositivo Mobile
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Movable device homing
-    * @return Error code
+    * @brief Homing dispositivo mobile
+    * @return Codice errore
     */
     int TractorHoming();
 
-Movable Device Linear Motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Lineare Dispositivo Mobile
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Movable device linear motion
-    * @param [in] distance Linear motion distance (mm)
-    * @param [in] vel Linear motion speed percentage (0-100)
-    * @return Error code
+    * @brief Movimento lineare dispositivo mobile
+    * @param [in] distance Distanza movimento lineare (mm)
+    * @param [in] vel Percentuale velocità movimento lineare (0-100)
+    * @return Codice errore
     */
     int TractorMoveL(double distance, double vel);
 
-Movable Device Arc Motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento Arco Dispositivo Mobile
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Movable device arc motion
-    * @param [in] radio Arc motion radius (mm)
-    * @param [in] angle Arc motion angle (°)
-    * @param [in] vel Linear motion speed percentage (0-100)
-    * @return Error code
+    * @brief Movimento arco dispositivo mobile
+    * @param [in] radio Raggio movimento arco (mm)
+    * @param [in] angle Angolo movimento arco (°)
+    * @param [in] vel Percentuale velocità movimento lineare (0-100)
+    * @return Codice errore
     */
     int TractorMoveC(double radio, double angle, double vel);
 
-Movable Device Stop Motion
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Arresto Movimento Dispositivo Mobile
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /** 
-    * @brief Movable device stop motion
-    * @return Error code
+    * @brief Arresto movimento dispositivo mobile
+    * @return Codice errore
     */
     int TractorStop();
 
-Movable Device Code Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Dispositivo Mobile
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     public static void main(String[] args)
     {
         Robot robot = new Robot();
-        robot.SetReconnectParam(true,20,500);//Set reconnection count and interval
+        robot.SetReconnectParam(true,20,500);//Imposta numero riconnessioni, intervallo
         robot.LoggerInit(FrLogType.DIRECT, FrLogLevel.INFO, "D://log", 10, 10);
         int rtn = robot.RPC("192.168.58.2");
         if(rtn == 0)
         {
-            System.out.println("RPC connection success");
+            System.out.println("Connessione rpc successo");
         }
         else
         {
-            System.out.println("RPC connection fail");
+            System.out.println("Connessione rpc fallita");
             return ;
         }
-        UDPComParam param = new UDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10);
-        robot.ExtDevSetUDPComParam(param);//UDP extended axis communication
+        UDPComParam param = new UDPComParam("192.168.58.88", 2021, 2, 100, 3, 100, 1, 100, 10,0);
+        robot.ExtDevSetUDPComParam(param);//comunicazione assi estesi udp
         robot.ExtAxisParamConfig(1, 0, 0, 50000, -50000, 1000, 1000, 6.280, 16384, 200, 0, 0, 0);
         robot.ExtAxisParamConfig(2, 0, 0, 50000, -50000, 1000, 1000, 6.280, 16384, 200, 0, 0, 0);
         robot.SetAxisDHParaConfig(5, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -1330,6 +1329,6 @@ Movable Device Code Example
         robot.Sleep(5000);
         robot.TractorMoveC(300, 90, 20);
         robot.Sleep(2000);
-        robot.TractorStop();//Stop the device
+        robot.TractorStop();//arresto carrello
         robot.TractorMoveC(300, -90, 20);
     }

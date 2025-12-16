@@ -1,122 +1,123 @@
-Common Robot Settings
-===================================================
+Impostazioni comuni del robot
+=========================================
 
 .. toctree:: 
     :maxdepth: 5
- 
-Setting the tool reference point - six-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
-    
-     /** 
-     * @brief Setting the tool reference point - the six-point method. 
-     * @param [in] point_num point_num, range [1~6]. 
-     * @return Error code 
-     */ 
-     int SetToolPoint(int point_num). 
- 
-Calculating the Tool Coordinate System - Six Point Method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
- 
-     /** 
-     * @brief Calculate the tool coordinate system
-     * @param [out] tcp_pose tool coordinate system
-     * @return Error code. 
-     */ 
-     int ComputeTool(ref DescPose tcp_pose). 
-  
-Setting the tool reference point - four-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
- 
-     /** 
-     * @brief Setting the tool reference point - four-point method. 
-     * @param [in] point_num point_num, range [1~4]. 
-     * @return Error code 
-     */ 
-     int SetTcp4RefPoint(int point_num).
- 
-Calculate the tool coordinate system - four-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
- 
-      /** 
-     * @brief Calculate the tool coordinate system
-     * @param [out] tcp_pose tool coordinate system
-     * @return Error code. 
-     */ 
-     int ComputeTcp4(ref DescPose tcp_pose).
- 
-Set the tool coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
- 
-     /**
-     * @brief Set the tool coordinate system.
-     * @param [in] id Coordinate system number, range [0~14].
-     * @param [in] coord tool center with respect to end-flange center.
-     * @param [in] type 0-tool coordinate system, 1-sensor coordinate system
-     * @param [in] install mounting position, 0-robot end, 1-robot exterior
-     * param [in] toolID toolID
-     * @param [in] loadNum loadNumber
-     * @return ErrorCode
-     */
-     int SetToolCoord(int id, DescPose coord, int type, int install,int toolID, int loadNum);
- 
-Calculate the tool coordinate system from the point information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
- 
-     /**
-     * @brief Calculate tool coordinate system from point information.
-     * @param [in] method Calculation method; 0 - four-point method; 1 - six-point method
-     * @param [in] pos Joint position group, array length is 4 for 4-point method, 6 for 6-point method.
-     * @return Error code
-     */
-     int ComputeToolCoordWithPoints(int method, JointPos[] pos, ref DescPose coordRtn)  
- 
-Set the list of tool coordinate systems
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: c#
-    :linenos:
- 
-     /**
-     * @brief Setting up a list of tool coordinate systems.
-     * @param [in] id Coordinate system number, range [0~14].
-     * @param [in] coord Tool center point relative to end flange center position.
-     * @param [in] type 0-tool coordinate system, 1-sensor coordinate system
-     * @param [in] install mounting position, 0-robot end, 1-robot exterior
-     * @param [in] loadNum loadNumber
-     * @return Error code
-     */
-     int SetToolList(int id, DescPose coord, int type, int install, int loadNum);  
- 
-Get the current tool coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Impostazione del punto di riferimento dell'utensile - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-     /**
-     * @brief Get the current tool coordinate system.
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] desc_pos Tool coordinate system position.
-     * @return Error code.
-     */
-     int GetTCPOffset(byte flag, ref DescPose desc_pos); 
- 
-Robot tool coordinate system operation code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /** 
+    * @brief Impostazione del punto di riferimento dell'utensile - Metodo a sei punti 
+    * @param [in] point_num Numero del punto, intervallo [1~6] 
+    * @return Codice di errore 
+    */ 
+    int SetToolPoint(int point_num); 
+
+Calcolo del sistema di coordinate dell'utensile - Metodo a sei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     private void button18_Click(object sender, EventArgs e)
+
+    /** 
+    * @brief Calcolo del sistema di coordinate dell'utensile
+    * @param [out] tcp_pose Sistema di coordinate dell'utensile
+    * @return Codice di errore 
+    */ 
+    int ComputeTool(ref DescPose tcp_pose); 
+
+Impostazione del punto di riferimento dell'utensile - Metodo a quattro punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /** 
+    * @brief Impostazione del punto di riferimento dell'utensile - Metodo a quattro punti 
+    * @param [in] point_num Numero del punto, intervallo [1~4] 
+    * @return Codice di errore 
+    */ 
+    int SetTcp4RefPoint(int point_num);
+
+Calcolo del sistema di coordinate dell'utensile - Metodo a quattro punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /** 
+    * @brief Calcolo del sistema di coordinate dell'utensile
+    * @param [out] tcp_pose Sistema di coordinate dell'utensile
+    * @return Codice di errore 
+    */ 
+    int ComputeTcp4(ref DescPose tcp_pose);
+
+Impostazione del sistema di coordinate dell'utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Impostazione del sistema di coordinate dell'utensile
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] coord  Posa del centro utensile rispetto al centro della flangia finale
+    * @param  [in] type  0-Sistema di coordinate dell'utensile, 1-Sistema di coordinate del sensore
+    * @param  [in] install Posizione di installazione, 0-Estremità del robot, 1-Esterno del robot
+    * param   [in] toolID ID utensile
+    * @param  [in] loadNum Numero del carico
+    * @return  Codice di errore
+    */
+    int SetToolCoord(int id, DescPose coord, int type, int install,int toolID, int loadNum);
+
+Calcolo del sistema di coordinate dell'utensile in base alle informazioni dei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Calcolo del sistema di coordinate dell'utensile in base alle informazioni dei punti
+    * @param [in] method Metodo di calcolo; 0-Metodo a quattro punti; 1-Metodo a sei punti
+    * @param [in] pos Gruppo di posizioni dei giunti, lunghezza dell'array 4 per il metodo a quattro punti, 6 per il metodo a sei punti
+    * @return Codice di errore
+    */
+
+    int ComputeToolCoordWithPoints(int method, JointPos[] pos, ref DescPose coordRtn)  
+
+Impostazione della lista dei sistemi di coordinate dell'utensile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Impostazione della lista dei sistemi di coordinate dell'utensile
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14]
+    * @param  [in] coord  Posa del centro utensile rispetto al centro della flangia finale
+    * @param  [in] type  0-Sistema di coordinate dell'utensile, 1-Sistema di coordinate del sensore
+    * @param  [in] install Posizione di installazione, 0-Estremità del robot, 1-Esterno del robot
+    * @param  [in] loadNum Numero del carico
+    * @return  Codice di errore
+    */
+    int SetToolList(int id, DescPose coord, int type, int install, int loadNum);  
+
+Ottenere il sistema di coordinate dell'utensile corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ottenere il sistema di coordinate dell'utensile corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] desc_pos Posa del sistema di coordinate dell'utensile
+    * @return  Codice di errore
+    */
+    int GetTCPOffset(byte flag, ref DescPose desc_pos); 
+
+Esempio di codice per operazioni sul sistema di coordinate dell'utensile del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    private void button18_Click(object sender, EventArgs e)
     {
         DescPose p1Desc = new DescPose(186.331f, 487.913f, 209.850f, 149.030f, 0.688f, -114.347f);
         JointPos p1Joint = new JointPos(-127.876f, -75.341f, 115.417f, -122.741f, -59.820f, 74.300f);
@@ -177,79 +178,79 @@ Robot tool coordinate system operation code example
         rtn = robot.GetTCPOffset(0, ref getCoord);
         Console.WriteLine($"GetTCPOffset    {rtn}  coord is {coordRtn.tran.x} {coordRtn.tran.y} {coordRtn.tran.z} {coordRtn.rpy.rx} {coordRtn.rpy.ry} {coordRtn.rpy.rz}");
     }
- 
-Setting the external tool coordinate reference point - three-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Impostazione del punto di riferimento dell'utensile esterno - Metodo a tre punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /** 
-     * @brief Setting the external tool reference point - the three-point method. 
-     * @param [in] point_num point_num, range [1~3]. 
-     * @return Error code 
-     */ 
-     int SetExTCPPoint(int point_num). 
- 
-Calculating an external tool coordinate system - three-point method
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /** 
+    * @brief Impostazione del punto di riferimento dell'utensile esterno - Metodo a tre punti 
+    * @param [in] point_num Numero del punto, intervallo [1~3] 
+    * @return Codice di errore 
+    */ 
+    int SetExTCPPoint(int point_num); 
+
+Calcolo del sistema di coordinate dell'utensile esterno - Metodo a tre punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
-     
-     /** 
-     * @brief Calculate external tool coordinate system - three-point method.
-     * @param [out] tcp_pose external tool coordinate system
-     * @return Error code. 
-     */ 
-     int ComputeExTCF(ref DescPose tcp_pose). 
- 
-Set the external tool coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    /** 
+    * @brief Calcolo del sistema di coordinate dell'utensile esterno - Metodo a tre punti
+    * @param [out] tcp_pose Sistema di coordinate dell'utensile esterno
+    * @return Codice di errore 
+    */ 
+    int ComputeExTCF(ref DescPose tcp_pose); 
+
+Impostazione del sistema di coordinate dell'utensile esterno
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the external tool coordinate system. 
-     * @param [in] id Coordinate system number, range [0~14]. 
-     * @param [in] etcp Tool center point relative to end-flange center position. 
-     * @param [in] etool To be determined. 
-     * @return Error code 
-     */
-     int SetExToolCoord(int id, DescPose etcp, DescPose etool); 
- 
-Setting up a list of external tool coordinate systems
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief Impostazione del sistema di coordinate dell'utensile esterno 
+    * @param [in] id Numero del sistema di coordinate, intervallo [0~14] 
+    * @param [in] etcp Posa del centro utensile rispetto al centro della flangia finale 
+    * @param [in] etool Da definire 
+    * @return Codice di errore 
+    */
+    int SetExToolCoord(int id, DescPose etcp, DescPose etool); 
+
+Impostazione della lista dei sistemi di coordinate dell'utensile esterno
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the list of external tool coordinate systems.
-     * @param [in] id Coordinate system number, range [0~14]. 
-     * @param [in] etcp tool center point relative to end-flange center position
-     * @param [in] etool pending
-     * @return Error code
-     */
-     int SetExToolList(int id, DescPose etcp, DescPose etool); 
- 
-Calculate the workpiece coordinate system from the point information
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione della lista dei sistemi di coordinate dell'utensile esterno
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14] 
+    * @param  [in] etcp  Posa del centro utensile rispetto al centro della flangia finale
+    * @param  [in] etool  Da definire
+    * @return  Codice di errore
+    */
+    int SetExToolList(int id, DescPose etcp, DescPose etool); 
+
+Calcolo del sistema di coordinate del pezzo in base alle informazioni dei punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Calculate the workpiece coordinate system from point information.
-     * @param [in] method Calculation method; 0: origin-x-axis-z-axis 1: origin-x-axis-xy plane
-     * @param [in] pos Three TCP position groups
-     * @param [in] refFrame reference coordinate system
-     * @return Error code
-     */
-     int ComputeWObjCoordWithPoints(int method, DescPose[] pos, int refFrame, ref DescPose coordRtn)
- 
-Sample code for manipulating the robot's external tool coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief Calcolo del sistema di coordinate del pezzo in base alle informazioni dei punti
+    * @param [in] method Metodo di calcolo; 0: Origine-asse X-asse Z  1: Origine-asse X-piano XY
+    * @param [in] pos Gruppo di tre posizioni TCP
+    * @param [in] refFrame Sistema di coordinate di riferimento
+    * @return Codice di errore
+    */
+    int ComputeWObjCoordWithPoints(int method, DescPose[] pos, int refFrame, ref DescPose coordRtn)
+
+Esempio di codice per operazioni sul sistema di coordinate dell'utensile esterno del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     private void button20_Click(object sender, EventArgs e)
+
+    private void button20_Click(object sender, EventArgs e)
     {
         DescPose p1Desc = new DescPose(-89.606f, 779.517f, 193.516f, 178.000f, 0.476f, -92.484f);
         JointPos p1Joint = new JointPos(-108.145f, -50.137f, 85.818f, -125.599f, -87.946f, 74.329f);
@@ -278,79 +279,79 @@ Sample code for manipulating the robot's external tool coordinate system
         robot.SetExToolCoord(1,  coordRtn,  offdese);
         robot.SetExToolList(1,  coordRtn,  offdese);
     }
- 
-Setting the reference point of the workpiece coordinate system - three-point method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Impostazione del punto di riferimento del sistema di coordinate del pezzo - Metodo a tre punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /** 
-     * @brief Setting the reference point of a workpiece - the three-point method. 
-     * @param [in] point_num point_num, range [1~3].  
-     * @return Error code 
-     */ 
-     int SetWObjCoordPoint(int point_num). 
- 
-Calculate the work coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /** 
+    * @brief Impostazione del punto di riferimento del pezzo - Metodo a tre punti 
+    * @param [in] point_num Numero del punto, intervallo [1~3]  
+    * @return Codice di errore 
+    */ 
+    int SetWObjCoordPoint(int point_num); 
+
+Calcolo del sistema di coordinate del pezzo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Calculate the workpiece coordinate system.
-     * @param [in] method Calculation method 0: origin-x-axis-z-axis 1: origin-x-axis-xy-plane
-     * @param [in] refFrame reference coordinate system
-     * @param [out] wobj_pose Workpiece coordinate system
-     * @return Error code
-     */
-     int ComputeWObjCoord(int method, int refFrame, ref DescPose wobj_pose); 
- 
-Set the workpiece coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Calcolo del sistema di coordinate del pezzo
+    * @param [in] method Metodo di calcolo 0：Origine-asse X-asse Z  1：Origine-asse X-piano XY
+    * @param [in] refFrame Sistema di coordinate di riferimento
+    * @param [out] wobj_pose Sistema di coordinate del pezzo
+    * @return Codice di errore
+    */
+    int ComputeWObjCoord(int method, int refFrame, ref DescPose wobj_pose); 
+
+Impostazione del sistema di coordinate del pezzo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the workpiece coordinate system.
-     * @param [in] id Coordinate system number, range [1~15].
-     * @param [in] coord Workpiece coordinate system relative to end flange center.
-     * @param [in] refFrame The reference coordinate system.
-     * @return Error code
-     */
-     int SetWObjCoord(int id, DescPose coord, int refFrame);
- 
-Set the list of workpiece coordinate systems
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione del sistema di coordinate del pezzo
+    * @param  [in] id Numero del sistema di coordinate, intervallo [1~15]
+    * @param  [in] coord  Posa del sistema di coordinate del pezzo rispetto al centro della flangia finale
+    * @param  [in] refFrame Sistema di coordinate di riferimento
+    * @return  Codice di errore
+    */
+    int SetWObjCoord(int id, DescPose coord, int refFrame);
+
+Impostazione della lista dei sistemi di coordinate del pezzo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the list of workpiece coordinate systems.
-     * @param [in] id coordinate system number, range [0~14] 
-     * @param [in] coord Workpiece coordinate system relative to the center of the end flange.
-     * @param [in] refFrame The reference coordinate system.
-     * @return Error code
-     */    
-     int SetWObjList(int id, DescPose coord, int refFrame);
- 
-Get the current workpiece coordinate system
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione della lista dei sistemi di coordinate del pezzo
+    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14] 
+    * @param  [in] coord  Posa del sistema di coordinate del pezzo rispetto al centro della flangia finale
+    * @param  [in] refFrame Sistema di coordinate di riferimento
+    * @return  Codice di errore
+    */    
+    int SetWObjList(int id, DescPose coord, int refFrame);
+
+Ottenere il sistema di coordinate del pezzo corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Get the current workpiece coordinate system.
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] desc_pos Workpiece coordinate system position.
-     * @return Error code.
-     */   
-     int GetWObjOffset(byte flag, ref DescPose desc_pos); 
- 
-Robot workpiece coordinate system operation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Ottenere il sistema di coordinate del pezzo corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] desc_pos Posa del sistema di coordinate del pezzo
+    * @return  Codice di errore
+    */   
+    int GetWObjOffset(byte flag, ref DescPose desc_pos); 
+
+Esempio di codice per operazioni sul sistema di coordinate del pezzo del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
+
     private void button19_Click(object sender, EventArgs e)
     {
         DescPose p1Desc = new DescPose(-89.606, 779.517, 193.516, 178.000, 0.476, -92.484);
@@ -390,163 +391,163 @@ Robot workpiece coordinate system operation code example
         rtn = robot.GetWObjOffset(0, ref getWobjDesc);
         Console.WriteLine($"GetWObjOffset                   {rtn}  coord is {coordRtn.tran.x} {coordRtn.tran.y} {coordRtn.tran.z} {coordRtn.rpy.rx} {coordRtn.rpy.ry} {coordRtn.rpy.rz}");   
     } 
- 
-Setting the global speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Impostazione della velocità globale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the global speed.
-     * @param [in] vel Speed percentage, range [0~100].
-     * @return Error code.
-     */
-     int SetSpeed(int vel). 
- 
-Set the robot acceleration
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione della velocità globale
+    * @param  [in]  vel  Percentuale di velocità, intervallo [0~100]
+    * @return  Codice di errore
+    */
+    int SetSpeed(int vel); 
+
+Impostazione dell'accelerazione del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set robot acceleration
-     * @param [in] acc robot acceleration percentage
-     * @return Error code.
-     */
-     int SetOaccScale(double acc)
- 
-Get the default robot speed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief Impostazione dell'accelerazione del robot
+    * @param [in] acc Percentuale di accelerazione del robot
+    * @return Codice di errore
+    */
+    int SetOaccScale(double acc)
+
+Ottenere la velocità predefinita del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Get the default speed of the robot.
-     * @param [out] vel velocity in mm/s
-     * @return Error code.
-     */   
-     int GetDefaultTransVel(ref double vel). 
- 
-Set the end load weight
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Ottenere la velocità predefinita del robot
+    * @param  [out]  vel  Velocità, unità mm/s
+    * @return  Codice di errore
+    */   
+    int GetDefaultTransVel(ref double vel); 
+
+Impostazione del peso del carico finale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the end load weight.
-     * @param [in] loadNum loadNumber
-     * @param [in] weight load weight in kg
-     * @return Error code.
-     */
-     int SetLoadWeight(int loadNum, float weight)
- 
-Set the center of mass of the end load
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione del peso del carico finale
+    * @param  [in] loadNum Numero del carico
+    * @param  [in] weight  Peso del carico, unità kg
+    * @return  Codice di errore
+    */
+    int SetLoadWeight(int loadNum, float weight)
+
+Impostazione delle coordinate del baricentro del carico finale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set end-load center-of-mass coordinates.
-     * @param [in] coord center of mass in mm.
-     * @return Error code.
-     */
-     int SetLoadCoord(DescTran coord). 
- 
-Get the weight of the current load
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione delle coordinate del baricentro del carico finale
+    * @param  [in] coord Coordinate del baricentro, unità mm
+    * @return  Codice di errore
+    */
+    int SetLoadCoord(DescTran coord); 
+
+Ottenere il peso del carico corrente
+++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Get the weight of the current load
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] weight weight of the load in kg
-     * @return Error code.
-     */
-     int GetTargetPayload(byte flag, ref double weight); 
- 
-Get the center of mass of the current load
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Ottenere il peso del carico corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] weight Peso del carico, unità kg
+    * @return  Codice di errore
+    */
+    int GetTargetPayload(byte flag, ref double weight); 
+
+Ottenere il baricentro del carico corrente
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Get the center of mass of the current load.
-     * @param [in] flag 0-blocking, 1-non-blocking
-     * @param [out] cog load center of mass in mm
-     * @return Error code.
-     */   
-     int GetTargetPayloadCog(byte flag, ref DescTran cog);
- 
-Set the robot mounting method
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Ottenere il baricentro del carico corrente
+    * @param  [in] flag 0-Bloccante, 1-Non bloccante
+    * @param  [out] cog Baricentro del carico, unità mm
+    * @return  Codice di errore
+    */   
+    int GetTargetPayloadCog(byte flag, ref DescTran cog);
+
+Impostazione della modalità di installazione del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the robot installation method.
-     * @param [in] install Installation method, 0-front, 1-side, 2-backwards.
-     * @return Error code.
-     */
-     int SetRobotInstallPos(byte install). 
- 
-Set the robot installation angle
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione della modalità di installazione del robot
+    * @param  [in] install  Modalità di installazione, 0-Installazione normale, 1-Installazione laterale, 2-Installazione a soffitto
+    * @return  Codice di errore
+    */
+    int SetRobotInstallPos(byte install); 
+
+Impostazione dell'angolo di installazione del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Setting the robot mounting angle for free mounting.
-     * @param [in] yangle tilt angle
-     * @param [in] zangle angle of rotation.
-     * @return Error code.
-     */
-     int SetRobotInstallAngle(double yangle, double zangle); 
- 
-Get the robot installation angle
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione dell'angolo di installazione del robot, installazione libera
+    * @param  [in] yangle  Angolo di inclinazione
+    * @param  [in] zangle  Angolo di rotazione
+    * @return  Codice di errore
+    */
+    int SetRobotInstallAngle(double yangle, double zangle); 
+
+Ottenere l'angolo di installazione del robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Get the robot mounting angle.
-     * @param [out] yangle tilt angle
-     * @param [out] zangle angle of rotation.
-     * @return Error code.
-     */
-     int GetRobotInstallAngle(ref double yangle, ref double zangle); 
- 
-Sets the value of the system variable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Ottenere l'angolo di installazione del robot
+    * @param  [out] yangle Angolo di inclinazione
+    * @param  [out] zangle Angolo di rotazione
+    * @return  Codice di errore
+    */
+    int GetRobotInstallAngle(ref double yangle, ref double zangle); 
+
+Impostazione del valore della variabile di sistema
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Setting system variable values
-     * @param [in] id Variable number, range [1~20].
-     * @param [in] value Variable number, range [1~20].
-     * @return Error code.
-     */
-     int SetSysVarValue(int id, double value); 
- 
-Get the value of a system variable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione del valore della variabile di sistema
+    * @param  [in]  id  Numero della variabile, intervallo [1~20]
+    * @param  [in]  value Valore della variabile
+    * @return  Codice di errore
+    */
+    int SetSysVarValue(int id, double value); 
+
+Ottenere il valore della variabile di sistema
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Get the value of a system variable.
-     * @param [in] id System variable number, in the range [1~20].
-     * @param [out] value System variable value.
-     * @return Error code.
-     */
-     int GetSysVarValue(int id, ref double value); 
- 
-Sample code for common robot settings
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Ottenere il valore della variabile di sistema
+    * @param  [in] id Numero della variabile di sistema, intervallo [1~20]
+    * @param  [out] value  Valore della variabile di sistema
+    * @return  Codice di errore
+    */
+    int GetSysVarValue(int id, ref double value); 
+
+Esempio di codice per impostazioni comuni del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
+
     private void button21_Click(object sender, EventArgs e)
     {
         for (int i = 1; i < 100; i++)
@@ -599,175 +600,175 @@ Sample code for common robot settings
         robot.GetRobotInstallAngle(ref anglex, ref angley);
         Console.WriteLine($"GetRobotInstallAngle x:  {anglex};  y:  {angley}");
     }
- 
-Joint friction compensation switch
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Interruttore di compensazione dell'attrito dei giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /** 
-     * @brief Joint friction compensation switch. 
-     * @param [in] state 0-off, 1-on 
-     * @return Error code. 
-     */ 
-     int FrictionCompensationOnOff(byte state). 
- 
-Sets the joint friction compensation factor - proper
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /** 
+    * @brief Interruttore di compensazione dell'attrito dei giunti 
+    * @param [in] state 0-Off, 1-On 
+    * @return Codice di errore 
+    */ 
+    int FrictionCompensationOnOff(byte state); 
+
+Impostazione del coefficiente di compensazione dell'attrito dei giunti - Installazione normale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set the joint friction compensation coefficients-front-loading
-     * @param [in] coeff Six joint compensation coefficients, range [0~1].
-     * @return error code
-     */
-     int SetFrictionValue_level(double[] coeff).
- 
-Set joint friction compensation coefficients - side mount
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione del coefficiente di compensazione dell'attrito dei giunti - Installazione normale
+    * @param  [in]  coeff Sei coefficienti di compensazione dei giunti, intervallo [0~1]
+    * @return  Codice di errore
+    */
+    int SetFrictionValue_level(double[] coeff);
+
+Impostazione del coefficiente di compensazione dell'attrito dei giunti - Installazione laterale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set joint friction compensation coefficients-side-loading
-     * @param [in] coeff Six joint compensation coefficients, range [0~1].
-     * @return error code
-     */
-     int SetFrictionValue_wall(double[] coeff). 
- 
-Set joint friction compensation coefficients - inverted
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione del coefficiente di compensazione dell'attrito dei giunti - Installazione laterale
+    * @param  [in]  coeff Sei coefficienti di compensazione dei giunti, intervallo [0~1]
+    * @return  Codice di errore
+    */
+    int SetFrictionValue_wall(double[] coeff); 
+
+Impostazione del coefficiente di compensazione dell'attrito dei giunti - Installazione a soffitto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set joint friction compensation coefficients-flip-flop
-     * @param [in] coeff Six joint compensation coefficients, range [0~1].
-     * @return Error code
-     */
-     int SetFrictionValue_ceiling(double[] coeff).
- 
-Set joint friction compensation coefficients - free mounting
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Impostazione del coefficiente di compensazione dell'attrito dei giunti - Installazione a soffitto
+    * @param  [in]  coeff Sei coefficienti di compensazione dei giunti, intervallo [0~1]
+    * @return  Codice di errore
+    */
+    int SetFrictionValue_ceiling(double[] coeff);
+
+Imposta il coefficiente di compensazione dell'attrito dell'articolazione - Installazione libera
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Set joint friction compensation coefficients - free-mounting
-     * @param [in] coeff Six joint compensation coefficients, range [0 to 1].
-     * @return Error code.
-     */
-     int SetFrictionValue_freedom(double[] coeff);
-        
-Robot set joint friction compensation code example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Imposta il coefficiente di compensazione dell'attrito dell'articolazione - Installazione libera
+    * @param  [in]  coeff  Coefficienti di compensazione per le sei articolazioni, intervallo [0~1]
+    * @return  Codice di errore
+    */
+    int SetFrictionValue_freedom(double[] coeff);
+       
+Esempio di codice per l'impostazione della compensazione dell'attrito delle articolazioni del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     private void btnRobotSafetySet_Click(object sender, EventArgs e)
-     {
-         double[] lcoeff = { 0.9f, 0.9f, 0.9f, 0.9f, 0.9f, 0.9f };
-         double[] wcoeff = { 0.4f, 0.4f, 0.4f, 0.4f, 0.4f, 0.4f };
-         double[] ccoeff = { 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f }; 
-         double[] fcoeff = { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f }; 
- 
-         int rtn = robot.FrictionCompensationOnOff(1);
-         Console.WriteLine($"FrictionCompensationOnOff rtn is{rtn}");
- 
-         Console.WriteLine($"FrictionCompensationOnOff rtn is{rtn}");
-         Console.WriteLine($"SetFrictionValue_level rtn is {rtn}");
- 
-         Console.WriteLine($"SetFrictionValue_level rtn is {rtn}");
-         Console.WriteLine($"SetFrictionValue_wall rtn is {rtn}");
- 
-         rtn = robot.SetFrictionValue_ceiling(ccoeff);
-         Console.WriteLine($"SetFrictionValue_ceiling rtn is {rtn}");
- 
-         rtn = robot.SetFrictionValue_freedom(fcoeff);
-         Console.WriteLine($"SetFrictionValue_freedom rtn is {rtn}");
-     }
- 
-Querying the robot error code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    private void btnRobotSafetySet_Click(object sender, EventArgs e)
+    {
+        double[] lcoeff = { 0.9f, 0.9f, 0.9f, 0.9f, 0.9f, 0.9f };
+        double[] wcoeff = { 0.4f, 0.4f, 0.4f, 0.4f, 0.4f, 0.4f };
+        double[] ccoeff = { 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f };
+        double[] fcoeff = { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
+
+        int rtn = robot.FrictionCompensationOnOff(1);
+        Console.WriteLine($"FrictionCompensationOnOff rtn is{rtn}");
+
+        rtn = robot.SetFrictionValue_level(lcoeff);
+        Console.WriteLine($"SetFrictionValue_level rtn is {rtn}");
+
+        rtn = robot.SetFrictionValue_wall(wcoeff);
+        Console.WriteLine($"SetFrictionValue_wall rtn is{rtn}");
+
+        rtn = robot.SetFrictionValue_ceiling(ccoeff);
+        Console.WriteLine($"SetFrictionValue_ceiling rtn is {rtn}");
+
+        rtn = robot.SetFrictionValue_freedom(fcoeff);
+        Console.WriteLine($"SetFrictionValue_freedom rtn is {rtn}");
+    }
+
+Interroga il codice di errore del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /** 
-     * @brief Query robot error code 
-     * @param [out] maincode mainerrorcode
-     * @param [out] subcode suberrorcode
-     * @return errorcode 
-     */ 
-     int GetRobotErrorCode(ref int maincode, ref int subcode);
- 
-Error status clearing
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /** 
+    * @brief Interroga il codice di errore del robot
+    * @param [out] maincode   Codice di errore principale
+    * @param [out] subcode    Codice di errore secondario
+    * @return Codice di errore 
+    */ 
+    int GetRobotErrorCode(ref int maincode, ref int subcode);
+
+Cancellazione dello stato di errore
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Error state clearing
-     * @return Error code
-     */
-     int ResetAllError(); 
- 
-Example of getting robot fault status and clearing error code
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief  Cancellazione dello stato di errore
+    * @return  Codice di errore
+    */
+    int ResetAllError(); 
+
+Esempio di codice per l'acquisizione dello stato di guasto del robot e la cancellazione degli errori
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
- 
-     private void btnRobotSafetySet_Click(object sender, EventArgs e)
-     {
-         int maincode=0, subcode=0;
-         robot.GetRobotErrorCode(ref maincode, ref subcode);
-         Console.WriteLine($"robot maincode is{maincode}; subcode is {subcode}" ); 
- 
-         robot.ResetAllError();
- 
-         Thread.Sleep(1000);
- 
-         robot.GetRobotErrorCode(ref maincode, ref subcode);
-         Console.WriteLine($"robot maincode is{maincode}; subcode is{subcode}");
-     }
- 
-Setting the parameters for monitoring the temperature and fan speed of the wide voltage control box
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    private void btnRobotSafetySet_Click(object sender, EventArgs e)
+    {
+        int maincode=0, subcode=0;
+        robot.GetRobotErrorCode(ref maincode, ref subcode);
+        Console.WriteLine($"robot maincode is{maincode};  subcode is {subcode}" );
+
+        robot.ResetAllError();
+
+        Thread.Sleep(1000);
+
+        robot.GetRobotErrorCode(ref maincode, ref subcode);
+        Console.WriteLine($"robot maincode is{maincode};  subcode is{subcode}");
+    }
+
+Imposta i parametri di monitoraggio della temperatura e della velocità della ventola per il cabinet di controllo a tensione ampia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
     
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Setting the parameters for monitoring the temperature and fan speed of the wide voltage control box.
-     * @param [in] enable 0-does not enable monitoring; 1-enables monitoring
-     * @param [in] period Monitoring period (s), range 1-100.
-     * @return Error code
-     */ 
-     int SetWideBoxTempFanMonitorParam(int enable, int period);
- 
-Get the parameters for monitoring the temperature and fan speed of the wide-voltage control box.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief Imposta i parametri di monitoraggio della temperatura e della velocità della ventola per il cabinet di controllo a tensione ampia
+    * @param [in] enable 0-Disabilita monitoraggio; 1-Abilita monitoraggio
+    * @param [in] period Periodo di monitoraggio (s), intervallo 1-100
+    * @return Codice di errore
+    */
+    int SetWideBoxTempFanMonitorParam(int enable, int period);
+
+Ottieni i parametri di monitoraggio della temperatura e della velocità della ventola per il cabinet di controllo a tensione ampia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
     
 .. code-block:: c#
     :linenos:
- 
-     /**
-     * @brief Get the parameters for monitoring the temperature and fan speed of the wide voltage control box.
-     * @param [out] enable 0-not enable monitoring; 1-enable monitoring
-     * @param [out] period Monitoring period (s), range 1-100.
-     * @return Error code
-     */ 
-     int GetWideBoxTempFanMonitorParam(ref int enable, ref int period);
- 
-Code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    /**
+    * @brief Ottieni i parametri di monitoraggio della temperatura e della velocità della ventola per il cabinet di controllo a tensione ampia
+    * @param [out] enable 0-Disabilita monitoraggio; 1-Abilita monitoraggio
+    * @param [out] period Periodo di monitoraggio (s), intervallo 1-100
+    * @return Codice di errore
+    */
+    int GetWideBoxTempFanMonitorParam(ref int enable, ref int period);
+
+Esempio di codice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
     
 .. code-block:: c#
     :linenos:
- 
+
     private void button46_Click(object sender, EventArgs e)
     {
         var pkg = new ROBOT_STATE_PKG(); 
@@ -796,68 +797,68 @@ Code example
         }
     }
 
-Set the focus calibration point
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta il punto di calibrazione del fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the focus calibration point
-    * @param [in] pointNum Calibration point number of the focus 1-8
-    * @param [in] point Coordinates of the calibration point
-    * @return Error code 
+    * @brief Imposta il punto di calibrazione del fuoco
+    * @param [in] pointNum Numero del punto di calibrazione del fuoco 1-8
+    * @param [in] point Coordinate del punto di calibrazione
+    * @return Codice di errore
     */
     int SetFocusCalibPoint(int pointNum, DescPose point);
 
-Set the focus coordinates
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta le coordinate del fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the focus coordinates
-    * @param [in] pos Focus coordinates XYZ
-    * @return Error code 
+    * @brief Imposta le coordinate del fuoco
+    * @param [in] pos Coordinate XYZ del fuoco
+    * @return Codice di errore
     */
     int SetFocusPosition(DescTran pos);
 
-Enable focus following
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvia il follow del fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Enable focus following
-    * @param [in] kp Proportional parameter, default 50.0
-    * @param [in] kpredict Feedforward parameter, default 19.0
-    * @param [in] aMax Maximum angular acceleration limit, default 1440°/s^2
-    * @param [in] vMax Maximum angular velocity limit, default 180°/s
-    * @param [in] type Lock X-axis direction (0 - reference input vector; 1 - horizontal; 2 - vertical)
-    * @return Error code 
+    * @brief Avvia il follow del fuoco
+    * @param [in] kp Parametro proporzionale, default 50.0
+    * @param [in] kpredict Parametro feedforward, default 19.0
+    * @param [in] aMax Limite massimo accelerazione angolare, default 1440°/s^2
+    * @param [in] vMax Limite massimo velocità angolare, default 180°/s
+    * @param [in] tipo Blocca puntamento asse X (0-Vettore di riferimento in ingresso; 1-Orizzontale; 2-Verticale)
+    * @return Codice di errore
     */
     int FocusStart(double kp, double kpredict, double aMax, double vMax, int type);
 
-Stop focus following
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Interrompi il follow del fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Stop focus following
-    * @return Error code 
+    * @brief Interrompi il follow del fuoco
+    * @return Codice di errore
     */
     int FocusEnd();
 
-Focus Follow Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per il follow del fuoco
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.5  Web-3.8.4
     
 .. code-block:: c#
@@ -918,94 +919,94 @@ Focus Follow Code Example
         robot.FocusEnd();
     }
 
-Enable joint torque sensor sensitivity calibration function
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Abilita la funzione di calibrazione della sensibilità del sensore di coppia dell'articolazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Enable joint torque sensor sensitivity calibration function
-    * @param [in] status 0-Disable；1-Enable
-    * @return Error code
+    * @brief Abilita la funzione di calibrazione della sensibilità del sensore di coppia dell'articolazione
+    * @param [in] status 0-Disabilita; 1-Abilita
+    * @return  Codice di errore
     */
     public int JointSensitivityEnable(int status);
 
-Sensitivity data acquisition of joint torque sensors
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Acquisizione dati di sensibilità del sensore di coppia dell'articolazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Sensitivity data acquisition of joint torque sensors
-    * @return Error code
+    * @brief Acquisizione dati di sensibilità del sensore di coppia dell'articolazione
+    * @return Codice di errore
     */
     public int JointSensitivityCollect();
 
-Get the sensitivity calibration results of the joint torque sensor
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni il risultato della calibrazione della sensibilità del sensore di coppia dell'articolazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get joint torque sensor sensitivity calibration results
-    * @param [out] calibResult j1~j6 joint sensitivity [0-1]
-    * @param [out] linearity j1~j6 joint linearity [0-1]
-    * @return Error code
+    * @brief Ottieni il risultato della calibrazione della sensibilità del sensore di coppia dell'articolazione
+    * @param [out] calibResult Sensibilità dell'articolazione j1~j6 [0-1]
+    * @param [out] linearity Linearità dell'articolazione j1~j6 [0-1]
+    * @return Codice di errore
     */
     public int JointSensitivityCalibration(double calibResult[6], double linearity[6]);
 
-Get Joint Torque Sensor Hysteresis Error
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni l'errore di isteresi del sensore di coppia dell'articolazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get joint torque sensor hysteresis error
-    * @param [out] hysteresisError j1~j6 joint hysteresis error
-    * @return Error code
+    * @brief Ottieni l'errore di isteresi del sensore di coppia dell'articolazione
+    * @param [out] hysteresisError Errore di isteresi dell'articolazione j1~j6
+    * @return Codice di errore
     */
     public int JointHysteresisError(ref double[] hysteresisError);
     
-Get Joint Torque Sensor Repeatability
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni la ripetibilità del sensore di coppia dell'articolazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c#
     :linenos:
     
     /**
-    * @brief Get joint torque sensor repeatability
-    * @param [out] repeatability j1~j6 joint torque sensor repeatability
-    * @return Error code
+    * @brief Ottieni la ripetibilità del sensore di coppia dell'articolazione
+    * @param [out] repeatability Ripetibilità del sensore di coppia dell'articolazione j1~j6
+    * @return Codice di errore
     */
     public int JointRepeatability(ref double[] repeatability);
     
-Set Joint Force Sensor Parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta i parametri del sensore di forza dell'articolazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set joint force sensor parameters
-    * @param [in] M J1-J6 mass coefficient [0.001 ~ 10]
-    * @param [in] B J1-J6 damping coefficient [0.001 ~ 10]
-    * @param [in] K J1-J6 stiffness coefficient [0.001 ~ 10]
-    * @param [in] threshold Force control threshold, Nm
-    * @param [in] sensitivity Sensitivity, Nm/V, [0 ~ 10]
-    * @param [in] setZeroFlag Function enable flag; 0-Off; 1-On; 2-Record zero point at position 1; 3-Record zero point at position 2
-    * @return Error code
+    * @brief Imposta i parametri del sensore di forza dell'articolazione
+    * @param [in] M Coefficiente massa J1-J6 [0.001 ~ 10]
+    * @param [in] B Coefficiente smorzamento J1-J6 [0.001 ~ 10]
+    * @param [in] K Coefficiente rigidità J1-J6 [0.001 ~ 10]
+    * @param [in] threshold Soglia controllo forza, Nm
+    * @param [in] sensitivity Sensibilità, Nm/V, [0 ~ 10]
+    * @param [in] setZeroFlag Flag abilitazione funzione; 0-Disabilita; 1-Abilita; 2-Registra zero posizione 1; 3-Registra zero posizione 2
+    * @return Codice di errore
     */
     public int SetAdmittanceParams(double[] M, double[] B, double[] K, double[] threshold, double[] sensitivity, int setZeroFlag);
 
-Joint torque sensor sensitivity automatic calibration Code Example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per la calibrazione automatica della sensibilità del sensore di coppia dell'articolazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
@@ -1078,44 +1079,44 @@ Joint torque sensor sensitivity automatic calibration Code Example
         robot.CloseRPC();
         return 0;
     }
- 
-Get the number of 8 slave port error frames of the robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ottieni il numero di frame errati per le 8 porte slave del robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the number of 8 slave port error frames of the robot
-    * @param [out] inRecvErr Input receiving error frames
-    * @param [out] inCRCErr Input CRC error frames
-    * @param [out] inTransmitErr Input transmit error frames
-    * @param [out] inLinkErr Input link error frames
-    * @param [out] outRecvErr Output receiving error frames
-    * @param [out] outCRCErr Output CRC error frames
-    * @param [out] outTransmitErr Output transmit error frames
-    * @param [out] outLinkErr Output link error frames
-    * @return Error code
+    * @brief Ottieni il numero di frame errati per le 8 porte slave del robot
+    * @param [out] inRecvErr Numero frame di errore di ricezione in ingresso
+    * @param [out] inCRCErr Numero frame di errore CRC in ingresso
+    * @param [out] inTransmitErr Numero frame di errore di trasmissione in ingresso
+    * @param [out] inLinkErr Numero frame di errore di collegamento in ingresso
+    * @param [out] outRecvErr Numero frame di errore di ricezione in uscita
+    * @param [out] outCRCErr Numero frame di errore CRC in uscita
+    * @param [out] outTransmitErr Numero frame di errore di trasmissione in uscita
+    * @param [out] outLinkErr Numero frame di errore di collegamento in uscita
+    * @return Codice di errore
     */
     public int GetSlavePortErrCounter(ref int[] inRecvErr,ref int[] inCRCErr,ref int[] inTransmitErr,ref int[] inLinkErr,ref int[] outRecvErr,ref int[] outCRCErr,ref int[] outTransmitErr,ref int[] outLinkErr);
 
-Clear the slave port error num
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Azzera il conteggio dei frame errati della porta slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Clear the slave port error num
-    * @param [in] slaveID slave id 0~7
-    * @return Error code
+    * @brief Azzera il conteggio dei frame errati della porta slave
+    * @param [in] slaveID Numero slave 0~7
+    * @return Codice di errore
     */
     public int SlavePortErrCounterClear(int slaveID);
 
-Gets the slave port error frame code example
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per ottenere i frame errati della porta slave
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
@@ -1187,36 +1188,36 @@ Gets the slave port error frame code example
         robot.CloseRPC();
     }
 
-Set the feedforward coefficients of the velocities of each axis
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta il coefficiente di feedforward della velocità per ciascun asse
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Set the feedforward coefficients of the velocities of each axis
-    * @param [in] radio feedforward coefficients of the velocities of each axis
-    * @return Error code
+    * @brief Imposta il coefficiente di feedforward della velocità per ciascun asse
+    * @param [in] radio Coefficiente di feedforward della velocità per ciascun asse
+    * @return Codice di errore
     */
     public int SetVelFeedForwardRatio(double radio[6]);
 
-Get the feedforward coefficients of the velocities of each axis
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottieni il coefficiente di feedforward della velocità per ciascun asse
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Get the feedforward coefficients of the velocities of each axis
-    * @param [out] radio feedforward coefficients of the velocities of each axis
-    * @return Error code
+    * @brief Ottieni il coefficiente di feedforward della velocità per ciascun asse
+    * @param [out] radio Coefficiente di feedforward della velocità per ciascun asse
+    * @return Codice di errore
     */
     public int GetVelFeedForwardRatio(ref double radio[6]);
 
-Robot velocity feedforward coefficient code example
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio di codice per ottenere il coefficiente di feedforward della velocità
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
@@ -1231,9 +1232,3 @@ Robot velocity feedforward coefficient code example
         robot.GetVelFeedForwardRatio(ref getRadio);
         Console.WriteLine($" {getRadio[0]:F6} {getRadio[1]:F6} {getRadio[2]:F6} {getRadio[3]:F6} {getRadio[4]:F6} {getRadio[5]:F6}");
     }
- 
- 
- 
-
-
-

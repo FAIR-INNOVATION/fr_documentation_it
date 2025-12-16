@@ -1,4 +1,4 @@
-Version Update Description
+Note Aggiornamento Versione
 ======================================
 
 .. toctree:: 
@@ -9,155 +9,155 @@ Version Update Description
    :header-rows: 0
    :align: center
 
-   * - **Version**
-     - **Date**
-     - **Update Description**
+   * - **Numero Versione**
+     - **Data**
+     - **Descrizione Aggiornamento**
 
    * - V3.9.0
      - 2025-11-26
-     - | 1. JointSensitivityCalibration() interface adds j1~j6 joint linearity return
-       | 2. Added JointHysteresisError() interface
-       | 3. Added JointRepeatability() interface
-       | 4. Added SetAdmittanceParams() interface
-       | 5. Added MoveToIntersectLineStart() interface
-       | 6. Added MoveIntersectLine() interface
+     - | 1.Interfaccia JointSensitivityCalibration() aggiunge ritorno linearità giunti j1~j6
+       | 2.Aggiunta interfaccia JointHysteresisError()
+       | 3.Aggiunta interfaccia JointRepeatability()
+       | 4.Aggiunta interfaccia SetAdmittanceParams()
+       | 5.Aggiunta interfaccia MoveToIntersectLineStart()
+       | 6.Aggiunta interfaccia MoveIntersectLine()
 
    * - V3.8.7
      - 2025-10-21
-     - | 1.NewSpiral() interface adds velAccMode parameter
-       | 2.FT_Control() adds mass parameter and damping parameter interface
-       | 3.Adds JointSensitivityCalibration() interface
-       | 4.Adds JointSensitivityCollect() interface
-       | 5.Adds MotionQueueClear() interface
-       | 6.Adds GetSlavePortErrCounter() interface
-       | 7.Adds SlavePortErrCounterClear() interface
-       | 8.Adds SetVelFeedForwardRatio() interface
-       | 9.Adds GetVelFeedForwardRatio() interface
-       | 10.Adds RobotMCULogCollect() interface
-       | 11.State structure adds last ServoJ target position in queue, ServoJ command count
+     - | 1.Interfaccia NewSpiral() aggiunge parametro velAccMode
+       | 2.FT_Control() aggiunge interfacce parametri massa e smorzamento
+       | 3.Aggiunta interfaccia JointSensitivityCalibration()
+       | 4.Aggiunta interfaccia JointSensitivityCollect()
+       | 5.Aggiunta interfaccia MotionQueueClear()
+       | 6.Aggiunta interfaccia GetSlavePortErrCounter()
+       | 7.Aggiunta interfaccia SlavePortErrCounterClear()
+       | 8.Aggiunta interfaccia SetVelFeedForwardRatio()
+       | 9.Aggiunta interfaccia GetVelFeedForwardRatio()
+       | 10.Aggiunta interfaccia RobotMCULogCollect()
+       | 11.Struttura stato aggiunge ultima posizione obiettivo ServoJ in coda, conteggio comandi ServoJ
 
    * - V3.8.6
      - 2025-09-19
-     - | 1.SetLoadCoord() interface adds load number parameter
-       | 2.Adds LaserTrackingLaserOnOff() interface
-       | 3.Adds LaserTrackingTrackOnOff() interface
-       | 4.Adds LaserTrackingSearchStart_xyz() interface
-       | 5.Adds LaserTrackingSearchStart_point() interface
-       | 6.Adds LaserTrackingSearchStop() interface
-       | 7.Adds LaserTrackingSensorConfig() interface
-       | 8.Adds LaserTrackingSensorSamplePeriod() interface
-       | 9.Adds LoadPosSensorDriver() interface
-       | 10.Adds UnLoadPosSensorDriver() interface
-       | 11.Adds LaserSensorRecord1() interface
-       | 12.Adds LaserSensorReplay() interface
-       | 13.Adds MoveLTR() interface
-       | 14.Adds LaserSensorRecordandReplay() interface
-       | 15.Adds MoveToLaserRecordStart() interface
-       | 16.Adds MoveToLaserRecordEnd() interface
-       | 17.Adds MoveToLaserSeamPos() interface
-       | 18.Adds GetLaserSeamPos() interface
-       | 19.Adds ImpedanceControlStartStop() interface
-       | 20.Adds GetToolCoordWithID() interface
-       | 21.Adds GetWObjCoordWithID() interface
-       | 22.Adds GetExToolCoordWithID() interface
-       | 23.Adds GetExAxisCoordWithID() interface
-       | 24.Adds GetTargetPayloadWithID() interface
-       | 25.Adds GetExAxisCoordWithID() interface
-       | 26.Adds GetCurWObjCoord() interface
-       | 27.Adds GetCurExToolCoord() interface
-       | 28.Adds GetCurExToolCoord() interface
-       | 29.Adds KernelUpgrade() interface
-       | 30.Adds GetKernelUpgradeResult() interface
-       | 31.Adds CustomWeaveSetPara() interface
-       | 32.Adds CustomWeaveGetPara() interface
-       | 33.State structure adds tool, workpiece, external tool, extended axis coordinate system and load mass, centroid data
+     - | 1.Interfaccia SetLoadCoord() aggiunge parametro numero carico
+       | 2.Aggiunta interfaccia LaserTrackingLaserOnOff()
+       | 3.Aggiunta interfaccia LaserTrackingTrackOnOff()
+       | 4.Aggiunta interfaccia LaserTrackingSearchStart_xyz()
+       | 5.Aggiunta interfaccia LaserTrackingSearchStart_point()
+       | 6.Aggiunta interfaccia LaserTrackingSearchStop()
+       | 7.Aggiunta interfaccia LaserTrackingSensorConfig()
+       | 8.Aggiunta interfaccia LaserTrackingSensorSamplePeriod()
+       | 9.Aggiunta interfaccia LoadPosSensorDriver()
+       | 10.Aggiunta interfaccia UnLoadPosSensorDriver()
+       | 11.Aggiunta interfaccia LaserSensorRecord1()
+       | 12.Aggiunta interfaccia LaserSensorReplay()
+       | 13.Aggiunta interfaccia MoveLTR()
+       | 14.Aggiunta interfaccia LaserSensorRecordandReplay()
+       | 15.Aggiunta interfaccia MoveToLaserRecordStart()
+       | 16.Aggiunta interfaccia MoveToLaserRecordEnd()
+       | 17.Aggiunta interfaccia MoveToLaserSeamPos()
+       | 18.Aggiunta interfaccia GetLaserSeamPos()
+       | 19.Aggiunta interfaccia ImpedanceControlStartStop()
+       | 20.Aggiunta interfaccia GetToolCoordWithID()
+       | 21.Aggiunta interfaccia GetWObjCoordWithID()
+       | 22.Aggiunta interfaccia GetExToolCoordWithID()
+       | 23.Aggiunta interfaccia GetExAxisCoordWithID()
+       | 24.Aggiunta interfaccia GetTargetPayloadWithID()
+       | 25.Aggiunta interfaccia GetExAxisCoordWithID()
+       | 26.Aggiunta interfaccia GetCurWObjCoord()
+       | 27.Aggiunta interfaccia GetCurExToolCoord()
+       | 28.Aggiunta interfaccia GetCurExToolCoord()
+       | 29.Aggiunta interfaccia KernelUpgrade()
+       | 30.Aggiunta interfaccia GetKernelUpgradeResult()
+       | 31.Aggiunta interfaccia CustomWeaveSetPara()
+       | 32.Aggiunta interfaccia CustomWeaveGetPara()
+       | 33.Struttura stato aggiunge dati sistema coordinate utensile, pezzo, utensile esterno, asse estensione e dati massa, centro di massa carico
 
    * - V3.8.5
      - 2025-08-20
-     - | 1.MoveL() interface adds inverse kinematics config parameter, velAccParamMode parameter
-       | 2.MoveC() interface adds inverse kinematics config parameter, velAccParamMode parameter
-       | 3.Circle() interface adds inverse kinematics config parameter, velAccParamMode parameter
-       | 4.NewSpiral() interface adds inverse kinematics config parameter
-       | 5.NewSplinePoint() interface adds inverse kinematics config parameter
-       | 6.ExtAxisSyncMoveJ() interface adds inverse kinematics config parameter
-       | 7.ExtAxisSyncMoveL() interface adds inverse kinematics config parameter
-       | 8.ExtAxisSyncMoveC() interface adds inverse kinematics config parameter
-       | 9.Adds LaserRecordPoint(coordID) interface
-       | 10.Adds SetExAxisRobotPlan(strategy) interface
-       | 11.Adds OpenLuaUpload(filePath) interface
-       | 12.Adds GetFieldBusConfig() interface
-       | 13.Adds FieldBusSlaveWriteDO(DOIndex,wirteNum,status) interface
-       | 14.Adds FieldBusSlaveWriteAO(AOIndex,wirteNum,status) interface
-       | 15.Adds FieldBusSlaveReadDI(DOIndex,readeNum) interface
-       | 16.Adds FieldBusSlaveReadAI(AOIndex,readeNum) interface
-       | 17.Adds FieldBusSlaveWaitDI(DIIndex,status,waitMs) interface
-       | 18.Adds FieldBusSlaveWaitAI(AIIndex,waitType,value,waitMs) interface
-       | 19.Adds SetSuckerCtrl(slaveID,len,ctrlValue) interface
-       | 20.Adds GetSuckerState(slaveID) interface
-       | 21.Adds WaitSuckerState(slaveID,state,ms) interface
+     - | 1.Interfaccia MoveL() aggiunge parametro cinematica inversa config, parametro velAccParamMode
+       | 2.Interfaccia MoveC() aggiunge parametro cinematica inversa config, parametro velAccParamMode
+       | 3.Interfaccia Circle() aggiunge parametro cinematica inversa config, parametro velAccParamMode
+       | 4.Interfaccia NewSpiral() aggiunge parametro cinematica inversa config
+       | 5.Interfaccia NewSplinePoint() aggiunge parametro cinematica inversa config
+       | 6.Interfaccia ExtAxisSyncMoveJ() aggiunge parametro cinematica inversa config
+       | 7.Interfaccia ExtAxisSyncMoveL() aggiunge parametro cinematica inversa config
+       | 8.Interfaccia ExtAxisSyncMoveC() aggiunge parametro cinematica inversa config
+       | 9.Nuova interfaccia LaserRecordPoint(coordID)
+       | 10.Nuova interfaccia SetExAxisRobotPlan(strategy)
+       | 11.Nuova interfaccia OpenLuaUpload(filePath)
+       | 12.Nuova interfaccia GetFieldBusConfig()
+       | 13.Nuova interfaccia FieldBusSlaveWriteDO(DOIndex,wirteNum,status)
+       | 14.Nuova interfaccia FieldBusSlaveWriteAO(AOIndex,wirteNum,status)
+       | 15.Nuova interfaccia FieldBusSlaveReadDI(DOIndex,readeNum)
+       | 16.Nuova interfaccia FieldBusSlaveReadAI(AOIndex,readeNum)
+       | 17.Nuova interfaccia FieldBusSlaveWaitDI(DIIndex,status,waitMs)
+       | 18.Nuova interfaccia FieldBusSlaveWaitAI(AIIndex,waitType,value,waitMs)
+       | 19.Nuova interfaccia SetSuckerCtrl(slaveID,len,ctrlValue)
+       | 20.Nuova interfaccia GetSuckerState(slaveID)
+       | 21.Nuova interfaccia WaitSuckerState(slaveID,state,ms)
 
    * - V3.8.4
      - 2025-07-17
-     - | 1.ExtAxisMove() interface adds blend smoothing parameter
-       | 2.Adds SetFocusCalibPoint(pointNum,point) interface
-       | 3.Adds ComputeFocusCalib(pointNum) interface
-       | 4.Adds FocusStart(kp,kpredic,aMax,vMax,type) interface
-       | 5.Adds FocusEnd() interface
-       | 6.Adds SetFocusPosition(pos) interface
-       | 7.Adds SetEncoderUpgrade(path) interface
-       | 8.Adds SetJointFirmwareUpgrade(type,path) interface
-       | 9.Adds SetCtrlFirmwareUpgrade(type,path) interface
-       | 10.Adds SetEndFirmwareUpgrade(type,path) interface
-       | 11.Adds JointAllParamUpgrade(path) interface
+     - | 1.Interfaccia ExtAxisMove() aggiunge parametro smooth blend
+       | 2.Aggiunta interfaccia SetFocusCalibPoint(pointNum,point)
+       | 3.Aggiunta interfaccia ComputeFocusCalib(pointNum)
+       | 4.Aggiunta interfaccia FocusStart(kp,kpredic,aMax,vMax,type)
+       | 5.Aggiunta interfaccia FocusEnd()
+       | 6.Aggiunta interfaccia SetFocusPosition(pos)
+       | 7.Aggiunta interfaccia SetEncoderUpgrade(path)
+       | 8.Aggiunta interfaccia SetJointFirmwareUpgrade(type,path)
+       | 9.Aggiunta interfaccia SetCtrlFirmwareUpgrade(type,path)
+       | 10.Aggiunta interfaccia SetEndFirmwareUpgrade(type,path)
+       | 11.Aggiunta interfaccia JointAllParamUpgrade(path)
        
    * - V3.8.3
      - 2025-06-24
-     - | 1.Circle() interface adds acceleration percentage and smoothing radius parameters
-       | 2.EndForceDragControl() interface adds robot collision detection flag parameter during assisted dragging
-       | 3.ServoJ() interface adds command ID parameter
-       | 4.Adds SetSSHScpCmd() interface
-       | 5.Adds SetWideBoxTempFanMonitorParam() interface
-       | 6.Adds GetWideBoxTempFanMonitorParam() interface
-       | 7.State structure adds control box temperature and fan current status data
+     - | 1.Interfaccia Circle() aggiunge parametri percentuale accelerazione e raggio smooth
+       | 2.Interfaccia EndForceDragControl() aggiunge parametro flag rilevamento collisione robot durante trascinamento assistito
+       | 3.Interfaccia ServoJ() aggiunge parametro ID comando
+       | 4.Aggiunta interfaccia SetSSHScpCmd()
+       | 5.Aggiunta interfaccia SetWideBoxTempFanMonitorParam()
+       | 6.Aggiunta interfaccia GetWideBoxTempFanMonitorParam()
+       | 7.Struttura stato aggiunge dati stato temperatura pannello controllo e corrente ventilatore
               
    * - V3.8.2
      - 2025-06-13
-     - | 1.WeaveSetPara() interface adds swing direction roll angle (rotation around swing X-axis) parameter
-       | 2.WeaveChangeStart() interface adds swing number, welding start speed, welding end speed parameters
-       | 3.ExtDevSetUDPComParam() interface adds whether to automatically establish connection after power restart parameter
-       | 4.SetCollisionDetectionMethod() interface adds collision level threshold method selection
-       | 5.PtpFIRPlanningStart() interface adds unified joint jerk extreme value
-       | 6.Adds WeldingSetVoltageGradualChangeStart() interface
-       | 7.Adds WeldingSetVoltageGradualChangeEnd() interface
-       | 8.Adds WeldingSetCurrentGradualChangeStart() interface
-       | 9.Adds WeldingSetCurrentGradualChangeEnd() interface
-       | 10.Adds ArcWeldTraceAIChannelCurrent() interface
-       | 11.Adds ArcWeldTraceAIChannelVoltage() interface
-       | 12.Adds ArcWeldTraceCurrentPara() interface
-       | 13.Adds ArcWeldTraceVoltagePara() interface
-       | 14.Adds GetSmarttoolBtnState() interface
-       | 15.Adds ExtAxisGetCoord() interface
+     - | 1.Interfaccia WeaveSetPara() aggiunge parametro angolo rollio direzione oscillazione (rotazione attorno asse X oscillazione)
+       | 2.Interfaccia WeaveChangeStart() aggiunge parametri numero oscillazione, velocità inizio saldatura, velocità fine saldatura
+       | 3.Interfaccia ExtDevSetUDPComParam() aggiunge parametro connessione automatica dopo riavvio alimentazione
+       | 4.SetCollisionDetectionMethod() aggiunge selezione metodo soglia livello collisione
+       | 5.PtpFIRPlanningStart() aggiunge valore estremo jerk giunto unificato
+       | 6.Aggiunta interfaccia WeldingSetVoltageGradualChangeStart()
+       | 7.Aggiunta interfaccia WeldingSetVoltageGradualChangeEnd()
+       | 8.Aggiunta interfaccia WeldingSetCurrentGradualChangeStart()
+       | 9.Aggiunta interfaccia WeldingSetCurrentGradualChangeEnd()
+       | 10.Aggiunta interfaccia ArcWeldTraceAIChannelCurrent()
+       | 11.Aggiunta interfaccia ArcWeldTraceAIChannelVoltage()
+       | 12.Aggiunta interfaccia ArcWeldTraceCurrentPara()
+       | 13.Aggiunta interfaccia ArcWeldTraceVoltagePara()
+       | 14.Aggiunta interfaccia GetSmarttoolBtnState()
+       | 15.Aggiunta interfaccia ExtAxisGetCoord()
                      
    * - V3.8.1
      - 2025-04-24
-     - | 1.ConveyorSetParam() interface adds tracking motion type, tracking start distance, tracking end distance parameters
-       | 2.Adds AccSmoothStart() interface
-       | 3.Adds AccSmoothEnd() interface
-       | 4.Adds RbLogDownload() interface
-       | 5.Adds AllDataSourceDownload() interface
-       | 6.Adds DataPackageDownload() interface
-       | 7.Adds GetRobotSN() interface
-       | 8.Adds ShutDownRobotOS() interface
-       | 9.Adds ConveyorComDetect() interface
-       | 10.Adds ConveyorComDetectTrigger() interface
+     - | 1.Interfaccia ConveyorSetParam() aggiunge parametri tipo movimento tracciamento, distanza inizio tracciamento, distanza fine tracciamento
+       | 2.Aggiunta interfaccia AccSmoothStart()
+       | 3.Aggiunta interfaccia AccSmoothEnd()
+       | 4.Aggiunta interfaccia RbLogDownload()
+       | 5.Aggiunta interfaccia AllDataSourceDownload()
+       | 6.Aggiunta interfaccia DataPackageDownload()
+       | 7.Aggiunta interfaccia GetRobotSN()
+       | 8.Aggiunta interfaccia ShutDownRobotOS()
+       | 9.Aggiunta interfaccia ConveyorComDetect()
+       | 10.Aggiunta interfaccia ConveyorComDetectTrigger()
                      
    * - V3.8.0
      - 2025-02-12
-     - | 1.EndForceDragControl() interface adds singularity avoidance parameter
-       | 2.ArcWeldTraceControl() interface adds offset parameter
-       | 3.Adds WeaveChangeStart() interface
-       | 4.Adds WeaveChangeEnd() interface
-       | 5.Adds LoadTrajectoryLA() interface
-       | 6.Adds MoveTrajectoryLA() interface
-       | 7.Adds CustomCollisionDetectionStart() interface
-       | 8.Adds CustomCollisionDetectionEnd() interface
+     - | 1.Interfaccia EndForceDragControl() aggiunge parametro evitamento punti singolari
+       | 2.Interfaccia ArcWeldTraceControl() aggiunge parametro offset
+       | 3.Aggiunta interfaccia WeaveChangeStart()
+       | 4.Aggiunta interfaccia WeaveChangeEnd()
+       | 5.Aggiunta interfaccia LoadTrajectoryLA()
+       | 6.Aggiunta interfaccia MoveTrajectoryLA()
+       | 7.Aggiunta interfaccia CustomCollisionDetectionStart()
+       | 8.Aggiunta interfaccia CustomCollisionDetectionEnd()

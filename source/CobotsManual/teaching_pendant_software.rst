@@ -1,71 +1,75 @@
-Teaching pendant software
-=====================================
+Funzionalità di base del software del teach pendant
+==============================================================
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 6
 
-Basic information
--------------------
 
-Introduction
-~~~~~~~~~~~~~~
+Informazioni fondamentali
+-------------------------
 
-The teaching pendant software is the supporting software developed for the robot and runs on the teaching pendant operating system. Its main functions and technical characteristics are as follows:
+Introduzione al sistema
+~~~~~~~~~~~~~~~~~~~~~~~
 
--  Ability to write teaching programs for robots;
--  It can display the coordinates of the robot's position in real time, simulate the physical robot in three dimensions, and control the movement of the robot;
--  It can realize single-axis inching and linkage operation of each axis of the robot;
--  Able to view control IO status;
--  Users can modify passwords, view system information, etc.
+Il software del teach pendant è un'applicazione dedicata allo sviluppo e al controllo dei robot, eseguita sull'ambiente operativo integrato nel teach pendant. Le sue principali funzioni e caratteristiche tecniche sono le seguenti:
 
-Robot's first activation 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Consente la stesura di programmi di insegnamento (teaching) per il robot;  
+- Visualizza in tempo reale le coordinate di posizione del robot, simula tridimensionalmente il robot fisico e ne permette il controllo diretto;  
+- Supporta il movimento manuale monogiro (jogging) su singolo asse nonché il movimento coordinato simultaneo di più assi;  
+- Permette la consultazione dello stato degli I/O di controllo;  
+- Gli utenti possono modificare la propria password e visualizzare le informazioni di sistema.
 
-1. Power on the control box and connect the Ethernet cable to the PC.
 
-2. Open a web browser on the PC and visit the target website 192.168.58.2; the robot will enter the activation page upon first power-up.
+Attivazione iniziale del robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Accendere il cabinet di controllo e collegare un cavo Ethernet tra il cabinet e un PC.  
+
+2. Aprire un browser sul PC e accedere all’indirizzo web ``http://192.168.58.2``. Al primo avvio del robot, verrà automaticamente visualizzata la pagina di attivazione.
 
 .. figure:: teaching_pendant_software/058.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 5.1-1 Activation Interface
+.. centered:: Figura 5.1‑1 Interfaccia di attivazione
 
-3. Enter the correct SN code of the device box and click the "Activate" button after input is complete.
-   
-4. The system will verify your SN code. If the input is correct, the activation process will be completed automatically.
+3. Inserire correttamente il codice seriale (SN) del cabinet di controllo e cliccare sul pulsante **Attiva**.  
+
+4. Il sistema convaliderà il codice SN inserito. Se corretto, l’attivazione verrà completata automaticamente.
 
 .. figure:: teaching_pendant_software/059.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 5.1-2 Activation Success Interface
+.. centered:: Figura 5.1‑2 Interfaccia di attivazione completata con successo
 
-5. After successful activation, please manually restart the control box.
-   
-6. After restarting, visit the target website 192.168.58.2 again to enter the login page.
+5. Al termine dell’attivazione, riavviare manualmente il cabinet di controllo.  
 
-Start software
-~~~~~~~~~~~~~~~~
+6. Dopo il riavvio, accedere nuovamente a ``http://192.168.58.2``: verrà visualizzata la pagina di accesso (login).
 
-1. Power on the control box;
-2. The teach pendant opens a browser to access the target website 192.168.58.2;
-3. Enter the user name and password and click Login to log in to the system.
 
-User login and permission update
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Avvio del software
+~~~~~~~~~~~~~~~~~~
 
-.. centered:: Table 5.1-1 Initial user
+1. Alimentare il cabinet di controllo;  
+2. Sul teach pendant, aprire un browser e accedere all’indirizzo ``http://192.168.58.2``;  
+3. Inserire nome utente e password, quindi cliccare su **Accedi** per entrare nel sistema.
+
+
+Accesso utente e aggiornamento dei permessi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. centered:: Tabella 5.1-1 Utenti predefiniti
 
 .. list-table::
    :widths: 70 70 70 70
    :header-rows: 0
    :align: center
 
-   * - **Job number**
-     - **Initial username**
+   * - **Codice operatore**
+     - **Nome utente predefinito**
      - **Password**
-     - **Function code**
+     - **Codice ruolo**
 
    * - 111
      - admin
@@ -97,137 +101,148 @@ User login and permission update
      - 666
      - 6
 
-Users (refer to 15.2.1 User Management for user management) are divided into six levels by default, administrators have no function restrictions, operators and monitors can use a small number of functions, ME engineers, PE&PQE engineers and technicians & team leaders have some function restrictions, management There are no functional restrictions for administrators. For specific default function code permissions, refer to 15.2.2 Authority management. 
 
-The login interface is shown in figure below.
+Gli utenti (vedi sezione 15.2.1 *Gestione utenti*) sono suddivisi per impostazione predefinita in sei livelli gerarchici:  
+- L’amministratore (**admin**) ha accesso illimitato a tutte le funzionalità;  
+- L’operatore (**operator**) e il supervisore (**monitor**) hanno accesso limitato a una parte ristretta delle funzioni;  
+- L’ingegnere ME (**MEenginer**), l’ingegnere PE/PQE (**PEenginer**) e il tecnico/capo turno (**programmer**) godono di un livello intermedio di autorizzazioni, con alcune funzioni limitate.  
+
+Per i dettagli completi sui permessi associati ai codici ruolo, fare riferimento alla sezione 15.2.2 *Gestione permessi*.
+
+L’interfaccia di login è illustrata nella figura seguente:
 
 .. figure:: teaching_pendant_software/001.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 5.1-3 Login Interface
+.. centered:: Figura 5.1‑3 Interfaccia di login
 
-Multilingual settings function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The system currently comes with eight languages: Chinese (汉语), Chinese (汉语繁體), English (English), French (français), Japanese (日本語) , Russian (Русский) and Italian (italiano).
+Impostazione multilingua
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The language pack name must be: [Language code].json, for example: es.json, the language code is the ISO 639-1 standard.
+- Il sistema supporta nativamente otto lingue: cinese semplificato, cinese tradizionale, inglese (*English*), francese (*français*), coreano (*한국어*), giapponese (*日本語*), russo (*Русский*) e italiano (*italiano*).  
 
-- The following is a language comparison table.
-  
-.. list-table:: 
-   :widths: 20 40 40 30
-   :header-rows: 1
+- Ogni pacchetto linguistico deve essere denominato secondo il formato ``[codice_lingua].json`` (es. ``es.json``), dove il codice segue lo standard ISO 639-1.  
+
+- Di seguito è riportata la tabella di corrispondenza tra lingua, denominazione locale e codice ISO:
+
+.. list-table::
+   :widths: 70 70 70 70
+   :header-rows: 0
    :align: center
 
-   * - Language
-     - Local language name
-     - Language code(ISO 639-1)
-     - Is it built-in
+   * - **Lingua**
+     - **Denominazione locale**
+     - **Codice lingua (ISO 639-1)**
+     - **Preinstallata**
 
-   * - Chinese
-     - 中文(汉语)
+   * - Cinese
+     - 中文（汉语）
      - zh
-     - True
+     - Sì
 
-   * - Chinese
-     - 中文(汉语繁體)
+   * - Cinese
+     - 中文（繁體）
      - tc
-     - True
+     - Sì
 
-   * - English
+   * - Inglese
+     - English
      - en
-     - ja
-     - True
+     - Sì
 
-   * - French
+   * - Francese
      - français
      - fr
-     - True
-
-   * - Japanese
+     - Sì
+   
+   * - Giapponese
      - 日本語
-     - ja
-     - True
+     - ja 
+     - Sì
 
-   * - Korean
+   * - Coreano
      - 한국어
      - ko
-     - True
+     - Sì
 
-   * - Russian
+   * - Russo
      - Русский
      - ru
-     - True
+     - Sì
 
-   * - Italian
+   * - Italiano
      - italiano
      - it
-     - True
+     - Sì
 
-1.On the login screen (or during the initial activation screen, settings can also be made), select the language at the top right corner.
+
+1. La selezione della lingua può essere effettuata nell’angolo in alto a destra sia nella pagina di login che in quella di attivazione iniziale.  
 
 .. image:: teaching_pendant_software/062.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 5.1‑5 Language settings on the activation interface
+.. centered:: Figura 5.1‑5 Selezione lingua nella pagina di attivazione
 
 .. image:: teaching_pendant_software/063.png
    :width: 6in
    :align: center
 
-.. centered:: Figure 5.1‑6 Language settings on the login interface
+.. centered:: Figura 5.1‑6 Selezione lingua nella pagina di login
 
-2.Take the login interface language settings as an example, select the language. If the following prompts (in different languages) appear, it means the settings are successful. Restart the control box to complete the language settings.
-
-.. image:: teaching_pendant_software/061.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figure 5.1‑7 Set to Chinese
+2. Ad esempio, dopo aver scelto una lingua diversa da quella predefinita nella pagina di login, l’interfaccia viene immediatamente aggiornata nella lingua selezionata:  
 
 .. image:: teaching_pendant_software/001.png
    :width: 4in
    :align: center
 
-.. centered:: Figure 5.1‑8 Set to English
+.. centered:: Figura 5.1‑7 Pagina di login in cinese
 
-After the login is successful, the system will load the model and other data, and enter the initial page after loading.
+.. image:: teaching_pendant_software/061.png
+   :width: 4in
+   :align: center
 
-System initial interface
-----------------------------
+.. centered:: Figura 5.1‑7 Pagina di login in inglese
 
-After the login is successful, the system enters the "Initial". Mainly include:
+Dopo l’accesso riuscito, il sistema carica modelli e dati correlati; al termine del caricamento, viene visualizzata la pagina iniziale.
 
-1. FAIRINO LOGO;
-2. Menu bar zoom button;
-3. Menu bar;
-4. Robot control area;
-5. Robot status area;
-6. 3D simulation robot - 3D scene operation;
-7. 3D simulation robot - robot body operation;
-8. Robot supporting functions;
-9. Robot and supporting function status.
 
-The initial interface of the system is shown in the figure below:
+Interfaccia iniziale del sistema
+---------------------------------------
+
+Dopo l’accesso riuscito, il sistema entra nella **pagina iniziale**, costituita dai seguenti elementi principali:
+
+1. Logo Faubert (Faurobot);  
+2. Pulsante di ridimensionamento della barra dei menu;  
+3. Barra dei menu;  
+4. Area di controllo del robot;  
+5. Area di stato del robot;  
+6. Simulazione 3D del robot — area di interazione con la scena tridimensionale;  
+7. Simulazione 3D del robot — area di interazione con il modello del corpo robotico;  
+8. Funzionalità ausiliarie integrate al robot;  
+9. Stato del robot e delle funzionalità ausiliarie.
+
+Di seguito è riportata una rappresentazione schematica dell’interfaccia iniziale:
 
 .. image:: teaching_pendant_software/002.png
    :align: center
    :width: 6in
-.. centered:: Figure 5.2-1 Schematic diagram of the initial interface of the system
 
-When entering the "Initial", "Program - Coding", "Program - Graphical" and “Auxiliary” of the WebApp, the 3D simulation robot model page is half-expanded. Click the expanded icon to re-enter the system initial interface.
+.. centered:: Figura 5.2‑1 Schema dell’interfaccia iniziale
+
+Quando si accede alle sezioni *Impostazioni iniziali*, *Programmi di insegnamento → Programmazione testuale*, *Programmi di insegnamento → Programmazione grafica* o alle applicazioni ausiliarie, la finestra della simulazione 3D del robot viene visualizzata in modalità parzialmente espansa. Cliccando sull’icona “Espandi” è possibile tornare all’interfaccia iniziale completa.
 
 .. image:: teaching_pendant_software/054.png
    :align: center
    :width: 6in
 
-.. centered:: Figure 5.2‑2 3D simulation robot model page can be rolled out icon
+.. centered:: Figura 5.2‑2 Icona di espansione della simulazione 3D
 
-Control area
-~~~~~~~~~~~~~~~
+
+Area di controllo
+~~~~~~~~~~~~~~~~~
 
 .. note:: 
    .. image:: teaching_pendant_software/003.png
@@ -235,9 +250,8 @@ Control area
       :height: 0.75in
       :align: left
 
-   name:**Enable button**
-   
-   effect:Enable the robot
+   Nome: **Pulsante di abilitazione (Enable)**  
+   Funzione: Abilita il movimento del robot.
 
 .. note:: 
    .. image:: teaching_pendant_software/004.png
@@ -245,9 +259,8 @@ Control area
       :height: 0.75in
       :align: left
 
-   name:**Start button**
-   
-   effect:Upload and start running the teaching program
+   Nome: **Pulsante di avvio (Start)**  
+   Funzione: Carica ed esegue il programma di insegnamento corrente.
 
 .. note:: 
    .. image:: teaching_pendant_software/005.png
@@ -255,9 +268,8 @@ Control area
       :height: 0.75in
       :align: left
 
-   name:**Stop button**
-   
-   effect:Stop the current teaching program running
+   Nome: **Pulsante di arresto (Stop)**  
+   Funzione: Arresta l’esecuzione del programma di insegnamento corrente.
 
 .. note:: 
    .. image:: teaching_pendant_software/006.png
@@ -265,15 +277,15 @@ Control area
       :height: 0.75in
       :align: left
 
-   name:**Pause/Resume button**
-   
-   effect:Pause and resume the current teaching program
+   Nome: **Pulsante di pausa/riprendi (Pause/Resume)**  
+   Funzione: Mette in pausa o riprende l’esecuzione del programma di insegnamento corrente.
 
 .. important::
-   The pause instruction is at the end of the program and cannot be judged.
+   L’istruzione di pausa non è valida se inserita alla fine di un programma: in tal caso non viene rilevata né eseguita.
 
-Status Bar
-~~~~~~~~~~~~
+
+Barra di stato
+~~~~~~~~~~~~~~
 
 .. note:: 
    .. image:: teaching_pendant_software/007.png
@@ -281,9 +293,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**robot status**
-   
-   effect:Stopped-stop,Running-run,Pause-pause,Drag-drag
+   Nome: **Stato del robot**  
+   Funzione: Indica lo stato corrente: *Stopped* (fermo), *Running* (in esecuzione), *Paused* (in pausa), *Drag* (modalità trascinamento).
 
 .. note:: 
    .. image:: teaching_pendant_software/008.png
@@ -291,9 +302,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Tool coordinate system number**
-   
-   effect:Display the tool coordinate system number of the current application
+   Nome: **Numero sistema di coordinate dello strumento (Tool CS)**  
+   Funzione: Visualizza il numero identificativo del sistema di coordinate dello strumento attualmente in uso.
 
 .. note:: 
    .. image:: teaching_pendant_software/027.png
@@ -301,9 +311,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name: **Workpiece coordinate system number**
-   
-   effect: Display the workpiece coordinate system number currently applied
+   Nome: **Numero sistema di coordinate del pezzo (Wobj CS)**  
+   Funzione: Visualizza il numero identificativo del sistema di coordinate del pezzo attualmente in uso.
 
 .. note:: 
    .. image:: teaching_pendant_software/028.png
@@ -311,19 +320,17 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name: **Extended axis coordinate system number**
-   
-   effect: Displays the currently applied extended axis coordinate system number
-   
+   Nome: **Numero sistema di coordinate dell’asse esteso (EAxis CS)**  
+   Funzione: Visualizza il numero identificativo del sistema di coordinate dell’asse esteso attualmente in uso.
+
 .. note:: 
    .. image:: teaching_pendant_software/009.png
       :width: 0.75in
       :height: 0.75in
       :align: left
 
-   name:**Running speed percentage**
-   
-   effect:The speed of the robot when it is running in the current mode
+   Nome: **Percentuale velocità di esecuzione**  
+   Funzione: Visualizza la velocità di esecuzione corrente del robot (in percentuale rispetto alla velocità massima configurata).
 
 .. note:: 
    .. image:: teaching_pendant_software/010.png
@@ -331,9 +338,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Runn normally**
-   
-   effect:The current robot is running normally
+   Nome: **Stato normale di funzionamento**  
+   Funzione: Indica che il robot sta operando regolarmente, senza errori.
 
 .. note:: 
    .. image:: teaching_pendant_software/011.png
@@ -341,9 +347,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Error state**
-   
-   effect:There is an error in the current robot operation
+   Nome: **Stato di errore**  
+   Funzione: Indica che si è verificato un errore durante il funzionamento del robot.
 
 .. note:: 
    .. image:: teaching_pendant_software/012.png
@@ -351,9 +356,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**automatic mode**
-   
-   effect:Robot automatic operation mode.When the global speed adjustment in manual mode and automatic mode is turned on and the speed is specified, the global speed will be automatically adjusted to the specified speed
+   Nome: **Modalità automatica**  
+   Funzione: Attiva la modalità di esecuzione automatica del programma. Quando questa modalità è abilitata insieme alla regolazione globale della velocità manuale, la velocità viene automaticamente impostata sul valore specificato.
 
 .. note:: 
    .. image:: teaching_pendant_software/013.png
@@ -361,9 +365,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Teach mode**
-   
-   effect:Robot teaching operation mode, set the global speed adjustment of manual mode and automatic mode and specify the speed.
+   Nome: **Modalità di insegnamento (Teach Mode)**  
+   Funzione: Attiva la modalità di programmazione manuale del robot.
 
 .. note:: 
    .. image:: teaching_pendant_software/014.png
@@ -371,9 +374,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Drag state**
-   
-   effect:The current robot can drag
+   Nome: **Modalità trascinamento abilitata**  
+   Funzione: Indica che il robot è attualmente abilitato alla manipolazione manuale (drag mode).
 
 .. note:: 
    .. image:: teaching_pendant_software/015.png
@@ -381,9 +383,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Drag state**
-   
-   effect:The current robot is not draggable
+   Nome: **Modalità trascinamento disabilitata**  
+   Funzione: Indica che il robot non è attualmente abilitato alla manipolazione manuale.
 
 .. note:: 
    .. image:: teaching_pendant_software/017.png
@@ -391,9 +392,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Connection status**
-   
-   effect:Robot connected
+   Nome: **Stato connessione**  
+   Funzione: Indica che il robot è connesso correttamente al sistema.
 
 .. note:: 
    .. image:: teaching_pendant_software/016.png
@@ -401,9 +401,8 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Not connected status**
-   
-   effect:Robot not connected
+   Nome: **Stato disconnessione**  
+   Funzione: Indica che il robot non è connesso.
 
 .. note:: 
    .. image:: teaching_pendant_software/018.png
@@ -411,55 +410,55 @@ Status Bar
       :height: 0.75in
       :align: left
 
-   name:**Account information**
-   
-   effect:Display username and permissions and logout user
+   Nome: **Informazioni account**  
+   Funzione: Visualizza nome utente, livello di autorizzazione e fornisce il pulsante per il logout.
 
-Menu Bar
-~~~~~~~~~~~~
+Barra dei menu
+~~~~~~~~~~~~~~~~~
 
-The menu bar is as shown in table below.
+La struttura della barra dei menu è riportata nella tabella seguente:
 
-.. centered:: Table 5.2-1 Teach pendant menu column
+.. centered:: Tabella 5.2‑1 Struttura dei menu del teach pendant
 
-+-------------+-----------------+
-| first level |  second level   |
-+=============+=================+
-| Initial     | Base            |
-+             +-----------------+
-|             | Safety          |
-+             +-----------------+
-|             | Peripheral      |
-+-------------+-----------------+
-| Program     | Coding          |
-+             +-----------------+
-|             | Graphical       |
-+             +-----------------+
-|             | Node Graph      |
-+             +-----------------+
-|             | Points          |
-+-------------+-----------------+
-| Status      | Log             |
-+             +-----------------+
-|             | Query           |
-+-------------+-----------------+
-| Application | Tool App        |
-+             +-----------------+
-|             | Process Package |
-+-------------+-----------------+
-| System      | /               |
-+-------------+-----------------+
++----------------------------+----------------------------+
+|         Livello 1          |         Livello 2          |
++============================+============================+
+|    Impostazioni iniziali   |            Base            |
++----------------------------+----------------------------+
+|                            |          Sicurezza         |
++----------------------------+----------------------------+
+|                            |         Periferiche        |
++----------------------------+----------------------------+
+| Programmi di insegnamento  |   Programmazione testuale  |
++----------------------------+----------------------------+
+|                            |   Programmazione grafica   |
++----------------------------+----------------------------+
+|                            |   Programmazione a nodi    |
++----------------------------+----------------------------+
+|                            |   Punti di insegnamento    |
++----------------------------+----------------------------+
+|    Informazioni stato      |        Log di sistema      |
++----------------------------+----------------------------+
+|                            |      Consultazione stato   |
++----------------------------+----------------------------+
+|  Applicazioni ausiliarie   |          Strumenti         |
++----------------------------+----------------------------+
+|                            |    Pacchetti tecnologici   |
++----------------------------+----------------------------+
+|     Impostazioni sistema   | /                          |
++----------------------------+----------------------------+
 
-3D simulation robot
----------------------
 
-3D scene operation bar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Simulazione 3D del robot
+------------------------
 
-3D visualization display of robot coordinate system
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Barra di controllo della scena 3D
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Create various 3D virtual coordinate systems in the 3D virtual area of the WebAPP robot, taking the display of the base coordinate system as an example, as shown in the figure below. Among them, the X axis is red, the Y axis is green, and the Z axis is blue.
+Visualizzazione tridimensionale dei sistemi di coordinate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Nell’area virtuale 3D del robot all’interno della WebApp vengono creati vari sistemi di coordinate virtuali. A titolo di esempio, la figura seguente mostra il sistema di coordinate di base (*Base CS*), con l’asse X in rosso, Y in verde e Z in blu.
 
 .. note:: 
    .. image:: teaching_pendant_software/021.png
@@ -467,9 +466,8 @@ Create various 3D virtual coordinate systems in the 3D virtual area of the WebAP
       :height: 0.75in
       :align: left
 
-   name:**Base coordinate system**
-   
-   explain: In the base coordinate system WebAPP, the system robot is displayed in the three-dimensional virtual area by default, and the fixed mark is at the bottom center of the robot base. The 3D virtual base coordinate system can be displayed manually.
+   Nome: **Sistema di coordinate di base (Base CS)**  
+   Descrizione: Viene visualizzato per impostazione predefinita nell’area virtuale 3D del robot, fissato al centro della base del robot. Può essere disattivato manualmente.
 
 .. note:: 
    .. image:: teaching_pendant_software/022.png
@@ -477,12 +475,11 @@ Create various 3D virtual coordinate systems in the 3D virtual area of the WebAP
       :height: 0.75in
       :align: left
 
-   name:**Tool coordinate system**
-   
-   explain: The display of the tool coordinate system is enabled by default and can be manually disabled. After the WebAPP starts and the user logs in successfully, obtain the tool coordinate system name and corresponding parameter data of the current application, and initialize the current tool coordinate system.
+   Nome: **Sistema di coordinate dello strumento (Tool CS)**  
+   Descrizione: Visualizzato per impostazione predefinita e attivabile/disattivabile manualmente. All’avvio della WebApp e dopo l’accesso riuscito, il sistema recupera il nome e i parametri del sistema di coordinate dello strumento attualmente in uso, quindi lo inizializza.
 
-.. important:: 
-   When applying other tool coordinate systems during use, after the application tool coordinate system command succeeds, first clear the existing tool coordinate system in the robot's 3D virtual area, and then transfer the newly applied tool coordinate system parameter data into the 3D coordinate system The API is generated to generate the tool coordinate system, and after the generation is completed, it is displayed in the three-dimensional virtual area of the robot.
+.. important::
+   Durante l’utilizzo di un diverso sistema di coordinate dello strumento, una volta eseguita con successo l’istruzione di cambio, il sistema rimuove prima il sistema di coordinate precedentemente visualizzato nell’area virtuale 3D, quindi invia i nuovi parametri all’API di generazione del sistema di coordinate per creare e visualizzare il nuovo sistema.
 
 .. note:: 
    .. image:: teaching_pendant_software/023.png
@@ -490,9 +487,8 @@ Create various 3D virtual coordinate systems in the 3D virtual area of the WebAP
       :height: 0.75in
       :align: left
 
-   name:**Workpiece coordinate system**
-   
-   explain: The workpiece coordinate system is closed by default, and it can be displayed manually. The process is consistent with the tool coordinate system.
+   Nome: **Sistema di coordinate del pezzo (Wobj CS)**  
+   Descrizione: Disattivato per impostazione predefinita; può essere attivato manualmente. Il flusso operativo è identico a quello del sistema di coordinate dello strumento.
 
 .. note:: 
    .. image:: teaching_pendant_software/024.png
@@ -500,12 +496,12 @@ Create various 3D virtual coordinate systems in the 3D virtual area of the WebAP
       :height: 0.75in
       :align: left
 
-   name:**External Axis Coordinate System**
-   
-   explain: The workpiece coordinate system is closed by default, and it can be displayed manually. The process is consistent with the tool coordinate system.
+   Nome: **Sistema di coordinate dell’asse esteso (EAxis CS)**  
+   Descrizione: Disattivato per impostazione predefinita; può essere attivato manualmente. Il flusso operativo è identico a quello del sistema di coordinate dello strumento.
 
-3D virtual trajectory and import tool model
-++++++++++++++++++++++++++++++++++++++++++++++++
+
+Tracciato virtuale 3D e importazione modelli strumento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. note:: 
    .. image:: teaching_pendant_software/020.png
@@ -513,9 +509,8 @@ Create various 3D virtual coordinate systems in the 3D virtual area of the WebAP
       :height: 0.75in
       :align: left
 
-   name:**Trajectory drawing**
-   
-   explain: Click the button to turn on the trajectory drawing function. When running the teaching program, the robot 3D model will depict the trajectory of the robot's movement.
+   Nome: **Disegno tracciato**  
+   Descrizione: Cliccando questo pulsante si attiva la funzione di tracciamento. Durante l’esecuzione di un programma di insegnamento, il modello 3D del robot traccia la traiettoria effettiva del movimento.
 
 .. note:: 
    .. image:: teaching_pendant_software/029.png
@@ -523,100 +518,100 @@ Create various 3D virtual coordinate systems in the 3D virtual area of the WebAP
       :height: 0.75in
       :align: left
 
-   name:**Import tool model**
-   
-   explain: Click the button to pop up the import tool model modal window. After the uploaded file is successfully imported, the tool model can be displayed at the end of the robot. Currently supported tool model file formats are STL and DAE.
+   Nome: **Importa modello strumento**  
+   Descrizione: Cliccando questo pulsante si apre una finestra modale per caricare un file modello. Una volta caricato con successo, il modello viene visualizzato all’estremità del braccio robotico. I formati supportati sono STL e DAE.
 
-Robot body operation bar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Barra di controllo del corpo robotico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TCP
-++++++++++++++++
+++++++
 
-**Base Jog**: In the base coordinate system, the robot can be controlled by long pressing the corresponding coordinate system button, move in a straight line on the X, Y, and Z axes or rotate around RX, RY, and RZ. The function of Base jogging is similar to that of single-axis jogging in Joint motion. As shown in figure below.
+**Movimento manuale in coordinate di base (Base Jogging)**: Nel sistema di coordinate di base, tenendo premuto il pulsante corrispondente è possibile muovere il robot linearmente lungo gli assi X, Y, Z oppure ruotarlo attorno agli assi RX, RY, RZ. Questa funzione è concettualmente analoga al *jogging* monogiro in coordinate articolari. Vedere figura seguente:
 
 .. image:: teaching_pendant_software/030.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3-1 Base jog diagram
-   
-.. important:: 
-   The button can be released at any time to stop the robot. If necessary, press the emergency stop button to stop the robot.
+.. centered:: Figura 5.3-1 Esempio di Base Jogging
 
-**Tool Jog**: Select the tool coordinate system, you can click the corresponding coordinate system button to control the robot, move in a straight line on the X, Y, and Z axes or rotate around RX, RY, and RZ. The function of Tool jogging is similar to that of single-axis jogging in Joint motion. As shown in figure below. 
+.. important:: 
+   Il movimento si arresta immediatamente rilasciando il pulsante. In caso di emergenza, utilizzare il pulsante di arresto d’urgenza.
+
+**Movimento manuale in coordinate dello strumento (Tool Jogging)**: Selezionando il sistema di coordinate dello strumento, è possibile muovere il robot linearmente lungo gli assi X, Y, Z oppure ruotarlo attorno agli assi RX, RY, RZ, mantenendo costante l’orientamento del TCP. Vedere figura seguente:
 
 .. image:: teaching_pendant_software/031.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3-2 Tool Jogging Schematic Diagram
+.. centered:: Figura 5.3-2 Esempio di Tool Jogging
 
-**Wobj Jog**: Select workpiece jogging, you can long press the circular buttons on the left and right to control the robot. In the workpiece coordinate system, move along the X, Y, Z axis in a straight line or rotate around RX, RY, RZ. The function of Wobj jogging is similar to that of single-axis jogging in Joint motion. As shown in figure below. 
+**Movimento manuale in coordinate del pezzo (Wobj Jogging)**: Selezionando il sistema di coordinate del pezzo, è possibile muovere il robot linearmente lungo gli assi X, Y, Z oppure ruotarlo attorno agli assi RX, RY, RZ, rispetto al sistema di coordinate del pezzo. Vedere figura seguente:
 
 .. image:: teaching_pendant_software/032.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3-3 Wobj jogging diagram
+.. centered:: Figura 5.3-3 Esempio di Wobj Jogging
 
-Joint Jog
-++++++++++++++++
+Movimento articolare (Joint)
+++++++++++++++++++++++++++++
 
-Under Joint operation, the 6 slider bars in the middle represent the angles of the corresponding axes respectively, and the joint movement is divided into single-axis inching and multi-axis linkage
+In modalità *Joint*, i sei cursori centrali rappresentano gli angoli attuali di ciascun asse. Il movimento articolare comprende due modalità: *jogging* monogiro e movimento coordinato multi-asse.
 
-**single axis jog**:The user can control the movement of the robot by operating the left and right circular buttons, as shown in figure below. In the manual mode and the joint coordinate system, perform a rotation operation on a joint of the robot. When the robot stops beyond the range of motion (soft limit), you can use single-axis jogging for manual operation to move the robot out of the overrun position. Single-axis jogging is faster and more convenient than other operation modes for rough positioning and large-scale movement.
+**Jogging monogiro**: L’utente controlla il movimento di un singolo giunto azionando i pulsanti circolari posti ai lati. Vedere figura seguente. Questa modalità è disponibile solo in modalità manuale e nel sistema di coordinate articolare. È particolarmente utile per spostare il robot fuori da una condizione di superamento dei limiti (soft limit) o per effettuare grossolani spostamenti rapidi.
 
 .. image:: teaching_pendant_software/033.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3-4 Schematic diagram of single-axis jogging
+.. centered:: Figura 5.3-4 Esempio di jogging monogiro
 
-.. important:: 
-   Set the "long press movement threshold" (the maximum distance the robot can run when the button is long pressed, and the input value range is 0~300) parameters, long press the round button to control the robot running, if the button is released during the robot running, the robot will stop immediately Movement, if you keep pressing the button without releasing it, the robot will run and stop moving after long pressing the value set by the movement threshold.
+.. important::
+   Il parametro *Soglia di movimento prolungato* definisce la distanza massima percorsa dal robot quando si tiene premuto un pulsante (intervallo ammesso: 0–300 mm o gradi). Se il pulsante viene rilasciato durante il movimento, il robot si ferma istantaneamente; se invece viene tenuto premuto fino al completamento, il movimento termina esattamente alla distanza impostata.
 
-**Multi-axis linkage**:The user can operate the six sliders in the middle to adjust the corresponding target position of the robot, as shown in figure below. The target position can be determined by observing the 3D virtual robot. If the adjusted position does not meet your expectations, click the "Restore" button. Make the 3D virtual robot return to the initial position. After the user determines the target position, he can click the "Apply" button, and the physical robot will perform corresponding movements.
+**Movimento coordinato multi-asse**: L’utente regola i sei cursori centrali per impostare la posizione desiderata del robot. La posizione finale può essere verificata osservando il modello 3D. Se la posizione non soddisfa le aspettative, è possibile cliccare su **Ripristina**, per riportare il modello alla posizione iniziale. Una volta confermata la posizione, cliccando su **Applica**, il robot fisico eseguirà il movimento corrispondente.
 
 .. image:: teaching_pendant_software/034.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3-5 Schematic diagram of multi-axis linkage
+.. centered:: Figura 5.3-5 Esempio di movimento coordinato multi-asse
 
 .. important:: 
-   In multi-axis linkage, the setting value of the fifth joint j5 cannot be less than 0.01 degrees. If the expected value is less than 0.01 degrees, you can first set it to 0.011 degrees, and then fine-tune the fifth joint j5 through single-axis jogging.
+   Nella modalità multi-asse, il valore impostato per il quinto giunto (j5) non deve essere inferiore a 0,01°. Se il valore richiesto è minore, impostare inizialmente 0,011° e quindi effettuare un fine aggiustamento tramite *jogging* monogiro sul giunto j5.
 
-Move
-++++++++++++++++
+Movimento cartesiano (Move)
++++++++++++++++++++++++++++++++
 
-Select Move, you can directly input the Cartesian coordinate value, click "Calculate joint position", the joint position is displayed as the calculated result, confirm that there is no danger, you can click "Move to this point" to control the robot to move to the input Cartesian pose.
+Selezionando *Move*, è possibile inserire direttamente i valori cartesiani (X, Y, Z, RX, RY, RZ). Cliccando su **Calcola posizione articolare**, il sistema calcola e visualizza gli angoli corrispondenti. Dopo aver verificato l’assenza di rischi, cliccare su **Muovi a questo punto** per far eseguire al robot il movimento verso la posizione specificata.
 
 .. image:: teaching_pendant_software/035.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3-6 Move mobile diagram
+.. centered:: Figura 5.3‑6 Esempio di movimento cartesiano
 
 .. important:: 
-   When a given pose cannot be reached, first check whether the Cartesian space pose exceeds the working range of the robot, and then check whether there is a singular pose in the process from the current pose to the target pose, if there is a singular position, adjust the current pose or process insert a new pose in order to avoid singular poses.
+   Se la posizione specificata non è raggiungibile, verificare innanzitutto se la posa cartesiana eccede il volume di lavoro del robot; quindi controllare se il percorso dalla posa corrente a quella obiettivo attraversa una configurazione singolare. In tal caso, modificare leggermente la posa corrente o inserire un punto intermedio per evitare la singolarità.
 
-Robot supporting function bar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Barra funzionalità integrate al robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Teaching point record
-+++++++++++++++++++++++++++
+Registrazione punti di insegnamento
+++++++++++++++++++++++++++++++++++++++++++
 
-The manual teaching control area is mainly to set the test coordinate system in the teaching mode, and display the angle and coordinate values of each axis of the robot in real time, and can name and save the teaching points.
+L’area di controllo manuale consente di definire i sistemi di coordinate durante la modalità di insegnamento, visualizzando in tempo reale gli angoli articolari e le coordinate cartesiane del robot, e permettendo di memorizzare i punti di insegnamento con nome personalizzato.
 
-When saving a teaching point, the coordinate system of the teaching point is the coordinate system of the current robot application. 
+I punti salvati ereditano il sistema di coordinate attualmente in uso.
 
-There are two ways to record teaching points: "quick point recording" and "named point recording".
+Esistono due modalità di registrazione:
 
-- Quick point recording: teaching points are automatically recorded and names are automatically generated;
-- Naming points: Customized naming of teaching points, consisting of teaching point prefix+teaching point name;
+- **Registrazione rapida**: Il punto viene registrato automaticamente con nome generato in modo sequenziale;  
+- **Registrazione nominativa**: Il nome del punto è personalizzabile, composto da un prefisso + nome definito dall’utente.  
 
-For the sensor teaching point, select the calibrated sensor type tool, enter the point name, click Add, and the saved point position is the position recognized by the sensor.
+Per i punti rilevati da sensori, selezionare il tipo di sensore già calibrato, inserire il nome del punto e cliccare su **Aggiungi**: la posizione salvata corrisponderà alla posizione effettivamente rilevata dal sensore.
 
 .. image:: teaching_pendant_software/036.png
    :width: 5in
@@ -626,237 +621,234 @@ For the sensor teaching point, select the calibrated sensor type tool, enter the
    :width: 5in
    :align: center
 
-.. centered:: Figure 5.3‑7 Schematic diagram of manual operation area
+.. centered:: Figura 5.3‑7 Area di controllo manuale
 
 .. important:: 
-   When using it for the first time, please set a small speed value like 30 to familiarize yourself with the movement of the robot to avoid accidents
+   Alla prima utilizzazione, impostare una velocità bassa (ad es. 30%) per acquisire familiarità con il comportamento del robot e prevenire incidenti.
 
 I/O
-++++++++++++++++
++++
 
-In this interface, the digital output, analog output (0-10v) and end tool digital output in the robot control box can be realized. Output, analog output (0-10v) for manual control. As shown in figure below.
-
-- DO operation: select the port number, if the DO is low level, the right operation button will display ON, click the button to set the DO to high level.
-
-- AO operation: Select the port number, enter a value (0-100) in the input box on the right, the value is a percentage, setting 100 means setting the AO port to 10v.
+Questa interfaccia consente il controllo manuale degli I/O digitali e analogici (0–10 V) presenti nel cabinet di controllo e all’estremità del braccio robotico.
 
 .. image:: teaching_pendant_software/037.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 5.3‑8 I/O
+.. centered:: Figura 5.3‑8 Interfaccia di configurazione I/O
 
-TPD (Teach-in programming)
-++++++++++++++++++++++++++++++++
 
-The operation steps of teach programming (TPD) function are as follows:
+TPD (Programmazione tramite insegnamento)
++++++++++++++++++++++++++++++++++++++++++
 
-- **Step1 record initial position**:Enter the operation area on the left side of the 3D model and record the current position of the robot. Set the name of the point in the edit box, click the "Save" button, if the save is successful, it will prompt "Save point successful";
+La funzione TPD (*Teach Pendant Programming*) opera come segue:
 
-- **Step2 Configure track recording parameters**:Click TPD to enter the "TPD" function item to configure trajectory recording parameters, set the name of the trajectory file, pose type and sampling period, configure DI and DO, and record the corresponding output by triggering DI during the process of recording the TPD trajectory DO;
+- **Passo 1 – Registrazione posizione iniziale**: Nell’area di controllo a sinistra del modello 3D, registrare la posizione corrente del robot. Inserire un nome nel campo di testo e cliccare su **Salva**. Se l’operazione va a buon fine, viene visualizzato il messaggio *Punto salvato con successo*.  
+
+- **Passo 2 – Configurazione parametri registrazione traiettoria**: Entrare nella sezione TPD e configurare i parametri di registrazione: nome file traiettoria, tipo di posa (cartesiana/articolare), periodo di campionamento, nonché gli ingressi (DI) e uscite (DO) da associare. Durante la registrazione, è possibile attivare l’uscita DO associata tramite l’ingresso DI corrispondente.
 
 .. image:: teaching_pendant_software/038.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 5.3‑9 TPD track record
+.. centered:: Figura 5.3‑9 Configurazione registrazione TPD
 
-- **Step3 Check robot mode**:Check whether the robot mode is in manual mode. If not, switch to manual mode. In manual mode, there are two ways to switch to drag teaching mode, one is long press the end button, and the other is interface dragging mode It is recommended to switch the robot from the interface to the drag teaching mode in the TPD record. 
+- **Passo 3 – Verifica modalità robot**: Assicurarsi che il robot sia in **modalità manuale**. Se non lo fosse, cambiarla. La modalità di trascinamento (*drag mode*) può essere attivata in due modi: tenendo premuto il pulsante all’estremità del braccio oppure cliccando sul relativo pulsante nell’interfaccia. Per la registrazione TPD si raccomanda l’attivazione tramite interfaccia.
 
 .. image:: teaching_pendant_software/039.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑10 robot mode
+.. centered:: Figura 5.3‑10 Modalità robot
 
 .. important:: 
-   When switching to the drag mode from the interface, first confirm whether the end tool load and the center of mass are set correctly, and whether the friction compensation coefficient is set reasonably, then press and hold the end button to confirm whether the drag is normal, and then switch to the drag mode from the interface after confirming that it is correct.
+   Prima di attivare la modalità di trascinamento tramite interfaccia, verificare che il carico e il baricentro dello strumento siano stati correttamente impostati, e che i coefficienti di compensazione dell’attrito siano adeguati. Confermare il corretto funzionamento del trascinamento tenendo premuto il pulsante all’estremità; solo dopo aver verificato tutto, procedere con l’attivazione tramite interfaccia.
 
-- **Step4 Start recording**:Click the "Start" button to start track recording, and drag the robot to teach actions. In addition, there is a "TPD recording start/stop" function configuration item in the terminal DI configuration. By configuring this function, the user can trigger the "start recording" trace function through an external signal. It should be noted that to start recording a trace through an external signal, first Configure the TPD track information on the page first.
+- **Passo 4 – Avvio registrazione**: Cliccare su "Avvia registrazione", quindi trascinare manualmente il robot per insegnare la traiettoria. Inoltre, se è stata configurata l’opzione *Avvio/Arresto registrazione TPD* sugli ingressi digitali (DI), è possibile avviare la registrazione tramite segnale esterno. Nota: per poter attivare questa funzione via segnale esterno, è necessario aver già configurato i parametri TPD nella pagina web.
 
-- **Step5 Stop recording**:After the action teaching is completed, click the "Stop" button to stop the track recording, and then drag the teaching switch button to make the robot exit the drag teaching mode. When the teach pendant receives "stop track recording successful", it means the track recording is successful. Same as step 4, after configuring the "TPD recording start/stop" function, you can trigger the recording to stop by an external signal.
+- **Passo 5 – Arresto registrazione**: Al termine dell’insegnamento, cliccare su "Arresta registrazione". Quindi disattivare la modalità di trascinamento tramite l’apposito pulsante. Il messaggio *Registrazione traiettoria completata con successo* conferma l’esito positivo. Analogamente al passo 4, anche l’arresto può essere comandato via segnale esterno, purché configurato.
 
-- **Step6 Teach programming**:Click New, select a blank template, click to enter the PTP function programming item, select the initial position point just saved, click the "Add" button, after the application is completed, a PTP instruction will be displayed in the program file; then click to enter the TPD function programming item, Select the track just recorded, set whether it is smooth and the speed scaling, click the "Add" button, after the application is completed, a MoveTPD instruction will be displayed in the program file;
+- **Passo 6 – Programmazione TPD**: Cliccare su "Nuovo", selezionare il modello vuoto e accedere alla sezione *Programmazione PTP*. Selezionare il punto iniziale appena salvato e cliccare su "Aggiungi": verrà inserita una istruzione PTP nel programma. Successivamente, accedere alla sezione *Programmazione TPD*, selezionare la traiettoria registrata, impostare l’eventuale livellamento (*smoothing*) e il fattore di scala della velocità, quindi cliccare su "Aggiungi": verrà inserita una istruzione "MoveTPD".
 
 .. image:: teaching_pendant_software/040.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 5.3‑11 TPD programming
+.. centered:: Figura 5.3‑11 Programmazione TPD
 
-- **Step7 Trajectory recurrence**:After editing the teaching program, switch to the automatic operation mode, click the "start running" icon on the top of the interface to start running the program, and the robot will start to reproduce the teaching action.
+- **Passo 7 – Riproduzione traiettoria**: Dopo aver completato la stesura del programma, passare alla "modalità automatica", quindi cliccare sull’icona *Avvia esecuzione* in alto: il robot riprodurrà la traiettoria insegnata.
 
-- **Step8 track edit**:The TPD track editing area can visually display and edit the track to achieve pre-analysis and streamlining of the TPD track. Select the corresponding track acquisition point, then the track points recorded by the user will be displayed in the three-dimensional space of the robot, and then the user can drag the "Start" and "End" scroll bars to simulate and reproduce and edit the start and end points of the track.
+- **Passo 8 – Modifica traiettoria**: Nell’area di editing TPD è possibile visualizzare, analizzare e tagliare la traiettoria per ottimizzarne la lunghezza e la precisione. Selezionando una traiettoria, i suoi punti vengono mostrati nello spazio 3D del robot. Utilizzando i cursori *Start* e *End*, è possibile simulare e ritagliare la porzione di traiettoria da utilizzare.
 
-TPD file deletion and exception handling:
+Eliminazione file TPD e gestione anomalie:
 
-- **Trajectory file deletion**:Click to enter the TPD function item, select the track file to be deleted, and click the "Delete Track" button. If the deletion is successful, you will receive a successful deletion prompt.
+- **Eliminazione file traiettoria**: Accedere alla sezione TPD, selezionare il file da eliminare e cliccare su "Elimina traiettoria". Se l’operazione ha successo, viene visualizzato un messaggio di conferma.
 
-- **Exception handling:**
+- **Gestione anomalie**:
 
-  +  **Command points exceeded**:A track can record up to 20,000 points. When the number exceeds 20,000 points, the controller will no longer record the exceeded points, and will send a warning to the teach pendant that the number of command points exceeds the limit. At this time, you need to click to stop recording;
+  + **Numero massimo di punti superato**: Ogni traiettoria può contenere al massimo 20.000 punti. Superato tale limite, il controller cessa la registrazione e invia all’insegnatore un allarme *Numero massimo di punti superato*: in tal caso, cliccare subito su "Arresta registrazione".  
 
-  +  **TPD instruction interval is too large**:If the teaching pendant reports an error that the TPD command interval is too large, check whether the robot has returned to the initial position before recording. If the robot returns to the initial position and still reports an error that the TPD command interval is too large, delete the current track and record a new one;
+  + **Intervallo tra istruzioni TPD troppo ampio**: Se l’insegnatore segnala *Intervallo tra istruzioni TPD troppo ampio*, verificare innanzitutto se il robot è tornato alla posizione iniziale di partenza. Se anche in tale condizione l’errore persiste, eliminare la traiettoria corrente e registrarne una nuova.  
 
-  +  If other abnormal conditions occur during TPD operation, the robot operation should be stopped immediately through the teach pendant or the emergency stop button to check the cause.
+  + In caso di altre anomalie impreviste durante l’uso della funzione TPD, fermare immediatamente il robot tramite insegnatore o pulsante di emergenza, quindi indagare sulla causa.
 
 .. important:: 
-   During the operation of the TPD function, you should strictly follow the corresponding prompts on the teach pendant.
+   Durante l’uso della funzione TPD, seguire scrupolosamente tutti i messaggi e le indicazioni forniti dall’insegnatore.
 
-Eaxis move
-++++++++++++++++
+Movimento assi estesi (Eaxis)
+++++++++++++++++++++++++++++++++++++++++++++
 
-Select Eaxis to move, this function is the jog function of the extension axis, it needs to be configured to configure the extension axis, use this jog function to control the extension axis, see "Chapter 4 Machine-Robot Peripherals-Extended Axis Peripherals" for details configuration".
+La funzione *Eaxis* consente il *jogging* manuale degli assi estesi, previa configurazione completa degli stessi (vedi Capitolo 4 – *Periferiche robotiche – Configurazione assi estesi*).
 
 .. image:: teaching_pendant_software/041.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 5.3-12 Eaxis Mobile Diagram
+.. centered:: Figura 5.3‑12 Interfaccia Eaxis
 
-FT
-++++++++++++++++
+Forza/torque (FT)
+++++++++++++++++++++++
 
-Select the reference frame as a reference for the force sensor when dragging.
+Consente di selezionare il sistema di coordinate di riferimento da utilizzare durante il trascinamento assistito da sensore di forza/torque.
 
 .. image:: teaching_pendant_software/042.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 5.3‑12 FT diagram
+.. centered:: Figura 5.3‑12 Interfaccia FT
 
-Telecentric fixed point
-++++++++++++++++++++++++++++++++
+Punto fisso di rotazione (centro di rotazione remota)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This function is mainly used in medical penetration. After setting the telecentric fixed point, the robot end always moves at this point.
+Questa funzione è principalmente utilizzata in applicazioni mediche (es. chirurgia percutanea): una volta impostato il punto fisso di rotazione, l’estremità del robot ruoterà sempre attorno a tale punto, mantenendolo costantemente fisso nello spazio.
 
 .. image:: teaching_pendant_software/043.png
    :width: 5in
    :align: center
 
-.. centered:: Figure 5.3‑13 Schematic diagram of telecentric fixed point
+.. centered:: Figura 5.3‑13 Interfaccia punto fisso di rotazione
 
-Robot and supporting function status bar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Barra stato del robot e funzionalità integrate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Robot
-++++++++++++++++
++++++
 
-Displays the current robot model, stiffness, joints and coordinate data information.
+Visualizza il modello del robot, la rigidità, i dati articolari e le coordinate.
 
 .. image:: teaching_pendant_software/044.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑14 Robot Status
+.. centered:: Figura 5.3‑14 Stato robot
 
-Program
-++++++++++++++++
+Programma
++++++++++
 
-Display information about the currently running program and subprogram.
+Visualizza informazioni sul programma correntemente in esecuzione e sui sotto-programmi attivi.
 
 .. image:: teaching_pendant_software/045.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑15 Program Status
+.. centered:: Figura 5.3‑15 Stato programma
 
 I/O
-++++++++++++++++
++++++++++
 
-The status display area on the right side of the 3D model will display the current IO status. In digital input and digital output, if the port level is high, the point will be displayed in green, and if it is low, it will be displayed in white; analog input and analog output The display value is 0-100, and 100 means 10v.
+Visualizza lo stato degli I/O: negli ingressi/uscite digitali, un punto verde indica livello alto (1), bianco indica livello basso (0); negli ingressi/uscite analogici, il valore visualizzato è compreso tra 0 e 100 (100 = 10 V).
 
 .. image:: teaching_pendant_software/046.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑16 IO Status
+.. centered:: Figura 5.3‑16 Stato I/O
 
-ExAxis
-++++++++++++++++
 
-Display the current extended axis (controller + PLC) servo status information.
+Assi estesi (ExAxis)
+++++++++++++++++++++
+
+Visualizza lo stato di servomotori degli assi estesi (controller + PLC).
 
 .. image:: teaching_pendant_software/047.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑17 Extended axis (controller + PLC) status
+.. centered:: Figura 5.3‑17 Stato assi estesi (controller + PLC)
 
+Pinza (Gripper)
++++++++++++++++
 
-Gripper
-++++++++++++++++
-
-Displays the current gripper status information.
+Visualizza lo stato corrente della pinza robotica.
 
 .. image:: teaching_pendant_software/048.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑18 Gripper status
+.. centered:: Figura 5.3‑18 Stato pinza
 
-FT
-++++++++++++++++
+Controllo forza/torque (FT)
++++++++++++++++++++++++++++++++++
 
-Display current force control status information.
+Visualizza lo stato corrente del sistema di controllo forza/torque.
 
 .. image:: teaching_pendant_software/049.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑19 Force control state
+.. centered:: Figura 5.3‑19 Stato controllo forza/torque
 
-Convery
-++++++++++++++++
+Trasportatore (Conveyer)
+++++++++++++++++++++++++
 
-Displays current conveyor status information.
+Visualizza lo stato corrente del sistema di trasporto (nastro trasportatore).
 
 .. image:: teaching_pendant_software/050.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑20 Conveyor Belt Status
+.. centered:: Figura 5.3‑20 Stato trasportatore
 
 Servo
-++++++++++++++++
++++++
 
-Displays the current extended axis (controller + servo controller) status information.
+Visualizza lo stato degli assi estesi gestiti da controller + servocontroller.
 
 .. image:: teaching_pendant_software/051.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑21 Extended axis (controller + servo controller) status
+.. centered:: Figura 5.3‑21 Stato assi estesi (controller + servocontroller)
 
-Polish
-++++++++++++++++
+Lucidatura (Polish)
++++++++++++++++++++
 
-Display current grinding status information.
+Visualizza lo stato corrente dell’applicazione di lucidatura.
 
 .. image:: teaching_pendant_software/052.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑22 Polishing status
+.. centered:: Figura 5.3‑22 Stato lucidatura
 
-Weld
+Saldatura (Weld)
 ++++++++++++++++
 
-Display current welding status information.
+Visualizza lo stato corrente dell’applicazione di saldatura.
 
 .. image:: teaching_pendant_software/053.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑23 Welding status
+.. centered:: Figura 5.3‑23 Stato saldatura
 
 Board I/O
-++++++++++++++++
++++++++++
 
-Display the current status information of the board.
+Visualizza lo stato della scheda I/O interna.
 
 .. image:: teaching_pendant_software/069.png
    :width: 3in
    :align: center
 
-.. centered:: Figure 5.3‑24 Board I/O status
+.. centered:: Figura 5.3‑24 Stato scheda I/O
