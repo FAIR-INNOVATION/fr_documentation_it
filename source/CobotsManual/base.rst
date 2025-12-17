@@ -391,7 +391,7 @@ Rilevamento della coppia prima del trascinamento
 **Step2**: Passare alla modalità trascinamento. L'interfaccia Web passa alla modalità trascinamento facendo clic sulla zona stato robot - stato trascinamento robot, tenendo premuto il pulsante "Modalità insegnamento" della scatola dei pulsanti, o tenendo premuto il pulsante di trascinamento sul terminale del robot. Se il controller segnala un errore e il robot non passa alla modalità trascinamento, come mostrato nella Figura 2-2, verificare che la configurazione del carico del robot e la modalità di installazione siano corrette.
 
 .. image:: base/070.png
-   :width: 2in
+   :width: 4in
    :align: center
 
 .. centered:: Figura 6.4-10 Coppia oltre il limite, errore del controller

@@ -85,7 +85,7 @@ Procedura operativa
 **Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Arresto di emergenza", selezionare "Tipo 1b" come "Tipo di arresto" e, in base alle esigenze effettive, impostare i parametri "Limite tempo arresto" e "Limite distanza arresto". "Strategia abilitazione dopo reset emergenza" può essere selezionata come "Abilitazione manuale" o "Abilitazione automatica", come mostrato nella Figura 2-1.
 
 .. image:: safety/046.png
-   :width: 6in
+   :width: 4in
    :align: center
 
 .. centered:: Diagramma 7.4-2 Impostazioni Strategia Abilitazione
