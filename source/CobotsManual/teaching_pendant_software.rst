@@ -194,17 +194,17 @@ Impostazione multilingua
 
 2. Ad esempio, dopo aver scelto una lingua diversa da quella predefinita nella pagina di login, l’interfaccia viene immediatamente aggiornata nella lingua selezionata:  
 
-.. image:: teaching_pendant_software/001.png
+.. image:: teaching_pendant_software/061.png
    :width: 4in
    :align: center
 
 .. centered:: Figura 5.1‑7 Pagina di login in cinese
 
-.. image:: teaching_pendant_software/061.png
+.. image:: teaching_pendant_software/001.png
    :width: 4in
    :align: center
 
-.. centered:: Figura 5.1‑7 Pagina di login in inglese
+.. centered:: Figura 5.1‑8 Pagina di login in inglese
 
 Dopo l’accesso riuscito, il sistema carica modelli e dati correlati; al termine del caricamento, viene visualizzata la pagina iniziale.
 
