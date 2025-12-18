@@ -18,6 +18,8 @@ Cambio di lingua
 
     \ `日本語 <https://fairino-doc-ja.readthedocs.io/latest/>`__\ 
 
+    \ `English <https://fairino-doc-en.readthedocs.io/latest/>`__\ 
+
 .. toctree::
    :maxdepth: 6
    :caption: User manual
