@@ -283,63 +283,8 @@ Area di controllo
 .. important::
    L’istruzione di pausa non è valida se inserita alla fine di un programma: in tal caso non viene rilevata né eseguita.
 
-
-Barra di stato
-~~~~~~~~~~~~~~
-
-.. note:: 
-   .. image:: teaching_pendant_software/007.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Stato del robot**  
-   Funzione: Indica lo stato corrente: *Stopped* (fermo), *Running* (in esecuzione), *Paused* (in pausa), *Drag* (modalità trascinamento).
-
-.. note:: 
-   .. image:: teaching_pendant_software/008.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Numero sistema di coordinate dello strumento (Tool CS)**  
-   Funzione: Visualizza il numero identificativo del sistema di coordinate dello strumento attualmente in uso.
-
-.. note:: 
-   .. image:: teaching_pendant_software/027.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Numero sistema di coordinate del pezzo (Wobj CS)**  
-   Funzione: Visualizza il numero identificativo del sistema di coordinate del pezzo attualmente in uso.
-
-.. note:: 
-   .. image:: teaching_pendant_software/028.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Numero sistema di coordinate dell’asse esteso (EAxis CS)**  
-   Funzione: Visualizza il numero identificativo del sistema di coordinate dell’asse esteso attualmente in uso.
-
-.. note:: 
-   .. image:: teaching_pendant_software/009.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Percentuale velocità di esecuzione**  
-   Funzione: Visualizza la velocità di esecuzione corrente del robot (in percentuale rispetto alla velocità massima configurata).
-
-.. note:: 
-   .. image:: teaching_pendant_software/010.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Stato normale di funzionamento**  
-   Funzione: Indica che il robot sta operando regolarmente, senza errori.
+Barra di Stato
+~~~~~~~~~~~~
 
 .. note:: 
    .. image:: teaching_pendant_software/011.png
@@ -347,8 +292,39 @@ Barra di stato
       :height: 0.75in
       :align: left
 
-   Nome: **Stato di errore**  
-   Funzione: Indica che si è verificato un errore durante il funzionamento del robot.
+    Nome: **Stato Errore di Esecuzione Robot**
+   
+    Funzione: Indica un errore durante l'esecuzione del robot. Nascosto quando non ci sono errori.
+
+.. note:: 
+   .. image:: teaching_pendant_software/007.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Stato Robot**
+   
+    Funzione: Stopped (Fermo), Running (In Esecuzione), Pause (Pausa), Drag (Trascinamento)
+
+.. note:: 
+   .. image:: teaching_pendant_software/010.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Sistema di Coordinate dell'Utensile Robot, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso e ID Carico**
+   
+    Funzione: In alto a sinistra – ID del sistema di coordinate dell'utensile corrente. In alto a destra – ID del sistema di coordinate del pezzo corrente. In basso a sinistra – ID del sistema di coordinate dell'asse esteso corrente. In basso a destra – ID del carico corrente.
+
+.. note:: 
+   .. image:: teaching_pendant_software/009.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Percentuale Velocità di Esecuzione**
+   
+    Funzione: Velocità di funzionamento corrente del robot (in percentuale).
 
 .. note:: 
    .. image:: teaching_pendant_software/012.png
@@ -356,8 +332,9 @@ Barra di stato
       :height: 0.75in
       :align: left
 
-   Nome: **Modalità automatica**  
-   Funzione: Attiva la modalità di esecuzione automatica del programma. Quando questa modalità è abilitata insieme alla regolazione globale della velocità manuale, la velocità viene automaticamente impostata sul valore specificato.
+    Nome: **Modalità Automatica**
+   
+    Funzione: Modalità di funzionamento automatico del robot. Quando è abilitata la funzione "Passa alla Modalità Automatica con Regolazione Velocità Globale" e viene specificata una velocità, la velocità globale si adatterà automaticamente alla velocità specificata.
 
 .. note:: 
    .. image:: teaching_pendant_software/013.png
@@ -365,8 +342,61 @@ Barra di stato
       :height: 0.75in
       :align: left
 
-   Nome: **Modalità di insegnamento (Teach Mode)**  
-   Funzione: Attiva la modalità di programmazione manuale del robot.
+    Nome: **Modalità Manuale**
+   
+    Funzione: Modalità manuale del robot per operazioni di insegnamento.
+
+.. note:: 
+   .. image:: teaching_pendant_software/065.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Pulsante Comprimi/Espandi Stato Robot**
+   
+    Funzione: Comprime o espande la visualizzazione del Sistema di Coordinate dell'Utensile, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso, Carico, Stato di Trascinamento Robot, Modalità Locale/Remota, Stato Connessione Robot, Modalità BOOT e Informazioni Account.
+
+Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni di stato.
+
+.. note:: 
+   .. image:: teaching_pendant_software/008.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **ID Sistema di Coordinate dell'Utensile**
+   
+    Funzione: Visualizza l'ID del sistema di coordinate dell'utensile attualmente applicato.
+
+.. note:: 
+   .. image:: teaching_pendant_software/027.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **ID Sistema di Coordinate del Pezzo**
+   
+    Funzione: Visualizza l'ID del sistema di coordinate del pezzo attualmente applicato.
+   
+.. note:: 
+   .. image:: teaching_pendant_software/028.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **ID Sistema di Coordinate dell'Asse Esteso**
+   
+    Funzione: Visualizza l'ID del sistema di coordinate dell'asse esteso attualmente applicato.
+
+.. note:: 
+   .. image:: teaching_pendant_software/066.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Carico**
+   
+    Funzione: Visualizza il peso del carico attualmente applicato e le coordinate X, Y, Z del suo centro di massa.
 
 .. note:: 
    .. image:: teaching_pendant_software/014.png
@@ -374,8 +404,9 @@ Barra di stato
       :height: 0.75in
       :align: left
 
-   Nome: **Modalità trascinamento abilitata**  
-   Funzione: Indica che il robot è attualmente abilitato alla manipolazione manuale (drag mode).
+    Nome: **Stato di Trascinamento Robot**
+   
+    Funzione: Il robot può attualmente essere trascinato.
 
 .. note:: 
    .. image:: teaching_pendant_software/015.png
@@ -383,8 +414,29 @@ Barra di stato
       :height: 0.75in
       :align: left
 
-   Nome: **Modalità trascinamento disabilitata**  
-   Funzione: Indica che il robot non è attualmente abilitato alla manipolazione manuale.
+    Nome: **Stato di Trascinamento Robot**
+   
+    Funzione: Il robot attualmente non può essere trascinato.
+
+.. note:: 
+   .. image:: teaching_pendant_software/068.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Modalità Locale Robot**
+   
+    Funzione: Il robot è attualmente controllato dalla centralina di controllo.
+
+.. note:: 
+   .. image:: teaching_pendant_software/067.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Modalità Remota Robot**
+   
+    Funzione: Il robot può attualmente essere controllato solo tramite PLC.
 
 .. note:: 
    .. image:: teaching_pendant_software/017.png

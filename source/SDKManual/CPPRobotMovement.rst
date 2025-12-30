@@ -143,26 +143,27 @@ Movimento Lineare nello Spazio Cartesiano (LIN)
     :linenos:
 
     /**
-    * @brief  Movimento lineare nello spazio cartesiano (LIN)
-    * @param  [in] joint_pos  Posizione articolare target, unità deg
-    * @param  [in] desc_pos   Posa cartesiana target
-    * @param  [in] tool  Numero sistema di coordinate utensile, intervallo [0~14]
-    * @param  [in] user  Numero sistema di coordinate pezzo, intervallo [0~14]
-    * @param  [in] vel  Percentuale velocità, intervallo [0~100]
-    * @param  [in] acc  Percentuale accelerazione, intervallo [0~100], non attualmente aperto
-    * @param  [in] ovl  Fattore di scala velocità, intervallo [0~100]
-    * @param  [in] blendR [-1.0]-movimento fino a posizione (bloccante), [0~1000.0]-raggio di transizione (non bloccante), unità mm
-    * @param  [in] blendMode Modalità transizione; 0-transizione tangente interna; 1-transizione a punto d'angolo
-    * @param  [in] epos  Posizione assi estesi, unità mm
-    * @param  [in] search  0-nessuna ricerca filo di saldatura, 1-ricerca filo di saldatura
-    * @param  [in] offset_flag  0-nessun offset, 1-offset nel sistema di coordinate base/pezzo, 2-offset nel sistema di coordinate utensile
-    * @param  [in] offset_pos  Quantità di offset posa
-    * @param  [in] velAccParamMode Modalità parametri velocità/accelerazione; 0-percentuale; 1-velocità fisica (mm/s) accelerazione (mm/s2)
-    * @param  [in] overSpeedStrategy  Strategia gestione sovravelocità, 1-standard; 2-fermata con errore in caso di sovravelocità; 3-decelerazione adattativa, default 0
-    * @param  [in] speedPercent  Soglia percentuale decelerazione consentita [0-100], default 10%
-    * @return  Codice errore
+    * @brief   Movimento Lineare nello Spazio Cartesiano
+    * @param [in] joint_pos Posizioni target dei giunti, unità: deg
+    * @param [in] desc_pos Posa target cartesiana
+    * @param [in] tool Indice del sistema di coordinate utensile, intervallo [0~14]
+    * @param [in] user Indice del sistema di coordinate pezzo/utente, intervallo [0~14]
+    * @param [in] vel Percentuale di velocità, intervallo [0~100]
+    * @param [in] acc Percentuale di accelerazione, intervallo [0~100] (attualmente non disponibile)
+    * @param [in] ovl Fattore di scala velocità [0~100] / Velocità fisica (mm/s)
+    * @param [in] blendR [-1.0]-Blocca fino al completamento del movimento (bloccante), [0~1000.0]-Raggio di transizione (non bloccante), unità: mm
+    * @param [in] blendMode Metodo di transizione; 0-Transizione tangente; 1-Transizione a spigolo
+    * @param [in] epos Posizione dell'asse esteso, unità: mm
+    * @param [in] search 0-Nessuna ricerca filo, 1-Ricerca filo
+    * @param [in] offset_flag 0-Nessuno scostamento, 1-Scostamento nel sistema di coordinate base/pezzo, 2-Scostamento nel sistema di coordinate utensile
+    * @param [in] offset_pos Valore di scostamento della posa
+    * @param [in] oacc Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²)
+    * @param [in] velAccParamMode Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) e accelerazione (mm/s²)
+    * @param [in] overSpeedStrategy Strategia di gestione sovravelocità; 1-Standard; 2-Ferma con errore in caso di sovravelocità; 3-Riduzione adattiva della velocità, default 0
+    * @param [in] speedPercent Percentuale di soglia di riduzione velocità consentita [0-100], default 10%
+    * @return Codice di errore
     */
-    errno_t MoveL(JointPos *joint_pos, DescPose *desc_pos, int tool, int user, float vel, float acc, float ovl, float blendR, int blendMode, ExaxisPos *epos, uint8_t search, uint8_t offset_flag, DescPose *offset_pos, int velAccParamMode = 0, int overSpeedStrategy = 0, int speedPercent = 10);
+    errno_t MoveL(JointPos *joint_pos, DescPose *desc_pos, int tool, int user, float vel, float acc, float ovl, float blendR, int blendMode, ExaxisPos *epos, uint8_t search, uint8_t offset_flag, DescPose *offset_pos, float oacc = 100.0, int velAccParamMode = 0, int overSpeedStrategy = 0, int speedPercent = 10);
 
 Movimento Lineare nello Spazio Cartesiano (Calcolo Cinematica Inversa Automatico)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -215,12 +216,13 @@ Movimento Circolare nello Spazio Cartesiano (ARC)
     * @param  [in] epos_t  Posizione assi estesi, unità mm
     * @param  [in] toffset_flag  0-nessun offset, 1-offset nel sistema di coordinate base/pezzo, 2-offset nel sistema di coordinate utensile
     * @param  [in] offset_pos_t  Quantità di offset posa
-    * @param  [in] ovl  Fattore di scala velocità, intervallo [0~100]
-    * @param  [in] blendR [-1.0]-movimento fino a posizione (bloccante), [0~1000.0]-raggio di transizione (non bloccante), unità mm
+    * @param [in] ovl Fattore di scala velocità [0~100] / Velocità fisica (mm/s)
+    * @param [in] blendR [-1.0]-Blocca fino al completamento del movimento (bloccante), [0~1000.0]-Raggio di transizione (non bloccante), unità: mm
+    * @param [in] oacc Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²)
     * @param  [in] velAccParamMode Modalità parametri velocità/accelerazione; 0-percentuale; 1-velocità fisica (mm/s) accelerazione (mm/s2)
     * @return  Codice errore
     */
-    errno_t MoveC(JointPos *joint_pos_p, DescPose *desc_pos_p, int ptool, int puser, float pvel, float pacc, ExaxisPos *epos_p, uint8_t poffset_flag, DescPose *offset_pos_p, JointPos *joint_pos_t, DescPose *desc_pos_t, int ttool, int tuser, float tvel, float tacc, ExaxisPos *epos_t, uint8_t toffset_flag, DescPose *offset_pos_t, float ovl, float blendR, int velAccParamMode = 0);
+    errno_t MoveC(JointPos *joint_pos_p, DescPose *desc_pos_p, int ptool, int puser, float pvel, float pacc, ExaxisPos *epos_p, uint8_t poffset_flag, DescPose *offset_pos_p, JointPos *joint_pos_t, DescPose *desc_pos_t, int ttool, int tuser, float tvel, float tacc, ExaxisPos *epos_t, uint8_t toffset_flag, DescPose *offset_pos_t, float ovl, float blendR, float oacc = 100.0, int velAccParamMode = 0);
 
 Movimento Circolare nello Spazio Cartesiano (Calcolo Cinematica Inversa Automatico)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -273,10 +275,10 @@ Movimento Circolare Completo nello Spazio Cartesiano (CIRCLE)
     * @param  [in] tvel  Percentuale velocità, intervallo [0~100]
     * @param  [in] tacc  Percentuale accelerazione, intervallo [0~100], non attualmente aperto
     * @param  [in] epos_t  Posizione assi estesi, unità mm
-    * @param  [in] ovl  Fattore di scala velocità, intervallo [0~100]
-    * @param  [in] offset_flag  0-nessun offset, 1-offset nel sistema di coordinate base/pezzo, 2-offset nel sistema di coordinate utensile
-    * @param  [in] offset_pos  Quantità di offset posa
-    * @param  [in] oacc Percentuale accelerazione
+    * @param  [in] ovl Fattore di scala velocità [0~100] / Velocità fisica (mm/s)
+    * @param  [in] offset_flag 0-Nessuno scostamento, 1-Scostamento nel sistema di coordinate base/pezzo, 2-Scostamento nel sistema di coordinate utensile
+    * @param  [in] offset_pos Valore di scostamento della posa
+    * @param  [in] oacc Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²)
     * @param  [in] blendR -1：bloccante; 0~1000：raggio di transizione
     * @param  [in] velAccParamMode Modalità parametri velocità/accelerazione; 0-percentuale; 1-velocità fisica (mm/s) accelerazione (mm/s2)
     * @return  Codice errore
@@ -338,60 +340,65 @@ Esempio di Codice Istruzioni di Movimento Base del Robot
 
     int TestMove(void)
     {
-      ROBOT_STATE_PKG pkg = {};
-      FRRobot robot;
-      robot.LoggerInit();
-      robot.SetLoggerLevel(1);
-      int rtn = robot.RPC("192.168.58.2");
-      if (rtn != 0)
-      {
-        return -1;
-      }
-      robot.SetReConnectParam(true, 30000, 500);
-      JointPos j1(-11.904, -99.669, 117.473, -108.616, -91.726, 74.256);
-      JointPos j2(-45.615, -106.172, 124.296, -107.151, -91.282, 74.255);
-      JointPos j3(-29.777, -84.536, 109.275, -114.075, -86.655, 74.257);
-      JointPos j4(-31.154, -95.317, 94.276, -88.079, -89.740, 74.256);
-      DescPose desc_pos1(-419.524, -13.000, 351.569, -178.118, 0.314, 3.833);
-      DescPose desc_pos2(-321.222, 185.189, 335.520, -179.030, -1.284, -29.869);
-      DescPose desc_pos3(-487.434, 154.362, 308.576, 176.600, 0.268, -14.061);
-      DescPose desc_pos4(-443.165, 147.881, 480.951, 179.511, -0.775, -15.409);
-      DescPose offset_pos(0, 0, 0, 0, 0, 0);
-      ExaxisPos epos(0, 0, 0, 0);
-      int tool = 0;
-      int user = 0;
-      float vel = 100.0;
-      float acc = 100.0;
-      float ovl = 100.0;
-      float blendT = 0.0;
-      float blendR = 0.0;
-      uint8_t flag = 0;
-      uint8_t search = 0;
-      robot.SetSpeed(20);
-      rtn = robot.MoveJ(&j1, &desc_pos1, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
-      printf("movej errcode:%d\n", rtn);
-      rtn = robot.MoveL(&j2, &desc_pos2, tool, user, vel, acc, ovl, blendR, &epos, search, flag, &offset_pos);
-      printf("movel errcode:%d\n", rtn);
-      rtn = robot.MoveC(&j3, &desc_pos3, tool, user, vel, acc, &epos, flag, &offset_pos, &j4, &desc_pos4, tool, user, vel, acc, &epos, flag, &offset_pos, ovl, blendR);
-      printf("movec errcode:%d\n", rtn);
-      rtn = robot.MoveJ(&j2, &desc_pos2, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
-      printf("movej errcode:%d\n", rtn);
-      rtn = robot.Circle(&j3, &desc_pos3, tool, user, vel, acc, &epos, &j1, &desc_pos1, tool, user, vel, acc, &epos, ovl, flag, &offset_pos, 100, -1);
-      printf("circle errcode:%d\n", rtn);
-      rtn = robot.MoveCart(&desc_pos4, tool, user, vel, acc, ovl, blendT, -1);
-      printf("MoveCart errcode:%d\n", rtn);
-      rtn = robot.MoveJ(&j1, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
-      printf("movej errcode:%d\n", rtn);
-      rtn = robot.MoveL(&desc_pos2, tool, user, vel, acc, ovl, blendR, 0, &epos, search, flag, &offset_pos);
-      printf("movel errcode:%d\n", rtn);
-      rtn = robot.MoveC(&desc_pos3, tool, user, vel, acc, &epos, flag, &offset_pos, &desc_pos4, tool, user, vel, acc, &epos, flag, &offset_pos, ovl, blendR);
-      printf("movec errcode:%d\n", rtn);
-      rtn = robot.MoveJ(&j2, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
-      printf("movej errcode:%d\n", rtn);
-      rtn = robot.Circle(&desc_pos3, tool, user, vel, acc, &epos, &desc_pos1, tool, user, vel, acc, &epos, ovl, flag, &offset_pos, 100, -1);
-      printf("circle errcode:%d\n", rtn);
-      robot.CloseRPC();
-      return 0;
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return -1;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+
+        JointPos j1(-11.904, -99.669, 117.473, -108.616, -91.726, 74.256);
+        JointPos j2(-45.615, -106.172, 124.296, -107.151, -91.282, 74.255);
+        JointPos j3(-29.777, -84.536, 109.275, -114.075, -86.655, 74.257);
+        JointPos j4(-31.154, -95.317, 94.276, -88.079, -89.740, 74.256);
+        DescPose desc_pos1(-419.524, -13.000, 351.569, -178.118, 0.314, 3.833);
+        DescPose desc_pos2(-321.222, 185.189, 335.520, -179.030, -1.284, -29.869);
+        DescPose desc_pos3(-487.434, 154.362, 308.576, 176.600, 0.268, -14.061);
+        DescPose desc_pos4(-443.165, 147.881, 480.951, 179.511, -0.775, -15.409);
+        DescPose offset_pos(0, 0, 0, 0, 0, 0);
+        ExaxisPos epos(0, 0, 0, 0);
+        int tool = 0;
+        int user = 0;
+        float vel = 100.0;
+        float acc = 100.0;
+        float ovl = 100.0;
+        float oacc = 100.0;
+        float blendT = 0.0;
+        float blendR = 0.0;
+        uint8_t flag = 0;
+        uint8_t search = 0;
+        int blendMode = 0;
+        int velAccMode = 0;
+        robot.SetSpeed(20);
+        rtn = robot.MoveJ(&j1, &desc_pos1, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
+        printf("movej errcode:%d\n", rtn);
+        rtn = robot.MoveL(&j2, &desc_pos2, tool, user, vel, acc, ovl, blendR, blendMode, &epos, search, flag, &offset_pos, oacc, velAccMode);
+        printf("movel errcode:%d\n", rtn);
+        rtn = robot.MoveC(&j3, &desc_pos3, tool, user, vel, acc, &epos, flag, &offset_pos, &j4, &desc_pos4, tool, user, vel, acc, &epos, flag, &offset_pos, ovl, blendR, oacc, velAccMode);
+        printf("movec errcode:%d\n", rtn);
+        rtn = robot.MoveJ(&j2, &desc_pos2, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
+        printf("movej errcode:%d\n", rtn);
+        rtn = robot.Circle(&j3, &desc_pos3, tool, user, vel, acc, &epos, &j1, &desc_pos1, tool, user, vel, acc, &epos, ovl, flag, &offset_pos, oacc, -1, velAccMode);
+        printf("circle errcode:%d\n", rtn);
+        rtn = robot.MoveCart(&desc_pos4, tool, user, vel, acc, ovl, blendT, -1);
+        printf("MoveCart errcode:%d\n", rtn);
+        rtn = robot.MoveJ(&j1, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
+        printf("movej errcode:%d\n", rtn);
+        rtn = robot.MoveL(&desc_pos2, tool, user, vel, acc, ovl, blendR, blendMode, &epos, search, flag, &offset_pos, -1, velAccMode);
+        printf("movel errcode:%d\n", rtn);
+        rtn = robot.MoveC(&desc_pos3, tool, user, vel, acc, &epos, flag, &offset_pos, &desc_pos4, tool, user, vel, acc, &epos, flag, &offset_pos, ovl, blendR, -1, velAccMode);
+        printf("movec errcode:%d\n", rtn);
+        rtn = robot.MoveJ(&j2, tool, user, vel, acc, ovl, &epos, blendT, flag, &offset_pos);
+        printf("movej errcode:%d\n", rtn);
+        rtn = robot.Circle(&desc_pos3, tool, user, vel, acc, &epos, &desc_pos1, tool, user, vel, acc, &epos, ovl, flag, &offset_pos, oacc, blendR, -1, velAccMode);
+        printf("circle errcode:%d\n", rtn);
+        robot.CloseRPC();
+        return 0;
     }
 
 Movimento Spirale nello Spazio Cartesiano

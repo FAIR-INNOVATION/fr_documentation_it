@@ -1,3 +1,42 @@
+Versione V3.9.1
+-----------------
+
+Data: 2025-12-30
+
+- **Funzione di Registrazione a Sfondo del Robot per Eventi di Guasto e Allarme**: 
+  
+    Descrizione: Capace di registrare informazioni su guasti e allarmi durante i logout dell'interfaccia utente, visualizzabili dopo il nuovo accesso.
+
+- **Comandi PTP e LIN Aggiungono Funzione di Movimento Relativo alla Posizione Corrente, WebApp Aggiunge Funzione di Aggiunta Comando ServoJ**: 
+    Percorso: Insegnamento Programma -> Programmazione Programma -> Comandi PTP/LIN.
+  
+    Descrizione: Risolve il problema della complessità operativa dei comandi quando il braccio robotico non ha punti insegnati ma richiede uno scostamento basato sulla posizione corrente. L'inserimento di un singolo comando realizza il movimento.
+
+- **Interruttore di Debug del Protocollo Aperto Lua per End-effector e Funzione di Verifica della Sintassi**: 
+    Percorso: Configurazione Iniziale -> Periferiche -> Pinza, Sensore di Forza, Maniglia di Saldatura.
+  
+    Descrizione: Il sistema integrato del controller è ora adattato ai protocolli dell'end-effector (pinza, sensore di forza, maniglia di saldatura). Questa ottimizzazione consente la selezione e l'applicazione diretta all'end-effector all'interno della webAPP. Il webServer ora include la verifica della sintassi Lua per i protocolli, segnalando errori direttamente in caso di fallimento della verifica. La webAPP aggiunge un interruttore di debug per il protocollo aperto Lua, che, quando abilitato durante il debug, esegue il Lua dell'end-effector sopprimendo gli errori di timeout della comunicazione del sensore.
+
+- **Ottimizzazione della Funzionalità Scenario di Pallettizzazione FRCap**: 
+    Percorso: Applicazioni Ausiliarie -> Pacchetto Processo -> Palletizzazione.
+  
+    Descrizione: La pallettizzazione ora supporta due punti di prelievo. Dopo l'arrivo dei materiali su due linee di trasporto, il robot preleva sequenzialmente i materiali dai punti di prelievo sulle due linee e li posiziona su due pallet corrispondenti.
+
+- **Ottimizzazione della Funzionalità del Pannello di Insegnamento Fisico**: 
+    Percorso: Impostazioni di Sistema -> Impostazioni Generali -> Rete
+  
+    Descrizione: In precedenza, gli utenti dovevano prima passare alla webAPP prima di accedere alla propria interfaccia del computer host quando utilizzavano il pannello di insegnamento, il che era macchinoso. Dopo l'ottimizzazione, ruotando l'interruttore a chiave fisica senza accedere all'interfaccia di insegnamento, il robot può passare tra le modalità manuale/automatica.
+
+- **Ottimizzazione della Funzione di Collisione**: 
+    Percorso: Configurazione Iniziale -> Base -> Giunto -> Livello di Collisione -> Rilevamento Falsi Allarmi.
+  
+    Descrizione: Quando il livello di collisione è impostato su 1, il robot può funzionare a qualsiasi velocità senza falsi allarmi dovuti all'alta velocità. Errori e arresti si verificano solo in caso di collisione o schiacciamento effettivi.
+
+- **Funzione di Calibrazione TCP per Sensore Fotoelettrico**:
+    Percorso: Impostazione Iniziale -> Base -> Coordinate Utensile -> Calibrazione Automatica Fotoelettrica.
+  
+    Descrizione: Supporta la calibrazione automatica per torce di saldatura a manico dritto e a manico curvo;  
+
 Versione V3.9.0  
 -----------------  
 

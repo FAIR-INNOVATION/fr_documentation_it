@@ -202,7 +202,7 @@ Nella modifica della ricetta, è possibile scegliere se utilizzare una stazione 
 Configurazione del Cablaggio I/O per la Funzione di Pallettizzazione
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(1) Dopo aver scelto di utilizzare la stazione di lavoro per pallettizzazione, clicca su Configurazione I/O Estesa. In base alla funzionalità corrispondente e al cablaggio effettivo con le interfacce I/O del PLC, è possibile selezionare personalmente la configurazione dei segnali I/O per la funzione di pallettizzazione. La Figura 2-3 mostra la configurazione predefinita del cablaggio per la stazione di lavoro per pallettizzazione.
+(1) Dopo aver scelto di utilizzare la stazione di lavoro per pallettizzazione, clicca su Configurazione I/O Estesa. In base alla funzionalità corrispondente e al cablaggio effettivo con le interfacce I/O del PLC, è possibile selezionare personalmente la configurazione dei segnali I/O per la funzione di pallettizzazione. La Figura mostra la configurazione predefinita del cablaggio per la stazione di lavoro per pallettizzazione.
 
 .. image:: frcap_pictures/077.png
    :width: 4in
@@ -210,7 +210,7 @@ Configurazione del Cablaggio I/O per la Funzione di Pallettizzazione
 
 .. centered:: Figura 10-3-1-2 Configurazione Predefinita del Cablaggio della Stazione di Lavoro per Pallettizzazione
 
-(2) Se si sceglie di non utilizzare una stazione di lavoro per pallettizzazione, per impostazione predefinita vengono utilizzati i segnali I/O del quadro di controllo. In base alla funzionalità corrispondente e al cablaggio effettivo con le interfacce I/O del quadro di controllo, è possibile selezionare personalmente la configurazione dei segnali I/O per la funzione di pallettizzazione. La Figura 2-4 mostra la configurazione predefinita del cablaggio senza stazione di lavoro per pallettizzazione (utilizzando I/O del quadro di controllo).
+(2) Se si sceglie di non utilizzare una stazione di lavoro per pallettizzazione, per impostazione predefinita vengono utilizzati i segnali I/O del quadro di controllo. In base alla funzionalità corrispondente e al cablaggio effettivo con le interfacce I/O del quadro di controllo, è possibile selezionare personalmente la configurazione dei segnali I/O per la funzione di pallettizzazione. La Figura mostra la configurazione predefinita del cablaggio senza stazione di lavoro per pallettizzazione (utilizzando I/O del quadro di controllo).
 
 .. image:: frcap_pictures/078.png
    :width: 4in
@@ -327,7 +327,7 @@ Parametri della Scatola
    | Nome: **Scatola Successiva**
    | Funzione: Passa alla scatola successiva. Quando viene selezionata l'ultima scatola, passando ancora si seleziona la prima scatola.
 
-Nella barra di configurazione della scatola, clicca su "Modifica" per accedere alla finestra di dialogo "Configurazione Scatola". Imposta "Lunghezza", "Larghezza", "Altezza", "Carico", "Orientamento Etichetta Pezzo" e il segnale di presenza del pezzo della scatola, quindi clicca sul pulsante "Conferma" per completare la configurazione delle informazioni della scatola; imposta il punto di presa della scatola (mantenendo il punto di presa al centro della scatola, con la ventosa a contatto con la scatola in uno stato compresso), clicca sul pulsante "Registra" per completare l'impostazione.
+Nella barra di configurazione della scatola, clicca su "Modifica" per accedere alla finestra di dialogo "Configurazione Scatola". Imposta "Lunghezza", "Larghezza", "Altezza", "Carico", "Orientamento Etichetta Pezzo", quindi clicca sul pulsante "Conferma" per completare la configurazione delle informazioni della scatola; imposta il punto di presa della scatola (mantenendo il punto di presa al centro della scatola, con la ventosa a contatto con la scatola in uno stato compresso), clicca sul pulsante "Registra" per completare l'impostazione.
 
 .. image:: frcap_pictures/029.png
    :width: 6in
@@ -479,7 +479,7 @@ Nella barra di configurazione della modalità, clicca su "Configura" per acceder
 .. important:: 
    Quando si aggiungono scatole, se c'è collisione tra le scatole, lo sfondo del pezzo diventa rosso, e a questo punto le operazioni sopra non possono essere eseguite. Se necessario, regolare le scatole per evitare collisioni.
 
-Nell'intestazione della finestra di dialogo, seleziona la modalità, nell'area operazioni scatola seleziona le scatole da aggiungere in questa modalità, imposta prima la spaziatura tra le scatole, può essere aggiunta singolarmente o in batch, quindi clicca su "Conferma" per completare l'impostazione delle informazioni della modalità. Quando le altezze delle scatole selezionate non sono coerenti, la configurazione non può essere completata e viene visualizzato il messaggio "Le altezze dei tipi di scatola non sono coerenti e non possono essere aggiunte nella stessa modalità".
+Nell'intestazione del pop-up, seleziona una modalità, quindi scegli le scatole nell'area di operazione delle scatole per aggiungerle sotto questa modalità. Puoi scegliere l'aggiunta con un clic, che per impostazione predefinita riempie il pallet centrato con scatole senza alcuno spazio. Personalizza la spaziatura delle scatole; le scatole possono essere aggiunte singolarmente o in batch. Fai clic su "Conferma" per completare la configurazione delle informazioni della modalità. Quando le scatole selezionate hanno altezze inconsistenti, la configurazione non può essere completata e apparirà il messaggio "Le altezze del tipo di scatola non sono coerenti e non possono essere aggiunte alla stessa modalità".
 
 .. image:: frcap_pictures/070.png
    :width: 6in
@@ -603,19 +603,50 @@ Quindi imposta il punto di presa (mantenendo il punto di presa al centro del div
 
 .. centered:: Figura 10-3-34 Test dell'Asse di Sollevamento
 
-Generazione del Programma
-------------------------------------
-Nella parte inferiore della visualizzazione delle ricette, cerca "Generazione Programma", inserisci il nome del programma, seleziona la ricetta in base alla ricetta e alle esigenze, la ricetta sinistra e destra possono essere uguali o diverse, quindi clicca sul pulsante "Genera".
+Generazione Programma
+------------------------
+Visualizzare "Generazione Programma" sotto la visualizzazione della ricetta e selezionare la ricetta in base alla ricetta stessa e alle esigenze. Quando vengono selezionate ricette per entrambe le postazioni sinistra e destra, è necessario selezionare la priorità di avvio; quando viene selezionata una ricetta solo per la postazione sinistra o destra, non è necessario selezionare la priorità di avvio. Dopo aver inserito il nome del programma, fare clic sul pulsante "Genera".
 
-.. note:: Tutti i nomi dei programmi iniziano con "palletizing", non è necessario inserire "palletizing", basta inserire il nome che segue "_". Ad esempio, per "palletizing_program", inserisci solo "program".
-
-.. important:: 
-    1. Se la postazione sinistra o destra non ha selezionato una ricetta di pallettizzazione, significa che quella postazione non è abilitata.
-    2. Dopo la generazione riuscita del programma, assicurati di salvare manualmente tutti i sottoprogrammi e il programma principale nella programmazione dimostrativa del programma.
-    3. I programmi di depallettizzazione iniziano con "de", ad esempio, se il programma di pallettizzazione è "palletizing_program", il programma di depallettizzazione sarà "depalletizing_program".
+.. note:: Tutti i nomi dei programmi iniziano con "palletizing". Non è necessario inserire "palletizing"; basta inserire il nome dopo "_". Ad esempio, per "palletizing_program", inserire "program".
 
 .. image:: frcap_pictures/043.png
-   :width: 6in
+   :width: 4in
    :align: center
 
-.. centered:: Figura 10-4-1 Generazione del Programma
+.. centered:: Figura 10-4-1 Generazione Programma – Selezione Ricette per Entrambe le Postazioni Sinistra e Destra
+
+.. image:: frcap_pictures/081.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 10-4-2 Generazione Programma – Selezione Ricetta per Postazione Sinistra, Nessuna Ricetta per Postazione Destra
+
+.. important::
+    1. Se non viene selezionata alcuna ricetta di pallettizzazione per la postazione sinistra o destra, significa che quella postazione non è abilitata.
+    2. Dopo aver generato con successo il programma, assicurarsi di salvare manualmente tutti i sottoprogrammi e il programma principale nell'Insegnamento Programmi.
+    3. I programmi di spalletizzazione iniziano con "de". Ad esempio, se il programma di pallettizzazione è "palletizing_program", il programma di spalletizzazione sarà "depalletizing_program".
+    4. Durante l'esecuzione di un programma con ricette configurate per entrambe le postazioni sinistra e destra, dopo aver ricevuto contemporaneamente i segnali di pezzo in posizione per sinistra e destra, il lavoro procede in base alla priorità impostata.
+
+Programma a Singolo Punto di Prelievo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Esistono due scenari per un programma a singolo punto di prelievo:
+
+(1) Le postazioni sinistra e destra selezionano la stessa ricetta;
+(2) Le postazioni sinistra e destra selezionano ricette diverse, ma la posa del punto di prelievo della scatola configurata nelle ricette è la stessa.
+
+.. image:: frcap_pictures/082.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 10-4-3 Singolo Punto di Prelievo – Punto di Prelievo Scatola
+
+Programma a Doppio Punto di Prelievo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Per configurare un programma a doppio punto di prelievo, le postazioni sinistra e destra devono selezionare ricette diverse e le pose dei punti di prelievo della scatola configurate nelle ricette devono essere diverse.
+
+.. image:: frcap_pictures/083.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 10-4-4 Doppio Punto di Prelievo – Punti di Prelievo Scatola

@@ -101,101 +101,103 @@ Movimento spazio giunti
     - ``offset_pos``: quantità offset posa，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0];"
     "Valore restituito", "Codice errore  Successo-0  Fallimento- errcode"
 
-Movimento lineare spazio cartesiano
-+++++++++++++++++++++++++++++++++++++
+Movimento Lineare nello Spazio Cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``MoveL(desc_pos, tool, user, joint_pos = [0.0,0.0,0.0,0.0,0.0,0.0], vel = 20.0, acc = 0.0 , ovl = 100.0, blendR = -1.0, blendMode = 0, exaxis_pos = [0.0,0.0,0.0,0.0], search = 0, offset_flag = 0, offset_pos = [0.0,0.0,0.0,0.0,0.0,0.0],config=-1,velAccParamMode=0,overSpeedStrategy=0,speedPercent=10)``"
-    "Descrizione", "Movimento lineare spazio cartesiano"
-    "Parametri obbligatori", "- ``desc_pos``: posa cartesiana target，unità[mm][°]；
-    - ``tool``: numero utensile，[0~14]；
-    - ``user``: numero pezzo，[0~14]；"
-    "Parametri predefiniti", "- ``joint_pos``: posizione giunti target，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
-    - ``vel``: percentuale velocità，[0~100] default 20.0；
-    - ``acc``: percentuale accelerazione，[0~100]，non aperto attualmente default 0.0；
-    - ``ovl``: fattore scala velocità，[0~100] default 100.0；
-    - ``blendR``:[-1.0]-movimento a posizione (bloccante)，[0~1000]-raggio smooth (non bloccante)，unità [mm] default -1.0;
-    - ``blendMode``: modalità transizione；0-transizione tangente interna；1-transizione angolo, default-0;
-    - ``exaxis_pos``: asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
-    - ``search``:[0]-nessuna ricerca filo saldatura，[1]-ricerca filo saldatura；
-    - ``offset_flag``:[0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
-    - ``offset_pos``: quantità offset posa，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0];
-    - ``config``: configurazione spazio giunti cinematica inversa，[-1]-calcolo riferimento posizione giunti corrente，[0~7]-soluzione basata specifica configurazione spazio giunti，default -1
-    - ``velAccParamMode``: modalità parametri velocità accelerazione；0-percentuale；1-velocità fisica(mm/s) accelerazione(mm/s2) default 0
-    - ``overSpeedStrategy``: strategia gestione sovravelocità，0-strategia disattivata；1-standard；2-errore e arresto sovravelocità；3-decelerazione adattativa，default 0
-    - ``speedPercent``: percentuale soglia decelerazione consentita[0-100]，default 10%
+    "Prototipo", "``MoveL(desc_pos, tool, user, joint_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], vel=20.0, acc=0.0, ovl=100.0,blendR=-1.0, blendMode = 0,exaxis_pos=[0.0, 0.0, 0.0, 0.0], search=0, offset_flag=0,offset_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],oacc = 100.0,config=-1,velAccParamMode=0,overSpeedStrategy=0,speedPercent=10)``"
+    "Descrizione", "Movimento Lineare nello Spazio Cartesiano"
+    "Parametri Obbligatori", "- ``desc_pos``: Posa cartesiana target, unità [mm][°]；
+    - ``tool``: Numero utensile, [0~14]；
+    - ``user``: Numero pezzo/utente, [0~14]；"
+    "Parametri Predefiniti", "- ``joint_pos``: Posizioni target dei giunti, unità [°] Valore iniziale predefinito è [0.0,0.0,0.0,0.0,0.0,0.0], valore predefinito è il risultato della cinematica inversa；
+    - ``vel``: Percentuale di velocità, [0~100] Predefinito 20.0；
+    - ``acc``: Percentuale di accelerazione, [0~100], attualmente non disponibile Predefinito 0.0；
+    - ``ovl``: Fattore di scala velocità, [0~100] Predefinito 100.0；
+    - ``blendR``:[-1.0]-Blocca fino al completamento del movimento (bloccante), [0~1000]-Raggio di transizione (non bloccante), unità [mm] Predefinito -1.0；
+    - ``blendMode``: Metodo di transizione; 0-Transizione tangente； 1-Transizione a spigolo, predefinito 0；
+    - ``exaxis_pos``: Posizione asse esterno 1 ~ Posizione asse esterno 4 Predefinito [0.0,0.0,0.0,0.0]；
+    - ``search``:[0]-Nessuna ricerca filo, [1]-Ricerca filo；
+    - ``offset_flag``:[0]-Nessuno scostamento, [1]-Scostamento nel sistema di coordinate pezzo/base, [2]-Scostamento nel sistema di coordinate utensile Predefinito 0；
+    - ``offset_pos``: Valore di scostamento della posa, unità [mm][°] Predefinito [0.0,0.0,0.0,0.0,0.0,0.0]；
+    - ``oacc``: Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²) Predefinito 100；
+    - ``config``: Configurazione spazio giunti per soluzione inversa, [-1]-Risolvi con riferimento alle posizioni correnti dei giunti, [0~7]-Risolvi secondo una specifica configurazione dello spazio giunti, predefinito -1
+    - ``velAccParamMode``: Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) e accelerazione (mm/s²) Predefinito 0
+    - ``overSpeedStrategy``: Strategia di gestione sovravelocità, 0-Strategia disabilitata; 1-Standard; 2-Ferma con errore in caso di sovravelocità; 3-Riduzione adattiva della velocità, predefinito 0
+    - ``speedPercent``: Percentuale di soglia di riduzione velocità consentita [0-100], predefinito 10%
     "
-    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
+    "Valore di Ritorno", "Codice di errore 0-Successo  Errore- errcode"
 
-Movimento arco spazio cartesiano
-+++++++++++++++++++++++++++++++++
+Movimento ad Arco Circolare nello Spazio Cartesiano
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``MoveC(desc_pos_p, tool_p, user_p, desc_pos_t, tool_t, user_t, joint_pos_p =[0.0,0.0,0.0, 0.0,0.0,0.0],joint_pos_t=[0.0,0.0,0.0,0.0,0.0,0.0], vel_p = 20.0,acc_p=100.0, exaxis_pos_p =[0.0,0.0,0.0,0.0], offset_flag_p = 0, offset_pos_p = [0.0,0.0,0.0,0.0,0.0,0.0], vel_t= 20.0, acc_t=100.0,exaxis_pos_t=[0.0,0.0,0.0,0.0], offset_flag_t = 0, offset_pos_t = [0.0,0.0,0.0, 0.0,0.0,0.0], ovl = 100.0, blendR = -1.0, config=-1,velAccParamMode=0)``"
-    "Descrizione", "Movimento arco spazio cartesiano"
-    "Parametri obbligatori", "- ``desc_pos_p``: posa cartesiana punto percorso，unità[mm][°]；
-    - ``tool_p``: numero utensile punto percorso，[0~14];
-    - ``user_p``: numero pezzo punto percorso，[0~14];
-    - ``desc_pos_t``: posa cartesiana punto target，unità [mm][°];
-    - ``tool_t``: numero utensile，[0~14]；
-    - ``user_t``: numero pezzo，[0~14]；"
-    "Parametri predefiniti", "- ``joint_pos_p``: posizione giunti punto percorso，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
-    - ``joint_pos_t``: posizione giunti punto target，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
-    - ``vel_p``: percentuale velocità punto percorso，[0~100] default 20.0;
-    - ``acc_p``: percentuale accelerazione punto percorso，[0~100] non aperto attualmente, default 0.0;
-    - ``exaxis_pos_p``: punto percorso asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
-    - ``offset_flag_p``: punto percorso se offset [0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
-    - ``vel_t``: percentuale velocità punto target，[0~100] default 20.0;
-    - ``acc_t``: percentuale accelerazione punto target，[0~100] non aperto attualmente default 0.0;
-    - ``exaxis_pos_t``: punto target asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
-    - ``offset_flag_t``: punto target se offset [0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
-    - ``offset_pos_t``: quantità offset posa punto target，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0];
-    - ``ovl:``: fattore scala velocità，[0~100] default 100.0;
-    - ``blendR``:[-1.0]-movimento a posizione (bloccante)，[0~1000]-raggio smooth (non bloccante)，unità [mm] default -1.0;
-    - ``config``: configurazione spazio giunti cinematica inversa，[-1]-calcolo riferimento posizione giunti corrente，[0~7]-soluzione basata specifica configurazione spazio giunti，default -1;
-    - ``velAccParamMode``: modalità parametri velocità accelerazione；0-percentuale；1-velocità fisica(mm/s) accelerazione(mm/s2) default 0"
-    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
+    "Prototipo", "``MoveC(desc_pos_p, tool_p, user_p, desc_pos_t, tool_t, user_t, joint_pos_p=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], joint_pos_t=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],vel_p=20.0, acc_p=100.0, exaxis_pos_p=[0.0, 0.0, 0.0, 0.0], offset_flag_p=0,offset_pos_p=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],vel_t=20.0, acc_t=100.0, exaxis_pos_t=[0.0, 0.0, 0.0, 0.0], offset_flag_t=0,offset_pos_t=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],ovl=100.0, blendR=-1.0,oacc=100.0,config=-1,velAccParamMode=0)``"
+    "Descrizione", "Movimento ad Arco Circolare nello Spazio Cartesiano"
+    "Parametri Obbligatori", "- ``desc_pos_p``: Posa cartesiana del punto di percorso, unità [mm][°]；
+    - ``tool_p``: Numero utensile del punto di percorso, [0~14];
+    - ``user_p``: Numero pezzo/utente del punto di percorso, [0~14];
+    - ``desc_pos_t``: Posa cartesiana del punto target, unità [mm][°];
+    - ``tool_t``: Numero utensile, [0~14]；
+    - ``user_t``: Numero pezzo/utente, [0~14]；"
+    "Parametri Predefiniti", "- ``joint_pos_p``: Posizioni dei giunti del punto di percorso, unità [°] Valore iniziale predefinito è [0.0,0.0,0.0,0.0,0.0,0.0], valore predefinito è il risultato della cinematica inversa;
+    - ``joint_pos_t``: Posizioni dei giunti del punto target, unità [°] Valore iniziale predefinito è [0.0,0.0,0.0,0.0,0.0,0.0], valore predefinito è il risultato della cinematica inversa;
+    - ``vel_p``: Percentuale di velocità del punto di percorso, [0~100] Predefinito 20.0;
+    - ``acc_p``: Percentuale di accelerazione del punto di percorso, [0~100] Attualmente non disponibile, predefinito 0.0;
+    - ``exaxis_pos_p``: Posizione asse esterno 1 del punto di percorso ~ Posizione asse esterno 4 Predefinito [0.0,0.0,0.0,0.0];
+    - ``offset_flag_p``: Se il punto di percorso è scostato [0]-Nessuno scostamento, [1]-Scostamento nel sistema di coordinate pezzo/base, [2]-Scostamento nel sistema di coordinate utensile Predefinito 0;
+    - ``vel_t``: Percentuale di velocità del punto target, [0~100] Predefinito 20.0;
+    - ``acc_t``: Percentuale di accelerazione del punto target, [0~100] Attualmente non disponibile predefinito 0.0;
+    - ``exaxis_pos_t``: Posizione asse esterno 1 del punto target ~ Posizione asse esterno 4 Predefinito [0.0,0.0,0.0,0.0];
+    - ``offset_flag_t``: Se il punto target è scostato [0]-Nessuno scostamento, [1]-Scostamento nel sistema di coordinate pezzo/base, [2]-Scostamento nel sistema di coordinate utensile Predefinito 0;
+    - ``offset_pos_t``: Valore di scostamento della posa del punto target, unità [mm][°] Predefinito [0.0,0.0,0.0,0.0,0.0,0.0];
+    - ``ovl:``: Fattore di scala velocità, [0~100] Predefinito 100.0;
+    - ``blendR``:[-1.0]-Blocca fino al completamento del movimento (bloccante), [0~1000]-Raggio di transizione (non bloccante), unità [mm] Predefinito -1.0;
+    - ``oacc``: Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²) Predefinito 100;
+    - ``config``: Configurazione spazio giunti per soluzione inversa, [-1]-Risolvi con riferimento alle posizioni correnti dei giunti, [0~7]-Risolvi secondo una specifica configurazione dello spazio giunti, predefinito -1;
+    - ``velAccParamMode``: Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) e accelerazione (mm/s²) Predefinito 0"
+    "Valore di Ritorno", "Codice di errore 0-Successo  Errore- errcode"
 
-Movimento cerchio completo spazio cartesiano
-+++++++++++++++++++++++++++++++++++++++++++++
+Movimento Circolare Completo nello Spazio Cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.1.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``Circle(desc_pos_p,tool_p,user_p,desc_pos_t,tool_t,user_t,joint_pos_p=[0.0,0.0,0.0,0.0,0.0,0.0], joint_pos_t = [0.0,0.0,0.0,0.0,0.0,0.0], vel_p = 20.0, acc_p=0.0, exaxis_pos_p= [0.0,0.0, 0.0,0.0], vel_t=20.0, acc_t = 0.0, exaxis_pos_t =[0.0,0.0,0.0,0.0], ovl=100.0, offset_flag=0, offset_pos= [0.0,0.0,0.0,0.0,0.0,0.0],oacc=100.0,blendR=-1,config=-1,velAccParamMode=0)``"
-    "Descrizione", "Movimento cerchio completo spazio cartesiano"
-    "Parametri obbligatori", "- ``desc_pos_p``: posa cartesiana punto percorso，unità[mm][°]；
-    - ``tool_p``: numero utensile，[0~14]；
-    - ``user_p``: numero pezzo，[0~14]；
-    - ``desc_pos_t``: posa cartesiana punto target，unità[mm][°]；
-    - ``tool_t``: numero utensile，[0~14]；
-    - ``user_t``: numero pezzo，[0~14]；"
-    "Parametri predefiniti", "- ``joint_pos_p``: posizione giunti punto percorso，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
-    - ``joint_pos_t``: posizione giunti punto target，unità [°] default valore iniziale [0.0,0.0,0.0,0.0,0.0,0.0]，valore default chiamata cinematica inversa restituisce valore;
-    - ``vel_p``: percentuale velocità，[0~100] default 20.0;
-    - ``acc_p``: percentuale accelerazione punto percorso，[0~100] non aperto attualmente default 0.0;
-    - ``exaxis_pos_p``: punto percorso asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0];
-    - ``vel_t``: percentuale velocità punto target，[0~100] default 20.0;
-    - ``acc_t``: percentuale accelerazione punto target，[0~100] non aperto attualmente default 0.0;
-    - ``exaxis_pos_t``: punto target asse esterno 1 posizione ~ asse esterno 4 posizione default [0.0,0.0,0.0,0.0]
-    - ``ovl``: fattore scala velocità，[0~100] default 100.0;
-    - ``offset_flag``: se offset [0]-nessun offset，[1]-offset sistema pezzo/base，[2]-offset sistema utensile default 0;
-    - ``offset_pos``: quantità offset posa，unità [mm][°] default [0.0,0.0,0.0,0.0,0.0,0.0]
-    - ``oacc``: percentuale accelerazione，default：100；
-    - ``blendR``:-1：bloccante；0~1000：raggio smooth, default：-1；
-    - ``config``: configurazione spazio giunti cinematica inversa，[-1]-calcolo riferimento posizione giunti corrente，[0~7]-soluzione basata specifica configurazione spazio giunti，default -1;
-    - ``velAccParamMode``: modalità parametri velocità accelerazione；0-percentuale；1-velocità fisica(mm/s) accelerazione(mm/s2) default 0"
-    "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
+    "Prototipo", "``Circle(desc_pos_p, tool_p, user_p, desc_pos_t, tool_t, user_t, joint_pos_p=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],joint_pos_t=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0],vel_p=20.0, acc_p=0.0, exaxis_pos_p=[0.0, 0.0, 0.0, 0.0], vel_t=20.0, acc_t=0.0,exaxis_pos_t=[0.0, 0.0, 0.0, 0.0],ovl=100.0, offset_flag=0, offset_pos=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], oacc=100.0, blendR=-1,config=-1,velAccParamMode=0)``"
+    "Descrizione", "Movimento Circolare Completo nello Spazio Cartesiano"
+    "Parametri Obbligatori", "- ``desc_pos_p``: Posa cartesiana del punto di percorso, unità [mm][°]；
+    - ``tool_p``: Numero utensile, [0~14]；
+    - ``user_p``: Numero pezzo/utente, [0~14]；
+    - ``desc_pos_t``: Posa cartesiana del punto target, unità [mm][°]；
+    - ``tool_t``: Numero utensile, [0~14]；
+    - ``user_t``: Numero pezzo/utente, [0~14]；"
+    "Parametri Predefiniti", "- ``joint_pos_p``: Posizioni dei giunti del punto di percorso, unità [°] Valore iniziale predefinito è [0.0,0.0,0.0,0.0,0.0,0.0], valore predefinito è il risultato della cinematica inversa;
+    - ``joint_pos_t``: Posizioni dei giunti del punto target, unità [°] Valore iniziale predefinito è [0.0,0.0,0.0,0.0,0.0,0.0], valore predefinito è il risultato della cinematica inversa;
+    - ``vel_p``: Percentuale di velocità, [0~100] Predefinito 20.0;
+    - ``acc_p``: Percentuale di accelerazione del punto di percorso, [0~100] Attualmente non disponibile predefinito 0.0;
+    - ``exaxis_pos_p``: Posizione asse esterno 1 del punto di percorso ~ Posizione asse esterno 4 Predefinito [0.0,0.0,0.0,0.0];
+    - ``vel_t``: Percentuale di velocità del punto target, [0~100] Predefinito 20.0;
+    - ``acc_t``: Percentuale di accelerazione del punto target, [0~100] Attualmente non disponibile predefinito 0.0;
+    - ``exaxis_pos_t``: Posizione asse esterno 1 del punto target ~ Posizione asse esterno 4 Predefinito [0.0,0.0,0.0,0.0]
+    - ``ovl``: Fattore di scala velocità, [0~100] Predefinito 100.0;
+    - ``offset_flag``: Se scostare [0]-Nessuno scostamento, [1]-Scostamento nel sistema di coordinate pezzo/base, [2]-Scostamento nel sistema di coordinate utensile Predefinito 0;
+    - ``offset_pos``: Valore di scostamento della posa, unità [mm][°] Predefinito [0.0,0.0,0.0,0.0,0.0,0.0]
+    - ``oacc``: Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²), predefinito: 100；
+    - ``blendR``:-1：Bloccante；0~1000：Raggio di transizione, predefinito: -1；
+    - ``config``: Configurazione spazio giunti per soluzione inversa, [-1]-Risolvi con riferimento alle posizioni correnti dei giunti, [0~7]-Risolvi secondo una specifica configurazione dello spazio giunti, predefinito -1;
+    - ``velAccParamMode``: Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) e accelerazione (mm/s²) Predefinito 0"
+    "Valore di Ritorno", "Codice di errore 0-Successo  Errore- errcode"
 
 Movimento punto a punto spazio cartesiano
 ++++++++++++++++++++++++++++++++++++++++++
@@ -223,7 +225,7 @@ Esempio codice comandi movimento base robot
     :linenos:
 
     from fairino import Robot
-    # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
+    import time
     robot = Robot.RPC('192.168.58.2')
     j1 = [-11.904, -99.669, 117.473, -108.616, -91.726, 74.256]
     j2 = [-45.615, -106.172, 124.296, -107.151, -91.282, 74.255]
@@ -233,31 +235,45 @@ Esempio codice comandi movimento base robot
     desc_pos2 = [-321.222, 185.189, 335.520, -179.030, -1.284, -29.869]
     desc_pos3 = [-487.434, 154.362, 308.576, 176.600, 0.268, -14.061]
     desc_pos4 = [-443.165, 147.881, 480.951, 179.511, -0.775, -15.409]
-    offset_pos = [0, 0, 0, 0, 0, 0]
-    epos = [0, 0, 0, 0]
+    offset_pos = [0.0] * 6
+    epos = [0.0] * 4
     tool = 0
     user = 0
     vel = 100.0
     acc = 100.0
     ovl = 100.0
+    oacc = 100.0
     blendT = 0.0
     blendR = 0.0
     flag = 0
     search = 0
+    blendMode = 0
+    velAccMode = 0
     robot.SetSpeed(20)
-    rtn = robot.MoveJ(joint_pos=j1, tool=tool, user=user, vel=vel, blendT=blendT)
-    print(f"movej errcode: {rtn}")
-    rtn = robot.MoveL(desc_pos=desc_pos2, tool=tool, user=user, vel=vel, blendR=blendR)
-    print(f"movel errcode: {rtn}")
-    rtn = robot.MoveC(desc_pos_p=desc_pos3, tool_p=tool, user_p=user, desc_pos_t=desc_pos4, tool_t=tool, user_t=user, blendR=blendR)
-    print(f"movec errcode: {rtn}")
-    rtn = robot.MoveJ(joint_pos=j2, tool=tool, user=user, vel=vel, blendT=blendT)
-    print(f"movej errcode: {rtn}")
-    rtn = robot.Circle(desc_pos_p=desc_pos3, tool_p=tool, user_p=user, desc_pos_t=desc_pos1, tool_t=tool, user_t=user)
-    print(f"circle errcode: {rtn}")
-    rtn = robot.MoveCart(desc_pos=desc_pos4, tool=tool, user=user, blendT=blendT)
-    print(f"MoveCart errcode: {rtn}")
+    rtn = robot.MoveJ(joint_pos=j1, tool=tool, user=user, vel=vel, acc=acc, ovl=ovl, exaxis_pos=epos, blendT=blendT, offset_flag=flag, offset_pos=offset_pos)
+    print(f"movej errcode:{rtn}")
+    rtn = robot.MoveL(desc_pos=desc_pos2, tool=tool, user=user, vel=vel, acc=acc, ovl=ovl, blendR=blendR, blendMode=blendMode, exaxis_pos=epos, search=search, offset_flag=flag, offset_pos=offset_pos,oacc=oacc, velAccParamMode=velAccMode)
+    print(f"movel errcode:{rtn}")
+    rtn = robot.MoveC(desc_pos_p=desc_pos3, tool_p=tool, user_p=user, vel_p=vel, acc_p=acc, exaxis_pos_p=epos, offset_flag_p=flag, offset_pos_p=offset_pos, desc_pos_t=desc_pos4, tool_t=tool, user_t=user, vel_t=vel,acc_t=acc, exaxis_pos_t=epos, offset_flag_t=flag, offset_pos_t=offset_pos, ovl=ovl, blendR=blendR, oacc=oacc, velAccParamMode=velAccMode)
+    print(f"movec errcode:{rtn}")
+    rtn = robot.MoveJ(joint_pos=j2, tool=tool, user=user, vel=vel, acc=acc, ovl=ovl, exaxis_pos=epos, blendT=blendT, offset_flag=flag, offset_pos=offset_pos)
+    print(f"movej errcode:{rtn}")
+    rtn = robot.Circle(desc_pos_p=desc_pos3, tool_p=tool, user_p=user, vel_p=vel, acc_p=acc, exaxis_pos_p=epos, desc_pos_t=desc_pos1, tool_t=tool, user_t=user, vel_t=vel, acc_t=acc, exaxis_pos_t=epos, ovl=ovl,offset_flag=flag, offset_pos=offset_pos, oacc=oacc, blendR=-1, velAccParamMode=velAccMode)
+    print(f"circle errcode:{rtn}")
+    rtn = robot.MoveCart(desc_pos=desc_pos4, tool=tool, user=user, vel=vel, acc=acc,ovl=ovl, blendT=blendT, config=-1)
+    print(f"MoveCart errcode:{rtn}")
+    rtn = robot.MoveJ(joint_pos=j1, tool=tool, user=user, vel=vel, acc=acc, ovl=ovl, exaxis_pos=epos, blendT=blendT, offset_flag=flag, offset_pos=offset_pos)
+    print(f"movej errcode:{rtn}")
+    rtn = robot.MoveL(desc_pos=desc_pos2, tool=tool, user=user, vel=vel, acc=acc, ovl=ovl, blendR=blendR, blendMode=blendMode, exaxis_pos=epos, search=search, offset_flag=flag, offset_pos=offset_pos, config=-1,velAccParamMode=velAccMode)
+    print(f"movel errcode:{rtn}")
+    rtn = robot.MoveC(desc_pos_p=desc_pos3, tool_p=tool, user_p=user, vel_p=vel, acc_p=acc, exaxis_pos_p=epos, offset_flag_p=flag, offset_pos_p=offset_pos, desc_pos_t=desc_pos4, tool_t=tool, user_t=user, vel_t=vel, acc_t=acc,exaxis_pos_t=epos, offset_flag_t=flag, offset_pos_t=offset_pos, ovl=ovl, blendR=blendR, config=-1, velAccParamMode=velAccMode)
+    print(f"movec errcode:{rtn}")
+    rtn = robot.MoveJ(joint_pos=j2, tool=tool, user=user, vel=vel, acc=acc, ovl=ovl, exaxis_pos=epos, blendT=blendT, offset_flag=flag, offset_pos=offset_pos)
+    print(f"movej errcode:{rtn}")
+    rtn = robot.Circle(desc_pos_p=desc_pos3, tool_p=tool, user_p=user, vel_p=vel, acc_p=acc, exaxis_pos_p=epos, desc_pos_t=desc_pos1, tool_t=tool, user_t=user, vel_t=vel, acc_t=acc, exaxis_pos_t=epos, ovl=ovl, offset_flag=flag,offset_pos=offset_pos, oacc=oacc, blendR=-1, velAccParamMode=velAccMode)
+    print(f"circle errcode:{rtn}")
     robot.CloseRPC()
+    return 0
 
 Movimento spirale spazio cartesiano
 ++++++++++++++++++++++++++++++++++++

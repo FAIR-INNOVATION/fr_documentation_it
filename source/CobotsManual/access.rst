@@ -97,78 +97,80 @@ Area di controllo
 .. important::
    Il comando di pausa si trova alla fine del programma e non può essere valutato.
 
-Barra di stato
-~~~~~~~~~~~~~~~
+Barra di Stato
+~~~~~~~~~~~~
 
-.. note::
-   .. image:: teaching_pendant_software/007.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Stato del Robot**
-
-   Funzione: Stopped - Arrestato, Running - In esecuzione, Pause - In pausa, Drag - In trascinamento.
-
-.. note::
-   .. image:: teaching_pendant_software/009.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Percentuale velocità di esecuzione**
-
-   Funzione: Velocità di esecuzione del robot nella modalità corrente.
-
-.. note::
-   .. image:: teaching_pendant_software/012.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Modalità Automatica**
-
-   Funzione: Modalità di funzionamento automatico del robot. Quando si attiva la regolazione della velocità globale nel passaggio da manuale ad automatico e si specifica una velocità, la velocità globale viene automaticamente regolata alla velocità specificata.
-
-.. note::
-   .. image:: teaching_pendant_software/013.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Modalità Manuale**
-
-   Funzione: Modalità manuale del robot per eseguire operazioni di insegnamento.
-
-.. note::
-   .. image:: teaching_pendant_software/010.png
-      :width: 0.75in
-      :height: 0.75in
-      :align: left
-
-   Nome: **Stato di funzionamento normale del robot**
-
-   Funzione: Il robot è attualmente in funzionamento normale.
-
-.. note::
+.. note:: 
    .. image:: teaching_pendant_software/011.png
       :width: 0.75in
       :height: 0.75in
       :align: left
 
-   Nome: **Stato di errore di funzionamento del robot**
+    Nome: **Stato Errore di Esecuzione Robot**
+   
+    Funzione: Indica un errore durante l'esecuzione del robot. Nascosto quando non ci sono errori.
 
-   Funzione: Si è verificato un errore durante il funzionamento corrente del robot.
+.. note:: 
+   .. image:: teaching_pendant_software/007.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
 
-.. note::
+    Nome: **Stato Robot**
+   
+    Funzione: Stopped (Fermo), Running (In Esecuzione), Pause (Pausa), Drag (Trascinamento)
+
+.. note:: 
+   .. image:: teaching_pendant_software/010.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Sistema di Coordinate dell'Utensile Robot, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso e ID Carico**
+   
+    Funzione: In alto a sinistra – ID del sistema di coordinate dell'utensile corrente. In alto a destra – ID del sistema di coordinate del pezzo corrente. In basso a sinistra – ID del sistema di coordinate dell'asse esteso corrente. In basso a destra – ID del carico corrente.
+
+.. note:: 
+   .. image:: teaching_pendant_software/009.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Percentuale Velocità di Esecuzione**
+   
+    Funzione: Velocità di funzionamento corrente del robot (in percentuale).
+
+.. note:: 
+   .. image:: teaching_pendant_software/012.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Modalità Automatica**
+   
+    Funzione: Modalità di funzionamento automatico del robot. Quando è abilitata la funzione "Passa alla Modalità Automatica con Regolazione Velocità Globale" e viene specificata una velocità, la velocità globale si adatterà automaticamente alla velocità specificata.
+
+.. note:: 
+   .. image:: teaching_pendant_software/013.png
+      :width: 0.75in
+      :height: 0.75in
+      :align: left
+
+    Nome: **Modalità Manuale**
+   
+    Funzione: Modalità manuale del robot per operazioni di insegnamento.
+
+.. note:: 
    .. image:: teaching_pendant_software/065.png
       :width: 0.75in
       :height: 0.75in
       :align: left
 
-   Nome: **Pulsante Comprimi/Espandi stato robot**
+    Nome: **Pulsante Comprimi/Espandi Stato Robot**
+   
+    Funzione: Comprime o espande la visualizzazione del Sistema di Coordinate dell'Utensile, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso, Carico, Stato di Trascinamento Robot, Modalità Locale/Remota, Stato Connessione Robot, Modalità BOOT e Informazioni Account.
 
-   Funzione: Comprime/espande i contenuti relativi a: sistema di coordinate utensile, sistema di coordinate pezzo, sistema di coordinate assi estesi, carico, stato di trascinamento del robot, modalità locale/remota, stato di connessione del robot, modalità BOOT e informazioni account.
+Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni di stato.
 
 .. note::
    .. image:: teaching_pendant_software/008.png

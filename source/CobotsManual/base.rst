@@ -398,6 +398,35 @@ Rilevamento della coppia prima del trascinamento
 
 **Step3**: Verificare la configurazione del carico e la modalità di installazione. Fare clic su "Impostazioni iniziali" -> "Base" -> "Carico" -> "Terminale" per verificare se la configurazione del carico terminale nell'interfaccia web corrisponde al carico effettivamente installato; fare clic su "Impostazioni iniziali" -> "Base" -> "Installazione" -> "Installazione libera" per verificare se la modalità di installazione nell'interfaccia web corrisponde alla modalità di installazione effettiva.
 
+Funzione di Rilevamento Falsi Allarmi
+++++++++++++++++++++++++++++++++++++++
+
+Panoramica
+***********************
+
+L'ottimizzazione della funzione di collisione si basa sul rilevamento delle collisioni, aggiungendo un interruttore per i falsi allarmi, che può aiutare a evitare il rischio di falsi allarmi di collisione.
+
+Impostazione del Livello di Collisione
+*****************************************
+
+**Passo 1**: Accedi all'interfaccia Web, quindi fai clic in sequenza su "Configurazione iniziale" → "Base" → "Giunto" → "Livello di collisione" per entrare nel modulo di impostazione del livello di collisione.
+
+Più alto è il livello di collisione, maggiore è la coppia richiesta affinché si verifichi una collisione, rendendo la risposta alla collisione meno sensibile. I valori di coppia corrispondenti agli attuali livelli di collisione, ad esempio 38,4 N·m per il Livello 10, rappresentano la coppia articolare teorica necessaria per innescare una collisione sull'Asse 1.
+
+.. image:: base/093.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 6.4-11 Modulo di Impostazione del Livello di Collisione
+
+**Passo 2**: L'interruttore di rilevamento falsi allarmi è abilitato per impostazione predefinita. Se non necessario, l'interruttore di rilevamento può essere impostato su "Off", come mostrato nella figura sottostante.
+
+.. image:: base/094.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 6.4-12 Interruttore di Rilevamento Falsi Allarmi
+
 Compensazione dell'attrito
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -415,6 +444,37 @@ Sotto la barra dei menu "Impostazioni iniziali" -> "Base" -> "Giunti", fare clic
 
 .. important::
    La funzione di compensazione dell'attrito del robot deve essere utilizzata con cautela. Impostare un coefficiente di compensazione ragionevole in base alla situazione effettiva. Generalmente si raccomanda un valore medio di circa 0.5.
+
+Funzione di regolazione del coefficiente di compensazione dell'attrito
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
+++++++++++++++++++++++++
+La funzione di regolazione del coefficiente di compensazione dell'attrito è utilizzata principalmente per modificare l'entità del valore di compensazione dell'attrito all'interno del controllore.
+
+In modalità trascinamento, la regolazione del coefficiente di compensazione dell'attrito può rendere più scorrevole il trascinamento del robot; in modalità automatica, può migliorare la bontà di adattamento tra la curva del comando di coppia e la curva del feedback di coppia.
+
+Regolazione del coefficiente di compensazione dell'attrito
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Il valore predefinito di fabbrica per il coefficiente di compensazione dell'attrito è 0.5, che è un parametro generale. Gli utenti possono regolare il guadagno di compensazione dell'attrito in base alle condizioni effettive per ottenere un'esperienza migliore.
+
+Configurazione del coefficiente di compensazione dell'attrito
+******************************************************************
+
+**Step1**: Accedere all'interfaccia web. Fare clic in sequenza su "Impostazioni iniziali" → "Base" → "Giunto" → "Compensazione attrito" per accedere al modulo di impostazione della compensazione dell'attrito.
+
+.. image:: base/092.png
+   :width: 4in
+   :align: center
+
+.. centered:: Grafico 6.4-12 Modulo di impostazione della compensazione dell'attrito
+
+**Step2**: Il coefficiente di compensazione dell'attrito è predefinito a 0.5. Quando l'interruttore di compensazione dell'attrito è attivato come mostrato in figura, la sensazione di trascinamento diventa più fluida rispetto a quando è disattivato. Se la funzione non è abilitata, la sensazione di trascinamento è più pesante.
+
+**Step3**: Regolazione dei parametri. L'intervallo per il coefficiente di compensazione dell'attrito è [0-1]. Se il trascinamento risulta leggermente pesante, è possibile aumentare il parametro per ciascun asse in base alla situazione reale. Se durante il trascinamento il giunto non si arresta o si verifica vibrazione del giunto, è necessario diminuire il parametro per l'asse corrispondente.
+
+**Step4**: Per disabilitare la funzione di compensazione dell'attrito, selezionare "Disattivo" tramite l'interruttore di compensazione.
 
 Compensazione della forza di trascinamento
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -437,7 +497,7 @@ Configurazione della funzione di ottimizzazione della forza di trascinamento
    :width: 4in
    :align: center
 
-.. centered:: Figura 6.4-12 Modulo di configurazione compensazione forza di trascinamento
+.. centered:: Figura 6.4-13 Modulo di configurazione compensazione forza di trascinamento
 
 **Step2**: Selezionare "Attiva" per l'interruttore di compensazione, selezionare "Disattiva" per l'interruttore adattativo, configurare i parametri come mostrato nella Figura 2-1, fare clic su "Applica". La funzione si attiverà con successo. Premendo il pulsante di trascinamento, si può trascinare il robot. La sensazione al tatto rispetto a prima dell'attivazione della funzione sarà più fluida.
 
@@ -964,152 +1024,54 @@ Questa pagina mostra il nome e le informazioni sulla posizione dei giunti dell'o
 
 .. .. centered:: Figura 6.5-1 Importazione/Esportazione configurazione
 
-Calibrazione Automatica TCP Utensile
------------------------------------------------
+Funzione di Calibrazione Automatica TCP con Sensore Fotoelettrico
+-------------------------------------------------------------------
 
 Panoramica
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La calibrazione automatica del TCP (Tool Center Position) dell'utensile del robot utilizza un dispositivo a sensore fotoelettrico (a doppio tubo incrociato a croce) per calibrare rapidamente il TCP dell'utensile del robot. Registrando i momenti in cui l'utensile attiva i segnali I/O nel dispositivo sensore durante il movimento del robot, si stabilisce la relazione di trasformazione tra la flangia terminale del robot e il sistema di coordinate dell'utensile per calibrare con precisione il sistema di coordinate dell'utensile del robot.
+Quando una collisione dello strumento del robot causa uno spostamento della posizione TCP, può essere attivata la funzione di calibrazione automatica TCP basata su un sensore fotoelettrico. Questa funzione completa rapidamente la ricalibrazione del sistema di coordinate dello strumento calcolando e compensando automaticamente la deviazione di posizione, riducendo significativamente i tempi di fermo e migliorando l'efficienza operativa dell'apparecchiatura e la stabilità della produzione.
 
-Flusso Operativo per la Calibrazione del Sistema di Coordinate del Dispositivo Sensore
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Procedura Operativa
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Installazione del Robot
-++++++++++++++++++++++++++
+**Step1**: Posizionare il sensore fotoelettrico nello spazio di lavoro del robot e collegare i due gruppi di cavi di segnale marrone, blu e nero del dispositivo sensore fotoelettrico ai due gruppi di porte 24V, 0V e CI0, CI1 sul quadro di controllo del robot (vanno bene qualsiasi porta di ingresso digitale configurabile disponibile) oppure collegarli ai due gruppi di porte 24V, 0V e End-DI0, End-DI1 all'estremità del robot.
 
-Installare il robot con una precisione di posizionamento assoluta entro 1,2 mm sul banco di lavoro, e montare lo strumento specializzato per la calibrazione del sistema di coordinate del sensore sulla flangia terminale del robot.
+**Step2**: Calibrare il sistema di coordinate del sensore fotoelettrico. Il sistema di coordinate del sensore fotoelettrico è essenzialmente un sistema di coordinate del pezzo e la sua accuratezza ha un impatto significativo sulla successiva calibrazione TCP dello strumento. Può essere determinato in diversi modi:
+
+- （1）Utilizzare il metodo di calibrazione del sistema di coordinate del pezzo, con l'origine nell'intersezione dei due fasci laser, i due fasci laser che servono rispettivamente come asse X e asse Y, e l'asse Z perpendicolare al sensore fotoelettrico rivolto verso l'esterno;
+- （2）Fornito da apparecchiature di misura esterne (come una telecamera);
+- （3）Calibrare utilizzando la configurazione del dispositivo fotoelettrico all'interno della funzione di calibrazione automatica fotoelettrica. Questa opzione richiede l'uso di uno strumento con dimensioni precise note e l'applicazione di un sistema di coordinate del pezzo approssimativamente accurato: Prima cliccare "Impostazione Iniziale" -> "Coordinate Utensile", applicare il Sistema di Coordinate Utensile 0, poi cliccare il pulsante "Calibrazione Sistema di Coordinate" per il sistema di coordinate dello strumento preciso (usando il sistema di coordinate 1 come esempio), poi cliccare "Applica", e infine selezionare "Funzione di Calibrazione Automatica Fotoelettrica".
 
 .. image:: base/034.png
-   :width: 2in
+   :width: 4in
    :align: center
 
-.. centered:: Figura 6.7‑1 Esempio Installazione Robot
-
-Installazione del Dispositivo Sensore
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Collegare i due gruppi di cavi del segnale marrone, blu e nero del dispositivo sensore fotoelettrico rispettivamente alle porte 24V, 0V e CI0, CI1 del pannello di controllo del robot (qualsiasi porta di ingresso digitale configurabile disponibile va bene). Accendere il pannello di controllo per avviare il robot e accendere i fasci luminosi degli assi X e Y del dispositivo sensore fotoelettrico.
+.. centered:: Figura 6.7-1 Selezione Calibrazione Automatica Fotoelettrica
+ 
+Accedere alla sezione "Dispositivo Fotoelettrico Configurato", configurare il segnale di trigger IO, impostare il punto centrale di insegnamento, impostare i parametri di offset, poi cliccare "Esegui" per calibrare il sistema di coordinate del sensore. Successivamente, applicare manualmente il risultato della calibrazione a un sistema di coordinate del pezzo.
 
 .. image:: base/035.png
-   :width: 2in
+   :width: 4in
    :align: center
 
-.. centered:: Figura 6.7‑2 Esempio Dispositivo Sensore Fotoelettrico
+.. centered:: Figura 6.7-2 Calibrazione Sistema di Coordinate del Sensore
 
-Impostazione del Sistema di Coordinate per la Calibrazione Automatica TCP Utensile Robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Per il sistema di calibrazione automatica TCP utensile robot, posizionare inizialmente in modo approssimativo il dispositivo sensore fotoelettrico nello spazio di lavoro flessibile del robot, allineando approssimativamente l'orientamento del sistema di coordinate del dispositivo sensore con quello del sistema di coordinate base del robot.
-
-Come mostrato nella figura sopra, gli assi unitari , e appartenenti a {b} rappresentano il sistema di coordinate base del robot; gli assi unitari , e appartenenti a {e} rappresentano il sistema di coordinate della flangia terminale; e gli assi unitari , e appartenenti a {s} rappresentano il sistema di coordinate del sensore.
+**Step3**: Calibrare il sistema di coordinate dello strumento. Dopo Step2, è stato ottenuto e applicato un sistema di coordinate del pezzo accurato, ed è noto e applicato il sistema di coordinate dello strumento pre-collisione: Prima cliccare "Impostazione Iniziale" -> "Coordinate Utensile", applicare il Sistema di Coordinate Utensile 0, poi cliccare il pulsante "Calibrazione Sistema di Coordinate" per il sistema di coordinate dello strumento pre-collisione (usando il sistema di coordinate 1 come esempio), poi cliccare "Applica", e selezionare "Funzione di Calibrazione Automatica Fotoelettrica". All'interno di "Parametri Calibrazione Fotoelettrica Configurati", impostare i parametri di calibrazione.
 
 .. image:: base/036.png
    :width: 4in
    :align: center
 
-.. centered:: Figura 6.7‑3 Impostazione Sistema Coordinate Calibrazione Automatica TCP Utensile Robot
-
-(1) Regolare l'orientamento della flangia terminale del robot a Rx, Ry e Rz rispettivamente di 180°, 0° e 0°, e assicurarsi che questo orientamento rimanga invariato durante l'intero processo di movimento per la calibrazione del sistema di coordinate del sensore dopo la regolazione;
-
-(2) Far eseguire al TCP dell'utensile del robot un movimento MoveL lungo le direzioni X e Y sia nel sistema di coordinate base del robot che in quello del sensore;
-
-(3) Osservare durante il movimento del robot: una volta che i fasci luminosi degli assi X e Y del dispositivo sensore mantengono costantemente lo stato di attivazione del segnale I/O, è possibile fissare con precisione la posizione di installazione del dispositivo sensore nella posizione attuale.
-
-Calibrazione del Sistema di Coordinate del Sensore tramite Interfaccia Web
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Impostazioni iniziali" -> "Base" -> "Sistemi di coordinate" -> "Utensile" per accedere all'interfaccia "Impostazioni sistema coordinate utensile";
-
-Nel menu a discesa "Nome sistema coordinate" selezionare il sistema di coordinate di riferimento, scegliere il corrispondente "Tipo utensile" e "Posizione installazione", quindi fare clic su "Modifica" per accedere all'interfaccia "Procedura guidata modifica";
-
-Selezionare "Calibrazione automatica fotoelettrica" per accedere all'interfaccia di calibrazione automatica fotoelettrica, fare clic su "Configura" per accedere all'interfaccia "Configurazione dispositivo calibrazione fotoelettrica". Se esistono impostazioni precedenti, fare clic su "Modifica".
+.. centered:: Figura 6.7-3 Impostazione Parametri Calibrazione Automatica Fotoelettrica
+ 
+Dopo il completamento dell'impostazione, cliccare il pulsante "Fine" per tornare al menu precedente, poi cliccare il pulsante "Calibra" per eseguire la calibrazione TCP. Una volta terminata la calibrazione, cliccare il pulsante "Salva" per salvare il risultato della calibrazione.
 
 .. image:: base/037.png
    :width: 4in
    :align: center
 
-.. centered:: Figura 6.7‑4 Esempio Accesso Interfaccia Calibrazione Automatica Fotoelettrica
-
-Configurazione I/O
-***********************
-
-Selezionare i numeri delle porte di ingresso del pannello di controllo per i fasci luminosi dell'asse X e dell'asse Y, quindi fare clic su "Imposta". Dopo il successo dell'impostazione, apparirà un segno di spunta verde prima dell'indicatore "Imposta I/O".
-
-.. image:: base/038.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 6.7‑5 Esempio Impostazione Porte I/O per Fasci Luminosi X e Y del Dispositivo Sensore
-
-Insegnamento Punto Centrale
-******************************
-
-Trascinare il robot in modo che il TCP dell'utensile attivi contemporaneamente i segnali I/O dei fasci luminosi X e Y del dispositivo sensore, quindi spostarlo lungo la direzione Z+ del sistema di coordinate base fino a circa 5 mm sopra il piano di misura del dispositivo sensore (intersezione dei fasci luminosi X e Y).
-
-.. warning:: Attenzione: durante questo processo, l'orientamento della flangia terminale del robot deve rimanere invariato a Rx, Ry e Rz rispettivamente di 180°, 0° e 0°. Quindi fare clic su "Registra". Dopo il successo dell'impostazione, apparirà un segno di spunta verde prima dell'indicatore "Insegna punto centrale".
-
-.. image:: base/039.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 6.7‑6 Insegnamento TCP Utensile Robot al Centro del Piano di Misura del Dispositivo Sensore
-
-Impostazione Parametri
-****************************
-
-Impostare i tre parametri personalizzati: "Raggio movimento", "Velocità angolare" e "Distanza di discesa".
-
-(1) Il parametro "Raggio movimento" è il raggio del movimento circolare dell'utensile del robot. Considerando che il raggio di misura effettivo del dispositivo sensore utilizzato è di 35 mm, si consiglia di impostarlo a "10-15 mm". Un valore troppo alto può causare interferenze tra l'utensile e il sensore; un valore troppo basso può causare interferenze tra i segnali I/O dei fasci luminosi X e Y del sensore;
-
-(2) Il parametro "Velocità angolare" è la velocità angolare costante del movimento circolare dell'utensile del robot. Si consiglia di impostarlo a "10-40 deg/s". Un valore troppo alto può causare vibrazioni d'urto all'estremità dell'utensile e perdita di frame nei dati del segnale I/O del sensore;
-
-(3) Il parametro "Distanza di discesa" è la distanza euclidea tra i centri dei due movimenti circolari eseguiti dal robot. Considerando che l'altezza di misura effettiva del dispositivo sensore utilizzato è di 25 mm, si consiglia di impostarlo a "5-15 mm". Un valore troppo alto può causare interferenze tra l'utensile e il sensore.
-
-Quindi fare clic su "Imposta". Dopo il successo dell'impostazione, apparirà un segno di spunta verde prima dell'indicatore "Imposta parametri".
-
-.. image:: base/040.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 6.7‑7 Esempio Impostazione Parametri Personalizzati
-
-Esecuzione
-*********************
-
-In modalità automatica, fare clic su "Esegui" per avviare l'operazione di calibrazione del sistema di coordinate del dispositivo sensore. Al termine dell'operazione, l'interfaccia mostrerà le coordinate x, y, z e gli angoli di orientamento Rx, Ry, Rz del sistema di coordinate del sensore calibrato. Quindi fare clic su "Completa" per salvare i dati correnti e uscire dall'interfaccia.
-
-.. image:: base/041.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 6.7‑8 Esempio Risultato Calibrazione Sistema Coordinate Dispositivo Sensore
-
-.. warning:: Nota per l'operazione corrente: si consiglia di eseguire questa operazione ad ogni ciclo di vita del compito produttivo del robot (operazione di spegnimento-accensione alimentazione robot) per prevenire errori causati da piccoli spostamenti nella posizione di installazione del dispositivo sensore dovuti a vibrazioni ad alta frequenza durante le operazioni o dal rilascio dei dati di calibrazione del sistema di coordinate del dispositivo sensore nel controller a causa di operazioni errate.
-
-Flusso Operativo per la Calibrazione del Sistema di Coordinate Utensile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Dopo aver completato l'interfaccia "Configurazione dispositivo calibrazione fotoelettrica", la presenza di un segno di spunta verde prima dell'indicatore indica il successo dell'impostazione del sistema di coordinate del dispositivo sensore. Rimuovere lo strumento specializzato dalla flangia terminale del robot e installare l'utensile sconosciuto da calibrare. Fare clic su "Calibra" per avviare l'operazione di calibrazione automatica TCP utensile. Al termine dell'operazione, l'interfaccia mostrerà il risultato della calibrazione del sistema di coordinate dell'utensile.
-
-.. image:: base/042.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 6.7‑9 Esempio Risultato Calibrazione TCP Utensile
-
-Fare clic su "Salva" per aggiornare il risultato della calibrazione TCP dell'utensile corrente nel sistema di coordinate di riferimento selezionato nel menu a discesa "Nome sistema coordinate" nell'interfaccia "Sistema coordinate utensile corrente".
-
-Nell'interfaccia "Sistema coordinate utensile corrente", fare clic su "Applica" per applicare il risultato della calibrazione TCP dell'utensile corrente nel sistema di coordinate utensile di riferimento corrente.
-
-.. important:: 
-  È importante notare che:
-
-  (1) Prima di fare clic su "Calibra", è possibile evitare errori durante il processo di calibrazione del sistema di coordinate dell'utensile osservando se i risultati delle coordinate x, y, z del sistema di coordinate del sensore calibrato presentano evidenti discrepanze con la posizione di installazione effettiva del dispositivo sensore. In caso affermativo, la causa potrebbe essere un'impostazione errata del sistema di coordinate del sistema di calibrazione automatica TCP utensile robot. È necessario riposizionare il dispositivo sensore e ricalibrare il suo sistema di coordinate;
-
-  (2) Dopo aver fatto clic su "Calibra", è possibile evitare errori durante il processo di calibrazione del sistema di coordinate dell'utensile osservando se l'orientamento della flangia terminale del robot viene regolato in modo significativo ( >90°) dopo aver eseguito due movimenti circolari. In caso affermativo, la causa potrebbe essere un'impostazione troppo bassa del parametro "Raggio movimento", che causa interferenze tra i segnali I/O del dispositivo sensore. È necessario modificare il parametro "Raggio movimento" e fare nuovamente clic su "Calibra";
-
-  (3) Si consiglia di calibrare utensili con estremità di tipo cilindrico, la cui direzione dell'asse principale sia approssimativamente parallela a quella della flangia terminale, con un raggio entro 10 mm, e una lunghezza misurabile dell'estremità dell'utensile (non la lunghezza totale dell'utensile) compresa tra 5 e 15 mm, per ridurre il rischio di interferenze con il dispositivo sensore.
+.. centered:: Figura 6.7-4 Calibrazione e Salvataggio Automatico Fotoelettrico
 
 Calibrazione TCP basata su Utensile a Piastra
 ---------------------------------------------------------------

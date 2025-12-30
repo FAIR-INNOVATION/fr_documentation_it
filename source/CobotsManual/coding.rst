@@ -431,6 +431,24 @@ Fare clic sull'icona "Punto a Punto" per accedere all'interfaccia di modifica de
 
 .. centered:: Figura 9.5-1 Interfaccia Istruzione PTP
 
+Movimento Relativo Punto a Punto
+******************************************
+Il robot si muove di una distanza relativa dalla sua posizione corrente. Nella pagina di aggiunta del comando PTP, selezionare il nome del punto come "CurrentPos". Scegliere il sistema di coordinate per l'offset come sistema di coordinate di base o sistema di coordinate dell'utensile in base alla situazione, e inserire il valore dell'offset. Ciò significa che il robot eseguirà un certo movimento di offset lungo il sistema di coordinate impostato, basandosi sulla sua posizione corrente. ("CurrentPos" è un punto di sistema e non richiede insegnamento.)
+
+.. image:: coding/515.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-1-1 Comando Movimento Relativo PTP
+
+Fare clic sui pulsanti "Aggiungi" e "Applica" per aggiungere un comando di movimento relativo PTP del robot al programma Lua. Passare il robot in modalità automatica e fare clic sul pulsante di avvio. Nel programma di esempio, il robot si sposterà di 100mm lungo la direzione X+ del sistema di coordinate di base dalla sua posizione corrente.
+
+.. image:: coding/516.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-1-2 Comando Movimento Relativo PTP Aggiunto
+
 Comando Lineare (LIN)
 ++++++++++++++++++++++++++++++
 
@@ -444,6 +462,26 @@ Questa istruzione è simile all'istruzione "PTP", ma il percorso per raggiungere
 
 .. centered:: Figura 9.5-2 Interfaccia Istruzione Lin
 
+Movimento Relativo Lineare
+******************************************
+Il robot si muove di una distanza relativa lungo una linea retta dalla sua posizione corrente. Nella pagina di aggiunta del comando LIN, selezionare il nome del punto come "CurrentPos". Scegliere il sistema di coordinate per l'offset come sistema di coordinate di base o sistema di coordinate dell'utensile in base alla situazione, e inserire il valore dell'offset. Ciò significa che il robot eseguirà un certo movimento di offset lungo il sistema di coordinate impostato, basandosi sulla sua posizione corrente. ("CurrentPos" è un punto di sistema e non richiede insegnamento.)
+
+.. image:: coding/517.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-2-1 Comando Movimento Relativo LIN
+
+Fare clic sui pulsanti "Aggiungi" e "Applica" per aggiungere un comando di movimento relativo lineare del robot al programma Lua. Passare il robot in modalità automatica e fare clic sul pulsante di avvio. Nel programma di esempio, il robot si sposterà di 100mm lungo la direzione X+ del sistema di coordinate di base dalla sua posizione corrente.
+
+.. image:: coding/518.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-2-2 Comando Movimento Relativo LIN Aggiunto
+
+Il movimento relativo lineare del robot supporta funzioni come livellamento, velocità fisica e ricerca del filo di saldatura.
+
 .. important:: Quando si seleziona il nome del punto come "seamPos", il comando lineare viene utilizzato nello scenario di saldatura con sensore laser. A causa dell'errore accumulato durante l'esecuzione nella saldatura, vengono aggiunti "Spostamento abilitato" e "Quantità di spostamento".
 
    **Spostamento abilitato**: No, Spostamento sistema base, Spostamento sistema utensile, Spostamento dati grezzi laser;
@@ -454,7 +492,25 @@ Questa istruzione è simile all'istruzione "PTP", ma il percorso per raggiungere
       :width: 6in
       :align: center
 
-   .. centered:: Figura 9.5-2-1 Interfaccia Istruzione Lin (Scenario Saldatura)
+   .. centered:: Figura 9.5-2-3 Interfaccia Istruzione Lin (Scenario Saldatura)
+
+L'istruzione LIN consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità fisica":
+
+- Percentuale: Inserire la percentuale di velocità di debug. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità di debug. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità di debug", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità di debug.
+
+.. image:: coding/458.png
+   :width: 5in
+   :align: center
+
+.. centered:: Grafico 9.5-2-4 Visualizzazione della velocità fisica effettiva inserendo una percentuale
+
+- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
+
+.. image:: coding/459.png
+   :width: 5in
+   :align: center
+
+.. centered:: Grafico 9.5-2-5 Inserimento della velocità fisica effettiva
 
 Funzione di Gestione Sovraccarico Articolare Istruzione LIN
 *******************************************************************************
@@ -610,6 +666,24 @@ Sia il punto di transizione che il punto finale consentono di impostare se appli
 
 .. centered:: Figura 9.5-4 Interfaccia Istruzione Arc
 
+Il comando ARC consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità Fisica":
+
+- **Percentuale:** Inserire una percentuale di velocità di debug. Il robot si muove a una percentuale della sua velocità massima. La velocità di movimento effettiva del robot viene calcolata come: V = Velocità Massima del Robot × Percentuale Velocità Globale × Percentuale Velocità Debug. Posizionando il mouse sull'icona a forma di occhio a destra del campo di inserimento "Velocità Debug", verrà visualizzata la velocità fisica effettiva (in mm/s) del robot in modalità manuale e automatica con le impostazioni di velocità di debug correnti.
+
+.. image:: coding/461.png
+   :width: 5in
+   :align: center
+
+.. centered:: Figura 9.5-4-1 Visualizzazione del Valore di Velocità Fisica Effettiva Inserendo una Percentuale
+
+- **Velocità Fisica:** La velocità inserita è la velocità operativa effettiva del robot, in mm/s. L'accelerazione inserita è tipicamente impostata al doppio della velocità. (La velocità fisica massima del comando LIN è limitata dalla percentuale di velocità globale. Se la velocità operativa massima del robot è 1000 mm/s e la velocità globale è del 50%, la velocità fisica massima per il comando LIN è 1000 × 50% = 500 mm/s).
+
+.. image:: coding/462.png
+   :width: 5in
+   :align: center
+
+.. centered:: Figura 9.5-4-2 Inserimento della Velocità Fisica Effettiva
+
 Comando Cerchio Completo (CIRCLE)
 ++++++++++++++++++++++++++++++++++++++++
 
@@ -659,29 +733,43 @@ Aggiunta Istruzione Cerchio
 
 .. centered:: Figura 9.5-8 Modo Movimento Punto Iniziale e Punto Iniziale "P1"
 
-**Passo 3**: Nella pagina di aggiunta istruzione cerchio, selezionare "Punto intermedio 1 cerchio" come punto "P2".
+**Step3**: Nella pagina di aggiunta del comando Cerchio, selezionare "Punto Intermedio Cerchio 1" come punto "P2" e "Punto Intermedio Cerchio 2" come punto "P3".
 
-.. image:: coding/047.png
+.. image:: coding/465.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 9.5-9 Punto Intermedio 1 Cerchio
+.. centered:: Figura 9.33-9 Selezione dei Punti Intermedi e Finale dell'Arco
 
-**Passo 4**: Selezionare "Punto intermedio 2 cerchio" come punto "P3", fare clic successivamente sui pulsanti "Aggiungi" e "Applica".
+**Step4**: Selezionare la modalità di velocità e inserire il valore della velocità.
 
-.. image:: coding/048.png
+Il comando Circle consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità Fisica":
+
+- **Percentuale:** Inserire una percentuale di velocità di debug. Il robot si muove a una percentuale della sua velocità massima. La velocità di movimento effettiva del robot viene calcolata come: V = Velocità Massima del Robot × Percentuale Velocità Globale × Percentuale Velocità Debug. Posizionando il mouse sull'icona a forma di occhio a destra del campo di inserimento "Velocità Debug", verrà visualizzata la velocità fisica effettiva (in mm/s) del robot in modalità manuale e automatica con le impostazioni di velocità di debug correnti.
+
+.. image:: coding/466.png
+   :width: 5in
+   :align: center
+
+.. centered:: Figura 9.33-10 Visualizzazione del Valore di Velocità Fisica Effettiva Inserendo una Percentuale
+
+- **Velocità Fisica:** La velocità inserita è la velocità operativa effettiva del robot, in mm/s. L'accelerazione inserita è tipicamente impostata al doppio della velocità. (La velocità fisica massima del comando LIN è limitata dalla percentuale di velocità globale. Se la velocità operativa massima del robot è 1000 mm/s e la velocità globale è del 50%, la velocità fisica massima per il comando LIN è 1000 × 50% = 500 mm/s).
+
+.. image:: coding/467.png
+   :width: 5in
+   :align: center
+
+.. centered:: Figura 9.33-11 Inserimento della Velocità Fisica Effettiva
+
+**Step5**: Fare clic in sequenza sul pulsante "Aggiungi" e poi sul pulsante "Applica". A questo punto, il comando di movimento circolare è stato aggiunto a "testCircle.lua".
+
+.. image:: coding/468.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 9.5-10 Punto Intermedio 2 Cerchio
+.. centered:: Figura 9.33-12 Aggiunta del Comando di Movimento Circolare
 
-**Passo 5**: A questo punto, a "testCircle.lua" è stata aggiunta l'istruzione di movimento cerchio.
-
-.. image:: coding/049.png
-   :width: 6in
-   :align: center
-
-.. centered:: Figura 9.5-11 Aggiunta Istruzione Movimento Cerchio
+**Step5**: A questo punto, il comando di movimento circolare è stato aggiunto a "testCircle.lua".
 
 Passare il robot in modalità automatica e, garantita la sicurezza, avviare il programma. Il robot si muoverà secondo la traiettoria circolare.
 
@@ -1000,32 +1088,87 @@ Questa istruzione è un'istruzione di spostamento globale. Inserendo i vari spos
 
 .. centered:: Figura 9.5-28 Interfaccia Istruzione Offset
 
-Comando Servo (SERVOCART)
-+++++++++++++++++++++++++++++++++++++++++++++++++
-
-Fare clic sull'icona "Servo" per accedere all'interfaccia di modifica del comando ServoCart.
-
-L'istruzione ServoCart controllo servo (movimento spazio cartesiano) consente di controllare il movimento del robot attraverso il controllo della posizione/orientamento assoluta o lo spostamento basato sulla posizione/orientamento corrente.
+Comando Servo
++++++++++++++++++++++++++++++++++++++++++
+Fare clic sull'icona "Servo" per accedere all'interfaccia di modifica dei comandi servoMotion. Il movimento servo include il movimento servo nello spazio cartesiano e il movimento servo nello spazio dei giunti.
 
 .. image:: coding/075.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 9.5-29 Interfaccia Istruzione ServoCart
+.. centered:: Figura 9.5-29-1 Interfaccia Comandi Movimento Servo
 
-Esempio programma controllo posizione/orientamento assoluta:
+Movimento Servo nello Spazio Cartesiano
+*************************************************************
+Comando di controllo servo ServoCart (movimento nello spazio cartesiano). Questo comando può controllare il movimento del robot attraverso il controllo della posa assoluta o il controllo dell'offset basato sulla posa corrente.
 
 .. image:: coding/076.png
    :width: 6in
    :align: center
 
-In questo esempio, x, y, z, rx, ry, rz (posizione cartesiana) sono ottenuti dalla posizione corrente del robot. Inoltre, l'utente può controllare il movimento del robot leggendo file di dati di traiettoria, inviando dati di traiettoria tramite comunicazione socket, ecc.
+.. centered:: Figura 9.5-29-2 Interfaccia Comando ServoCart
 
-Esempio programma controllo spostamento basato sulla posizione/orientamento corrente (spostamento sistema base):
+Esempio di programma di controllo della posa assoluta:
 
 .. image:: coding/077.png
    :width: 6in
    :align: center
+
+.. centered:: Figura 9.5-29-3 Movimento Assoluto ServoCart
+
+In questo esempio, x, y, z, rx, ry, rz (posizione cartesiana) sono la posizione corrente acquisita del robot. Inoltre, gli utenti possono controllare il movimento del robot leggendo file di dati di traiettoria, inviando dati di traiettoria tramite comunicazione socket, ecc.
+
+Esempio di programma di controllo basato sull'offset dalla posa corrente (offset delle coordinate base):
+
+.. image:: coding/519.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-29-4 Movimento Relativo ServoCart
+
+Movimento Servo nello Spazio dei Giunti
+********************************************************
+Comando di controllo servo ServoJ (movimento nello spazio dei giunti). Questo comando può controllare il movimento del robot attraverso le posizioni assolute dei giunti del robot.
+
+Fare clic in sequenza su "Programma Insegnamento", "Programmazione Programma", "Movimento Servo". Nella pagina dei comandi servoMotion, selezionare "Movimento Spazio Giunti".
+
+.. image:: coding/520.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-29-5 Modifica Comando ServoJ
+
+I parametri nel comando sono spiegati come segue:
+
+- **Posizione Giunti**: La posizione target dei giunti per il movimento ServoJ. Il movimento dalla posizione corrente alla posizione target deve essere completato entro il ciclo di comando impostato. Se la deviazione tra la posizione target e il comando della posizione corrente è troppo grande, il robot potrebbe segnalare errori come sovraccarico del giunto.
+- **Posizione Asse Esteso**: La posizione target dell'asse esteso per il movimento ServoJ.
+- **Accelerazione**: Percentuale di accelerazione per il movimento ServoJ (attualmente non disponibile).
+- **Velocità**: Percentuale di velocità per il movimento ServoJ (attualmente non disponibile; la velocità operativa effettiva del robot attualmente dipende dalla differenza di posizione tra due comandi ServoJ e dal ciclo di comando).
+- **Ciclo Comando**: Intervallo di tempo di esecuzione tra due comandi ServoJ.
+
+Inserire la corrispondente posizione target, velocità, accelerazione e ciclo di comando. Fare clic sui pulsanti "Aggiungi" e "Applica" per aggiungere un comando ServoJ al programma LUA.
+
+.. image:: coding/521.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-29-6 Comando ServoJ Aggiunto al Programma Lua
+
+In pratica, è spesso necessario inviare continuamente più comandi ServoJ secondo il ciclo di comando impostato. Le posizioni target dei giunti di questi comandi ServoJ formano una curva di movimento continua del robot, consentendo un controllo flessibile del movimento del robot. Il ciclo di invio dei comandi deve corrispondere al ciclo di comando impostato.
+
+Il controllo del movimento ServoJ può essere implementato nel programma LUA tramite cicli o aggiungendo più comandi consecutivamente.
+
+.. image:: coding/522.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-29-7 Esempio di Movimento ServoJ Continuo
+
+.. image:: coding/523.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-29-8 Esempio di Movimento ServoJ Continuo 1
 
 Comando Traiettoria (TRAJECTORY)
 ++++++++++++++++++++++++++++++++++++++
@@ -7357,189 +7500,6 @@ Dettaglio istruzioni:
 - Parametri: id, ID socket già connesso; timeout: timeout di ricezione; stopStartegy: strategia dopo il timeout, 0: segnala errore e interrompe dopo il timeout, 1: continua l'esecuzione dopo il timeout;
 - Valori di ritorno: time: tempo di ricezione, data: dati ricevuti.
 
-Impostazione della velocità fisica per movimenti lineari, ad arco e circolari completi del robot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Scrittura del programma LUA
-+++++++++++++++++++++++++++++++++++++++++++
-
-Comando linea retta
-********************************
-Fare clic sull'icona "Linea retta" per accedere all'interfaccia di modifica del comando Lin.
-
-Questa istruzione è simile all'istruzione "PTP", ma il percorso per raggiungere il punto è una linea retta.
-
-.. image:: coding/457.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-1 Interfaccia di aggiunta dell'istruzione Lin
-
-L'istruzione LIN consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità fisica":
-
-- Percentuale: Inserire la percentuale di velocità di debug. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità di debug. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità di debug", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità di debug.
-
-.. image:: coding/458.png
-   :width: 5in
-   :align: center
-
-.. centered:: Grafico 9.33-2 Visualizzazione della velocità fisica effettiva inserendo una percentuale
-
-- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
-
-.. image:: coding/459.png
-   :width: 5in
-   :align: center
-
-.. centered:: Grafico 9.33-3 Inserimento della velocità fisica effettiva
-
-Comando arco
-*********************************
-
-Fare clic sull'icona "Arco" per accedere all'interfaccia di modifica del comando Arc.
-
-L'istruzione "Arc" è un movimento circolare che include tre punti: il primo punto è il punto di inizio dell'arco, il secondo punto è il punto di transizione intermedio dell'arco e il terzo punto è il punto finale.
-
-Sia il punto di transizione che il punto finale possono essere impostati per lo spostamento, è possibile scegliere lo spostamento basato sul sistema di coordinate di base o sul sistema di coordinate dell'utensile, e verranno visualizzati gli offset x, y, z, rx, ry, rz. Il punto finale può essere impostato con un raggio di transizione morbida per ottenere un effetto di movimento continuo. (Per eseguire un movimento ad arco, è necessario prima aggiungere un'istruzione PTP o LIN per spostarsi al punto di inizio).
-
-.. image:: coding/460.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-4 Interfaccia dell'istruzione Arc
-
-L'istruzione ARC consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità fisica":
-
-- Percentuale: Inserire la percentuale di velocità di debug. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità di debug. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità di debug", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità di debug.
-
-.. image:: coding/461.png
-   :width: 5in
-   :align: center
-
-.. centered:: Grafico 9.33-5 Visualizzazione della velocità fisica effettiva inserendo una percentuale
-
-- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
-
-.. image:: coding/462.png
-   :width: 5in
-   :align: center
-
-.. centered:: Grafico 9.33-6 Inserimento della velocità fisica effettiva
- 
-Aggiunta dell'istruzione cerchio completo
-******************************************
-
-**Step1**: Creare un nuovo programma utente "testCircle.lua", fare clic sul pulsante "Cerchio completo", per aprire la pagina di aggiunta dell'istruzione cerchio completo.
-
-.. image:: coding/463.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-7 Pulsante per aggiungere l'istruzione cerchio completo
-
-**Step2**: Nella pagina di aggiunta dell'istruzione cerchio completo, selezionare il metodo di movimento del punto di inizio e il punto di inizio come "P1".
-
-.. image:: coding/464.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-8 Metodo di movimento del punto di inizio e punto di inizio "P1"
-
-**Step3**: Nella pagina di aggiunta dell'istruzione cerchio completo, selezionare "Punto intermedio 1 del cerchio" come punto "P2" e "Punto intermedio 2 del cerchio" come punto "P3".
-
-.. image:: coding/465.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-9 Selezione del punto intermedio e del punto finale dell'arco
-
-**Step4**: Selezionare la modalità di velocità e inserire il valore della velocità.
-
-L'istruzione Circle consente di selezionare la modalità di velocità di movimento come "Percentuale" o "Velocità fisica":
-
-- Percentuale: Inserire la percentuale di velocità di debug. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità di debug. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità di debug", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità di debug.
-
-.. image:: coding/466.png
-   :width: 5in
-   :align: center
-
-.. centered:: Grafico 9.33-10 Visualizzazione della velocità fisica effettiva inserendo una percentuale
-
-- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
-
-.. image:: coding/467.png
-   :width: 5in
-   :align: center
-
-.. centered:: Grafico 9.33-11 Inserimento della velocità fisica effettiva
-
-**Step5**: Fare clic in sequenza sui pulsanti "Aggiungi" e "Applica". A questo punto, "testCircle.lua" ha già aggiunto l'istruzione di movimento cerchio completo.
-
-.. image:: coding/468.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-12 Aggiunta dell'istruzione di movimento cerchio completo
-
-Passare il robot in modalità automatica e, garantendo la sicurezza, avviare il programma. Il robot eseguirà quindi il movimento lungo la traiettoria del cerchio completo.
-
-Pulsante di saldatura
-+++++++++++++++++++++++++++++++++++
-
-Nel menu "Impostazioni iniziali" -> "Periferiche" -> "Pulsante di saldatura", fare clic su "Dispositivo adattato", per accedere all'interfaccia della funzionalità del pulsante di saldatura.
-
-Nella funzionalità dei tasti, configurare in sequenza le funzioni dei tasti A-E e del tasto IO. Dopo la configurazione di Smart Tool, il robot mantiene internamente la funzione corrispondente a ciascun tasto. Quando rileva che un tasto è stato premuto, esegue automaticamente la funzione associata a quel tasto.
-
-Funzioni dei tasti A-E:
-
-- Istruzione di movimento: Quando si selezionano le istruzioni di movimento PTP, LIN, ARC, è necessario inserire la velocità del punto corrispondente. Per le istruzioni LIN, ARC è possibile selezionare "Percentuale" o "Velocità fisica":
-- Percentuale: Inserire la percentuale di velocità del punto. Il robot si muove in base alla percentuale della velocità massima. La velocità effettiva di movimento del robot viene calcolata come: V = Velocità massima del robot × Percentuale di velocità globale × Percentuale di velocità del punto. Passando il mouse sull'icona dell'occhio a destra della casella di inserimento "Velocità punto", verrà visualizzata la velocità fisica effettiva (unità: mm/s) del robot in modalità manuale e automatica con l'impostazione corrente della velocità.
-
-.. image:: coding/469.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-13 Visualizzazione della velocità fisica effettiva inserendo una percentuale
- 
-- Velocità fisica: La velocità inserita è la velocità di esecuzione effettiva del robot, unità mm/s; l'accelerazione inserita è solitamente impostata al doppio della velocità. (La velocità fisica massima dell'istruzione LIN è limitata dalla percentuale di velocità globale. Se la velocità massima di esecuzione del robot è 1000 mm/s e la velocità globale è al 50%, la velocità fisica massima dell'istruzione LIN sarà 1000 × 50% = 500 mm/s).
-
-.. image:: coding/470.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-14 Inserimento della velocità fisica effettiva
-
-Dopo una configurazione riuscita, il programma di insegnamento aggiungerà una nuova istruzione di movimento correlata. Quando si configura un'istruzione di movimento ARC, è necessario prima configurare un'istruzione PTP/LIN.
-
-- Output DO: Quando si seleziona "Output DO", viene visualizzata una casella a discesa per selezionare le opzioni di output DO0⁓DO7.
-
-.. image:: coding/471.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-15 Configurazione di Smart Tool (tasti A-E)
-
-Funzioni del tasto IO:
-
-- Configurazione del segnale IO: La casella a discesa consente di selezionare le opzioni DO0⁓DO7, CO0⁓CO7, End-DO0, End-DO1 e IO estesi (Aux-DO0⁓Aux-DO127);
-- Istruzione combinata: Dopo aver selezionato "Segnale IO", in condizioni specifiche verranno visualizzati gli elementi di configurazione "Selezione saldatrice" e "Velocità punto", generando diverse istruzioni di programma.
-
-.. image:: coding/472.png
-   :width: 6in
-   :align: center
-
-.. centered:: Grafico 9.33-16 Configurazione di Smart Tool (tasto IO)
-   
-.. important:: 
-   - Quando il segnale IO è configurato come DO0~DO7 o CO0~CO7 (senza configurazione "Accensione arco"), il programma aggiunge SetDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
-   - Quando il segnale IO è configurato come End-DO0, End-DO1, il programma aggiunge SetToolDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
-   - Quando il segnale IO è configurato come IO estesi (senza configurazione "Accensione arco saldatrice"), il programma aggiunge SetAuxDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
-   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") e "Selezione saldatrice" è "Nessuna", il programma aggiunge SetDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
-   - Quando il segnale IO è configurato come IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "Nessuna", il programma aggiunge SetAuxDO; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
-   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") o IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "Saldatura", alla prima pressione il programma aggiunge ARCStart, alla seconda aggiunge ARCEnd, alla terza aggiunge ArcStart, alla quarta aggiunge ARCStart, alternando le operazioni sopra; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
-   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") o IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "LIN+Saldatura", alla prima pressione il programma aggiunge LIN e ARCStart, alla seconda aggiunge LIN e ARCEnd, alla terza aggiunge LIN e ARCStart, alla quarta aggiunge LIN e ARCEnd, alternando le operazioni sopra; in questo caso, "Selezione saldatrice" e "Velocità punto" sono visibili.
-   - Quando il segnale IO è configurato come CO0~CO7 (con configurazione "Accensione arco") o IO estesi (con configurazione "Accensione arco saldatrice") e "Selezione saldatrice" è "LIN+Saldatura+Oscillazione", alla prima pressione il programma aggiunge LIN, ARCStart e WeaveStart, alla seconda aggiunge LIN, ARCEnd e WeaveEnd, alla terza aggiunge LIN, ARCStart e WeaveStart, alla quarta aggiunge LIN, ARCEnd e WeaveEnd, alternando le operazioni sopra; in questo caso, "Selezione saldatrice" e "Velocità punto" sono nascosti.
-
 Funzione di controllo dell'impedenza durante il movimento del robot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -7560,7 +7520,7 @@ Impostazione del controllo dell'impedenza nello spazio cartesiano e attivazione/
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.34-1 Modulo di impostazione del coefficiente di collisione del robot
+.. centered:: Grafico 9.33-1 Modulo di impostazione del coefficiente di collisione del robot
 
 **Step2**: Per utilizzare un sensore di forza per implementare la funzione di controllo dell'impedenza, è necessario configurare il sensore di forza nella configurazione della periferica finale in "Periferiche" → "Utensile finale"; se non si utilizza un sensore di forza per implementare la funzione di controllo dell'impedenza, non è necessario eseguire questo passaggio.
 
@@ -7570,7 +7530,7 @@ Impostazione del controllo dell'impedenza nello spazio cartesiano e attivazione/
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.34-2 Aggiunta dell'istruzione di controllo di forza
+.. centered:: Grafico 9.33-2 Aggiunta dell'istruzione di controllo di forza
 
 **Step4**: Nel modulo di istruzione di controllo di forza, selezionare "Spazio cartesiano" nella casella a discesa "Selezione spazio", impostare valori appropriati per soglia della forza, coefficiente di massa, coefficiente di smorzamento, coefficiente di rigidità, velocità lineare massima, accelerazione lineare massima, velocità angolare massima e accelerazione angolare massima nelle caselle di testo. Nel "Tipo di istruzione", fare clic su "Attiva", quindi su "Aggiungi", per aggiungere l'istruzione di attivazione del controllo dell'impedenza; nel "Tipo di istruzione", fare clic su "Disattiva", quindi su "Aggiungi", per aggiungere l'istruzione di disattivazione del controllo dell'impedenza.
 
@@ -7578,7 +7538,7 @@ Impostazione del controllo dell'impedenza nello spazio cartesiano e attivazione/
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.34-3 Esempio di istruzione di controllo dell'impedenza
+.. centered:: Grafico 9.33-3 Esempio di istruzione di controllo dell'impedenza
 
 **Step5**: Durante l'esecuzione, se il braccio robotico si ferma e nell'angolo inferiore sinistro dell'interfaccia Web viene visualizzato "Errore 500: Livello di collisione corrente troppo basso", ciò è dovuto al fatto che la soglia della forza impostata è superiore alla soglia di attivazione del livello di collisione. In questo caso, aumentare il livello di collisione o ridurre la soglia della forza per risolvere l'errore.
 
@@ -7586,7 +7546,7 @@ Impostazione del controllo dell'impedenza nello spazio cartesiano e attivazione/
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.34-4 Avviso di livello di collisione troppo basso
+.. centered:: Grafico 9.33-4 Avviso di livello di collisione troppo basso
 
 **Step6**: Durante l'esecuzione, se il braccio robotico si ferma e nell'angolo inferiore destro dell'interfaccia Web viene visualizzato "Guasto collisione", ciò significa che la forza esterna sul braccio robotico ha superato la soglia di attivazione del livello di collisione, attivando così un guasto per collisione.
 
@@ -7594,7 +7554,7 @@ Impostazione del controllo dell'impedenza nello spazio cartesiano e attivazione/
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.34-5 Avviso di guasto collisione
+.. centered:: Grafico 9.33-5 Avviso di guasto collisione
 
 Funzione specifica dei parametri e valori consigliati:
 
@@ -7637,7 +7597,7 @@ Il flusso operativo per la funzione di saldatura oscillante personalizzata è il
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.35-1 Interfaccia di impostazione dei parametri di oscillazione
+.. centered:: Grafico 9.34-1 Interfaccia di impostazione dei parametri di oscillazione
 
 **Step 3**: Dopo aver selezionato il "Tipo di oscillazione", scorrere verso il basso nell'interfaccia di impostazione dei parametri di oscillazione. Nell'interfaccia, selezionare il numero di endpoint di oscillazione personalizzati, impostare la posizione e il tempo di permanenza di ciascun punto nel sistema di coordinate di oscillazione, infine fare clic sul pulsante "Configura".
 
@@ -7645,7 +7605,7 @@ Il flusso operativo per la funzione di saldatura oscillante personalizzata è il
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.35-2 Interfaccia di impostazione dell'oscillazione personalizzata
+.. centered:: Grafico 9.34-2 Interfaccia di impostazione dell'oscillazione personalizzata
 
 **Step 4**: Nell'interfaccia di oscillazione, nel "Tipo di istruzione", selezionare in sequenza "Inizia oscillazione", "Termina oscillazione" e fare clic sul pulsante "Aggiungi", infine fare clic sul pulsante "Applica".
 
@@ -7653,7 +7613,7 @@ Il flusso operativo per la funzione di saldatura oscillante personalizzata è il
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.35-3 Interfaccia di impostazione delle istruzioni di oscillazione
+.. centered:: Grafico 9.34-3 Interfaccia di impostazione delle istruzioni di oscillazione
 
 **Step 5**: Nell'interfaccia di modifica del programma, selezionare l'istruzione di inizio oscillazione, fare clic sul pulsante "Sposta su" nella parte superiore dell'interfaccia, infine salvare il programma. Passare il robot in modalità automatica, fare clic sul pulsante "Inizia", il robot inizierà l'oscillazione personalizzata sulla traiettoria lineare.
 
@@ -7661,13 +7621,13 @@ Il flusso operativo per la funzione di saldatura oscillante personalizzata è il
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.35-4 Interfaccia originale delle istruzioni LUA
+.. centered:: Grafico 9.34-4 Interfaccia originale delle istruzioni LUA
 
 .. image:: coding/482.png
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.35-5 Interfaccia delle istruzioni LUA modificata
+.. centered:: Grafico 9.34-5 Interfaccia delle istruzioni LUA modificata
 
 **Step 6**: I passaggi di impostazione per l'oscillazione personalizzata sulle traiettorie ad arco e circolari complete sono gli stessi dello Step 1-Step 5.
 
@@ -7682,7 +7642,7 @@ Prima di utilizzare la funzionalità di registrazione dei punti di insegnamento 
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.36-1 Configurazione dei punti di insegnamento
+.. centered:: Grafico 9.35-1 Configurazione dei punti di insegnamento
 
 Aggiornamento automatico del programma Lua con registrazione punti dell'estremità
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -7696,7 +7656,7 @@ Configurazione della funzionalità di registrazione punti dell'estremità
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.36‑2 Attivazione della funzionalità di registrazione punti dell'estremità
+.. centered:: Grafico 9.35‑2 Attivazione della funzionalità di registrazione punti dell'estremità
 
 2. Dopo aver completato la configurazione, il nome dei punti registrati dall'estremità avrà prefisso "test", il limite superiore del numero è 10, selezionare tutti i programmi Lua per l'aggiornamento. Chiudere WebApp, la funzionalità rimane attiva.
    
@@ -7709,7 +7669,7 @@ Aggiornamento automatico del programma Lua con registrazione punti tramite pulsa
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.36‑3 Pulsante di registrazione punti dell'estremità
+.. centered:: Grafico 9.35‑3 Pulsante di registrazione punti dell'estremità
 
 2. In questo momento, lo stato di illuminazione LED dell'estremità: lampeggio viola (inizio) -> luce blu fissa (registrazione punto e aggiornamento Lua in corso) -> luce verde fissa (registrazione punto completata). Le informazioni sui punti con il nome corrispondente nel programma Lua selezionato vengono aggiornate in modo sincrono.
 
@@ -7717,7 +7677,7 @@ Aggiornamento automatico del programma Lua con registrazione punti tramite pulsa
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.36‑3 Cambiamenti LED durante la registrazione punti e l'aggiornamento del programma Lua
+.. centered:: Grafico 9.35‑3 Cambiamenti LED durante la registrazione punti e l'aggiornamento del programma Lua
 
 3. In caso di fallimento della registrazione punto, lo stato di illuminazione LED dell'estremità: lampeggio viola (inizio) -> lampeggio rosso (registrazione punto fallita) -> luce verde fissa (ritorno alla normalità).
 
@@ -7725,7 +7685,7 @@ Aggiornamento automatico del programma Lua con registrazione punti tramite pulsa
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.36‑4 Cambiamenti LED in caso di fallimento della registrazione punti dell'estremità
+.. centered:: Grafico 9.35‑4 Cambiamenti LED in caso di fallimento della registrazione punti dell'estremità
 
 Esempio di utilizzo della funzionalità
 ********************************************************
@@ -7738,7 +7698,7 @@ Esempio di utilizzo della funzionalità
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.36‑5 Configurazione dei punti di insegnamento
+.. centered:: Grafico 9.35‑5 Configurazione dei punti di insegnamento
 
 3. La figura seguente mostra il programma program1 e la sua traiettoria di esecuzione corrente.
 
@@ -7746,7 +7706,7 @@ Esempio di utilizzo della funzionalità
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.36‑6 Programma program1 e traiettoria di esecuzione corrente
+.. centered:: Grafico 9.35‑6 Programma program1 e traiettoria di esecuzione corrente
 
 4. Passare la pagina in modalità manuale, trascinare il robot in una nuova posizione, fare clic sul pulsante di registrazione punti dell'estremità, attendere il completamento del lampeggio LED dell'estremità: lampeggio viola (inizio) -> luce blu fissa (registrazione punto e aggiornamento Lua in corso) -> luce verde fissa (registrazione punto completata). In questo momento, il punto registrato è test1.
 5. Ripetere il passaggio 4, registrare in sequenza test2, test3, test4, test5, completando la registrazione di 5 punti. A questo punto, i punti del programma program1 sono stati aggiornati in modo sincrono.
@@ -7756,7 +7716,7 @@ Esempio di utilizzo della funzionalità
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.36‑7 Traiettoria di esecuzione aggiornata
+.. centered:: Grafico 9.35‑7 Traiettoria di esecuzione aggiornata
 
 Configurazione del programma principale
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -7769,7 +7729,7 @@ La configurazione del programma principale può essere utilizzata insieme alla c
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.37‑1 Configurazione del programma principale
+.. centered:: Grafico 9.36‑1 Configurazione del programma principale
 
 Saldatura a linee intersecanti con asse esteso del robot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -7781,7 +7741,7 @@ Composizione del sistema
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑1 Composizione del sistema di saldatura a linee intersecanti con asse esteso del robot
+.. centered:: Grafico 9.37‑1 Composizione del sistema di saldatura a linee intersecanti con asse esteso del robot
 
 Nel sistema, (a) è il computer, (b) è il robot e il suo quadro di controllo, (c) è il posizionatore e il dispositivo di azionamento, (d) è la saldatrice e le apparecchiature accessorie.
 
@@ -7794,7 +7754,7 @@ I metodi di comunicazione tra il robot e l'asse esteso includono l'utilizzo di U
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑2 Pagina di configurazione dell'asse esteso
+.. centered:: Grafico 9.37‑2 Pagina di configurazione dell'asse esteso
  
 Nell'interfaccia operativa del robot, fare clic su "Impostazioni iniziali", "Periferiche", "Asse esteso", per accedere alla pagina di configurazione dell'asse esteso. Prendendo come esempio la connessione di un PLC al robot tramite comunicazione UDP, fare clic sull'icona "Comunicazione UDP", per accedere alla pagina di configurazione dell'asse esteso con comunicazione UDP.
 
@@ -7802,7 +7762,7 @@ Nell'interfaccia operativa del robot, fare clic su "Impostazioni iniziali", "Per
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑3 Interfaccia di configurazione della comunicazione UDP
+.. centered:: Grafico 9.37‑3 Interfaccia di configurazione della comunicazione UDP
  
 Nella pagina di configurazione dell'asse esteso con comunicazione UDP, è possibile selezionare il numero dell'asse esteso corrispondente, connettersi e configurare i parametri di comunicazione UDP (indirizzo, porta, periodo, rilevamento perdita pacchetti, ecc.), nonché il tempo di completamento del posizionamento dell'asse esteso.
 
@@ -7816,7 +7776,7 @@ Configurare la saldatrice tramite la seguente pagina di configurazione:
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑4 Pagina di configurazione della saldatrice
+.. centered:: Grafico 9.37‑4 Pagina di configurazione della saldatrice
 
 La comunicazione con la saldatrice può utilizzare comunicazione IO o comunicazione RS485. Fare clic su "Impostazioni iniziali", "Periferiche", "Saldatrice", per accedere all'interfaccia di configurazione e connessione. È possibile configurare moduli come "Tipo di controllo", "Configurazione I/O", "Parametri processo di saldatura", "Debug saldatrice", ecc.
 
@@ -7830,7 +7790,7 @@ Dopo aver installato la torcia di saldatura sull'estremità del robot, calibrare
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑5 Pagina di configurazione del sistema di coordinate dell'utensile
+.. centered:: Grafico 9.37‑5 Pagina di configurazione del sistema di coordinate dell'utensile
 
 Fare clic su "Impostazioni iniziali", "Base", "Coordinate utensile", per accedere alla pagina di impostazione del sistema di coordinate dell'utensile.
 
@@ -7838,7 +7798,7 @@ Fare clic su "Impostazioni iniziali", "Base", "Coordinate utensile", per acceder
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑6 Selezione del metodo a 6 punti per calibrare la torcia di saldatura
+.. centered:: Grafico 9.37‑6 Selezione del metodo a 6 punti per calibrare la torcia di saldatura
 
 Selezionare un sistema di coordinate vuoto, selezionare il tipo di utensile come "Utensile", scegliere il metodo a 6 punti per calibrare l'utensile torcia di saldatura. Si consiglia di calibrare l'orientamento del sistema di coordinate dell'utensile come mostrato nella Figura 4-3 seguente.
 
@@ -7846,7 +7806,7 @@ Selezionare un sistema di coordinate vuoto, selezionare il tipo di utensile come
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.38‑7 Diagramma dell'orientamento del sistema di coordinate della torcia di saldatura
+.. centered:: Grafico 9.37‑7 Diagramma dell'orientamento del sistema di coordinate della torcia di saldatura
 
 Il contenuto della calibrazione del sistema di coordinate dell'utensile non è l'obiettivo principale di questa introduzione alla funzione. Per il metodo di calibrazione dettagliato, consultare il manuale utente corrispondente.
 
@@ -7864,7 +7824,7 @@ Quando si utilizza il sistema di coordinate dell'asse esteso per realizzare il m
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑8 Pagina di impostazione del sistema di coordinate dell'asse esteso
+.. centered:: Grafico 9.37‑8 Pagina di impostazione del sistema di coordinate dell'asse esteso
 
 Fare clic su "Impostazioni iniziali", "Periferiche", "Asse esteso", per accedere all'interfaccia di impostazione del sistema di coordinate dell'asse esteso. Selezionare il numero dell'asse esteso da impostare, fare clic sul pulsante di modifica, selezionare "1-Posizionatore a due gradi di libertà a L" e salvare.
 
@@ -7872,7 +7832,7 @@ Fare clic su "Impostazioni iniziali", "Periferiche", "Asse esteso", per accedere
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑9 Pagina di calibrazione dell'asse esteso
+.. centered:: Grafico 9.37‑9 Pagina di calibrazione dell'asse esteso
  
 Durante la calibrazione dell'asse esteso, prestare attenzione a selezionare "Posizione robot relativa all'asse esteso" come "Esterno all'asse esteso". Per il caso del posizionatore, selezionare il metodo a 4 punti per la calibrazione.
 
@@ -7887,7 +7847,7 @@ In base ai punti di insegnamento registrati sulle sezioni trasversali del tubo p
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.38‑10 Sistema di coordinate del pezzo per la traiettoria a linee intersecanti
+.. centered:: Grafico 9.37‑10 Sistema di coordinate del pezzo per la traiettoria a linee intersecanti
 
 Metodo senza posizionatore
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -7899,7 +7859,7 @@ Metodo senza posizionatore
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑11 Pagina di impostazione della traiettoria a linee intersecanti
+.. centered:: Grafico 9.37‑11 Pagina di impostazione della traiettoria a linee intersecanti
 
 **Step 3**: Nella pagina di impostazione della traiettoria a linee intersecanti, selezionare "Disabilita" per "Punti asse esteso", completare le impostazioni per il movimento del punto di inizio, direzione di movimento, velocità e accelerazione, valore di offset. La direzione antioraria per la direzione di movimento è data dalla regola della mano destra: afferrare l'asse Z del sistema di coordinate del pezzo con la mano destra, la direzione delle quattro dita indica il senso antiorario.
 
@@ -7909,7 +7869,7 @@ Metodo senza posizionatore
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑12 Impostazione dell'istruzione per la traiettoria a linee intersecanti
+.. centered:: Grafico 9.37‑12 Impostazione dell'istruzione per la traiettoria a linee intersecanti
 
 **Step 5**: Fare clic sul pulsante "Saldatura" sotto "Istruzioni di saldatura", per accedere alla pagina di impostazione della saldatura. Selezionare le istruzioni "Accensione arco" e "Estinzione arco", fare clic sui pulsanti "Aggiungi" e "Applica". Dopo l'aggiunta riuscita, spostare l'istruzione LUA di accensione arco di una riga verso l'alto.
 
@@ -7917,7 +7877,7 @@ Metodo senza posizionatore
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑13 Impostazione delle istruzioni di saldatura
+.. centered:: Grafico 9.37‑13 Impostazione delle istruzioni di saldatura
  
 Di seguito è riportato un tipico programma LUA per la saldatura a linee intersecanti senza posizionatore:
 
@@ -7925,7 +7885,7 @@ Di seguito è riportato un tipico programma LUA per la saldatura a linee interse
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑14 Programma di esempio per la saldatura a linee intersecanti senza posizionatore
+.. centered:: Grafico 9.37‑14 Programma di esempio per la saldatura a linee intersecanti senza posizionatore
 
 Metodo con posizionatore a due gradi di libertà a L
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -7938,7 +7898,7 @@ Metodo con posizionatore a due gradi di libertà a L
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑15 Pagina di impostazione della traiettoria a linee intersecanti
+.. centered:: Grafico 9.37‑15 Pagina di impostazione della traiettoria a linee intersecanti
 
 **Step 3**: Nella pagina di impostazione della traiettoria a linee intersecanti, selezionare "Abilita" per "Punti asse esteso", selezionare i punti di insegnamento del posizionatore registrati, completare le impostazioni per il movimento del punto di inizio, direzione di movimento, velocità e accelerazione, valore di offset.
 
@@ -7948,7 +7908,7 @@ Metodo con posizionatore a due gradi di libertà a L
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑16 Impostazione dell'istruzione per la traiettoria a linee intersecanti
+.. centered:: Grafico 9.37‑16 Impostazione dell'istruzione per la traiettoria a linee intersecanti
 
 **Step 5**: Fare clic sul pulsante "Saldatura" sotto "Istruzioni di saldatura", per accedere alla pagina di impostazione della saldatura. Selezionare le istruzioni "Accensione arco" e "Estinzione arco", fare clic sui pulsanti "Aggiungi" e "Applica". Dopo l'aggiunta riuscita, spostare l'istruzione LUA di accensione arco di una riga verso l'alto.
 
@@ -7956,7 +7916,7 @@ Metodo con posizionatore a due gradi di libertà a L
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑17 Impostazione delle istruzioni di saldatura
+.. centered:: Grafico 9.37‑17 Impostazione delle istruzioni di saldatura
  
 Di seguito è riportato un tipico programma LUA per la saldatura a linee intersecanti con posizionatore:
 
@@ -7964,4 +7924,4 @@ Di seguito è riportato un tipico programma LUA per la saldatura a linee interse
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.38‑18 Programma di esempio per la saldatura a linee intersecanti con posizionatore
+.. centered:: Grafico 9.37‑18 Programma di esempio per la saldatura a linee intersecanti con posizionatore

@@ -432,27 +432,30 @@ Controllo Forza Costante
     * @param [in] ILC_sign Controllo start/stop ILC, 0-ferma, 1-addestra, 2-operazione
     * @param [in] max_dis Distanza massima di regolazione, unità mm
     * @param [in] max_ang Angolo massimo di regolazione, unità deg
-    * @param [in] M Parametri massa 
-    * @param [in] B Parametri smorzamento
+    * @param [in] M Parametri massa rx, ry [0.1-10], predefinito 2
+    * @param [in] B Parametri smorzamento rx, ry [0.1-50], predefinito 8
+    * @param [in] threshold Soglie di attivazione rx, ry [0-10], predefinito 0.2
+    * @param [in] adjustCoeff Coefficienti di regolazione coppia rx, ry [0-1], predefinito 1
     * @param [in] polishRadio Raggio levigatura, unità mm
     * @param [in] filter_Sign Segnale attivazione filtro 0-off; 1-on, default off
     * @param [in] posAdapt_sign Segnale attivazione conformità posa 0-off; 1-on, default off
     * @param [in] isNoBlock Segnale blocco, 0-blocca; 1-non blocca
     * @return Codice errore
     */
-    errno_t FT_Control(uint8_t flag, int sensor_id, uint8_t select[6], ForceTorque* ft, float ft_pid[6], uint8_t adj_sign, uint8_t ILC_sign, float max_dis, float max_ang, double M[2], double B[2], double polishRadio = 0.0, int filter_Sign = 0, int posAdapt_sign = 0, int isNoBlock = 0); 
+    errno_t FT_Control(uint8_t flag, int sensor_id, uint8_t select[6], ForceTorque* ft, float ft_pid[6], uint8_t adj_sign, 
+    uint8_t ILC_sign, float max_dis, float max_ang, double M[2], double B[2], double threshold[2], double adjustCoeff[2], double polishRadio = 0.0, int filter_Sign = 0, int posAdapt_sign = 0, int isNoBlock = 0);
 
 Esempio di Codice Controllo Forza Costante con Smorzamento
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
-    int TestFTControlWithDamping(void)
+    int TestFTControlWithAdjustCoeff(void)
     {
       ROBOT_STATE_PKG pkg = {};
       FRRobot robot;
       robot.LoggerInit();
-      robot.SetLoggerLevel(3);
+      robot.SetLoggerLevel(1);
       int rtn = robot.RPC("192.168.58.2");
       if (rtn != 0)
       {
@@ -464,30 +467,33 @@ Esempio di Codice Controllo Forza Costante con Smorzamento
       float ft_pid[6] = { 0.0008, 0.0, 0.0, 0.0, 0.0, 0.0 };
       uint8_t adj_sign = 0;
       uint8_t ILC_sign = 0;
-      float max_dis = 100.0;
+      float max_dis = 1000.0;
       float max_ang = 20;
-      ForceTorque ft = {};
-      ft.fz = -10.0;
+      ForceTorque ft = {0.0};
       ExaxisPos epos(0, 0, 0, 0);
-      JointPos j1(-118.985, -86.882, -118.139, -65.019, 90.002, 54.951);
-      JointPos j2(-77.055, -77.218, -126.219, -66.591, 90.028, 96.881);
-      DescPose desc_p1(-300.856, -332.618, 309.240, 179.976, -0.031, 96.065);
-      DescPose desc_p2(-16.399, -383.760, 309.312, 179.975, -0.031, 96.064);
+      JointPos j1(80.765, -98.795, 106.548, -97.734, -89.999, 94.842);
+      JointPos j2(43.067, -84.429, 92.620, -98.175, -90.011, 57.144);
+      DescPose desc_p1(5.009, -547.463, 262.053, -179.999, -0.019, 75.923);
+      DescPose desc_p2(-347.966, -547.463, 262.048, -180.000, -0.019, 75.923);
       DescPose offset_pos(0, 0, 0, 0, 0, 0);
-      double M[2] = {2.0, 2.0};
-      double B[2] = {8.0, 8.0};
-      double polishRadio;
-      int filter_Sign;
-      int posAdapt_sign;
+      double M[2] = { 2.0, 2.0 };
+      double B[2] = { 15.0, 15.0 };
+      double threshold[2] = {1.0, 1.0};
+      double adjustCoeff[2] = {1.0, 0.8};
+      double polishRadio = 0.0;
+      int filter_Sign = 0;
+      int posAdapt_sign = 1;
       int isNoBlock;
-      DescPose ftCoord = {};
-      robot.FT_SetRCS(2, ftCoord);
-      rtn = robot.FT_Control(1, sensor_id, select, &ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, 0, 0, 1, 0);
-      printf("FT_Control start rtn is %d\n", rtn);
-      rtn = robot.MoveL(&j1, &desc_p1, 0, 0, 100.0, 100.0, 20.0, -1.0, &epos, 0, 0, &offset_pos);
-      rtn = robot.MoveL(&j2, &desc_p2, 0, 0, 100.0, 100.0, 20.0, -1.0, &epos, 0, 0, &offset_pos);
-      rtn = robot.FT_Control(1, sensor_id, select, &ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, 0, 0, 1, 0);
-      printf("FT_Control end rtn is %d\n", rtn);
+      ft.fz = -10.0;
+      while(true)
+      { 
+        rtn = robot.FT_Control(1, sensor_id, select, &ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold, adjustCoeff, 0, 0, 1, 0);
+        printf("FT_Control start rtn is %d\n", rtn);
+        robot.MoveL(&j1, &desc_p1, 1, 0, 100, 100, 100, -1, 0, &epos, 0, 0, &offset_pos, 200.0, 0);
+        robot.MoveL(&j2, &desc_p2, 1, 0, 100, 100, 100, -1, 0, &epos, 0, 0, &offset_pos, 200.0, 0);
+        rtn = robot.FT_Control(0, sensor_id, select, &ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold, adjustCoeff, 0, 0, 1, 0);
+        printf("FT_Control end rtn is %d\n", rtn);
+      }
       robot.CloseRPC();
       return 0;
     }
@@ -1182,3 +1188,17 @@ Esempio di Codice Controllo Start/Stop Impedenza Robot
       robot.CloseRPC();
       return 0;
     }
+
+Abilita funzione compensazione coppia e coefficiente di compensazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Abilita funzione compensazione coppia e coefficiente di compensazione
+    * @param [in] status Interruttore, 0-Disabilita; 1-Abilità
+    * @param [in] torqueCoeff Coefficiente compensazione coppia J1-J6 [0-1]
+    * @return Codice errore
+    */
+    errno_t SerCoderCompenParams(int status, double torqueCoeff[6]);

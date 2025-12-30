@@ -15,6 +15,33 @@ Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fa
 
 .. centered:: Diagramma 7.1-1 Configurazione Arresto di Sicurezza
 
+Arresto di Sicurezza a Doppio Canale + Modalità Ridotta Configurabile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
+++++++++++++++++++++++++++++++++++++
+
+Quando la modalità di attivazione dell'arresto di sicurezza è impostata su "Doppio Canale", entrambi i canali devono essere garantiti puliti e l'avviso deve essere cancellato manualmente nell'interfaccia operativa prima che il robot possa essere resettato. Inoltre, nella configurazione della strategia viene aggiunta un'opzione di modalità ridotta. Quando questa strategia viene selezionata dall'utente, il robot entrerà in movimento in modalità ridotta.
+
+Procedura Operativa
+++++++++++++++++++++++++++++++++++++
+
+**Step1**: Fare clic sul pulsante "Impostazioni Iniziali" -> "Sicurezza" -> "Arresto Sicurezza". La modalità di attivazione può essere selezionata come "Predefinita" o "Doppio Canale". La differenza tra le due è la seguente: nella modalità "Predefinita", dopo l'attivazione e il ripristino, l'errore dell'interfaccia viene cancellato automaticamente. Nella modalità "Doppio Canale", dopo l'attivazione e il ripristino, l'errore dell'interfaccia deve essere cancellato manualmente. La "Strategia di Arresto Sicurezza" può essere selezionata come "Arresto", "Pausa", "Modalità Ridotta Livello 1" o "Modalità Ridotta Livello 2". Spiegazioni dettagliate sono le seguenti: Quando si seleziona "Arresto", il robot si ferma. Quando si seleziona "Pausa", il robot mette in pausa il movimento corrente e riprenderà dopo il ripristino e la cancellazione dell'errore. Quando si seleziona "Modalità Ridotta Livello 1", il robot entra in movimento in modalità ridotta di livello 1. Quando si seleziona "Modalità Ridotta Livello 2", il robot entra in movimento in modalità ridotta di livello 2.
+
+.. image:: safety/048.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.1-2 Impostazioni Strategia Arresto Sicurezza
+
+**Step2**: Poiché quando la modalità di attivazione è selezionata come "Predefinita", dopo l'attivazione e il ripristino, l'errore dell'interfaccia può essere cancellato automaticamente, non richiede molta introduzione. Pertanto, ci concentriamo principalmente sull'operazione quando la modalità di attivazione è selezionata come "Doppio Canale": Dopo l'attivazione e il ripristino, è necessario fare clic manualmente sull'operazione "Cancella" in alto a destra prima che il robot possa essere resettato.
+
+.. image:: safety/049.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.1-3 Cancellazione Manuale di un'Operazione di Attivazione Arresto Sicurezza
+
 Velocità di Sicurezza
 -----------------------------
 

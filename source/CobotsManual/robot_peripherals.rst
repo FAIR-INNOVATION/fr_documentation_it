@@ -10,7 +10,7 @@ Protocollo Aperto Personalizzato Lua per l'Estremità
 Panoramica
 ~~~~~~~~~~~~~~~~~~
 
-Il protocollo aperto personalizzato Lua per l'estremità supporta l'uso di sensori di forza, pinze e maniglie di saldatura, consentendo anche l'uso combinato di sensori di forza e pinze.
+All'estremità del robot è fornita un'interfaccia hardware per collegare periferiche tramite comunicazione 485. Le periferiche attualmente supportate includono pinze, pinze rotanti, sensori di forza, manipoli di saldatura e altri dispositivi. Tutti questi dispositivi terminali possono essere adattati scrivendo un protocollo aperto in Lua per realizzare l'adattamento del protocollo, consentendo il controllo della periferica e l'acquisizione del suo stato.
 
 Procedura Operativa
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,18 +28,23 @@ Procedura Operativa
 
 .. centered:: Diagramma 8.1‑1 Aggiornamento firmware dell'estremità
 
-**Step2**: Accedere a Periferiche->Pinza/Sensore di forza/Maniglia di saldatura, fare clic sulla scheda "Protocollo personalizzato" per accedere all'interfaccia, caricare il protocollo aperto Lua dell'estremità, selezionare il protocollo aperto Lua dell'estremità da caricare ed eseguire l'operazione di caricamento.
+**Step2**: Aprire la WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche" e selezionare la periferica terminale da configurare (ad esempio, pinza). Il tipo di controllo per le periferiche include due opzioni: dispositivi pre-adattati e protocollo aperto periferica:
 
-.. important::
-   Prima di caricare il protocollo dell'estremità, è necessario entrare in modalità boot. Inoltre, il nome del file deve iniziare con `AXLE_LUA_`.
+- **Dispositivi Pre-adattati**: Utilizza il controllore del robot per la comunicazione. Non è richiesto caricamento o applicazione.
+- **Protocollo Aperto Periferica**: L'utente scrive un protocollo aperto basato su Lua per l'estremità da adattare per realizzare il controllo della comunicazione. I protocolli terminali sono suddivisi in due categorie: una è costituita da protocolli caricati dall'utente, l'altra da protocolli incorporati preimpostati nel robot.
 
 .. figure:: robot_peripherals/002.png
    :align: center
-   :width: 4in
+   :width: 6in
 
-.. centered:: Diagramma 8.1‑2 Caricamento protocollo aperto Lua dell'estremità
+.. centered:: Figura 8.1‑2 Tipo di Controllo Pinza
 
-**Step3**: Configurare i parametri di comunicazione dell'estremità, che includono baud rate, bit di dati, bit di stop, ecc. Dopo la configurazione, fare clic sul pulsante "Configura".
+**Step3**: Entrare nell'interfaccia del contenuto Periferiche -> Pinza/Sensore di forza/Manipolo di saldatura. Fare clic sulla scheda "Protocollo Personalizzato" per accedere all'interfaccia. Caricare il protocollo aperto terminale Lua, selezionare il protocollo aperto terminale Lua da caricare ed eseguire l'operazione di caricamento.
+
+.. important:: 
+  Il nome del file caricato deve iniziare con `AXLE_LUA_`.
+
+**Step4**: Configurare i parametri di comunicazione dell'estremità, che includono baud rate, bit di dati, bit di stop, ecc. Dopo la configurazione, fare clic sul pulsante "Configura".
 
 .. figure:: robot_peripherals/003.png
    :align: center
@@ -57,7 +62,7 @@ I parametri dettagliati di comunicazione dell'estremità sono i seguenti:
 - **Numero di timeout**: 1~10, utilizzato principalmente per la ritrasmissione in caso di timeout, riducendo le anomalie occasionali e migliorando l'esperienza utente;
 - **Intervallo di tempo del comando periodico**: 1~1000ms, utilizzato principalmente per l'intervallo di tempo di ogni invio del comando periodico;
 
-**Step4**: Abilitazione Lua dell'estremità, fare clic sul pulsante "Attiva".
+**Step5**: Abilitazione Lua dell'estremità, fare clic sul pulsante "Attiva".
 
 .. figure:: robot_peripherals/004.png
    :align: center
@@ -157,10 +162,222 @@ Insegnamento programma pinza
      - MoveGripper(1,0,255,0,1000,0)
      - #Apertura pinza
 
-Protocollo aperto personalizzato
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configurazione del protocollo Lua per l'end-effector Gripper
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aprire la WebApp, fare clic in sequenza su "Configurazione iniziale", "Periferiche", "Gripper", "Protocollo personalizzato". Fare clic su "Gestione protocolli" per configurare il protocollo dell'end-effector.
 
-I passaggi per il caricamento del protocollo personalizzato della pinza si riferiscono al contenuto del protocollo aperto personalizzato Lua dell'estremità.
+Il nome del file caricato dall'utente deve iniziare con "AXLE_LUA_End". Dopo il caricamento, il nome del protocollo nell'elenco cambierà per iniziare con "Custom_End". Questo tipo di protocollo può essere scaricato ed eliminato. I file con nomi duplicati caricati dall'utente verranno automaticamente sovrascritti con il Lua più recente.
+
+.. figure:: robot_peripherals/277.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.2‑4-1 Caricamento protocollo personalizzato per Gripper
+
+I protocolli integrati predefiniti del robot iniziano con il prefisso `End_`. Possono essere solo scaricati, non eliminati. I protocolli integrati per le periferiche (gripper, gripper rotante, ventosa) sono mostrati nella figura seguente.
+
+.. figure:: robot_peripherals/278.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.2‑4-2 Protocollo integrato predefinito per Gripper (Gripper rotante, Ventosa)
+
+Dopo aver assicurato che il protocollo corretto sia selezionato, è possibile disabilitare il robot e applicare il protocollo aperto. Dopo l'applicazione, il robot entrerà automaticamente in modalità boot e applicherà il protocollo selezionato all'end-effector. Quando la pagina segnala "Aggiornamento riuscito, si prega di riavviare il control box", è possibile spegnere e riaccendere il control box.
+
+.. figure:: robot_peripherals/279.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.2‑4-3 Applicazione del protocollo aperto dell'end-effector alla scheda dell'end-effector
+
+Dopo il riavvio e l'accesso alla pagina WebApp, la pagina mostrerà il nome del protocollo attualmente applicato. Dopo aver fatto clic per abilitare il protocollo dell'end-effector e aver abilitato il dispositivo, il protocollo dell'end-effector inizierà a essere eseguito. L'ID dispositivo è l'indirizzo slave Modbus della periferica end-effector e deve essere utilizzato in combinazione con il contenuto del protocollo.
+
+.. figure:: robot_peripherals/280.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.2‑4-4 Visualizzazione e abilitazione della configurazione del protocollo dell'end-effector Gripper
+
+La scheda dell'end-effector verificherà il protocollo Lua caricato. Quando c'è un problema con il file Lua, verrà mostrato un avviso "File Lua dell'end-effector anomalo". È possibile scegliere "Non recuperare/Recuperare". Spegnere il pulsante di abilitazione Lua per chiudere il messaggio di avviso.
+
+.. figure:: robot_peripherals/005.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.2‑4-5 Visualizzazione e abilitazione della configurazione del protocollo dell'end-effector Gripper
+
+Esempio di protocollo Lua per periferica end-effector di un Gripper
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: console
+
+  function Getbit(X,Bit)--Getbit(), estrae il bit corrispondente da un byte. Parametri: X: il byte da cui estrarre il bit; Bit: la posizione del bit da estrarre (intervallo 0-7)
+  return ((X&(1<<Bit))>>Bit)
+  end
+
+  function GetOneByte(U32)--GetOneByte(), estrae il dato 0x1234, ottiene il suo byte basso, restituisce 0x34
+  return ((U32>>0)&0xFF)
+  end
+
+  function GetTwoByte(U32)--GetTwoByte(), estrae il dato 0x1234, ottiene il suo byte alto, restituisce 0x12
+  return ((U32>>8)&0xFF)
+  end
+  function GetThreeByte(U32)--GetThreeByte(), estrae il dato 0x56781234, estrae e restituisce 0x78
+  return ((U32>>16)&0xFF)
+  end
+  function GetFourByte(U32)--GetFourByte(), estrae il dato 0x56781234, estrae e restituisce 0x56
+  return ((U32>>24)&0xFF)
+  end
+  X,Speed,Torque=0,0,0
+  while(1)
+  do
+  IwdgTaskHandle()
+  MainLoop()
+  UpDownLoadHandle()
+  SdoRwPara()
+  EndErrClear()
+  local BFlag=LuaBreak()
+  if(BFlag==1)then
+  break
+  end--Da qui fino alla fine del file LuaGc(), end è sintassi fissa
+
+  T1={0x01,0x06,0x03,0xE8,0x00,0x09,0xC9,0xBC}--Popola i comandi del gripper (comandi Modbus RTU). T1-T5 sono rispettivamente: comando di esecuzione azione gripper, comando di inizializzazione gripper, comando posizione gripper, comando velocità gripper, comando coppia gripper
+  --/Analisi comando: T1[1]=0X01, è l'indirizzo del gripper; T1[2]=0x06, codice funzione scrittura registro singolo holding; T1[3], T1[4]: 0x03,0xE8, indirizzo del registro su cui operare per il comando esecuzione azione; T1[5],T1[6]: 0x00,0x09, dati da scrivere nel registro; T1[7],T1[8]: 0xC9,0xBC, checksum CRC, deve essere modificato secondo il manuale utente del gripper
+  T2={}
+  T3={}
+  T4={}
+  T5={}
+
+  T7={0x01,0x03,0x07,0xD0,0x00,0x01,0x84,0x87}--T7-T12, comandi lettura stato gripper, rispettivamente: comando lettura stato gripper, comando lettura inizializzazione gripper, comando lettura codice errore gripper, comando lettura posizione gripper, comando lettura velocità gripper, comando lettura coppia gripper
+  T8={}
+  T9={}
+  T10={}
+  T11={}
+  T12={}
+  Rcmd1,Rcmd2,Rcmd3,Rcmd4=GetGripCmd()--Uso fisso, non necessita modifica. Rcm2 è l'indirizzo gripper inviato dal controller, Rcmd4 sono i dati inviati dal controller
+  if(Rcmd1==1) then
+  T1[1]=Rcmd2                   
+  T2[1]=Rcmd2
+  T3[1]=Rcmd2
+  T4[1]=Rcmd2
+  T5[1]=Rcmd2
+
+  T7[1]=Rcmd2
+  T8[1]=Rcmd2
+  T9[1]=Rcmd2
+  T10[1]=Rcmd2
+  T11[1]=Rcmd2
+  T12[1]=Rcmd2                    --**Aggiornamento indirizzo gripper
+  if (Rcmd3==1) then              --Comando esecuzione azione gripper
+  T1[7],T1[8]=CrcValue(T1[1],T1[2],T1[3],T1[4],T1[5],T1[6])--Calcola valore CRC comando Modbus RTU, due byte
+  EndTxGripData(T1[1],T1[2],T1[3],T1[4],T1[5],T1[6],T1[7],T1[8])--End-effector invia comando al gripper
+  DelayMs(10)                                                   --Ritardo 10ms
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()--End-effector restituisce i dati di feedback del gripper ricevuti a Lua. Il contenuto specifico del feedback deve essere verificato nel manuale utente del gripper
+  GripStateBack(Rxd3)
+  end
+  if (Rcmd3==2) then
+  T2[7],T2[8]=CrcValue(T2[1],T2[2],T2[3],T2[4],T2[5],T2[6])
+  EndTxGripData(T2[1],T2[2],T2[3],T2[4],T2[5],T2[6],T2[7],T2[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  GripStateBack(Rxd3)
+  end
+  if(Rcmd3==3) then
+  X=Rcmd4
+  T3[5]=0x00
+  T3[6]=X
+  T3[7],T3[8]=CrcValue(T3[1],T3[2],T3[3],T3[4],T3[5],T3[6])
+  EndTxGripData(T3[1],T3[2],T3[3],T3[4],T3[5],T3[6],T3[7],T3[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  GripStateBack(Rxd3)
+  end
+  if (Rcmd3==4) then
+  Speed=Rcmd4
+  T4[5]=Torque
+  T4[6]=Speed
+  T4[7],T4[8]=CrcValue(T4[1],T4[2],T4[3],T4[4],T4[5],T4[6])
+  EndTxGripData(T4[1],T4[2],T4[3],T4[4],T4[5],T4[6],T4[7],T4[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  GripStateBack(Rxd3)
+  end
+  if(Rcmd3==5) then
+  Torque=Rcmd4
+  T5[5]=Torque
+  T5[6]=Speed
+  T5[7],T5[8]=CrcValue(T5[1],T5[2],T5[3],T5[4],T5[5],T5[6])
+  EndTxGripData(T5[1],T5[2],T5[3],T5[4],T5[5],T5[6],T5[7],T5[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  GripStateBack(Rxd3)
+  end
+  if(Rcmd3 == 7) then
+  T7[7],T7[8]=CrcValue(T7[1],T7[2],T7[3],T7[4],T7[5],T7[6])
+  EndTxGripData(T7[1],T7[2],T7[3],T7[4],T7[5],T7[6],T7[7],T7[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  RxdCrcH,RxdCrcL = CrcValue(Rxd1,Rxd2,Rxd3,Rxd4,Rxd5)
+  if((A==8)and(Rxd1==Rcmd2)and(Rxd2==0x03)and(Rxd3==0x02)and(Rxd6==RxdCrcH)and(Rxd7==RxdCrcL))then
+  GripStateBack(Rxd4)
+  end
+  end
+  if(Rcmd3==8) then
+  T8[7],T8[8]=CrcValue(T8[1],T8[2],T8[3],T8[4],T8[5],T8[6])
+  EndTxGripData(T8[1],T8[2],T8[3],T8[4],T8[5],T8[6],T8[7],T8[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  RxdCrcH,RxdCrcL = CrcValue(Rxd1,Rxd2,Rxd3,Rxd4,Rxd5)
+  if((A==8)and(Rxd1==Rcmd2)and(Rxd2==0x03)and(Rxd3==0x02)and(Rxd6==RxdCrcH)and(Rxd7 ==RxdCrcL)) then
+  GripStateBack(Rxd5)
+  end
+  end
+  if(Rcmd3 == 9) then
+  T9[7],T9[8]=CrcValue(T9[1],T9[2],T9[3],T9[4],T9[5],T9[6])
+  EndTxGripData(T9[1],T9[2],T9[3],T9[4],T9[5],T9[6],T9[7],T9[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  RxdCrcH,RxdCrcL = CrcValue(Rxd1,Rxd2,Rxd3,Rxd4,Rxd5)
+  if((A==8)and(Rxd1==Rcmd2)and(Rxd2==0x03)and(Rxd3==0x02)and(Rxd6==RxdCrcH)and(Rxd7==RxdCrcL)) then
+  GripStateBack(Rxd5)
+  end
+  end
+  if(Rcmd3 == 10) then
+  T10[7],T10[8]=CrcValue(T10[1],T10[2],T10[3],T10[4],T10[5],T10[6])
+  EndTxGripData(T10[1],T10[2],T10[3],T10[4],T10[5],T10[6],T10[7],T10[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  RxdCrcH,RxdCrcL = CrcValue(Rxd1,Rxd2,Rxd3,Rxd4,Rxd5)
+  if((A==8)and(Rxd1==Rcmd2)and(Rxd2==0x03)and(Rxd3==0x02)and(Rxd6==RxdCrcH)and(Rxd7==RxdCrcL)) then
+  GripStateBack(Rxd4)
+  end
+  end
+  if(Rcmd3 == 11) then
+  T11[7],T11[8]=CrcValue(T11[1],T11[2],T11[3],T11[4],T11[5],T11[6])
+  EndTxGripData(T11[1],T11[2],T11[3],T11[4],T11[5],T11[6],T11[7],T11[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  RxdCrcH,RxdCrcL = CrcValue(Rxd1,Rxd2,Rxd3,Rxd4,Rxd5)
+  if((A==8)and(Rxd1==Rcmd2)and(Rxd2==0x03)and(Rxd3==0x02)and(Rxd6==RxdCrcH)and(Rxd7==RxdCrcL)) then
+  GripStateBack(Rxd5)
+  end
+  end
+  if(Rcmd3 == 12) then
+  T12[7],T12[8]=CrcValue(T12[1],T12[2],T12[3],T12[4],T12[5],T12[6])
+  EndTxGripData(T12[1],T12[2],T12[3],T12[4],T12[5],T12[6],T12[7],T12[8])
+  DelayMs(10)
+  A,Rxd1,Rxd2,Rxd3,Rxd4,Rxd5,Rxd6,Rxd7=EndRxGripData()
+  RxdCrcH,RxdCrcL = CrcValue(Rxd1,Rxd2,Rxd3,Rxd4,Rxd5)
+  if((A==8)and(Rxd1==Rcmd2)and(Rxd2==0x03)and(Rxd3==0x02)and(Rxd6==RxdCrcH)and(Rxd7==RxdCrcL)) then
+  GripStateBack(Rxd4)
+  end
+  end
+  end
+  LuaGc()
+  end
+
+Abilitazione Dispositivo
++++++++++++++++++++++++++++++
 
 **Step1**: Abilita pinza->Seleziona ID pinza->Seleziona i codici funzione adattati per la pinza->Fare clic su Configura, nei dispositivi configurati vengono visualizzati l'ID e i codici funzione della pinza.
 
@@ -279,6 +496,17 @@ Le informazioni di configurazione del sensore di forza sono suddivise in produtt
 **Step3**: Selezionare il numero del sensore di forza configurato, fare clic sul pulsante "Reset". Dopo che la pagina indica l'invio riuscito del comando, fare clic sul pulsante "Attiva". È possibile controllare lo stato di attivazione nella tabella delle informazioni del sensore di forza per determinare se l'attivazione è riuscita; Inoltre, il sensore di forza avrà un valore iniziale. L'utente può scegliere "Correzione zero" e "Rimozione zero" in base alle esigenze di utilizzo. La correzione zero del sensore di forza richiede che il sensore di forza sia posizionato verticalmente verso il basso e che il robot non sia configurato con un carico.
 
 **Step4**: Dopo aver completato la configurazione del sensore di forza, è necessario configurare il sistema di coordinate dell'utensile del tipo di sensore. È possibile inserire direttamente il valore del sistema di coordinate dell'utensile del sensore in base alla distanza tra il sensore e il centro dell'utensile dell'estremità e applicare.
+
+Protocollo Lua Terminale per Sensore di Forza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aprire la WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", "Sensore di Forza", "Protocollo Personalizzato". Fare clic su "Gestione Protocolli" per configurare il protocollo terminale. Attualmente, i protocolli incorporati preimpostati per il sensore di forza sono mostrati nella figura seguente.
+
+.. figure:: robot_peripherals/281.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑2-2 Protocolli Incorporati Preimpostati per il Sensore di Forza
 
 Identificazione carico sensore
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -657,24 +885,32 @@ Procedura di configurazione
 
 Funzioni tasti A-E:
 
-- Nuovo programma
-- Salva programma
-- PTP
-- Lin
-- ARC
-- Inizio saldatura oscillante
-- Fine saldatura oscillante
-- Porta IO
+- **Comando di Movimento:** Quando si selezionano i comandi di movimento PTP, LIN o ARC, è necessario inserire la velocità del punto corrispondente. Per i comandi LIN e ARC, è possibile scegliere "Percentuale" o "Velocità Fisica":
+    - **Percentuale:** Inserire una percentuale di velocità di debug. Il robot si muove a una percentuale della sua velocità massima. La velocità di movimento effettiva del robot viene calcolata come: V = Velocità Massima del Robot × Percentuale Velocità Globale × Percentuale Velocità Punto. Posizionando il mouse sull'icona a forma di occhio a destra del campo di inserimento "Velocità Punto", verrà visualizzata la velocità fisica effettiva (in mm/s) del robot in modalità manuale e automatica con le impostazioni correnti.
 
--  **Comando di movimento**: Quando si selezionano i comandi di movimento PTP, LIN, ARC, è necessario inserire la velocità del punto corrispondente. Dopo la configurazione riuscita, viene aggiunto un comando di movimento correlato al programma di insegnamento. Quando si configura il comando di movimento ARC, è necessario prima configurare il comando PTP/LIN.
-  
--  **Uscita DO**: Quando si seleziona "Uscita DO", viene visualizzata una casella a discesa che consente di selezionare le opzioni di uscita DO0⁓DO7.
-
-.. image:: robot_peripherals/030.png
-   :width: 4in
+.. image:: coding/469.png
+   :width: 6in
    :align: center
 
-.. centered:: Diagramma 8.4‑2 Tasti A-E
+.. centered:: Figura 8.4‑2-1 Visualizzazione del Valore di Velocità Fisica Effettiva Inserendo una Percentuale
+
+- **Velocità Fisica:** La velocità inserita è la velocità operativa effettiva del robot, in mm/s. L'accelerazione inserita è tipicamente impostata al doppio della velocità. (La velocità fisica massima del comando LIN è limitata dalla percentuale di velocità globale. Se la velocità operativa massima del robot è 1000 mm/s e la velocità globale è del 50%, la velocità fisica massima per il comando LIN è 1000 × 50% = 500 mm/s).
+
+.. image:: coding/470.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 8.4‑2-2 Inserimento della Velocità Fisica Effettiva
+
+Dopo una configurazione riuscita, viene aggiunto un comando di movimento correlato al programma di insegnamento. Quando si configura il comando di movimento ARC, è necessario prima configurare un comando PTP o LIN.
+
+- **Uscita DO:** Quando si seleziona "Uscita DO", viene visualizzato un menu a discesa che consente di selezionare le opzioni DO0⁓DO7.
+
+.. image:: coding/471.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 8.4‑2-3 Configurazione Smart Tool (Tasti A-E)
 
 Funzioni tasti IO:
 
@@ -699,31 +935,75 @@ Funzioni tasti IO:
 
 .. centered:: Diagramma 8.4‑3 Tasti IO
 
-Protocollo personalizzato
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Protocollo Lua Terminale per Manipolo di Saldatura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Fare clic su "Protocollo personalizzato" per accedere all'interfaccia della funzione di adattamento della maniglia di saldatura tramite il protocollo aperto Lua dell'estremità.
+Fare clic su "Protocollo Personalizzato" per accedere all'interfaccia funzionale del manipolo di saldatura per l'adattamento del protocollo aperto Lua terminale.
 
-Configurazione protocollo
-++++++++++++++++++++++++++++++++++++++++++
+Gestione Protocolli
++++++++++++++++++++++++++++++++++++++++++++
 
-Quando si utilizza il protocollo aperto per adattare la maniglia di saldatura, dopo l'accensione e l'avvio del robot, è necessario prima accedere alla pagina web per caricare e configurare il protocollo aperto.
-
-Fare clic su "Caricamento protocollo personalizzato", fare clic su "Entra in Boot", fare clic su "Carica" protocollo aperto. Dopo il caricamento, riavviare il dispositivo per utilizzare il protocollo aperto Lua dell'estremità per adattare la maniglia di saldatura.
+Aprire la WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", "Manipolo di Saldatura", "Protocollo Personalizzato". Fare clic su "Gestione Protocolli" per configurare il protocollo terminale. Attualmente, i protocolli incorporati preimpostati per il manipolo di saldatura sono mostrati nella figura seguente.
 
 .. figure:: robot_peripherals/032.png
    :align: center
    :width: 4in
 
-.. centered:: Diagramma 8.4‑4 Caricamento protocollo aperto dell'estremità
+.. centered:: Figura 8.4‑4 Protocolli Incorporati Preimpostati per il Manipolo di Saldatura
 
-Attivare l'interruttore "Abilitazione protocollo estremità" per adattare la maniglia di saldatura. Dopo l'attivazione, i parametri vengono mantenuti dopo il riavvio.
+Attivare il cursore "Abilita Protocollo Terminale" per adattare il manipolo di saldatura. I parametri vengono conservati dopo un riavvio dell'alimentazione una volta abilitati.
 
 .. figure:: robot_peripherals/033.png
    :align: center
    :width: 4in
 
-.. centered:: Diagramma 8.4‑5 Abilitazione protocollo aperto dell'estremità
+.. centered:: Figura 8.4‑5 Abilita Protocollo Aperto Terminale
+
+Esempio di Protocollo Periferico Lua Terminale per Dispositivi Combinati
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Le funzioni dei cinque pulsanti A, B, C, D, E possono essere modificate e definite tramite i valori delle chiavi alla riga 30 del codice. Tra questi, `K38=Getbit(R[7],1)`, `K0=Getbit(R[7],2)` sono per "Cancella Programma" e "Annulla Pulsante" e non possono essere modificati. I successivi 5 valori K possono essere modificati secondo le definizioni nel documento "Protocollo Completo Periferico Terminale".
+
+In questo esempio (protocollo SmartTool incorporato), le funzioni corrispondenti dei pulsanti sono: A: MoveL, B: ArcStart, C: ArcEnd, D: Rewelding start, E: Rewelding quit.
+
+.. code-block:: console
+
+  function Getbit(X,Bit)
+  return ((X&(1<<Bit))>>Bit)
+  end
+
+  if(Getbit(GetRobotState(),0)==1)then
+  local SetParams={A3=2000,B6=3}--Imposta i parametri di saldatura, A3-Timeout di inizio/fine arco è 2000ms, B6-Numero porta DO operativa è 3. Per configurare i parametri di saldatura, consultare "RD36-Tabella Parametri Personalizzati Manipolo Saldatura-V0.2-20250903"
+  SetWeldParams(SetParams)
+  while(1)
+  do
+  IwdgTaskHandle()
+  MainLoop()
+  UpDownLoadHandle()
+  SdoRwPara()
+  EndErrClear()
+  local BFlag=LuaBreak()
+  if(BFlag==1)then
+  break
+  end
+  local R={0}
+  local T={0x7D,0x01,0x30,0xC0,0x00,0x04,0x00,0x00,0x00,0x00}
+  DelayMs(100)
+  T[7],T[8],T[9],T[10]=GetIoCmd()
+  T[7]=Getbit(T[7],3)
+  T[12],T[11]=WeldToolCrcValue(T)
+  T[13]=0x0E
+  WeldToolSlaveSetCmd(T)
+  DelayMs(3)
+  Len=EndRxWeldData(R)
+  if((Len==13)and(R[1]==0x7D)and(R[2]==0x01)and(R[3]==0x30))then
+  local key={K38=Getbit(R[7],1),K0=Getbit(R[7],2),K3=Getbit(R[7],3),K32=Getbit(R[7],4),K33=Getbit(R[7],5),K27=Getbit(R[7],6),K28=Getbit(R[7],7),
+  K6=Getbit(R[8],1),K7=Getbit(R[8],2)}--Impostazioni pulsanti manipolo di saldatura SmartTool, Pulsante Annulla - K38 Annulla programma; Pulsante Cancella - K0 Cancella programma; Pulsante A - K3 Movimento lineare; Pulsante B - K32 ArcStart; Pulsante C - K33 ArcEnd; Pulsante D - K27 Ripresa saldatura interrotta; Pulsante E - K28 Uscita saldatura interrotta; Pulsante Manuale/Auto - K6 Manuale/Auto; Pulsante Esegui/Pausa - K7 Esegui/Pausa
+  SetWeldToolKeys(key)
+  end
+  LuaGc()
+  end
+  end
 
 Modello protocollo aperto
 ++++++++++++++++++++++++++++++
@@ -4686,6 +4966,23 @@ Dopo il successo della configurazione delle informazioni del dispositivo, è pos
    :align: center
 
 .. centered:: Grafico 8.11‑10 Misurazione entità forza e direzione forza
+
+Protocollo Lua Terminale per Dispositivi Combinati
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Attualmente, il terminale può supportare l'applicazione di protocolli combinati per due dispositivi. Il secondo dispositivo può essere collegato tramite un cavo di comunicazione uno-due o attraverso l'interfaccia SmartTool 485 di F&S.
+
+I passi operativi sono i seguenti:
+
+Aprire la WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", e selezionare uno dei tipi di dispositivo da combinare (ad esempio, manipolo di saldatura). Scegliere "Protocollo Personalizzato". Fare clic su "Gestione Protocolli" per configurare il protocollo terminale.
+
+Attualmente, i protocolli incorporati preimpostati per i dispositivi combinati includono: Pinza Junduo + Sensore di forza Xinjingcheng, SmartTool + Pinza Junduo, SmartTool + Sensore di forza Xinjingcheng. I protocolli preimpostati per i dispositivi combinati appartengono ai protocolli definiti dall'utente e iniziano con "Custom_End". Possono essere scaricati ed eliminati, come mostrato nella figura seguente.
+
+.. image:: robot_peripherals/282.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 8.11‑11 Protocolli Incorporati Preimpostati per il Manipolo di Saldatura
 
 Ventosa a Matrice
 -----------------

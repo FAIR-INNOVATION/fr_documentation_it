@@ -408,53 +408,57 @@ Controllo forza costante
     * @param  ILC_sign controllo avvio/arresto ILC, 0-arresta, 1-addestra, 2-operazione
     * @param  max_dis distanza regolazione massima, unità mm
     * @param  max_ang angolo regolazione massimo, unità deg
-    * @param  M parametri massa
-    * @param  B parametri smorzamento
+    * @param  M Parametro di massa per rx, ry [0.1-10], predefinito 2
+    * @param  B Parametro di smorzamento per rx, ry [0.1-50], predefinito 8
+    * @param  threshold Soglia di attivazione per rx, ry [0-10], predefinito 0.2
+    * @param  adjustCoeff Coefficiente di regolazione della coppia per rx, ry [0-1], predefinito 1
     * @param  polishRadio raggio levigatura, unità mm
     * @param  filter_Sign flag attivazione filtro 0-off; 1-on, default off
     * @param  posAdapt_sign flag attivazione adattamento posa 0-off; 1-on, default off
     * @param  isNoBlock flag bloccante, 0-bloccante; 1-non bloccante
     * @return  Codice errore
     */
-    public int FT_Control(int flag, int sensor_id, int[] select, ForceTorque ft, double[] ft_pid, int adj_sign, int ILC_sign, double max_dis, double max_ang,double[] M,double[] B, double polishRadio,int filter_Sign, int posAdapt_sign, int isNoBlock)
+    public int FT_Control(int flag, int sensor_id, int[] select, ForceTorque ft, double[] ft_pid, int adj_sign, int ILC_sign, double max_dis, double max_ang,double[] M,double[] B, double[] threshold, double[] adjustCoeff, double polishRadio,int filter_Sign, int posAdapt_sign, int isNoBlock)
 
 Esempio di codice controllo forza costante con smorzamento
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    public static void TestFTControlWithDamping(Robot robot)
+    public static int TestFTControlWithAdjustCoeff(Robot robot)
     {
         int sensor_id = 10;
         int[] select = { 0,0,1,0,0,0 };
         double[] ft_pid = { 0.0008, 0.0, 0.0, 0.0, 0.0, 0.0 };
         int adj_sign = 0;
         int ILC_sign = 0;
-        double max_dis = 100.0;
+        double max_dis = 1000.0;
         double max_ang = 20;
-        ForceTorque ft =new ForceTorque(0,0,0,0,0,0);
-        ft.fz = -10.0;
+        ForceTorque ft = new ForceTorque(0.0,0,0,0,0,0);
         ExaxisPos epos=new ExaxisPos(0, 0, 0, 0);
-        JointPos j1=new JointPos(-118.985, -86.882, -118.139, -65.019, 90.002, 54.951);
-        JointPos j2=new JointPos(-77.055, -77.218, -126.219, -66.591, 90.028, 96.881);
-        DescPose desc_p1=new DescPose(-300.856, -332.618, 309.240, 179.976, -0.031, 96.065);
-        DescPose desc_p2=new DescPose(-16.399, -383.760, 309.312, 179.975, -0.031, 96.064);
+        JointPos j1=new JointPos(80.765, -98.795, 106.548, -97.734, -89.999, 94.842);
+        JointPos j2=new JointPos(43.067, -84.429, 92.620, -98.175, -90.011, 57.144);
+        DescPose desc_p1=new DescPose(5.009, -547.463, 262.053, -179.999, -0.019, 75.923);
+        DescPose desc_p2=new DescPose(-347.966, -547.463, 262.048, -180.000, -0.019, 75.923);
         DescPose offset_pos=new DescPose(0, 0, 0, 0, 0, 0);
-        double[] M = {2.0, 2.0};
-        double[] B = {8.0, 8.0};
-        double polishRadio;
-        int filter_Sign;
-        int posAdapt_sign;
+        double[] M = { 2.0, 2.0 };
+        double[] B = { 15.0, 15.0 };
+        double[] threshold = {1.0, 1.0};
+        double[] adjustCoeff = {1.0, 0.8};
+        double polishRadio = 0.0;
+        int filter_Sign = 0;
+        int posAdapt_sign = 1;
         int isNoBlock;
-        DescPose ftCoord =new DescPose();
-        robot.FT_SetRCS(2, ftCoord);
-        int rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, 0, 0, 1, 0);
-        System.out.printf("FT_Control avvio rtn è %d\n", rtn);
-        rtn = robot.MoveL(j1, desc_p1, 0, 0, 100.0, 100.0, 20.0, -1.0,0, epos, 0, 0, offset_pos,0,0,10);
-        rtn = robot.MoveL(j2, desc_p2, 0, 0, 100.0, 100.0, 20.0, -1.0, 0,epos, 0, 0, offset_pos,0,0,10);
-        rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, 0, 0, 1, 0);
-        System.out.printf("FT_Control fine rtn è %d\n", rtn);
-        robot.CloseRPC();
+        ft.fz = -10.0;
+        while(true)
+        {
+            int rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold, adjustCoeff, 0, 0, 1, 0);
+            System.out.printf("FT_Control start rtn is %d\n", rtn);
+            robot.MoveL(j1, desc_p1, 1, 0, 100.0, 100.0, 100.0, -1.0, 0, epos, 0, 0, offset_pos, 0,0, 0,10);
+            robot.MoveL(j2, desc_p2, 1, 0, 100.0, 100.0, 100.0, -1.0, 0, epos, 0, 0, offset_pos, 0,0, 0,10);
+            rtn = robot.FT_Control(0, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold, adjustCoeff, 0, 0, 1, 0);
+            System.out.printf("FT_Control end rtn is %d\n", rtn);
+        }
     }
 
 Avvio controllo conformità
@@ -832,3 +836,16 @@ Esempio di codice controllo avvio/arresto impedenza robot
         robot.CloseRPC();
         return 0;
     }
+
+Abilita Funzione di Compensazione Coppia e Coefficienti di Compensazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Abilita Funzione di Compensazione Coppia e Coefficienti di Compensazione
+    * @param  status Interruttore, 0-Disabilita; 1-Abilitata
+    * @param  torqueCoeff Coefficienti di compensazione coppia J1-J6 [0-1]
+    * @return Codice di errore
+    */
+    public int SerCoderCompenParams(int status, double[] torqueCoeff)

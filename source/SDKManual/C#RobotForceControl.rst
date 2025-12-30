@@ -395,22 +395,27 @@ Controllo forza costante
     :linenos:
 
     /**
-    * @brief  Controllo forza costante
+    * @brief  Controllo a Forza Costante
     * @param  [in] flag 0-Disabilita controllo forza costante, 1-Abilità controllo forza costante
-    * @param  [in] sensor_id Numero sensore di forza
-    * @param  [in] select  Seleziona quali sei gradi di libertà controllare, 0-Non controllare, 1-Controlla
-    * @param  [in] ft  Forza/coppia target, fx,fy,fz,tx,ty,tz
+    * @param  [in] sensor_id ID sensore di forza
+    * @param  [in] select  Seleziona se rilevare collisione per i sei gradi di libertà, 0-Non rilevare, 1-Rileva
+    * @param  [in] ft  Forza/coppia di collisione, fx,fy,fz,tx,ty,tz
     * @param  [in] ft_pid Parametri PID forza, parametri PID coppia
-    * @param  [in] adj_sign Controllo avvio/arresto adattativo, 0-Disabilita, 1-Abilita
-    * @param  [in] ILC_sign Controllo avvio/arresto ILC, 0-Arresta, 1-Addestra, 2-Operazione reale
+    * @param  [in] adj_sign Controllo avvio/arresto adattativo, 0-Disabilita, 1-Abilità
+    * @param  [in] ILC_sign Controllo avvio/arresto ILC, 0-Arresto, 1-Addestramento, 2-Operativo
     * @param  [in] max_dis Massima distanza di regolazione, unità mm
     * @param  [in] max_ang Massimo angolo di regolazione, unità deg
-    * @param  [in] filter_Sign Flag abilitazione filtro 0-Disabilitato; 1-Abilitato, default disabilitato
-    * @param  [in] posAdapt_sign Flag abilitazione adattamento postura 0-Disabilitato; 1-Abilitato, default disabilitato
-    * @param  [in] isNoBlock Flag bloccante, 0-Bloccante; 1-Non bloccante
-    * @return  Codice di errore
+    * @param  [in] M Parametri massa rx, ry [0.1-10], predefinito 2
+    * @param  [in] B Parametri smorzamento rx, ry [0.1-50], predefinito 8
+    * @param  [in] threshold Soglie di attivazione rx, ry [0-10], predefinito 0.2
+    * @param  [in] adjustCoeff Coefficienti di regolazione coppia rx, ry [0-1], predefinito 1
+    * @param  [in] polishRadio Raggio di lucidatura, unità mm
+    * @param  [in] filter_Sign Flag abilitazione filtro 0-Spegni; 1-Accendi, predefinito spento
+    * @param  [in] posAdapt_sign Flag abilitazione adattamento posa 0-Spegni; 1-Accendi, predefinito spento
+    * @param  [in] isNoBlock Flag blocco, 0-Bloccante; 1-Non bloccante
+    * @return  Codice errore
     */
-    public int FT_Control(int flag, int sensor_id, int[] select, ForceTorque ft, double[] ft_pid, int adj_sign, int ILC_sign, double max_dis, double max_ang, int filter_Sign = 0, int posAdapt_sign = 0, int isNoBlock = 0);
+    public int FT_Control(byte flag, int sensor_id, byte[] select, ForceTorque ft, float[] ft_pid,byte adj_sign, byte ILC_sign, float max_dis, float max_ang,double[] M, double[] B, double[] threshold, double[] adjustCoeff,double polishRadio, int filter_Sign, int posAdapt_sign, int isNoBlock)
 
 Esempio di codice per il controllo forza costante con smorzamento
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -419,7 +424,7 @@ Esempio di codice per il controllo forza costante con smorzamento
 .. code-block:: c#
     :linenos:
 
-    public void TestFTControlWithDamping()
+    public void TestFTControlWithAdjustCoeff()
     {
         int rtn;
         int sensor_id = 10;
@@ -427,38 +432,33 @@ Esempio di codice per il controllo forza costante con smorzamento
         float[] ft_pid = new float[6] { 0.0008f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
         byte adj_sign = 0;
         byte ILC_sign = 0;
-        float max_dis = 100.0f;
+        float max_dis = 1000.0f;
         float max_ang = 20.0f;
         ForceTorque ft = new ForceTorque();
-        ft.fz = -10.0;
+        ft.fz = -10.0f;
         ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
-        JointPos j1 = new JointPos(-118.985, -86.882, -118.139, -65.019, 90.002, 54.951);
-        JointPos j2 = new JointPos(-77.055, -77.218, -126.219, -66.591, 90.028, 96.881);
-        DescPose desc_p1 = new DescPose(-300.856, -332.618, 309.240, 179.976, -0.031, 96.065);
-        DescPose desc_p2 = new DescPose(-16.399, -383.760, 309.312, 179.975, -0.031, 96.064);
+        JointPos j1 = new JointPos(80.765f, -98.795f, 106.548f, -97.734f, -89.999f, 94.842f);
+        JointPos j2 = new JointPos(43.067f, -84.429f, 92.620f, -98.175f, -90.011f, 57.144f);
+        DescPose desc_p1 = new DescPose(5.009f, -547.463f, 262.053f, -179.999f, -0.019f, 75.923f);
+        DescPose desc_p2 = new DescPose(-347.966f, -547.463f, 262.048f, -180.000f, -0.019f, 75.923f);
         DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
         double[] M = new double[2] { 2.0, 2.0 };
-        double[] B = new double[2] { 8.0, 8.0 };
+        double[] B = new double[2] { 15.0, 15.0 };
+        double[] threshold = new double[2] { 1.0, 1.0 };
+        double[] adjustCoeff = new double[2] { 1.0, 0.8 };
         double polishRadio = 0.0;
         int filter_Sign = 0;
         int posAdapt_sign = 1;
         int isNoBlock = 0;
-        DescPose ftCoord = new DescPose();
-        robot.FT_SetRCS(2, ftCoord);
-        rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, polishRadio, filter_Sign, posAdapt_sign, isNoBlock);
-        Console.WriteLine($"FT_Control start rtn is {rtn}");
-        int tool = 0;
-        int user = 0;
-        float vel = 100.0f;
-        float acc = 100.0f;
-        float ovl = 20.0f;
-        float blendT = -1.0f;
-        byte offset_flag = 0;
-        rtn = robot.MoveL(j1, desc_p1, tool, user, vel, acc, ovl, blendT, epos, offset_flag, 0, offset_pos, 0, 0, 10);
-        rtn = robot.MoveL(j2, desc_p2, tool, user, vel, acc, ovl, blendT, epos, offset_flag, 0, offset_pos, 0, 0, 10);
-        rtn = robot.FT_Control(0, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, polishRadio, filter_Sign, posAdapt_sign, isNoBlock);
-        Console.WriteLine($"FT_Control end rtn is {rtn}");
-        robot.CloseRPC();
+        while (true)
+        {
+            rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold, adjustCoeff, 0, 0, 1, 0);
+            Console.WriteLine($"FT_Control start rtn is {rtn}");
+            robot.MoveL(j1, desc_p1, 1, 0, 100, 100, 100, -1, 0, epos, 0, 0, offset_pos, 0, 0, 10);
+            robot.MoveL(j2, desc_p2, 1, 0, 100, 100, 100, -1, 0, epos, 0, 0, offset_pos, 0, 0, 10);
+            rtn = robot.FT_Control(0, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold, adjustCoeff, 0, 0, 1, 0);
+            Console.WriteLine($"FT_Control end rtn is {rtn}");
+        }
     }
 
 Avvia controllo compliance
@@ -847,3 +847,17 @@ Esempio di codice per il controllo avvio/arresto impedenza del robot
         Console.WriteLine($"movel errcode:{rtn}");
         robot.ImpedanceControlStartStop(0, 1, forceThreshold, m, b, k, 1000, 500, 100, 100);
     }
+
+Abilita funzione compensazione coppia e coefficiente di compensazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Abilita funzione compensazione coppia e coefficiente di compensazione
+    * @param [in] status Interruttore, 0-Disabilita; 1-Abilità
+    * @param [in] torqueCoeff Coefficiente compensazione coppia J1-J6 [0-1]
+    * @return Codice errore
+    */
+    public int SerCoderCompenParams(int status, double[] torqueCoeff)

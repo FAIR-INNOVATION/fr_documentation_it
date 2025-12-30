@@ -207,6 +207,91 @@ Calibrazione Parametri
 
 .. centered:: Figura 14.5‑6 Risultati calibrazione
 
+Percezione e Compensazione della Coppia mediante la Differenza di Posizione dei Doppi Encoder
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Panoramica
+*****************************************
+
+La coppia viene stimata sfruttando la differenza di posizione tra i doppi encoder (lato motore e lato membro). Questa coppia stimata viene quindi utilizzata per la compensazione in feedforward, riducendo la coppia di avviamento quando il robot esegue il trascinamento in anello di corrente.
+
+Procedura Operativa
+*****************************************
+
+**Step1**: Impostare la configurazione dinamica su "Dinamica 2.0". Cliccare su "Applicazioni Ausiliarie" -> "Applicazioni Strumento" -> "Blocco Trascinamento". Nel modulo di compensazione della coppia a doppio encoder, cliccare sull'interruttore di funzione per abilitarlo.
+
+.. image:: application/040.png
+   :width: 4in
+   :align: center
+
+.. centered:: Grafico 14.5‑7 Abilitazione della Funzione
+
+**Step2**: Impostare l'"Interruttore di Funzione" su "ON" e impostare il guadagno di trascinamento per ogni asse su 0.5. Cliccare su "Imposta" per applicare, come mostrato in figura.
+
+.. image:: application/041.png
+   :width: 4in
+   :align: center
+
+.. centered:: Grafico 14.5‑8 Impostazione del Guadagno
+
+.. note:: Intervallo di impostazione del guadagno di trascinamento: 0-1. Un guadagno più elevato si traduce in una maggiore coppia compensata e in una minore coppia di avviamento per l'anello di corrente.
+
+Funzione di Insegnamento Trascinamento ad Anello di Posizione Basata su Sensore di Coppia Articolare
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Panoramica
+*****************************************
+
+Il rilevamento in tempo reale delle forze esterne viene eseguito attraverso il sensore di coppia articolare. Quando la forza esterna supera una soglia preimpostata, il braccio robotico viene trascinato nella direzione di applicazione della forza. Una volta che la forza esterna scende al di sotto della soglia di coppia, il braccio robotico smette immediatamente di essere trascinato, realizzando così la funzione di insegnamento per trascinamento sotto il controllo dell'anello di posizione.
+
+Funzione di Insegnamento Trascinamento
+*****************************************
+
+Abilitazione/Disabilitazione della Funzione di Insegnamento Trascinamento ad Anello di Posizione
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+**Step1**: Impostare il sistema di coordinate dell'utensile su "Tool0". Fare clic su "Applicazioni Ausiliarie" -> "Applicazioni Utensile" -> "Blocco Trascinamento". Nel modulo "Trascinamento Intero Braccio con Sensore di Coppia Articolare", fare clic su "Abilita Funzione".
+
+.. image:: application/042.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 14.5‑9 Abilita Funzione
+
+**Step2**: Eseguire la calibrazione zero. Prima, fare clic su "Punto 1", attendere che il braccio robotico si fermi, quindi fare clic su "Registra". Successivamente, fare clic su "Punto 2", attendere che il braccio robotico si fermi, quindi fare clic su "Registra". Se la deviazione zero del sensore di coppia articolare è troppo grande dopo la calibrazione zero, è possibile ripetere la calibrazione zero.
+
+**Step3**: Eseguire la calibrazione della sensibilità. Fare clic su "Genera Programma" per inviare uno script Lua interno al controllore. Passare il robot in modalità automatica e impostare la velocità di esecuzione su "10". Fare clic su "Esegui" e attendere il movimento del robot. Dopo il completamento del movimento del robot, i risultati della calibrazione di sensibilità, linearità, errore di isteresi e ripetibilità vengono visualizzati automaticamente nell'interfaccia Web. La calibrazione della sensibilità deve essere eseguita solo una volta ogni volta che il braccio robotico viene alimentato.
+
+.. image:: application/043.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 14.5‑10 Calibrazione Zero e Calibrazione Sensibilità
+
+**Step4**: Accedere alla "Funzione Trascinamento". Nel menu a tendina della modalità di trascinamento, selezionare "Trascinamento ad Anello di Posizione". Impostare coefficiente di massa, coefficiente di smorzamento, coefficiente di rigidezza e soglia di controllo della forza appropriati. Fare clic su "Imposta" per applicare le impostazioni e abilitare il trascinamento ad anello di posizione.
+
+.. image:: application/044.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 14.5‑11 Impostazione Parametri Trascinamento ad Anello di Posizione
+
+**Step5**: Nel menu a tendina della modalità di trascinamento, selezionare "Trascinamento ad Anello di Corrente". Fare clic su "Imposta" per applicare le impostazioni. Questo disabiliterà il trascinamento ad anello di posizione e passerà al trascinamento ad anello di corrente.
+
+.. image:: application/045.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 14.5‑12 Trascinamento ad Anello di Corrente
+
+**Step6**: Se il braccio robotico si muove senza che venga applicata una forza esterna mentre è in modalità Trascinamento ad Anello di Posizione, è possibile aumentare opportunamente la soglia di controllo della forza. Se il problema persiste dopo aver aumentato la soglia di controllo della forza per asse singolo oltre 3Nm, è necessario disabilitare il Trascinamento ad Anello di Posizione e rieseguire Step2 e Step4 (non è necessario rieseguire Step3).
+
+Funzioni Specifiche dei Parametri e Valori Consigliati:
+
+- **Coefficiente di Massa**: Utilizzato per regolare la risposta al trascinamento. Valori più alti portano a una risposta più lenta, valori più bassi a una risposta più rapida. Intervallo: Giunti 1~2: [0.5-20], Giunti 3~4: [0.2-20], Giunti 5~6: [0.2-10]. Parametri consigliati: [1, 0.8, 0.5, 0.5, 0.6, 0.6].
+- **Coefficiente di Smorzamento**: Utilizzato per regolare la sensazione del trascinamento (pesantezza/leggerezza). Valori più alti si sentono più pesanti, valori più bassi più leggeri. Intervallo: Giunti 1~2: [5-100], Giunti 3~4: [5-100], Giunti 5~6: [2-40]. Parametri consigliati: [8, 8, 10, 10, 6, 6].
+- **Coefficiente di Rigidezza**: Dopo aver impostato questo parametro, il braccio robotico si sposta alla posizione di riferimento in cui la funzione è stata abilitata. Parametri consigliati: [0, 0, 0, 0, 0, 0].
+- **Soglia di Controllo della Forza**: Forza minima di attivazione per il Trascinamento ad Anello di Posizione. Impostare la soglia troppo bassa può causare movimenti involontari del braccio robotico. Soglie di forza consigliate: Giunto 1 > 2Nm, Giunto 2 > 1Nm, Giunti 3~4 > 0.8Nm, Giunti 5~6 > 0.5Nm. Parametri consigliati: [2, 1, 0.8, 0.8, 0.5, 0.5].
+
 Generazione Punto di Intersezione (Movimento con Presa Laser)
 -------------------------------------------------------------
 

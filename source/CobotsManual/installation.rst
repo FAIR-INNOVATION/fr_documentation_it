@@ -1351,7 +1351,7 @@ Braccio Robotico
 
 Di seguito è riportato l'elenco di controllo consigliato da Farobot per i robot, da eseguire agli intervalli di tempo indicati. Se un controllo rivela una condizione insoddisfacente delle parti interessate, correggere immediatamente.
 
-.. note:: F=Controllo Funzionale, V=Ispezione Visiva, *=Da controllare obbligatoriamente dopo una collisione grave.
+.. note:: F=Controllo Funzionale,V=Ispezione Visiva,*=Da controllare obbligatoriamente dopo una collisione grave.
 
 .. list-table::
    :widths: 10 40 20 20 20 20

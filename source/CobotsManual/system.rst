@@ -31,7 +31,29 @@ Impostazioni di Rete
 -  **IP di Accesso**: Selezionare la scheda di rete associata a WebAPP e WebRecovery. Quando l'insegnatore è abilitato, WebAPP seleziona di default la scheda 1, e la scheda 0 non è selezionabile.
   
 -  **Configura Rete**: Cliccare su "Configura Rete" per avviare la configurazione. Dopo il completamento, è necessario riavviare il dispositivo.
-  
+
+Operazione Senza Login
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Panoramica Funzionale
+***************************
+
+Dopo aver attivato la funzione Operazione Senza Login sul teach pendant fisico, è possibile ottenere le seguenti funzionalità:
+
+- Quando nessun utente è loggato nell'interfaccia di insegnamento, ruotando l'interruttore a chiave fisico il robot può passare dalla modalità manuale/automatica, con il colore della luce dell'end-effector che cambia di conseguenza.
+- Quando nessun utente è loggato nell'interfaccia di insegnamento, in modalità automatica, premendo l'interruttore di avvio fisico il robot può iniziare a eseguire il programma attualmente caricato.
+- Quando nessun utente è loggato nell'interfaccia di insegnamento, in modalità automatica, premendo l'interruttore di arresto fisico il robot può interrompere l'esecuzione.
+
+Istruzioni per l'Uso
+***************************
+Accedere alla pagina webapp, fare clic su "Impostazioni di Sistema", quindi fare clic su "Impostazioni Generali". Nella sezione Teach Pendant del modulo Rete, attivare l'interruttore "Abilita Teach Pendant" e l'interruttore "Operazione Senza Login". Una volta attivata la funzione, è possibile controllare la commutazione manuale/automatica del robot e l'avvio/arresto del programma utilizzando i pulsanti fisici senza essere loggati nella pagina del teach pendant. Questa configurazione viene mantenuta dopo un riavvio dell'alimentazione.
+
+.. image:: system/045.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 15.1‑2-1 Attivazione della Funzione Operazione Senza Login
+
 Calibrazione Touchscreen Insegnatore
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

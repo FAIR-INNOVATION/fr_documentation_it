@@ -138,25 +138,27 @@ Movimento lineare nello spazio cartesiano
     :linenos:
 
     /**
-    * @brief  Movimento lineare nello spazio cartesiano
-    * @param  [in] joint_pos  Posizione giunto target, unità deg
-    * @param  [in] desc_pos  Posizione cartesiana target
-    * @param  [in] tool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
-    * @param  [in] user  Numero del sistema di coordinate del pezzo, intervallo [0~14]
-    * @param  [in] vel  Percentuale di velocità, intervallo [0~100]
-    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
-    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
-    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
-    * @param  [in] blendMode Modalità di transizione; 0-Transizione tangente; 1-Transizione a spigolo
-    * @param  [in] epos  Posizione dell'asse esteso, unità mm
-    * @param  [in] search  0-Nessuna ricerca del filo, 1-Ricerca del filo
-    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
-    * @param  [in] offset_pos  Quantità di offset della posa
-    * @param  [in] overSpeedStrategy  Strategia di gestione della sovravelocità, 1-Standard; 2-Arresto con errore in caso di sovravelocità; 3-Decelerazione adattativa, predefinito 0
-    * @param  [in] speedPercent  Soglia percentuale consentita per la decelerazione [0-100], predefinito 10%
+    * @brief  Movimento Lineare nello Spazio Cartesiano (Funzione Sovraccarica 1 con blendMode)
+    * @param  joint_pos  Posizioni target dei giunti, unità: deg
+    * @param  desc_pos   Posa target cartesiana
+    * @param  tool  Indice del sistema di coordinate utensile, intervallo [1~15]
+    * @param  user  Indice del sistema di coordinate pezzo/utente, intervallo [1~15]
+    * @param  vel  Percentuale di velocità, intervallo [0~100]
+    * @param  acc  Percentuale di accelerazione, intervallo [0~100], attualmente non disponibile
+    * @param  ovl  Fattore di scala velocità [0~100] / Velocità fisica (mm/s)
+    * @param  blendR  [-1.0]-Blocca fino al completamento del movimento (bloccante), [0~1000.0]-Raggio di transizione (non bloccante), unità: mm
+    * @param  blendMode  Metodo di transizione; 0-Transizione tangente; 1-Transizione a spigolo
+    * @param  epos  Posizione dell'asse esteso, unità: mm
+    * @param  search  0-Nessuna ricerca filo, 1-Ricerca filo
+    * @param  offset_flag  0-Nessuno scostamento, 1-Scostamento nel sistema di coordinate base/pezzo, 2-Scostamento nel sistema di coordinate utensile
+    * @param  offset_pos  Valore di scostamento della posa
+    * @param  oacc  Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²)
+    * @param  velAccParamMode  Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) e accelerazione (mm/s²)
+    * @param  overSpeedStrategy  Strategia di gestione sovravelocità; 1-Standard; 2-Ferma con errore in caso di sovravelocità; 3-Riduzione adattiva della velocità, default 0
+    * @param  speedPercent  Percentuale di soglia di riduzione velocità consentita [0-100], default 10%
     * @return  Codice di errore
     */
-    int MoveL(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int blendMode,ExaxisPos epos, int search, int offset_flag, DescPose offset_pos, int overSpeedStrategy, int speedPercent);
+    public int MoveL(JointPos joint_pos, DescPose desc_pos, int tool, int user, double vel, double acc, double ovl, double blendR, int blendMode, ExaxisPos epos, int search, int offset_flag, DescPose offset_pos, double oacc,int velAccParamMode, int overSpeedStrategy, int speedPercent)
 
 Movimento lineare nello spazio cartesiano (calcolo cinematico inverso automatico)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -278,30 +280,32 @@ Movimento circolare nello spazio cartesiano
     :linenos:
 
     /**
-    * @brief  Movimento circolare nello spazio cartesiano
-    * @param  [in] joint_pos_p  Posizione giunto del punto di percorso, unità deg
-    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso
-    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
-    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
-    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
-    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
-    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
-    * @param  [in] poffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
-    * @param  [in] offset_pos_p  Quantità di offset della posa
-    * @param  [in] joint_pos_t  Posizione giunto del punto target, unità deg
-    * @param  [in] desc_pos_t  Posa cartesiana del punto target
-    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
-    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
-    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
-    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
-    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
-    * @param  [in] toffset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
-    * @param  [in] offset_pos_t  Quantità di offset della posa
-    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
-    * @param  [in] blendR [-1.0]-Movimento fino alla posizione (bloccante), [0~1000.0]-Raggio di smoothing (non bloccante), unità mm
+    * @brief  Movimento ad Arco Circolare nello Spazio Cartesiano
+    * @param  joint_pos_p  Posizioni dei giunti del punto di percorso, unità: deg
+    * @param  desc_pos_p   Posa cartesiana del punto di percorso
+    * @param  ptool  Indice del sistema di coordinate utensile, intervallo [1~15]
+    * @param  puser  Indice del sistema di coordinate pezzo/utente, intervallo [1~15]
+    * @param  pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  pacc  Percentuale di accelerazione, intervallo [0~100], attualmente non disponibile
+    * @param  epos_p  Posizione dell'asse esteso, unità: mm
+    * @param  poffset_flag  0-Nessuno scostamento, 1-Scostamento nel sistema di coordinate base/pezzo, 2-Scostamento nel sistema di coordinate utensile
+    * @param  offset_pos_p  Valore di scostamento della posa
+    * @param  joint_pos_t  Posizioni dei giunti del punto target, unità: deg
+    * @param  desc_pos_t   Posa cartesiana del punto target
+    * @param  ttool  Indice del sistema di coordinate utensile, intervallo [1~15]
+    * @param  tuser  Indice del sistema di coordinate pezzo/utente, intervallo [1~15]
+    * @param  tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  tacc  Percentuale di accelerazione, intervallo [0~100], attualmente non disponibile
+    * @param  epos_t  Posizione dell'asse esteso, unità: mm
+    * @param  toffset_flag  0-Nessuno scostamento, 1-Scostamento nel sistema di coordinate base/pezzo, 2-Scostamento nel sistema di coordinate utensile
+    * @param  offset_pos_t  Valore di scostamento della posa
+    * @param  ovl  Fattore di scala velocità [0~100] / Velocità fisica (mm/s)
+    * @param  blendR [-1.0]-Blocca fino al completamento del movimento (bloccante), [0~1000.0]-Raggio di transizione (non bloccante), unità: mm
+    * @param  oacc Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²)
+    * @param  velAccParamMode Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) e accelerazione (mm/s²)
     * @return  Codice di errore
     */
-    int MoveC(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR);
+    public int MoveC(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, int poffset_flag, DescPose offset_pos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, int toffset_flag, DescPose offset_pos_t, double ovl, double blendR, double oacc, int velAccParamMode)
 
 Movimento circolare nello spazio cartesiano (calcolo cinematico inverso automatico)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -410,29 +414,30 @@ Movimento circolare completo nello spazio cartesiano
     :linenos:
 
     /**
-    * @brief  Movimento circolare completo nello spazio cartesiano
-    * @param  [in] joint_pos_p  Posizione giunto del punto di percorso 1, unità deg
-    * @param  [in] desc_pos_p  Posa cartesiana del punto di percorso 1
-    * @param  [in] ptool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
-    * @param  [in] puser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
-    * @param  [in] pvel  Percentuale di velocità, intervallo [0~100]
-    * @param  [in] pacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
-    * @param  [in] epos_p  Posizione dell'asse esteso, unità mm
-    * @param  [in] joint_pos_t  Posizione giunto del punto di percorso 2, unità deg
-    * @param  [in] desc_pos_t  Posa cartesiana del punto di percorso 2
-    * @param  [in] ttool  Numero del sistema di coordinate dello strumento, intervallo [0~14]
-    * @param  [in] tuser  Numero del sistema di coordinate del pezzo, intervallo [0~14]
-    * @param  [in] tvel  Percentuale di velocità, intervallo [0~100]
-    * @param  [in] tacc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile
-    * @param  [in] epos_t  Posizione dell'asse esteso, unità mm
-    * @param  [in] ovl  Fattore di scala della velocità, intervallo [0~100]
-    * @param  [in] offset_flag  0-Nessun offset, 1-Offset nel sistema di coordinate base/del pezzo, 2-Offset nel sistema di coordinate dello strumento
-    * @param  [in] offset_pos  Quantità di offset della posa
-    * @param  [in] oacc  Percentuale di accelerazione
-    * @param  [in] blendR -1: Bloccante; 0~1000: Raggio di smoothing
+    * @brief  Movimento Circolare Completo nello Spazio Cartesiano
+    * @param  joint_pos_p  Posizioni dei giunti del punto di percorso 1, unità: deg
+    * @param  desc_pos_p   Posa cartesiana del punto di percorso 1
+    * @param  ptool  Indice del sistema di coordinate utensile, intervallo [1~15]
+    * @param  puser  Indice del sistema di coordinate pezzo/utente, intervallo [1~15]
+    * @param  pvel  Percentuale di velocità, intervallo [0~100]
+    * @param  pacc  Percentuale di accelerazione, intervallo [0~100], attualmente non disponibile
+    * @param  epos_p  Posizione dell'asse esteso, unità: mm
+    * @param  joint_pos_t  Posizioni dei giunti del punto di percorso 2, unità: deg
+    * @param  desc_pos_t   Posa cartesiana del punto di percorso 2
+    * @param  ttool  Indice del sistema di coordinate utensile, intervallo [1~15]
+    * @param  tuser  Indice del sistema di coordinate pezzo/utente, intervallo [1~15]
+    * @param  tvel  Percentuale di velocità, intervallo [0~100]
+    * @param  tacc  Percentuale di accelerazione, intervallo [0~100], attualmente non disponibile
+    * @param  epos_t  Posizione dell'asse esteso, unità: mm
+    * @param  ovl  Fattore di scala velocità [0~100] / Velocità fisica (mm/s)
+    * @param  offset_flag  0-Nessuno scostamento, 1-Scostamento nel sistema di coordinate base/pezzo, 2-Scostamento nel sistema di coordinate utensile
+    * @param  offset_pos  Valore di scostamento della posa
+    * @param  oacc Fattore di scala accelerazione [0-100] / Accelerazione fisica (mm/s²)
+    * @param  blendR -1: Bloccante; 0~1000: Raggio di transizione
+    * @param  velAccParamMode Modalità parametri velocità/accelerazione; 0-Percentuale; 1-Velocità fisica (mm/s) e accelerazione (mm/s²)
     * @return  Codice di errore
     */
-    int Circle(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, double ovl, int offset_flag, DescPose offset_pos, double oacc, double blendR)
+    public int Circle(JointPos joint_pos_p, DescPose desc_pos_p, int ptool, int puser, double pvel, double pacc, ExaxisPos epos_p, JointPos joint_pos_t, DescPose desc_pos_t, int ttool, int tuser, double tvel, double tacc, ExaxisPos epos_t, double ovl, int offset_flag, DescPose offset_pos, double oacc, double blendR, int velAccParamMode)
 
 Movimento circolare completo nello spazio cartesiano (calcolo cinematico inverso automatico)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -567,52 +572,41 @@ Esempio di codice per le istruzioni di movimento di base del robot
         DescPose desc_pos4=new DescPose(-443.165, 147.881, 480.951, 179.511, -0.775, -15.409);
         DescPose offset_pos=new DescPose(0, 0, 0, 0, 0, 0);
         ExaxisPos epos=new ExaxisPos(0, 0, 0, 0);
-
         int tool = 0;
         int user = 0;
         double vel = 100.0;
         double acc = 100.0;
         double ovl = 100.0;
+        double oacc = 100.0;
         double blendT = 0.0;
         double blendR = 0.0;
         int flag = 0;
         int search = 0;
-
+        int blendMode = 0;
+        int velAccMode = 0;
         robot.SetSpeed(20);
-
         rtn = robot.MoveJ(j1, desc_pos1, tool, user, vel, acc, ovl, epos, blendT, flag, offset_pos);
-        System.out.println("movej errcode:"+ rtn);
-
-        rtn = robot.MoveL(j2, desc_pos2, tool, user, vel, acc, ovl, blendR, 0,epos, search, flag, offset_pos,0,10);
-        System.out.println("movel errcode:"+ rtn);
-
-        rtn = robot.MoveC(j3, desc_pos3, tool, user, vel, acc, epos, flag, offset_pos, j4, desc_pos4, tool, user, vel, acc, epos, flag, offset_pos, ovl, blendR);
-        System.out.println("movec errcode:"+ rtn);
-
+        System.out.printf("movej errcode:%d\n", rtn);
+        rtn = robot.MoveL(j2, desc_pos2, tool, user, vel, acc, ovl, blendR, blendMode, epos, search, flag, offset_pos, oacc, velAccMode,0,10);
+        System.out.printf("movel errcode:%d\n", rtn);
+        rtn = robot.MoveC(j3, desc_pos3, tool, user, vel, acc, epos, flag, offset_pos, j4, desc_pos4, tool, user, vel, acc, epos, flag, offset_pos, ovl, blendR, oacc, velAccMode);
+        System.out.printf("movec errcode:%d\n", rtn);
         rtn = robot.MoveJ(j2, desc_pos2, tool, user, vel, acc, ovl, epos, blendT, flag, offset_pos);
-        System.out.println("movej errcode:"+ rtn);
-
-        rtn = robot.Circle(j3, desc_pos3, tool, user, vel, acc, epos, j1, desc_pos1, tool, user, vel, acc, epos, ovl, flag, offset_pos);
-        System.out.println("circle errcode:"+ rtn);
-
+        System.out.printf("movej errcode:%d\n", rtn);
+        rtn = robot.Circle(j3, desc_pos3, tool, user, vel, acc, epos, j1, desc_pos1, tool, user, vel, acc, epos, ovl, flag, offset_pos, oacc, -1, velAccMode);
+        System.out.printf("circle errcode:%d\n", rtn);
         rtn = robot.MoveCart(desc_pos4, tool, user, vel, acc, ovl, blendT, -1);
-        System.out.println("MoveCart errcode:"+ rtn);
-
+        System.out.printf("MoveCart errcode:%d\n", rtn);
         rtn = robot.MoveJ(j1, tool, user, vel, acc, ovl, epos, blendT, flag, offset_pos);
-        System.out.println("movej errcode:"+ rtn);
-
-        rtn = robot.MoveL(desc_pos2, tool, user, vel, acc, ovl, blendR, 0,epos, search, flag, offset_pos,-1,0,10);
-        System.out.println("movel errcode:"+ rtn);
-
-        rtn = robot.MoveC(desc_pos3, tool, user, vel, acc, epos, flag, offset_pos, desc_pos4, tool, user, vel, acc, epos, flag, offset_pos, ovl, blendR,-1);
-        System.out.println("movec errcode:"+ rtn);
-
+        System.out.printf("movej errcode:%d\n", rtn);
+        rtn = robot.MoveL(desc_pos2, tool, user, vel, acc, ovl, blendR, blendMode, epos, search, flag, offset_pos, -1, velAccMode,0,10);
+        System.out.printf("movel errcode:%d\n", rtn);
+        rtn = robot.MoveC(desc_pos3, tool, user, vel, acc, epos, flag, offset_pos, desc_pos4, tool, user, vel, acc, epos, flag, offset_pos, ovl, blendR, -1, velAccMode);
+        System.out.printf("movec errcode:%d\n", rtn);
         rtn = robot.MoveJ(j2, tool, user, vel, acc, ovl, epos, blendT, flag, offset_pos);
-        System.out.println("movej errcode:"+ rtn);
-
-        rtn = robot.Circle(desc_pos3, tool, user, vel, acc, epos, desc_pos1, tool, user, vel, acc, epos, ovl, flag, offset_pos, 100,-1,-1);
-        System.out.println("circle errcode:"+ rtn);
-
+        System.out.printf("movej errcode:%d\n", rtn);
+        rtn = robot.Circle(desc_pos3, tool, user, vel, acc, epos, desc_pos1, tool, user, vel, acc, epos, ovl, flag, offset_pos, oacc, blendR, -1, velAccMode);
+        System.out.printf("circle errcode:%d\n", rtn);
         return 0;
     }
 

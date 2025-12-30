@@ -384,7 +384,7 @@ Controllo forza costante
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``FT_Control(flag, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M=None, B=None, polishRadio=0, filter_Sign=0, posAdapt_sign=0, isNoBlock=0)``"
+    "Prototipo", "``FT_Control(flag, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M=None, B=None, threshold=[0.2,0.2], adjustCoeff=[1.0,1.0], polishRadio=0, filter_Sign=0, posAdapt_sign=0, isNoBlock=0)``"
     "Descrizione", "Controllo forza costante"
     "Parametri obbligatori", "- ``flag``：flag attivazione controllo forza costante, 0-off, 1-on；
     - ``sensor_id``：numero sensore di forza；
@@ -397,6 +397,8 @@ Controllo forza costante
     - ``max_ang``：angolo regolazione massimo；"
     "Parametri predefiniti", "- ``M``：parametri massa；
     - ``B``：parametri smorzamento；
+    - ``threshold``：Soglia di attivazione per rx, ry [0-10], predefinito 0.2；
+    - ``adjustCoeff``：Coefficiente di regolazione della coppia per rx, ry [0-1], predefinito 1；
     - ``polishRadio``：raggio disco levigatura, unità mm；
     - ``filter_Sign``：flag attivazione filtro 0-off; 1-on, default 0-disattiva；
     - ``posAdapt_sign``：flag attivazione adattamento posa 0-off; 1-on, default 0-disattiva；
@@ -409,38 +411,40 @@ Esempio codice controllo forza costante con smorzamento
     :linenos:
 
     from fairino import Robot
-    # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
+    import time
     robot = Robot.RPC('192.168.58.2')
     sensor_id = 10
     select = [0, 0, 1, 0, 0, 0]
     ft_pid = [0.0008, 0.0, 0.0, 0.0, 0.0, 0.0]
     adj_sign = 0
     ILC_sign = 0
-    max_dis = 100.0
+    max_dis = 1000.0
     max_ang = 20.0
-    ft = [0.0] * 6  # [fx, fy, fz, tx, ty, tz]
-    ft[2] = -10.0  # fz = -10.0
+    ft = [0.0] * 6 
     epos = [0.0] * 4
-    j1 = [-118.985, -86.882, -118.139, -65.019, 90.002, 54.951]
-    j2 = [-77.055, -77.218, -126.219, -66.591, 90.028, 96.881]
-    desc_p1 = [-300.856, -332.618, 309.240, 179.976, -0.031, 96.065]
-    desc_p2 = [-16.399, -383.760, 309.312, 179.975, -0.031, 96.064]
+    j1 = [80.765, -98.795, 106.548, -97.734, -89.999, 94.842]
+    j2 = [43.067, -84.429, 92.620, -98.175, -90.011, 57.144]
+    desc_p1 = [5.009, -547.463, 262.053, -179.999, -0.019, 75.923]
+    desc_p2 = [-347.966, -547.463, 262.048, -180.000, -0.019, 75.923]
     offset_pos = [0.0] * 6
     M = [2.0, 2.0]
-    B = [8.0, 8.0]
+    B = [15.0, 15.0]
+    threshold = [1.0, 1.0]
+    adjustCoeff = [1.0, 0.8]
     polishRadio = 0.0
     filter_Sign = 0
-    posAdapt_sign = 0
+    posAdapt_sign = 1
     isNoBlock = 0
-    ftCoord = [0.0] * 6
-    robot.FT_SetRCS(2, ftCoord)
-    rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, 0, 0, 1, 0)
-    print(f"FT_Control start rtn is {rtn}")
-    rtn = robot.MoveL(desc_pos=desc_p1, tool=0, user=0, vel=100.0, acc=100.0, ovl=20.0, blendR=-1.0, exaxis_pos=epos, search=0, offset_flag=0, offset_pos=offset_pos)
-    rtn = robot.MoveL(desc_pos=desc_p2, tool=0, user=0, vel=100.0, acc=100.0, ovl=20.0, blendR=-1.0, exaxis_pos=epos, search=0, offset_flag=0, offset_pos=offset_pos)
-    rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, 0, 0, 1, 0)
-    print(f"FT_Control end rtn is {rtn}")
+    ft[2] = -10.0 
+    while True:
+        rtn = robot.FT_Control(1, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold,adjustCoeff, 0, 0, 1, 0)
+        print(f"FT_Control start rtn is {rtn}")
+        rtn = robot.MoveL(desc_pos=desc_p1, tool=1, user=0, vel=100, acc=100, ovl=100, blendR=-1, blendMode = 0, exaxis_pos=epos, search=0, offset_flag=0, offset_pos=offset_pos)
+        rtn = robot.MoveL(desc_pos=desc_p2, tool=1, user=0, vel=100, acc=100, ovl=100, blendR=-1, blendMode = 0, exaxis_pos=epos, search=0, offset_flag=0, offset_pos=offset_pos)
+        rtn = robot.FT_Control(0, sensor_id, select, ft, ft_pid, adj_sign, ILC_sign, max_dis, max_ang, M, B, threshold,adjustCoeff, 0, 0, 1, 0)
+        print(f"FT_Control end rtn is {rtn}")
     robot.CloseRPC()
+    return 0
 
 Ricerca spirale
 +++++++++++++++
@@ -1034,3 +1038,16 @@ Esempio codice controllo avvio/arresto impedenza
     print(f"movel errcode:{rtn}")
     robot.ImpedanceControlStartStop(0, 1, forceThreshold, m, b, k, 1000, 500, 100, 100)
     robot.CloseRPC()
+
+Abilita Funzione di Compensazione Coppia e Coefficienti di Compensazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SerCoderCompenParams(status, torqueCoeff)``"
+    "Descrizione", "Abilita Funzione di Compensazione Coppia e Coefficienti di Compensazione"
+    "Parametri Obbligatori", "- ``status``：Interruttore, 0-Disabilita; 1-Abilitata
+    - ``torqueCoeff``：Coefficienti di compensazione coppia J1-J6 [0-1]"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore 0-Successo  Errore- errcode"

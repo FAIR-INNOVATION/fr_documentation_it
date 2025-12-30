@@ -13,6 +13,14 @@ Note sulle Aggiornamenti di Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.1
+     - 2025-12-25
+     - | 1. Aggiunto il parametro fattore di scala velocità oacc / parametro accelerazione fisica all'interfaccia MoveL();
+       | 2. Aggiunto il parametro fattore di scala velocità oacc / parametro accelerazione fisica all'interfaccia MoveC();
+       | 3. Ottimizzate le descrizioni dei parametri per velocità fisica e accelerazione fisica nell'interfaccia Circle();
+       | 4. Aggiunta funzione sovraccaricata FT_Control() con parametri soglie di attivazione rx, ry e coefficienti di regolazione della coppia;
+       | 5. Aggiunta interfaccia SerCoderCompenParams();
+
    * - V3.9.0
      - 2025-11-26
      - | 1. Interfaccia JointSensitivityCalibration() aggiunge restituzione linearità giunti j1~j6
