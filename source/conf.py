@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Manuale Utente Del Robot Collaborativo FAIRINO'
-copyright = '2022-2025, FAIRINO (Suzhou) Robotics Systems Co., Ltd.'
+copyright = '2022-2026, FAIRINO (Suzhou) Robotics Systems Co., Ltd.'
 author = 'FAIRINO (Suzhou) Robotics Systems Co., Ltd.'
 release = '3.9.1'
 

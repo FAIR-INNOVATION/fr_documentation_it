@@ -1880,7 +1880,7 @@ Ambiente di Installazione
 Durante l'installazione e l'uso del robot collaborativo, assicurarsi di soddisfare i seguenti requisiti:
 
 - Temperatura ambiente: 0-45°C
-- Umidità: 20-80% RH, senza condensa
+- Umidità 0%-90% UR (senza condensa)
 - Nessun impatto meccanico e vibrazioni
 - Requisito di altitudine: sotto i 2000 m
 - Nessun gas corrosivo, liquidi, gas esplosivi, sporco di olio, nebbia salina, polvere o polvere metallica, materiali radioattivi, rumore elettromagnetico, materiali infiammabili
