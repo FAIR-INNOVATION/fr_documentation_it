@@ -24,7 +24,7 @@ Conoscere rapidamente l'interfaccia WebApp
 
 Dopo l'accesso, il sistema entra nell'"Interfaccia iniziale", che comprende principalmente:
 
-1. Logo FANUC;
+1. Logo FAIRINO;
 2. Pulsante per ridurre/espandere la barra dei menu;
 3. Barra dei menu;
 4. Area di controllo del robot;
