@@ -7,7 +7,7 @@ Appendice
 Download del Codice Sorgente
 ------------------------------------------------
 
-Nel sito della documentazione di Faoro (https://fairino-doc-it.readthedocs.io/latest/), trova il modulo "Download materiali", clicca sul pulsante "CPP SDK", nella pagina a destra clicca su "FAIRINO CPP SDK", attendi che il download si completi nel browser.
+Nel sito della documentazione di FAIRINO (https://fairino-doc-it.readthedocs.io/latest/), trova il modulo "Download materiali", clicca sul pulsante "CPP SDK", nella pagina a destra clicca su "FAIRINO CPP SDK", attendi che il download si completi nel browser.
 
 .. image:: image/001.png
    :width: 6in
