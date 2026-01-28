@@ -1408,3 +1408,119 @@ Esempio di codice per coefficiente feedforward velocità robot
         robot.CloseRPC();
         return 0;
     }
+   
+Calibrazione TCP Sensore Foto-elettrico - Calcolo RPY Strumento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP Sensore Foto-elettrico - Calcolo RPY Strumento
+    * @param [in] Btool Posizione cartesiana del robot
+    * @param [in] Etool Valori attuali delle coordinate dello strumento
+    * @param [in] sensor Valori attuali delle coordinate del sensore (non ancora disponibile)
+    * @param [in] radius Raggio del movimento circolare in mm (non ancora disponibile)
+    * @param [in] dz Distanza di movimento lungo l'asse Z negativo del sistema di coordinate base; quando dz = 10000, la funzione restituisce direttamente l'RPY dello strumento
+    * @param [out] TCPRPY Valori RPY dello strumento
+    * @return Codice di errore
+    */
+    errno_t TCPComputeRPY(DescPose Btool, DescPose Etool, DescPose sensor, double radius, double dz, Rpy& TCPRPY);
+
+Calibrazione TCP Sensore Foto-elettrico - Calcolo XYZ Strumento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP Sensore Foto-elettrico - Calcolo XYZ Strumento
+    * @param [in] select 0-Calcola TCP strumento; 1-Calcola origine sensore; 2-Calcola orientamento sensore; 3-Restituisci direttamente TCP strumento; 4-Registra sistema di coordinate del pezzo corrente e sistema di coordinate dello strumento
+    * @param [in] originDirection 0-Direzione X; 1-Direzione Y; 2-Direzione Z
+    * @param [in] pos1 Posizione cartesiana robot 1
+    * @param [in] pos2 Posizione cartesiana robot 2
+    * @param [in] pos3 Posizione cartesiana robot 3
+    * @param [in] pos4 Posizione cartesiana robot 4
+    * @param [out] TCP Valori XYZ dello strumento
+    * @return Codice di errore
+    */
+    errno_t TCPComputeXYZ(int select, double originDirection, DescTran pos1, DescTran pos2, DescTran pos3, DescTran pos4, DescTran& TCP);
+
+Calibrazione TCP Sensore Foto-elettrico - Inizio Registrazione Posizione Centro Flangia
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP Sensore Foto-elettrico - Inizio Registrazione Posizione Centro Flangia
+    * @return Codice di errore
+    */
+    errno_t TCPRecordFlangePosStart();
+
+Calibrazione TCP Sensore Foto-elettrico - Fine Registrazione Posizione Centro Flangia
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP Sensore Foto-elettrico - Fine Registrazione Posizione Centro Flangia
+    * @return Codice di errore
+    */
+    errno_t TCPRecordFlangePosEnd();
+
+Calibrazione TCP Sensore Foto-elettrico - Ottieni Posizione Punto Centro Strumento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP Sensore Foto-elettrico - Ottieni Posizione Punto Centro Strumento
+    * @param [out] TCP Posizione punto centro strumento (x, y, z)
+    * @return Codice di errore
+    */
+    errno_t TCPGetRecordFlangePos(DescTran& TCP);
+
+Calibrazione TCP Sensore Foto-elettrico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP Sensore Foto-elettrico
+    * @param [in] luaPath Percorso programma Lua per calibrazione automatica: Per robot versione QX - "/fruser/FR_CalibrateTheToolTcp.lua"; Per robot versione LA - "/usr/local/etc/controller/lua/FR_CalibrateTheToolTcp.lua"
+    * @param [in] offsetX Offset punto di insegnamento (x, y, z) in mm
+    * @param [out] TCP Sistema di coordinate dello strumento calibrato (x, y, z, rx, ry, rz)
+    * @return Codice di errore
+    */
+    errno_t PhotoelectricSensorTCPCalibration(std::string luaPath, DescTran offset, DescPose& TCP);
+
+Esempio di Codice Calibrazione TCP Sensore Foto-elettrico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c++
+    :linenos:
+
+    int TestPhotoelectricSensorTCPCalib(void)
+    {
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return 0;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+        DescTran offset = { 10.0, 10.0, 3.0 };
+        DescPose TCP = {};
+        rtn = robot.PhotoelectricSensorTCPCalibration("/fruser/FR_CalibrateTheToolTcp.lua", offset, TCP);
+        printf("PhotoelectricSensorTCPCalibration rtn is  %d %f %f %f %f %f %f \n", rtn, TCP.tran.x, TCP.tran.y, TCP.tran.z, TCP.rpy.rx, TCP.rpy.ry, TCP.rpy.rz);
+        robot.CloseRPC();
+        robot.Sleep(9999999);
+        return 0;
+    }

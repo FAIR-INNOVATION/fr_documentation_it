@@ -13,6 +13,18 @@ Note Aggiornamento Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+* - V3.9.2
+     - 2026-01-26
+     - | 1. Aggiunto un parametro di strategia di elaborazione per forza/coppia non rilevata all'interfaccia FT_RotInsertion()
+       | 2. Aggiunti parametri relativi al tracciamento a punto fisso del robot all'interfaccia LaserSensorRecordandReplay()
+       | 3. Aggiunta l'interfaccia MoveStationary()
+       | 4. Aggiunta l'interfaccia TCPComputeRPY()
+       | 5. Aggiunta l'interfaccia TCPComputeXYZ()
+       | 6. Aggiunta l'interfaccia TCPRecordFlangePosStart()
+       | 7. Aggiunta l'interfaccia TCPRecordFlangePosEnd()
+       | 8. Aggiunta l'interfaccia TCPGetRecordFlangePos()
+       | 9. Aggiunta l'interfaccia PhotoelectricSensorTCPCalibration()
+
    * - V3.9.1
      - 2025-12-25
      - | 1. Aggiunto il parametro fattore di scala velocità oacc / parametro accelerazione fisica all'interfaccia MoveL();

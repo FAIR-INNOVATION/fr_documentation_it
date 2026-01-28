@@ -1384,16 +1384,19 @@ Riproduzione traiettoria cordone saldatura laser
     :linenos:
 
     /**
-     * @brief Riproduzione traiettoria cordone saldatura laser
-     * @param [in] delayMode modalità 0-tempo ritardo 1-distanza ritardo
-     * @param [in] delayTime tempo ritardo unità ms
-     * @param [in] delayDisExAxisNum numero asse estensione
-     * @param [in] delayDis distanza ritardo unità mm
-     * @param [in] sensitivePara coefficiente sensibilità compensazione
-     * @param [in] speed velocità unità %
-     * @return Codice errore
-     */
-    public int LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum, double delayDis, double sensitivePara, double speed)
+    * @brief Riproduzione Traiettoria Cordone di Saldatura Laser
+    * @param delayMode Modalità 0-Tempo Ritardo 1-Distanza Ritardo
+    * @param delayTime Tempo di ritardo in millisecondi (ms)
+    * @param delayDisExAxisNum Numero Asse Esteso
+    * @param delayDis Distanza di ritardo in millimetri (mm)
+    * @param sensitivePara Coefficiente di Sensibilità della Compensazione
+    * @param trackMode Tipo Tracciamento a Punto Fisso. 0-Movimento Asincrono Asse Esteso; 1-Robot
+    * @param triggerMode Metodo di Attivazione Tracciamento a Punto Fisso. 0-Durata Tracciamento; 1-IO
+    * @param runTime Durata Tracciamento a Punto Fisso del Robot in secondi (s)
+    * @param speed Velocità in percentuale (%)
+    * @return Codice Errore
+    */
+    public int LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum, double delayDis, double sensitivePara, int trackMode, int triggerMode, double runTime, double speed)
 
 Movimento punto inizio registrazione cordone laser
 +++++++++++++++++++++++++++++++++++++++++++++++++++

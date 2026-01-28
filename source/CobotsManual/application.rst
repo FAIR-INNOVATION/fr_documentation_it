@@ -26,13 +26,10 @@ Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare cl
 
 .. centered:: Figura 14.1‑1 Imballaggio rapido del robot
 
+Backup dei Dati
+--------------------
 
-Backup Dati
------------
-
-Nel menu “Applicazioni Ausiliarie” → “Applicazioni Strumento”, fare clic su “Backup Dati” per accedere all’interfaccia di backup.
-
-Il pacchetto di backup include: dati del sistema di coordinate utensile, file di configurazione di sistema, punti di insegnamento, programmi utente, programmi modello e file di configurazione utente. Questa funzione consente di trasferire rapidamente tutti i dati rilevanti da un robot a un altro.
+1. Sotto la barra dei menu "Applicazioni Ausiliarie" -> "Applicazioni Utensile", fare clic su "Backup Dati" per accedere all'interfaccia di backup dei dati, come mostrato nella figura sottostante.
 
 .. image:: application/002.png
    :width: 4in
@@ -40,14 +37,29 @@ Il pacchetto di backup include: dati del sistema di coordinate utensile, file di
 
 .. centered:: Figura 14.2‑1 Interfaccia Backup Dati
 
-Per evitare potenziali rischi legati a incongruenze nelle configurazioni (ad esempio modalità di installazione) durante l’importazione del backup, è stata introdotta una funzione di verifica dei parametri critici.
+2. I dati del pacchetto di backup includono dati del sistema di coordinate utensile, file di configurazione di sistema, dati dei punti di insegnamento, programmi utente, programmi modello e file di configurazione utente. Quando gli utenti necessitano di trasferire dati da questo robot a un altro robot per l'uso, questa funzione può essere utilizzata per realizzarlo rapidamente.
 
-Funzione di Verifica durante l’Importazione del Backup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funzione di Verifica Integrità Pacchetto Backup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Durante l’importazione, il pacchetto di backup viene confrontato con il robot destinatario in base a specifici parametri chiave, elencati nella tabella seguente. Questi parametri, se non corrispondono esattamente, possono comportare rischi per la sicurezza. L’importazione avviene solo se tutti i parametri coincidono; in caso contrario, verrà visualizzato un messaggio di errore e sarà necessario verificare la coerenza tra il robot e il pacchetto.
+Per evitare potenziali rischi di sicurezza causati da configurazioni inconsistenti, come i metodi di installazione, durante l'importazione dei pacchetti di backup, è stata aggiunta una funzione di verifica MD5 per i pacchetti di backup e una funzione di verifica per i parametri chiave durante l'importazione del pacchetto di backup.
 
-Tabella dei 5 parametri chiave da verificare:
+Funzione di Verifica MD5 Pacchetto Backup
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Per garantire l'integrità del pacchetto di backup importato, dopo il caricamento verrà eseguita una verifica MD5 sul pacchetto di backup. Se il pacchetto di backup è danneggiato o modificato in modo anomalo, la verifica MD5 fallirà e verrà visualizzato il seguente messaggio:
+
+.. image:: application/048.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 14.2‑2 Verifica MD5 Fallita
+
+Funzione di Verifica Parametri Chiave Pacchetto Backup
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+È stata aggiunta una funzione di verifica durante l'importazione del pacchetto di backup. Il pacchetto di backup deve essere confrontato con il robot di destinazione per i parametri chiave, come dettagliato nella tabella sottostante. Impostazioni imprecise di questi parametri possono comportare determinati rischi per la sicurezza. Solo quando sono completamente identici, il pacchetto di backup può essere importato normalmente.
+
+Tabella dei 5 Parametri Chiave per il Confronto:
 
 .. list-table::
    :widths: 15 40 100
@@ -78,11 +90,26 @@ Tabella dei 5 parametri chiave da verificare:
      - NEW_TEACH_ENABLE
      - Configurazione dinamica
 
+Se non sono consistenti, verrà visualizzato un errore. A questo punto, è necessario verificare se i parametri chiave nel robot da importare sono consistenti con quelli nel pacchetto di backup.
+
 .. image:: application/003.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 14.2‑2 Messaggio di errore quando i parametri chiave non corrispondono
+.. centered:: Figura 14.2‑3 Quando i Parametri Chiave Sono Inconsistente, l'Interfaccia Mostrerà un Errore
+
+Funzione di Rollback per Fallimento/Interruzione di Alimentazione Anomala
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Se si verifica un'eccezione durante l'importazione del pacchetto di backup o se si verifica un'interruzione di alimentazione anomala durante il ripristino dei dati, causando il mancato completamento normale del ripristino dei dati, per garantire il normale funzionamento dell'apparecchiatura, il sistema ripristinerà automaticamente lo stato precedente all'operazione dopo il ripristino dell'alimentazione.
+
+Dopo il ripristino dell'alimentazione, l'interfaccia mostrerà il messaggio: "Il ripristino dei dati precedente non è stato completato ed è stato automaticamente ripristinato. Si prega di riavviare la centralina di controllo e riprovare."
+
+.. image:: application/049.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 14.2‑4 Prompt di Avviso Ripristino dopo Interruzione Alimentazione e Riavvio
 
 Registrazione Dati 10s
 ----------------------
@@ -181,7 +208,7 @@ Il metodo di calibrazione prevede di far eseguire al robot una traiettoria prest
 Calibrazione Parametri
 **********************
 
-**Passo 1**: Impostare il sistema di coordinate utensile su “Tool0”. Accedere a “Applicazioni Ausiliarie” → “Applicazioni Strumento” → “Blocco Trascinamento” e attivare la funzione “Calibrazione Coppia Snodi”, come mostrato in Figura 2-1.
+**Passo 1**: Impostare il sistema di coordinate utensile su “Tool0”. Accedere a “Applicazioni Ausiliarie” → “Applicazioni Strumento” → “Blocco Trascinamento” e attivare la funzione “Calibrazione Coppia Snodi”.
 
 .. image:: application/037.png
    :width: 4in
@@ -189,7 +216,7 @@ Calibrazione Parametri
 
 .. centered:: Figura 14.5‑4 Abilitazione funzione
 
-**Passo 2**: Dopo aver attivato la funzione, procedere con la calibrazione della sensibilità (Figura 2-2). Cliccare su “Genera Programma” per inviare uno script Lua interno al controllore. Passare il robot in modalità automatica, impostare la velocità a “10” e fare clic su “Esegui”, attendendo il completamento del movimento.
+**Passo 2**: Dopo aver attivato la funzione, procedere con la calibrazione della sensibilità. Cliccare su “Genera Programma” per inviare uno script Lua interno al controllore. Passare il robot in modalità automatica, impostare la velocità a “10” e fare clic su “Esegui”, attendendo il completamento del movimento.
 
 .. image:: application/038.png
    :width: 4in
@@ -199,7 +226,7 @@ Calibrazione Parametri
 
 .. note:: Se la sensibilità è già stata calibrata in precedenza, è possibile saltare questo passo e procedere direttamente con la configurazione del trascinamento.
 
-**Passo 3**: Al termine del movimento, i risultati di calibrazione (sensibilità, linearità, isteresi, ripetibilità) vengono visualizzati automaticamente nell’interfaccia web. Cliccare su “Applica” per salvare i parametri, come mostrato in Figura 2-3.
+**Passo 3**: Al termine del movimento, i risultati di calibrazione (sensibilità, linearità, isteresi, ripetibilità) vengono visualizzati automaticamente nell’interfaccia web. Cliccare su “Applica” per salvare i parametri.
 
 .. image:: application/039.png
    :width: 4in
@@ -236,61 +263,91 @@ Procedura Operativa
 
 .. note:: Intervallo di impostazione del guadagno di trascinamento: 0-1. Un guadagno più elevato si traduce in una maggiore coppia compensata e in una minore coppia di avviamento per l'anello di corrente.
 
-Funzione di Insegnamento Trascinamento ad Anello di Posizione Basata su Sensore di Coppia Articolare
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Funzione di Ottimizzazione Assistita del Trascinamento Basata su Sensori di Coppia Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Panoramica
-*****************************************
+*********************************
 
-Il rilevamento in tempo reale delle forze esterne viene eseguito attraverso il sensore di coppia articolare. Quando la forza esterna supera una soglia preimpostata, il braccio robotico viene trascinato nella direzione di applicazione della forza. Una volta che la forza esterna scende al di sotto della soglia di coppia, il braccio robotico smette immediatamente di essere trascinato, realizzando così la funzione di insegnamento per trascinamento sotto il controllo dell'anello di posizione.
+Questo manuale utente descrive l'uso della funzione di ottimizzazione assistita del trascinamento basata sul sensore di coppia articolare. Comprende tre modalità di trascinamento e, rispetto ai metodi tradizionali di insegnamento per trascinamento, può migliorare la compliance del trascinamento e ridurre la forza di trascinamento richiesta da ogni articolazione.
 
-Funzione di Insegnamento Trascinamento
-*****************************************
+Funzione di Ottimizzazione Assistita del Trascinamento Basata su Sensori di Coppia Articolare
+********************************************************************************************************************
 
-Abilitazione/Disabilitazione della Funzione di Insegnamento Trascinamento ad Anello di Posizione
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-**Step1**: Impostare il sistema di coordinate dell'utensile su "Tool0". Fare clic su "Applicazioni Ausiliarie" -> "Applicazioni Utensile" -> "Blocco Trascinamento". Nel modulo "Trascinamento Intero Braccio con Sensore di Coppia Articolare", fare clic su "Abilita Funzione".
+Calibrazione del Punto Zero e Calibrazione della Sensibilità
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Step1**: Se la calibrazione del punto zero e la calibrazione della sensibilità sono già state completate (l'indicatore luminoso prima della calibrazione è verde), non è necessario ripeterle. Ricalibrare il punto zero solo quando si avverte una sensazione di "fluttuazione" durante il trascinamento. Il processo di calibrazione è descritto di seguito.
 
 .. image:: application/042.png
    :width: 4in
    :align: center
 
-.. centered:: Figura 14.5‑9 Abilita Funzione
+.. centered:: Figura 14.5‑9 Stato dell'Indicatore Luminoso al Completamento della Calibrazione Punto Zero e Sensibilità del Sensore di Coppia Articolare
 
-**Step2**: Eseguire la calibrazione zero. Prima, fare clic su "Punto 1", attendere che il braccio robotico si fermi, quindi fare clic su "Registra". Successivamente, fare clic su "Punto 2", attendere che il braccio robotico si fermi, quindi fare clic su "Registra". Se la deviazione zero del sensore di coppia articolare è troppo grande dopo la calibrazione zero, è possibile ripetere la calibrazione zero.
-
-**Step3**: Eseguire la calibrazione della sensibilità. Fare clic su "Genera Programma" per inviare uno script Lua interno al controllore. Passare il robot in modalità automatica e impostare la velocità di esecuzione su "10". Fare clic su "Esegui" e attendere il movimento del robot. Dopo il completamento del movimento del robot, i risultati della calibrazione di sensibilità, linearità, errore di isteresi e ripetibilità vengono visualizzati automaticamente nell'interfaccia Web. La calibrazione della sensibilità deve essere eseguita solo una volta ogni volta che il braccio robotico viene alimentato.
+**Step2**: Calibrazione del punto zero. Fare clic su "Applicazioni Ausiliarie" → "Applicazioni Utensile" → "Blocco Trascinamento" per accedere al modulo "Trascinamento Corpo Intero Sensore Coppia Articolare". Fare clic sul pulsante "Calibra" per la calibrazione del punto zero per calibrare i dati del punto zero del sensore di coppia articolare. Al completamento della calibrazione, apparirà un "√" e il risultato della calibrazione del punto zero verrà aggiornato.
 
 .. image:: application/043.png
    :width: 4in
    :align: center
 
-.. centered:: Figura 14.5‑10 Calibrazione Zero e Calibrazione Sensibilità
+.. centered:: Figura 14.5‑10 Calibrazione Punto Zero del Sensore di Coppia Articolare
 
-**Step4**: Accedere alla "Funzione Trascinamento". Nel menu a tendina della modalità di trascinamento, selezionare "Trascinamento ad Anello di Posizione". Impostare coefficiente di massa, coefficiente di smorzamento, coefficiente di rigidezza e soglia di controllo della forza appropriati. Fare clic su "Imposta" per applicare le impostazioni e abilitare il trascinamento ad anello di posizione.
+**Step3**: Calibrazione della sensibilità (Nota: durante la calibrazione si consiglia di utilizzare solo il corpo del robot, senza alcun carico). Impostare la modalità di movimento del robot su "Modalità Automatica" e la velocità di esecuzione su "10%". Fare clic sul pulsante "Calibra" per la calibrazione della sensibilità e attendere il completamento del movimento del robot. Dopo che il robot ha completato la traiettoria predeterminata, il coefficiente di sensibilità, la linearità, l'errore di isteresi e i risultati della calibrazione di ripetibilità vengono visualizzati automaticamente sull'interfaccia web.
 
 .. image:: application/044.png
    :width: 4in
    :align: center
 
-.. centered:: Figura 14.5‑11 Impostazione Parametri Trascinamento ad Anello di Posizione
+.. centered:: Figura 14.5‑11 Calibrazione Sensibilità del Sensore di Coppia Articolare
 
-**Step5**: Nel menu a tendina della modalità di trascinamento, selezionare "Trascinamento ad Anello di Corrente". Fare clic su "Imposta" per applicare le impostazioni. Questo disabiliterà il trascinamento ad anello di posizione e passerà al trascinamento ad anello di corrente.
+**Step4**: Impostare la funzione di trascinamento assistito. Ci sono tre modalità di trascinamento, che possono essere impostate dopo aver completato la "Calibrazione Punto Zero" e la "Calibrazione Sensibilità". Se non impostate, il valore predefinito è "Modalità Tre", il che significa che dopo la calibrazione è possibile eseguire direttamente l'insegnamento per trascinamento in modalità trascinamento.
+
+Funzione Trascinamento Assistito - Modalità Uno
+******************************************************************
+**Step1**: Selezionare la modalità di trascinamento come "Modalità Uno". Quando la modalità di movimento del robot è "Modalità Manuale", impostare la dimensione della finestra mobile, il coefficiente di guadagno e la velocità dell'articolazione, quindi fare clic su "Applica". A questo punto, tenendo premuto il "Pulsante di Trascinamento" sull'end-effector o in modalità trascinamento, è possibile effettuare l'insegnamento per trascinamento.
 
 .. image:: application/045.png
    :width: 4in
    :align: center
 
-.. centered:: Figura 14.5‑12 Trascinamento ad Anello di Corrente
+.. centered:: Figura 14.5‑12 Modalità Uno: Impostazione Parametri
 
-**Step6**: Se il braccio robotico si muove senza che venga applicata una forza esterna mentre è in modalità Trascinamento ad Anello di Posizione, è possibile aumentare opportunamente la soglia di controllo della forza. Se il problema persiste dopo aver aumentato la soglia di controllo della forza per asse singolo oltre 3Nm, è necessario disabilitare il Trascinamento ad Anello di Posizione e rieseguire Step2 e Step4 (non è necessario rieseguire Step3).
+.. note:: 
+   (1) La dimensione consigliata per la finestra mobile è 30, con un valore massimo di 100;
+   (2) Il coefficiente di guadagno influenza la sensazione durante il trascinamento. Un coefficiente maggiore rende il trascinamento più sensibile ma può causare instabilità. Il valore consigliato per J1-J6 è 0.5;
+   (3) La velocità consigliata per l'articolazione è 6°/s, che può alleviare il fenomeno di overshoot durante l'allineamento ai punti.
 
-Funzioni Specifiche dei Parametri e Valori Consigliati:
+Funzione Trascinamento Assistito - Modalità Due
+******************************************************************
 
-- **Coefficiente di Massa**: Utilizzato per regolare la risposta al trascinamento. Valori più alti portano a una risposta più lenta, valori più bassi a una risposta più rapida. Intervallo: Giunti 1~2: [0.5-20], Giunti 3~4: [0.2-20], Giunti 5~6: [0.2-10]. Parametri consigliati: [1, 0.8, 0.5, 0.5, 0.6, 0.6].
-- **Coefficiente di Smorzamento**: Utilizzato per regolare la sensazione del trascinamento (pesantezza/leggerezza). Valori più alti si sentono più pesanti, valori più bassi più leggeri. Intervallo: Giunti 1~2: [5-100], Giunti 3~4: [5-100], Giunti 5~6: [2-40]. Parametri consigliati: [8, 8, 10, 10, 6, 6].
-- **Coefficiente di Rigidezza**: Dopo aver impostato questo parametro, il braccio robotico si sposta alla posizione di riferimento in cui la funzione è stata abilitata. Parametri consigliati: [0, 0, 0, 0, 0, 0].
-- **Soglia di Controllo della Forza**: Forza minima di attivazione per il Trascinamento ad Anello di Posizione. Impostare la soglia troppo bassa può causare movimenti involontari del braccio robotico. Soglie di forza consigliate: Giunto 1 > 2Nm, Giunto 2 > 1Nm, Giunti 3~4 > 0.8Nm, Giunti 5~6 > 0.5Nm. Parametri consigliati: [2, 1, 0.8, 0.8, 0.5, 0.5].
+**Step1**: Selezionare la modalità di trascinamento come "Modalità Due". Quando la modalità di movimento del robot è "Modalità Manuale", impostare il coefficiente di massa, il coefficiente di smorzamento, il coefficiente di rigidità e la soglia di controllo della forza, quindi fare clic su "Applica". A questo punto, è possibile effettuare l'insegnamento per trascinamento in modalità posizione.
+
+.. image:: application/046.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 14.5‑13 Modalità Due: Impostazione Parametri
+
+.. note:: 
+   (1) Il coefficiente di massa influenza la forza inerziale dell'articolazione durante il trascinamento. I valori consigliati sono: J1-J3: 1.0, J4-J5: 0.5, J6: 0.1;
+   (2) Il coefficiente di smorzamento influenza la sensazione durante il trascinamento. Uno smorzamento maggiore rende la sensazione più pesante. I valori consigliati sono: J1-J3: 10.0, J4-J5: 5.0, J6: 1.0;
+   (3) Il coefficiente di rigidità deve essere impostato a 0 per tutti;
+   (4) La soglia di controllo della forza è la coppia di attivazione durante il trascinamento. I valori consigliati sono: J1-J3: 0.3, J4-J5: 0.2, J6: 0.1.
+
+Funzione Trascinamento Assistito - Modalità Tre
+******************************************************************
+
+**Step1**: Selezionare la modalità di trascinamento come "Modalità Tre". Quando la modalità di movimento del robot è "Modalità Manuale", impostare il coefficiente di guadagno per ogni articolazione, quindi fare clic su "Applica". A questo punto, tenendo premuto il "Pulsante di Trascinamento" sull'end-effector o in modalità trascinamento, è possibile effettuare l'insegnamento per trascinamento.
+
+.. image:: application/047.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 14.5‑14 Modalità Tre: Impostazione Parametri
+
+.. note:: 
+   (1) Il coefficiente di guadagno influenza la forza di trascinamento dell'articolazione durante il trascinamento a bassa velocità. Quando il coefficiente è compreso tra 0.1 e 1.0, la resistenza durante il trascinamento a bassa velocità aumenta all'aumentare del coefficiente. Per operazioni di allineamento ai punti precise, si consiglia di impostare il coefficiente di guadagno J1-J6 a 1.0. Quando si considera la facilità di trascinamento complessiva e la compliance, si consiglia di impostare il coefficiente di guadagno J1-J6 a 0.3.
 
 Generazione Punto di Intersezione (Movimento con Presa Laser)
 -------------------------------------------------------------

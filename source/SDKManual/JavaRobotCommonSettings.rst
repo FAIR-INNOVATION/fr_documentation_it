@@ -1295,3 +1295,101 @@ Esempio di codice coefficiente feedforward velocità robot
         System.out.printf(" %f %f %f %f %f %f\n", getRadio[0], getRadio[1], getRadio[2], getRadio[3], getRadio[4], getRadio[5]);
         robot.CloseRPC();
     }
+
+Calibrazione TCP Sensore Fotoelettrico - Calcola RPY Utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP sensore fotoelettrico - calcola RPY utensile
+    * @param  Btool Posizione cartesiana robot
+    * @param  Etool Valore coefficiente sistema coordinate utensile corrente
+    * @param  sensor Valore coefficiente sistema coordinate sensore corrente (non ancora disponibile)
+    * @param  radius Raggio movimento circolare mm (non ancora disponibile)
+    * @param  dz Distanza movimento lungo la direzione negativa dell'asse Z del sistema di coordinate base; quando dz = 10000, la funzione restituisce direttamente RPY utensile
+    * @param  TCPRPY Valore RPY utensile
+    * @return Codice errore
+    */
+    public int TCPComputeRPY(DescPose Btool, DescPose Etool, DescPose sensor, double radius, double dz, Rpy TCPRPY)
+
+Calibrazione TCP Sensore Fotoelettrico - Calcola XYZ Utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP sensore fotoelettrico - calcola XYZ utensile
+    * @param  select 0-Calcola TCP utensile; 1-Calcola origine sensore; 2-Calcola orientamento sensore; 3-Restituisce direttamente TCP utensile; 4-Registra sistema coordinate pezzo e sistema coordinate utensile corrente
+    * @param  originDirection 0-Direzione X; 1-Direzione Y; 2-Direzione Z
+    * @param  pos1 Posizione cartesiana robot 1
+    * @param  pos2 Posizione cartesiana robot 2
+    * @param  pos3 Posizione cartesiana robot 3
+    * @param  pos4 Posizione cartesiana robot 4
+    * @param  TCP Valore XYZ utensile
+    * @return Codice errore
+    */
+    public int TCPComputeXYZ(int select, double originDirection, DescTran pos1, DescTran pos2, DescTran pos3, DescTran pos4, DescTran TCP)
+
+Calibrazione TCP Sensore Fotoelettrico - Inizia Registrazione Posizione Centro Flangia
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP sensore fotoelettrico - inizia registrazione posizione centro flangia
+    * @return Codice errore
+    */
+    public int TCPRecordFlangePosStart()
+
+Calibrazione TCP Sensore Fotoelettrico - Interrompi Registrazione Posizione Centro Flangia
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP sensore fotoelettrico - interrompi registrazione posizione centro flangia
+    * @return Codice errore
+    */
+    public int TCPRecordFlangePosEnd()
+
+Calibrazione TCP Sensore Fotoelettrico - Ottieni Posizione Punto Centro Utensile
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP sensore fotoelettrico - ottieni posizione punto centro utensile
+    * @param  TCP Posizione punto centro utensile (x,y,z)
+    * @return Codice errore
+    */
+    public int TCPGetRecordFlangePos(DescTran TCP)
+
+Calibrazione TCP Sensore Fotoelettrico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Calibrazione TCP sensore fotoelettrico
+    * @param luaPath Percorso programma Lua calibrazione automatica: robot versione QX - "/fruser/FR_CalibrateTheToolTcp.lua"; robot versione LA - "/usr/local/etc/controller/lua/FR_CalibrateTheToolTcp.lua"
+    * @param offset Offset punto di insegnamento (x,y,z) mm
+    * @param TCP Sistema coordinate utensile calibrato (x,y,z,rx,ry,rz)
+    * @return Codice errore
+    */
+    public int PhotoelectricSensorTCPCalibration(String luaPath, DescTran offset, DescPose TCP)
+
+Esempio Codice Calibrazione TCP Sensore Fotoelettrico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static void TestPhotoelectricSensorTCPCalib(Robot robot)
+    {
+        DescTran offset = new DescTran(10.0, 10.0, 3.0 );
+        DescPose TCP = new DescPose();
+        int rtn = robot.PhotoelectricSensorTCPCalibration("/fruser/FR_CalibrateTheToolTcp.lua", offset, TCP);
+        System.out.printf("PhotoelectricSensorTCPCalibration rtn is %d %f %f %f %f %f %f \n", rtn, TCP.tran.x, TCP.tran.y, TCP.tran.z, TCP.rpy.rx, TCP.rpy.ry, TCP.rpy.rz);
+        robot.CloseRPC();
+        robot.Sleep(9999999);
+    }

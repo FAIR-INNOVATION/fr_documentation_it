@@ -1218,3 +1218,116 @@ Esempio di codice coefficiente feedforward velocità robot
     rtn,getRadio = robot.GetVelFeedForwardRatio()
     print(f"{getRadio[0]},{getRadio[1]},{getRadio[2]},{getRadio[3]},{getRadio[4]},{getRadio[5]}")
     robot.CloseRPC()
+
+Calibrazione TCP Sensore Foto-elettrico - Calcolo RPY Strumento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``TCPComputeRPY(Btool, Etool, sensor, radius, dz)``"
+    "Descrizione", "Calibrazione TCP Sensore Foto-elettrico - Calcolo RPY Strumento"
+    "Parametri Richiesti", "
+    - ``Btool``: Posizione cartesiana del robot
+    - ``Etool``: Valori attuali delle coordinate dello strumento
+    - ``sensor``: Valori attuali delle coordinate del sensore (non ancora disponibile)
+    - ``radius``: Raggio del movimento circolare in mm (non ancora disponibile)
+    - ``dz``: Distanza di movimento lungo l'asse Z negativo del sistema di coordinate base; quando dz = 10000, la funzione restituisce direttamente l'RPY dello strumento"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore. Successo - 0, Fallimento - errcode"
+
+Calibrazione TCP Sensore Foto-elettrico - Calcolo XYZ Strumento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``TCPComputeXYZ(select, originDirection, pos1, pos2, pos3, pos4)``"
+    "Descrizione", "Calibrazione TCP Sensore Foto-elettrico - Calcolo XYZ Strumento"
+    "Parametri Richiesti", "
+    - ``select``: 0-Calcola TCP strumento; 1-Calcola origine sensore; 2-Calcola orientamento sensore; 3-Restituisci direttamente TCP strumento; 4-Registra sistema di coordinate del pezzo corrente e sistema di coordinate dello strumento
+    - ``originDirection``: 0-Direzione X; 1-Direzione Y; 2-Direzione Z
+    - ``pos1``: Posizione cartesiana robot 1
+    - ``pos2``: Posizione cartesiana robot 2
+    - ``pos3``: Posizione cartesiana robot 3
+    - ``pos4``: Posizione cartesiana robot 4"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "
+    - Codice di errore. Successo - 0, Fallimento - errcode
+    - Valore di ritorno (restituito in caso di chiamata riuscita) TCP Valori XYZ dello strumento"
+
+Calibrazione TCP Sensore Foto-elettrico - Inizio Registrazione Posizione Centro Flangia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``TCPRecordFlangePosStart()``"
+    "Descrizione", "Calibrazione TCP Sensore Foto-elettrico - Inizio Registrazione Posizione Centro Flangia"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore. Successo - 0, Fallimento - errcode"
+
+Calibrazione TCP Sensore Foto-elettrico - Fine Registrazione Posizione Centro Flangia
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``TCPRecordFlangePosEnd()``"
+    "Descrizione", "Calibrazione TCP Sensore Foto-elettrico - Fine Registrazione Posizione Centro Flangia"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore. Successo - 0, Fallimento - errcode"
+
+Calibrazione TCP Sensore Foto-elettrico - Ottieni Posizione Punto Centro Strumento
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``TCPGetRecordFlangePos()``"
+    "Descrizione", "Calibrazione TCP Sensore Foto-elettrico - Ottieni Posizione Punto Centro Strumento"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "
+    - Codice di errore. Successo - 0, Fallimento - errcode
+    - Valore di ritorno (restituito in caso di chiamata riuscita) TCP Posizione punto centro strumento (x, y, z)"
+
+Calibrazione TCP Sensore Foto-elettrico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``PhotoelectricSensorTCPCalibration(luaPath, offsetX)``"
+    "Descrizione", "Calibrazione TCP Sensore Foto-elettrico"
+    "Parametri Richiesti", "
+    - ``luaPath``: Percorso programma Lua per calibrazione automatica: Per robot versione QX - '/fruser/FR_CalibrateTheToolTcp.lua'; Per robot versione LA - '/usr/local/etc/controller/lua/FR_CalibrateTheToolTcp.lua'
+    - ``offsetX``: Offset punto di insegnamento (x, y, z) in mm"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "
+    - Codice di errore. Successo - 0, Fallimento - errcode
+    - Valore di ritorno (restituito in caso di chiamata riuscita) TCP Valori XYZ dello strumento"
+
+Esempio Codice Calibrazione TCP Sensore Foto-elettrico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: python
+    :linenos: 
+
+    from fairino import Robot
+    import time
+    robot = Robot.RPC('192.168.58.2')
+    offset = [10.0, 10.0, 3.0]
+    TCP = [0.0] * 6
+    rtn, TCP = robot.PhotoelectricSensorTCPCalibration("/fruser/FR_CalibrateTheToolTcp.lua", offset)
+    print(f"PhotoelectricSensorTCPCalibration rtn is {rtn},{TCP[0]},{TCP[1]},{TCP[2]},{TCP[3]},{TCP[4]},{TCP[5]}")
+    robot.CloseRPC()
+    return 0

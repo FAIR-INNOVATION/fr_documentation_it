@@ -1194,16 +1194,19 @@ Riproduzione Traiettoria Saldatura Laser
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``LaserSensorRecordandReplay(delayMode, delayTime, delayDisExAxisNum, delayDis, sensitivePara, speed)``"
-    "Descrizione", "Riproduzione traiettoria saldatura laser"
-    "Parametri Obbligatori", "- ``delayMode``：Modalità 0-Tempo ritardo 1-Distanza ritardo
-    - ``delayTime``：Tempo ritardo unità ms
-    - ``delayDisExAxisNum``：Numero asse espansione
-    - ``delayDis``：Distanza ritardo unità mm
-    - ``sensitivePara``：Coefficiente sensibilità compensazione
-    - ``speed``：Velocità unità%"
+    "Prototipo", "``LaserSensorRecordandReplay(delayMode, delayTime, delayDisExAxisNum, delayDis, sensitivePara, int trackMode, int triggerMode, double runTime, speed)``"
+    "Descrizione", "Riproduzione Traiettoria Cordone di Saldatura Laser"
+    "Parametri Richiesti", "- ``delayMode``: Modalità 0-Tempo Ritardo 1-Distanza Ritardo
+    - ``delayTime``: Tempo di ritardo in millisecondi (ms)
+    - ``delayDisExAxisNum``: Numero Asse Esteso
+    - ``delayDis``: Distanza di ritardo in millimetri (mm)
+    - ``sensitivePara``: Coefficiente di Sensibilità della Compensazione
+    - ``trackMode``: Tipo Tracciamento a Punto Fisso. 0-Movimento Asincrono Asse Esteso; 1-Robot
+    - ``triggerMode``: Metodo di Attivazione Tracciamento a Punto Fisso. 0-Durata Tracciamento; 1-IO
+    - ``runTime``: Durata Tracciamento a Punto Fisso del Robot in secondi (s)
+    - ``speed``: Velocità in percentuale (%)"
     "Parametri Predefiniti", "Nessuno"
-    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
+    "Valore di Ritorno", "Codice Errore. Successo - 0, Fallimento - errcode"
 
 Movimento al Punto Inizio Registrazione Saldatura
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

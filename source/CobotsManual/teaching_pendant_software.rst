@@ -214,7 +214,7 @@ Interfaccia iniziale del sistema
 
 Dopo l’accesso riuscito, il sistema entra nella **pagina iniziale**, costituita dai seguenti elementi principali:
 
-1. Logo Faubert (Faurobot);  
+1. Logo FAIRINO;  
 2. Pulsante di ridimensionamento della barra dei menu;  
 3. Barra dei menu;  
 4. Area di controllo del robot;  
@@ -284,7 +284,7 @@ Area di controllo
    L’istruzione di pausa non è valida se inserita alla fine di un programma: in tal caso non viene rilevata né eseguita.
 
 Barra di Stato
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 .. note:: 
    .. image:: teaching_pendant_software/011.png

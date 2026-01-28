@@ -1293,3 +1293,35 @@ Esempio Codice Movimento Linea Intersecante Robot
     rtn = robot.MoveIntersectLine(mainPoint=mainPoint, mainExaxisPos=mainExaxisPos, piecePoint=piecePoint, pieceExaxisPos=pieceExaxisPos, extAxisFlag=extAxisFlag, exaxisPos=exaxisPos, tool=tool,wobj=wobj, vel=vel, acc=acc, ovl=5.0, oacc=5.0, moveDirection=moveDirection, offset=offset)
     print(f"MoveIntersectLine rtn is {rtn}")
     robot.CloseRPC()
+
+Movimento Aereo Stazionario
++++++++++++++++++++++++++++++++++
+    
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``MoveStationary()``"
+    "Descrizione", "Movimento Aereo Stazionario"
+    "Parametri Richiesti", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore. Successo - 0, Fallimento - errcode"
+ 
+Esempio Codice Movimento Aereo Stazionario
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: python
+    :linenos: 
+
+    from fairino import Robot
+    import time
+    robot = Robot.RPC('192.168.58.2')
+    rtn = robot.LaserSensorRecordandReplay(0, 10, 1, 0, 0.1, 1, 0, 10, 100)
+    print(f"LaserSensorRecordandReplay rtn is {rtn}")
+    rtn = robot.MoveStationary()
+    print(f"MoveStationary rtn is {rtn}")
+    rtn = robot.LaserSensorRecord1(0, 10)
+    print(f"LaserSensorRecordandReplay rtn is {rtn}")
+    robot.CloseRPC()
+    return 0
+

@@ -16,7 +16,7 @@ Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fa
 .. centered:: Diagramma 7.1-1 Configurazione Arresto di Sicurezza
 
 Arresto di Sicurezza a Doppio Canale + Modalità Ridotta Configurabile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Panoramica
 ++++++++++++++++++++++++++++++++++++
@@ -340,6 +340,69 @@ Configurazione parete di sicurezza
    :align: center
 
 .. centered:: Diagramma 7.6‑20 Visualizzazione muro virtuale nell'interfaccia web quando l'estremità del robot entra nella parete di sicurezza
+
+Funzione Interferenza Cubo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
++++++++++++++++++++++++++++++++
+
+La funzione di interferenza cubo supporta la definizione e l'attivazione simultanea di più zone di interferenza cubo indipendenti. La posizione e le dimensioni di ciascuna zona di interferenza nello spazio tridimensionale possono essere configurate indipendentemente. Inoltre, ogni zona di interferenza è dotata di un'uscita di segnale di trigger CO (Controller Output) individuale, in grado di emettere i corrispondenti segnali di trigger in base alla posizione in tempo reale del robot.
+
+Procedura Operativa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**Step1**: Abilitare la funzione di interferenza cubo ed eseguire la configurazione di base. Fare clic in sequenza sui comandi "Impostazioni Iniziali" -> "Sicurezza" -> "Zona Interferenza" -> "Interferenza Cubo". Utilizzare gli interruttori a cursore per controllare se ciascuna zona di interferenza cubo è abilitata ed eseguire la configurazione di base.
+
+Tra queste impostazioni, la strategia di movimento all'ingresso della zona di interferenza può essere selezionata come "Continua Movimento" o "Stop". Quando si seleziona "Continua Movimento", il robot visualizzerà un avviso ma continuerà a muoversi all'ingresso della zona di interferenza. Quando si seleziona "Stop", il robot visualizzerà un avviso e si fermerà all'ingresso della zona di interferenza. La strategia di trascinamento all'ingresso della zona di interferenza può essere selezionata come "Trascinamento Illimitato," "Callback Impedenza," o "Ripassa a Modalità Manuale".
+
+.. image:: safety/050.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.6‑21 Controllo Abilitazione Cubo e Configurazione di Base
+
+**Step2**: Configurare le zone di interferenza cubo. È possibile impostare diversi parametri di configurazione per ciascun ID zona di interferenza. È importante notare:
+
+(1) Il metodo di rilevamento deve essere selezionato in base alle effettive esigenze funzionali come "Posizione Comando" o "Posizione Feedback".
+
+(2) Quando la modalità della zona di interferenza è selezionata come "Interferenza Fuori Intervallo", è efficace solo per una singola zona di interferenza.
+
+.. image:: safety/051.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.6‑22 Configurazione Zona Interferenza Cubo
+
+**Step3**: Impostare l'intervallo della zona di interferenza. L'intervallo può essere impostato scegliendo il metodo "Metodo a Due Punti" o "Punto Centrale + Lunghezze Lati" per generare la zona di interferenza cubo. Il "Metodo a Due Punti" genera la zona specificando due vertici opposti del cubo. Il metodo "Punto Centrale + Lunghezze Lati" genera la zona specificando il punto centrale e le lunghezze dei tre lati del cubo.
+
+.. image:: safety/052.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.6‑23 Generazione Zona Interferenza tramite "Metodo a Due Punti"
+
+.. image:: safety/053.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.6‑24 Generazione Zona Interferenza tramite "Punto Centrale + Lunghezze Lati"
+
+**Step4**: Configurare i segnali CO. Fare clic in sequenza sui comandi "Impostazioni Iniziali" -> "Base" -> "Impostazioni I/O" -> "DO" per configurare l'uscita CO corrispondente per ciascun cubo.
+
+.. image:: safety/054.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.6‑25 Configurazione Uscita CO
+
+**Step5**: Ciascuna zona di interferenza cubo verrà visualizzata sull'interfaccia del robot in base al proprio numero ID impostato. Quando il punto centrale dell'end-effector del robot entra in una zona di interferenza, l'interfaccia visualizzerà un avviso "Zona Interferenza Entrata" e l'interfaccia CO corrispondente emetterà un segnale.
+
+.. image:: safety/055.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.6‑26 Visualizzazione Interfaccia Zone Interferenza Multi-Cubo
 
 Modalità Ridotta
 -----------------------------

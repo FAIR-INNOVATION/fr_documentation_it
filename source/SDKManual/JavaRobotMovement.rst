@@ -1691,3 +1691,31 @@ Esempio di codice per il movimento linea di intersezione del robot
         robot.CloseRPC();
         return ;
     }
+
+Movimento Aereo Stazionario
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Movimento Aereo Stazionario
+    * @return Codice di errore
+    */
+    public int MoveStationary()
+
+Esempio di Codice Movimento Aereo Stazionario
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static void test_RecordandReplay(Robot robot)
+    {
+        int rtn = robot.LaserSensorRecordandReplay(0, 10, 1, 0, 0.1, 1, 1, 10, 100);
+        System.out.printf("LaserSensorRecordandReplay rtn is %d\n", rtn);
+        rtn = robot.MoveStationary();
+        System.out.printf("MoveStationary rtn is %d\n", rtn);
+        rtn = robot.LaserSensorRecord1(0, 10);
+        System.out.printf("LaserSensorRecordandReplay rtn is %d\n", rtn);
+        robot.CloseRPC();
+        robot.Sleep(9999999);
+    }

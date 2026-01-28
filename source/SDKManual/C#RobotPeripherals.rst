@@ -1536,18 +1536,20 @@ Riproduzione Traiettoria Saldatura Laser
 .. code-block:: c#
     :linenos:
 
-
     /**
-     * @brief Riproduzione Traiettoria Saldatura Laser
-     * @param [in] delayMode Modalità 0-tempo ritardo 1-distanza ritardo
-     * @param [in] delayTime Tempo ritardo unità ms
-     * @param [in] delayDisExAxisNum Numero asse esteso
-     * @param [in] delayDis Distanza ritardo unità mm
-     * @param [in] sensitivePara Coefficiente sensibilità compensazione
-     * @param [in] speed Velocità unità%
-     * @return Codice errore
-     */
-    public int LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum, double delayDis, double sensitivePara, double speed)
+    * @brief Riproduzione Traiettoria Saldatura Laser
+    * @param [in] delayMode Modalità 0-Tempo Ritardo 1-Distanza Ritardo
+    * @param [in] delayTime Tempo di ritardo in millisecondi (ms)
+    * @param [in] delayDisExAxisNum Numero Asse Esteso
+    * @param [in] delayDis Distanza di ritardo in millimetri (mm)
+    * @param [in] sensitivePara Coefficiente di Sensibilità della Compensazione
+    * @param [in] trackMode Tipo Tracciamento a Punto Fisso. 0-Movimento Asincrono Asse Esteso; 1-Robot
+    * @param [in] triggerMode Metodo di Attivazione Tracciamento a Punto Fisso. 0-Durata Tracciamento; 1-IO
+    * @param [in] runTime Durata Tracciamento a Punto Fisso del Robot in secondi (s)
+    * @param [in] speed Velocità in percentuale (%)
+    * @return Codice Errore
+    */
+    public int LaserSensorRecordandReplay(int delayMode, int delayTime, int delayDisExAxisNum,double delayDis, double sensitivePara, int trackMode, int triggerMode,double runTime, double speed)
     
 Movimento a Punto Inizio Registrazione Saldatura
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++

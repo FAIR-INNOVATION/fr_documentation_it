@@ -1736,6 +1736,88 @@ Nel modulo di caricamento sensore, in base alla funzione selezionata, viene visu
 
 .. centered:: Grafico 9.8-3-2 Interfaccia istruzione Laser (numero compito)
 
+Funzione di Tracciamento a Punto Fisso del Sensore Laser
+****************************************************************
+
+Panoramica
+""""""""""""""""""""""
+L'attuale tracciamento laser a punto fisso è implementato in base al metodo dell'asse esteso. Sono stati aggiunti nuovi metodi di tracciamento a tempo personalizzato o di tracciamento attivato da I/O per adattarsi a vari scenari applicativi. Quando si seleziona il metodo di tracciamento a tempo personalizzato, è necessario impostare il tempo di tracciamento. Il tracciamento laser inizia all'avvio del programma e termina quando viene raggiunto il tempo impostato. Quando si seleziona il metodo di tracciamento attivato da I/O, il programma Lua o SDK viene eseguito; il tracciamento inizia quando l'I/O viene attivato e il tracciamento laser termina quando il segnale I/O viene rimosso.
+
+Processo Operativo di Tracciamento a Tempo Personalizzato
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Step1**: Fare clic su "Impostazioni iniziali" - "Periferiche" - "Sensore laser a linea" - "Dispositivi adattati" per accedere alla pagina di configurazione. La pagina di configurazione include "Configurazione sensore", "Configurazione comunicazione e caricamento", "Calcolo di riferimento", ecc. Fare clic su "Configurazione sensore" per impostare i parametri del filtro di ingresso del sensore, impostare la differenza massima in base alle condizioni effettive, selezionare l'elaborazione dei dati come "Dati grezzi (nessuna trasformazione)", impostare il coefficiente di sensibilità direzione X a 0, impostare le direzioni Y e Z in base alle condizioni effettive (si consiglia di impostare a 1). Fare clic su "Configurazione comunicazione e caricamento" per inserire i parametri di comunicazione corrispondenti per connettersi al sensore laser. Per la configurazione dettagliata, fare riferimento alla sezione corrispondente del manuale utente.
+
+.. image:: coding/524.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-3-3 Configurazione del sensore laser a linea
+
+**Step2**: Calibrare il sistema di coordinate dell'utensile e il sistema di coordinate del sensore laser. Calibrare il sistema di coordinate dell'utensile utilizzando il "Metodo a sei punti" e calibrare il sistema di coordinate del sensore laser utilizzando il "Metodo a cinque punti". La calibrazione del sistema di coordinate dell'utensile e del sensore laser non è il focus di questa introduzione alla funzione. Per i metodi di calibrazione dettagliati, fare riferimento alla sezione corrispondente del manuale utente.
+
+**Step3**: Regolare la posizione del pezzo e del fascio laser come mostrato nella figura seguente. Il rettangolo nero è il pezzo, il segmento rosso è il fascio laser. Il fascio laser deve essere perpendicolare al bordo del pezzo da tracciare e la direzione di movimento del pezzo deve essere parallela al fascio laser. Il pezzo si muove a velocità costante, si consiglia una velocità di 15 mm/s. Una velocità troppo elevata ridurrà le prestazioni di tracciamento.
+
+.. image:: coding/525.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.8-3-4 Schema della posizione relativa pezzo/fascio laser
+
+**Step4**: Fare clic su "Programma di insegnamento" - "Tracciamento laser" - "Registrazione dati", impostare la selezione della funzione su "Registra e riproduce simultaneamente", impostare il tipo di movimento di tracciamento a punto fisso su "Movimento robot", impostare la modalità di attivazione del tracciamento a punto fisso su "Tempo", impostare la durata del tracciamento in base alle esigenze effettive. In questo manuale, 21 s sono utilizzati come esempio. Le impostazioni degli altri parametri sono le stesse del tracciamento laser utilizzando l'asse esteso. Fare clic sul pulsante "Aggiungi" in basso.
+
+.. image:: coding/526.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-3-5 Impostazioni parametri tracciamento durata personalizzata
+
+**Step5**: Fare clic su "Programma di insegnamento" - "Tracciamento laser" - "Registrazione dati", impostare la selezione della funzione su "Interrompi registrazione", fare clic sul pulsante aggiungi per generare il programma Lua. Quando si esegue questo programma, il robot traccerà per 21 s e poi terminerà il tracciamento.
+
+.. image:: coding/527.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-3-6 Programma Lua tipico per tracciamento durata personalizzata
+
+Processo Operativo di Tracciamento Attivato da I/O
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+**Step1**: Fare clic su "Impostazioni iniziali" - "Periferiche" - "Sensore laser a linea" - "Dispositivi adattati" per accedere alla pagina di configurazione. La pagina di configurazione include "Configurazione sensore", "Configurazione comunicazione e caricamento", "Calcolo di riferimento", ecc.
+
+Fare clic su "Configurazione sensore" per impostare i parametri del filtro di ingresso del sensore, impostare la differenza massima in base alle condizioni effettive, selezionare l'elaborazione dei dati come "Dati grezzi (nessuna trasformazione)", impostare il coefficiente di sensibilità direzione X a 0, impostare le direzioni Y e Z in base alle condizioni effettive (si consiglia di impostare a 1). Fare clic su "Configurazione comunicazione e caricamento" per inserire i parametri di comunicazione corrispondenti per connettersi al sensore laser. Per la configurazione dettagliata, fare riferimento alla sezione corrispondente del manuale utente.
+
+.. image:: coding/528.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-3-7 Configurazione del sensore laser a linea
+
+**Step2**: Calibrare il sistema di coordinate dell'utensile e il sistema di coordinate del sensore laser. Calibrare il sistema di coordinate dell'utensile utilizzando il "Metodo a sei punti" e calibrare il sistema di coordinate del sensore laser utilizzando il "Metodo a cinque punti". La calibrazione del sistema di coordinate dell'utensile e del sensore laser non è il focus di questa introduzione alla funzione. Per i metodi di calibrazione dettagliati, fare riferimento alla sezione corrispondente del manuale utente.
+
+**Step3**: Regolare la posizione del pezzo e del fascio laser come mostrato nella figura seguente. Il rettangolo nero è il pezzo, il segmento rosso è il fascio laser. Il fascio laser deve essere perpendicolare al bordo del pezzo da tracciare e la direzione di movimento del pezzo deve essere parallela al fascio laser. Il pezzo si muove a velocità costante, si consiglia una velocità di 15 mm/s. Una velocità troppo elevata ridurrà le prestazioni di tracciamento.
+
+.. image:: coding/525.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.8-3-8 Schema della posizione relativa pezzo/fascio laser
+
+**Step4**: Fare clic su "Programma di insegnamento" - "Tracciamento laser" - "Registrazione dati", impostare la selezione della funzione su "Registra e riproduce simultaneamente", impostare il tipo di movimento di tracciamento a punto fisso su "Movimento robot", impostare la modalità di attivazione del tracciamento a punto fisso su "I/O". Il tracciamento inizia quando l'I/O viene attivato e si interrompe quando il segnale I/O viene rimosso. Le impostazioni degli altri parametri sono le stesse del tracciamento laser utilizzando l'asse esteso. Fare clic sul pulsante "Aggiungi" in basso.
+
+.. image:: coding/529.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-3-9 Impostazioni parametri tracciamento I/O
+
+**Step5**: Fare clic su "Programma di insegnamento" - "Tracciamento laser" - "Registrazione dati", impostare la selezione della funzione su "Interrompi registrazione", fare clic sul pulsante aggiungi per generare il programma Lua. Quando si esegue questo programma, il tracciamento inizia quando l'I/O viene attivato e si interrompe quando il segnale I/O viene rimosso.
+
+.. image:: coding/530.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-3-10 Programma Lua tipico per tracciamento I/O
+
 Comando registrazione laser
 ++++++++++++++++++++++++++++++++++++++++++
 
@@ -1803,28 +1885,46 @@ Questa istruzione realizza la compensazione della traiettoria del robot per il t
 
 .. centered:: Grafico 9.8-6-3 Interfaccia istruzione Weld-Trc - parametri compensazione sinistra/destra
 
-Costituzione sistema tracciamento ad arco robot
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Composizione del Sistema di Tracciamento dell'Arco Robotico
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Durante il processo di saldatura con tracciamento ad arco del robot collaborativo, il saldatore invia in tempo reale il segnale di corrente di saldatura al PLC, che a sua volta lo comunica al robot tramite comunicazione UDP; il robot compensa la posizione della traiettoria di saldatura in base al valore di corrente di saldatura in tempo reale, realizzando l'effetto di tracciamento ad arco. Esistono due modi per il feedback del segnale di corrente tra saldatore e PLC:
+Durante il processo di saldatura con tracciamento dell'arco del robot collaborativo, la saldatrice fornisce un feedback in tempo reale dei segnali di corrente e tensione di saldatura al robot. Il robot compensa la posizione della traiettoria di saldatura in base ai valori di corrente e tensione di saldatura forniti in feedback in tempo reale, realizzando così l'effetto di tracciamento dell'arco. Il feedback dei segnali di corrente e tensione tra la saldatrice e il robot può essere realizzato nei seguenti quattro modi. I primi due richiedono un PLC aggiuntivo per l'inoltro dei dati, mentre gli ultimi due prevedono una connessione diretta tra la saldatrice e la centralina di controllo del robot:
 
-① Comunicazione bus CANopen o altro: se il saldatore supporta protocolli di comunicazione bus come CANopen, EtherCAT, ModbusTCP (ad esempio, Aotai NBC-500RP, Megmeet serie A2, ecc.), il PLC e il saldatore possono comunicare direttamente tramite i relativi protocolli di comunicazione, i corrispondenti segnali di corrente di saldatura possono essere trasmessi direttamente al PLC tramite comunicazione, quindi inviati dal PLC al robot tramite comunicazione UDP.
+①Comunicazione CANopen o altri bus: Se la saldatrice supporta protocolli di comunicazione bus come CANopen, EtherCAT o ModbusTCP (ad es., OTC NBC-500RP, Megmeet serie A2, ecc.), il PLC e la saldatrice possono comunicare direttamente tramite il relativo protocollo di comunicazione. Il segnale di corrente di saldatura corrispondente può essere trasmesso direttamente al PLC tramite comunicazione e quindi fornito come feedback al robot tramite comunicazione UDP.
 
 .. image:: coding/277.png
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.8-6-4 Schema topologico costituzione sistema tracciamento ad arco robot (comunicazione bus PLC e saldatore)
-.. centered:: a-computer; b-robot e scatola di controllo; c-PLC e modulo comunicazione bus; d-saldatore
+.. centered:: Figura 9.8-6-4 Diagramma Topologico della Composizione del Sistema di Tracciamento dell'Arco Robotico (Comunicazione Bus PLC e Saldatrice)
+.. centered:: a-Computer; b-Robot e Centralina di Controllo; c-PLC e Modulo di Comunicazione Bus; d-Saldatrice
 
-② Analogico I/O: il PLC può anche acquisire direttamente segnali analogici, convertendo poi i segnali analogici in valori di corrente con una certa relazione di conversione per inviarli al robot; se il saldatore ha un canale di output analogico per la corrente di saldatura in tempo reale, è possibile collegare direttamente questo canale al modulo di input analogico del PLC; se il saldatore non ha un canale di output analogico per la corrente di saldatura in tempo reale, è possibile collegare un sensore di corrente a effetto Hall, che acquisisce il segnale di corrente di saldatura in tempo reale e lo converte in segnale analogico per inviarlo al modulo di input analogico del PLC.
+②PLC + IO Analogico: Il PLC può anche acquisire direttamente segnali analogici e quindi convertire i segnali analogici in valori di corrente con una determinata relazione di conversione per fornire un feedback al robot. Se la saldatrice dispone di un canale di uscita analogico per la corrente di saldatura in tempo reale, è possibile collegare direttamente questo canale al modulo di ingresso analogico del PLC. Se la saldatrice non dispone di un canale di uscita analogico per la corrente di saldatura in tempo reale, è possibile collegare un sensore di corrente Hall esterno. Il sensore acquisisce il segnale di corrente di saldatura in tempo reale e converte il segnale di corrente di saldatura in un segnale analogico in uscita verso il modulo di ingresso analogico del PLC.
 
 .. image:: coding/278.png
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.8-6-5 Schema topologico costituzione sistema tracciamento ad arco robot (acquisizione segnale analogico PLC)
-.. centered:: a-computer; b-robot e scatola di controllo; c-PLC e modulo input analogico; d-saldatore e sensore corrente Hall
+.. centered:: Figura 9.8-6-5 Diagramma Topologico della Composizione del Sistema di Tracciamento dell'Arco Robotico (PLC che Acquisisce Segnali Analogici)
+.. centered:: a-Computer; b-Robot e Centralina di Controllo; c-PLC e Modulo di Ingresso Analogico; d-Saldatrice e Sensore di Corrente Hall
+
+③AI della Centralina di Controllo: Le porte I/O della centralina di controllo del robot hanno due ingressi analogici (0 ~ 10V). Se la saldatrice dispone di un canale di uscita analogico per la corrente di saldatura in tempo reale, è possibile collegare direttamente questo canale alla porta di ingresso analogico della centralina di controllo. Se la saldatrice non dispone di un canale di uscita analogico per la corrente di saldatura in tempo reale, è possibile collegare un sensore di corrente Hall esterno. Il sensore acquisisce il segnale di corrente di saldatura in tempo reale e converte il segnale di corrente di saldatura in un segnale analogico in uscita verso il canale di ingresso analogico della centralina di controllo. Esiste solitamente una relazione lineare tra il valore di ingresso analogico e il valore effettivo della corrente di saldatura. I parametri dettagliati sono impostati successivamente nella "Configurazione del Canale di Tracciamento dell'Arco".
+
+.. image:: coding/534.png
+   :width: 5in
+   :align: center
+
+.. centered:: Figura 9.8-6-6 Diagramma Topologico della Composizione del Sistema di Tracciamento dell'Arco Robotico (AI della Centralina di Controllo che Acquisisce Segnali Analogici)
+.. centered:: a-Computer; b-Robot e Centralina di Controllo; c-Saldatrice e Sensore di Corrente Hall
+
+④Comunicazione Ethernet (ModbusTCP): Se la saldatrice supporta la comunicazione ModbusTCP, il robot può controllare direttamente la saldatura e leggere i valori di feedback in tempo reale di corrente e tensione tramite ModbusTCP. Come mostrato nella Figura 1-4. La comunicazione ModbusTCP tra il robot e la saldatrice utilizza il protocollo aperto periferiche della centralina di controllo. Per i dettagli, vedere "8.6.6. Protocollo di Comunicazione Digitale (Modbus TCP)."
+
+.. image:: coding/535.png
+   :width: 5in
+   :align: center
+
+.. centered:: Figura 9.8-6-7 Diagramma Topologico della Composizione del Sistema di Tracciamento dell'Arco Robotico (Comunicazione ModbusTCP)
+.. centered:: a-Computer; b-Robot e Centralina di Controllo; c-Saldatrice
 
 Modelli saldatore e impostazioni
 ****************************************
@@ -1907,6 +2007,8 @@ La funzione tracciamento ad arco può realizzare, attraverso le informazioni di 
 
 **2) Configurazione comunicazione**
 
+①Comunicazione CANopen o altri bus：
+
 Aprire WebApp, cliccare in sequenza su "Impostazioni iniziali", "Configurazione periferiche utente", "Configurazione saldatore".
 
 .. image:: coding/280.png
@@ -1939,22 +2041,102 @@ Dopo aver configurato i suddetti parametri, cliccare in sequenza sui pulsanti "C
 
 .. centered:: Grafico 9.8-7-3 Selezione tipo controllo
    
-**3) Configurazione canale**
+②PLC + IO Analogico:
 
-Cliccare in sequenza su "Impostazioni iniziali", "Base", "Impostazioni I/O", "AI", selezionare il canale AI esteso corrispondente in base alla configurazione effettiva, cliccare sul pulsante "Applica".
+Come per la "①Comunicazione CANopen o altri bus", il programma PLC converte i dati analogici di ingresso nei dati di corrente e tensione del protocollo di comunicazione UDP e li invia al robot.
 
-.. note:: 
-   Il protocollo di comunicazione UDP tra robot e PLC è descritto in "8.5.5 Allegato 1: Protocollo comunicazione UDP robot", i dati di feedback dal PLC al robot includono i 4 canali di input analogico con numeri da 70 a 73, corrispondenti ad Aux-AI0~3 in Figura 4-4;
+③AI della Centralina di Controllo:
 
-   Durante la saldatura, il PLC acquisisce il segnale di corrente di saldatura in tempo reale e lo converte in un segnale numerico 0~4095 assegnandolo a un canale di input analogico, predefinito come "Aux-AI0". Il robot acquisisce il valore del corrispondente canale di input analogico per le operazioni di tracciamento ad arco;
+Non è richiesta alcuna configurazione di comunicazione. È sufficiente collegare correttamente i cavi I/O tra la centralina di controllo e la saldatrice. Le linee analogiche di feedback della corrente e tensione di saldatura in tempo reale dalla saldatrice vengono immesse sulle porte AI0 e AI1 della centralina di controllo del robot.
 
-   Se è necessario cambiare il canale di tracciamento ad arco in "Aux-AI1", "Aux-AI2" o "Aux-AI3", è necessario aggiornare contemporaneamente il programma lato PLC, assegnando la corrente di saldatura in tempo reale acquisita alla corrispondente porta di input analogico.
+④Comunicazione Ethernet (ModbusTCP):
+
+Collegare correttamente il cavo di rete tra il robot e la saldatrice. In WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", "Centralina di Controllo", "Protocollo Aperto Periferiche". Caricare il protocollo di comunicazione della saldatrice nel robot, quindi fare clic in sequenza sui pulsanti "Configura" e "Carica". Il robot stabilirà quindi una connessione di comunicazione ModbusTCP con la saldatrice.
+
+.. image:: coding/542.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-7-4 Stabilire la Comunicazione Ethernet per il Tracciamento dell'Arco
+
+.. note:: L'effetto di tracciamento dell'arco dipende da un feedback rapido dei dati di corrente e tensione di saldatura in tempo reale. Se la frequenza di feedback è lenta, potrebbe causare il fallimento del tracciamento della cordone di saldatura. Pertanto, quando si utilizza ModbusTCP per la comunicazione con la saldatrice, è necessario impostare in modo appropriato il ciclo di comunicazione nel protocollo. Il ciclo di comunicazione consigliato è inferiore a 10 ms.
+
+**3) Configurazione Canale**
+
+①Comunicazione CANopen o altri bus:
+
+Fare clic in sequenza su "Impostazioni Iniziali" -> "Periferiche" -> "Saldatrice" -> "Protocollo di Comunicazione Digitale (UDP)."
 
 .. image:: coding/282.png
    :width: 4in
    :align: center
 
-.. centered:: Grafico 9.8-7-4 Configurazione canale tracciamento ad arco
+.. centered:: Figura 9.8-7-5 Selezione del Tipo di Controllo della Saldatrice come "Protocollo di Comunicazione Digitale (UDP)"
+
+Trovare il "Canale di Tracciamento dell'Arco" nella parte inferiore della pagina. Selezionare il canale AI esteso corrispondente in base alla configurazione effettiva. Il canale AI corrente di saldatura predefinito è "Aux-AI0" e il canale AI tensione di saldatura predefinito è "Aux-AI1". Fare clic sul pulsante "Configura".
+
+.. note:: 
+   Il protocollo di comunicazione UDP tra il robot e il PLC è dettagliato nell'"Appendice 1: Protocollo di Comunicazione UDP del Robot". I dati di feedback dal PLC al robot nel protocollo includono i canali di ingresso per il feedback della corrente e tensione di saldatura effettive nei byte 74~77.
+   
+   Durante la saldatura, il PLC acquisisce i segnali di corrente di saldatura in tempo reale tramite CANOpen o altri bus e fornisce il feedback al robot per il tracciamento dell'arco attraverso i valori di corrente e tensione di saldatura effettive nei byte 74~77.
+
+.. image:: coding/536.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-7-6 Configurazione Canale Tracciamento Arco con Comunicazione Bus
+
+②PLC + IO Analogico:
+
+La configurazione è la stessa della "①Comunicazione CANopen o altri bus". Nel programma PLC, l'utente converte l'ingresso analogico letto nei valori effettivi di feedback della corrente e tensione di saldatura attraverso una conversione numerica, e assegna questi valori ai canali di ingresso per il feedback della corrente e tensione di saldatura effettive (byte 74~77) nel pacchetto di dati di feedback dal PLC al robot nel protocollo di comunicazione UDP tra il robot e il PLC.
+
+③AI della Centralina di Controllo:
+
+Fare clic in sequenza su "Impostazioni Iniziali" -> "Periferiche" -> "Saldatrice," "I/O Controller."
+
+.. image:: coding/537.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-7-7 Selezione del Tipo di Controllo della Saldatrice come "I/O Controller"
+
+Trovare il "Canale di Tracciamento dell'Arco" nella parte inferiore della pagina. Selezionare Corrente di Saldatura AI come "Ctrl-AI0" e Tensione di Saldatura AI come "Ctrl-AI1". Fare clic sul pulsante "Configura". L'ingresso analogico 0~10V della centralina di controllo ha spesso una relazione lineare con i valori effettivi di feedback della corrente e tensione, quindi è necessario configurare i valori effettivi di corrente e tensione di saldatura corrispondenti a diversi ingressi analogici.
+
+Nella sezione "Diagramma della Relazione Corrente-Tensione Analogica" della configurazione del canale AI, le impostazioni dei parametri per le interfacce "A-V" e "V-V" devono fare riferimento alla tabella/grafico di ingresso/uscita analogica della saldatrice in uso.
+
+Ad esempio, configurare i limiti inferiore e superiore della corrente di saldatura per l'AI analogico corrente della centralina di controllo rispettivamente a 0A e 500A. Configurare i limiti inferiore e superiore della tensione di uscita per l'AI analogico corrente della centralina di controllo rispettivamente a 0V e 5V, come parametri di configurazione per l'interfaccia "A-V" nella sezione "Diagramma della Relazione Corrente-Tensione Analogica" della configurazione del canale AI. Fare clic su "Configura" per completare la configurazione del canale AI analogico corrente della centralina di controllo.
+
+.. image:: coding/538.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-7-8 Configurazione AI Analogico Corrente della Centralina di Controllo
+
+Ad esempio, configurare i limiti inferiore e superiore della tensione di saldatura per l'AI analogico tensione della centralina di controllo rispettivamente a 0V e 50V. Configurare i limiti inferiore e superiore della tensione di uscita per l'AI analogico tensione della centralina di controllo rispettivamente a 1.018V e 10V, come parametri di configurazione per l'interfaccia "V-V" nella sezione "Diagramma della Relazione Corrente-Tensione Analogica" della configurazione del canale AI. Fare clic su "Configura" per completare la configurazione del canale AI analogico tensione della centralina di controllo.
+
+.. image:: coding/539.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-7-9 Configurazione AI Analogico Tensione della Centralina di Controllo
+
+④Comunicazione Ethernet (ModbusTCP):
+
+Fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", "Saldatrice", "Protocollo di Comunicazione Digitale (Modbus TCP)."
+
+.. image:: coding/540.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-7-10 Selezione del Tipo di Controllo della Saldatrice come "Protocollo di Comunicazione Digitale (Modbus TCP)"
+
+Trovare il "Canale di Tracciamento dell'Arco" nella parte inferiore della pagina. Selezionare Corrente di Saldatura AI come "Ethernet" e Tensione di Saldatura AI come "Ethernet". Fare clic sul pulsante "Configura".
+
+.. image:: coding/541.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-7-11 Configurazione Canale Tracciamento Arco con Comunicazione Ethernet
 
 **4) Introduzione all'uso delle istruzioni funzione**
 
@@ -1964,7 +2146,7 @@ La funzione di tracciamento ad arco può essere adattata al movimento di saldatu
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.8-7-5 Esempio tipico programma tracciamento ad arco
+.. centered:: Grafico 9.8-7-12 Esempio tipico programma tracciamento ad arco
 
 **5) Introduzione parametri interfaccia funzione**
 
@@ -2141,7 +2323,7 @@ La funzione di tracciamento ad arco può essere adattata al movimento di saldatu
    :width: 6in
    :align: center
 
-.. centered:: Grafico 9.8-7-6 Impostazione traiettoria oscillante inclinata (sinistra), traiettoria di saldatura quando i segni sono corretti (destra)
+.. centered:: Grafico 9.8-7-13 Impostazione traiettoria oscillante inclinata (sinistra), traiettoria di saldatura quando i segni sono corretti (destra)
 
 Comando regolazione orientamento
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2178,6 +2360,37 @@ Questa istruzione include otto comandi: FT_Guard (rilevamento collisione), FT_Co
 
 .. centered:: Grafico 9.9-1 Interfaccia istruzione F/T
 
+Funzione di Ottimizzazione dell'Inserimento Rotazionale a Controllo di Forza
+****************************************************************************************
+
+Panoramica
+""""""""""""""""""""""""""""""""""
+La funzione di inserimento rotazionale a controllo di forza è generalmente utilizzata per eseguire azioni di inserimento rotazionale. Prima di eseguire l'azione, è necessario spostare l'estremità del robot nella posizione del foro insegnato completamente allineata. In base allo scenario applicativo, impostare i parametri di movimento corrispondenti e la strategia di gestione per la mancata rilevazione della forza esterna. Al termine, se la forza esterna rilevata non raggiunge la soglia impostata, l'utente può scegliere autonomamente di interrompere l'intero programma (funzione configurata come "Errore", l'interfaccia visualizza un errore rosso) o di continuare il movimento (funzione configurata come "Avviso", l'interfaccia visualizza un avviso giallo).
+
+Processo Operativo
+""""""""""""""""""""""""""""""""""""""""
+**Step1**: Fare clic in sequenza su "Programma di insegnamento" -> "Programmazione programma" -> "Set controllo di forza" -> istruzione "Rot". Impostare i parametri di movimento corrispondenti in base allo scenario applicativo effettivo. La strategia di gestione per la mancata rilevazione della forza esterna può essere impostata su "Errore" o "Avviso". Quando configurato come "Errore", se il robot rileva che la forza esterna è sempre inferiore alla soglia impostata e l'angolo di rotazione impostato è stato raggiunto, verrà segnalato un errore sull'interfaccia e l'esecuzione del programma successivo verrà interrotta. Quando configurato come "Avviso", se il robot rileva che la forza esterna è sempre inferiore alla soglia impostata e l'angolo di rotazione impostato è stato raggiunto, verrà visualizzato un avviso sull'interfaccia e l'esecuzione del programma successivo continuerà.
+
+.. image:: coding/531.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.9-2 Configurazione parametri inserimento rotazionale a controllo di forza
+
+**Step2**: La funzione di inserimento rotazionale a controllo di forza deve essere combinata con la funzione "FT_Control" per il movimento, con gli stessi parametri di movimento impostati. I tipici programmi Lua con la strategia di gestione per la mancata rilevazione della forza esterna impostata su "Errore" e "Avviso" sono mostrati nelle figure seguenti rispettivamente.
+
+.. image:: coding/532.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.9-3 Programma Lua tipico configurato come "Errore"
+
+.. image:: coding/533.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.9-4 Programma Lua tipico configurato come "Avviso"
+
 Comando registrazione coppia
 ++++++++++++++++++++++++++++++++++
 
@@ -2189,7 +2402,7 @@ Questa istruzione è per la registrazione della coppia, realizzando la funzione 
    :width: 6in
    :align: center 
 
-.. centered:: Grafico 9.9-2 Interfaccia istruzione Torque
+.. centered:: Grafico 9.9-5 Interfaccia istruzione Torque
 
 Interfaccia istruzioni visione
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,3 +1,65 @@
+Versione V3.9.2
+-----------------
+
+Data: 2026-01-26
+
+- **Ottimizzazione Insegnamento Trascinamento ad Anello di Posizione Sensore di Coppia Articolare**:
+    Percorso: Applicazioni Ausiliarie -> Applicazioni Utensile -> Blocco Trascinamento.
+  
+    Descrizione: Risolto il problema di precisione insufficiente nell'allineamento del punto entro 2 secondi durante il trascinamento tra le articolazioni.
+
+- **Ottimizzazione Scheda di Espansione**:
+  
+    Descrizione: Ottimizzato il meccanismo di sincronizzazione dati DO estesi.
+
+- **Ottimizzazione Funzione Tracciamento Arco**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Saldatrice.
+  
+    Descrizione: Aggiunta acquisizione corrente di saldatura in tempo reale tramite il protocollo aperto periferico ModbusTCP.
+
+- **Ottimizzazione Funzione Reset IP Controller e Teach Pendant Fisico**:
+    Percorso: Impostazioni di Sistema -> Rete.
+  
+    Descrizione: ① Aggiunta funzione "Reset IP Controller" in webrecovery, richiede conferma secondaria; ② Aggiunta funzione di reset IP al teach pendant fisico; ③ Aggiunta la possibilità per il teach pendant fisico di resettare il proprio IP tramite pulsanti fisici quando non connesso. L'IP del teach pendant è 192.168.58.77.
+
+- **Aggiunta Nuova Configurazione Robot FR3C**:
+  
+    Descrizione: Intervallo operativo dei giunti coerente con la serie FR3, braccio superiore e inferiore coerenti con WMS, carico nominale 3kg.
+
+- **Aggiunta Funzione Interferenza Cubo**:
+    Percorso: Impostazioni Iniziali -> Sicurezza -> Zona Interferenza -> Interferenza Cubo.
+  
+    Descrizione: Implementato il controllo simultaneo di interferenza per almeno 4 cubi e l'uscita CO configurabile corrispondente ai segnali di interferenza.
+
+- **Aggiunta Estensione Funzionalità Modulo slave_interpret (Protocollo PROFINET) e Funzione Visualizzazione IO Completa Web**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Comunicazione Scheda -> Aggiornamento Scheda.
+  
+    Descrizione: Aggiunto aggiornamento firmware EtherCAT scheda Jiyuan, rilevamento comunicazione PLC, ciclo configurabile e funzione di visualizzazione IO completa Web (protocollo PROFINET).
+
+- **Aggiunta Funzioni Protocollo Aperto Smarttool**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Saldatrice (Welding Handle).
+  
+    Descrizione: ① Aggiunta analisi creazione programma smarttool ed elaborazione segnali di rilevamento basata sul protocollo aperto, e aggiunta funzione anti-errore ai tasti "Annulla, Elimina". ② Aggiunta funzione generazione automatica configurazione tasti protocollo aperto smarttool.
+
+- **Aggiunta Compatibilità Pacchetti di Backup tra Versioni Software QX e LA**:
+    Percorso: Applicazioni Ausiliarie -> Applicazioni Utensile -> Backup Dati.
+  
+    Descrizione: ① QX supporta e può importare completamente pacchetti di backup LA, LA supporta e può importare completamente pacchetti di backup QX; ② Compatibile con pacchetti di backup dalla versione v3.8.7 in poi.
+
+- **Aggiunta Parametri Configurabili per CI End e CI Controller**:
+    Percorso: Impostazioni Iniziali -> Base -> Impostazioni I/O -> DI.
+  
+    Descrizione: Abilita l'interruzione movimento configurabile per CI End e sincronizza alcune funzioni configurabili CI Controller a CI End.
+
+- **Aggiunta Funzione Tracciamento Servo Dati Laser Robot**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Sensore Laser Linea.
+  
+    Descrizione: Abilita il robot a tracciare direttamente utilizzando i dati del sensore laser.
+
+- **Aggiunta Funzione Configurazione Teach Pendant**:
+  
+    Descrizione: ① I tasti F1-F4 sul teach pendant supportano la configurazione di funzioni personalizzate tramite l'interfaccia WEB; ② La commutazione della chiave in modalità personalizzata può essere configurata come modalità trascinamento.
+
 Versione V3.9.1
 -----------------
 

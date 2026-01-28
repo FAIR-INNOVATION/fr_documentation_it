@@ -661,61 +661,124 @@ Quando il robot collaborativo in produzione necessita di connettere periferiche 
      - Abilita/Disabilita (fronte di salita/discesa)
      - Il fronte di salita e di discesa dello stato valido del segnale di ingresso attivano rispettivamente l'abilitazione e la disabilitazione del robot.
 
-Stato valido ingressi estremità
-****************************************
+Aggiunta di Funzioni Configurabili all'CI di Fine Corsa
+**********************************************************
 
-.. centered:: Tabella 6.5‑2 Funzioni configurabili ingressi estremità
+Panoramica
+""""""""""""""""""""""""""""""""""""""""
 
-.. list-table::
-   :widths: 15 30 100
+Sincronizzare tutte le funzioni del CI della centralina di controllo del robot al CI di fine corsa mira a costruire un sistema di controllo logicamente equivalente e fisicamente complementare. Le due interfacce sono completamente equivalenti nelle funzioni logiche e possono essere utilizzate in parallelo o in modo selettivo, consentendo al sistema di controllo del robot di allocare in modo intelligente i percorsi del segnale in base agli scenari di task, al layout fisico delle apparecchiature e ai requisiti di affidabilità.
+
+Procedura Operativa
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Step1**: Fare clic in sequenza sui pulsanti della barra dei menu "Impostazioni Iniziali" - "Base" - "Impostazioni I/O" - "DI", ecc., per accedere all'interfaccia di configurazione DI. Selezionare End DI0 e End DI1 per configurare le funzioni di ingresso del fine corsa del robot.
+
+.. image:: base/095.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 6.5‑3 Configurazione Parametri DI di Fine Corsa
+
+**Step2**: I segnali DI supportati dal fine corsa del robot sono elencati nella tabella sottostante. Gli utenti possono configurare i segnali corrispondenti in base alle proprie esigenze di utilizzo effettive.
+
+.. centered:: Tabella 6.5‑2 Funzioni Configurabili Ingresso Fine Corsa
+
+.. list-table:: 
+   :widths: 15 30 100 
    :header-rows: 1
    :align: center
 
-   * - Codice funzione
-     - Nome funzione
-     - Descrizione funzione
+   * - Numero Funzione
+     - Nome Funzione
+     - Descrizione Funzione
    * - 0
-     - Nessuna
-     - Nessuna
+     - Nessuno
+     - Nessuno
    * - 1
-     - Modalità trascinamento
-     - Segnale attivazione modalità trascinamento estremità robot
+     - Modalità Trascinamento
+     - Segnale per abilitare la modalità trascinamento al fine corsa del robot
    * - 2
-     - Registrazione punto insegnamento
-     - Segnale attivazione registrazione punto insegnamento estremità robot, salva i dati di posizione corrente del robot.
+     - Registrazione Punti Insegnamento
+     - Segnale per abilitare la registrazione dei punti di insegnamento al fine corsa del robot, salva i dati di posizione corrente del robot
    * - 3
-     - Commutazione manuale/automatico
-     - Segnale di attivazione commutazione manuale/automatico robot
+     - Commutazione Manuale/Automatica
+     - Segnale di attivazione per la commutazione manuale/automatica del robot
    * - 4
-     - Avvio/Arresto registrazione traiettoria TPD
-     - Dopo l'inizio movimento TPD del robot, segnale avvio/arresto registrazione traiettoria.
+     - Avvio/Arresto Registrazione Traiettoria TPD
+     - Dopo che il robot inizia il movimento TPD, segnale per avviare/arrestare la registrazione della traiettoria
    * - 5
      - Pausa
-     - Segnale pausa movimento robot
+     - Segnale per mettere in pausa il movimento del robot
    * - 6
-     - Ripristino
-     - Segnale ripristino movimento robot
+     - Riprendi
+     - Segnale per riprendere il movimento del robot
    * - 7
-     - Avvio
-     - Segnale avvio programma robot
+     - Avvia
+     - Segnale per avviare il programma del robot
    * - 8
-     - Arresto
-     - Segnale arresto programma robot
+     - Arresta
+     - Segnale per arrestare il programma del robot
    * - 9
-     - Pausa/Ripristino
-     - Dopo l'avvio movimento robot, attiva ciclicamente segnali pausa/ripristino movimento.
+     - Pausa/Riprendi
+     - Dopo il movimento del robot, attiva ciclicamente il segnale di pausa/ripresa movimento
    * - 10
-     - Avvio/Arresto
-     - Dopo l'avvio movimento robot, attiva ciclicamente segnali avvio/arresto movimento.
+     - Avvia/Arresta
+     - Dopo il movimento del robot, attiva ciclicamente il segnale di avvio/arresto movimento
    * - 11
-     - Attiva trascinamento assistito
-     - Segnale attivazione funzione trascinamento con sensore di forza configurata su DI control cabinet
+     - Abilitazione Trascinamento Assistito
+     - Funzione DI della centralina di controllo configura il segnale di abilitazione della funzione di trascinamento con sensore di forza
    * - 12
-     - Disattiva trascinamento assistito
-     - Segnale disattivazione funzione trascinamento con sensore di forza configurata su DI control cabinet
+     - Disabilitazione Trascinamento Assistito
+     - Funzione DI della centralina di controllo configura il segnale di disabilitazione della funzione di trascinamento con sensore di forza
    * - 13
-     - Attiva/Disattiva trascinamento assistito
-     - Funzione DI control cabinet configurazione sensore di forza trascinamento, segnale ciclico attivazione/disattivazione.
+     - Abilitazione/Disabilitazione Trascinamento Assistito
+     - Funzione DI della centralina di controllo configura la funzione di trascinamento con sensore di forza, segnale ciclico di abilitazione/disabilitazione
+   * - 14
+     - Segnale Rilevamento Laser X
+     - Segnale di rilevamento del sensore laser del robot X
+   * - 15
+     - Segnale Rilevamento Laser Y
+     - Segnale di rilevamento del sensore laser del robot Y
+   * - 16
+     - Sposta all'Origine Operativa
+     - Segnale per spostare il robot all'origine operativa
+   * - 17
+     - Interruzione Movimento
+     - Segnale per interrompere il programma di movimento del robot
+   * - 18
+     - Avvia Programma Principale
+     - Segnale per avviare il programma principale del robot
+   * - 19
+     - Avvia Rewind
+     - Dopo l'esecuzione del programma del robot, segnale per avviare il rewind del programma
+   * - 20
+     - Conferma Avvio
+     - Segnale di conferma avvio programma del robot
+   * - 21
+     - Riprendi Saldatura
+     - Dopo che si verifica un'interruzione di saldatura sul robot, segnale per riprendere l'operazione di saldatura
+   * - 22
+     - Termina Saldatura
+     - Durante il processo di saldatura del robot, segnale per terminare l'operazione di saldatura
+   * - 23
+     - Cancellazione Messaggi Errore
+     - Cancella tutti i segnali di errore attivati dal robot
+   * - 24
+     - Commutazione Manuale/Automatica (Livello Alto/Basso)
+     - Quando l'ingresso configurabile seleziona "Livello Alto Attivo", il robot passa in automatico quando il segnale di ingresso è a livello alto; quando l'ingresso configurabile seleziona "Livello Basso Attivo", il robot passa in automatico quando il segnale di ingresso è a livello basso
+   * - 25
+     - Abilita
+     - Controlla l'abilitazione del robot
+   * - 26
+     - Disabilita
+     - Controlla la disabilitazione del robot
+   * - 27
+     - Abilita/Disabilita (Fronte di Salita/Discesa)
+     - I fronti di salita e discesa dello stato valido del segnale di ingresso attivano rispettivamente le azioni di abilitazione e disabilitazione del robot
+   * - 28
+     - Segnale Avvio/Arresto Tracciamento Laser Servo
+     - Quando la funzione di registrazione e tracciamento laser del robot è abilitata e la funzione I/O avvio/arresto è attivata, l'attivazione del CI di fine corsa corrispondente inizia il tracciamento laser; il rilascio del CI di fine corsa corrispondente termina il tracciamento
 
 La configurazione predefinita del control cabinet è: CO0 come 1-Errore robot, CO1 come 2-Robot in movimento.
 

@@ -169,3 +169,8 @@ Tabella dei Codici Errore SDK
     "193","Controllo coppia velocità oltre limite","Verificare la velocità di controllo coppia"
     "194","Controllo coppia potenza oltre limite","Verificare la potenza di controllo coppia"
     "195","L'angolo di inclinazione della base FR30L deve essere 0","Verificare l'angolo di inclinazione della base"
+    "196","Segnale sensore spot non attivato","Controllare il sensore spot"
+    "197","Calibrazione punto zero e/o sensibilità del sensore non completata","Controllare il sensore"
+    "198","Anomalia rilevata nel sensore di coppia articolare","Controllare il sensore di coppia articolare"
+    "199","Quando più zone di interferenza cubiche sono abilitate, è consentita solo l'interferenza entro l'intervallo configurato","Controllare la/e zona/e di interferenza"
+    "200","Il robot è attualmente in esecuzione in modalità Jog","Controllare il robot"

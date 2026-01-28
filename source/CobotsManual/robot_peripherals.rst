@@ -10,7 +10,7 @@ Protocollo Aperto Personalizzato Lua per l'Estremità
 Panoramica
 ~~~~~~~~~~~~~~~~~~
 
-All'estremità del robot è fornita un'interfaccia hardware per collegare periferiche tramite comunicazione 485. Le periferiche attualmente supportate includono pinze, pinze rotanti, sensori di forza, manipoli di saldatura e altri dispositivi. Tutti questi dispositivi terminali possono essere adattati scrivendo un protocollo aperto in Lua per realizzare l'adattamento del protocollo, consentendo il controllo della periferica e l'acquisizione del suo stato.
+All'estremità del robot è fornita un'interfaccia hardware per collegare periferiche tramite comunicazione 485. Le periferiche attualmente supportate includono pinze, pinze rotanti, sensori di forza, manipoli di saldatura e altri dispositivi. Tutti questi dispositivi terminali possono essere adattati scrivendo un protocollo aperto in Lua per realizzare l'adattamento del protocollo, consentendo il controllo della periferica e l'acquisizione del suo stato.Per la saldatrice SmartTool (SmartTool welding handle), gli utenti possono anche scegliere di accedere alla pagina web per configurare le funzioni dei tasti e generare automaticamente un file di protocollo aperto. Il protocollo generato verrà applicato automaticamente all'end.
 
 Procedura Operativa
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,7 +31,7 @@ Procedura Operativa
 **Step2**: Aprire la WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche" e selezionare la periferica terminale da configurare (ad esempio, pinza). Il tipo di controllo per le periferiche include due opzioni: dispositivi pre-adattati e protocollo aperto periferica:
 
 - **Dispositivi Pre-adattati**: Utilizza il controllore del robot per la comunicazione. Non è richiesto caricamento o applicazione.
-- **Protocollo Aperto Periferica**: L'utente scrive un protocollo aperto basato su Lua per l'estremità da adattare per realizzare il controllo della comunicazione. I protocolli terminali sono suddivisi in due categorie: una è costituita da protocolli caricati dall'utente, l'altra da protocolli incorporati preimpostati nel robot.
+- **Protocollo Aperto Periferica**: L'utente scrive un protocollo aperto basato su Lua per l'estremità da adattare per realizzare il controllo della comunicazione. I protocolli terminali sono suddivisi in due categorie: una è costituita da protocolli caricati dall'utente, l'altra da protocolli incorporati preimpostati nel robot.A partire dalla versione 3.9.2, gli utenti non devono eseguire operazioni di verifica e crittografia sul protocollo Lua da caricare all'end utilizzando software aggiuntivi; possono caricarlo direttamente. I protocolli precedentemente verificati e crittografati possono ancora essere caricati e utilizzati normalmente. Il robot distinguerà attivamente se il file è stato verificato e crittografato. Se non è stato verificato, il robot lo verificherà e crittograferà prima di caricarlo e applicarlo all'end. Se è già crittografato, verrà caricato e applicato all'end direttamente.
 
 .. figure:: robot_peripherals/002.png
    :align: center
@@ -500,13 +500,122 @@ Le informazioni di configurazione del sensore di forza sono suddivise in produtt
 Protocollo Lua Terminale per Sensore di Forza
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Aprire la WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", "Sensore di Forza", "Protocollo Personalizzato". Fare clic su "Gestione Protocolli" per configurare il protocollo terminale. Attualmente, i protocolli incorporati preimpostati per il sensore di forza sono mostrati nella figura seguente.
+Aprire la WebApp, fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", "Sensore di Forza", "Protocollo Personalizzato". Fare clic su "Gestione Protocolli" per configurare il protocollo terminale. Attualmente, i protocolli incorporati preimpostati per il sensore di forza sono mostrati nella figura seguente.La versione 3.9.2 ha aggiunto due protocolli combinati incorporati per pinza + sensore di forza: End_JD_XJC_V1.0.lua e End_JD_GZCX_V1.0.lua.
 
 .. figure:: robot_peripherals/281.png
    :align: center
    :width: 6in
 
 .. centered:: Figura 8.3‑2-2 Protocolli Incorporati Preimpostati per il Sensore di Forza
+
+Protocollo Lua End per Saldatrice (Welding Handle)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aprire WebApp, quindi fare clic in sequenza su "Impostazioni Iniziali," "Periferiche," "Saldatrice (Welding Handle)," "Protocollo Personalizzato." Fare clic su "Gestione Protocollo" per configurare il protocollo end. I protocolli incorporati predefiniti attualmente per la saldatrice sono mostrati nella figura sottostante. La versione 3.9.2 ha aggiunto tre nuovi protocolli combinati incorporati per SmartTool+pinza o sensore di forza: End_SM_JD_V1.3.lua, End_SM_GZCX_V1.3.lua, End_SM_XJC_V1.3.lua.
+
+.. figure:: robot_peripherals/283.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑2-3 Protocolli Incorporati Predefiniti per Saldatrice
+
+Generazione Automatica del Protocollo End Lua
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Questa nuova funzionalità aggiunta consente la generazione automatica del protocollo Lua end tramite la configurazione della pagina web per i protocolli relativi alle periferiche SmartTool incorporate per la saldatrice (attualmente solo quattro protocolli supportano la generazione automatica: End_SmartTool_V1.3.lua, End_SM_JD_V1.3.lua, End_SM_GZCX_V1.3.lua, End_SM_XJC_V1.3.lua). Il protocollo generato viene caricato e applicato all'end senza richiedere la scrittura da parte dell'utente. Gli utenti configurano i tasti A, B, C, D, E e IO della saldatrice SmartTool secondo le proprie esigenze. Dopo il completamento della configurazione, il robot deve essere disabilitato, quindi fare clic su "Applica". A questo punto, la pagina richiederà "Entrare in boot e applicare il protocollo aperto?" Facendo clic su Conferma, il robot entrerà nello stato boot e caricherà automaticamente il protocollo Lua end generato automaticamente. Dopo il riavvio del robot, SmartTool può essere utilizzato secondo i tasti configurati.
+
+.. figure:: robot_peripherals/284.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑2-4 Generazione Automatica del Protocollo di Configurazione Saldatrice SmartTool
+
+.. figure:: robot_peripherals/285.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.3‑2-5 Prompt della Pagina "Entrare in boot e applicare il protocollo aperto?"
+
+Importazione Modello per Generazione Programmi SmartTool
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Se il tasto SmartTool è configurato con la funzione di generazione programmi, in base al protocollo aperto, vengono forniti due tipi di programmi generati: per impostazione predefinita viene generato un programma Lua vuoto, oppure l'utente può scegliere di caricare un modello che inizia con 'template' come modello per il nuovo programma. Quando il nuovo programma seleziona il programma modello, il file Lua generato attivando "Nuovo Programma" su SmartTool include il contenuto del file modello caricato. Eventuali istruzioni aggiunte successivamente vengono aggiunte dopo il contenuto del modello.
+
+.. figure:: robot_peripherals/286.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.3‑2-6 Importazione Modello per Generazione Programmi SmartTool
+
+Configurazione Punti Istruzione Movimento SmartTool
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Quando si configurano le istruzioni "PTP," "LIN," e "ARC" in SmartTool, è possibile scegliere il database di archiviazione per i punti istruzione generati tra "Punti Insegnamento Globali" o "Punti Insegnamento Locali." Quando si seleziona "Punti Insegnamento Globali," i punti istruzione generati possono essere visualizzati tramite "Programma Insegnamento," "Punti Insegnamento." Quando si seleziona "Punti Insegnamento Locali," i punti istruzione generati possono essere visualizzati tramite "Programma Insegnamento," "Programmazione Programma," "Punti Insegnamento Locali."
+
+.. figure:: robot_peripherals/287.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.3‑2-7 Configurazione Punti Istruzione Movimento SmartTool "Punti Insegnamento Globali" e "Punti Insegnamento Locali"
+
+Modalità Anti-Tocco Accidentale SmartTool
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Lo SmartTool basato sul protocollo aperto aggiunge una modalità anti-tocco accidentale. Fare clic in sequenza su "Impostazioni Iniziali," "Periferiche," "Saldatrice," "Protocollo Personalizzato." Dopo aver abilitato il protocollo end, è possibile vedere l'interruttore per "Modalità Anti-Tocco Accidentale." Quando questa funzione è abilitata, le due funzioni tasto "Annulla Programma" e "Cancella Programma" su SmartTool devono essere premute due volte per essere attivate.
+
+.. figure:: robot_peripherals/288.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑2-8 Funzione "Modalità Anti-Tocco Accidentale" SmartTool
+
+Esempio di Protocollo Periferico End Lua per Saldatrice
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Le funzioni dei sei tasti A, B, C, D, E e IO possono essere modificate e definite cambiando il valore key alla riga 31 del codice. Tra questi, K38=Getbit(R[7],1) e K0=Getbit(R[7],2) sono rispettivamente per "Cancella Programma" e "Tasto Annulla" e non possono essere modificati. I successivi cinque valori K possono essere modificati secondo le definizioni nel documento *Protocollo Periferico Completo End*. In questo esempio (protocollo SmartTool incorporato), le corrispondenti funzioni tasto sono: A: LIN, B: PTP, C: Crea Programma, D: Ripresa Interruzione Saldatura, E: Uscita Interruzione Saldatura, IO: LIN+Saldatura+Oscillazione.
+
+.. centered:: Esempio di Protocollo Periferico End Lua per Saldatrice (SmartTool)
+  
+.. code-block:: 
+   :linenos:
+
+   function Getbit(X,Bit)
+   return ((X&(1<<Bit))>>Bit)
+   end
+
+   if(Getbit(GetRobotState(),0)==1)then
+   local SetParams={B6=3}-- B6 - Numero porta DO operativa è DO3
+   SetWeldParams(SetParams)
+   while(1)
+   do
+   IwdgTaskHandle()
+   MainLoop()
+   UpDownLoadHandle()
+   SdoRwPara()
+   EndErrClear()
+   local BFlag=LuaBreak()
+   if(BFlag==1)then
+   break
+   end
+   local R={0}
+   local T={0x7D,0x01,0x30,0xC0,0x00,0x04,0x00,0x00,0x00,0x00}
+   DelayMs(100)
+   T[7],T[8],T[9],T[10]=GetIoCmd()
+   Dword=GetRobotState()
+   T[7]=Getbit(Dword,4)
+   T[12],T[11]=WeldToolCrcValue(T)
+   T[13]=0x0E
+   WeldToolSlaveSetCmd(T)
+   DelayMs(3)
+   Len=EndRxWeldData(R)
+   if((Len==13)and(R[1]==0x7D)and(R[2]==0x01)and(R[3]==0x30))then
+   local key={K38=Getbit(R[7],1),K0=Getbit(R[7],2),K3=Getbit(R[7],3),K25=Getbit(R[7],4),K39=Getbit(R[7],5),K27=Getbit(R[7],6),K28=Getbit(R[7],7), K44=Getbit(R[8],0),
+   K6=Getbit(R[8],1),K7=Getbit(R[8],2)}--Impostazioni tasti saldatrice smarttool, Tasto Annulla - K38 Annulla Programma; Tasto Cancella - K0 Cancella Programma; Tasto A - K3 LIN; Tasto B - K25 PTP; Tasto C - K39 Crea Programma; Tasto D - K27 Ripresa Interruzione Saldatura; Tasto E - K28 Uscita Interruzione Saldatura; Tasto IO - K44 LIN+Saldatura+Oscillazione  Tasto Manuale/Automatico - K6 Manuale/Automatico; Tasto Esegui/Pausa - K7 Esegui/Pausa
+   SetWeldToolKeys(key)
+   end
+   LuaGc()
+   end
+   end
 
 Identificazione carico sensore
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

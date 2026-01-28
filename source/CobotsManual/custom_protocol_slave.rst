@@ -176,6 +176,18 @@ Quando il protocollo è configurato come Ethernet/IP, il controller modificherà
 
 Quando il protocollo è commutato su Profinet e il nome del dispositivo slave corrisponde a quello del master, il master configurerà automaticamente l'indirizzo IP dello slave.
 
+5. Aggiornamento Firmware Scheda FRJ-PCIeN-EC-RJ-V10
+
+Inserire l'URL 192.169.58.2 per accedere all'interfaccia del robot. Fare clic sull'interfaccia "Impostazioni Iniziali" -> "Periferiche" -> "Comunicazione Scheda" per ottenere il numero di versione del firmware della scheda FRJ-PCIeN-EC-RJ-V10. Selezionare il file bin da aggiornare, fare clic su Carica, attendere il completamento dell'aggiornamento del firmware e quindi riavviare la centralina di controllo.
+
+.. image:: custom_protocol_slave/064.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 17.2-13 Aggiornamento Firmware Scheda
+
+.. note:: 1. Solo la versione V3.9.2 e successive supporta l'aggiornamento del firmware del protocollo EtherCAT; 2. L'aggiornamento del firmware del protocollo EtherCAT richiede lo scaricamento di eventuali protocolli aperti attualmente in esecuzione.
+
 Setup Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -185,7 +197,7 @@ Setup Software
    :width: 6in
    :align: center
 
-.. centered:: Figura 17.2-13 Interfaccia di Accesso Web
+.. centered:: Figura 17.2-14 Interfaccia di Accesso Web
 
 2. Fare clic su Impostazioni Sistema -> Interfaccia Informazioni, fare clic sul pulsante Aggiornamento Software, selezionare il file software.tar.gz, caricare il pacchetto di aggiornamento.
 
@@ -193,7 +205,7 @@ Setup Software
    :width: 6in
    :align: center
 
-.. centered:: Figura 17.2-14 Aggiornamento Software
+.. centered:: Figura 17.2-15 Aggiornamento Software
 
 .. note:: La versione web del control cabinet QX deve essere V3.8.0 o superiore, la versione web del control cabinet LA deve essere V3.8.0 o superiore.
 
@@ -203,7 +215,7 @@ Setup Software
    :width: 4in
    :align: center
 
-.. centered:: Figura 17.2-15 Passaggio a Modalità Remota
+.. centered:: Figura 17.2-16 Passaggio a Modalità Remota
 
 4. Selezionare il protocollo slave del controller e la necessità della funzione di avvio automatico, fare clic sul pulsante "Imposta". Nota: per cambiare protocollo, è necessario prima fare clic sul pulsante "Rimuovi", quindi configurare un altro protocollo.
 
@@ -211,7 +223,7 @@ Setup Software
    :width: 6in
    :align: center
 
-.. centered:: Figura 17.2-16 Configurazione Protocollo Comunicazione
+.. centered:: Figura 17.2-17 Configurazione Protocollo Comunicazione
 
 .. note:: Per cambiare protocollo, è necessario riavviare il control cabinet prima di configurare il nuovo protocollo.
 
@@ -684,6 +696,33 @@ Esempio di programma generato:
 .. centered:: Figura 17.3-5 Generazione Istruzioni Lua Scheda
 
 :download:`Appendice 1: Tabella Mappatura Indirizzi Modalità Slave <../_static/_doc/Control box slave mode address comparison table.xlsx>`
+
+Configurazione Ciclo Comunicazione Scheda
+---------------------------------------------------------
+
+Il ciclo di comunicazione della scheda può essere configurato tramite il computer host. Attualmente è disponibile solo il firmware per il protocollo PN, con futura compatibilità per i protocolli EIP, CC-Link IE Basic e EtherCAT.
+
+(1) Collegare direttamente la porta di rete del PC (sistema Windows 11) alla porta di rete della scheda. Aprire Device Assistant v1.1.0, fare doppio clic su "Ethernet" e fare clic sul pulsante "Aggiorna" in alto a sinistra per scansionare le schede attualmente collegate.
+
+.. image:: custom_protocol_slave/060.png
+   :width: 6in
+   :align: center
+
+.. image:: custom_protocol_slave/061.png
+   :width: 6in
+   :align: center
+
+(2) Nell'interfaccia di aggiornamento firmware, caricare la nuova versione del firmware PN e fare clic sul pulsante "Aggiorna". Un messaggio che indica "Aggiornamento Riuscito" apparirà in basso a sinistra una volta stampato.
+
+.. image:: custom_protocol_slave/062.png
+   :width: 6in
+   :align: center
+
+(3) Inserire il ciclo di comunicazione desiderato (supporta 1~100ms) e fare clic sul pulsante "Imposta". Un messaggio che indica "Impostazione Ciclo Riuscita" apparirà in basso a sinistra una volta stampato.
+
+.. image:: custom_protocol_slave/063.png
+   :width: 6in
+   :align: center
 
 Appendice
 -------------------
