@@ -283,6 +283,8 @@ Modelli 3D
 
     :download:`Stazione di Lavoro Saldatura Intelligente Modello STEP <_static/_doc/Intelligent welding.zip>`
 
+    :download:`Diagramma Inviluppo Modello STEP <_static/_doc/Envelope Diagram.zip>`
+
 FAIRINO SimMachine
 -----------------------
 

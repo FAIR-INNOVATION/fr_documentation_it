@@ -2001,6 +2001,24 @@ Il carico utile massimo trasportabile per il robot collaborativo modello FR5 è 
 
 .. centered:: Figura 3.4-19 Curva di Carico per Robot Collaborativo Modello FR5
 
+Curva di Carico Robot Collaborativo Modello FR5-WML
+*********************************************************
+
+Il robot collaborativo modello FR5-WML ha una capacità di carico massima di 7kg e un carico nominale di 5kg. La curva di carico è mostrata nella figura. L'interpretazione specifica della curva di carico è la seguente:
+
+(1) Entro la "inviluppo blu": Prestazioni complete - può eseguire la maggior parte delle traiettorie con coefficienti di compensazione dell'attrito tutti a 1, dinamica 2.0, velocità 100%, accelerazione 360 deg/s² (modalità manutenzione).
+(2) Entro la "inviluppo rosso": Capacità di carico estesa - può operare nelle seguenti condizioni:
+
+  ① Abilita "Modalità Ottimale Tempo";
+
+  ② Riduci l'area di lavoro del robot o diminuisci la velocità operativa.
+
+.. figure:: installation/127.png
+	:align: center
+	:width: 5in
+
+.. centered:: Figura 3.4-20 Curva di Carico Robot Collaborativo Modello FR5-WML
+  
 Curva di Carico per Robot Collaborativo Modello FR10
 *******************************************************************
 
@@ -2017,7 +2035,7 @@ Il carico utile massimo trasportabile per il robot collaborativo modello FR10 è
    :align: center
    :width: 5in
 
-.. centered:: Figura 3.4-20 Curva di Carico per Robot Collaborativo Modello FR10
+.. centered:: Figura 3.4-21 Curva di Carico per Robot Collaborativo Modello FR10
 
 Curva di Carico per Robot Collaborativo Modello FR16
 *******************************************************************
@@ -2035,7 +2053,7 @@ Il carico utile massimo trasportabile per il robot collaborativo modello FR16 è
    :align: center
    :width: 5in
 
-.. centered:: Figura 3.4-21 Curva di Carico per Robot Collaborativo Modello FR16
+.. centered:: Figura 3.4-22 Curva di Carico per Robot Collaborativo Modello FR16
 
 Curva di Carico per Robot Collaborativo Modello FR20
 *******************************************************************
@@ -2053,7 +2071,7 @@ Il carico utile massimo trasportabile per il robot collaborativo modello FR20 è
    :align: center
    :width: 5in
 
-.. centered:: Figura 3.4-22 Curva di Carico per Robot Collaborativo Modello FR20
+.. centered:: Figura 3.4-23 Curva di Carico per Robot Collaborativo Modello FR20
 
 Curva di Carico per Robot Collaborativo Modello FR30
 *****************************************************************
@@ -2071,7 +2089,7 @@ Il carico utile massimo trasportabile per il robot collaborativo modello FR30 è
    :align: center
    :width: 5in
 
-.. centered:: Figura 3.4-23 Curva di Carico per Robot Collaborativo Modello FR30
+.. centered:: Figura 3.4-24 Curva di Carico per Robot Collaborativo Modello FR30
 
 Connessioni di Controllo
 ----------------------------------
