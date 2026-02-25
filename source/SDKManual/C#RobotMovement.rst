@@ -1017,46 +1017,57 @@ Movimento modalità servomotore spazio cartesiano
 .. code-block:: c#
     :linenos:
 
+Movimento in Modalità Servo Spazio Cartesiano
+++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
     /**
-    * @brief  Movimento in modalità servomotore nello spazio cartesiano
-    * @param  [in]  mode  0-movimento assoluto (sistema di coordinate base), 1-movimento incrementale (sistema di coordinate base), 2-movimento incrementale (sistema di coordinate utensile)
-    * @param  [in]  desc_pos  Posa cartesiana target o incremento posa
-    * @param  [in]  pos_gain  Coefficiente proporzionale incremento posa, attivo solo in movimento incrementale, range [0~1]
-    * @param  [in] acc   Percentuale accelerazione, range [0~100], attualmente non disponibile, default 0
-    * @param  [in] vel   Percentuale velocità, range [0~100], attualmente non disponibile, default 0
-    * @param  [in] cmdT  Periodo di invio comando, unità s, range consigliato [0.001~0.0016]
-    * @param  [in] filterT Tempo di filtraggio, unità s, attualmente non disponibile, default 0
-    * @param  [in] gain  Amplificatore proporzionale per la posizione target, attualmente non disponibile, default 0
-    * @return   Codice errore
+    * @brief Movimento in modalità servo spazio cartesiano
+    * @param [in] mode 0-Movimento assoluto (sistema coordinate base), 1-Movimento incrementale (sistema coordinate base), 2-Movimento incrementale (sistema coordinate utensile)
+    * @param [in] desc_pos Posa cartesiana target o incremento di posa
+    * @param [in] exaxis Posizione asse esteso
+    * @param [in] pos_gain Coefficiente proporzionalità incremento posa, effettivo solo nel movimento incrementale, intervallo [0~1]
+    * @param [in] acc Percentuale accelerazione, intervallo [0~100], temporaneamente non disponibile, predefinito 0
+    * @param [in] vel Percentuale velocità, intervallo [0~100], temporaneamente non disponibile, predefinito 0
+    * @param [in] cmdT Periodo trasmissione comando, unità s, intervallo consigliato [0.001~0.016]
+    * @param [in] filterT Tempo filtro, unità s, temporaneamente non disponibile, predefinito 0
+    * @param [in] gain Amplificatore proporzionale posizione target, temporaneamente non disponibile, predefinito 0
+    * @return Codice errore
     */
-    int ServoCart(int mode, DescPose desc_pos, double[] pos_gain, float acc, float vel, float cmdT, float filterT, float gain);
+    public int ServoCart(int mode, DescPose desc_pose, ExaxisPos exaxis, double[] pos_gain, double acc, double vel, double cmdT, double filterT, double gain);
 
 Esempio di codice movimento modalità servomotore spazio cartesiano
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void btnDescServoMove_Click(object sender, EventArgs e)
+    public void TestServoCart()
     {
-        DescPose desc_pos_dt = new DescPose(0, 0, 0, 0, 0, 0);
+        ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
 
-        desc_pos_dt.tran.z = -0.5;
-        double[] pos_gain = new double[6]{ 0.0, 0.0, 1.0, 0.0, 0.0, 0.0 };
-        int mode = 2;
+        int rtn;
+        DescPose desc_pos_dt = new DescPose(83.00800f, 50.525000f, 29.246f, 179.629f, -7.138f, -166.975f);
+        ExaxisPos exaxis = new ExaxisPos(100.0f, 0.0f, 0.0f, 0.0f);
+        double[] pos_gain = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+        int mode = 0;
         float vel = 0.0f;
         float acc = 0.0f;
-        float cmdT = 0.008f;
+        float cmdT = 0.001f;
         float filterT = 0.0f;
         float gain = 0.0f;
-        int count = 500;
+        byte flag = 0;
+        int count = 5000;
 
         robot.SetSpeed(20);
 
         while (count > 0)
         {
-        robot.ServoCart(mode, desc_pos_dt, pos_gain, acc, vel, cmdT, filterT, gain);
-        count -= 1;
-        robot.WaitMs((int)(cmdT * 1000));
+            rtn = robot.ServoCart(mode, desc_pos_dt, exaxis, pos_gain, acc, vel, cmdT, filterT, gain);
+            Console.WriteLine($"ServoCart rtn is {rtn}");
+            count -= 1;
+            desc_pos_dt.tran.x += 0.01f;
+            exaxis.ePos[0] += 0.01f;
         }
     }
 

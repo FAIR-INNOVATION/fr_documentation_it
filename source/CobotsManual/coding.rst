@@ -1885,6 +1885,148 @@ Questa istruzione realizza la compensazione della traiettoria del robot per il t
 
 .. centered:: Grafico 9.8-6-3 Interfaccia istruzione Weld-Trc - parametri compensazione sinistra/destra
 
+Istruzioni di Debug per Asse Esteso
+***********************************************************
+
+Panoramica
+""""""""""""""""""""""""""""""""""
+
+L'interfaccia dell'istruzione GetInverseKinExaxis per la cinematica inversa delle posizioni target dell'asse esteso e l'interfaccia dell'istruzione ServoCart con posizioni dell'asse esteso supportano vari scenari in cui gli assi estesi e i robot sono utilizzati contemporaneamente.
+
+Processo Operativo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Step1**: I parametri e il valore di ritorno dell'interfaccia dell'istruzione di cinematica inversa GetInverseKinExaxis sono mostrati nelle tabelle sottostanti.
+
+.. centered:: Tabella 9.5-1 Parametri GetInverseKinExaxis
+
+.. list-table::
+   :widths: 10 20 30 40
+   :header-rows: 0
+   :align: center
+
+   * - **N.**
+     - **Tipo Dati**
+     - **Nome Variabile**
+     - **Descrizione Dettagliata**
+
+   * - 1
+     - uint8_t
+     - posMode
+     - 0: Posa assoluta, 1: Posa relativa - Sistema coordinate base, 2: Posa relativa - Sistema coordinate utensile
+
+   * - 2
+     - float
+     - desePos[6]
+     - Posizione cartesiana robot
+
+   * - 3
+     - float
+     - exaxis[4]
+     - Posizione asse esteso
+
+   * - 4
+     - int
+     - toolNum
+     - Numero utensile [0-14]
+
+   * - 5
+     - int
+     - workPieceNum
+     - Numero pezzo [0-14]
+
+.. centered:: Tabella 9.5-2 Valore Ritorno GetInverseKinExaxis
+
+.. list-table::
+   :widths: 10 20 30 40
+   :header-rows: 0
+   :align: center
+
+   * - **N.**
+     - **Tipo Dati**
+     - **Nome Variabile**
+     - **Descrizione Dettagliata**
+
+   * - 1
+     - float
+     - jointPos[6]
+     - Posizione giunto
+
+**Step2**: Il formato di chiamata dell'istruzione di cinematica inversa GetInverseKinExaxis in un programma Lua è mostrato nella figura sottostante. Inserendo semplicemente i parametri elencati nella tabella, è possibile ottenere i valori corrispondenti dei giunti. Per le chiamate nell'SDK, fare riferimento alla documentazione SDK corrispondente.
+
+.. image:: coding/543.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-29-9 Chiamata GetInverseKinExaxis in Lua
+
+**Step3**: L'interfaccia dell'istruzione ServoCart con posizioni dell'asse esteso è mostrata nella tabella sottostante, senza valore di ritorno.
+
+.. centered:: Tabella 9.5-3 Parametri ServoCart
+
+.. list-table::
+   :widths: 10 20 30 40
+   :header-rows: 0
+   :align: center
+
+   * - **N.**
+     - **Tipo Dati**
+     - **Nome Variabile**
+     - **Descrizione Dettagliata**
+
+   * - 1
+     - uint8_t
+     - posMode
+     - 0: Posa assoluta, 1: Posa relativa - Sistema coordinate base, 2: Posa relativa - Sistema coordinate utensile
+
+   * - 2
+     - float
+     - desePos[6]
+     - Posizione cartesiana robot
+
+   * - 3
+     - float
+     - gain[6]
+     - Coefficiente proporzionalità posa, utilizzato nei casi di posa relativa
+
+   * - 4
+     - float
+     - exaxis[4]
+     - Posizione asse esteso
+
+   * - 5
+     - float
+     - acc
+     - Proporzione accelerazione, 0~100, predefinito 0
+
+   * - 6
+     - float
+     - vel
+     - Proporzione velocità, 0~100, predefinito 0
+
+   * - 7
+     - float
+     - interval
+     - Periodo istruzione [s]
+
+   * - 8
+     - float
+     - filterTime
+     - Tempo filtro [s], temporaneamente non disponibile
+
+   * - 9
+     - float
+     - posGain
+     - Amplificatore proporzionale posizione target, temporaneamente non disponibile
+
+**Step4**: Il formato di chiamata dell'istruzione ServoCart con posizioni dell'asse esteso in un programma Lua è mostrato nella figura sottostante. Inserendo semplicemente i parametri elencati nella tabella, il robot può eseguire il movimento ServoCart con posizioni dell'asse esteso. Per le chiamate nell'SDK, fare riferimento alla documentazione SDK corrispondente.
+
+.. image:: coding/544.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-29-10 Chiamata ServoCart in Lua
+
 Composizione del Sistema di Tracciamento dell'Arco Robotico
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

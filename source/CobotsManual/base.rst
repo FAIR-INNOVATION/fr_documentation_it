@@ -1055,6 +1055,41 @@ Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Base" -> "Configurazi
 
 .. centered:: Figura 6.5‑9 Configurazione reset uscite
 
+Funzione Configurabile Stato Reset DO in Pausa/Ripresa
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
+++++++++++++++++++++++++
+Questa funzione ottimizza la funzione esistente di reset dell'output aggiungendo opzioni configurabili nelle impostazioni I/O. Può essere impostata su due tipi: Mantieni o Reset, dove Reset può essere ulteriormente suddiviso in Ripristina allo Stato Pre-reset e Non Ripristinare allo Stato Pre-reset. Gli utenti possono impostare diverse opzioni di configurazione in base alle esigenze effettive.
+
+Processo Operativo
++++++++++++++++++++++++++++++++
+**Step1**: Fare clic in sequenza su "Impostazioni iniziali" - "Impostazioni I/O" - istruzione "Reset Output". Impostare lo stato di uscita dopo l'arresto/pausa per DO o AO in base alle esigenze d'uso effettive. Lo stato può essere impostato su "Mantieni" o "Reset". Solo quando impostato su "Reset", è possibile impostare ulteriormente "Ripristina allo stato pre-reset".
+
+**Step2**: Impostare lo stato su "Mantieni". Quando si fa clic su pausa durante l'esecuzione del programma Lua, quindi su riprendi, lo stato di uscita DO/AO rimane invariato per tutta la durata e rimane innescato. Quando si fa clic su stop durante l'esecuzione del programma Lua, lo stato di uscita DO/AO rimane invariato. Le impostazioni dei parametri sono mostrate nella figura sottostante.
+
+.. image:: base/030.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 6.5‑10 Stato impostato su "Mantieni"
+
+**Step3**: Impostare lo stato su "Reset" e "Ripristina allo stato pre-reset" su "No". Quando si fa clic su pausa durante l'esecuzione del programma Lua, lo stato di uscita DO/AO verrà resettato. Quando si fa clic su riprendi, lo stato di uscita DO/AO rimane resettato. Quando si fa clic su stop durante l'esecuzione del programma Lua, lo stato di uscita DO/AO verrà resettato. Le impostazioni dei parametri sono mostrate nella figura sottostante.
+
+.. image:: base/096.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 6.5‑11 Stato impostato su "Reset" + "No"
+
+**Step4**: Impostare lo stato su "Reset" e "Ripristina allo stato pre-reset" su "Sì". Quando si fa clic su pausa durante l'esecuzione del programma Lua, lo stato di uscita DO/AO verrà resettato. Quando si fa clic su riprendi, lo stato di uscita DO/AO verrà ricaricato. Quando si fa clic su stop durante l'esecuzione del programma Lua, lo stato di uscita DO/AO verrà resettato. Le impostazioni dei parametri sono mostrate nella figura sottostante.
+
+.. image:: base/097.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 6.5‑12 Stato impostato su "Reset" + "Sì"
+
 Origine lavoro
 ---------------------
 

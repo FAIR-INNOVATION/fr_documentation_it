@@ -234,13 +234,13 @@ Calibrazione Parametri
 
 .. centered:: Figura 14.5‑6 Risultati calibrazione
 
-Percezione e Compensazione della Coppia mediante la Differenza di Posizione dei Doppi Encoder
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Stima della Forza Esterna e Compensazione della Coppia Basate su Osservatore di Momento
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Panoramica
 *****************************************
 
-La coppia viene stimata sfruttando la differenza di posizione tra i doppi encoder (lato motore e lato membro). Questa coppia stimata viene quindi utilizzata per la compensazione in feedforward, riducendo la coppia di avviamento quando il robot esegue il trascinamento in anello di corrente.
+Dopo aver abilitato la funzione di compensazione della coppia, il robot riduce la coppia di trascinamento durante il trascinamento ad anello di corrente, migliorando l'esperienza di trascinamento.
 
 Procedura Operativa
 *****************************************
@@ -261,7 +261,7 @@ Procedura Operativa
 
 .. centered:: Grafico 14.5‑8 Impostazione del Guadagno
 
-.. note:: Intervallo di impostazione del guadagno di trascinamento: 0-1. Un guadagno più elevato si traduce in una maggiore coppia compensata e in una minore coppia di avviamento per l'anello di corrente.
+.. note:: Intervallo di impostazione del guadagno di trascinamento: 0-1. Maggiore è il guadagno, maggiore è la coppia di compensazione e più facile è il trascinamento sotto l'anello di corrente.
 
 Funzione di Ottimizzazione Assistita del Trascinamento Basata su Sensori di Coppia Articolare
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -868,56 +868,54 @@ Esempio di codice per il controllo coppia giunti con protezione sovravelocità
         error = robot.ServoJTEnd();  //#fine movimento servo
     }
 
-Movimento in modalità servo nello spazio cartesiano
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento in Modalità Servo Spazio Cartesiano
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Movimento in modalità servo nello spazio cartesiano
-    * @param  [in]  mode  0-Movimento assoluto (sistema di coordinate base), 1-Movimento incrementale (sistema di coordinate base), 2-Movimento incrementale (sistema di coordinate dello strumento)
-    * @param  [in]  desc_pose  Posa cartesiana target o incremento di posa
-    * @param  [in]  pos_gain  Coefficiente proporzionale dell'incremento di posa, attivo solo nel movimento incrementale, intervallo [0~1]
-    * @param  [in]  acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile, predefinito 0
-    * @param  [in]  vel  Percentuale di velocità, intervallo [0~100], non ancora disponibile, predefinito 0
-    * @param  [in]  cmdT  Periodo di invio comandi, unità s, intervallo consigliato [0.001~0.0016]
-    * @param  [in]  filterT  Tempo di filtraggio, unità s, non ancora disponibile, predefinito 0
-    * @param  [in]  gain  Amplificatore proporzionale della posizione target, non ancora disponibile, predefinito 0
-    * @return  Codice di errore
+    * @brief Movimento in modalità servo spazio cartesiano
+    * @param mode 0-Movimento assoluto (sistema coordinate base), 1-Movimento incrementale (sistema coordinate base), 2-Movimento incrementale (sistema coordinate utensile)
+    * @param desc_pose Posa cartesiana target o incremento di posa
+    * @param exaxis Posizione asse esteso
+    * @param pos_gain Coefficiente proporzionalità incremento posa, effettivo solo nel movimento incrementale, intervallo [0~1]
+    * @param acc Percentuale accelerazione, intervallo [0~100], temporaneamente non disponibile, predefinito 0
+    * @param vel Percentuale velocità, intervallo [0~100], temporaneamente non disponibile, predefinito 0
+    * @param cmdT Periodo trasmissione comando, unità s, intervallo consigliato [0.001~0.016]
+    * @param filterT Tempo filtro, unità s, temporaneamente non disponibile, predefinito 0
+    * @param gain Amplificatore proporzionale posizione target, temporaneamente non disponibile, predefinito 0
+    * @return Codice errore
     */
-    int ServoCart(int mode, DescPose desc_pose, Object[] pos_gain, double acc, double vel, double cmdT, double filterT, double gain);
+    public int ServoCart(int mode, DescPose desc_pose, ExaxisPos exaxis, double[] pos_gain, double acc, double vel, double cmdT, double filterT, double gain)
 
-Esempio di codice per il movimento in modalità servo nello spazio cartesiano
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento in Modalità Servo Spazio Cartesiano
++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    public static int TestServoCart(Robot robot)
+    public static void TestServoCart1(Robot robot)
     {
-        DescPose desc_pos_dt=new DescPose(0,0,0,0,0,0);
-
-        desc_pos_dt.tran.z = -0.5;
-        Object[] pos_gain = { 0.0,0.0,1.0,0.0,0.0,0.0 };
-        int mode = 2;
+        DescPose desc_pos_dt = new DescPose(83.00800, 50.525000 , 29.246 , 179.629 , -7.138 , -166.975 );
+        ExaxisPos exaxis = new ExaxisPos( 100.0, 0.0, 0.0, 0.0 );
+        double[] pos_gain = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+        int mode = 0;
         double vel = 0.0;
         double acc = 0.0;
-        double cmdT = 0.008;
+        double cmdT = 0.001;
         double filterT = 0.0;
         double gain = 0.0;
         int flag = 0;
-        int count = 100;
-
+        int count = 5000;
         robot.SetSpeed(20);
-
         while (count>0)
         {
-            robot.ServoCart(mode, desc_pos_dt, pos_gain, acc, vel, cmdT, filterT, gain);
+            int rtn = robot.ServoCart(mode, desc_pos_dt, exaxis, pos_gain, acc, vel, cmdT, filterT, gain);
+            System.out.printf("ServoCart rtn is %d\n", rtn);
             count -= 1;
-            double time=cmdT*1000;
-            robot.WaitMs((int)time);
+            desc_pos_dt.tran.x += 0.01;
+            exaxis.axis1 += 0.01;
         }
-
-        return 0;
+        robot.CloseRPC();
     }
 
 Inizio movimento spline

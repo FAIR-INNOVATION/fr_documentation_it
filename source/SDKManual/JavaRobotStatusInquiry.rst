@@ -360,7 +360,7 @@ Calcolo Cinematica Inversa
     int GetInverseKin(int type, DescPose desc_pos, int config, JointPos joint_pos);
 
 Calcolo Cinematica Inversa (Posizione Riferimento)
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -374,8 +374,47 @@ Calcolo Cinematica Inversa (Posizione Riferimento)
     */   
     int GetInverseKinRef(int posMode, DescPose desc_pos, JointPos joint_pos_ref, JointPos joint_pos); 
 
+Soluzione Cinematica Inversa, Spazio Cartesiano Include Posizione Asse Esteso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Soluzione cinematica inversa, spazio cartesiano include posizione asse esteso
+    * @param  type 0-Posa assoluta (sistema coordinate base), 1-Posa incrementale (sistema coordinate base), 2-Posa incrementale (sistema coordinate utensile)
+    * @param  desc_pos Posa cartesiana
+    * @param  exaxis Posizione asse esteso
+    * @param  tool Numero utensile
+    * @param  workPiece Numero pezzo
+    * @param  joint_pos Posizione giunto
+    * @return Codice errore
+    */
+    public int GetInverseKinExaxis(int type, DescPose desc_pos, ExaxisPos exaxis, int tool, int workPiece, JointPos joint_pos)
+    
+Esempio Codice Soluzione Cinematica Inversa con Posizione Asse Esteso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static void  TestInverseKinExaxis(Robot robot)
+    {
+        DescPose desc=new DescPose(99.957, -0.002, 29.994, -176.569, -6.757, -167.462);
+        ExaxisPos exaxis=new ExaxisPos(100.0, 0.0, 0.0, 0.0);
+        JointPos jointPos =new JointPos();
+        DescPose offsetPos =new DescPose();
+        ROBOT_STATE_PKG pkg=robot.GetRobotRealTimeState();
+        int toolnum = pkg.tool;
+        int workPcsNum = pkg.user;
+        robot.GetInverseKinExaxis(0, desc, exaxis, toolnum, workPcsNum, jointPos);
+        System.out.printf("GetInverseKinExaxis joint is %f, %f, %f, %f, %f, %f\n", jointPos.J1, jointPos.J2, jointPos.J3, jointPos.J4, jointPos.J5, jointPos.J6);
+        robot.ExtAxisMove(exaxis, 100, -1);
+        robot.MoveJ(jointPos, desc, toolnum, workPcsNum, 100.0, 100.0, 100.0, exaxis, -1, 0, offsetPos);
+        robot.CloseRPC();
+        robot.Sleep(9999999);
+    }
+
 Ottenere Esistenza Soluzione Cinematica Inversa
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 

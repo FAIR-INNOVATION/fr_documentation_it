@@ -701,64 +701,66 @@ Esempio di Codice Controllo Coppia Articolare con Protezione Sovravelocità
         return 0;
     }
 
-Movimento in Modalità Servo nello Spazio Cartesiano (ServoCart)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento in Modalità Servo Spazio Cartesiano
+++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief  Movimento in modalità servo nello spazio cartesiano (ServoCart)
-    * @param  [in]  mode  0-movimento assoluto (sistema di coordinate base), 1-movimento incrementale (sistema di coordinate base), 2-movimento incrementale (sistema di coordinate utensile)
-    * @param  [in]  desc_pos  Posa cartesiana target o incremento di posa
-    * @param  [in]  pos_gain  Coefficiente di proporzione incremento di posa, attivo solo in movimento incrementale, intervallo [0~1]
-    * @param  [in] acc  Percentuale accelerazione, intervallo [0~100], non attualmente aperto, default 0
-    * @param  [in] vel  Percentuale velocità, intervallo [0~100], non attualmente aperto, default 0
-    * @param  [in] cmdT  Periodo di invio comandi, unità s, intervallo consigliato [0.001~0.0016]
-    * @param  [in] filterT Tempo di filtraggio, unità s, non attualmente aperto, default 0
-    * @param  [in] gain  Amplificatore proporzionale per posizione target, non attualmente aperto, default 0
-    * @return  Codice errore
+    * @brief Movimento in modalità servo spazio cartesiano
+    * @param [in] mode 0-Movimento assoluto (sistema coordinate base), 1-Movimento incrementale (sistema coordinate base), 2-Movimento incrementale (sistema coordinate utensile)
+    * @param [in] desc_pos Posa cartesiana target o incremento di posa
+    * @param [in] exaxis Posizione asse esteso
+    * @param [in] pos_gain Coefficiente proporzionalità incremento posa, effettivo solo nel movimento incrementale, intervallo [0~1]
+    * @param [in] acc Percentuale accelerazione, intervallo [0~100], temporaneamente non disponibile, predefinito 0
+    * @param [in] vel Percentuale velocità, intervallo [0~100], temporaneamente non disponibile, predefinito 0
+    * @param [in] cmdT Periodo trasmissione comando, unità s, intervallo consigliato [0.001~0.016]
+    * @param [in] filterT Tempo filtro, unità s, temporaneamente non disponibile, predefinito 0
+    * @param [in] gain Amplificatore proporzionale posizione target, temporaneamente non disponibile, predefinito 0
+    * @return Codice errore
     */
-    errno_t  ServoCart(int mode, DescPose *desc_pose, float pos_gain[6], float acc, float vel, float cmdT, float filterT, float gain);
+    errno_t ServoCart(int mode, DescPose *desc_pose, ExaxisPos exaxis, float pos_gain[6], float acc, float vel, float cmdT, float filterT, float gain);
 
-Esempio di Codice Movimento in Modalità Servo Cartesiano
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento in Modalità Servo Spazio Cartesiano
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 
     int TestServoCart(void)
-     {
-         ROBOT_STATE_PKG pkg = {};
-         FRRobot robot;
-         robot.LoggerInit();
-         robot.SetLoggerLevel(1);
-         int rtn = robot.RPC("192.168.58.2");
-         if (rtn != 0)
-         {
-             return -1;
-         }
-         robot.SetReConnectParam(true, 30000, 500);
-         DescPose desc_pos_dt;
-         memset(&desc_pos_dt, 0, sizeof(DescPose));
-         desc_pos_dt.tran.z = -0.5;
-         float pos_gain[6] = { 0.0,0.0,1.0,0.0,0.0,0.0 };
-         int mode = 2;
-         float vel = 0.0;
-         float acc = 0.0;
-         float cmdT = 0.008;
-         float filterT = 0.0;
-         float gain = 0.0;
-         uint8_t flag = 0;
-         int count = 100;
-         robot.SetSpeed(20);
-         while (count)
-         {
-             robot.ServoCart(mode, &desc_pos_dt, pos_gain, acc, vel, cmdT, filterT, gain);
-             count -= 1;
-             robot.WaitMs(cmdT * 1000);
-         }
-         robot.CloseRPC();
-         return 0;
-     }
+    {
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return -1;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+        DescPose desc_pos_dt = { 83.00800, 50.525000 , 29.246 , 179.629 , -7.138 , -166.975 };
+        ExaxisPos exaxis = { 100.0, 0.0, 0.0, 0.0 };
+        float pos_gain[6] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+        int mode = 0;
+        float vel = 0.0;
+        float acc = 0.0;
+        float cmdT = 0.001;
+        float filterT = 0.0;
+        float gain = 0.0;
+        uint8_t flag = 0;
+        int count = 5000;
+        robot.SetSpeed(20);
+        while (count)
+        {
+            rtn = robot.ServoCart(mode, &desc_pos_dt, exaxis, pos_gain, acc, vel, cmdT, filterT, gain);
+            printf("ServoCart rtn is %d\n", rtn);
+            count -= 1;
+            desc_pos_dt.tran.x += 0.01;
+            exaxis.ePos[0] += 0.01;
+        }
+        robot.CloseRPC();
+        return 0;
+    }
 
 Inizio Movimento Spline
 +++++++++++++++++++++++

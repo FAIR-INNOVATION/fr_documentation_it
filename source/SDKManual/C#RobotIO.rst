@@ -362,110 +362,128 @@ Esempio di codice per attendere segnali di ingresso digitali e analogici del cab
         Console.WriteLine("WaitToolAI over; rtn is: " + rtn);
     }
 
-Imposta se resettare le uscite DO del cabinet di controllo dopo arresto/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output DO Scatola Controllo Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Imposta se resettare le uscite DO del cabinet di controllo dopo arresto/pausa
-    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return  Codice di errore
+    * @brief Imposta se l'output DO della scatola di controllo si ripristina dopo stop/pausa
+    * @param [in] resetFlag 0-Non ripristina; 1-Ripristina
+    * @param [in] reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
     */
-    int SetOutputResetCtlBoxDO(int resetFlag);
+    public int SetOutputResetCtlBoxDO(int resetFlag, int reloadFlag);
 
-Imposta se resettare le uscite AO del cabinet di controllo dopo arresto/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output AO Scatola Controllo Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Imposta se resettare le uscite AO del cabinet di controllo dopo arresto/pausa
-    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return  Codice di errore
+    * @brief Imposta se l'output AO della scatola di controllo si ripristina dopo stop/pausa
+    * @param [in] resetFlag 0-Non ripristina; 1-Ripristina
+    * @param [in] reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
     */
-    int SetOutputResetCtlBoxAO(int resetFlag);
+    public int SetOutputResetCtlBoxAO(int resetFlag, int reloadFlag);
 
-Imposta se resettare le uscite DO dell'utensile all'estremità dopo arresto/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output DO Utensile Terminale Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Imposta se resettare le uscite DO dell'utensile all'estremità dopo arresto/pausa
-    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return  Codice di errore
+    * @brief Imposta se l'output DO dell'utensile terminale si ripristina dopo stop/pausa
+    * @param [in] resetFlag 0-Non ripristina; 1-Ripristina
+    * @param [in] reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
     */
-    int SetOutputResetAxleDO(int resetFlag);
+    public int SetOutputResetAxleDO(int resetFlag, int reloadFlag);
 
-Imposta se resettare le uscite AO dell'utensile all'estremità dopo arresto/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output AO Utensile Terminale Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Imposta se resettare le uscite AO dell'utensile all'estremità dopo arresto/pausa
-    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return  Codice di errore
+    * @brief Imposta se l'output AO dell'utensile terminale si ripristina dopo stop/pausa
+    * @param [in] resetFlag 0-Non ripristina; 1-Ripristina
+    * @param [in] reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
     */
-    int SetOutputResetAxleAO(int resetFlag);
+    public int SetOutputResetAxleAO(int resetFlag, int reloadFlag);
 
-Imposta se resettare le uscite DO estese dopo arresto/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output DO Esteso Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Imposta se resettare le uscite DO estese dopo arresto/pausa
-    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return  Codice di errore
+    * @brief Imposta se l'output DO esteso si ripristina dopo stop/pausa
+    * @param [in] resetFlag 0-Non ripristina; 1-Ripristina
+    * @param [in] reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
     */
-    int SetOutputResetExtDO(int resetFlag);
+    public int SetOutputResetExtDO(int resetFlag, int reloadFlag);
 
-Imposta se resettare le uscite AO estese dopo arresto/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output AO Esteso Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Imposta se resettare le uscite AO estese dopo arresto/pausa
-    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return  Codice di errore
+    * @brief Imposta se l'output AO esteso si ripristina dopo stop/pausa
+    * @param [in] resetFlag 0-Non ripristina; 1-Ripristina
+    * @param [in] reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
     */
-    int SetOutputResetExtAO(int resetFlag);
+    public int SetOutputResetExtAO(int resetFlag, int reloadFlag);
 
-Imposta se resettare le uscite SmartTool dopo arresto/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output SmartTool Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Imposta se resettare le uscite SmartTool dopo arresto/pausa
-    * @param  [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return  Codice di errore
+    * @brief Imposta se l'output SmartTool si ripristina dopo stop/pausa
+    * @param [in] resetFlag 0-Non ripristina; 1-Ripristina
+    * @param [in] reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
     */
-    int SetOutputResetSmartToolDO(int resetFlag);
+    public int SetOutputResetSmartToolDO(int resetFlag, int reloadFlag);
 
-Esempio di codice per impostare il reset delle uscite dopo arresto/pausa del programma LUA
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Impostazione Ripristino Output Dopo Stop/Pausa Programma Lua
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    private void button17_Click(object sender, EventArgs e)
+    public void TestDOReset()
     {
+        ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
+
         for (int i = 0; i < 16; i++)
         {
             robot.SetDO(i, 1, 0, 0);
-            Thread.Sleep(300);
+            Thread.Sleep(200);
         }
+
         int resetFlag = 1;
-        int rtn = robot.SetOutputResetCtlBoxDO(resetFlag);
-        robot.SetOutputResetCtlBoxAO(resetFlag);
-        robot.SetOutputResetAxleDO(resetFlag);
-        robot.SetOutputResetAxleAO(resetFlag);
-        robot.SetOutputResetExtDO(resetFlag);
-        robot.SetOutputResetExtAO(resetFlag);
-        robot.SetOutputResetSmartToolDO(resetFlag);
-        robot.ProgramLoad("/fruser/Text1.lua");
+        int resumeReloadFlag = 1;
+        int rtn = robot.SetOutputResetCtlBoxDO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetCtlBoxAO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetAxleDO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetAxleAO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetExtDO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetExtAO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetSmartToolDO(resetFlag, resumeReloadFlag);
+
+        robot.ProgramLoad("/fruser/test.lua");
         robot.ProgramRun();
+
+        Thread.Sleep(2000);
+        robot.PauseMotion();
+        Thread.Sleep(2000);
+        robot.ResumeMotion();
+        Thread.Sleep(2000);
     }

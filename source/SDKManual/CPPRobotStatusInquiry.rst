@@ -390,6 +390,56 @@ Calcolo Cinematica Inversa (Posizione di Riferimento)
     */   
     errno_t  GetInverseKinRef(int type, DescPose *desc_pos, JointPos *joint_pos_ref, JointPos *joint_pos);
 
+Soluzione di Cinematica Inversa, Spazio Cartesiano Inclusa Posizione dell'Asse Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Soluzione di cinematica inversa, spazio cartesiano inclusa posizione dell'asse esteso
+    * @param [in] type 0-posa assoluta (sistema coordinate base), 1-posa incrementale (sistema coordinate base), 2-posa incrementale (sistema coordinate utensile)
+    * @param [in] desc_pos Posa cartesiana
+    * @param [in] exaxis Posizione asse esteso
+    * @param [in] tool Numero utensile
+    * @param [in] workPiece Numero pezzo
+    * @param [out] joint_pos Posizione giunti
+    * @return Codice di errore
+    */
+    errno_t GetInverseKinExaxis(int type, DescPose desc_pos, ExaxisPos exaxis, int tool, int workPiece, JointPos& joint_pos);
+
+Esempio di Codice per Soluzione di Cinematica Inversa Inclusa Posizione dell'Asse Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c++
+    :linenos:
+
+    int TestInverseKinExaxis()
+    {
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return 0;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+        DescPose desc(99.957, -0.002, 29.994, -176.569, -6.757, -167.462);
+        ExaxisPos exaxis(100.0, 0.0, 0.0, 0.0);
+        JointPos jointPos = {};
+        DescPose offsetPos = {};
+        robot.GetRobotRealTimeState(&pkg);
+        int toolnum = pkg.tool;
+        int workPcsNum = pkg.user;
+        robot.GetInverseKinExaxis(0, desc, exaxis, toolnum, workPcsNum, jointPos);
+        printf("GetInverseKinExaxis joint is %f, %f, %f, %f, %f, %f\n", jointPos.jPos[0], jointPos.jPos[1], jointPos.jPos[2], jointPos.jPos[3], jointPos.jPos[4], jointPos.jPos[5]);
+        robot.ExtAxisMove(exaxis, 100, -1);
+        robot.MoveJ(&jointPos, &desc, toolnum, workPcsNum, 100.0, 100.0, 100.0, &exaxis, -1, 0, &offsetPos);
+        robot.CloseRPC();
+        robot.Sleep(9999999);
+        return 0;
+    }
+
 Verificare Se Esiste Soluzione per Cinematica Inversa
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++

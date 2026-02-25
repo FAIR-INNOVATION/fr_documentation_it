@@ -374,6 +374,45 @@ Soluzione di Cinematica Inversa - Posizione di Riferimento Specificata
     "Valore di Ritorno", "- Codice di errore: Successo-0  Fallimento-errcode
     - ``joint_pos=[j1,j2,j3,j4,j5,j6]``: Soluzione di cinematica inversa, posa dello strumento per risolvere la posizione dei giunti"
 
+Soluzione Cinematica Inversa, Spazio Cartesiano Include Posizione Asse Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetInverseKinExaxis(type, desc_pos, exaxis, tool, workPiece)``"
+    "Descrizione", "Soluzione cinematica inversa, spazio cartesiano include posizione asse esteso"
+    "Parametri Obbligatori", "- ``type``: 0-Posa assoluta (sistema coordinate base), 1-Posa incrementale (sistema coordinate base), 2-Posa incrementale (sistema coordinate utensile)
+    - ``desc_pos``: Posa cartesiana
+    - ``exaxis``: Posizione asse esteso
+    - ``tool``: Numero utensile
+    - ``workPiece``: Numero pezzo"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice errore Successo-0 Fallimento- errcode
+    - ``joint_pos``: Posizione giunto"
+
+Esempio Codice Soluzione Cinematica Inversa con Posizione Asse Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: python
+    :linenos:
+
+    from fairino import Robot
+    import time
+    robot = Robot.RPC('192.168.58.2')
+    desc = [99.957, -0.002, 29.994, -176.569, -6.757, -167.462]
+    exaxis = [100.0, 0.0, 0.0, 0.0]
+    jointPos = [0.0] * 6
+    offsetPos = [0.0] * 6
+    rtn,pkg = robot.GetRobotRealTimeState()
+    toolnum = pkg.tool
+    workPcsNum = pkg.user
+    rtn, jointPos = robot.GetInverseKinExaxis(0, desc, exaxis, toolnum, workPcsNum)
+    print(f"GetInverseKinExaxis joint is {jointPos[0]},{jointPos[1]},{jointPos[2]},{jointPos[3]},{jointPos[4]},{jointPos[5]}")
+    robot.ExtAxisMove(exaxis, 100, -1)
+    robot.MoveJ(joint_pos=jointPos, desc_pos=desc, tool=toolnum, user=workPcsNum, vel=100.0, acc=100.0, ovl=100.0, exaxis_pos=exaxis, blendT=-1, offset_flag=0, offset_pos=offsetPos)
+    robot.CloseRPC()
+    return 0
+
 Soluzione di Cinematica Inversa - Esistenza della Soluzione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. csv-table::

@@ -1,3 +1,33 @@
+Versione V3.9.3
+-----------------
+
+Data: 2026-02-11
+
+- **Ottimizzate Impostazioni Velocità Comandi Movimento SmartTool**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Impugnatura Saldatura.
+  
+    Descrizione: L'intervallo di impostazione della velocità per i comandi PTP, LIN e ARC è stato regolato a 0-100% (il limite superiore originale era 30%).
+
+- **Ottimizzata Osservazione Forza Esterna Senza Sensore e Migliorata Esperienza di Trascinamento**:
+    Percorso: Applicazioni Ausiliarie -> Applicazioni Utensile -> Blocco Trascinamento.
+  
+    Descrizione: Precisione osservazione forza esterna migliorata a ±0.5N.
+
+- **Ottimizzato Meccanismo Riconnessione Master Modbus TCP**:
+    Percorso: Programma Insegnamento -> Programmazione Programma -> Modbus TCP.
+  
+    Descrizione: Aggiunta logica pausa.
+
+- **Aggiunta Funzione Comandi Debug Asse Esteso**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Asse Esteso.
+  
+    Descrizione: Implementata soluzione cinematica inversa robot nel sistema coordinate asse esteso e movimento servo ServoCart con assi estesi.
+
+- **Aggiunta Funzione Configurabile Stato Reset DO in Pausa/Ripresa**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Impugnatura Saldatura.
+  
+    Descrizione: Opzione per scegliere se lo stato di uscita DO dopo la ripresa del movimento è coerente con lo stato prima della pausa.
+
 Versione V3.9.2
 -----------------
 

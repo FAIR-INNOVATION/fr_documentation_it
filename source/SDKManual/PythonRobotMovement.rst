@@ -480,52 +480,55 @@ Esempio Codice Controllo Coppia Giunti
     robot.DragTeachSwitch(0)
     robot.CloseRPC()
 
-Movimento Modalità Servo Spazio Cartesiano
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento in Modalità Servo Spazio Cartesiano
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``ServoCart(mode, desc_pos, pos_gain = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0] , acc = 0.0, vel = 0.0, cmdT = 0.008, filterT = 0.0, gain = 0.0)``"
-    "Descrizione", "Movimento modalità servo spazio cartesiano"
-    "Parametri Obbligatori", "- ``mode``:[0]-movimento assoluto (sistema base), [1]-movimento incrementale (sistema base), [2]-movimento incrementale (sistema utensile);
-    - ``desc_pos``:posizione target cartesiana/incremento posizione target cartesiana;"
-    "Parametri Predefiniti", "- ``pos_gain``:fattore proporzionale incremento posa, efficace solo movimento incrementale, range [0~1], default [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
-    - ``acc``:accelerazione, range [0~100], non ancora disponibile, default 0.0;
-    - ``vel``:velocità, range [0~100], non ancora disponibile, default 0.0;
-    - ``cmdT``:periodo invio istruzione, unità s, range consigliato [0.001~0.0016], default 0.008;
-    - ``filterT``:tempo filtro, unità [s], non ancora disponibile, default 0.0;
-    - ``gain``:amplificatore proporzionale posizione target, non ancora disponibile, default 0.0;"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+    "Prototipo", "``ServoCart(mode, desc_pos, exaxis, pos_gain=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0], acc=0.0, vel=0.0, cmdT=0.008,filterT=0.0, gain=0.0)``"
+    "Descrizione", "Movimento in modalità servo spazio cartesiano"
+    "Parametri Obbligatori", "- ``mode``:[0]-Movimento assoluto (sistema coordinate base), [1]-Movimento incrementale (sistema coordinate base), [2]-Movimento incrementale (sistema coordinate utensile);
+    - ``exaxis``:Posizione asse esteso;
+    - ``desc_pos``:Posizione cartesiana target/Incremento posizione cartesiana target;"
+    "Parametri Predefiniti", "- ``pos_gain``:Coefficiente proporzionalità incremento posa, effettivo solo nel movimento incrementale, intervallo [0~1], predefinito [1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+    - ``acc``:Accelerazione, intervallo [0~100], temporaneamente non disponibile, predefinito 0.0;
+    - ``vel``:Velocità, intervallo [0~100], temporaneamente non disponibile, predefinito 0.0;
+    - ``cmdT``:Periodo trasmissione comando, unità s, intervallo consigliato [0.001~0.0016], predefinito 0.008;
+    - ``filterT``:Tempo filtro, unità [s], temporaneamente non disponibile, predefinito 0.0;
+    - ``gain``:Amplificatore proporzionale posizione target, temporaneamente non disponibile, predefinito 0.0;"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
 
-Esempio Codice Movimento Modalità Servo Spazio Cartesiano
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Esempio Codice Movimento in Modalità Servo Spazio Cartesiano
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
-    desc_pos_dt = [0.0,0.0,0.0,0.0,0.0,0.0]  # [x, y, z, rx, ry, rz]
-    desc_pos_dt[2] = -0.5 
-    pos_gain = [0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
-    mode = 2
+    desc_pos_dt = [83.00800, 50.525000, 29.246, 179.629, -7.138, -166.975]
+    exaxis = [100.0, 0.0, 0.0, 0.0]
+    pos_gain = [0.0] * 6
+    mode = 0
     vel = 0.0
     acc = 0.0
-    cmdT = 0.008
-    filterT = 0.0 
-    gain = 0.0 
+    cmdT = 0.001
+    filterT = 0.0
+    gain = 0.0
     flag = 0
-    count = 100 
+    count = 5000
     robot.SetSpeed(20)
-    while count > 0:
-        robot.ServoCart(mode=mode, desc_pos=desc_pos_dt, pos_gain=pos_gain, acc=acc, vel=vel, cmdT=cmdT, filterT=filterT, gain=gain)
+    while count:
+        rtn = robot.ServoCart(mode, desc_pos_dt, exaxis, pos_gain, acc, vel, cmdT, filterT, gain)
+        print(f"ServoCart rtn is {rtn}")
         count -= 1
-        time.sleep(cmdT)
+        desc_pos_dt[0] += 0.01
+        exaxis[0] += 0.01
     robot.CloseRPC()
+    return 0
 
 Inizio Movimento Spline
 ++++++++++++++++++++++++++++++++++++

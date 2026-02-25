@@ -351,125 +351,144 @@ Esempio Codice Attesa Segnali Input Digitali/Analogici Box Controllo
     print(f"WaitDI over; rtn is: {rtn}")
     robot.CloseRPC()
 
-Impostare Reset Uscite DO Box Controllo dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output DO Scatola Controllo Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``SetOutputResetCtlBoxDO(resetFlag)``"
-    "Descrizione", "Imposta reset uscite DO box controllo dopo stop/pausa"
-    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Prototipo", "``SetOutputResetCtlBoxDO(resetFlag,reloadFlag)``"
+    "Descrizione", "Imposta se l'output DO della scatola di controllo si ripristina dopo stop/pausa"
+    "Parametri Obbligatori", "
+    - ``resetFlag``：0-Non ripristina; 1-Ripristina
+    - ``reloadFlag``：Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica"
     "Parametri Predefiniti", "Nessuno"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
 
-Impostare Reset Uscite AO Box Controllo dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output AO Scatola Controllo Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``SetOutputResetCtlBoxAO(resetFlag)``"
-    "Descrizione", "Imposta reset uscite AO box controllo dopo stop/pausa"
-    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Prototipo", "``SetOutputResetCtlBoxAO(resetFlag,reloadFlag)``"
+    "Descrizione", "Imposta se l'output AO della scatola di controllo si ripristina dopo stop/pausa"
+    "Parametri Obbligatori", "
+    - ``resetFlag``：0-Non ripristina; 1-Ripristina
+    - ``reloadFlag``：Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica"
     "Parametri Predefiniti", "Nessuno"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
 
-Impostare Reset Uscite DO Utensile Terminale dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output DO Utensile Terminale Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``SetOutputResetAxleDO(resetFlag)``"
-    "Descrizione", "Imposta reset uscite DO utensile terminale dopo stop/pausa"
-    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Prototipo", "``SetOutputResetAxleDO(resetFlag,reloadFlag)``"
+    "Descrizione", "Imposta se l'output DO dell'utensile terminale si ripristina dopo stop/pausa"
+    "Parametri Obbligatori", "
+    - ``resetFlag``：0-Non ripristina; 1-Ripristina
+    - ``reloadFlag``：Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica"
     "Parametri Predefiniti", "Nessuno"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
 
-Impostare Reset Uscite AO Utensile Terminale dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output AO Utensile Terminale Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``SetOutputResetAxleAO(resetFlag)``"
-    "Descrizione", "Imposta reset uscite AO utensile terminale dopo stop/pausa"
-    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
+    "Prototipo", "``SetOutputResetAxleAO(resetFlag,reloadFlag)``"
+    "Descrizione", "Imposta se l'output AO dell'utensile terminale si ripristina dopo stop/pausa"
+    "Parametri Obbligatori", "
+    - ``resetFlag``：0-Non ripristina; 1-Ripristina
+    - ``reloadFlag``：Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica"
     "Parametri Predefiniti", "Nessuno"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
 
-Impostare Reset Uscite DO Estese dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototipo", "``SetOutputResetExtDO(resetFlag)``"
-    "Descrizione", "Imposta reset uscite DO estese dopo stop/pausa"
-    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
-
-Impostare Reset Uscite AO Estese dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototipo", "``SetOutputResetExtAO(resetFlag)``"
-    "Descrizione", "Imposta reset uscite AO estese dopo stop/pausa"
-    "Parametri Obbligatori", "- ``resetFlag``：0-nessun reset; 1-reset"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode"
-
-Impostare Reset Uscite SmartTool dopo Stop/Pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: python SDK-v2.0.5
-
-.. csv-table:: 
-    :stub-columns: 1
-    :widths: 10 30
-
-    "Prototipo", "``SetOutputResetSmartToolDO(resetFlag)``"
-    "Descrizione", "Imposta reset uscite SmartTool dopo stop/pausa"
-    "Parametri Obbligatori", "- ``resetFlag``：reset o meno, 0-nessun reset, 1-reset"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore Ritorno", "Codice errore successo-0 fallimento- errcode "
-
-Esempio Codice Reset Output dopo Stop/Pausa Programma LUA
+Imposta Se Output DO Esteso Si Ripristina Dopo Stop/Pausa
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetOutputResetExtDO (resetFlag,reloadFlag)``"
+    "Descrizione", "Imposta se l'output DO esteso si ripristina dopo stop/pausa"
+    "Parametri Obbligatori", "
+    - ``resetFlag``：0-Non ripristina; 1-Ripristina
+    - ``reloadFlag``：Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
+
+Imposta Se Output AO Esteso Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetOutputResetExtAO (resetFlag,reloadFlag)``"
+    "Descrizione", "Imposta se l'output AO esteso si ripristina dopo stop/pausa"
+    "Parametri Obbligatori", "
+    - ``resetFlag``：0-Non ripristina; 1-Ripristina
+    - ``reloadFlag``：Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
+
+Imposta Se Output SmartTool Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-v2.0.5
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetOutputResetSmartToolDO(resetFlag,reloadFlag)``"
+    "Descrizione", "Imposta se l'output SmartTool si ripristina dopo stop/pausa"
+    "Parametri Obbligatori", "
+    - ``resetFlag``：0-Non ripristina; 1-Ripristina
+    - ``reloadFlag``：Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore Successo-0 Fallimento- errcode"
+
+Esempio Codice Impostazione Ripristino Output Dopo Stop/Pausa Programma Lua
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: python
     :linenos:
 
     from fairino import Robot
     import time
-    import threading
-    # Stabilire connessione con controller robot, connessione riuscita ritorna oggetto robot
     robot = Robot.RPC('192.168.58.2')
     for i in range(16):
         robot.SetDO(i, 1, 0, 0)
-        time.sleep(0.3)
-    resetFlag = 1
-    robot.SetOutputResetCtlBoxDO(resetFlag)    
-    robot.SetOutputResetCtlBoxAO(resetFlag)    
-    robot.SetOutputResetAxleDO(resetFlag)      
-    robot.SetOutputResetAxleAO(resetFlag)      
-    robot.SetOutputResetExtDO(resetFlag)       
-    robot.SetOutputResetExtAO(resetFlag)       
-    robot.SetOutputResetSmartToolDO(resetFlag) 
-    robot.ProgramLoad("/fruser/test0610.lua")
+        time.sleep(0.2)
+    resetFlag = 0
+    resumeReloadFlag = 0
+    rtn = robot.SetOutputResetCtlBoxDO(resetFlag, resumeReloadFlag)
+    robot.SetOutputResetCtlBoxAO(resetFlag, resumeReloadFlag)
+    robot.SetOutputResetAxleDO(resetFlag, resumeReloadFlag)
+    robot.SetOutputResetAxleAO(resetFlag, resumeReloadFlag)
+    robot.SetOutputResetExtDO(resetFlag, resumeReloadFlag)
+    robot.SetOutputResetExtAO(resetFlag, resumeReloadFlag)
+    robot.SetOutputResetSmartToolDO(resetFlag, resumeReloadFlag)
+    robot.ProgramLoad("/fruser/test.lua")
     robot.ProgramRun()
+    time.sleep(2)
+    robot.PauseMotion()
+    time.sleep(2)
+    robot.ResumeMotion()
+    time.sleep(2)
     robot.CloseRPC()
+    return 0

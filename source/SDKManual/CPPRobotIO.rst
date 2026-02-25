@@ -375,105 +375,112 @@ Esempio di codice per attendere segnali di ingresso digitali/analogici della sca
          return 0;
      }
 
-Impostare se l'uscita DO della scatola di controllo si resetta dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se Resettare l'Uscita DO del Box di Controllo dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Imposta se l'uscita DO della scatola di controllo si resetta dopo stop/pausa
-    * @param [in] resetFlag 0-non reset; 1-reset
+    * @brief Imposta se resettare l'uscita DO del box di controllo dopo stop/pausa
+    * @param [in] resetFlag 0-non resettare; 1-resetta
+    * @param [in] reloadFlag Se ricaricare dopo la ripresa dalla pausa, 0-non caricare; 1-carica
     * @return Codice di errore
     */
-    errno_t SetOutputResetCtlBoxDO(int resetFlag);
+    errno_t SetOutputResetCtlBoxDO(int resetFlag, int reloadFlag = 0);
 
-Impostare se l'uscita AO della scatola di controllo si resetta dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se Resettare l'Uscita AO del Box di Controllo dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Imposta se l'uscita AO della scatola di controllo si resetta dopo stop/pausa
-     * @param [in] resetFlag 0-non reset; 1-reset
-     * @return Codice di errore
-     */
-    errno_t SetOutputResetCtlBoxAO(int resetFlag);
+    * @brief Imposta se resettare l'uscita AO del box di controllo dopo stop/pausa
+    * @param [in] resetFlag  0-non resettare; 1-resetta
+    * @param [in] reloadFlag Se ricaricare dopo la ripresa dalla pausa, 0-non caricare; 1-carica
+    * @return Codice di errore
+    */
+    errno_t SetOutputResetCtlBoxAO(int resetFlag, int reloadFlag = 0);
 
-Impostare se l'uscita DO dell'utensile terminale si resetta dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se Resettare l'Uscita DO dell'Utensile Terminale dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Imposta se l'uscita DO dell'utensile terminale si resetta dopo stop/pausa
-     * @param [in] resetFlag 0-non reset; 1-reset
-     * @return Codice di errore
-     */
-    errno_t SetOutputResetAxleDO(int resetFlag);
+    * @brief Imposta se resettare l'uscita DO dell'utensile terminale dopo stop/pausa
+    * @param [in] resetFlag  0-non resettare; 1-resetta
+    * @param [in] reloadFlag Se ricaricare dopo la ripresa dalla pausa, 0-non caricare; 1-carica
+    * @return Codice di errore
+    */
+    errno_t SetOutputResetAxleDO(int resetFlag, int reloadFlag = 0);
 
-Impostare se l'uscita AO dell'utensile terminale si resetta dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se Resettare l'Uscita AO dell'Utensile Terminale dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Imposta se l'uscita AO dell'utensile terminale si resetta dopo stop/pausa
-     * @param [in] resetFlag 0-non reset; 1-reset
-     * @return Codice di errore
-     */
-    errno_t SetOutputResetAxleAO(int resetFlag);
+    * @brief Imposta se resettare l'uscita AO dell'utensile terminale dopo stop/pausa
+    * @param [in] resetFlag  0-non resettare; 1-resetta
+    * @param [in] reloadFlag Se ricaricare dopo la ripresa dalla pausa, 0-non caricare; 1-carica
+    * @return  Codice di errore
+    */
+    errno_t SetOutputResetAxleAO(int resetFlag, int reloadFlag = 0);
 
-Impostare se l'uscita DO estesa si resetta dopo stop/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se Resettare l'Uscita DO Estensione dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Imposta se l'uscita DO estesa si resetta dopo stop/pausa
-     * @param [in] resetFlag 0-non reset; 1-reset
-     * @return Codice di errore
-     */
-    errno_t SetOutputResetExtDO(int resetFlag);
+    * @brief Imposta se resettare l'uscita DO di estensione dopo stop/pausa
+    * @param [in] resetFlag  0-non resettare; 1-resetta
+    * @param [in] reloadFlag Se ricaricare dopo la ripresa dalla pausa, 0-non caricare; 1-carica
+    * @return  Codice di errore
+    */
+    errno_t SetOutputResetExtDO(int resetFlag, int reloadFlag = 0);
 
-Impostare se l'uscita AO estesa si resetta dopo stop/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se Resettare l'Uscita AO Estensione dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Imposta se l'uscita AO estesa si resetta dopo stop/pausa
-     * @param [in] resetFlag 0-non reset; 1-reset
-     * @return Codice di errore
-     */
-    errno_t SetOutputResetExtAO(int resetFlag);
+    * @brief Imposta se resettare l'uscita AO di estensione dopo stop/pausa
+    * @param [in] resetFlag  0-non resettare; 1-resetta
+    * @param [in] reloadFlag Se ricaricare dopo la ripresa dalla pausa, 0-non caricare; 1-carica
+    * @return  Codice di errore
+    */
+    errno_t SetOutputResetExtAO(int resetFlag, int reloadFlag = 0);
 
-Impostare se l'uscita SmartTool si resetta dopo stop/pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta se Resettare l'Uscita SmartTool dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
     :linenos:
 
     /**
-     * @brief Imposta se l'uscita SmartTool si resetta dopo stop/pausa
-     * @param [in] resetFlag 0-non reset; 1-reset
-     * @return Codice di errore
-     */
-    errno_t SetOutputResetSmartToolDO(int resetFlag);
+    * @brief Imposta se resettare l'uscita SmartTool dopo stop/pausa
+    * @param [in] resetFlag  0-non resettare; 1-resetta
+    * @param [in] reloadFlag Se ricaricare dopo la ripresa dalla pausa, 0-non caricare; 1-carica
+    * @return  Codice di errore
+    */
+    errno_t SetOutputResetSmartToolDO(int resetFlag, int reloadFlag = 0);
 
-Esempio di codice per impostare reset uscite dopo stop/pausa programma LUA
+Esempio di Codice per Impostare il Reset dell'Uscita del Programma LUA dopo Stop/Pausa
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
@@ -482,31 +489,37 @@ Esempio di codice per impostare reset uscite dopo stop/pausa programma LUA
 
     int TestDOReset(void)
     {
-      ROBOT_STATE_PKG pkg = {};
-      FRRobot robot;
-      robot.LoggerInit();
-      robot.SetLoggerLevel(1);
-      int rtn = robot.RPC("192.168.58.2");
-      if (rtn != 0)
-      {
+    ROBOT_STATE_PKG pkg = {};
+    FRRobot robot;
+    robot.LoggerInit();
+    robot.SetLoggerLevel(3);
+    int rtn = robot.RPC("192.168.58.2");
+    if (rtn != 0)
+    {
         return -1;
-      }
-      robot.SetReConnectParam(true, 30000, 500);
-      for (int i = 0; i < 16; i++)
-      {
+    }
+    robot.SetReConnectParam(true, 30000, 500);
+    for (int i = 0; i < 16; i++)
+    {
         robot.SetDO(i, 1, 0, 0);
-        robot.Sleep(300);
-      }
-      int resetFlag = 1;
-      rtn = robot.SetOutputResetCtlBoxDO(resetFlag);
-      robot.SetOutputResetCtlBoxAO(resetFlag);
-      robot.SetOutputResetAxleDO(resetFlag);
-      robot.SetOutputResetAxleAO(resetFlag);
-      robot.SetOutputResetExtDO(resetFlag);
-      robot.SetOutputResetExtAO(resetFlag);
-      robot.SetOutputResetSmartToolDO(resetFlag);
-      robot.ProgramLoad("/fruser/test.lua");
-      robot.ProgramRun();
-      robot.CloseRPC();
-      return 0;
+        robot.Sleep(200);
+    }
+    int resetFlag = 0;
+    int resumeReloadFlag = 0;
+    rtn = robot.SetOutputResetCtlBoxDO(resetFlag, resumeReloadFlag);
+    robot.SetOutputResetCtlBoxAO(resetFlag, resumeReloadFlag);
+    robot.SetOutputResetAxleDO(resetFlag, resumeReloadFlag);
+    robot.SetOutputResetAxleAO(resetFlag, resumeReloadFlag);
+    robot.SetOutputResetExtDO(resetFlag, resumeReloadFlag);
+    robot.SetOutputResetExtAO(resetFlag, resumeReloadFlag);
+    robot.SetOutputResetSmartToolDO(resetFlag, resumeReloadFlag);
+    robot.ProgramLoad("/fruser/test.lua");
+    robot.ProgramRun();
+    robot.Sleep(2000);
+    robot.PauseMotion();
+    robot.Sleep(2000);
+    robot.ResumeMotion();
+    robot.Sleep(2000);
+    robot.CloseRPC();
+    return 0;
     }

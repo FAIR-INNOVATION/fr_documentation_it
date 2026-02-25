@@ -365,114 +365,124 @@ Esempio di codice per attesa segnali ingresso digitale/analogico del pannello di
         return 0;
     }
 
-Impostazione reset uscita DO del pannello di controllo dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output DO Scatola Controllo Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Imposta se resettare l'uscita DO del pannello di controllo dopo stop/pausa
-    * @param [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return Codice errore 
-    */ 
-    int SetOutputResetCtlBoxDO(int resetFlag);
+    /**
+    * @brief Imposta se l'output DO della scatola di controllo si ripristina dopo stop/pausa
+    * @param resetFlag 0-Non ripristina; 1-Ripristina
+    * @param reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
+    */
+    public int SetOutputResetCtlBoxDO(int resetFlag, int reloadFlag)
 
-Impostazione reset uscita AO del pannello di controllo dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output AO Scatola Controllo Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Imposta se resettare l'uscita AO del pannello di controllo dopo stop/pausa
-    * @param [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return Codice errore 
-    */ 
-    int SetOutputResetCtlBoxAO(int resetFlag);
+    /**
+    * @brief Imposta se l'output AO della scatola di controllo si ripristina dopo stop/pausa
+    * @param resetFlag 0-Non ripristina; 1-Ripristina
+    * @param reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
+    */
+    public int SetOutputResetCtlBoxAO(int resetFlag, int reloadFlag)
 
-Impostazione reset uscita DO del tool terminale dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output DO Utensile Terminale Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Imposta se resettare l'uscita DO del tool terminale dopo stop/pausa
-    * @param [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return Codice errore 
-    */ 
-    int SetOutputResetAxleDO(int resetFlag);
+    /**
+    * @brief Imposta se l'output DO dell'utensile terminale si ripristina dopo stop/pausa
+    * @param resetFlag 0-Non ripristina; 1-Ripristina
+    * @param reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
+    */
+    public int SetOutputResetAxleDO(int resetFlag, int reloadFlag)
 
-Impostazione reset uscita AO del tool terminale dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta Se Output AO Utensile Terminale Si Ripristina Dopo Stop/Pausa
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Imposta se resettare l'uscita AO del tool terminale dopo stop/pausa
-    * @param [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return Codice errore 
-    */ 
-    int SetOutputResetAxleAO(int resetFlag);
+    /**
+    * @brief Imposta se l'output AO dell'utensile terminale si ripristina dopo stop/pausa
+    * @param resetFlag 0-Non ripristina; 1-Ripristina
+    * @param reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
+    */
+    public int SetOutputResetAxleAO(int resetFlag, int reloadFlag)
+    
+Imposta Se Output DO Esteso Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
 
-Impostazione reset uscita DO estensione dopo stop/pausa
+    /**
+    * @brief Imposta se l'output DO esteso si ripristina dopo stop/pausa
+    * @param resetFlag 0-Non ripristina; 1-Ripristina
+    * @param reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
+    */
+    public int SetOutputResetExtDO(int resetFlag, int reloadFlag)
+    
+Imposta Se Output AO Esteso Si Ripristina Dopo Stop/Pausa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Imposta se l'output AO esteso si ripristina dopo stop/pausa
+    * @param resetFlag 0-Non ripristina; 1-Ripristina
+    * @param reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
+    */
+    public int SetOutputResetExtAO(int resetFlag, int reloadFlag)
+
+Imposta Se Output SmartTool Si Ripristina Dopo Stop/Pausa
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Imposta se resettare l'uscita DO estensione dopo stop/pausa
-    * @param [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return Codice errore 
-    */ 
-    int SetOutputResetExtDO(int resetFlag);
+    /**
+    * @brief Imposta se l'output SmartTool si ripristina dopo stop/pausa
+    * @param resetFlag 0-Non ripristina; 1-Ripristina
+    * @param reloadFlag Se ricaricare dopo ripresa pausa, 0-Non caricare; 1-Carica
+    * @return Codice errore
+    */
+    public int SetOutputResetSmartToolDO(int resetFlag, int reloadFlag)
 
-Impostazione reset uscita AO estensione dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /** 
-    * @brief Imposta se resettare l'uscita AO estensione dopo stop/pausa
-    * @param [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return Codice errore 
-    */ 
-    int SetOutputResetExtAO(int resetFlag);
-
-Impostazione reset SmartTool dopo stop/pausa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. code-block:: Java
-    :linenos:
-
-    /** 
-    * @brief Imposta se resettare SmartTool dopo stop/pausa
-    * @param [in] resetFlag  0-Non resettare; 1-Resetta
-    * @return Codice errore 
-    */ 
-    int SetOutputResetSmartToolDO(int resetFlag);
-
-Esempio di codice per reset uscite dopo stop/pausa programma LUA
+Esempio Codice Impostazione Ripristino Output Dopo Stop/Pausa Programma Lua
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
-    public static int TestDOReset(Robot robot)
+    public static void TestDOReset(Robot robot)
     {
-        int rtn = -1;
         for (int i = 0; i < 16; i++)
         {
             robot.SetDO(i, 1, 0, 0);
-            robot.Sleep(300);
+            robot.Sleep(200);
         }
-
         int resetFlag = 1;
-        rtn = robot.SetOutputResetCtlBoxDO(resetFlag);
-        robot.SetOutputResetCtlBoxAO(resetFlag);
-        robot.SetOutputResetAxleDO(resetFlag);
-        robot.SetOutputResetAxleAO(resetFlag);
-        robot.SetOutputResetExtDO(resetFlag);
-        robot.SetOutputResetExtAO(resetFlag);
-        robot.SetOutputResetSmartToolDO(resetFlag);
-
+        int resumeReloadFlag = 1;
+        int rtn = robot.SetOutputResetCtlBoxDO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetCtlBoxAO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetAxleDO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetAxleAO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetExtDO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetExtAO(resetFlag, resumeReloadFlag);
+        robot.SetOutputResetSmartToolDO(resetFlag, resumeReloadFlag);
         robot.ProgramLoad("/fruser/test.lua");
         robot.ProgramRun();
-        return 0;
+        robot.Sleep(2000);
+        robot.PauseMotion();
+        robot.Sleep(2000);
+        robot.ResumeMotion();
+        robot.Sleep(2000);
+        robot.CloseRPC();
     }

@@ -407,6 +407,54 @@ Calcolo Cinematica Inversa (Riferimento Posizione)
     */   
     int GetInverseKinRef(int posMode, DescPose desc_pos, JointPos joint_pos_ref, ref JointPos joint_pos); 
 
+Soluzione Cinematica Inversa, Spazio Cartesiano Include Posizione Asse Esteso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Soluzione cinematica inversa, spazio cartesiano include posizione asse esteso
+    * @param [in] type 0-Posa assoluta (sistema coordinate base), 1-Posa incrementale (sistema coordinate base), 2-Posa incrementale (sistema coordinate utensile)
+    * @param [in] desc_pos Posa cartesiana
+    * @param [in] exaxis Posizione asse esteso
+    * @param [in] tool Numero utensile
+    * @param [in] workPiece Numero pezzo
+    * @param [out] joint_pos Posizione giunto
+    * @return Codice errore
+    */
+    public int GetInverseKinExaxis(int type, DescPose desc_pos, ExaxisPos exaxis, int tool, int workPiece, ref JointPos joint_pos);
+
+Esempio di Codice per Soluzione di Cinematica Inversa Inclusa Posizione dell'Asse Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    public void TestInverseKinExaxis()
+    {
+        ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
+        
+
+        DescPose desc = new DescPose(99.957f, -0.002f, 29.994f, -176.569f, -6.757f, -167.462f);
+        ExaxisPos exaxis = new ExaxisPos(100.0f, 0.0f, 0.0f, 0.0f);
+        JointPos jointPos = new JointPos(0,0,0,0,0,0);
+        DescPose offsetPos = new DescPose(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        int rtn;
+        robot.GetRobotRealTimeState(ref pkg);
+        int toolnum = pkg.tool;
+        int workPcsNum = pkg.user;
+
+        robot.GetInverseKinExaxis(0, desc, exaxis, toolnum, workPcsNum, ref jointPos);
+        Console.WriteLine($"GetInverseKinExaxis joint is {jointPos.jPos[0]}, {jointPos.jPos[1]}, {jointPos.jPos[2]}, {jointPos.jPos[3]}, {jointPos.jPos[4]}, {jointPos.jPos[5]}");
+
+        robot.ExtAxisMove(exaxis, 100, -1);
+
+        int blendMode = 0;
+        int velAccMode = 0;
+        float oacc = 100.0f;
+        byte flag = 0;
+        robot.MoveJ(jointPos, desc, toolnum, workPcsNum, (float)100.0, (float)100.0, (float)100.0, exaxis, -1, 0, offsetPos);
+    }
+
 Verificare Se Esiste Soluzione Cinematica Inversa
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
