@@ -1,11 +1,11 @@
 Interrogazione Stato Robot
-===============
+=======================================
 
 .. toctree:: 
     :maxdepth: 5
 
 Ottenere Posizione Corrente Giunti (Gradi)
-+++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -42,7 +42,7 @@ Ottenere Accelerazione Feedback Giunti
     public int GetActualJointAccDegree(int flag, Object[] acc)
 
 Ottenere Velocità Sintetica Istruzione TCP
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -108,7 +108,7 @@ Ottenere Posa Corrente Utensile
     int GetActualTCPPose(DescPose desc_pos); 
 
 Ottenere Numero Sistema Coordinate Utensile Corrente
-+++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -121,7 +121,7 @@ Ottenere Numero Sistema Coordinate Utensile Corrente
     int GetActualTCPNum(int flag, int[] id)
 
 Ottenere Numero Sistema Coordinate Pezzo Corrente
-+++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -134,7 +134,7 @@ Ottenere Numero Sistema Coordinate Pezzo Corrente
     public int GetActualWObjNum(int flag, int[] id)
 
 Ottenere Posa Corrente Flangia Terminale
-+++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -183,7 +183,7 @@ Interrogare Completamento Movimento Robot
     public int GetRobotMotionDone(int[] state)
 
 Interrogare Lunghezza Buffer Coda Movimento Robot
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -441,7 +441,7 @@ Calcolo Cinematica Diretta
     int GetForwardKin(JointPos joint_pos, DescPose desc_pos); 
 
 Esempio Codice Calcolo Cinematica Diretta/Inversa Robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -465,7 +465,7 @@ Esempio Codice Calcolo Cinematica Diretta/Inversa Robot
     }
 
 Interrogare Dati Punti Gestione Insegnamento Robot
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -477,7 +477,7 @@ Interrogare Dati Punti Gestione Insegnamento Robot
     List<Number> GetRobotTeachingPoint(String name); 
 
 Ottenere Valori Compensazione Parametri DH Robot
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -564,7 +564,7 @@ Ottenere Sistema Coordinate Pezzo per Numero
     public int GetWObjCoordWithID(int id, DescPose coord)
 
 Ottenere Sistema Coordinate Utensile Esterno per Numero
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
 .. code-block:: Java
@@ -622,7 +622,7 @@ Ottenere Sistema Coordinate Pezzo Corrente
     public int GetCurWObjCoord(DescPose coord)
 
 Ottenere Sistema Coordinate Utensile Esterno Corrente
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: Java SDK-v1.0.9-3.8.6
 
 .. code-block:: Java

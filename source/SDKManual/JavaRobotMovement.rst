@@ -869,7 +869,7 @@ Esempio di codice per il controllo coppia giunti con protezione sovravelocità
     }
 
 Movimento in Modalità Servo Spazio Cartesiano
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
@@ -889,7 +889,7 @@ Movimento in Modalità Servo Spazio Cartesiano
     public int ServoCart(int mode, DescPose desc_pose, ExaxisPos exaxis, double[] pos_gain, double acc, double vel, double cmdT, double filterT, double gain)
 
 Esempio Codice Movimento in Modalità Servo Spazio Cartesiano
-+++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
