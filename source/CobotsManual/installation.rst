@@ -1202,7 +1202,7 @@ Le uscite digitali delle unità di controllo CC e CA a tensione stretta supporta
    * - Unità di Controllo CA Tensione Stretta
      - Uscita Tipo NPN
 
-   * - Unità di Controllo CA Tensione Ampia
+   * - Cassetta di controllo per tensione alternata ad ampio intervallo
      - Uscita Tipo NPN/PNP
 
 Diagramma di Cablaggio Uscite Digitali Unità di Controllo
