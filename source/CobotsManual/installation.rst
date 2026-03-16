@@ -2370,6 +2370,48 @@ Le specifiche elettriche per gli I/O digitali sono riportate nella tabella segue
      - | -
      - Tipo
 
+Le specifiche elettriche per i carichi DO digitali sono mostrate nella tabella seguente.
+
+.. centered:: Tabella 3.5-3 Specifiche Elettriche Carico DO Digitale Singolo Canale
+
+.. list-table::
+   :widths: 30 20 20 30
+   :header-rows: 0
+   :align: center
+
+   * - **Tipo Scatola di Controllo**
+     - **Tipo Uscita DO**
+     - **Tipo Alimentazione**
+     - **Carico Massimo Singolo Canale DO**
+
+   * - Scatola di Controllo CC/CA Tensione Stretta
+     - Uscita NPN
+     - Alimentazione Esterna 24V
+     - | Canali 1-4: 400mA
+       | Canali 5-8: 250mA
+       | Canali 9-16: 125mA
+
+   * - Scatola di Controllo CC/CA Tensione Stretta
+     - Uscita NPN
+     - Alimentazione Interna 24V
+     - | Canali 1-4: 300mA
+       | Canali 5-8: 190mA
+       | Canali 9-16: 90mA
+
+   * - Scatola di Controllo CA Tensione Ampia
+     - Uscita NPN/PNP
+     - Alimentazione Esterna 24V
+     - | Canali 1-2: 200mA
+       | Canali 3-8: 100mA
+       | Canali 9-16: 60mA
+
+   * - Scatola di Controllo CA Tensione Ampia
+     - Uscita NPN/PNP
+     - Alimentazione Interna 24V
+     - | Canali 1-2: 200mA
+       | Canali 3-8: 100mA
+       | Canali 9-16: 60mA
+
 I/O di Sicurezza
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
