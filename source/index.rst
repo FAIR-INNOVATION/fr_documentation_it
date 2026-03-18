@@ -20,6 +20,8 @@ Cambio di lingua
 
     \ `English <https://fairino-doc-en.readthedocs.io/latest/>`__\ 
 
+    \ `Deutsch <https://fairino-doc-de.readthedocs.io/latest/>`__\ 
+    
 .. toctree::
    :maxdepth: 6
    :caption: User manual
