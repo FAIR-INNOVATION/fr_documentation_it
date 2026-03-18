@@ -181,9 +181,9 @@ Esempio codice configurazione e calibrazione zero automatica sensore di forza
 .. code-block:: python
     :linenos:
 
-    import frrpc
+    from fairino import Robot
     # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
-    robot = frrpc.RPC('192.168.58.2')
+    robot = Robot.RPC('192.168.58.2')
     company = 24
     device = 0
     softversion = 0
@@ -274,9 +274,9 @@ Esempio codice identificazione carico sensore di forza
 .. code-block:: python
     :linenos:
 
-    import frrpc
+    from fairino import Robot
     # Stabilire connessione con controller robot, restituisce oggetto robot se connesso con successo
-    robot = frrpc.RPC('192.168.58.2')
+    robot = Robot.RPC('192.168.58.2')
     company = 24
     device = 0
     softversion = 0
