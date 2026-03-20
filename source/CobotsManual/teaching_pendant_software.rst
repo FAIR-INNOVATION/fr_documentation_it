@@ -292,9 +292,9 @@ Barra di Stato
       :height: 0.75in
       :align: left
 
-    Nome: **Stato Errore di Esecuzione Robot**
+   Nome: **Stato Errore di Esecuzione Robot**
    
-    Funzione: Indica un errore durante l'esecuzione del robot. Nascosto quando non ci sono errori.
+   Funzione: Indica un errore durante l'esecuzione del robot. Nascosto quando non ci sono errori.
 
 .. note:: 
    .. image:: teaching_pendant_software/007.png
@@ -302,9 +302,9 @@ Barra di Stato
       :height: 0.75in
       :align: left
 
-    Nome: **Stato Robot**
+   Nome: **Stato Robot**
    
-    Funzione: Stopped (Fermo), Running (In Esecuzione), Pause (Pausa), Drag (Trascinamento)
+   Funzione: Stopped (Fermo), Running (In Esecuzione), Pause (Pausa), Drag (Trascinamento)
 
 .. note:: 
    .. image:: teaching_pendant_software/010.png
@@ -312,9 +312,9 @@ Barra di Stato
       :height: 0.75in
       :align: left
 
-    Nome: **Sistema di Coordinate dell'Utensile Robot, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso e ID Carico**
+   Nome: **Sistema di Coordinate dell'Utensile Robot, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso e ID Carico**
    
-    Funzione: In alto a sinistra – ID del sistema di coordinate dell'utensile corrente. In alto a destra – ID del sistema di coordinate del pezzo corrente. In basso a sinistra – ID del sistema di coordinate dell'asse esteso corrente. In basso a destra – ID del carico corrente.
+   Funzione: In alto a sinistra – ID del sistema di coordinate dell'utensile corrente. In alto a destra – ID del sistema di coordinate del pezzo corrente. In basso a sinistra – ID del sistema di coordinate dell'asse esteso corrente. In basso a destra – ID del carico corrente.
 
 .. note:: 
    .. image:: teaching_pendant_software/009.png
@@ -322,9 +322,9 @@ Barra di Stato
       :height: 0.75in
       :align: left
 
-    Nome: **Percentuale Velocità di Esecuzione**
+   Nome: **Percentuale Velocità di Esecuzione**
    
-    Funzione: Velocità di funzionamento corrente del robot (in percentuale).
+   Funzione: Velocità di funzionamento corrente del robot (in percentuale).
 
 .. note:: 
    .. image:: teaching_pendant_software/012.png
@@ -332,9 +332,9 @@ Barra di Stato
       :height: 0.75in
       :align: left
 
-    Nome: **Modalità Automatica**
+   Nome: **Modalità Automatica**
    
-    Funzione: Modalità di funzionamento automatico del robot. Quando è abilitata la funzione "Passa alla Modalità Automatica con Regolazione Velocità Globale" e viene specificata una velocità, la velocità globale si adatterà automaticamente alla velocità specificata.
+   Funzione: Modalità di funzionamento automatico del robot. Quando è abilitata la funzione "Passa alla Modalità Automatica con Regolazione Velocità Globale" e viene specificata una velocità, la velocità globale si adatterà automaticamente alla velocità specificata.
 
 .. note:: 
    .. image:: teaching_pendant_software/013.png
@@ -342,9 +342,9 @@ Barra di Stato
       :height: 0.75in
       :align: left
 
-    Nome: **Modalità Manuale**
+   Nome: **Modalità Manuale**
    
-    Funzione: Modalità manuale del robot per operazioni di insegnamento.
+   Funzione: Modalità manuale del robot per operazioni di insegnamento.
 
 .. note:: 
    .. image:: teaching_pendant_software/065.png
@@ -352,9 +352,9 @@ Barra di Stato
       :height: 0.75in
       :align: left
 
-    Nome: **Pulsante Comprimi/Espandi Stato Robot**
+   Nome: **Pulsante Comprimi/Espandi Stato Robot**
    
-    Funzione: Comprime o espande la visualizzazione del Sistema di Coordinate dell'Utensile, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso, Carico, Stato di Trascinamento Robot, Modalità Locale/Remota, Stato Connessione Robot, Modalità BOOT e Informazioni Account.
+   Funzione: Comprime o espande la visualizzazione del Sistema di Coordinate dell'Utensile, Sistema di Coordinate del Pezzo, Sistema di Coordinate dell'Asse Esteso, Carico, Stato di Trascinamento Robot, Modalità Locale/Remota, Stato Connessione Robot, Modalità BOOT e Informazioni Account.
 
 Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni di stato.
 
@@ -364,9 +364,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **ID Sistema di Coordinate dell'Utensile**
+   Nome: **ID Sistema di Coordinate dell'Utensile**
    
-    Funzione: Visualizza l'ID del sistema di coordinate dell'utensile attualmente applicato.
+   Funzione: Visualizza l'ID del sistema di coordinate dell'utensile attualmente applicato.
 
 .. note:: 
    .. image:: teaching_pendant_software/027.png
@@ -374,9 +374,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **ID Sistema di Coordinate del Pezzo**
+   Nome: **ID Sistema di Coordinate del Pezzo**
    
-    Funzione: Visualizza l'ID del sistema di coordinate del pezzo attualmente applicato.
+   Funzione: Visualizza l'ID del sistema di coordinate del pezzo attualmente applicato.
    
 .. note:: 
    .. image:: teaching_pendant_software/028.png
@@ -384,9 +384,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **ID Sistema di Coordinate dell'Asse Esteso**
+   Nome: **ID Sistema di Coordinate dell'Asse Esteso**
    
-    Funzione: Visualizza l'ID del sistema di coordinate dell'asse esteso attualmente applicato.
+   Funzione: Visualizza l'ID del sistema di coordinate dell'asse esteso attualmente applicato.
 
 .. note:: 
    .. image:: teaching_pendant_software/066.png
@@ -394,9 +394,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **Carico**
+   Nome: **Carico**
    
-    Funzione: Visualizza il peso del carico attualmente applicato e le coordinate X, Y, Z del suo centro di massa.
+   Funzione: Visualizza il peso del carico attualmente applicato e le coordinate X, Y, Z del suo centro di massa.
 
 .. note:: 
    .. image:: teaching_pendant_software/014.png
@@ -404,9 +404,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **Stato di Trascinamento Robot**
+   Nome: **Stato di Trascinamento Robot**
    
-    Funzione: Il robot può attualmente essere trascinato.
+   Funzione: Il robot può attualmente essere trascinato.
 
 .. note:: 
    .. image:: teaching_pendant_software/015.png
@@ -414,9 +414,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **Stato di Trascinamento Robot**
+   Nome: **Stato di Trascinamento Robot**
    
-    Funzione: Il robot attualmente non può essere trascinato.
+   Funzione: Il robot attualmente non può essere trascinato.
 
 .. note:: 
    .. image:: teaching_pendant_software/068.png
@@ -424,9 +424,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **Modalità Locale Robot**
+   Nome: **Modalità Locale Robot**
    
-    Funzione: Il robot è attualmente controllato dalla centralina di controllo.
+   Funzione: Il robot è attualmente controllato dalla centralina di controllo.
 
 .. note:: 
    .. image:: teaching_pendant_software/067.png
@@ -434,9 +434,9 @@ Fare clic sul pulsante di compressione per visualizzare le seguenti informazioni
       :height: 0.75in
       :align: left
 
-    Nome: **Modalità Remota Robot**
+   Nome: **Modalità Remota Robot**
    
-    Funzione: Il robot può attualmente essere controllato solo tramite PLC.
+   Funzione: Il robot può attualmente essere controllato solo tramite PLC.
 
 .. note:: 
    .. image:: teaching_pendant_software/017.png

@@ -702,7 +702,7 @@ Esempio di Codice Controllo Coppia Articolare con Protezione Sovravelocità
     }
 
 Movimento in Modalità Servo Spazio Cartesiano
-++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 

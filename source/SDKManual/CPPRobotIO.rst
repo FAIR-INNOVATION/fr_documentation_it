@@ -376,7 +376,7 @@ Esempio di codice per attendere segnali di ingresso digitali/analogici della sca
      }
 
 Imposta se Resettare l'Uscita DO del Box di Controllo dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -391,7 +391,7 @@ Imposta se Resettare l'Uscita DO del Box di Controllo dopo Stop/Pausa
     errno_t SetOutputResetCtlBoxDO(int resetFlag, int reloadFlag = 0);
 
 Imposta se Resettare l'Uscita AO del Box di Controllo dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -406,7 +406,7 @@ Imposta se Resettare l'Uscita AO del Box di Controllo dopo Stop/Pausa
     errno_t SetOutputResetCtlBoxAO(int resetFlag, int reloadFlag = 0);
 
 Imposta se Resettare l'Uscita DO dell'Utensile Terminale dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -421,7 +421,7 @@ Imposta se Resettare l'Uscita DO dell'Utensile Terminale dopo Stop/Pausa
     errno_t SetOutputResetAxleDO(int resetFlag, int reloadFlag = 0);
 
 Imposta se Resettare l'Uscita AO dell'Utensile Terminale dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -436,7 +436,7 @@ Imposta se Resettare l'Uscita AO dell'Utensile Terminale dopo Stop/Pausa
     errno_t SetOutputResetAxleAO(int resetFlag, int reloadFlag = 0);
 
 Imposta se Resettare l'Uscita DO Estensione dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -451,7 +451,7 @@ Imposta se Resettare l'Uscita DO Estensione dopo Stop/Pausa
     errno_t SetOutputResetExtDO(int resetFlag, int reloadFlag = 0);
 
 Imposta se Resettare l'Uscita AO Estensione dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++
@@ -466,7 +466,7 @@ Imposta se Resettare l'Uscita AO Estensione dopo Stop/Pausa
     errno_t SetOutputResetExtAO(int resetFlag, int reloadFlag = 0);
 
 Imposta se Resettare l'Uscita SmartTool dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
     
 .. code-block:: c++

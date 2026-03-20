@@ -363,7 +363,7 @@ Esempio di codice per attendere segnali di ingresso digitali e analogici del cab
     }
 
 Imposta Se Output DO Scatola Controllo Si Ripristina Dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -376,7 +376,7 @@ Imposta Se Output DO Scatola Controllo Si Ripristina Dopo Stop/Pausa
     public int SetOutputResetCtlBoxDO(int resetFlag, int reloadFlag);
 
 Imposta Se Output AO Scatola Controllo Si Ripristina Dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -389,7 +389,7 @@ Imposta Se Output AO Scatola Controllo Si Ripristina Dopo Stop/Pausa
     public int SetOutputResetCtlBoxAO(int resetFlag, int reloadFlag);
 
 Imposta Se Output DO Utensile Terminale Si Ripristina Dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -402,7 +402,7 @@ Imposta Se Output DO Utensile Terminale Si Ripristina Dopo Stop/Pausa
     public int SetOutputResetAxleDO(int resetFlag, int reloadFlag);
 
 Imposta Se Output AO Utensile Terminale Si Ripristina Dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -415,7 +415,7 @@ Imposta Se Output AO Utensile Terminale Si Ripristina Dopo Stop/Pausa
     public int SetOutputResetAxleAO(int resetFlag, int reloadFlag);
 
 Imposta Se Output DO Esteso Si Ripristina Dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -428,7 +428,7 @@ Imposta Se Output DO Esteso Si Ripristina Dopo Stop/Pausa
     public int SetOutputResetExtDO(int resetFlag, int reloadFlag);
 
 Imposta Se Output AO Esteso Si Ripristina Dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -441,7 +441,7 @@ Imposta Se Output AO Esteso Si Ripristina Dopo Stop/Pausa
     public int SetOutputResetExtAO(int resetFlag, int reloadFlag);
 
 Imposta Se Output SmartTool Si Ripristina Dopo Stop/Pausa
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
@@ -454,7 +454,7 @@ Imposta Se Output SmartTool Si Ripristina Dopo Stop/Pausa
     public int SetOutputResetSmartToolDO(int resetFlag, int reloadFlag);
 
 Esempio Codice Impostazione Ripristino Output Dopo Stop/Pausa Programma Lua
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 

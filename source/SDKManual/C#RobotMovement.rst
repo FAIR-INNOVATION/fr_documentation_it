@@ -1018,7 +1018,7 @@ Movimento modalità servomotore spazio cartesiano
     :linenos:
 
 Movimento in Modalità Servo Spazio Cartesiano
-++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
