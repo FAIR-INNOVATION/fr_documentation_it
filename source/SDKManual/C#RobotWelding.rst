@@ -362,18 +362,18 @@ Impostare la porta DO estesa per la modalità di controllo della saldatrice
     */
    int SetWeldMachineCtrlModeExtDoNum(int DONum);
 
-Impostare la modalità di controllo della saldatrice
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Imposta Modalità di Controllo della Saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
-   :linenos:
+    :linenos:
 
-   /**
+    /**
     * @brief Imposta la modalità di controllo della saldatrice
-    * @param mode  Modalità di controllo della saldatrice; 0-Unitaria; 1-Binaria
+    * @param [in] mode Modalità di controllo della saldatrice; 0-Modo unico DC; 1-Modo unico a impulsi; 2-Modalità JOB; 3-Modalità controllo locale; 4-Modalità separata; 5-Modalità CC/CV; 6-TIG; 7-CMT
+    * @param [in] ioType Tipo di controllo; 0-IO del box di controllo; 1-Protocollo di comunicazione digitale (UDP); 2-Protocollo di comunicazione digitale (ModbusTCP)
     * @return Codice di errore
     */
-   int SetWeldMachineCtrlMode(int mode);
+    public int SetWeldMachineCtrlMode(int mode,int ioType = 1)
 
 Inizio della saldatura
 ++++++++++++++++++++++

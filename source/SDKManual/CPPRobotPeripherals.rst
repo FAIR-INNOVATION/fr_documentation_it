@@ -1857,3 +1857,183 @@ Esempio codice tracciamento laser sincronizzato con assi estesi e robot
         }
         robot.CloseRPC();
     }
+
+Abilita/Disabilita Funzione di Trasmissione Trasparente dell'End-Effector
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Abilita/disabilita la funzione di trasmissione trasparente dell'end-effector
+    * @param [in] abilitazione, 0-disabilita, 1-abilita
+    * @return Codice di errore
+    */
+    errno_t SetAxleGenComEnable(int mode);
+                                                            
+Trasmissione e Ricezione Dati Non Periodici della Funzione di Trasmissione Trasparente dell'End-Effector
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+    
+    /**
+    * @brief Trasmissione e ricezione dati non periodici della funzione di trasmissione trasparente dell'end-effector
+    * @param [in] len_snd Lunghezza dei dati da inviare
+    * @param [in] sndBuff Dati da inviare
+    * @param [in] len_rcv Lunghezza dei dati da ricevere
+    * @param [out] rcvBuff Dati di risposta
+    * @return Codice di errore
+    */
+    errno_t SndRcvAxleGenComCmdData(int lenSnd, int sndBuff[130], int lenRcv, int rcvData[130]);
+                                                                
+Esempio di Codice per Comunicazione Dati Non Periodici del DIO Health Care Moxibustion Head basato sulla Funzione di Trasmissione Trasparente dell'End-Effector
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    int testAxleGenCom()
+    {
+      ROBOT_STATE_PKG pkg = {};
+      FRRobot robot;
+      robot.LoggerInit();
+      robot.SetLoggerLevel(1);
+      int rtn = robot.RPC("192.168.58.2");
+      if (rtn != 0)
+      {
+        return -1;
+      }
+      robot.SetReConnectParam(true, 30000, 500);
+      int led_on[6] = { 0xAB, 0xBA, 0x12, 0x01, 0x01, 0x79 };
+      int led_off[6] = { 0xAB, 0xBA, 0x12, 0x01, 0x00, 0x78 };
+      int version[5] = { 0xAB, 0xBA, 0x11, 0x00, 0x76 };
+      int state[6] = { 0xAB, 0xBA, 0x1B, 0x01, 0xAA, 0x2B };
+      int cycleState[6] = { 0xAB, 0xBA, 0x12, 0x01, 0x00, 0x78 };
+      int rcvdata[16] = {0};
+      int ret = 0;
+      int cnt = 1;
+      JointPos p1Joint(88.708, -86.178, 140.989, -141.825, -89.162, -49.879);
+      DescPose p1Desc(188.007, -377.850, 260.207, 178.715, 2.823, -131.466);
+      JointPos p2Joint(112.131, -75.554, 126.989, -139.027, -88.044, -26.477);
+      DescPose p2Desc(368.003, -377.848, 260.211, 178.715, 2.823, -131.465);
+      ExaxisPos exaxisPos(0, 0, 0, 0);
+      DescPose offdese(0, 0, 0, 0, 0, 0);
+      //Abilita la funzione di trasmissione trasparente dell'end-effector
+      robot.SetAxleGenComEnable(1);
+      robot.SetAxleLuaEnable(1);
+      while (cnt <= 10000)
+      {
+        //Legge il numero di versione
+        ret = robot.SndRcvAxleGenComCmdData(5, version, 10, rcvdata);
+        printf(" hard version : %d,hard code:%d, soft version:%d %d, soft code:%d \n", rcvdata[4], rcvdata[5], rcvdata[6] ,rcvdata[7], rcvdata[8]);
+        if (ret != 0)
+        {
+          break;
+        }
+        robot.Sleep(1000);
+        //Legge lo stato di presenza della testa di moxibustione
+        ret = robot.SndRcvAxleGenComCmdData(6, state, 6, rcvdata);
+        printf(" state : %d \n", rcvdata[4]);
+        robot.Sleep(1000);
+        //Accende il laser della testa di moxibustione
+        ret = robot.SndRcvAxleGenComCmdData(6, led_on, 6, rcvdata);
+        printf("led on rcv data is: %d, %d, %d, %d, %d, %d  \n", rcvdata[0], rcvdata[1], rcvdata[2], rcvdata[3], rcvdata[4], rcvdata[5]);
+        robot.MoveJ(&p1Joint, &p1Desc, 0, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
+        robot.Sleep(4000);
+        //Spegne il laser della testa di moxibustione
+        ret = robot.SndRcvAxleGenComCmdData(6, led_off, 6, rcvdata);
+        printf("led off rcv data is: %d, %d, %d, %d, %d, %d \n", rcvdata[0], rcvdata[1], rcvdata[2], rcvdata[3], rcvdata[4], rcvdata[5]);
+        robot.MoveJ(&p2Joint, &p2Desc, 0, 0, 100, 100, 100, &exaxisPos, -1, 0, &offdese);
+        robot.Sleep(1000);
+        printf("***********************complate No. %d SDK test*****************************\n", cnt);
+        cnt++;
+      }
+      robot.CloseRPC();
+    }
+
+Scarica File Lua di Protocollo Aperto
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Scarica file Lua di protocollo aperto
+    * @param [in] fileName Nome del file di protocollo aperto "CtrlDev_XXX.lua"
+    * @param [in] savePath Percorso di salvataggio del file di protocollo aperto
+    * @return Codice di errore
+    */
+    errno_t OpenLuaDownload(std::string fileName, std::string savePath);
+    
+Elimina File Lua di Protocollo Aperto
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Elimina file Lua di protocollo aperto
+    * @param [in] fileName Nome del file Lua di protocollo aperto da eliminare "CtrlDev_XXX.lua"
+    * @return Codice di errore
+    */
+    errno_t OpenLuaDelete(std::string fileName);
+        
+Elimina Tutti i File Lua di Protocollo Aperto
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Elimina tutti i file Lua di protocollo aperto
+    * @return Codice di errore
+    */
+    errno_t AllOpenLuaDelete();
+
+Esempio di Codice per Caricamento, Download ed Eliminazione di Protocollo Aperto per Periferiche del Controller
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    int TestCtrlOpenLuaOperate()
+    {
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return 0;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+        rtn = robot.OpenLuaUpload("D://zUP/openlua/CtrlDev_WELDING_A.lua");
+        printf("OpenLuaUpload rtn is %d\n", rtn);
+        rtn = robot.OpenLuaUpload("D://zUP/openlua/CtrlDev_SWDPOLISH.lua");
+        printf("OpenLuaUpload rtn is %d\n", rtn);
+        rtn = robot.OpenLuaDownload("CtrlDev_WELDING_A.lua", "D://zDOWN/");
+        printf("OpenLuaDownload rtn is %d\n", rtn);
+        rtn = robot.OpenLuaDownload("CtrlDev_SWDPOLISH.lua", "D://zDOWN/");
+        printf("OpenLuaDownload rtn is %d\n", rtn);
+        rtn = robot.SetCtrlOpenLUAName(0, "CtrlDev_WELDING_A.lua");
+        printf("SetCtrlOpenLUAName rtn is %d\n", rtn);
+        rtn = robot.SetCtrlOpenLUAName(1, "CtrlDev_SWDPOLISH.lua");
+        printf("SetCtrlOpenLUAName rtn is %d\n", rtn);
+        std::string name[4] = {};
+        rtn = robot.GetCtrlOpenLUAName(name);
+        printf("ctrl open lua names : %s, %s, %s, %s\n", name[0].c_str(), name[1].c_str(), name[2].c_str(), name[3].c_str());
+        rtn = robot.LoadCtrlOpenLUA(1);
+        printf("LoadCtrlOpenLUA rtn is %d\n", rtn);
+        robot.Sleep(2000);
+        rtn = robot.UnloadCtrlOpenLUA(1);
+        printf("UnloadCtrlOpenLUA rtn is %d\n", rtn);
+        rtn = robot.OpenLuaDelete("CtrlDev_WELDING_A.lua");
+        printf("OpenLuaDelete rtn is %d\n", rtn);
+        rtn = robot.AllOpenLuaDelete();
+        printf("AllOpenLuaDelete rtn is %d\n", rtn);
+        robot.CloseRPC();
+        robot.Sleep(1000);
+        return 0;
+    }

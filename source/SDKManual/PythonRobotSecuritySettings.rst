@@ -246,3 +246,89 @@ Esempio Codice Rilevamento Potenza Coppia Giunti
     error = robot.ServoJTEnd()
     robot.DragTeachSwitch(0)
     robot.CloseRPC()
+
+Imposta i Parametri di Velocità di Sicurezza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetVelReducePara(enable, maxTCPVel, strategy)``"
+    "Descrizione", "Imposta i parametri di velocità di sicurezza"
+    "Parametri Obbligatori", "
+    - ``enable``: 0-disabilitato; 1-abilitato in modalità manuale; 2-abilitato in tutte le modalità (limitazione automatica della velocità non supportata)
+    - ``maxTCPVel``: Limite massimo velocità TCP; [0-1000] mm/s
+    - ``strategy``: Strategia dopo superamento velocità; 0-ferma con allarme; 1-limitazione automatica della velocità; 2-ferma con allarme e disabilita
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "- Codice di errore Successo-0 Fallimento-errcode"
+
+Esempio di Codice SDK per Impostare i Parametri di Velocità di Sicurezza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: python
+    :linenos: 
+
+    from time import sleep
+    import time
+    from fairino import Robot
+
+    # Stabilire la connessione con il controller del robot
+    robot = Robot.RPC('192.168.58.2')
+
+    def TestSetVelReducePara(self):
+        # Inizializza posizione giunto, assi esterni e offset
+        j1 = [0, -90, 90, 0, 0, 0]
+        j2 = [90, -90, 90, 0, 0, 0]
+        epos = [0, 0, 0, 0]
+        offset_pos = [0, 0, 0, 0, 0, 0]
+
+        # Imposta velocità base
+        robot.SetSpeed(80)
+
+        # Test errore parametro (mode=2 non valido?)
+        rtn = robot.SetVelReducePara(2, 30, 1)
+        print(f"SetVelReducePara param error rtn is {rtn}")
+
+        # Disabilita funzione riduzione velocità (mode=0, action=1 indica disabilita)
+        rtn = robot.SetVelReducePara(0, 30, 1)
+        print(f"SetVelReducePara disable reduce vel rtn is {rtn}")
+        robot.MoveJ(joint_pos=j1, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+        robot.MoveJ(joint_pos=j2, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+
+        # Abilita funzione riduzione velocità (mode=1, action=1)
+        rtn = robot.SetVelReducePara(1, 30, 1)
+        print(f"SetVelReducePara reduce vel rtn is {rtn}")
+        robot.MoveJ(joint_pos=j1, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+        robot.MoveJ(joint_pos=j2, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+
+        # Test action=2 (può indicare arresto emergenza o disabilitazione robot)
+        rtn = robot.SetVelReducePara(2, 30, 2)
+        print(f"SetVelReducePara disable robot rtn is {rtn}")
+        robot.MoveJ(joint_pos=j1, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+        robot.MoveJ(joint_pos=j2, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+
+        # Attendi, resetta errori e riabilita robot
+        time.sleep(2)
+        robot.ResetAllError()
+        robot.RobotEnable(1)
+        time.sleep(1)
+
+        # Test action=0 (può indicare solo segnalazione errore, nessuna azione)
+        rtn = robot.SetVelReducePara(2, 30, 0)
+        print(f"SetVelReducePara report error rtn is {rtn}")
+        robot.MoveJ(joint_pos=j1, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+        robot.MoveJ(joint_pos=j2, tool=0, user=0, vel=100, acc=100, ovl=100,
+                    exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+
+        # Chiudi connessione
+        robot.CloseRPC()
+
+    TestSetVelReducePara(robot)

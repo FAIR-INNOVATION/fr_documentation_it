@@ -360,27 +360,28 @@ Configurazione dei parametri di comunicazione per l'asse esteso UDP
     */
     errno_t ExtDevSetUDPComParam(std::string ip, int port, int period, int lossPkgTime, int lossPkgNum, int disconnectTime, int reconnectEnable, int reconnectPeriod, int reconnectNum, int selfConnect = 1);
 
-Ottenere la configurazione dei parametri di comunicazione per l'asse esteso UDP
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la Configurazione dei Parametri di Comunicazione UDP per Assi di Estensione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.4.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Ottiene i parametri di comunicazione per l'asse esteso UDP
-    * @param [out] ip Indirizzo IP PLC
-    * @param [out] port Numero porta
-    * @param [out] period Periodo di comunicazione (ms, predefinito 2, non modificare questo parametro)
-    * @param [out] lossPkgTime Tempo rilevamento perdita pacchetti (ms)
-    * @param [out] lossPkgNum Numero perdite pacchetti
-    * @param [out] disconnectTime Tempo conferma disconnessione comunicazione
-    * @param [out] reconnectEnable Abilita riconnessione automatica in caso di interruzione comunicazione 0-Non abilitata 1-Abilitata
-    * @param [out] reconnectPeriod Intervallo periodo riconnessione (ms)
-    * @param [out] reconnectNum Numero tentativi riconnessione
+    * @brief Ottiene i parametri di comunicazione UDP per assi di estensione
+    * @param [out] ip Indirizzo IP del PLC
+    * @param [out] port Numero di porta
+    * @param [out] period Periodo di comunicazione (ms, default è 2, non modificare questo parametro)
+    * @param [out] lossPkgTime Tempo di rilevamento perdita pacchetti (ms)
+    * @param [out] lossPkgNum Numero di perdite di pacchetti
+    * @param [out] disconnectTime Durata di conferma disconnessione comunicazione
+    * @param [out] reconnectEnable Abilitazione riconnessione automatica alla disconnessione della comunicazione 0-disabilitato 1-abilitato
+    * @param [out] reconnectPeriod Intervallo di riconnessione (ms)
+    * @param [out] reconnectNum Numero di tentativi di riconnessione
+    * @param [out] selfStart Riconnessione automatica dopo riavvio del box di controllo; 0-nessuna riconnessione; 1-riconnessione
     * @return Codice di errore
     */
-    errno_t ExtDevGetUDPComParam(std::string& ip, int& port, int& period, int& lossPkgTime, int& lossPkgNum, int& disconnectTime, int& reconnectEnable, int& reconnectPeriod, int& reconnectNum);
+    errno_t ExtDevGetUDPComParam(std::string& ip, int& port, int& period, int& lossPkgTime, int& lossPkgNum, int& disconnectTime, int& reconnectEnable, int& reconnectPeriod, int& reconnectNum, int& selfConnect);
 
 Caricare la comunicazione UDP
 ++++++++++++++++++++++++++++++++++
@@ -1542,3 +1543,16 @@ Esempio di codice per dispositivo mobile
       robot.CloseRPC();
       return 0;
     }
+
+Impostazione del Tempo di Completamento del Posizionamento per Assi di Estensione UDP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Imposta il tempo di completamento del posizionamento per assi di estensione UDP
+    * @param [in] time Tempo di completamento del posizionamento [ms]
+    * @return Codice di errore
+    */
+    errno_t SetExAxisCmdDoneTime(double time);

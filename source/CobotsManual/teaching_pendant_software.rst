@@ -177,6 +177,10 @@ Impostazione multilingua
      - it
      - Sì
 
+   * - Tedesco
+     - Deutsch
+     - de
+     - Sì
 
 1. La selezione della lingua può essere effettuata nell’angolo in alto a destra sia nella pagina di login che in quella di attivazione iniziale.  
 

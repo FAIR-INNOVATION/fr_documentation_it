@@ -800,47 +800,131 @@ Esempio di codice per movimento elicoidale
         return 0;
     }
 
-Inizio movimento servo
+Avvio Movimento Servo
 +++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Inizio movimento servo, da usare con i comandi ServoJ, ServoCart
+    * @brief Avvia il movimento servo, utilizzato con i comandi ServoJ e ServoCart
+    * @param[in] comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
     * @return Codice di errore
     */
-    int ServoMoveStart();
+    public int ServoMoveStart (int comType = 0)
 
-Fine movimento servo
+Fine Movimento Servo
 +++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Fine movimento servo, da usare con i comandi ServoJ, ServoCart
+    * @brief Termina il movimento servo, utilizzato con i comandi ServoJ e ServoCart
+    * @param[in] comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
     * @return Codice di errore
     */
-    int ServoMoveEnd();
+    public int ServoMoveEnd (int comType = 0)
 
-Spazio articolare modalità di servomotore movimento
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Movimento in Modalità Servo nello Spazio dei Giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-V1.1.4  Web-3.8.3
     
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Movimento in modalità servomotore nello spazio articolare
-    * @param  [in] joint_pos  Posizione articolare target, unità deg
-    * @param  [in] acc   Percentuale accelerazione, range [0~100], attualmente non disponibile, default 0
-    * @param  [in] vel   Percentuale velocità, range [0~100], attualmente non disponibile, default 0
-    * @param  [in] cmdT  Periodo di invio comando, unità s, range consigliato [0.001~0.0016]
-    * @param  [in] filterT Tempo di filtraggio, unità s, attualmente non disponibile, default 0
-    * @param  [in] gain  Amplificatore proporzionale per la posizione target, attualmente non disponibile, default 0
-    * @param  [in] id ID comando servoJ, default 0
-    * @return   Codice errore
+    * @brief  Movimento in modalità servo nello spazio dei giunti
+    * @param  [in] joint_pos  Posizione giunto target, unità deg
+    * @param  [in] axisPos  Posizione assi esterni, unità mm
+    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], temporaneamente non aperta, default 0
+    * @param  [in] vel  Percentuale di velocità, intervallo [0~100], temporaneamente non aperta, default 0
+    * @param  [in] cmdT  Periodo di invio comando, unità s, intervallo consigliato [0.001~0.0016]
+    * @param  [in] filterT Tempo di filtro, unità s, temporaneamente non aperto, default 0
+    * @param  [in] gain  Amplificatore proporzionale per la posizione target, temporaneamente non aperto, default 0
+    * @param  [in] id ID comando ServoJ, default 0
+    * @param  [in] comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return  Codice di errore
     */
-    int ServoJ(JointPos joint_pos, float acc, float vel, float cmdT, float filterT, float gain,int id=0);
+    public int ServoJ(JointPos joint_pos, ExaxisPos axisPos, float acc, float vel, float cmdT, float filterT, float gain, int id = 0, int comType = 0)
+
+Esempio di Codice SDK per ServoJ, ServoMoveStart, ServoMoveEnd basato su Comunicazione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C#SDK-V1.1.4  Web-3.8.3
+    
+.. code-block:: c#
+    :linenos:
+
+    public void TestServoJUDP()
+    {
+        // Iscriviti al callback
+        robot.OnUdpFrameReceived += (comType, frameCount, frameCmdID, contentLen, content) =>
+        {
+            Console.WriteLine($"[] comType={comType}, count={frameCount}, cmdID={frameCmdID}, content={content}");
+        };
+
+        ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
+
+        float vel = 0.0f;
+        float acc = 0.0f;
+        float cmdT = 0.008f;
+        float filterT = 0.0f;
+        float gain = 0.0f;
+        byte flag = 0;
+        int count = 300;
+        float dt = 0.1f;
+        int cmdID = 0;
+
+        while (true)
+        {
+            JointPos j = new JointPos(0, -90, 90, 0, 0, 0);
+            ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
+            DescPose offset_pos = new DescPose(0, -90, 90, 0, 0, 0);
+            robot.MoveJ(j, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+            int ret = robot.GetActualJointPosDegree(flag, ref j);
+            if (ret == 0)
+            {
+                count = 300;
+                cmdID += 1;
+                robot.ServoMoveStart(1);
+
+                while (count > 0)
+                {
+                    robot.ServoJ(j, epos, acc, vel, cmdT, filterT, gain, cmdID, 1);
+                    j.jPos[0] += dt;
+                    j.jPos[1] += dt;
+                    j.jPos[3] += dt;
+                    j.jPos[4] += dt;
+                    j.jPos[5] += dt;
+                    epos.ePos[0] += dt;
+                    count -= 1;
+                    Thread.Sleep(1);
+                    robot.GetRobotRealTimeState(ref pkg);
+                }
+                robot.ServoMoveEnd(1);
+
+                Thread.Sleep(1000);
+                count = 300;
+                robot.ServoMoveStart(1);
+                while (count > 0)
+                {
+                    robot.ServoJ(j, epos, acc, vel, cmdT, filterT, gain, cmdID, 1);
+                    j.jPos[0] -= dt;
+                    j.jPos[1] -= dt;
+                    j.jPos[3] -= dt;
+                    j.jPos[4] -= dt;
+                    j.jPos[5] -= dt;
+                    epos.ePos[0] -= dt;
+                    count -= 1;
+                    Thread.Sleep(1);
+                    robot.GetRobotRealTimeState(ref pkg);
+                }
+                robot.ServoMoveEnd(1);
+            }
+            else
+            {
+                Console.WriteLine($"GetActualJointPosDegree errcode:{ret}");
+            }
+        }
+    }
 
 Esempio di codice movimento modalità servomotore spazio articolare
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -896,43 +980,119 @@ Esempio di codice movimento modalità servomotore spazio articolare
         }
     }
 
-Avvio controllo coppia articolare
+Avvio Controllo di Coppia dei Giunti
++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Avvia il controllo di coppia dei giunti
+    * @param [in] comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return Codice di errore
+    */
+    public int ServoJTStart (int comType = 0)
+
+Controllo di Coppia dei Giunti
 ++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Avvio controllo coppia articolare
-    * @return   Codice errore
+    * @brief Controllo di coppia dei giunti
+    * @param [in] torque Coppia giunti j1~j6, unità Nm
+    * @param [in] interval Periodo del comando, unità s, intervallo [0.001~0.008]
+    * @param [in] checkFlag Strategia di rilevamento 0-nessuna limitazione; 1-limitazione potenza; 2-limitazione velocità; 3-limitazione simultanea potenza e velocità
+    * @param [in] jPowerLimit Limite massimo potenza giunto (W)
+    * @param [in] jVelLimit Velocità massima giunto (°/s)
+    * @param [in]  comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return Codice di errore
     */
-    int ServoJTStart();
+    public int ServoJT(double[] torque, double interval, int checkFlag, double[] jPowerLimit, double[] jVelLimit, int comType = 0)
 
-Controllo coppia articolare
-++++++++++++++++++++++++++++++++++
+Fine Controllo di Coppia dei Giunti
++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Controllo coppia articolare
-    * @param [in] torque Coppia articolare j1~j6, unità Nm
-    * @param [in] interval Periodo comando, unità s, range [0.001~0.008]
-    * @param [in] checkFlag Strategia verifica 0-nessuna limitazione; 1-limitazione potenza; 2-limitazione velocità; 3-limitazione simultanea potenza e velocità
-    * @param [in] jPowerLimit Limite massimo potenza articolare (W)
-    * @param [in] jVelLimit Velocità massima articolare (°/s)
-    * @return Codice errore
+    * @brief Termina il controllo di coppia dei giunti
+    * @param[in] comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return Codice di errore
     */
-    public int ServoJT(double[] torque, double interval, int checkFlag, double[] jPowerLimit, double[] jVelLimit)
+    public int ServoJTEnd (int comType = 0)
 
-Fine controllo coppia articolare
-++++++++++++++++++++++++++++++++++
+Esempio di Codice SDK per ServoJT, ServoJTStart, ServoJTEnd basato su Comunicazione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /**
-    * @brief Fine controllo coppia articolare
-    * @return   Codice errore
-    */
-    int ServoJTEnd();
+    public int ServoJTWithSafetyUDP()
+    {
+        // Iscriviti al callback
+        robot.OnUdpFrameReceived += (comType, frameCount, frameCmdID, contentLen, content) =>
+        {
+            Console.WriteLine($"[Risposta UDP] comType={comType}, count={frameCount}, cmdID={frameCmdID}, content={content}");
+        };
+        while (true)
+        {
+            robot.ResetAllError();
+            Thread.Sleep(500);
+
+            JointPos j = new JointPos(7.053, -89.699, 156.141, -72.751, 7.829, 1.889);
+            ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
+            DescPose offset_pos = new DescPose(-151.288, -321.186, 221.989, 89.140, 4.361, -0.795);
+            robot.MoveJ(j, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+
+            double[] torques = new double[6] { 0, 0, 0, 0, 0, 0 };
+            robot.GetJointTorques(1, torques);
+
+            robot.ServoJTStart(1);
+            ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
+            robot.DragTeachSwitch(1);
+
+            int checkFlag = 0;
+            double[] jPowerLimit = new double[6] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+            double[] jVelLimit = new double[6] { 50, 50, 50, 50, 50, 50 };
+            int error = 0;
+            while (true)
+            {
+
+                torques[0] = 0.1;
+                error = robot.ServoJT(torques, 0.008, checkFlag, jPowerLimit, jVelLimit, 1);
+
+                Console.WriteLine($"ServoJT rtn is {error}");
+                Thread.Sleep(1);
+
+                robot.GetRobotRealTimeState(ref pkg);
+                Console.WriteLine($"maincode {pkg.main_code}, subcode {pkg.sub_code}");
+                if (pkg.jt_cur_pos[0] > 30)
+                {
+                    break;
+                }
+            }
+
+            while (true)
+            {
+
+                torques[0] = -0.1;
+                error = robot.ServoJT(torques, 0.008, checkFlag, jPowerLimit, jVelLimit, 1);
+
+                Console.WriteLine($"ServoJT rtn is {error}");
+                Thread.Sleep(1);
+
+                robot.GetRobotRealTimeState(ref pkg);
+                Console.WriteLine($"maincode {pkg.main_code}, subcode {pkg.sub_code}");
+                if (pkg.jt_cur_pos[0] < 0)
+                {
+                    break;
+                }
+            }
+
+            robot.DragTeachSwitch(0);
+            error = robot.ServoJTEnd(1);
+        }
+        return 0;
+    }
 
 Esempio di codice controllo coppia articolare
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1929,4 +2089,125 @@ Esempio Codice Movimento Aereo Stazionario
         Console.WriteLine($"MoveStationary rtn is {rtn}");
         rtn = robot.LaserSensorRecord1(0, 10);
         Console.WriteLine($"LaserSensorRecord1 rtn is {rtn}"); 
+    }
+
+Avvio Oscillazione a Punto Fisso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Avvia l'oscillazione a punto fisso
+    * @param [in] weaveNum Numero di oscillazione [0-7]
+    * @param [in] mode 0-Sistema di coordinate utensile; 1-Punto di riferimento
+    * @param [in] refPoint Coordinate cartesiane del punto di riferimento [x,y,z,a,b,c]
+    * @param [in] weaveTime Tempo di oscillazione [s]
+    * @return Codice di errore
+    */
+    public int OriginPointWeaveStart(int weaveNum, int mode, DescPose refPoint, double weaveTime);
+    
+Fine Oscillazione a Punto Fisso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Termina l'oscillazione a punto fisso
+    * @return Codice di errore
+    */
+    public int OriginPointWeaveEnd();
+        
+Esempio di Codice SDK per Oscillazione a Punto Fisso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    void TestOriginPointWeave()
+    {
+        // Crea oggetto posizione giunto
+        JointPos j = new JointPos(39.886, -98.580, -124.032, -47.393, 90.000, 40.842);
+        ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
+        DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+
+        // Coordinate punto di riferimento
+        DescPose refPoint = new DescPose(400.021, 300.022, 299.996, 179.997, -0.003, -90.956);
+
+        //// Primo movimento
+        robot.MoveJ(j, 1, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+
+        // Avvia oscillazione a punto fisso (modalità 0)
+        robot.OriginPointWeaveStart(0, 0, refPoint, 3);
+        robot.MoveStationary();   // Esegui movimento stazionario (supponendo che questo metodo esista)
+        robot.OriginPointWeaveEnd();
+
+        Thread.Sleep(2000);         // Attendi 2 secondi
+
+        // Secondo movimento
+        robot.MoveJ(j, 1, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+
+        // Avvia oscillazione a punto fisso (modalità 1)
+        robot.OriginPointWeaveStart(0, 1, refPoint, 3);
+        robot.MoveStationary();
+        robot.OriginPointWeaveEnd();
+    }
+
+Esempio di Codice SDK per Oscillazione a Punto Fisso (con Laser e Asse di Estensione)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    void TestOriginPointWeave2()
+    {
+        // Crea oggetto posizione giunto
+        JointPos j = new JointPos(39.886, -98.580, -124.032, -47.393, 90.000, 40.842);
+        ExaxisPos epos1 = new ExaxisPos(0, 0, 0, 0);
+        DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+        ExaxisPos epos2 = new ExaxisPos(5, 0.000, 0.000, 0.000);
+
+        // Coordinate punto di riferimento
+        DescPose refPoint = new DescPose(400.021, 300.022, 299.996, 179.997, -0.003, -90.956);
+
+        int rtn = 0;
+        robot.LaserTrackingSensorConfig("192.168.58.20", 5020);
+        robot.LaserTrackingSensorSamplePeriod(20);
+        robot.LoadPosSensorDriver(101);
+
+        // Carica driver UDP
+        robot.ExtDevLoadUDPDriver();
+
+        // Imposta tempo di completamento del posizionamento per assi di estensione
+        rtn = robot.SetExAxisCmdDoneTime(5000.0);
+        Console.WriteLine("SetExAxisCmdDoneTime rtn is " + rtn);
+
+        // Abilita assi di estensione 1 e 2
+        rtn = robot.ExtAxisServoOn(1, 1);
+        Console.WriteLine("ExtAxisServoOn axis id 1 rtn is " + rtn);
+        rtn = robot.ExtAxisServoOn(2, 1);
+        Console.WriteLine("ExtAxisServoOn axis id 2 rtn is " + rtn);
+        Thread.Sleep(2000);
+
+        // Imposta homing per asse di estensione
+        robot.ExtAxisSetHoming(1, 0, 10, 2);
+        robot.LaserTrackingLaserOnOff(1);
+
+
+        //// 1---Senza asse di estensione
+        robot.LaserTrackingTrackOnOff(1, 4);
+        robot.Sleep(200);
+        // Avvia oscillazione a punto fisso
+        robot.OriginPointWeaveStart(0, 0, refPoint, 10);
+        robot.MoveStationary();   // Esegui movimento stazionario
+        robot.OriginPointWeaveEnd();
+        robot.LaserTrackingTrackOnOff(0, 4);
+
+        Thread.Sleep(2000);         // Attendi 2 secondi
+
+        //// 2---Con asse di estensione
+        robot.ExtAxisMove(epos1, 100, -1);
+        robot.LaserTrackingTrackOnOff(1, 4);
+        // Avvia oscillazione a punto fisso
+        robot.OriginPointWeaveStart(0, 0, refPoint, 20);
+        robot.ExtAxisMove(epos2, 100, -1);
+        robot.OriginPointWeaveEnd();
+        robot.LaserTrackingTrackOnOff(0, 4);
     }

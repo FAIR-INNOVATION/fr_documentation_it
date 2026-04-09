@@ -1778,3 +1778,181 @@ Esempio Codice Tracciamento Laser con Asse Esteso e Robot Sincronizzati
             Console.WriteLine($"Numero completamenti : {i + 1} ");
         }     
     }
+
+Abilita/Disabilita Funzione di Trasmissione Trasparente dell'End-Effector
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Abilita la funzione di trasmissione trasparente generale dell'end-effector
+    * @param [in] abilitazione, 0-disabilita, 1-abilita
+    * @return Codice di errore
+    */
+    public int SetAxleGenComEnable(int mode)
+
+Trasmissione e Ricezione Dati Non Periodici della Funzione di Trasmissione Trasparente dell'End-Effector
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief L'end-effector invia dati non periodici e attende risposta
+    * @param [in] len_snd, lunghezza dei dati da inviare
+    * @param [in] sndBuff[], dati da inviare
+    * @param [in] len_rcv, lunghezza dei dati da ricevere
+    * @param [out] rcvBuff[], dati di risposta
+    * @return Codice di errore
+    */
+    public int SndRcvAxleGenComCmdData(int len_snd, int[] sndBuff, int len_rcv, ref int[] rcvdata)
+
+Esempio di Codice per Comunicazione Dati Non Periodici del DIO Health Care Moxibustion Head basato sulla Funzione di Trasmissione Trasparente dell'End-Effector
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    void testAxleGenCom()
+    {
+        int[] led_on = new int[6] { 0xAB, 0xBA, 0x12, 0x01, 0x01, 0x79 };
+        int[] led_off = new int[6] { 0xAB, 0xBA, 0x12, 0x01, 0x00, 0x78 };
+        int[] version = new int[5]{ 0xAB, 0xBA, 0x11, 0x00, 0x76 };
+        int[] state = new int[6] { 0xAB, 0xBA, 0x1B,0x01, 0xAA, 0x2B };
+        int[] cycleState = new int[6] { 0xAB, 0xBA, 0x12, 0x01, 0x00, 0x78 };
+
+        int[] rcvdata = new int[16];
+        int ret = 0;
+        int cnt = 1;
+
+        JointPos p1Joint = new JointPos(88.708, -86.178, 140.989, -141.825, -89.162, -49.879);
+        DescPose p1Desc = new DescPose(188.007, -377.850, 260.207, 178.715, 2.823, -131.466);
+
+        JointPos p2Joint = new JointPos(112.131, -75.554, 126.989, -139.027, -88.044, -26.477);
+        DescPose p2Desc = new DescPose(368.003, -377.848, 260.211, 178.715, 2.823, -131.465);
+
+        ExaxisPos exaxisPos = new ExaxisPos(0, 0, 0, 0);
+        DescPose offdese = new DescPose(0, 0, 0, 0, 0, 0);
+
+        //Abilita la funzione di trasmissione trasparente dell'end-effector
+        robot.SetAxleGenComEnable(1);
+        robot.SetAxleLuaEnable(1);
+
+        while(cnt<=10)
+        { 
+            //Legge il numero di versione
+            ret = robot.SndRcvAxleGenComCmdData(5, version, 10, ref rcvdata);
+            Console.WriteLine($" hard version : {rcvdata[4]},hard code:{rcvdata[5]}, soft version:{rcvdata[6]} {rcvdata[7]}, soft code:{rcvdata[8]}");
+            if (ret != 0)
+            {
+                break;
+            }
+            Thread.Sleep(1000);
+            //Legge lo stato di presenza della testa di moxibustione
+            ret = robot.SndRcvAxleGenComCmdData(6, state, 6, ref rcvdata);
+            Console.WriteLine($" state : {rcvdata[4]}");
+            Thread.Sleep(1000);
+            //Accende il laser della testa di moxibustione
+            ret = robot.SndRcvAxleGenComCmdData(6, led_on, 6, ref rcvdata);
+            Console.WriteLine($"led on rcv data is: {rcvdata[0]},{rcvdata[1]}, {rcvdata[2]}, {rcvdata[3]}, {rcvdata[4]}, {rcvdata[5]}");
+            robot.MoveJ(p1Joint, p1Desc, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
+            Thread.Sleep(4000);
+            //Spegne il laser della testa di moxibustione
+            ret = robot.SndRcvAxleGenComCmdData(6, led_off, 6, ref rcvdata);
+            Console.WriteLine($"led off rcv data is: {rcvdata[0]},{rcvdata[1]}, {rcvdata[2]}, {rcvdata[3]}, {rcvdata[4]}, {rcvdata[5]}");
+            robot.MoveJ(p2Joint, p2Desc, 0, 0, 100, 100, 100, exaxisPos, -1, 0, offdese);
+            Thread.Sleep(1000);
+            Console.WriteLine($"***********************complate No. {cnt}  SDK test*****************************");
+            cnt++;
+        }
+
+    }
+
+Scarica File Lua di Protocollo Aperto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Scarica file Lua di protocollo aperto
+    * @param [in] fileName Nome del file di protocollo aperto "CtrlDev_XXX.lua"
+    * @param [in] savePath Percorso di salvataggio del file di protocollo aperto
+    * @return Codice di errore
+    */
+    public int OpenLuaDownload(string fileName, string savePath)
+    
+Elimina File Lua di Protocollo Aperto
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Elimina file Lua di protocollo aperto
+    * @param [in] fileName Nome del file Lua di protocollo aperto da eliminare "CtrlDev_XXX.lua"
+    * @return Codice di errore
+    */
+    public int OpenLuaDelete(string fileName)
+        
+Elimina Tutti i File Lua di Protocollo Aperto
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Elimina tutti i file Lua di protocollo aperto
+    * @return Codice di errore
+    */
+    public int AllOpenLuaDelete()
+
+Esempio di Codice SDK per Operazioni su File Lua di Protocollo Aperto
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:
+
+    public int TestCtrlOpenLuaOperate()
+    {
+        int rtn;
+
+        // Carica file Lua sul robot
+        rtn = robot.OpenLuaUpload("D://zUP/openlua/CtrlDev_WELDING_A.lua");
+        Console.WriteLine($"OpenLuaUpload rtn is {rtn}");
+        rtn = robot.OpenLuaUpload("D://zUP/openlua/CtrlDev_SWDPOLISH.lua");
+        Console.WriteLine($"OpenLuaUpload rtn is {rtn}");
+
+        // Scarica file Lua dal robot
+        rtn = robot.OpenLuaDownload("CtrlDev_WELDING_A.lua", "D://zDOWN/");
+        Console.WriteLine($"OpenLuaDownload rtn is {rtn}");
+        rtn = robot.OpenLuaDownload("CtrlDev_SWDPOLISH.lua", "D://zDOWN/");
+        Console.WriteLine($"OpenLuaDownload rtn is {rtn}");
+
+        // Imposta nome Lua di protocollo aperto di controllo
+        rtn = robot.SetCtrlOpenLUAName(0, "CtrlDev_WELDING_A.lua");
+        Console.WriteLine($"SetCtrlOpenLUAName rtn is {rtn}");
+        rtn = robot.SetCtrlOpenLUAName(1, "CtrlDev_SWDPOLISH.lua");
+        Console.WriteLine($"SetCtrlOpenLUAName rtn is {rtn}");
+
+        // Ottiene nome Lua di protocollo aperto di controllo
+        string[] name = new string[4];
+        rtn = robot.GetCtrlOpenLUAName(ref name);
+        Console.WriteLine($"ctrl open lua names : {name[0]}, {name[1]}, {name[2]}, {name[3]}");
+
+        // Carica e scarica Lua di protocollo aperto
+        rtn = robot.LoadCtrlOpenLUA(1);
+        Console.WriteLine($"LoadCtrlOpenLUA rtn is {rtn}");
+        robot.Sleep(2000);
+        rtn = robot.UnloadCtrlOpenLUA(1);
+        Console.WriteLine($"UnloadCtrlOpenLUA rtn is {rtn}");
+
+        // Elimina file Lua specifico e tutti i file Lua
+        rtn = robot.OpenLuaDelete("CtrlDev_WELDING_A.lua");
+        Console.WriteLine($"OpenLuaDelete rtn is {rtn}");
+        rtn = robot.AllOpenLuaDelete();
+        Console.WriteLine($"AllOpenLuaDelete rtn is {rtn}");
+
+        return 0;
+    }

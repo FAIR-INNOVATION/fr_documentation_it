@@ -55,6 +55,31 @@ Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fa
 
 .. centered:: Diagramma 7.2-1 Configurazione Velocità Manuale Sicura
 
+Funzione di Velocità di Sicurezza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
++++++++++++++++++++++++++++++
+
+La funzione di velocità di sicurezza del robot è progettata per la collaborazione uomo-robot o per ambienti dinamici. Limita attivamente la velocità operativa del robot per mantenere l'energia cinetica e la forza d'impatto entro soglie di sicurezza, prevenendo così lesioni al personale in caso di contatto accidentale e proteggendo efficacemente le apparecchiature e i pezzi in lavorazione da danni da collisione.
+
+Procedura Operativa
++++++++++++++++++++++++++++++
+
+**Step1**: Fare clic sul pulsante "Impostazioni iniziali" - "Sicurezza" - "Velocità di sicurezza" per impostare i parametri di velocità di sicurezza. La configurazione comprende principalmente tre parti: "Abilitazione funzione", "Limite di velocità" e "Modalità dopo superamento".
+
+Tra queste, "Abilitazione funzione" offre tre opzioni: "Disabilitata", "Abilitata in modalità manuale" e "Abilitata in tutte le modalità";
+
+Impostare il limite di velocità in "Limite di velocità". Quando la velocità lineare del robot raggiunge questo limite, verrà gestita secondo i parametri impostati in "Modalità dopo superamento". "Modalità dopo superamento" offre tre modalità: "Ferma con allarme", "Limitazione automatica della velocità" e "Disabilita dopo fermo con allarme". La limitazione automatica della velocità è disponibile solo quando è selezionata "Abilitata in modalità manuale".
+
+Dopo aver impostato i parametri richiesti, non sono necessarie ulteriori operazioni. Il movimento del robot verrà gestito secondo i parametri impostati. Le impostazioni dei parametri sono mostrate nella figura.
+
+.. image:: safety/056.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.2-2 Impostazione dei parametri di velocità di sicurezza
+
 Sicurezza I/O
 ----------------
 

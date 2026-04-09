@@ -1075,6 +1075,65 @@ Durante la programmazione, prima utilizzare un'istruzione PTP per raggiungere il
 
 .. centered:: Figura 9.5-27 Interfaccia Istruzione TPD
 
+Funzione TPD di Insegnamento e Riproduzione di Traiettorie per Robot
+*******************************************************************************
+
+Panoramica
+""""""""""""""""""""
+La funzione TPD di insegnamento e riproduzione di traiettorie per robot consente al robot di ricordare e ripetere con precisione le traiettorie complesse insegnate, raggiungendo così una produzione automatizzata di alta qualità ed efficienza nella produzione industriale, e sostituendo gli esseri umani nel completare attività ad alto rischio in ambienti pericolosi.
+
+Procedura Operativa
+""""""""""""""""""""""""""""""""""""""""""""""""""
+**Step1**: Impostazione dei parametri di registrazione TPD. Fare clic su "TPD" nella barra di stato nella parte inferiore dell'interfaccia per accedere alla funzione TPD e configurare i parametri di registrazione della traiettoria. Impostare il nome del file di traiettoria, il tipo di posa e il periodo di campionamento, e configurare DI e DO. Durante il processo di registrazione della traiettoria TPD, attivando il DI, quando si riproduce il TPD, verrà emesso il DO corrispondente.
+
+.. image:: coding/549.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.5-27-1 Impostazione dei parametri TPD
+
+**Step2**: Passaggio alla modalità di trascinamento. In modalità manuale, è possibile passare alla modalità di insegnamento a trascinamento in due modi: tenendo premuto il pulsante dell'estremità o utilizzando il pulsante di commutazione della modalità di trascinamento sull'interfaccia. Nella funzione di registrazione TPD, si consiglia di commutare il robot in modalità di insegnamento a trascinamento dall'interfaccia.
+
+.. image:: coding/550.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.5-27-2 Impostazione della modalità di trascinamento del robot
+
+**Step3**: Avvio della registrazione. Fare clic sul pulsante "Avvia registrazione" per avviare la registrazione della traiettoria e trascinare il robot per l'insegnamento del movimento. Inoltre, nella configurazione DI dell'estremità è presente una voce di configurazione della funzione "Avvio/Arresto registrazione TPD". Configurando questa funzione, l'utente può attivare la funzione di registrazione della traiettoria "Avvia registrazione" tramite segnali esterni. È importante notare che per avviare la registrazione della traiettoria tramite segnale esterno, è necessario prima configurare le informazioni della traiettoria TPD sulla pagina.
+
+**Step4**: Arresto della registrazione. Dopo aver completato l'insegnamento del movimento, fare clic sul pulsante "Arresta registrazione" per interrompere la registrazione della traiettoria, quindi uscire dalla modalità di insegnamento a trascinamento utilizzando il pulsante di commutazione dell'insegnamento a trascinamento. Come nello Step 3, dopo aver configurato la funzione "Avvio/Arresto registrazione TPD", l'arresto della registrazione può essere attivato tramite un segnale esterno.
+
+**Step5**: Modifica della traiettoria TPD. Fare clic su "TPD" nella barra di stato nella parte inferiore dell'interfaccia per accedere alla funzione di modifica della traiettoria TPD. Innanzitutto, selezionare la traiettoria da modificare, fare clic sul pulsante "Ottieni". Start-index ed End-index mostreranno il numero di sequenza iniziale e finale della traiettoria. Regolarli trascinando il cursore o inserendo manualmente i valori; quindi fare clic sul pulsante "Riproduci". Il robot eseguirà un movimento simulato sull'interfaccia (il robot reale non si muove); infine, fare clic sul pulsante "Completa" per completare la modifica della traiettoria TPD.
+
+.. image:: coding/551.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.5-27-3 Modifica della traiettoria TPD
+
+**Step6**: Scrivere il programma TPD di insegnamento e riproduzione delle traiettorie. Fare clic su "Programma di insegnamento" - "Riproduzione traiettoria" - "Carica traiettoria", selezionare la traiettoria da riprodurre, quindi fare clic sul pulsante "Aggiungi". Fare clic su "Riproduzione traiettoria", selezionare la stessa traiettoria, impostare i parametri corrispondenti secondo le istruzioni sull'interfaccia, quindi fare clic sul pulsante "Aggiungi".
+
+.. image:: coding/552.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-27-4 Impostazione del caricamento della traiettoria TPD
+
+.. image:: coding/553.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-27-5 Impostazione della riproduzione della traiettoria TPD
+
+**Step7**: Generare il programma Lua ed eseguirlo. Secondo il tipico programma Lua generato nello Step 6, eseguire il programma per eseguire l'insegnamento e la riproduzione della traiettoria.
+
+.. image:: coding/554.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.5-27-6 Programma tipico per la riproduzione della traiettoria TPD
+
 Comando Spostamento Punto (OFFSET)
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -6169,6 +6228,232 @@ Dopo aver configurato i parametri delle istruzioni "Inizio transizione graduale 
 
 .. note:: Quando si configurano i parametri delle istruzioni di transizione graduale dei parametri di processo di saldatura nelle interfacce di configurazione delle istruzioni "Weld" e "Weave", è necessario prima determinare il metodo di comunicazione tra il quadro di controllo e la saldatrice. Per la comunicazione analogica e digitale, fare clic rispettivamente su "I/O controller" o "Protocollo di comunicazione digitale".
 
+Funzione di Gradazione del Tempo di Sosta dell'Oscillazione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Panoramica
+***********************************
+
+Per l'oscillazione ad onda triangolare, l'oscillazione ad onda triangolare a L verticale, l'oscillazione ad onda sinusoidale e l'oscillazione ad onda sinusoidale a L verticale, in cui l'ampiezza dell'oscillazione e il tempo di sosta non sono coerenti all'inizio e alla fine dell'oscillazione, questa funzione modifica gradualmente l'ampiezza dell'oscillazione e il tempo di sosta dal valore di impostazione iniziale al valore di impostazione finale.
+
+Per l'oscillazione ad onda triangolare e l'oscillazione ad onda sinusoidale, in cui l'ampiezza dell'oscillazione, il tempo di sosta e la velocità di avanzamento non sono coerenti all'inizio e alla fine dell'oscillazione, questa funzione modifica gradualmente l'ampiezza dell'oscillazione, il tempo di sosta e la velocità di avanzamento dal valore di impostazione iniziale al valore di impostazione finale.
+
+Procedura Operativa
+***********************************
+
+**Step1**: Impostazione dei parametri di oscillazione. Fare clic sul pulsante "Programma di insegnamento" - "Programmazione" - "Oscillazione", selezionare il numero di oscillazione iniziale e impostare i parametri di oscillazione, quindi selezionare il numero di oscillazione finale e impostare i parametri di oscillazione. Nota: Solo l'ampiezza dell'oscillazione, il tempo di sosta sinistro e il tempo di sosta destro possono essere diversi tra i parametri di oscillazione iniziale e finale; tutti gli altri parametri devono essere coerenti.
+   
+.. image:: coding/545.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-14 Impostazione dei parametri di oscillazione
+
+**Step2**: Impostazione della modalità di gradazione. Fare clic su "Avvio gradazione oscillazione" per impostare la modalità di gradazione corrispondente: Per l'oscillazione ad onda triangolare, l'oscillazione ad onda triangolare a L verticale, l'oscillazione ad onda sinusoidale e l'oscillazione ad onda sinusoidale a L verticale, la modalità di gradazione può essere impostata su "Oscillazione"; Per l'oscillazione ad onda triangolare e l'oscillazione ad onda sinusoidale, la modalità di gradazione può anche essere impostata su "Oscillazione + Velocità di avanzamento", e sono necessarie impostazioni aggiuntive per la velocità iniziale e la velocità finale durante l'oscillazione.
+   
+.. image:: coding/546.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-15 Impostazione della modalità di gradazione "Oscillazione"
+   
+.. image:: coding/547.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-16 Impostazione della modalità di gradazione "Oscillazione + Velocità di avanzamento"
+
+**Step3**: Scrittura del programma di gradazione dell'oscillazione. Fare clic su "Avvia oscillazione", selezionare il numero di oscillazione iniziale e aggiungerlo; quindi fare clic su "Avvio gradazione oscillazione", impostare il numero di oscillazione finale e la modalità di gradazione, e aggiungerlo; quindi fare clic su "Fine gradazione oscillazione" e "Ferma oscillazione" in sequenza e aggiungerli; infine, aggiungere manualmente la posizione del punto di inizio oscillazione e la posizione del punto finale nel programma Lua per generare un tipico programma Lua.
+   
+.. image:: coding/548.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-17 Programma tipico per la gradazione del tempo di sosta dell'oscillazione
+
+Funzione di Oscillazione a Punto Fisso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Panoramica
+***********************************
+
+Per l'oscillazione ad onda triangolare, l'oscillazione ad onda triangolare a L verticale, l'oscillazione circolare - in senso orario, l'oscillazione circolare - in senso antiorario, l'oscillazione ad onda sinusoidale, l'oscillazione ad onda sinusoidale a L verticale e l'oscillazione triangolare per saldatura verticale, è stata aggiunta una funzione di oscillazione a punto fisso: l'end-effector del robot esegue solo l'oscillazione senza avanzare. Nota: Questa funzione richiede che venga prima calibrata la coordinata del punto centrale dell'utensile (TCP).
+
+Procedura Operativa
+***********************************
+
+**Step1**: Impostazione dei parametri di oscillazione. Fare clic sul pulsante "Programma di insegnamento" - "Programmazione" - "Oscillazione", modificare il numero di oscillazione per impostare i parametri di oscillazione. Nota: Se si desidera che il tempo effettivo di oscillazione a punto fisso corrisponda al tempo di oscillazione a punto fisso impostato, non è possibile impostare il tempo di sosta.
+   
+.. image:: coding/558.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-18 Impostazione dei parametri di oscillazione
+ 
+**Step2**: Impostazione dei parametri di oscillazione a punto fisso. Fare clic su "Programma di insegnamento" - "Programmazione" - "Oscillazione" - "Avvio oscillazione a punto fisso", impostare il riferimento di oscillazione e i parametri del tempo di oscillazione, fare clic su "Aggiungi", quindi fare clic sul pulsante "Fine oscillazione a punto fisso" e su "Aggiungi". Il riferimento di oscillazione può essere selezionato tra due tipi: "Sistema di coordinate utensile" e "Punto di riferimento". Quando si seleziona "Sistema di coordinate utensile" come riferimento di oscillazione, la direzione X del sistema di coordinate utensile del punto corrente viene utilizzata come direzione di avanzamento e la direzione Y del sistema di coordinate utensile del punto corrente viene utilizzata come direzione di oscillazione. Quando si seleziona "Punto di riferimento" come riferimento di oscillazione, la linea tra il punto corrente e il punto di riferimento viene utilizzata come direzione di avanzamento, e la direzione di oscillazione è determinata dall'algoritmo di oscillazione. Nota: Il punto di riferimento e la posizione corrente devono avere lo stesso sistema di coordinate utensile e lo stesso sistema di coordinate pezzo. I due riferimenti di oscillazione sono mostrati rispettivamente nelle figure.
+   
+.. image:: coding/559.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-19 Riferimento di oscillazione come "Sistema di coordinate utensile"
+   
+.. image:: coding/560.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-20 Riferimento di oscillazione come "Punto di riferimento"
+
+**Step3**: Scrivere il programma di oscillazione a punto fisso. I programmi Lua generati per i due riferimenti di oscillazione sono mostrati rispettivamente nelle figure. Eseguendo il programma Lua è possibile realizzare la funzione di oscillazione a punto fisso.
+   
+.. image:: coding/561.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-21 Programma di oscillazione a punto fisso con riferimento di oscillazione come "Sistema di coordinate utensile"
+   
+.. image:: coding/562.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-22 Programma di oscillazione a punto fisso con riferimento di oscillazione come "Punto di riferimento"
+
+Funzione di Oscillazione a Punto Fisso con Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Panoramica
+***********************************
+
+La funzione di oscillazione a punto fisso con laser è una combinazione della funzione di oscillazione a punto fisso del robot e della funzione di inseguimento laser: basata sull'oscillazione a punto fisso originale del robot, la posizione di oscillazione può essere regolata tramite la funzione di inseguimento laser e può essere adattata al movimento degli assi di estensione. Questa funzione è efficace solo per i tipi di "oscillazione ad onda triangolare" e "oscillazione ad onda sinusoidale".
+
+Procedura Operativa per Laser + Oscillazione a Punto Fisso
+****************************************************************************
+
+**Step1**: Configurare la comunicazione laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
+
+**Step2**: Calibrare il sistema di coordinate utensile del robot e il sistema di coordinate laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
+
+**Step3**: Regolare la posizione del pezzo e del raggio laser. Lo schema è mostrato nella figura seguente, dove il rettangolo nero è il pezzo e il segmento di linea rossa è il raggio laser. Il raggio laser dovrebbe essere perpendicolare al bordo del pezzo da inseguire per garantire buone prestazioni di inseguimento.
+   
+.. image:: coding/563.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-23 Schema del pezzo e del raggio laser
+
+**Step4**: Impostazione dei parametri di oscillazione. Fare clic sul pulsante "Programma di insegnamento" - "Programmazione" - "Oscillazione", modificare il numero di oscillazione per impostare i parametri di oscillazione. Nota: (1) La funzione Laser + Oscillazione a punto fisso è efficace solo per i tipi "oscillazione ad onda triangolare" e "oscillazione ad onda sinusoidale"; (2) Se si desidera che il tempo effettivo di oscillazione a punto fisso corrisponda al tempo impostato, non è possibile impostare i tempi di sosta sinistro e destro; (3) Per garantire le prestazioni di inseguimento laser, i tempi di sosta sinistro e destro devono essere coerenti.
+   
+.. image:: coding/564.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.29-24 Impostazione dei parametri di oscillazione
+
+**Step5**: Impostazione dei parametri di oscillazione a punto fisso. Fare clic su "Programma di insegnamento" - "Programmazione" - "Oscillazione" - "Avvio oscillazione a punto fisso", impostare il riferimento di oscillazione e i parametri del tempo di oscillazione, fare clic su "Aggiungi", quindi fare clic sul pulsante "Fine oscillazione a punto fisso" e su "Aggiungi". Il riferimento di oscillazione può essere selezionato tra due tipi: "Sistema di coordinate utensile" e "Punto di riferimento". Quando si seleziona "Sistema di coordinate utensile" come riferimento di oscillazione, la direzione X del sistema di coordinate utensile del punto corrente viene utilizzata come direzione di avanzamento e la direzione Y del sistema di coordinate utensile del punto corrente viene utilizzata come direzione di oscillazione. Quando si seleziona "Punto di riferimento" come riferimento di oscillazione, la linea tra il punto corrente e il punto di riferimento viene utilizzata come direzione di avanzamento, e la direzione di oscillazione è determinata dall'algoritmo di oscillazione. Nota: Il punto di riferimento e la posizione corrente devono avere lo stesso sistema di coordinate utensile e lo stesso sistema di coordinate pezzo.
+   
+.. image:: coding/559.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-25 Riferimento di oscillazione come "Sistema di coordinate utensile"
+   
+.. image:: coding/560.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-26 Riferimento di oscillazione come "Punto di riferimento"
+
+**Step6**: Aggiungere l'istruzione di inseguimento laser. Fare clic in sequenza su "Programma di insegnamento" - "Programmazione" - "Inseguimento laser", quindi fare clic su "Avvia inseguimento" e selezionare il sistema di coordinate laser calibrato nel Step 2 (questo manuale utilizza toolcoord5 come esempio), e infine fare clic su "Ferma inseguimento".
+   
+.. image:: coding/565.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.29-27 Impostazione dell'inseguimento laser
+
+**Step7**: Scrivere il programma Lua per Laser + Oscillazione a punto fisso. Regolare l'ordine delle istruzioni generate nei Step 5 e Step 6. I programmi Lua generati per i due riferimenti di oscillazione a punto fisso sono mostrati rispettivamente nelle figure seguenti. Il tempo di esecuzione del programma è correlato solo al tempo impostato dell'oscillazione a punto fisso ed è indipendente dalla velocità dell'interfaccia. Eseguire il programma Lua per realizzare la funzione Laser + Oscillazione a punto fisso.
+   
+.. image:: coding/566.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-28 Programma Laser + Oscillazione a punto fisso 1
+   
+.. image:: coding/567.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-29 Programma Laser + Oscillazione a punto fisso 2
+
+Procedura Operativa per Laser + Asse di Estensione + Oscillazione a Punto Fisso
+****************************************************************************************
+
+**Step1**: Configurare la comunicazione laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
+
+**Step2**: Configurare la comunicazione dell'asse di estensione. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
+
+**Step3**: Calibrare il sistema di coordinate utensile del robot e il sistema di coordinate laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
+
+**Step4**: Regolare la posizione del pezzo e del raggio laser. Lo schema è mostrato nella figura seguente, dove il rettangolo nero è il pezzo e il segmento di linea rossa è il raggio laser. Il raggio laser dovrebbe essere perpendicolare al bordo del pezzo da inseguire per garantire buone prestazioni di inseguimento.
+   
+.. image:: coding/563.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-30 Schema della posizione relativa del pezzo e del raggio laser
+
+**Step5**: Impostazione dei parametri di oscillazione. Fare clic sul pulsante "Programma di insegnamento" - "Programmazione" - "Oscillazione", modificare il numero di oscillazione per impostare i parametri di oscillazione. Nota: (1) La funzione Laser + Asse di estensione + Oscillazione a punto fisso è efficace solo per i tipi "oscillazione ad onda triangolare" e "oscillazione ad onda sinusoidale"; (2) Se si desidera che il tempo effettivo di oscillazione a punto fisso corrisponda al tempo impostato, non è possibile impostare i tempi di sosta sinistro e destro; (3) Per garantire le prestazioni di inseguimento laser, i tempi di sosta sinistro e destro devono essere coerenti.
+   
+.. image:: coding/564.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.29-31 Impostazione dei parametri di oscillazione
+
+**Step6**: Impostazione dei parametri di oscillazione a punto fisso. Fare clic su "Programma di insegnamento" - "Programmazione" - "Oscillazione" - "Avvio oscillazione a punto fisso", impostare il riferimento di oscillazione e i parametri del tempo di oscillazione, fare clic su "Aggiungi", quindi fare clic sul pulsante "Fine oscillazione a punto fisso" e su "Aggiungi". Il riferimento di oscillazione può essere selezionato tra due tipi: "Sistema di coordinate utensile" e "Punto di riferimento". Quando si seleziona "Sistema di coordinate utensile" come riferimento di oscillazione, la direzione X del sistema di coordinate utensile del punto corrente viene utilizzata come direzione di avanzamento e la direzione Y del sistema di coordinate utensile del punto corrente viene utilizzata come direzione di oscillazione. Quando si seleziona "Punto di riferimento" come riferimento di oscillazione, la linea tra il punto corrente e il punto di riferimento viene utilizzata come direzione di avanzamento, e la direzione di oscillazione è determinata dall'algoritmo di oscillazione. Nota: Il punto di riferimento e la posizione corrente devono avere lo stesso sistema di coordinate utensile e lo stesso sistema di coordinate pezzo.
+   
+.. image:: coding/559.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-32 Riferimento di oscillazione come "Sistema di coordinate utensile"
+   
+.. image:: coding/560.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 9.29-33 Riferimento di oscillazione come "Punto di riferimento"
+
+**Step7**: Aggiungere l'istruzione di movimento dell'asse di estensione. Fare clic in sequenza su "Programma di insegnamento" - "Programmazione" - "Asse di estensione", quindi fare clic su "Istruzione di movimento", selezionare "Asincrono" come modalità di movimento, selezionare il punto di inizio e il punto di fine del movimento, e fare clic sul pulsante "Aggiungi".
+   
+.. image:: coding/568.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-34 Aggiunta del movimento dell'asse di estensione
+
+**Step8**: Aggiungere l'istruzione di inseguimento laser. Fare clic in sequenza su "Programma di insegnamento" - "Programmazione" - "Inseguimento laser", quindi fare clic su "Avvia inseguimento" e selezionare il sistema di coordinate laser calibrato nel Step 3 (questo manuale utilizza toolcoord5 come esempio), e infine fare clic su "Ferma inseguimento".
+   
+.. image:: coding/565.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.29-35 Impostazione dell'inseguimento laser
+
+**Step9**: Scrivere il programma Lua per Laser + Asse di estensione + Oscillazione a punto fisso. Regolare l'ordine delle istruzioni generate nei Step 5, Step 6 e Step 7. I programmi Lua generati per i due riferimenti di oscillazione a punto fisso sono mostrati rispettivamente nella Figura 3-7 e nella Figura 3-8. Il tempo di esecuzione del programma è correlato solo al tempo impostato dell'oscillazione a punto fisso ed è indipendente dalla velocità dell'interfaccia. Eseguire il programma Lua per realizzare la funzione Laser + Asse di estensione + Oscillazione a punto fisso.
+   
+.. image:: coding/569.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-36 Programma Laser + Asse di estensione + Oscillazione a punto fisso 1
+   
+.. image:: coding/570.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.29-37 Programma Laser + Asse di estensione + Oscillazione a punto fisso 2
+
 Comunicazione ModbusRTU del robot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -7922,6 +8207,43 @@ Funzione specifica dei parametri e valori consigliati:
 - Accelerazione lineare massima: Limita l'accelerazione generata dalla forza esterna in direzione di traslazione, consigliato 500 mm/s2;
 - Velocità angolare massima: Limita la velocità angolare generata dalla forza esterna in direzione di rotazione, consigliato 90°/s;
 - Accelerazione angolare massima: Limita l'accelerazione angolare generata dalla forza esterna in direzione di rotazione, consigliato 180°/s2.
+
+Impostazione del Controllo di Impedanza nello Spazio dei Giunti e Avvio/Arresto della Funzione
+**************************************************************************************************
+
+**Step1**: Accedere all'interfaccia web, fare clic in sequenza su "Impostazioni iniziali" → "Base" → "Giunti" → "Livello di collisione" per accedere al modulo di impostazione del livello di collisione del robot e impostare un coefficiente di collisione ragionevole.
+
+.. image:: coding/555.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.34-6 Modulo di impostazione del coefficiente di collisione del robot
+
+**Step2**: Fare clic in sequenza su "Programma di insegnamento" → "Programmazione" → "Set di controllo di forza" e aggiungere l'istruzione "Impedance". L'istruzione "Impedance" consente al robot di realizzare il controllo di impedenza lungo la traiettoria di movimento.
+
+.. image:: coding/556.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.34-7 Aggiunta dell'istruzione di controllo di forza
+
+**Step3**: Nel modulo delle istruzioni di controllo di forza, selezionare "Spazio dei giunti" dal menu a discesa di selezione dello spazio, e impostare nei campi di testo i valori appropriati per soglia di forza, coefficiente di massa, coefficiente di smorzamento, coefficiente di rigidità, velocità massima e accelerazione massima. Nel tipo di istruzione, fare clic su "Attiva", quindi fare clic su "Aggiungi" per aggiungere l'istruzione di attivazione del controllo di impedenza; nel tipo di istruzione, fare clic su "Disattiva", quindi fare clic su "Aggiungi" per aggiungere l'istruzione di disattivazione del controllo di impedenza.
+
+.. image:: coding/557.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.34-8 Istruzione di controllo di impedanza
+
+Funzioni specifiche dei parametri e valori consigliati:
+
+- Selezione spazio: Imposta lo spazio operativo per il controllo di impedenza sullo spazio dei giunti;
+- Soglia di forza: La forza di attivazione minima per il controllo di impedenza. L'intervallo di soglia per J1-J3 è 10–50 Nm, per le direzioni di rotazione l'intervallo di soglia è 1–10 Nm;
+- Coefficiente di massa: Aumentare il coefficiente di massa comporta uno spostamento più lento, diminuirlo comporta uno spostamento troppo rapido del robot. L'intervallo di impostazione per J1-J3 è [0,01-1], valore consigliato 0,04; per J4-J6 l'intervallo di impostazione è [0,001-1], valore consigliato 0,01;
+- Coefficiente di smorzamento: Aumentare il coefficiente di smorzamento comporta uno spostamento più lento, diminuirlo comporta uno spostamento troppo rapido del robot e può generare oscillazioni. L'intervallo di impostazione per J1-J3 è [0,1-2], valore consigliato 0,1; per J4-J6 l'intervallo di impostazione è [0,008-1,5], valore consigliato 0,08;
+- Coefficiente di rigidità: Aumentare il coefficiente di rigidità comporta uno spostamento più lento. Il valore consigliato è 0;
+- Velocità massima: Limita la velocità di rotazione del giunto generata da forze esterne. Il valore consigliato è 50°/s;
+- Accelerazione massima: Limita l'accelerazione di rotazione del giunto generata da forze esterne. Il valore consigliato è 50°/s².
 
 Funzione di saldatura oscillante personalizzata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

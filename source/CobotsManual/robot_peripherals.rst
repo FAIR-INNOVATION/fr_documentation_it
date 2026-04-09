@@ -6712,3 +6712,175 @@ Di seguito un esempio di programma LUA per il controllo e il monitoraggio della 
         end
         SetDO(0,0,0,0)
     end
+
+Funzione di Trasmissione Trasparente dell'End-Effector
+----------------------------------------------------------
+
+Panoramica
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Gli utenti possono configurare la funzione di trasmissione trasparente dell'end-effector per ottenere, basandosi sul protocollo aperto per periferiche end-effector + CNDE + interfaccia SDK, la trasmissione/ricezione di dati non periodici e l'acquisizione di dati periodici per qualsiasi periferica end-effector. I dati periodici richiedono la scrittura di un protocollo aperto Lua per l'end-effector e il caricamento dell'applicazione sull'end-effector per ottenere un'interazione periodica e la lettura con la periferica. I dati periodici di feedback della periferica vengono ottenuti tramite la configurazione CNDE, mentre i dati non periodici vengono trasmessi/ricevuti come frame di dati tramite l'interfaccia SDK.
+
+Istruzioni per l'Uso
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Step1**: Aprire la pagina del robot e selezionare "Impostazioni iniziali" -> "Periferiche" -> "Trasmissione trasparente end-effector". Caricare e applicare il protocollo aperto Lua per l'end-effector che deve essere adattato alla periferica.
+
+.. figure:: robot_peripherals/289.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.18‑1 Caricamento del protocollo di trasmissione trasparente dell'end-effector
+
+**Step2**: Dopo aver riavviato il robot, attivare il pulsante "Abilita protocollo end-effector" per abilitare questa funzione. È importante notare che dopo aver abilitato questa funzione, altri dispositivi end-effector già adattati non possono essere utilizzati contemporaneamente.
+
+.. figure:: robot_peripherals/290.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.18‑2 Abilitazione del protocollo di trasmissione trasparente dell'end-effector
+
+**Step3**: Aprire la pagina del robot e selezionare "Programma di insegnamento" -> "Istruzioni periferiche" -> "Trasmissione trasparente end-effector". Dopo aver abilitato la trasmissione trasparente dell'end-effector, è possibile eseguire test di debug per la trasmissione/ricezione di dati non periodici e l'acquisizione di dati periodici tramite l'interfaccia Lua. L'uso effettivo richiede la combinazione con la funzione CNDE del robot e l'SDK. La lunghezza dei dati di istruzione non periodici in trasmissione e ricezione è massimo di 16 byte, mentre i dati periodici sono massimo di 128 byte.
+
+.. figure:: robot_peripherals/291.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.18‑3 Interfaccia Lua per dati non periodici di trasmissione trasparente dell'end-effector
+
+.. figure:: robot_peripherals/292.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.18‑4 Interfaccia Lua per dati periodici di trasmissione trasparente dell'end-effector
+
+Script Lua per la Funzione di Trasmissione Trasparente dell'End-Effector
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
+++++++++++++++++++++++++
+
+La funzione di protocollo aperto Lua aggiunge un'interfaccia di trasmissione trasparente dati generica. Gli script Lua vengono scritti secondo l'interfaccia Lua C concordata e utilizzati insieme a CNDE per ottenere la trasmissione e la ricezione di dati per i dispositivi montati sull'end-effector.
+
+Istruzioni per la Scrittura di Script Lua per End-Effector
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Funzioni Registrate Lua C per Trasmissione e Ricezione Rs485
+*********************************************************************
+(1) Funzione Registrata Lua C per Trasmissione Rs485: EndTxCustomData(). Questa funzione invia istruzioni al dispositivo montato tramite Rs485.
+
+.. code-block:: 
+    :linenos:
+
+    Tcmd={0}
+    EndTxCustomData(Tcmd)
+
+.. centered:: Codice 8.18-1 Descrizione dello script Lua
+
+(2) Funzione Registrata Lua C per Ricezione Rs485: EndRxCustomData(). Questa funzione riceve le istruzioni di risposta dal dispositivo montato tramite feedback Rs485.
+
+.. code-block:: 
+    :linenos:
+
+    Rcmd={0}
+    EndRxCustomData(Rcmd)
+
+.. centered:: Codice 8.18-2 Descrizione dello script Lua
+
+Funzioni Registrate Lua C per Trasmissione e Feedback di Dati Non Periodici
+***************************************************************************************
+
+(1) Funzione Registrata Lua C per Trasmissione Dati Non Periodici: GetHostTransparentCmd(). Questa funzione verifica se il controller ha emesso un'istruzione di dati non periodici. Se è stata emessa un'istruzione, recupera l'istruzione di dati non periodici. La lunghezza di trasmissione dell'istruzione di dati non periodici è massimo di 16 byte.
+
+.. code-block:: 
+    :linenos:
+
+    Tcmd={0}
+    RxFlag=0
+    RxFlag = GetHostTransparentCmd(Tcmd)
+    if(RxFlag == 1)then
+    EndTxCustomData(Tcmd)
+
+.. centered:: Codice 8.18-3 Descrizione dello script Lua
+
+(2) Funzione Registrata Lua C per Feedback di Istruzioni Dati Non Periodici: BackHostTransparentCmd(). Questa funzione trasmette trasparentemente al controller l'istruzione di dati non periodici risposta dal dispositivo montato. La lunghezza di ricezione dell'istruzione di dati non periodici è massimo di 16 byte.
+
+.. code-block:: 
+    :linenos:
+
+    Rcmd={0}
+    EndRxCustomData(Rcmd)
+    BackHostTransparentCmd(Rcmd)
+
+.. centered:: Codice 8.18-4 Descrizione dello script Lua
+
+Funzione Registrata Lua C per Feedback di Dati Periodici
+*********************************************************************
+
+(1) Funzione Registrata Lua C per Feedback di Dati Periodici: SetDWrodInputBack(). Questa funzione trasmette trasparentemente al controller i dati periodici letti dal dispositivo montato. Il feedback di dati periodici è massimo di 128 byte.
+
+.. code-block:: 
+    :linenos:
+
+    R = {0}
+    TotalNum =0
+    PacketNum=0
+    TotalNum,PacketNum=SetDWrodInputBack(R)
+
+.. centered:: Codice 8.18-5 Descrizione dello script Lua
+
+Script Lua Scritto per la Testa di Moxibustione DIO Health Care come Esempio
+***************************************************************************************
+
+.. code-block:: 
+    :linenos:
+
+    --***
+    --Mantenere il normale funzionamento delle altre funzioni dell'end-effector
+    while(1)
+    do
+    IwdgTaskHandle()
+    MainLoop()
+    UpDownLoadHandle()
+    SdoRwPara()
+    EndErrClear()
+    local BFlag=LuaBreak()
+    if(BFlag==1)then
+    break
+    end
+    --***
+    --***
+    --Esempio di trasmissione dati non periodici
+    Rcmd = {0}       --Memorizza i dati non periodici risposti dal dispositivo montato
+    Tcmd = {0}       --Memorizza i dati non periodici emessi dal controller
+    RxFlag=0         --Flag che indica se il controller ha emesso un'istruzione
+    RxFlag = GetHostTransparentCmd(Tcmd)
+    if(RxFlag == 1)then
+    EndTxCustomData(Tcmd)
+    DelayMs(35)
+    EndRxCustomData(Rcmd)
+    if((#Rcmd) > 1))and(R[1]==0xAB)and(R[2]==0xBA)) then
+    BackHostTransparentCmd(Rcmd)
+    end
+    end
+    --***
+    --***
+    --Esempio di trasmissione dati periodici
+    R = {0}          --Memorizza i dati periodici risposti dal dispositivo montato
+    T = {0xAB,0xBA,0x14,0x01,0xAA,0x24}     --Istruzione per interrogare i dati periodici dal dispositivo montato
+    if TotalNum==0 then
+    EndTxCustomData(T)
+    DelayMs(35)
+    EndRxCustomData(R)
+    end
+    TotalNum =0      --Per dati periodici che richiedono la segmentazione, numero totale di pacchetti
+    PacketNum=0     --Numero di sequenza del pacchetto corrente
+    if((#R==19)and(R[1]==0xAB)and(R[2]==0xBA)and(R[3]==0x14)and(R[4]==0x0E))then
+    TotalNum,PacketNum=SetDWrodInputBack(R)
+    if PacketNum>TotalNum then
+    PacketNum=0
+    TotalNum=0
+    end
+    end
+    --***
+    LuaGc()
+    end

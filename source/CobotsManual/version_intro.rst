@@ -1,3 +1,52 @@
+Versione V3.9.4
+-----------------
+
+Data: 2026-04-08
+
+- **Ottimizzata la funzione TPD di Insegnamento e Riproduzione di Traiettorie del Robot**: 
+    Percorso: Programma di insegnamento -> Programmazione -> Istruzione TPD.
+  
+    Descrizione: 1. Generazione automatica dell'istruzione Lua per il punto iniziale 2. Design anti-errore per il pulsante di avvio.
+
+- **Ottimizzata la funzione di Backup dei Dati di Webapp**: 
+  
+    Descrizione: Migliorata e ottimizzata la funzione di backup dei dati.
+
+- **Ottimizzati i Limiti Soft e la Postura di Confezionamento di FR3WML**: 
+  
+    Descrizione: Impostato l'intervallo del limite soft per l'articolazione 3 a ±163°.
+
+- **Ottimizzata la Funzione di Compensazione dei Parametri Completamente DH e la Verifica Rapida**: 
+  
+    Descrizione: Compensato il modello a parametri completi.
+ 
+- **Aggiunta la Funzione di Controllo di Impedanza per il Movimento PTP**: 
+  
+    Descrizione: Migliorata la sicurezza durante l'interazione uomo-robot.
+
+- **Aggiunta la Funzione del Protocollo di Comunicazione per il Dispositivo End-Effector della Testa di Moxibustione**: 
+    Percorso: Impostazioni iniziali -> Periferiche -> Trasmissione trasparente dell'end-effector.
+  
+    Descrizione: Aggiunto l'adattamento del protocollo di comunicazione per nuovi dispositivi end-effector.
+
+- **Aggiunto l'Adattamento del Pacchetto Linguistico per la Versione Software in Tedesco**: 
+  
+    Descrizione: Aggiunta la commutazione della lingua tedesca.
+
+- **Aggiunta la Funzione di Effetto delle Impostazioni di Velocità di Sicurezza sulle Istruzioni di Movimento Servo**: 
+    Percorso: Impostazioni iniziali -> Sicurezza -> Velocità di sicurezza.
+  
+    Descrizione: Aggiunta l'opzione della strategia di sicurezza per fermare, segnalare errore e disabilitare dopo il superamento della velocità.
+
+- **Aggiunto l'Adattamento LA per il Router Wireless TP-LINK AX3000**: 
+  
+    Descrizione: Risolto il problema dell'impossibilità di accedere direttamente a webApp tramite connessione wireless dopo un'interruzione di corrente e il riavvio.
+    
+- **Aggiunta la Funzione di Oscillazione a Punto Fisso**: 
+    Percorso: Programma di insegnamento -> Programmazione -> Istruzione Weave.
+  
+    Descrizione: Esecuzione della funzione di oscillazione a punto fisso in combinazione con un sensore laser esterno.
+
 Versione V3.9.3
 -----------------
 

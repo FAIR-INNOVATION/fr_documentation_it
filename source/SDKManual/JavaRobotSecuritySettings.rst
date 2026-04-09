@@ -249,3 +249,63 @@ Esempio di Codice per Rilevamento Potenza Giunti
         robot.CloseRPC();
         return 0;
     }
+
+Imposta i Parametri di Velocità di Sicurezza
+++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Imposta i parametri di velocità di sicurezza
+    * @param enable 0-disabilitato; 1-abilitato in modalità manuale; 2-abilitato in tutte le modalità (limitazione automatica della velocità non supportata)
+    * @param maxTCPVel Limite massimo velocità TCP; [0-1000] mm/s
+    * @param strategy Strategia dopo superamento velocità; 0-ferma con allarme; 1-limitazione automatica della velocità; 2-ferma con allarme e disabilita
+    * @return Codice di errore
+    */
+    public int SetVelReducePara(int enable, double maxTCPVel, int strategy)
+        
+Esempio di Codice SDK per Impostare i Parametri di Velocità di Sicurezza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int TestSetVelReducePara(Robot robot) {
+        int rtn = 0;
+
+        JointPos j1 = new JointPos(0, -90, 90, 0, 0, 0);
+        JointPos j2 = new JointPos(90, -90, 90, 0, 0, 0);
+        ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
+        DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+
+        robot.SetSpeed(80);
+        rtn = robot.SetVelReducePara(2, 30, 1);
+        System.out.printf("SetVelReducePara param error rtn is %d\n", rtn);
+
+        rtn = robot.SetVelReducePara(0, 30, 1);
+        System.out.printf("SetVelReducePara disable reduce vel rtn is %d\n", rtn);
+        robot.MoveJ(j1, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+        robot.MoveJ(j2, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+
+        rtn = robot.SetVelReducePara(1, 30, 1);
+        System.out.printf("SetVelReducePara reduce vel rtn is %d\n", rtn);
+        robot.MoveJ(j1, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+        robot.MoveJ(j2, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+
+        rtn = robot.SetVelReducePara(2, 30, 2);
+        System.out.printf("SetVelReducePara disable robot rtn is %d\n", rtn);
+        robot.MoveJ(j1, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+        robot.MoveJ(j2, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+
+        robot.Sleep(2000);
+        robot.ResetAllError();
+        robot.RobotEnable(1);
+        robot.Sleep(1000);
+
+        rtn = robot.SetVelReducePara(2, 30, 0);
+        System.out.printf("SetVelReducePara report error rtn is %d\n", rtn);
+        robot.MoveJ(j1, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+        robot.MoveJ(j2, 0, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+
+        robot.Sleep(1000);
+        return 0;
+    }

@@ -368,11 +368,13 @@ Impostazione della modalità di controllo della saldatrice
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``SetWeldMachineCtrlMode(mode)``"
-    "Descrizione", "Imposta la modalità di controllo della saldatrice"
-    "Parametri obbligatori", "- ``mode``: Modalità di controllo della saldatrice; 0-unitario"
-    "Parametri predefiniti", "Nessuno"
-    "Valore restituito", "Codice di errore Successo-0  Fallimento- errcode"
+    "Prototipo", "``SetWeldMachineCtrlMode(mode, ioType)``"
+    "Descrizione", "Imposta modalità di controllo della saldatrice"
+    "Parametri Obbligatori", "
+    - ``ioType``: Tipo di controllo; 0-IO del box di controllo; 1-Protocollo di comunicazione digitale (UDP); 2-Protocollo di comunicazione digitale (ModbusTCP)
+    - ``mode``: Modalità di controllo della saldatrice; 0-Modo unico"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento-errcode"
 
 Inizio della saldatura
 ++++++++++++++++++++++++++++++++++

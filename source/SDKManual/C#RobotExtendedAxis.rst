@@ -352,27 +352,28 @@ Configurazione parametri comunicazione UDP per asse esteso
     */
     int ExtDevSetUDPComParam(std::string ip, int port, int period, int lossPkgTime, int lossPkgNum, int disconnectTime, int reconnectEnable, int reconnectPeriod, int reconnectNum, int selfConnect);
          
-Ottieni la configurazione dei parametri di comunicazione UDP per asse esteso
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere la Configurazione dei Parametri di Comunicazione UDP per Assi di Estensione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C#SDK-v1.0.7
 
 .. code-block:: C#
     :linenos:
 
     /**
-    * @brief Ottieni i parametri di comunicazione UDP per asse esteso
-    * @param [out] ip Indirizzo IP PLC
-    * @param [out] port	Numero porta
-    * @param [out] period	Periodo comunicazione (ms, default 2, non modificare)
-    * @param [out] lossPkgTime	Tempo rilevamento perdita pacchetti (ms)
-    * @param [out] lossPkgNum	Numero pacchetti persi
-    * @param [out] disconnectTime	Durata conferma disconnessione comunicazione
-    * @param [out] reconnectEnable	Abilita riconnessione automatica in caso di disconnessione 0-Disabilita 1-Abilita
-    * @param [out] reconnectPeriod	Intervallo periodo riconnessione (ms)
-    * @param [out] reconnectNum	Numero tentativi riconnessione
+    * @brief Ottiene i parametri di comunicazione UDP per assi di estensione
+    * @param [out] ip Indirizzo IP del PLC
+    * @param [out] port	Numero di porta
+    * @param [out] period	Periodo di comunicazione (ms, default è 2, non modificare questo parametro)
+    * @param [out] lossPkgTime	Tempo di rilevamento perdita pacchetti (ms)
+    * @param [out] lossPkgNum	Numero di perdite di pacchetti
+    * @param [out] disconnectTime	Durata di conferma disconnessione comunicazione
+    * @param [out] reconnectEnable	Abilitazione riconnessione automatica alla disconnessione della comunicazione 0-disabilitato 1-abilitato
+    * @param [out] reconnectPeriod	Intervallo di riconnessione (ms)
+    * @param [out] reconnectNum	Numero di tentativi di riconnessione
+    * @param [out] selfConnect	Riconnessione automatica dopo riavvio del box di controllo; 0-nessuna riconnessione; 1-riconnessione
     * @return Codice di errore
     */
-    int ExtDevGetUDPComParam(std::string& ip, int& port, int& period, int& lossPkgTime, int& lossPkgNum, int& disconnectTime, int& reconnectEnable, int& reconnectPeriod, int& reconnectNum);
+    public int ExtDevGetUDPComParam(ref string ip, ref int port, ref int period, ref int lossPkgTime, ref int lossPkgNum, ref int disconnectTime, ref int reconnectEnable, ref int reconnectPeriod, ref int reconnectNum, ref int selfConnect)
         
 Carica comunicazione UDP
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1472,3 +1473,16 @@ Esempio di codice per impostare la strategia di movimento sincrono tra asse este
         Console.WriteLine($"ExtAxisSyncMoveL 3 rtn is {rtn}");
         Thread.Sleep(8000);
     }
+
+Impostazione del Tempo di Completamento del Posizionamento per Assi di Estensione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Imposta il tempo di completamento del posizionamento per assi di estensione UDP
+    * @param [in] time Tempo di completamento del posizionamento [ms]
+    * @return Codice di errore
+    */
+    public int SetExAxisCmdDoneTime(double time)

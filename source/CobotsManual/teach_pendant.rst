@@ -100,19 +100,11 @@ Questa ottimizzazione aggiunge operazioni di reset IP per il controller e il tea
 - 2. Utilizzare la funzione personalizzata del tasto F1 del teach pendant fisico configurata per il reset IP (premere e tenere premuto per 10 secondi) per resettare gli indirizzi IP della Scheda di Rete 0 del controller, della Scheda di Rete 1 e del teach pendant fisico;
 - 3. Utilizzare la combinazione dei tasti F2 e F4 del teach pendant fisico, premere e tenere premuti simultaneamente per 10 secondi, per resettare l'indirizzo IP del dispositivo teach pendant fisico quando non è loggato.
 
-I diagrammi delle porte di rete per il Controller Box Standard e il Mini Controller Box sono mostrati di seguito.
-
-.. image:: teach_pendant/009.png
-   :width: 5in
-   :align: center
-
-.. centered:: Figura 16.3‑1 Diagramma Porte di Rete Controller Box Standard
-
 .. image:: teach_pendant/010.png
    :width: 5in
    :align: center
 
-.. centered:: Figura 16.3‑2 Diagramma Porte di Rete Mini Controller Box
+.. centered:: Figura 16.3‑1 Diagramma Porte di Rete Mini Controller Box
 
 Reset IP tramite Interfaccia Webrecovery
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,7 +115,7 @@ Accedere all'interfaccia webrecovery utilizzando la porta 8050, ad esempio, acce
    :width: 5in
    :align: center
 
-.. centered:: Figura 16.3‑3 Funzione Reset IP tramite Interfaccia Webrecovery
+.. centered:: Figura 16.3‑2 Funzione Reset IP tramite Interfaccia Webrecovery
 
 Dopo la conferma secondaria, un messaggio indicherà che è necessario un riavvio per rendere effettive le modifiche. Dopo il riavvio, l'IP della Scheda di Rete 0 del controller verrà ripristinato al valore predefinito 192.168.57.2 e l'IP della Scheda di Rete 1 verrà ripristinato al valore predefinito 192.168.58.2.
 
@@ -136,7 +128,7 @@ Per utilizzare la funzione personalizzata del tasto F1 del teach pendant fisico,
    :width: 6in
    :align: center
 
-.. centered:: Figura 16.3‑4 Reset IP Personalizzato tramite Tasto F1 del Teach Pendant Fisico
+.. centered:: Figura 16.3‑3 Reset IP Personalizzato tramite Tasto F1 del Teach Pendant Fisico
 
 Questa funzione è effettiva solo quando il teach pendant fisico è loggato nel webapp. Dopo aver premuto e tenuto premuto il tasto F1 per 10 secondi, un messaggio indicherà che è necessario un riavvio per rendere effettive le modifiche. Dopo il riavvio, l'IP della Scheda di Rete 0 del controller verrà ripristinato al valore predefinito 192.168.57.2, l'IP della Scheda di Rete 1 verrà ripristinato al valore predefinito 192.168.58.2 e l'IP del teach pendant fisico verrà ripristinato al valore predefinito 192.168.58.77.
 
@@ -149,7 +141,7 @@ Il dispositivo teach pendant fisico fornisce una funzione di reset IP, che può 
    :width: 6in
    :align: center
 
-.. centered:: Figura 16.3‑5 Reset IP tramite Combinazione Tasti F2 e F4 del Teach Pendant Fisico
+.. centered:: Figura 16.3‑4 Reset IP tramite Combinazione Tasti F2 e F4 del Teach Pendant Fisico
 
 Funzione di Personalizzazione Tasti Teach Pendant
 ----------------------------------------------------------------------------------

@@ -310,11 +310,20 @@ Ottenere Configurazione Parametri Comunicazione Assi Estesi UDP
     :linenos:
 
     /**
-    * @brief Ottiene parametri comunicazione assi estesi UDP
-    * @param [out] param Parametri comunicazione
-    * @return Codice errore
+    * @brief Ottiene i parametri di comunicazione UDP per assi di estensione
+    * @param [out] ip Indirizzo IP del PLC
+    * @param [out] port Numero di porta
+    * @param [out] period Periodo di comunicazione (ms, default è 2, non modificare questo parametro)
+    * @param [out] lossPkgTime Tempo di rilevamento perdita pacchetti (ms)
+    * @param [out] lossPkgNum Numero di perdite di pacchetti
+    * @param [out] disconnectTime Durata di conferma disconnessione comunicazione
+    * @param [out] reconnectEnable Abilitazione riconnessione automatica alla disconnessione della comunicazione 0-disabilitato 1-abilitato
+    * @param [out] reconnectPeriod Intervallo di riconnessione (ms)
+    * @param [out] reconnectNum Numero di tentativi di riconnessione
+    * @param [out] selfConnect Riconnessione automatica dopo riavvio del box di controllo; 0-nessuna riconnessione; 1-riconnessione
+    * @return Codice di errore
     */
-    int ExtDevGetUDPComParam(UDPComParam param);       
+    public int ExtDevGetUDPComParam(ref string ip, ref int port, ref int period, ref int lossPkgTime, ref int lossPkgNum, ref int disconnectTime, ref int reconnectEnable, ref int reconnectPeriod, ref int reconnectNum, ref int selfConnect)      
 
 Caricare Comunicazione UDP
 +++++++++++++++++++++++++++++++++++++++++
@@ -1332,3 +1341,15 @@ Esempio Codice Dispositivo Mobile
         robot.TractorStop();//arresto carrello
         robot.TractorMoveC(300, -90, 20);
     }
+
+Impostazione del Tempo di Completamento del Posizionamento per Assi di Estensione UDP
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Imposta il tempo di completamento del posizionamento per assi di estensione UDP
+    * @param time Tempo di completamento del posizionamento [ms]
+    * @return Codice di errore
+    */
+    public int SetExAxisCmdDoneTime(double time)

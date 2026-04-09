@@ -305,12 +305,13 @@ Impostazione modalità controllo saldatrice
 .. code-block:: Java
     :linenos:
 
-    /** 
-    * @brief Imposta la modalità di controllo della saldatrice
-    * @param [in] mode Modalità controllo saldatrice; 0-Unificata
-    * @return Codice di errore 
+    /**
+    * @brief Imposta modalità di controllo della saldatrice
+    * @param mode Modalità di controllo della saldatrice; 0-Modo unico DC; 1-Modo unico a impulsi; 2-Modalità JOB; 3-Modalità controllo locale; 4-Modalità separata; 5-Modalità CC/CV; 6-TIG; 7-CMT
+    * @param ioType Tipo di controllo; 0-IO del box di controllo; 1-Protocollo di comunicazione digitale (UDP); 2-Protocollo di comunicazione digitale (ModbusTCP)
+    * @return Codice di errore
     */
-    int SetWeldMachineCtrlMode(int mode);
+    public int SetWeldMachineCtrlMode(int mode, int ioType)
 
 Inizio saldatura
 ++++++++++++++++++++++++++++++++++

@@ -414,3 +414,136 @@ Generazione Log MCU Robot
     * @return Codice errore
     */
     public int RobotMCULogCollect()
+
+Imposta l'arresto del robot quando la comunicazione della porta è disconnessa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Imposta l'arresto del robot quando la comunicazione della porta è disconnessa
+    * @param portID Numero porta 0-8080; 1-8083; 2-20002; 3-20004
+    * @param enable 0-disabilitato; 1-abilitato
+    * @param confirmTime Durata conferma interruzione comunicazione (ms)[0-5000]
+    * @return Codice di errore
+    */
+    public int SetRobotStopOnComDisc(int portID, bool enable, int confirmTime)
+    
+Ottieni i parametri di arresto del robot alla disconnessione della comunicazione della porta
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Ottiene i parametri di arresto del robot alla disconnessione della comunicazione della porta
+    * @param portID Numero porta 0-8080; 1-8083; 2-20002; 3-20004
+    * @param enable Array risultato, index 0: 0-disabilitato; 1-abilitato
+    * @param confirmTime Array risultato, index 0: Durata conferma interruzione comunicazione (ms)[0-5000]
+    * @return Codice di errore
+    */
+    public int GetRobotStopOnComDisc(int portID, int[] enable, int[] confirmTime)
+
+Esempio di Codice per i Parametri di Arresto del Robot alla Disconnessione della Comunicazione della Porta
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    void TestRobotStopOnComDisc(Robot robot)
+    {
+        int[] enable = {0};
+        int[] confirmTime = {0};
+        int rtn = 0;
+        rtn = robot.SetRobotStopOnComDisc(0, true, 330);
+        rtn = robot.SetRobotStopOnComDisc(1, true, 550);
+        rtn = robot.SetRobotStopOnComDisc(2, true, 110);
+        rtn = robot.SetRobotStopOnComDisc(3, true, 220);
+        System.out.printf("SetRobotStopOnComDisc %d\n", rtn);
+
+        robot.GetRobotStopOnComDisc(0, enable, confirmTime);
+        System.out.printf("GetRobotStopOnComDisc 8080 rtn %d; enable is %d; confirm time is %d\n", rtn, enable[0], confirmTime[0]);
+        robot.GetRobotStopOnComDisc(1, enable, confirmTime);
+        System.out.printf("GetRobotStopOnComDisc 8083 rtn %d; enable is %d; confirm time is %d\n", rtn, enable[0], confirmTime[0]);
+        robot.GetRobotStopOnComDisc(2, enable, confirmTime);
+        System.out.printf("GetRobotStopOnComDisc 20002 rtn %d; enable is %d; confirm time is %d\n", rtn, enable[0], confirmTime[0]);
+        robot.GetRobotStopOnComDisc(3, enable, confirmTime);
+        System.out.printf("GetRobotStopOnComDisc 20004 rtn %d; enable is %d; confirm time is %d\n", rtn, enable[0], confirmTime[0]);
+
+        return;
+    }
+
+Invia Frame di Istruzione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Invia frame di istruzione UDP
+    * @param frame Frame di istruzione
+    * @return Codice di errore
+    */
+    public int SendUDPFrame(String frame)
+    
+Esempio di Codice SDK per Comunicazione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static void TestRobotUDP (Robot robot) {
+        robot.udpCmdClient.SetUDPCmdRpyCallback((srcType, count, cmdID, dataLen, content) -> {
+            System.out.println("\n[Risposta UDP ricevuta dal robot]");
+            System.out.println("srcType: " + srcType);
+            System.out.println("count: " + count);
+            System.out.println("cmdID: " + cmdID);
+            System.out.println("dataLen: " + dataLen);
+            System.out.println("contenuto: " + content);
+            return 0;
+        });
+        // Invia frame
+        String frameToSend = "/f/bIII52III236III7IIIMode(1)III/b/f";
+        robot.SendUDPFrame(frameToSend);
+        robot.Sleep(2000);
+        frameToSend = "/f/bIII52III236III7IIIMode(0)III/b/f";
+        robot.SendUDPFrame(frameToSend);
+        robot.Sleep(2000);
+        frameToSend = "/f/bIII41III201III153IIIMoveJ(53.857,-89.441,119.453,-22.664,61.059,3.369,-54.249,-491.930,375.396,96.474,-6.896,-7.783,0,0,100,100,100,0.000,0.000,0.000,0.000,-1,0,0,0,0,0,0,0)III/b/f";
+        robot.SendUDPFrame(frameToSend);
+        robot.Sleep(2000);
+        frameToSend = "/f/bIII42III203III163IIIMoveL(81.736,-85.284,114.974,-23.261,88.746,6.799,125.744,-506.570,375.396,96.474,-6.896,-7.783,0,0,100,100,100,-1,0,0.000,0.000,0.000,0.000,0,0,0,0,0,0,0,0,100,0)III/b/f";
+        robot.SendUDPFrame(frameToSend);
+        robot.Sleep(2000);
+        frameToSend = "/f/bIII47III400III15IIIGetMCVersion(1)III/b/f/f/bIII48III424III21IIIGetSlaveFirmVersion()III/b/f";
+        robot.SendUDPFrame(frameToSend);
+        robot.Sleep(2000);
+    }
+        
+Imposta il Colore LED Personalizzato dell'End-Effector del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Imposta il colore LED personalizzato dell'end-effector del robot
+    * @param r Controllo LED rosso dell'end-effector; 0-spento; 1-acceso
+    * @param g Controllo LED verde dell'end-effector; 0-spento; 1-acceso
+    * @param b Controllo LED blu dell'end-effector; 0-spento; 1-acceso
+    * @return Codice di errore
+    */
+    public int SetUserLEDColor(bool r, bool g, bool b)
+            
+Esempio di Codice SDK per Impostare il Colore LED Personalizzato dell'End-Effector del Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public void testled(robot)
+    {
+        robot.SetUserLEDColor(true, true, true);
+        robot.Sleep(1000);
+        robot.SetUserLEDColor(false, false, false);
+        robot.Sleep(1000);
+        robot.SetUserLEDColor(true, false, false);
+        robot.Sleep(1000);
+        robot.SetUserLEDColor(false, true, false);
+        robot.Sleep(1000);
+        robot.SetUserLEDColor(false, false, true);
+    }

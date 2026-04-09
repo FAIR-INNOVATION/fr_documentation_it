@@ -688,29 +688,31 @@ Esempio di codice per il movimento a spirale
         return 0;
     }
 
-Inizio movimento servo
+Avvio Movimento Servo
 +++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Inizio movimento servo, da utilizzare con le istruzioni ServoJ e ServoCart
+    * @brief Avvia il movimento servo, utilizzato con i comandi ServoJ e ServoCart
+    * @param comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
     * @return Codice di errore
     */
-    int ServoMoveStart();
+    public int ServoMoveStart (int comType)
 
-Fine movimento servo
+Fine Movimento Servo
 +++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Fine movimento servo, da utilizzare con le istruzioni ServoJ e ServoCart
+    * @brief Termina il movimento servo, utilizzato con i comandi ServoJ e ServoCart
+    * @param comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
     * @return Codice di errore
     */
-    int ServoMoveEnd();
+    public int ServoMoveEnd (int comType)
 
-Movimento in modalità servo nello spazio dei giunti
+Movimento in Modalità Servo nello Spazio dei Giunti
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-v1.0.6-3.8.3
 
@@ -718,18 +720,92 @@ Movimento in modalità servo nello spazio dei giunti
     :linenos:
 
     /**
-    * @brief  Movimento in modalità servo nello spazio dei giunti
-    * @param  [in] joint_pos  Posizione giunto target, unità deg
-    * @param  [in] axisPos  Posizione dell'asse esterno, unità mm
-    * @param  [in] acc  Percentuale di accelerazione, intervallo [0~100], non ancora disponibile, predefinito 0
-    * @param  [in] vel  Percentuale di velocità, intervallo [0~100], non ancora disponibile, predefinito 0
-    * @param  [in] cmdT  Periodo di invio comandi, unità s, intervallo consigliato [0.001~0.0016]
-    * @param  [in] filterT  Tempo di filtraggio, unità s, non ancora disponibile, predefinito 0
-    * @param  [in] gain  Amplificatore proporzionale della posizione target, non ancora disponibile, predefinito 0
-    * @param  [in] id  ID dell'istruzione servoJ, predefinito 0
-    * @return  Codice di errore
+    * @brief Movimento in modalità servo nello spazio dei giunti
+    * @param joint_pos Posizione giunto target, unità deg
+    * @param axisPos Posizione assi esterni, unità mm
+    * @param acc Percentuale di accelerazione, intervallo [0~100], temporaneamente non aperta, default 0
+    * @param vel Percentuale di velocità, intervallo [0~100], temporaneamente non aperta, default 0
+    * @param cmdT Periodo di invio comando, unità s, intervallo consigliato [0.001~0.0016]
+    * @param filterT Tempo di filtro, unità s, temporaneamente non aperto, default 0
+    * @param gain Amplificatore proporzionale per la posizione target, temporaneamente non aperto, default 0
+    * @param id ID comando ServoJ, default 0
+    * @param comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return Codice di errore
     */
-    int ServoJ(JointPos joint_pos, ExaxisPos axisPos, double acc, double vel, double cmdT, double filterT, double gain, int id);
+    public int ServoJ(JointPos joint_pos, ExaxisPos axisPos, float acc, float vel, float cmdT, float filterT, float gain, int id, int comType)
+
+Esempio di Codice SDK per ServoJ, ServoMoveStart, ServoMoveEnd basato su Comunicazione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int TestServoJ(Robot robot)
+    {
+        robot.udpCmdClient.SetUDPCmdRpyCallback((srcType, count, cmdID, dataLen, content) -> {
+            System.out.println("\n[Risposta UDP ricevuta dal robot]");
+            System.out.println("srcType: " + srcType);
+            System.out.println("count: " + count);
+            System.out.println("cmdID: " + cmdID);
+            System.out.println("dataLen: " + dataLen);
+            System.out.println("contenuto: " + content);
+            return 0;
+        });
+        int rtn=-1;
+
+        JointPos j=new JointPos(0, 0, 0, 0, 0, 0);
+        ExaxisPos epos=new ExaxisPos(0, 0, 0, 0);
+
+        double vel = 0.0;
+        double acc = 0.0;
+        double cmdT = 0.016;
+        double filterT = 0.0;
+        double gain = 0.0;
+        int flag = 0;
+        int count = 300;
+        double dt = 0.1;
+        int cmdID = 0;
+        int comType = 1;
+        int ret = robot.GetActualJointPosDegree(j);
+        if (ret == 0)
+        {
+            robot.ServoMoveStart(comType);
+            count = 300;
+            while (count>0)
+            {
+                robot.ServoJ(j, epos, acc, vel, cmdT, filterT, gain, cmdID, comType);
+                j.J1 += dt;
+                j.J2 += dt;
+                j.J4 += dt;
+                j.J5 += dt;
+                j.J6 += dt;
+                epos.axis1 += dt;
+                count -= 1;
+                robot.Sleep(10);
+            }
+            robot.ServoMoveEnd(comType);
+
+            robot.Sleep(1000);
+            robot.ServoMoveStart(comType);
+            count = 300;
+            while (count>0)
+            {
+                robot.ServoJ(j, epos, acc, vel, cmdT, filterT, gain, cmdID, comType);
+                j.J1 -= dt;
+                j.J2 -= dt;
+                j.J4 -= dt;
+                j.J5 -= dt;
+                j.J6 -= dt;
+                epos.axis1 -= dt;
+                count -= 1;
+                robot.Sleep(10);
+            }
+            robot.ServoMoveEnd(comType);
+        }
+        else
+        {
+            System.out.println("GetActualJointPosDegree errcode:"+ ret);
+        }
+    }
 
 Esempio di programma per il movimento in modalità servo nello spazio dei giunti
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -767,43 +843,46 @@ Esempio di programma per il movimento in modalità servo nello spazio dei giunti
         }
     }
 
-Inizio controllo coppia giunti
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Avvio Controllo di Coppia dei Giunti
++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Inizio controllo coppia giunti
-    * @return  Codice di errore
+    * @brief Avvia il controllo di coppia dei giunti
+    * @param comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return Codice di errore
     */
-    int ServoJTStart()
+    public int ServoJTStart (int comType)
 
-Controllo coppia giunti
-+++++++++++++++++++++++++++++
+Controllo di Coppia dei Giunti
+++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Controllo coppia giunti
-    * @param  torque Coppia giunti j1~j6, unità Nm
-    * @param  interval Periodo del comando, unità s, intervallo [0.001~0.008]
-    * @param  checkFlag Strategia di rilevamento 0-Nessuna limitazione; 1-Limita potenza; 2-Limita velocità; 3-Limita sia potenza che velocità
-    * @param  jPowerLimit Limite massimo di potenza del giunto (W)
-    * @param  jVelLimit Velocità massima del giunto (°/s)
-    * @return  Codice di errore
+    * @brief Controllo di coppia dei giunti
+    * @param torque Coppia giunti j1~j6, unità Nm
+    * @param interval Periodo del comando, unità s, intervallo [0.001~0.008]
+    * @param checkFlag Strategia di rilevamento 0-nessuna limitazione; 1-limitazione potenza; 2-limitazione velocità; 3-limitazione simultanea potenza e velocità
+    * @param jPowerLimit Limite massimo potenza giunto (W)
+    * @param jVelLimit Velocità massima giunto (°/s)
+    * @param comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return Codice di errore
     */
-    public int ServoJT(double[] torque, double interval, int checkFlag, double[] jPowerLimit, double[] jVelLimit)
+    public int ServoJT(double[] torque, double interval, int checkFlag, double[] jPowerLimit, double[] jVelLimit, int comType)
 
-Fine controllo coppia giunti
-+++++++++++++++++++++++++++++
+Fine Controllo di Coppia dei Giunti
++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief  Fine controllo coppia giunti
-    * @return  Codice di errore
+    * @brief Termina il controllo di coppia dei giunti
+    * @param comType Tipo di invio comando; 0-xmlrpc; 1-UDP (corrisponde alla porta 20007 del robot)
+    * @return Codice di errore
     */
-    int ServoJTEnd()
+    public int ServoJTEnd (int comType)
 
 Esempio di programma per il movimento in modalità servo nello spazio dei giunti
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -831,6 +910,70 @@ Esempio di programma per il movimento in modalità servo nello spazio dei giunti
 
         robot.CloseRPC();
         return 0;
+    }
+
+Esempio di Codice SDK per ServoJT, ServoJTStart, ServoJTEnd basato su Comunicazione UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static void ServoJTWithSafety(Robot robot)
+    {
+        robot.udpCmdClient.SetUDPCmdRpyCallback((srcType, count, cmdID, dataLen, content) -> {
+            System.out.println("\n[Risposta UDP ricevuta dal robot]");
+            System.out.println("srcType: " + srcType);
+            System.out.println("count: " + count);
+            System.out.println("cmdID: " + cmdID);
+            System.out.println("dataLen: " + dataLen);
+            System.out.println("contenuto: " + content);
+            return 0;
+        });
+        while (true) {
+            robot.ResetAllError();
+            robot.Sleep(500);
+            List<Number> torques;
+            torques=robot.GetJointTorques(1);
+            robot.ServoJTStart(1); //   #avvio servoJT
+            ROBOT_STATE_PKG pkg=new ROBOT_STATE_PKG();
+            robot.DragTeachSwitch(1);
+            int checkFlag = 3;//-1,3
+            double[] jPowerLimit = { 10.0, 10.0, 10.0, 10.0, 10.0, 10.0 };
+            double[] jVelLimit = { 50, 50, 50, 50, 50, 50};//180.1,-1
+            int count = 800000;
+            int error = 0;
+            int comType = 1;
+
+            double[] tor=new double[]{(double)torques.get(1),(double)torques.get(2),(double)torques.get(3),(double)torques.get(4),(double)torques.get(5),(double)torques.get(6)};
+
+            while (true) {
+                tor[0] = 0.08;//  #Aumenta coppia asse 1 di 0,01 Nm ogni volta, 100 movimenti
+                error = robot.ServoJT(tor, 0.01, checkFlag, jPowerLimit, jVelLimit, comType);  //# Movimento in modalità servo nello spazio dei giunti
+                System.out.printf("ServoJT rtn is %d\n", error);
+                count = count - 1;
+                robot.Sleep(1);
+                pkg = robot.GetRobotRealTimeState();
+                System.out.printf("maincode %d, subcode %d\n", pkg.main_code, pkg.sub_code);
+                if (pkg.jt_cur_pos[0] > 30)
+                    break;
+            }
+
+            tor = new double[]{(double) torques.get(1), (double) torques.get(2), (double) torques.get(3), (double) torques.get(4), (double) torques.get(5), (double) torques.get(6)};
+            while (true) {
+                tor[0] = -0.08;//  #Riduce coppia asse 1 di 0,01 Nm ogni volta, 100 movimenti
+                error = robot.ServoJT(tor, 0.01, checkFlag, jPowerLimit, jVelLimit, 1);  //# Movimento in modalità servo nello spazio dei giunti
+                System.out.printf("ServoJT rtn is %d\n", error);
+                count = count - 1;
+                robot.Sleep(1);
+                pkg = robot.GetRobotRealTimeState();
+                System.out.printf("maincode %d, subcode %d\n", pkg.main_code, pkg.sub_code);
+                if (pkg.jt_cur_pos[0] < 0)
+                    break;
+            }
+
+            robot.DragTeachSwitch(0);
+
+            error = robot.ServoJTEnd(1);  //#Fine movimento servo
+        }
     }
 
 Esempio di codice per il controllo coppia giunti con protezione sovravelocità
@@ -1716,4 +1859,117 @@ Esempio di Codice Movimento Aereo Stazionario
         System.out.printf("LaserSensorRecordandReplay rtn is %d\n", rtn);
         robot.CloseRPC();
         robot.Sleep(9999999);
+    }
+
+Avvio Oscillazione a Punto Fisso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Avvia l'oscillazione a punto fisso
+    * @param [in] weaveNum Numero di oscillazione [0-7]
+    * @param [in] mode 0-Sistema di coordinate utensile; 1-Punto di riferimento
+    * @param [in] refPoint Coordinate cartesiane del punto di riferimento [x,y,z,a,b,c]
+    * @param [in] weaveTime Tempo di oscillazione [s]
+    * @return Codice di errore
+    */
+    public int OriginPointWeaveStart(int weaveNum, int mode, DescPose refPoint, double weaveTime)
+    
+Fine Oscillazione a Punto Fisso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Termina l'oscillazione a punto fisso
+    * @return Codice di errore
+    */
+    public int OriginPointWeaveEnd();
+        
+Esempio di Codice SDK per Oscillazione a Punto Fisso
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int TestOriginPointWeave(Robot robot) {
+        JointPos j = new JointPos(39.886, -98.580, -124.032, -47.393, 90.000, 40.842);
+        ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
+        DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+
+        DescPose refPoint = new DescPose(400.021, 300.022, 299.996, 179.997, -0.003, -90.956);
+        robot.MoveJ(j, 1, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+        
+        robot.OriginPointWeaveStart(0, 0, refPoint, 3);
+        robot.MoveStationary();
+        robot.OriginPointWeaveEnd();
+
+        robot.Sleep(2000);
+
+        robot.MoveJ(j, 1, 0, 100, 100, 100.0, epos, -1.0, 0, offset_pos);
+        robot.OriginPointWeaveStart(0, 1, refPoint, 3);
+        robot.MoveStationary();
+        robot.OriginPointWeaveEnd();
+
+        robot.Sleep(1000);
+        return 0;
+    }
+
+Esempio di Codice SDK per Oscillazione a Punto Fisso (con Laser e Asse di Estensione)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int TestOriginPointWeave(Robot robot) {
+        JointPos j = new JointPos(39.886, -98.580, -124.032, -47.393, 90.000, 40.842);
+        ExaxisPos epos1 = new ExaxisPos(0, 0, 0, 0);
+        DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+        ExaxisPos epos2 = new ExaxisPos(5, 0, 0, 0);
+        DescPose refPoint = new DescPose(400.021, 300.022, 299.996, 179.997, -0.003, -90.956);
+
+        int rtn = 0;
+        robot.LaserTrackingSensorConfig("192.168.58.20", 5020);
+        robot.LaserTrackingSensorSamplePeriod(20);
+        robot.LoadPosSensorDriver(101);
+
+        // Carica driver UDP
+        robot.ExtDevLoadUDPDriver();
+
+        // Imposta tempo di completamento del posizionamento per assi di estensione
+        rtn = robot.SetExAxisCmdDoneTime(5000.0);
+        System.out.println("SetExAxisCmdDoneTime rtn is " + rtn);
+        // Abilita assi di estensione 1 e 2
+        rtn = robot.ExtAxisServoOn(1, 1);
+        System.out.println("ExtAxisServoOn axis id 1 rtn is " + rtn);
+        rtn = robot.ExtAxisServoOn(2, 1);
+        System.out.println("ExtAxisServoOn axis id 2 rtn is " + rtn);
+        robot.Sleep(2000);
+
+        // Imposta homing per asse di estensione
+        robot.ExtAxisSetHoming(1, 0, 10, 2);
+        robot.LaserTrackingLaserOnOff(1,0);
+
+
+        // 1---Senza asse di estensione
+        robot.LaserTrackingTrackOnOff(1, 4);
+        robot.Sleep(200);
+        // Avvia oscillazione a punto fisso
+        robot.OriginPointWeaveStart(0, 0, refPoint, 10);
+        robot.MoveStationary();   // Esegui movimento stazionario (supponendo che questo metodo esista)
+        robot.OriginPointWeaveEnd();
+        robot.LaserTrackingTrackOnOff(0, 4);
+
+        robot.Sleep(2000);         // Attendi 2 secondi
+
+        // 2----Con asse di estensione
+        robot.ExtAxisMove(epos1, 100, -1);
+        robot.LaserTrackingTrackOnOff(1, 4);
+        // Avvia oscillazione a punto fisso
+        robot.OriginPointWeaveStart(0, 0, refPoint, 20);
+        robot.ExtAxisMove(epos2, 100, -1);
+        robot.OriginPointWeaveEnd();
+        robot.LaserTrackingTrackOnOff(0, 4);
+
+        robot.Sleep(1000);
+        return 0;
     }
