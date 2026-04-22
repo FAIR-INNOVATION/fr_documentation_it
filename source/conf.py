@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Manuale Utente Del Robot Collaborativo FAIRINO'
-copyright = '2022-2026, FAIRINO (Suzhou) Robotics Systems Co., Ltd.'
-author = 'FAIRINO (Suzhou) Robotics Systems Co., Ltd.'
+project = 'FAIRINO Collaborative Robot User Manual'
+copyright = '2022-2026, Fairino (Suzhou) Robot Technology Co.,Ltd.'
+author = 'Fairino (Suzhou) Robot Technology Co.,Ltd.'
 release = '3.9.4'
 
 # -- General configuration ---------------------------------------------------

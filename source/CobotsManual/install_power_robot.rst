@@ -41,6 +41,11 @@ Quando il robot collaborativo è installato sulla base di montaggio, utilizzare 
      - ≥10Nm
      - φ5mm
 
+   * - FR5-C
+     - 4 viti M6
+     - ≥10Nm
+     - φ5mm
+   
    * - FR5
      - 4 viti M8
      - ≥20Nm

@@ -86,41 +86,47 @@ Informazioni sulla Targhetta
 
 .. centered:: Figura 3.1-5 Robot Collaborativo Modello FR5
 
+.. figure:: installation/128.png
+	:align: center
+	:width: 6in
+
+.. centered:: Figura 3.1-6 Robot Collaborativo Modello FR5-C
+
 .. figure:: installation/126.png
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.1-6 Robot Collaborativo Modello FR5
+.. centered:: Figura 3.1-7 Robot Collaborativo Modello FR5
 
 .. figure:: installation/004.png
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.1-7 Robot Collaborativo Modello FR10
+.. centered:: Figura 3.1-8 Robot Collaborativo Modello FR10
 
 .. figure:: installation/005.png
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.1-8 Robot Collaborativo Modello FR16
+.. centered:: Figura 3.1-9 Robot Collaborativo Modello FR16
 
 .. figure:: installation/006.png
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.1-9 Robot Collaborativo Modello FR20
+.. centered:: Figura 3.1-10 Robot Collaborativo Modello FR20
 
 .. figure:: installation/007.png
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.1-10 Robot Collaborativo Modello FR30
+.. centered:: Figura 3.1-11 Robot Collaborativo Modello FR30
 
 .. figure:: installation/125.png
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.1-11 Robot Collaborativo Modello FR30L
+.. centered:: Figura 3.1-12 Robot Collaborativo Modello FR30L
 
 Validità e Responsabilità
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -250,6 +256,14 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 0.16
      - 0.10
 
+   * - **FR5-C**
+     - 0.51
+     - 0.63
+     - 0.60
+     - 0.33
+     - 0.16
+     - 0.10
+
    * - **FR10**
      - 0.64
      - 0.70
@@ -329,6 +343,14 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 90
 
    * - **FR5**
+     - 420
+     - 500
+     - 480
+     - 310
+     - 150
+     - 120
+
+   * - **FR5-C**
      - 420
      - 500
      - 480
@@ -432,6 +454,14 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 0.19
      - 0.12
 
+   * - **FR5-C**
+     - 0.54
+     - 0.65
+     - 0.63
+     - 0.35
+     - 0.19
+     - 0.12
+
    * - **FR10**
      - 0.66
      - 0.73
@@ -511,6 +541,14 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 110
 
    * - **FR5**
+     - 450
+     - 520
+     - 510
+     - 330
+     - 180
+     - 140
+
+   * - **FR5-C**
      - 450
      - 520
      - 510
@@ -604,6 +642,14 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 0.21
      - 0.15
 
+   * - **FR5-C**
+     - 0.56
+     - 0.68
+     - 0.65
+     - 0.38
+     - 0.21
+     - 0.15
+
    * - **FR10**
      - 0.69
      - 0.75
@@ -683,6 +729,14 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 120
 
    * - **FR5**
+     - 460
+     - 540
+     - 520
+     - 350
+     - 190
+     - 160
+
+   * - **FR5-C**
      - 460
      - 540
      - 520
@@ -1741,7 +1795,7 @@ Installazione del Braccio del Robot
 .. note::
    È possibile acquistare una base precisa come accessorio da utilizzare. Le Figure 3.4-2, 3.4-5, 3.4-8, 3.4-11 mostrano le posizioni dei fori per perno e delle viti di montaggio.
 
-Requisiti di Installazione del Braccio Robotico per Modelli FR3/FR3-WMS/FR3-WML/FR3-C
+Requisiti di Installazione del Braccio Robotico per Modelli FR3/FR3-WMS/FR3-WML/FR3-C/FR5-C
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni M6 di grado minimo 8.8 per fissare il robot alla piattaforma. I bulloni devono essere serrati con una coppia non inferiore a 10 Nm. Si consiglia di utilizzare due fori per perno di φ5 mm sulla piattaforma di montaggio, insieme a perni, per il posizionamento del robot, al fine di migliorare la precisione di installazione e prevenire lo spostamento del robot a causa di collisioni, ecc. Quando sono richieste elevate precisioni operative per il robot, è imperativo utilizzare perni per il posizionamento del robot.
@@ -1750,7 +1804,7 @@ Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.4-2 Dimensioni di Installazione per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C
+.. centered:: Figura 3.4-2 Dimensioni di Installazione per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C/FR5-C
 
 .. important::
    Per diversi scenari applicativi, si raccomandano le seguenti basi di installazione per il robot:
@@ -1761,7 +1815,7 @@ Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni
       :align: center
       :width: 3in
 
-   .. centered:: Figura 3.4-3 Base di Installazione a Bassa Richiesta per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C
+   .. centered:: Figura 3.4-3 Base di Installazione a Bassa Richiesta per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C/FR5-C
 
    (II) Per scenari con velocità di movimento elevate, forze operative elevate e requisiti di precisione elevati, si raccomanda la seguente base di installazione per il robot, fissando il robot su un pavimento solido:
 
@@ -1769,7 +1823,7 @@ Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni
       :align: center
       :width: 3in
 
-   .. centered:: Figura 3.4-4 Base di Installazione ad Alta Richiesta per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C
+   .. centered:: Figura 3.4-4 Base di Installazione ad Alta Richiesta per Robot Collaborativo Modelli FR3/FR3-WMS/FR3-WML/FR3-C/FR5-C
 
 Requisiti di Installazione del Braccio Robotico per Modello FR5
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1861,7 +1915,7 @@ La flangia dell'utensile del robot ha quattro fori filettati M6 che possono esse
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.4-13 Disegno della Flangia Terminale per Robot Modelli FR3/FR3-WMS/FR3-WML/FR3-C/FR5/FR10/FR16
+.. centered:: Figura 3.4-13 Disegno della Flangia Terminale per Robot Modelli FR3/FR3-WMS/FR3-WML/FR3-C/FR5/FR5-C/FR10/FR16
 
 .. figure:: installation/031.png
    :align: center
@@ -2018,6 +2072,17 @@ Il robot collaborativo modello FR5-WML ha una capacità di carico massima di 7kg
 	:width: 5in
 
 .. centered:: Figura 3.4-20 Curva di Carico Robot Collaborativo Modello FR5-WML
+
+Curva di Carico del Robot Collaborativo Modello FR5-C
+***************************************************************
+
+Il robot collaborativo modello FR5-C ha un carico massimo trasportabile di 5 kg e un carico nominale di 4 kg. La curva di carico è mostrata nella figura come "Prestazioni Complete".
+
+.. figure:: installation/130.png
+	:align: center
+	:width: 5in
+
+.. centered:: Figura 3.4-21 Curva di Carico del Robot Collaborativo Modello FR5-C
   
 Curva di Carico per Robot Collaborativo Modello FR10
 *******************************************************************
@@ -2881,84 +2946,71 @@ Connettore: M12-A-12P-Femmina [lato terminale con connettore M12-A-12P-Maschile]
    :width: 2in
 
 .. list-table::
-   :widths: 10 15 15 20 40
+   :widths: 10 15 20 40
    :header-rows: 0
    :align: center
 
    * - **Pin**
-     - **Colore**
      - **Definizione**
      - **Descrizione**
      - **Note**
 
    * - 1
-     - Blu
      - AGND
      - Massa analogica
      - Riferimento di massa analogico
 
    * - 2
-     - Marrone
      - 0V
      - Negativo alimentazione 24V
      - Negativo alimentazione controllo
 
    * - 3
-     - Rosso
      - 485-A
      - Comunicazione 485 A
      - Comunicazione 485 per espansione di riserva
 
    * - 4
-     - Grigio
      - 485-B
      - Comunicazione 485 B
      - Comunicazione 485 per espansione di riserva
 
    * - 5
-     - Nero
      - DI0/DO0
      - Ingresso/Uscita digitale 0
      - Pin 5, 6, 7 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 6
-     - Giallo
      - DI1/DO1
      - Ingresso/Uscita digitale 1
      - Pin 5, 6, 7 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 7
-     - Rosa
      - DI2/DO2
      - Ingresso/Uscita digitale 2
      - Pin 5, 6, 7 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 8
-     - Verde scuro
      - AI0/AO0
      - Ingresso/Uscita analogico 0
      - Pin 8, 9 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 9
-     - Bianco
      - AI1/AO1
      - Ingresso/Uscita analogico 1
      - Pin 8, 9 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 10
-     - Viola
      - 24V
      - Positivo alimentazione 24V
      - Positivo alimentazione controllo
 
    * - 11
-     - Arancione
      - DI3/DO3
      - Ingresso/Uscita digitale 3
      - Pin 11, 12 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
 
    * - 12
-     - Verde chiaro
      - DI4/DO4
      - Ingresso/Uscita digitale 4
      - Pin 11, 12 stessa interfaccia, configurabile tramite software come ingresso o uscita, scelta esclusiva in un singolo momento
