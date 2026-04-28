@@ -14,30 +14,42 @@ Configurazione dell'Ambiente
 
 Le descrizioni dei modelli delle schede e delle versioni software sono le seguenti:
 
-.. list-table::
+.. list-table:: 
    :widths: 20 50 30
    :header-rows: 1
    :align: center
 
-   * - **Tipo Protocollo**
-     - **Modello Scheda**
-     - **Versione Software Robot**
+   * - **Tipo di protocollo**
+     - **Modello di scheda**
+     - **Versione software del robot**
 
    * - CC-Link IEF Basic
-     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
-     - V3.8.0 e superiore
+     - Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+     - V3.8.4 e successive
+
+   * - CC-Link IEF Basic
+     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - V3.9.5 e successive
 
    * - Profinet
-     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
-     - V3.8.0 e superiore
+     - Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+     - V3.8.4 e successive
+
+   * - Profinet
+     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - V3.9.5 e successive
 
    * - Ethernet/IP
-     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
-     - V3.8.0 e superiore
+     - Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+     - V3.8.4 e successive
+
+   * - Ethernet/IP
+     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - V3.9.5 e successive
 
    * - EtherCAT
-     - Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, Scheda FRJ-PCIeN-EC-RJ-V10
-     - V3.8.4.1 e superiore
+     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - V3.9.5 e successive
 
 Setup Hardware Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -133,7 +145,10 @@ Setup Hardware Scheda FRJ-PCIeN
     5: PLC Siemens (porta Profinet);
     6: PLC Inovance (porta Ethernet/IP);
 
-3. Quando si commuta il protocollo sulla scheda FRJ-PCIeN, è necessario eseguire un aggiornamento del firmware. Durante l'aggiornamento, modificare l'indirizzo IP del PC collegato alla scheda in "192.168.0.xxx". Quindi aprire il software "Gateway Toolset" -> selezionare la scheda di rete del PC da collegare -> fare clic sul pulsante "Start" in basso a destra -> fare clic sul pulsante "Search" in alto a destra per cercare i dispositivi scheda.
+Aggiornamento del Firmware della Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Quando si cambia protocollo sulla scheda, è necessario eseguire un aggiornamento del firmware. Durante l'aggiornamento del firmware, l'indirizzo IP della scheda e l'indirizzo IP del PC portatile devono essere configurati sulla stessa sottorete. Quindi, aprire il software "Gateway Tool Set" -> selezionare il dispositivo scheda di rete del PC da connettere -> fare clic sul pulsante "Start" nell'angolo in basso a destra -> fare clic sul pulsante "Cerca" nell'angolo in alto a destra per cercare il dispositivo scheda.
 
 .. image:: custom_protocol_slave/045.png
    :width: 6in
@@ -141,7 +156,7 @@ Setup Hardware Scheda FRJ-PCIeN
 
 .. centered:: Figura 17.2-11 Collegamento Dispositivo Scheda
 
-4. Fare clic sul pulsante "Upgrade" in basso a sinistra -> selezionare il dispositivo scheda -> fare clic sul pulsante "..." in alto a destra, selezionare il firmware del protocollo richiesto -> fare clic sul pulsante "Upgrade", attendere il completamento dell'aggiornamento del firmware.
+Fare clic sul pulsante "Upgrade" in basso a sinistra -> selezionare il dispositivo scheda -> fare clic sul pulsante "..." in alto a destra, selezionare il firmware del protocollo richiesto -> fare clic sul pulsante "Upgrade", attendere il completamento dell'aggiornamento del firmware.
 
 .. image:: custom_protocol_slave/046.png
    :width: 6in
@@ -176,17 +191,18 @@ Quando il protocollo è configurato come Ethernet/IP, il controller modificherà
 
 Quando il protocollo è commutato su Profinet e il nome del dispositivo slave corrisponde a quello del master, il master configurerà automaticamente l'indirizzo IP dello slave.
 
-5. Aggiornamento Firmware Scheda FRJ-PCIeN-EC-RJ-V10
+Aggiornamento del Firmware della Scheda FRJ-PCIeN-EC-RJ-V10
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Inserire l'URL 192.169.58.2 per accedere all'interfaccia del robot. Fare clic sull'interfaccia "Impostazioni Iniziali" -> "Periferiche" -> "Comunicazione Scheda" per ottenere il numero di versione del firmware della scheda FRJ-PCIeN-EC-RJ-V10. Selezionare il file bin da aggiornare, fare clic su Carica, attendere il completamento dell'aggiornamento del firmware e quindi riavviare la centralina di controllo.
+Inserire l'URL 192.169.58.2 per accedere all'interfaccia del robot, quindi fare clic su "Impostazioni iniziali" -> "Periferiche" -> "Comunicazione scheda" per ottenere il numero di versione del firmware della scheda FRJ-PCIeN-EC-RJ-V10. Selezionare il file bin da aggiornare, fare clic su Carica, attendere il completamento dell'aggiornamento del firmware, quindi riavviare il box di controllo.
 
 .. image:: custom_protocol_slave/064.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 17.2-13 Aggiornamento Firmware Scheda
+.. centered:: Figura 17.2-13 Aggiornamento del firmware della scheda
 
-.. note:: 1. Solo la versione V3.9.2 e successive supporta l'aggiornamento del firmware del protocollo EtherCAT; 2. L'aggiornamento del firmware del protocollo EtherCAT richiede lo scaricamento di eventuali protocolli aperti attualmente in esecuzione.
+.. note:: Per aggiornare il firmware della scheda FRJ-PCIeN-EC-RJ-V10, è necessario scaricare il protocollo aperto in esecuzione.
 
 Setup Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -700,6 +716,9 @@ Esempio di programma generato:
 Configurazione Ciclo Comunicazione Scheda
 ---------------------------------------------------------
 
+Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Il ciclo di comunicazione della scheda può essere configurato tramite il computer host. Attualmente è disponibile solo il firmware per il protocollo PN, con futura compatibilità per i protocolli EIP, CC-Link IE Basic e EtherCAT.
 
 (1) Collegare direttamente la porta di rete del PC (sistema Windows 11) alla porta di rete della scheda. Aprire Device Assistant v1.1.0, fare doppio clic su "Ethernet" e fare clic sul pulsante "Aggiorna" in alto a sinistra per scansionare le schede attualmente collegate.
@@ -723,6 +742,17 @@ Il ciclo di comunicazione della scheda può essere configurato tramite il comput
 .. image:: custom_protocol_slave/063.png
    :width: 6in
    :align: center
+
+Scheda FRJ-PCIeN-EC-RJ-V10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Inserire l'URL 192.169.58.2 per accedere all'interfaccia del robot, quindi fare clic su "Impostazioni iniziali" -> "Periferiche" -> "Comunicazione scheda" per ottenere il ciclo di comunicazione della scheda. Immettere il ciclo di comunicazione desiderato (1~100 ms), fare clic sul pulsante "Configura", attendere il completamento della configurazione, quindi riavviare il box di controllo.
+
+.. image:: custom_protocol_slave/064.png
+   :width: 6in
+   :align: center
+
+.. note:: Per configurare il ciclo di comunicazione della scheda FRJ-PCIeN-EC-RJ-V10, è necessario scaricare il protocollo aperto in esecuzione.
 
 Appendice
 -------------------

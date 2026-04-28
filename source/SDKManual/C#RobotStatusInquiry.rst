@@ -175,17 +175,17 @@ Ottenere Coppia Articolare Corrente
     */
     int GetJointTorques(byte flag, float[] torques); 
 
-Ottenere Ora Sistema
+Ottenere l'Ora di Sistema
 ++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Ottenere Ora Sistema
-    * @param  [out] t_ms Unità ms
-    * @return   Codice errore
+    * @brief  Ottenere l'ora di sistema
+    * @param  [out] t_ms Unità ms, può essere convertita secondo il tempo UTC. Quando il robot è in stato di guasto, GetSystemClock restituisce 0 e restituisce un codice di errore.
+    * @return  Codice di errore
     */
-    int GetSystemClock(ref double t_ms);
+    public int GetSystemClock(ref double t_ms)
 
 Verificare Se Movimento Robot Completato
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -268,17 +268,17 @@ Ottenere Coppia Azionamento Articolare Robot (Nm)
     */
     int GetJointDriverTorque(double torque[]);
 
-Ottenere Struttura Stato Tempo Reale Robot
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottenere l'Ultimo Frame dei Dati di Stato in Tempo Reale del Robot (Modifica del Meccanismo Interno)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
-    /** 
-    * @brief Ottenere Struttura Stato Tempo Reale Robot
-    * @param [out] pkg Struttura stato tempo reale robot 
-    * @return Codice errore 
+    /**
+    * @brief Ottenere l'ultimo frame dei dati di stato in tempo reale del robot (thread interno si aggiorna continuamente, questa interfaccia restituisce direttamente i dati dalla cache)
+    * @param [out] pkg Parametro di riferimento per ricevere i dati di stato del robot (struttura ROBOT_STATE_PKG)
+    * @return Restituisce 0 in caso di successo; restituisce un codice di errore negativo in caso di fallimento (es. errore di comunicazione di rete)
     */
-    int GetRobotRealTimeState(ref ROBOT_STATE_PKG pkg);
+    public int GetRobotRealTimeState(ref ROBOT_STATE_PKG pkg)
 
 Esempio Codice Query Stato Robot
 ++++++++++++++++++++++++++++++++++++

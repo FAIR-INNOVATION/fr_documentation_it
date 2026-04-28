@@ -433,7 +433,7 @@ Fare clic sull'icona "Punto a Punto" per accedere all'interfaccia di modifica de
 
 Movimento Relativo Punto a Punto
 ******************************************
-Il robot si muove di una distanza relativa dalla sua posizione corrente. Nella pagina di aggiunta del comando PTP, selezionare il nome del punto come "CurrentPos". Scegliere il sistema di coordinate per l'offset come sistema di coordinate di base o sistema di coordinate dell'utensile in base alla situazione, e inserire il valore dell'offset. Ciò significa che il robot eseguirà un certo movimento di offset lungo il sistema di coordinate impostato, basandosi sulla sua posizione corrente. ("CurrentPos" è un punto di sistema e non richiede insegnamento.)
+Il robot si muove di una distanza relativa dalla posizione corrente. Nella pagina di aggiunta dell'istruzione PTP, selezionare il nome del punto come "CurrentPos", scegliere il sistema di coordinate di offset come sistema di coordinate base, sistema di coordinate utensile o sistema di coordinate pezzo in base alle esigenze, e inserire il valore di offset. Il robot eseguirà quindi un movimento di offset lungo il sistema di coordinate impostato in base alla sua posizione corrente. ("CurrentPos" è un punto di sistema che non richiede insegnamento)
 
 .. image:: coding/515.png
    :width: 6in
@@ -464,7 +464,7 @@ Questa istruzione è simile all'istruzione "PTP", ma il percorso per raggiungere
 
 Movimento Relativo Lineare
 ******************************************
-Il robot si muove di una distanza relativa lungo una linea retta dalla sua posizione corrente. Nella pagina di aggiunta del comando LIN, selezionare il nome del punto come "CurrentPos". Scegliere il sistema di coordinate per l'offset come sistema di coordinate di base o sistema di coordinate dell'utensile in base alla situazione, e inserire il valore dell'offset. Ciò significa che il robot eseguirà un certo movimento di offset lungo il sistema di coordinate impostato, basandosi sulla sua posizione corrente. ("CurrentPos" è un punto di sistema e non richiede insegnamento.)
+Il robot si muove linearmente di una distanza relativa dalla posizione corrente. Nella pagina di aggiunta dell'istruzione LIN, selezionare il nome del punto come "CurrentPos", scegliere il sistema di coordinate di offset come sistema di coordinate base, sistema di coordinate utensile o sistema di coordinate pezzo in base alle esigenze, e inserire il valore di offset. Il robot eseguirà quindi un movimento di offset lungo il sistema di coordinate impostato in base alla sua posizione corrente. ("CurrentPos" è un punto di sistema che non richiede insegnamento)
 
 .. image:: coding/517.png
    :width: 6in
@@ -655,7 +655,7 @@ Fare clic sull'icona "Arco" per accedere all'interfaccia di modifica del comando
 
 L'istruzione "Arc" è un movimento ad arco, composto da tre punti: il primo è il punto iniziale dell'arco, il secondo è il punto di transizione intermedio dell'arco, il terzo è il punto finale.
 
-Sia il punto di transizione che il punto finale consentono di impostare se applicare uno spostamento. È possibile scegliere uno spostamento basato sul sistema di coordinate della base o sul sistema di coordinate dell'utensile, che apre la finestra per impostare gli spostamenti x, y, z, rx, ry, rz. Il punto finale può avere impostato un raggio di transizione smooth, per ottenere un effetto di movimento continuo.
+Sia i punti di transizione che i punti finali possono essere impostati con o senza offset. È possibile scegliere tra offset basato sul sistema di coordinate base, offset basato sul sistema di coordinate utensile o offset basato sul sistema di coordinate pezzo, e verranno visualizzate le impostazioni di offset per x, y, z, rx, ry, rz. Per il punto finale, è possibile impostare un raggio di transizione morbido per ottenere un movimento continuo.
 
 .. important::
    Il movimento ad arco richiede prima di aggiungere un'istruzione PTP o Lin per raggiungere il punto iniziale.
@@ -796,7 +796,7 @@ Come mostrato, aprire la pagina di aggiunta istruzione cerchio, selezionare "Tip
 
 Selezionare il punto intermedio 2 cerchio come "P3", e "Spostamento abilitato" come "Spostamento sistema base".
 
-.. note:: È possibile scegliere "Spostamento sistema utensile" in base alla situazione lavorativa effettiva.
+.. note:: È possibile scegliere "Offset coordinate utensile" o "Offset coordinate pezzo" in base alle condizioni di lavoro effettive.
 
 Inserire lo spostamento dx di 10 mm, fare clic successivamente sui pulsanti "Aggiungi" e "Applica" in fondo alla pagina.
 
@@ -826,8 +826,7 @@ Passare il robot in modalità automatica e, garantita la sicurezza, avviare il p
 
 Aprire la pagina di aggiunta istruzione cerchio, selezionare "Tipo di spostamento" come "Spostamento diverso", selezionare allo stesso modo il modo di movimento del punto iniziale e il punto iniziale come "P1", il punto intermedio 1 cerchio come punto "P2", "Spostamento abilitato" selezionato come "Spostamento sistema base".
 
-.. note:: 
-   È possibile scegliere "Spostamento sistema utensile" in base alla situazione lavorativa effettiva.
+.. note:: È possibile scegliere "Offset coordinate utensile" o "Offset coordinate pezzo" in base alle condizioni di lavoro effettive.
 
 Inserire lo spostamento dy di 10 mm.
 
@@ -839,7 +838,7 @@ Inserire lo spostamento dy di 10 mm.
 
 Selezionare il punto intermedio cerchio come "P3", "Spostamento abilitato" selezionato come "Spostamento sistema base".
 
-.. note:: È possibile scegliere "Spostamento sistema utensile" in base alla situazione lavorativa effettiva.
+.. note:: È possibile scegliere "Offset coordinate utensile" o "Offset coordinate pezzo" in base alle condizioni di lavoro effettive.
 
 Inserire lo spostamento dx di 10 mm, fare clic successivamente sui pulsanti "Aggiungi" e "Applica" in fondo alla pagina.
 
@@ -870,7 +869,7 @@ Comando Spirale (SPIRAL)
 
 Fare clic sull'icona "Spirale" per accedere all'interfaccia di modifica del comando Spiral.
 
-L'istruzione "Spiral" è un movimento a spirale, composto da tre punti che formano un cerchio. Nella pagina di impostazione del terzo punto, sono inclusi i parametri: numero di giri, angolo di correzione dell'orientamento, incremento del raggio e incremento della direzione dell'asse di rotazione. Il numero di giri indica il numero di giri della spirale. L'angolo di correzione dell'orientamento corregge l'orientamento alla fine della spirale rispetto all'orientamento del primo punto della spirale. L'incremento del raggio è l'incremento del raggio per ogni giro. L'incremento della direzione dell'asse di rotazione è l'incremento nella direzione dell'asse della spirale. L'impostazione dello spostamento si applica all'intera traiettoria della spirale.
+Se utilizzare l'offset, è possibile scegliere "Offset basato su coordinate base", "Offset basato su coordinate utensile" o "Offset basato su coordinate pezzo". Questo offset si applica all'intera traiettoria a spirale.
 
 .. image:: coding/059.png
    :width: 6in
@@ -1313,7 +1312,7 @@ Comando I/O digitale
 
 Clicca sull'icona "I/O digitale" per accedere all'interfaccia di modifica comandi IO.
 
-Le istruzioni "IO" sono divise in due parti: impostazione IO (SetDO/SPLCSetDO) e acquisizione IO (GetDI/SPLCGetDI).
+L'istruzione "IO" è divisa in tre parti: impostazione IO (SetDO/SPLCSetDO), acquisizione DI (GetDI/SPLCGetDI) e acquisizione DO (GetDO).
 
 "SetDO/SPLCSetDO": Questa istruzione può impostare lo stato dell'output DO specificato, inclusi 16 output digitali della scatola di controllo e 2 output digitali dell'utensile. L'opzione di stato "False" significa chiuso, "True" significa aperto. L'opzione di blocco "Bloccante" indica che lo stato DO viene impostato dopo l'arresto del movimento, mentre "Non bloccante" indica che lo stato DO viene impostato durante il movimento precedente. L'opzione traiettoria liscia "Break" indica che lo stato DO viene impostato dopo il completamento del raggio di transizione liscio, "Serious" indica che lo stato DO viene impostato durante il movimento del raggio di transizione liscio. Quando questa istruzione viene aggiunta in un thread ausiliario, "Applica thread" deve essere impostato su Sì, altrimenti su No in altri contesti. Clicca su "Aggiungi", "Applica".
 
@@ -1331,12 +1330,20 @@ Nell'istruzione "GetDI/SPLCGetDI", seleziona il valore numerico della porta che 
 
 .. centered:: Grafico 9.6-2 Interfaccia istruzione GetDI
 
+Nell'istruzione "GetDO", selezionare il valore del numero di porta desiderato. L'opzione di blocco seleziona "Bloccante" per ottenere lo stato DO dopo l'arresto del movimento, e seleziona "Non bloccante" per ottenere lo stato DO durante il movimento precedente. Dopo la selezione, fare clic sui pulsanti "Aggiungi" e "Applica".
+
+.. image:: coding/571.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.6-2-2 Interfaccia dell'istruzione GetDO
+
 Comando AI analogico
 ++++++++++++++++++++++++++++++
 
 Clicca sull'icona "AI analogico" per accedere all'interfaccia di modifica comandi AI.
 
-Questa istruzione include due funzioni: impostazione output analogico (SetAO/SPLCSetAO) e acquisizione input analogico (GetAI/SPLCGetAI).
+Questa istruzione è divisa in tre parti funzionali: impostazione uscita analogica (SetAO/SPLCSetAO), acquisizione ingresso analogico (GetAI/SPLCGetAI) e acquisizione uscita analogica (GetAO).
 
 "SetAO/SPLCSetAO": Seleziona l'output analogico da impostare, inserisci il valore da impostare (range 0-10). L'opzione di blocco "Bloccante" indica che lo stato AO viene impostato dopo l'arresto del movimento, mentre "Non bloccante" indica che lo stato AO viene impostato durante il movimento precedente. Quando questa istruzione viene aggiunta in un thread ausiliario, "Applica thread" deve essere impostato su Sì, altrimenti su No in altri contesti. Clicca su "Aggiungi", "Applica".
 
@@ -1353,6 +1360,14 @@ Questa istruzione include due funzioni: impostazione output analogico (SetAO/SPL
    :align: center
 
 .. centered:: Grafico 9.6-4 Interfaccia istruzione GetAI
+
+"GetAO" seleziona l'ingresso analogico da ottenere. L'opzione di blocco seleziona "Bloccante" per ottenere lo stato AI dopo l'arresto del movimento, e seleziona "Non bloccante" per ottenere lo stato AI durante il movimento precedente. Fare clic su "Aggiungi" e "Applica".
+
+.. image:: coding/572.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.6-4-2 Interfaccia dell'istruzione GetAO
 
 Comando I/O virtuale
 ++++++++++++++++++++++++++++++
@@ -6329,7 +6344,10 @@ La funzione di oscillazione a punto fisso con laser è una combinazione della fu
 Procedura Operativa per Laser + Oscillazione a Punto Fisso
 ****************************************************************************
 
-**Step1**: Configurare la comunicazione laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
+**Step1**: Configurare la comunicazione laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici. Quando si applica a scenari come la saldatura effettiva, prestare attenzione a quanto segue:
+
+   - (1) Il sensore laser lineare deve essere dotato di dispositivi di protezione per evitare l'influenza di luce intensa e spruzzi di saldatura;
+   - (2) Il punto di riconoscimento dell'acquisizione dei dati del laser lineare deve mantenere una certa distanza dal punto di saldatura per ridurre l'impatto della luce intensa sulla qualità dell'acquisizione dei dati laser durante la saldatura.
 
 **Step2**: Calibrare il sistema di coordinate utensile del robot e il sistema di coordinate laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
 
@@ -6388,7 +6406,10 @@ Procedura Operativa per Laser + Oscillazione a Punto Fisso
 Procedura Operativa per Laser + Asse di Estensione + Oscillazione a Punto Fisso
 ****************************************************************************************
 
-**Step1**: Configurare la comunicazione laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
+**Step1**: Configurare la comunicazione laser. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici. Quando si applica a scenari come la saldatura effettiva, prestare attenzione a quanto segue:
+
+   - (1) Il sensore laser lineare deve essere dotato di dispositivi di protezione per evitare l'influenza di luce intensa e spruzzi di saldatura;
+   - (2) Il punto di riconoscimento dell'acquisizione dei dati del laser lineare deve mantenere una certa distanza dal punto di saldatura per ridurre l'impatto della luce intensa sulla qualità dell'acquisizione dei dati laser durante la saldatura.
 
 **Step2**: Configurare la comunicazione dell'asse di estensione. Fare riferimento al capitolo corrispondente del manuale utente per i passaggi operativi specifici.
 

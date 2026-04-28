@@ -987,14 +987,14 @@ Scrivere AO slave
 .. code-block:: Java
     :linenos:
 
-    /**
+    /*
     * @brief  Scrivere AO slave
-    * @param  AOIndex  numero AO
-    * @param  wirteNum  quantità scritta
-    * @param  status valore scritto, massimo 8
-    * @return  Codice errore
+    * @param  AOIndex Numero AO
+    * @param  writeNum Numero di valori da scrivere
+    * @param  status Array di valori da scrivere (massimo 8), AO0~AO15 sono di tipo intero, AO16~AO31 sono in virgola mobile
+    * @return  Codice di errore
     */
-    public int FieldBusSlaveWriteAO(int AOIndex, int wirteNum, int[] status)
+    public int FieldBusSlaveWriteAO(int AOIndex, int writeNum, double[] status)
 
 Leggere DI slave
 ++++++++++++++++

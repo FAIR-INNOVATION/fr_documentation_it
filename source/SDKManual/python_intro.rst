@@ -36,6 +36,7 @@ Questo documento fornisce le specifiche per lo sviluppo secondario (SDK) nella v
     PythonRobotForceControl
     PythonRoboExtendedAxis
     PythonRobotWeld
+    PythonRobotCnde
     PythonRobotOthers
     PythonAppendix
     

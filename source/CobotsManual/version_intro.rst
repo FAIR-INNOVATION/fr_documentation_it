@@ -1,3 +1,50 @@
+Versione V3.9.5
+-----------------
+
+Data: 2026-04-24
+
+- **Ottimizzate le Funzioni del Controller**: 
+    Percorso: Impostazioni generali -> Impostazioni di rete; Programma di insegnamento -> Programmazione.
+  
+    Descrizione: 1. Aggiunto errore di validazione quando ETH0 ed ETH1 sono configurati con lo stesso indirizzo IP; 2. Ottimizzata la visualizzazione a colori del numero di riga attualmente in esecuzione nel programma.
+
+- **Ottimizzata la Velocità FR30**: 
+  
+    Descrizione: Velocità operativa migliorata.
+
+- **Ottimizzata la Funzione di Oscillazione ad Arco**: 
+    Percorso: Programma di insegnamento -> Programmazione -> Istruzione Arco.
+  
+    Descrizione: Consente il movimento di oscillazione.
+
+- **Ottimizzato il Debug di SetTrajectoryJSpeed per un Funzionamento Fluido**: 
+  
+    Descrizione: Durante la regolazione della velocità del comando, la velocità del robot non scende a zero quando si cambia velocità.
+
+- **Ottimizzata la Modalità di Modifica delle Istruzioni del Programma Lua nel Modulo di Programmazione**: 
+    Percorso: Programma di insegnamento -> Programmazione.
+  
+    Descrizione: Ottimizzato in modo che il contenuto delle istruzioni possa essere visualizzato con corrispondenza precisa.
+
+- **Aggiunto l'Adattamento del Protocollo per la Scheda FRJ-PCIeN-EC-RJ-V20 (PN/Ecat/EIP/cclink)**: 
+    Percorso: Impostazioni iniziali -> Periferiche -> Comunicazione scheda.
+  
+    Descrizione: 1. Supporta l'aggiornamento/acquisizione del firmware online; 2. Supporta il ciclo di comunicazione configurabile; 3. Supporta l'acquisizione dello stato di connessione del bus.
+
+- **Aggiunte Istruzioni del Controller**: 
+    Percorso: Programma di insegnamento -> Programmazione; Impostazioni iniziali -> Sicurezza -> Arresto di sicurezza.
+  
+    Descrizione: 1. Aggiunta l'opzione del tipo di offset del sistema di coordinate del pezzo alle istruzioni di movimento; 2. Aggiunta la funzione di arresto di sicurezza; 3. Aggiunte le istruzioni di lettura DO e AO per il box di controllo, l'end-effector e l'I/O esteso.
+
+- **Aggiunta la Funzione di Configurazione del Segnale DO Dopo l'Arresto di Emergenza del Box di Controllo**: 
+    Percorso: Impostazioni iniziali -> Base -> DO.
+  
+    Descrizione: Aggiunta la funzione di configurazione del segnale DO dopo l'arresto di emergenza del box di controllo.
+
+- **Aggiunto l'Adattamento del Pacchetto Linguistico per la Versione Software in Portoghese**: 
+  
+    Descrizione: Aggiunta la commutazione della lingua portoghese.
+
 Versione V3.9.4
 -----------------
 

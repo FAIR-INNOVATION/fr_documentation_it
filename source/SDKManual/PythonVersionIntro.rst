@@ -13,6 +13,18 @@ Note Aggiornamento Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.5
+     - 2026-04-24
+     - | 1.Interfaccia SetTrajectoryJSpeed() aggiunge le modalità di riduzione della velocità e commutazione diretta;
+       | 2.Interfaccia FieldBusSlaveWriteAO() modifica il tipo di valore scritto in double, dove AO0~AO15 sono di tipo intero e AO16~AO31 sono in virgola mobile;
+       | 3.Interfaccia FieldBusSlaveReadAI() modifica il tipo di valore letto in double, dove AI0~AI15 sono di tipo intero e AI16~AI31 sono in virgola mobile;
+       | 4.Tipo struttura di feedback di stato del robot aggiornato;
+       | 5.Aggiunto tipo enumerato per la configurazione del feedback di stato del robot; aggiunta interfaccia SetRobotRealtimeStateConfig() per configurare il feedback di stato CNDE del robot;
+       | 6.Aggiunta interfaccia AddRobotRealtimeState() per aggiungere uno stato del robot alla configurazione di stato CNDE;
+       | 7.Aggiunta interfaccia DeleteRobotRealtimeState() per eliminare uno stato del robot dalla configurazione di stato CNDE;
+       | 8.Aggiunta interfaccia SetRobotRealtimeStatePeriod() per impostare il periodo di feedback di stato CNDE;
+       | 9.Aggiunta interfaccia GetRobotRealtimeStateConfig() per ottenere tutti gli insiemi di stati e il periodo dell'attuale feedback di stato CNDE.
+
    * - V3.9.4
      - 2026-03-25
      - | 1.Interfaccia ServoJTStart() aggiunge parametro di selezione del tipo di comunicazione, supporta comunicazione XMLRPC/UDP;

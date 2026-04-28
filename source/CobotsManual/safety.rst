@@ -42,6 +42,64 @@ Procedura Operativa
 
 .. centered:: Figura 7.1-3 Cancellazione Manuale di un'Operazione di Attivazione Arresto Sicurezza
 
+Movimento a Velocità di Sicurezza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dopo che il robot ha attivato un arresto di sicurezza, l'utente può fare clic su un pulsante nella webapp, configurare un ingresso CI del box di controllo o configurare un ingresso End DI dell'utensile end-effector per controllare il robot e farlo entrare nello stato di movimento a velocità di sicurezza. Nello stato di movimento a velocità di sicurezza, il robot può essere mosso a passo d'uomo a velocità sicura o può entrare in modalità trascinamento per essere trascinato, aiutando l'utente a risolvere i problemi.
+
+Nella webapp del robot, fare clic in sequenza su "Impostazioni iniziali", "Sicurezza", "Arresto di sicurezza", trovare "Movimento a velocità di sicurezza" in questa pagina e impostarlo su abilitato.
+
+.. image:: safety/057.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.1-4 Abilitare il Movimento a Velocità di Sicurezza
+
+Quando a questo punto viene attivato un arresto di sicurezza, l'angolo in alto a destra della webapp del robot mostrerà un avviso "Arresto di sicurezza attivato" e mostrerà il pulsante "Entra in movimento a velocità di sicurezza".
+
+.. image:: safety/058.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.1-5 Popup per entrare in movimento a velocità di sicurezza
+
+Fare clic sul pulsante "Entra", il robot interromperà automaticamente il programma Lua e passerà alla modalità manuale. Allo stesso tempo, il pulsante "Entra in movimento a velocità di sicurezza" verrà aggiornato a "Entrato". A questo punto, il robot può essere controllato tramite il pulsante dell'end-effector, il box pulsanti, la webapp, ecc. per entrare in modalità trascinamento e trascinare il robot, oppure può essere mosso a passo d'uomo tramite la webapp o il teach pendant.
+
+.. image:: safety/059.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.1-6 Entrare in movimento a velocità di sicurezza
+
+Quando il robot è in movimento a velocità di sicurezza e viene mosso a passo d'uomo nello spazio cartesiano, la velocità massima di movimento del robot è la velocità di sicurezza impostata. Se l'impostazione della velocità globale corrente del robot è superiore alla velocità di sicurezza, la velocità di passo d'uomo del robot verrà automaticamente ridotta alla velocità di sicurezza. La velocità di sicurezza viene impostata in "Impostazioni iniziali", "Sicurezza", "Velocità di sicurezza".
+
+Dopo che il robot si è arrestato in sicurezza, oltre a poter controllare l'ingresso del robot nella modalità di sicurezza dall'angolo in alto a destra della webapp, è possibile entrare anche tramite l'ingresso CI del box di controllo o l'ingresso CI dell'end-effector. Nella webapp, fare clic in sequenza su "Impostazioni iniziali", "Base", "Impostazioni I/O", "DI". Configurare una determinata porta CI del box di controllo o l'End DI dell'utensile end-effector come "Entra in movimento a velocità di sicurezza". Dopo che l'arresto di sicurezza è stato attivato, è sufficiente attivare il segnale di ingresso della porta configurata per entrare nel movimento a velocità di sicurezza.
+
+.. image:: safety/060.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.1-7 Entrare in movimento a velocità di sicurezza tramite pulsante
+
+Arresto di Sicurezza Solo in Modalità Automatica
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Quando il robot abilita la modalità di arresto di sicurezza (certificazione CR, sicurezza funzionale) e viene utilizzato con un teach pendant dotato di abilitatore a tre posizioni, è possibile attivare "Arresto di sicurezza solo in modalità automatica". Quando il segnale di arresto di sicurezza del robot viene attivato, è possibile commutare il robot in modalità manuale sul teach pendant, quindi muoverlo a passo d'uomo in modalità manuale o passare alla modalità trascinamento per trascinare il robot, aiutando l'utente a risolvere i problemi.
+
+Nella webapp del robot, fare clic in sequenza su "Impostazioni iniziali", "Sicurezza", "Arresto di sicurezza", trovare "Arresto di sicurezza solo in modalità automatica" in questa pagina e impostarlo su abilitato.
+
+.. image:: safety/061.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.1-8 Attivare l'Arresto di Sicurezza Solo in Modalità Automatica
+
+Se il robot non ha abilitato la modalità di arresto di sicurezza (certificazione CR, sicurezza funzionale) o non utilizza un teach pendant, la funzione "Arresto di sicurezza solo in modalità automatica" non può essere attivata. In questo caso, la webapp mostrerà un messaggio di errore: "Arresto di sicurezza solo in modalità automatica richiede l'attivazione dell'abilitatore a tre posizioni sul teach pendant". Inoltre, quando la modalità di arresto di sicurezza o il teach pendant vengono disabilitati, la funzione "Arresto di sicurezza solo in modalità automatica" verrà automaticamente disattivata.
+
+.. image:: safety/062.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 7.1-9 Errore durante l'attivazione dell'Arresto di Sicurezza Solo in Modalità Automatica
+
 Velocità di Sicurezza
 -----------------------------
 

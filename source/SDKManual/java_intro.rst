@@ -35,5 +35,6 @@ Questo documento è la guida per l'interfaccia di sviluppo secondario per la ver
     JavaRobotForceControl
     JavaRobotExtendedAxis
     JavaRobotWeld
+    JavaRobotCnde
     JavaRobotOthers
     JavaAppendix
