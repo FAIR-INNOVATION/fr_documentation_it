@@ -179,6 +179,18 @@ Certificati del Robot:
      - ✅
      - :download:`download <_static/_doc/NRTL Collaborative Robot certification.pdf>`
 
+   * - **Certificato di Registrazione RCM per Robot Collaborativo**
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - ✅
+     - :download:`Scarica <_static/_doc/Collaborative Robot RCM Registration Certificate.pdf>`
+
    * - **Certificato Robot Pulito CLASS3**
      - ✅
      - ✅

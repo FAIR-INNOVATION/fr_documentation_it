@@ -273,3 +273,123 @@ Spegnimento
    :align: center
 
 .. centered:: Diagramma 1.5-1 Pulsante di spegnimento
+
+Batteria a Bottone del Box di Controllo
+----------------------------------------------------------------
+
+Cause Comuni della Perdita dell'Ora
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Questo dispositivo utilizza una batteria a bottone esterna come alimentazione di riserva per l'orologio in tempo reale (RTC), utilizzata per mantenere il conteggio dell'ora quando l'alimentazione principale è disconnessa.
+
+Se si verifica una perdita dell'ora (cioè, dopo il riavvio viene visualizzata una data errata), di solito è causata da una o più delle seguenti ragioni:
+
+.. list-table::
+   :widths: 40 40 60
+   :header-rows: 0
+   :align: center
+
+   * - **Categoria della Causa**
+     - **Descrizione Specifica**
+     - **Suggerimenti per la Risoluzione**
+
+   * - Batteria a bottone scarica
+     - Il dispositivo non è stato acceso per più di 3 mesi, causando il consumo naturale dell'energia della batteria.
+     - Misurare la tensione della batteria con un multimetro (rimuoverla per la misurazione). Se la tensione è inferiore a 2,5V, è necessario ricaricarla.
+
+   * - Batteria danneggiata
+     - La batteria ha raggiunto la fine della sua vita utile.
+     - Verificare se la batteria presenta perdite o gonfiori. È necessario sostituire la batteria. Modello batteria: MS621FE-FL11E, 3V/5,5mAH, ricaricabile.
+
+   * - Scarsa contatto dei terminali della batteria
+     - I terminali della batteria sono ossidati, deformati, o il dispositivo ha subito vibrazioni che hanno causato il distacco momentaneo della batteria dai contatti.
+     - Verificare che la batteria sia inserita saldamente nei terminali, pulire i contatti, reinstallare la batteria e assicurarsi che sia bloccata saldamente.
+
+   * - Batteria non installata o installata al contrario
+     - L'utente non ha installato la batteria di riserva, o ha invertito la polarità durante l'installazione.
+     - | Confermare che la batteria sia installata con la polarità corretta (polo positivo rivolto verso l'alto).
+       .. image:: installation/131.png
+          :width: 2in
+          :align: center
+
+   * - Guasto del circuito di ricarica della batteria
+     - La batteria a bottone ricaricabile non è in grado di accumulare carica normalmente.
+     - Il circuito di ricarica deve essere ispezionato da personale di manutenzione qualificato.
+
+.. warning:: La batteria a bottone utilizzata in questo dispositivo è il modello [MS621FE-FL11E, 3V/5,5mAH, ricaricabile]. Assicurarsi di scegliere il metodo di gestione corretto in base al modello. È severamente vietato installare batterie non ricaricabili.
+
+Identificazione delle Anomalie Temporali e Calibrazione Manuale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1) Metodo di Identificazione delle Anomalie
+   
+Dopo il riavvio del robot, verificare prima l'ora corrente visualizzata sulla pagina del dispositivo. Confrontarla con l'ora di sistema del computer:
+
+- Se corrispondono, l'ora è normale e non sono necessarie ulteriori operazioni.
+
+.. image:: installation/132.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 1.6-1 Anomalia dell'Ora di Sistema
+
+- Se non corrispondono (ad esempio, data errata, deviazione significativa di ore/minuti/secondi), viene determinata un'anomalia temporale. Procedere con i seguenti passaggi di calibrazione.
+  
+2) Passaggi di Calibrazione
+
+Se è stata confermata un'anomalia temporale, seguire le seguenti operazioni per sincronizzare l'ora di sistema:
+
+- Aprire il browser per accedere al WebApp e navigare all'interfaccia: "Impostazioni di Sistema -> Impostazioni Generali -> Ora".
+
+.. image:: installation/133.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 1.6-2 Interfaccia di Aggiornamento dell'Ora di Sistema
+
+- Fare clic sul pulsante "Aggiorna" nell'interfaccia. Il sistema completerà automaticamente la sincronizzazione dell'ora. Dopo la sincronizzazione, tornare alla pagina del robot e l'ora dovrebbe essere ripristinata alla normalità.
+
+Precauzioni per la Ricarica e la Manutenzione della Batteria a Bottone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1) Condizioni di Ricarica
+
+- Dopo che l'alimentazione principale del dispositivo è collegata (220V AC), il circuito di ricarica viene attivato automaticamente.
+- La temperatura ambiente dovrebbe essere compresa tra 0℃ e 45℃. Le temperature elevate riducono l'efficienza di ricarica e accorciano la durata della batteria.
+
+2) Tempo di Ricarica
+
+- Una batteria completamente scarica richiede circa [5 ore] per essere completamente ricaricata. La funzione di mantenimento dell'ora funziona normalmente durante questo periodo.
+
+3) Azioni Vietate
+
+- Non utilizzare caricabatterie esterni per caricare direttamente la batteria a bottone all'interno del dispositivo.
+- Non installare batterie non ricaricabili nel dispositivo, poiché ciò potrebbe causare pericolo.
+
+Sostituzione e Smaltimento della Batteria
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1) Ciclo di Sostituzione
+
+- Di solito può essere utilizzata per più di [5 anni]. Sostituire se si verifica una perdita frequente dell'ora.
+
+2) Passaggi di Sostituzione
+
+- Scollegare l'alimentazione principale del dispositivo.
+- Aprire il coperchio superiore.
+- Rimuovere la vecchia batteria, prestando attenzione alla direzione della polarità.
+- Saldare una nuova batteria qualificata dello stesso modello (polo positivo rivolto verso l'alto).
+- Chiudere il coperchio, riaccendere e calibrare l'ora corrente.
+
+3) Smaltimento
+
+- Non gettare la batteria nel fuoco né esporla all'acqua.
+- Riciclare le batterie esauste secondo le normative locali (le batterie a bottone contengono tipicamente litio o metalli pesanti).
+
+Supporto Tecnico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Se il problema persiste dopo aver seguito i passaggi precedenti, contattare il nostro team di supporto tecnico e fornire le seguenti informazioni:
+
+- Modello e numero di serie del dispositivo.
+- Il modello di batteria utilizzato (controllare l'incisione sulla superficie della batteria).
+- Fenomeno del guasto (ad esempio, ora persa immediatamente dopo l'interruzione di corrente / persa dopo essere rimasto spento per una notte).
