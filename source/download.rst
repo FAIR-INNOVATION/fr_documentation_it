@@ -189,7 +189,7 @@ Certificati del Robot:
      - ✅
      - ✅
      - ✅
-     - :download:`Scarica <_static/_doc/Collaborative Robot RCM Registration Certificate.pdf>`
+     - :download:`download <_static/_doc/Collaborative Robot RCM Registration Certificate.pdf>`
 
    * - **Certificato Robot Pulito CLASS3**
      - ✅
