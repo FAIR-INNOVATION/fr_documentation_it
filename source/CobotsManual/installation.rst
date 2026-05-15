@@ -2215,19 +2215,19 @@ Tutte le connessioni esterne del sistema di controllo del robot in questa serie 
 Pannello I/O del Controller
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-È possibile utilizzare gli I/O all'interno dell'unità di controllo per gestire vari dispositivi, inclusi relè pneumatici, PLC e pulsanti di arresto di emergenza. La Figura 3.5-2 mostra il gruppo di interfacce elettriche dell'unità di controllo standard, la Figura 3.5-3 mostra il gruppo di interfacce elettriche dell'unità di controllo "Easy Manufacturing".
+È possibile utilizzare gli I/O all'interno del box di controllo per controllare vari dispositivi, inclusi relè pneumatici, PLC, finecorsa e pulsanti di arresto. La Figura 3.5-2 mostra il gruppo di interfacce elettriche del box di controllo, e la Figura 3.5-3 mostra il gruppo di interfacce elettriche del mini box di controllo integrato (mini BOX).
 
 .. figure:: installation/038.png
-   :align: center
-   :width: 6in
+	:align: center
+	:width: 6in
 
-.. centered:: Figura 3.5-2 Schema delle Interfacce Elettriche dell'Unità di Controllo
+.. centered:: Figura 3.5-2 Schema dell'interfaccia elettrica del box di controllo
 
 .. figure:: installation/039.png
-   :align: center
-   :width: 6in
+	:align: center
+	:width: 6in
 
-.. centered:: Figura 3.5-3 Schema delle Interfacce Elettriche dell'Unità di Controllo Easy Manufacturing
+.. centered:: Figura 3.5-3 Schema dell'interfaccia elettrica del mini box di controllo integrato (mini BOX)
 
 Gruppo Interfacce di Rete RJ45
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2287,21 +2287,35 @@ Questa sezione specifica le specifiche elettriche per i seguenti ingressi/uscite
 
 Il robot deve essere installato secondo le specifiche elettriche.
 
-Configurando l'interfaccia "Alimentazione Comunicazione", è possibile utilizzare l'alimentazione interna o esterna a 24 V per alimentare gli I/O digitali. In questa interfaccia, i due terminali superiori (ex24V e exon) sono rispettivamente il 24V e la massa dell'alimentazione esterna, mentre i due terminali inferiori (24V e GND) sono il 24V e la massa dell'alimentazione interna. La configurazione predefinita utilizza l'alimentazione interna, come mostrato nella figura seguente.
+Configurando l'interfaccia "Comunicazione di Alimentazione", è possibile utilizzare un'alimentazione interna o esterna a 24V per fornire energia agli I/O digitali. In questa interfaccia, i due terminali superiori (ex24V e exon) sono il 24V e la terra dell'alimentazione esterna, mentre i due terminali inferiori (24V e GND) sono il 24V e la terra dell'alimentazione interna. La configurazione predefinita utilizza l'alimentazione interna, come mostrato nelle figure seguenti del box di controllo e del mini box di controllo integrato (mini BOX).
 
 .. figure:: installation/044.png
-   :align: center
-   :width: 3in
+	:align: center
+	:width: 3in
 
-.. centered:: Figura 3.5-8 Schema Alimentazione Comunicazione 01
+.. centered:: Box di Controllo
 
-Se la potenza del carico è elevata, è possibile collegare un'alimentazione esterna come mostrato nella figura seguente.
+.. figure:: installation/134.png
+	:align: center
+	:width: 3in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
+.. centered:: Figura 3.5-8 Schema di Comunicazione dell'Alimentazione 01
+
+Se la potenza del carico è elevata, collegare un'alimentazione esterna come mostrato nella figura sottostante. Per il mini box di controllo integrato (mini BOX) a tensione alternata wide range, l'alimentazione esterna e l'alimentazione interna condividono una connessione comune a 0V.
 
 .. figure:: installation/045.png
-   :align: center
-   :width: 3in
+	:align: center
+	:width: 3in
 
-.. centered:: Figura 3.5-9 Schema Alimentazione Comunicazione 02
+.. centered:: Box di Controllo
+
+.. figure:: installation/135.png
+	:align: center
+	:width: 3in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
+.. centered:: Figura 3.5-9 Schema di Comunicazione dell'Alimentazione 02
 
 Le specifiche elettriche per l'alimentazione interna ed esterna sono riportate nella tabella seguente:
 
@@ -2539,6 +2553,13 @@ Il robot viene fornito con una configurazione predefinita che consente l'operazi
    :align: center
    :width: 3in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/136.png
+	:align: center
+	:width: 3in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-10 Schema di Protezione di Sicurezza 01
 
 **Collegamento di un Pulsante di Arresto di Emergenza**
@@ -2548,6 +2569,13 @@ Nella maggior parte delle applicazioni, è necessario utilizzare uno o più puls
    :align: center
    :width: 3in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/137.png
+	:align: center
+	:width: 3in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-11 Schema di Protezione di Sicurezza 02
 
 **Collegamento di un Pulsante di Arresto di Sicurezza**
@@ -2557,6 +2585,13 @@ Un esempio di dispositivo di arresto di sicurezza è un interruttore a porta che
    :align: center
    :width: 3in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/138.png
+	:align: center
+	:width: 3in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-12 Schema di Protezione di Sicurezza 03
 
 I/O Digitali Generali
@@ -2574,6 +2609,13 @@ Questo esempio mostra come collegare un'uscita digitale per controllare un caric
    :align: center
    :width: 3in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/139.png
+	:align: center
+	:width: 6in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-13 Schema Uscita Digitale Generale 01
 
 Ingresso Digitale da un Pulsante
@@ -2585,6 +2627,13 @@ L'esempio seguente mostra come collegare un semplice pulsante a un ingresso digi
    :align: center
    :width: 3in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/140.png
+	:align: center
+	:width: 6in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-14 Schema Uscita Digitale Generale 02
 
 Interazione con Altri Dispositivi o PLC
@@ -2596,6 +2645,13 @@ L'esempio seguente mostra come interagire digitalmente in ingresso/uscita con al
    :align: center
    :width: 6in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/141.png
+	:align: center
+	:width: 6in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-15 Schema di Interazione con Altri Dispositivi o PLC
 
 I/O Analogici
@@ -2737,6 +2793,13 @@ L'esempio seguente mostra come utilizzare un'uscita analogica per controllare un
    :align: center
    :width: 3in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/142.png
+	:align: center
+	:width: 6in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-16 Schema Uscita Analogica
 
 **Utilizzo di un Ingresso Analogico**
@@ -2747,6 +2810,13 @@ L'esempio seguente mostra come utilizzare un ingresso analogico per collegare un
    :align: center
    :width: 3in
 
+.. centered:: Box di Controllo
+
+.. figure:: installation/143.png
+	:align: center
+	:width: 6in
+
+.. centered:: Mini Box di Controllo Integrato (mini BOX)
 .. centered:: Figura 3.5-17 Schema Ingresso Analogico
 
 Modulo Opzionale FR3MT&3C

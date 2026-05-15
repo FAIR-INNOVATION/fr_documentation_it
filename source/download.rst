@@ -287,6 +287,8 @@ Modelli 3D
 
     :download:`Pulsantiera Modello STEP <_static/_doc/Button Box.zip>`
 
+    :download:`Modello STEP della Stazione di Lavoro CNC <_static/_doc/CNC Workstation.zip>`
+
     :download:`Stazione di Lavoro Pallettizzazione Modello STEP <_static/_doc/Palletizing.zip>`
 
     :download:`Stazione di Lavoro Selezione Modello STEP <_static/_doc/Sorting.zip>`
