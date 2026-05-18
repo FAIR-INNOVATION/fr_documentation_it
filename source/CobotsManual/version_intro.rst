@@ -1,7 +1,7 @@
-Versione V3.9.0  
------------------  
+Versione V3.9.0.1 
+--------------------
 
-Data: 2025-11-27  
+Data: 2026-04-29  
 
 - **Applicazione della testa di levigatura DFC con controllo di forza Dajuru**:  
   Percorso: Impostazioni iniziali → Periferiche → Levigatura → Testa di levigatura DFC con controllo di forza Dajuru.  
@@ -49,6 +49,9 @@ Data: 2025-11-27
 
 - **Configurazione aggiuntiva per il modello robotico FR5C**:  
   Descrizione: La versione LA del software include ora il supporto nativo per la configurazione del modello robotico FR5C.  
+
+- **Aggiunto debug di SetTrajectoryJSpeed**:
+  Descrizione: Aggiunta funzionalità di debug senza intoppi per SetTrajectoryJSpeed.
 
 Versione V3.8.7  
 -----------------  
