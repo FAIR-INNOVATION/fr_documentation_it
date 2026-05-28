@@ -188,3 +188,6 @@ Tabella dei Codici Errore SDK
     "202","Controllo file di configurazione Interfere fallito","Si prega di controllare il file di configurazione Interfere"
     "203","Anomalia comunicazione 485 terminale","Si prega di controllare la comunicazione 485 terminale"
     "204","Coda comandi piena","Si prega di controllare la frequenza di invio comandi"
+    "205","Protocollo terminale già configurato","Disabilitare prima il protocollo terminale"
+    "206","Protocollo adattato già configurato","Cancellare prima il dispositivo attualmente adattato"
+    "207","L'arresto di sicurezza in modalità automatica richiede l'abilitazione a tre posizioni del teach pendant","Controllare il teach pendant"

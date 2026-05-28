@@ -7,7 +7,7 @@ Istruzioni Slave per Protocollo Personalizzato
 Panoramica
 -------------------
 
-Per facilitare il controllo del movimento del robot da parte del PLC tramite diversi protocolli di bus industriale (CC-Link IEF Basic, Profinet, Ethernet/IP ed EtherCAT), sono state aggiunte le schede FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, FRJ-PCIeN-EIP/CC/PN-RJ-V10 e FRJ-PCIeN-EC-RJ-V10 al control cabinet integrato mini.
+Per facilitare il controllo del movimento del robot da parte del PLC tramite diversi protocolli di bus industriale (CC-Link IEF Basic, Profinet, Ethernet/IP ed EtherCAT), sono state aggiunte le schede FRH-PCIeN-EC/EIP/CC/PN-RJ-V10, FRJ-PCIeN-EIP/CC/PN-RJ-V10 e FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20 al control cabinet integrato mini.
 
 Configurazione dell'Ambiente
 ----------------------------------------------------
@@ -28,7 +28,7 @@ Le descrizioni dei modelli delle schede e delle versioni software sono le seguen
      - V3.8.4 e successive
 
    * - CC-Link IEF Basic
-     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - Scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20
      - V3.9.5 e successive
 
    * - Profinet
@@ -36,7 +36,7 @@ Le descrizioni dei modelli delle schede e delle versioni software sono le seguen
      - V3.8.4 e successive
 
    * - Profinet
-     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - Scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20
      - V3.9.5 e successive
 
    * - Ethernet/IP
@@ -44,11 +44,11 @@ Le descrizioni dei modelli delle schede e delle versioni software sono le seguen
      - V3.8.4 e successive
 
    * - Ethernet/IP
-     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - Scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20
      - V3.9.5 e successive
 
    * - EtherCAT
-     - Scheda FRJ-PCIeN-EC-RJ-V10
+     - Scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20
      - V3.9.5 e successive
 
 Setup Hardware Scheda FRH-PCIeN-EC/EIP/CC/PN-RJ-V10
@@ -713,8 +713,8 @@ Esempio di programma generato:
 
 :download:`Appendice 1: Tabella Mappatura Indirizzi Modalità Slave <../_static/_doc/Control box slave mode address comparison table.xlsx>`
 
-Configurazione Ciclo Comunicazione Scheda
----------------------------------------------------------
+Aggiornamento del firmware della scheda e configurazione del ciclo di comunicazione
+------------------------------------------------------------------------------------------
 
 Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -743,16 +743,26 @@ Il ciclo di comunicazione della scheda può essere configurato tramite il comput
    :width: 6in
    :align: center
 
-Scheda FRJ-PCIeN-EC-RJ-V10
+Scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Inserire l'URL 192.169.58.2 per accedere all'interfaccia del robot, quindi fare clic su "Impostazioni iniziali" -> "Periferiche" -> "Comunicazione scheda" per ottenere il ciclo di comunicazione della scheda. Immettere il ciclo di comunicazione desiderato (1~100 ms), fare clic sul pulsante "Configura", attendere il completamento della configurazione, quindi riavviare il box di controllo.
+Questa scheda supporta l'aggiornamento online. I passaggi sono i seguenti:
+
+(1) Inserire l'URL 192.168.58.2 per accedere all'interfaccia del robot, quindi fare clic su "Impostazioni iniziali" -> "Periferiche" -> "Comunicazione scheda" per ottenere il numero di versione del firmware della scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20. Selezionare il file bin da aggiornare, fare clic su Carica, attendere il completamento dell'aggiornamento del firmware, quindi riavviare il box di controllo.
 
 .. image:: custom_protocol_slave/064.png
    :width: 6in
    :align: center
 
-.. note:: Per configurare il ciclo di comunicazione della scheda FRJ-PCIeN-EC-RJ-V10, è necessario scaricare il protocollo aperto in esecuzione.
+.. note:: Per aggiornare il firmware della scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20, è necessario scaricare il protocollo aperto in esecuzione.
+
+(2) Inserire l'URL 192.168.58.2 per accedere all'interfaccia del robot, quindi fare clic su "Impostazioni iniziali" -> "Periferiche" -> "Comunicazione scheda" per ottenere il ciclo di comunicazione della scheda. Immettere il ciclo di comunicazione desiderato (1~100 ms), fare clic sul pulsante "Configura", attendere il completamento della configurazione, quindi riavviare il box di controllo.
+
+.. image:: custom_protocol_slave/064.png
+   :width: 6in
+   :align: center
+
+.. note:: Per configurare il ciclo di comunicazione della scheda FRJ-PCIeN-EC/PN/EIP/CC-RJ-V20, è necessario scaricare il protocollo aperto in esecuzione.
 
 Appendice
 -------------------

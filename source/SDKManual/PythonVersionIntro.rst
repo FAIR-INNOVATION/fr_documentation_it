@@ -13,6 +13,29 @@ Note Aggiornamento Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.6
+     - 2026-05-26
+     - | 1.Aggiornata la struttura di feedback dello stato del robot, aggiunto lo stato del numero del sistema di coordinate degli assi di estensione;
+       | 2.Aggiornato il tipo enumerato di configurazione del feedback di stato del robot, aggiunta l'enumerazione di configurazione del numero del sistema di coordinate degli assi di estensione;
+       | 3.Aggiunta interfaccia ExtAxisGetParamConfig() per ottenere la configurazione dei parametri degli assi di estensione UDP;
+       | 4.Aggiunta interfaccia ServoJV() per il movimento in modalità servo a velocità nello spazio dei giunti del robot;
+       | 5.Aggiunta interfaccia ServoMITStart() per l'avvio del controllo MIT dei giunti del robot;
+       | 6.Aggiunta interfaccia ServoMITEnd() per la fine del controllo MIT dei giunti del robot;
+       | 7.Aggiunta interfaccia ServoMIT() per il controllo MIT dei giunti del robot;
+       | 8.Aggiunta interfaccia SetLaserWeldingParam() per la configurazione dei parametri di saldatura laser del robot;
+       | 9.Aggiunta interfaccia SetLaserWeldingStartEnd() per impostare l'avvio/arresto della saldatura laser del robot;
+       | 10.Aggiunta interfaccia SetLaserWeldingEnable() per abilitare/disabilitare la saldatrice laser;
+       | 11.Aggiunta interfaccia ResetLaserWeldingErr() per il ripristino dei guasti della saldatrice laser;
+       | 12.Aggiunta interfaccia GetLaserWeldingRunningState() per ottenere lo stato di funzionamento della saldatrice laser;
+       | 13.Aggiunta interfaccia GetLaserWeldingErrState() per ottenere lo stato di guasto della saldatrice laser;
+       | 14.Aggiunta interfaccia GetLaserWeldingParamTarget() per ottenere i parametri di configurazione della saldatura laser;
+       | 15.Aggiunta interfaccia GetLaserWeldingParamActual() per ottenere i parametri di configurazione attualmente attivi della saldatrice laser;
+       | 16.Aggiunta interfaccia SetLaserWeldingEnableExtDoNum() per configurare la porta DO di abilitazione IO esteso della saldatrice laser;
+       | 17.Aggiunta interfaccia SetLaserWeldingStartExtDoNum() per configurare la porta DO di avvio IO esteso della saldatrice laser;
+       | 18.Aggiunta interfaccia SetLaserWeldingErrResetExtDoNum() per configurare la porta DO di ripristino guasto IO esteso della saldatrice laser;
+       | 19.Aggiunta interfaccia SetLaserWeldingRunningStateExtDiNum() per configurare la porta DI dello stato di funzionamento (stato laser acceso) IO esteso della saldatrice laser;
+       | 20.Aggiunta interfaccia SetLaserWeldingErrStateExtDiNum() per configurare la porta DI dello stato di guasto IO esteso della saldatrice laser.
+
    * - V3.9.5
      - 2026-04-24
      - | 1.Interfaccia SetTrajectoryJSpeed() aggiunge le modalità di riduzione della velocità e commutazione diretta;

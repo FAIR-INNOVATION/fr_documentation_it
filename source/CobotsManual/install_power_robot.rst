@@ -308,6 +308,7 @@ Se si verifica una perdita dell'ora (cioè, dopo il riavvio viene visualizzata u
    * - Batteria non installata o installata al contrario
      - L'utente non ha installato la batteria di riserva, o ha invertito la polarità durante l'installazione.
      - | Confermare che la batteria sia installata con la polarità corretta (polo positivo rivolto verso l'alto).
+       
        .. image:: installation/131.png
           :width: 2in
           :align: center

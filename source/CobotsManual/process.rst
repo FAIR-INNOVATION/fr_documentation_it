@@ -641,3 +641,201 @@ Quando si insegnano consecutivamente due target di movimento di tracciamento ide
 .. centered:: Grafico 15.3‑16 Un tipico programma di movimento di presa con tracciamento bloccante nastro trasportatore
 
 Quando si insegnano consecutivamente due target di movimento di tracciamento identici (possono includere una distanza di offset), e contemporaneamente si inserisce un movimento della pinza nel mezzo, il robot continuerà a tracciare il nastro trasportatore in quella posizione target fino al completamento del movimento della pinza, realizzando una presa con tracciamento bloccante.
+
+Funzione di Ottimizzazione dell'Istruzione di Movimento a Matrice
+------------------------------------------------------------------
+Panoramica
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nel processo di lavorazione automatizzata delle apparecchiature CNC e delle operazioni di pallettizzazione, le istruzioni di movimento a matrice sono ampiamente utilizzate in molteplici fasi critiche del processo, tra cui il caricamento dei grezzi, lo scarico dei prodotti finiti, il ribaltamento dei pezzi e il secondo bloccaggio. Insegnando tre punti matrice nella ricetta del movimento a matrice per determinare la posizione della matrice e configurando le righe, le colonne, gli strati e il percorso di movimento della matrice, la ricetta della matrice può essere rapidamente commutata sull'interfaccia delle istruzioni per l'implementazione e l'esecuzione.
+
+Configurazione della Ricetta di Movimento a Matrice
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Step1**: Accedere all'interfaccia "Applicazioni Ausiliarie -> Pacchetti Processo -> Movimento a Matrice" per eseguire operazioni di aggiunta, modifica, ridenominazione ed eliminazione delle ricette;
+
+.. figure:: process/049.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑1 Interfaccia Ricetta Matrice
+
+.. note:: 
+   .. image:: process/050.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Pulsante Aggiungi**
+   
+   Funzione: Aggiungere una nuova ricetta matrice
+
+.. note:: 
+   .. image:: process/051.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Pulsante Modifica**
+   
+   Funzione: Modificare i parametri della ricetta matrice
+
+.. note:: 
+   .. image:: process/052.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Pulsante Rinomina**
+   
+   Funzione: Rinominare la ricetta matrice
+
+.. note:: 
+   .. image:: process/053.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Pulsante Elimina**
+   
+   Funzione: Eliminare la ricetta matrice
+
+**Step2**: Aggiungere una nuova ricetta matrice. Fare clic sul pulsante "Aggiungi" per aprire la finestra modale "Aggiungi Matrice". Inserire il nome della matrice (sono vietati caratteri speciali, sono consentiti solo numeri, caratteri cinesi comuni e il trattino basso "_"). Quindi accedere all'interfaccia dei dettagli della ricetta per inserire il numero di righe, strati, colonne, altezza dello strato, configurazione del movimento e gli offset X, Y, Z del punto di transizione, e insegnare tre punti del percorso della matrice. Fare clic sul pulsante "Configura" per confermare la configurazione.
+
+.. figure:: process/054.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑2 Finestra Modale Aggiungi Matrice
+
+.. figure:: process/055.png
+   :align: center
+   :width: 4in
+
+.. figure:: process/056.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑3 Insegnamento del Primo Punto del Percorso
+
+.. figure:: process/057.png
+   :align: center
+   :width: 4in
+
+.. figure:: process/058.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑4 Insegnamento del Secondo Punto del Percorso
+
+.. figure:: process/059.png
+   :align: center
+   :width: 4in
+
+.. figure:: process/060.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑5 Insegnamento del Terzo Punto del Percorso
+
+I percorsi di movimento sono divisi nel metodo "testa-coda" e nel metodo "a zigzag". Le descrizioni sono le seguenti:
+
+**Metodo Testa-Coda**: Completare la prima riga da sinistra a destra, tornare al punto di partenza sinistro, quindi completare la seconda riga da sinistra a destra, tornare nuovamente al punto di partenza sinistro, completare la terza riga da sinistra a destra, fino a raggiungere la copertura completa.
+
+.. figure:: process/061.png
+   :align: center
+   :width: 1in
+
+.. centered:: Figura 15.4‑6 Metodo Testa-Coda
+
+**Metodo a Zigzag**: Completare la prima riga da sinistra a destra, spostarsi verticalmente verso il basso, quindi completare la seconda riga da destra a sinistra. Spostarsi nuovamente verticalmente verso il basso, quindi completare la terza riga da sinistra a destra, continuando fino a quando l'area è completamente coperta.
+
+.. figure:: process/062.png
+   :align: center
+   :width: 1in
+
+.. centered:: Figura 15.4‑7 Metodo a Zigzag
+
+**Step3**: Modifica, ridenominazione ed eliminazione della ricetta. Fare clic sul pulsante "Modifica" per recuperare i dati della ricetta matrice attualmente selezionata. Modificare i parametri o ri-insegnare i punti del percorso secondo necessità. Quando è necessaria la ridenominazione, fare clic sul pulsante "Rinomina", inserire il nuovo nome e fare nuovamente clic sul pulsante "Rinomina" per completare l'operazione. Fare clic sul pulsante "Elimina", sarà richiesta una conferma secondaria per eliminare la ricetta matrice; fare nuovamente clic sul pulsante "Elimina" per confermare l'eliminazione. Come mostrato di seguito:
+
+.. figure:: process/063.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑8 Ridenominazione della Ricetta Matrice
+
+.. figure:: process/064.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑9 Promemoria di Eliminazione della Ricetta Matrice
+
+Aggiunta dell'Istruzione di Movimento a Matrice
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Step1**: Dopo essere entrati nell'interfaccia "Programma di Insegnamento -> Programmazione -> Istruzioni di Pallettizzazione -> Movimento a Matrice", verificare se esistono ricette. Se non è stata creata alcuna ricetta, viene visualizzato un messaggio di prompt. Sotto il testo del prompt, è possibile fare clic sul pulsante "Configura" per accedere rapidamente all'interfaccia "Applicazioni Ausiliarie -> Pacchetti Processo -> Movimento a Matrice". Come mostrato di seguito:
+
+.. figure:: process/065.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑10 Interfaccia Istruzione Movimento a Matrice senza Ricetta
+
+Quando esiste una ricetta, viene visualizzata l'interfaccia delle istruzioni di movimento a matrice. I tipi di istruzione corrente sono:
+
+- **Movimento a Matrice**: Imposta il robot per spostarsi al punto di transizione per le operazioni di carico/scarico;
+- **Conteggio Operazione Matrice**: Conta la riga, la colonna e lo strato dopo che il robot ha completato il carico/scarico;
+- **Configura Conteggio Iniziale**: Imposta la riga, la colonna e lo strato da cui il robot inizia il carico/scarico;
+- **Ottieni Conteggio Matrice**: Ottiene la riga, la colonna e lo strato a cui il robot ha completato il carico/scarico.
+
+.. figure:: process/066.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑11 Interfaccia Istruzione Movimento a Matrice con Ricetta
+
+**Step2**: Aggiungere l'istruzione "Movimento a Matrice". Creare un nuovo programma denominato "matrix", selezionare la ricetta "matrix1", la direzione di movimento "Giù" e inserire la velocità 100. Il robot si sposta dal punto di sicurezza al punto di transizione e quindi al punto di presa. Fare clic sul pulsante "Aggiungi" per applicarlo al programma. Come mostrato di seguito:
+
+.. figure:: process/067.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑12 Istruzione Movimento a Matrice Giù
+
+**Step3**: Aggiungere l'istruzione "Conteggio Operazione Matrice". Selezionare la ricetta "matrix1", fare clic sul pulsante "Aggiungi" per applicarlo al programma. Come mostrato di seguito:
+
+.. figure:: process/068.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑13 Istruzione Conteggio Operazione Matrice
+
+**Step4**: Aggiungere l'istruzione "Movimento a Matrice". Selezionare la ricetta "matrix1", la direzione di movimento "Su" e inserire la velocità 100. Il robot si sposta dal punto di presa al punto di transizione e quindi torna al punto di sicurezza. Fare clic sul pulsante "Aggiungi" per applicarlo al programma. Come mostrato di seguito:
+
+.. figure:: process/069.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑14 Istruzione Movimento a Matrice Su
+
+**Step5**: Aggiungere un'istruzione while per il ciclo continuo. Fare clic sul pulsante "Salva" per salvare il programma, passare alla modalità automatica ed eseguire il programma. Il robot esegue continuamente operazioni di carico/scarico con movimento a matrice. Come mostrato di seguito:
+
+.. figure:: process/070.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑15 Esecuzione dell'Istruzione Movimento a Matrice
+
+**Step6**: Aggiungere l'istruzione "Configura Conteggio Iniziale". Selezionare la ricetta "matrix1", inserire riga 1, colonna 1, strato 1. Fare clic sul pulsante "Aggiungi" per applicarlo al programma. Come mostrato di seguito:
+
+.. note:: I numeri di riga, colonna e strato inseriti vengono incrementati di 1 per rappresentare la riga, la colonna e lo strato effettivi. Cioè, inserendo riga 1, colonna 1, strato 1, il robot inizia effettivamente dalla riga 2, colonna 2, strato 2 nella posizione specificata.
+
+.. figure:: process/071.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑16 Istruzione Configura Conteggio Iniziale
+
+**Step7**: Quando la matrice cambia, entrare nell'interfaccia "Applicazioni Ausiliarie -> Pacchetti Processo -> Movimento a Matrice", selezionare la ricetta matrice "matrix1", fare clic sul pulsante modifica per modificare i parametri, quindi fare clic sul pulsante configura per completare la modifica della matrice. A questo punto, tornare all'interfaccia di programmazione, aprire il programma "matrix" ed eseguirlo direttamente per eseguire il nuovo scenario di lavoro a matrice.
+
+.. figure:: process/072.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 15.4‑17 Modifica della Ricetta Matrice

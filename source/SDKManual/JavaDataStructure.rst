@@ -497,6 +497,7 @@ Tipo Struttura Feedback Stato Robot
         public int socketConnTimeout;                // Timeout connessione socket
         public int socketReadTimeout;                // Timeout lettura socket
         public int tsWebStateComErr;                 // Errore comunicazione stato TS Web
+        public int exaxisCoordID;                  // ID sistema coordinate asse esteso
     }
 
 Classe Risultato Configurazione Feedback Stato Robot
@@ -521,134 +522,136 @@ Tipo Enumerato Configurazione Feedback Stato Robot
     * Tipo enumerato stato robot
     * Utilizzato per la configurazione del feedback di stato in tempo reale
     */
-    public enum RobotState {
-        ProgramState,
-        RobotState,
-        MainCode,
-        SubCode,
-        RobotMode,
-        JointCurPos,
-        ToolCurPos,
-        FlangeCurPos,
-        ActualJointVel,
-        ActualJointAcc,
-        TargetTCPCmpSpeed,
-        TargetTCPSpeed,
-        ActualTCPCmpSpeed,
-        ActualTCPSpeed,
-        ActualJointTorque,
-        Tool,
-        User,
-        ClDgtOutputH,
-        ClDgtOutputL,
-        TlDgtOutputL,
-        ClDgtInputH,
-        ClDgtInputL,
-        TlDgtInputL,
-        ClAnalogInput,
-        TlAnglogInput,
-        FtSensorRawData,
-        FtSensorData,
-        FtSensorActive,
-        EmergencyStop,
-        MotionDone,
-        GripperMotiondone,
-        McQueueLen,
-        CollisionState,
-        TrajectoryPnum,
-        SafetyStop0State,
-        SafetyStop1State,
-        GripperFaultId,
-        GripperFault,
-        GripperActive,
-        GripperPosition,
-        GripperSpeed,
-        GripperCurrent,
-        GripperTemp,
-        GripperVoltage,
-        AuxState,
-        ExtAxisStatus,
-        ExtDIState,
-        ExtDOState,
-        ExtAIState,
-        ExtAOState,
-        RbtEnableState,
-        JointDriverTorque,
-        JointDriverTemperature,
-        RobotTime,
-        SoftwareUpgradeState,
-        EndLuaErrCode,
-        ClAnalogOutput,
-        TlAnalogOutput,
-        GripperRotNum,
-        GripperRotSpeed,
-        GripperRotTorque,
-        WeldingBreakOffState,
-        TargetJointTorque,
-        SmartToolState,
-        WideVoltageCtrlBoxTemp,
-        WideVoltageCtrlBoxFanCurrent,
-        ToolCoord,
-        WobjCoord,
-        ExtoolCoord,
-        ExAxisCoord,
-        Load,
-        LoadCog,
-        LastServoTarget,
-        ServoJCmdNum,
-        TargetJointPos,
-        TargetJointVel,
-        TargetJointAcc,
-        TargetJointCurrent,
-        ActualJointCurrent,
-        ActualTCPForce,
-        TargetTCPPos,
-        CollisionLevel,
-        SpeedScaleManual,
-        SpeedScaleAuto,
-        LuaLineNum,
-        AbnomalStop,
-        CurrentLuaFileName,
-        ProgramTotalLine,
-        SafetyBoxSingal,
-        WeldVoltage,
-        WeldCurrent,
-        WeldTrackVel,
-        TpdException,
-        AlarmRebootRobot,
-        ModbusMasterConnect,
-        ModbusSlaveConnect,
-        BtnBoxStopSignal,
-        DragAlarm,
-        SafetyDoorAlarm,
-        SafetyPlaneAlarm,
-        MotonAlarm,
-        InterfaceAlarm,
-        UdpCmdState,
-        WeldReadyState,
-        AlarmCheckEmergStopBtn,
-        TsTmCmdComError,
-        TsTmStateComError,
-        SocketConnTimeout,
-        SocketReadTimeout,
-        TsWebStateComErr,
-        CtrlBoxError,
-        SafetyDataState,
-        ForceSensorErrState,
-        CtrlOpenLuaErrCode,
-        StrangePosFlag,
-        Alarm,
-        DriverAlarm,
-        AliveSlaveNumError,
-        SlaveComError,
-        CmdPointError,
-        IOError,
-        GripperError,
-        FileError,
-        ParaError,
-        ExaxisOutLimitError,
-        DriverComError,
-        DriverError,
-        OutSoftLimitError,
-        AxleGenComData;
-    }
+    enum class RobotState
+    {
+        ProgramState,           // Stato esecuzione programma, 1-arrestato; 2-in esecuzione; 3-in pausa
+        RobotState,             // Stato movimento robot, 1-arrestato; 2-in movimento; 3-in pausa; 4-traino
+        MainCode,               // Codice guasto principale
+        SubCode,                // Codice guasto secondario
+        RobotMode,              // Modalità robot, 1-modalità manuale; 0-modalità automatica
+        JointCurPos,            // Posizioni attuali giunti di 6 assi, unità deg
+        ToolCurPos,             // Posizione attuale utensile: [0]posizione lungo x(mm), [1]lungo y(mm), [2]lungo z(mm), [3]rotazione attorno X fisso(deg), [4]attorno Y fisso(deg), [5]attorno Z fisso(deg)
+        FlangeCurPos,           // Posizione attuale flangia terminale: [0]lungo x(mm), [1]lungo y(mm), [2]lungo z(mm), [3]rotazione attorno X fisso(deg), [4]attorno Y fisso(deg), [5]attorno Z fisso(deg)
+        ActualJointVel,         // Velocità attuali 6 giunti, unità deg/s
+        ActualJointAcc,         // Accelerazioni attuali 6 giunti, unità deg/s²
+        TargetTCPCmpSpeed,      // Velocità composita comando TCP: [0]posizione(mm/s), [1]orientamento(deg/s)
+        TargetTCPSpeed,         // Velocità comando TCP: [0]lungo x(mm/s), [1]lungo y(mm/s), [2]lungo z(mm/s), [3]velocità angolare attorno X(deg/s), [4]attorno Y(deg/s), [5]attorno Z(deg/s)
+        ActualTCPCmpSpeed,      // Velocità composita effettiva TCP: [0]posizione(mm/s), [1]orientamento(deg/s)
+        ActualTCPSpeed,         // Velocità effettiva TCP: [0]lungo x(mm/s), [1]lungo y(mm/s), [2]lungo z(mm/s), [3]velocità angolare attorno X(deg/s), [4]attorno Y(deg/s), [5]attorno Z(deg/s)
+        ActualJointTorque,      // Coppie attuali 6 giunti, unità N·m
+        Tool,                   // Numero sistema coordinate utensile applicato
+        User,                   // Numero sistema coordinate pezzo applicato
+        ClDgtOutputH,           // Uscita IO digitale scatola di controllo 15-8
+        ClDgtOutputL,           // Uscita IO digitale scatola di controllo 7-0
+        TlDgtOutputL,           // Uscita IO digitale utensile 7-0, solo bit0-bit1 validi
+        ClDgtInputH,            // Ingresso IO digitale scatola di controllo 15-8
+        ClDgtInputL,            // Ingresso IO digitale scatola di controllo 7-0
+        TlDgtInputL,            // Ingresso IO digitale utensile 7-0, solo bit0-bit1 validi
+        ClAnalogInput,          // Ingresso analogico scatola di controllo: [0]canale 0, [1]canale 1
+        TlAnalogInput,          // Ingresso analogico utensile
+        FtSensorRawData,        // Dati grezzi sensore coppia-forza: [0]forza lungo x(N), [1]lungo y(N), [2]lungo z(N), [3]coppia attorno x(Nm), [4]attorno y(Nm), [5]attorno z(Nm)
+        FtSensorData,           // Dati sensore coppia-forza (elaborati): [0]forza lungo x(N), [1]lungo y(N), [2]lungo z(N), [3]coppia attorno x(Nm), [4]attorno y(Nm), [5]attorno z(Nm)
+        FtSensorActive,         // Stato attivazione sensore coppia-forza, 0-reset, 1-attivo
+        EmergencyStop,          // Flag arresto emergenza, 0-arresto emergenza non premuto, 1-arresto emergenza premuto
+        MotionDone,             // Segnale movimento completato, 1-completato, 0-non completato
+        GripperMotiondone,      // Segnale completamento movimento pinza, 1-completato, 0-non completato
+        McQueueLen,             // Lunghezza coda comandi movimento
+        CollisionState,         // Rilevamento collisione, 1-collisione, 0-nessuna collisione
+        TrajectoryPnum,         // Numero punto traiettoria
+        SafetyStop0State,       // Segnale arresto sicurezza SI0
+        SafetyStop1State,       // Segnale arresto sicurezza SI1
+        GripperFaultId,         // Numero pinza guasta
+        GripperFault,           // Guasto pinza
+        GripperActive,          // Stato attivazione pinza
+        GripperPosition,        // Posizione pinza
+        GripperSpeed,           // Velocità pinza
+        GripperCurrent,         // Corrente pinza
+        GripperTemp,            // Temperatura pinza
+        GripperVoltage,         // Tensione pinza
+        AuxState,               // Stato asse esteso 485
+        ExtAxisStatus,          // Stato asse esteso UDP (4 assi)
+        ExtDIState,             // Ingresso DI esteso (8)
+        ExtDOState,             // Uscita DO esteso (8)
+        ExtAIState,             // Ingresso AI esteso (4)
+        ExtAOState,             // Uscita AO esteso (4)
+        RbtEnableState,         // Stato abilitazione robot
+        JointDriverTorque,      // Coppia driver giunti robot (6 giunti)
+        JointDriverTemperature, // Temperatura driver giunti robot (6 giunti)
+        RobotTime,              // Tempo sistema robot
+        SoftwareUpgradeState,   // Stato aggiornamento software robot
+        EndLuaErrCode,          // Stato esecuzione LUA terminale
+        ClAnalogOutput,         // Uscita analogica scatola di controllo (2)
+        TlAnalogOutput,         // Uscita analogica utensile
+        GripperRotNum,          // Giri correnti pinza rotante
+        GripperRotSpeed,        // Percentuale velocità corrente pinza rotante
+        GripperRotTorque,       // Percentuale coppia corrente pinza rotante
+        WeldingBreakOffState,   // Stato interruzione saldatura
+        TargetJointTorque,      // Coppia comando giunti (6 giunti)
+        SmartToolState,         // Stato pulsanti maniglia SmartTool
+        WideVoltageCtrlBoxTemp, // Temperatura scatola di controllo ampia tensione
+        WideVoltageCtrlBoxFanCurrent, // Corrente ventola scatola di controllo ampia tensione (mA)
+        ToolCoord,              // Valori coordinate utensile correnti: x,y,z,rx,ry,rz
+        WobjCoord,              // Valori coordinate pezzo correnti: x,y,z,rx,ry,rz
+        ExtoolCoord,            // Valori coordinate utensile esterno correnti: x,y,z,rx,ry,rz
+        ExAxisCoord,            // Valori coordinate asse esteso correnti: x,y,z,rx,ry,rz
+        Load,                   // Massa carico
+        LoadCog,                // Baricentro carico: x,y,z
+        LastServoTarget,        // Ultima posizione target ServoJ in coda (6 giunti)
+        ServoJCmdNum,           // Conteggio comandi servoJ
+        TargetJointPos,         // Posizioni comando 6 giunti, unità °
+        TargetJointVel,         // Velocità comando 6 giunti, unità °/s
+        TargetJointAcc,         // Accelerazioni comando 6 giunti, unità °/s²
+        TargetJointCurrent,     // Correnti comando 6 giunti, unità A
+        ActualJointCurrent,     // Correnti attuali 6 giunti, unità A
+        ActualTCPForce,         // Coppia terminale robot: x,y,z,rx,ry,rz, unità Nm
+        TargetTCPPos,           // Posizione comando TCP robot: x,y,z,rx,ry,rz, unità mm
+        CollisionLevel,         // Livello collisione robot (6)
+        SpeedScaleManual,       // Percentuale velocità globale modalità manuale
+        SpeedScaleAuto,         // Percentuale velocità globale modalità automatica
+        LuaLineNum,             // Numero riga programma lua in esecuzione
+        AbnomalStop,            // 0-nessuna anomalia; 1-anomalia presente
+        CurrentLuaFileName,     // Nome programma lua in esecuzione
+        ProgramTotalLine,       // Righe totali programma lua
+        SafetyBoxSingal,        // Stato pulsanti scatola pulsanti robot (6)
+        WeldVoltage,            // Tensione saldatura V
+        WeldCurrent,            // Corrente saldatura
+        WeldTrackVel,           // Velocità inseguimento cordone mm/s
+        TpdException,           // Superamento limite caricamento traiettorie TPD, 0-non superato, 1-superato
+        AlarmRebootRobot,       // Avviso: 1-ciclo di alimentazione necessario dopo rilascio arresto emergenza, 2-anomalia comunicazione giunto richiede ciclo alimentazione
+        ModbusMasterConnect,    // bit0-7 corrispondono stato connessione master ModbusTCP 0-7, 0-non connesso, 1-connesso
+        ModbusSlaveConnect,     // Stato connessione slave ModbusTCP, 0-non connesso, 1-connesso
+        BtnBoxStopSignal,       // Segnale arresto emergenza scatola pulsanti, 0-arresto emergenza rilasciato, 1-arresto emergenza premuto
+        DragAlarm,              // Avviso traino: 0-nessun allarme, 1-allarme, 2-anomalia feedback posizione nessun cambio
+        SafetyDoorAlarm,        // Avviso porta sicurezza: 0-chiusa, 1-aperta
+        SafetyPlaneAlarm,       // Avviso muro sicurezza: 0-non entrato, 1-entrato
+        MotonAlarm,             // Avviso movimento
+        InterfaceAlarm,         // Avviso ingresso zona interferenza
+        UdpCmdState,            // Stato connessione comunicazione UDP porta 20007
+        WeldReadyState,         // Stato pronto saldatrice
+        AlarmCheckEmergStopBtn, // 0-normale; 1-anomalia comunicazione, controllare pulsante arresto emergenza
+        TsTmCmdComError,        // 0-normale; 1-guasto comunicazione comando coppia
+        TsTmStateComError,      // 0-normale; 1-guasto comunicazione stato coppia
+        CtrlBoxError,           // Errore scatola di controllo
+        SafetyDataState,        // Stato dati sicurezza, 0-normale, 1-anomalo
+        ForceSensorErrState,    // Timeout connessione sensore di forza, bit0-bit1 corrispondono ID1-ID2
+        CtrlOpenLuaErrCode,     // Codici errore protocollo periferiche 4 controller (codice errore 500)
+        StrangePosFlag,         // Flag posizione singolare: 0-normale, 1-posizione singolare
+        Alarm,                  // Allarme
+        DriverAlarm,            // Numero asse allarme driver
+        AliveSlaveNumError,     // Errore conteggio slave attivi: 0-normale, 1-errore conteggio
+        SlaveComError,          // Errore slave: 0-normale, 1-offline, 2-incoerenza stato, 3-non configurato, 4-errore configurazione, 5-errore inizializzazione, 6-errore inizializzazione comunicazione mailbox
+        CmdPointError,          // Errore punto comando
+        IOError,                // Errore IO
+        GripperError,           // Errore pinza
+        FileError,              // Errore file
+        ParaError,              // Errore parametro
+        ExaxisOutLimitError,    // Errore superamento limite soft asse esterno
+        DriverComError,         // Guasto comunicazione driver (6 assi)
+        DriverError,            // Numero asse guasto comunicazione driver
+        OutSoftLimitError,      // Guasto superamento limite soft
+        AxleGenComData,         // Dati feedback trasmissione trasparente terminale robot
+        SocketConnTimeout,      // Timeout connessione socket, bit0-bit4 corrispondono socketID 1-4
+        SocketReadTimeout,      // Timeout lettura socket, bit0-bit4 corrispondono socketID 1-4
+        TsWebStateComErr,       // Guasto comunicazione web-coppia: 0-normale, 1-guasto
+        ExaxisCoordID           // ID sistema coordinate asse esteso
+    };

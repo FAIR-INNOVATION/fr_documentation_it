@@ -54,7 +54,7 @@ Impostare il Periodo di Feedback di Stato CNDE
     errno_t SetRobotRealtimeStatePeriod(int period);
                 
 Ottenere l'Insieme Completo di Stati e il Periodo dell'Attuale Feedback di Stato CNDE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 

@@ -1697,3 +1697,283 @@ Esempio di codice per parametri di oscillazione personalizzati
       robot.WeaveEnd(0);
       robot.CloseRPC();
     }
+   
+Configurazione dei Parametri della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Configurazione dei parametri della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] num Numero del gruppo da impostare (1~10)
+    * @param[in] scanSpeed Velocità di scansione
+    * @param[in] scanWidth Larghezza di scansione
+    * @param[in] peakPower Potenza di picco
+    * @param[in] dutyCycle Ciclo di lavoro
+    * @param[in] freq Frequenza
+    * @return Codice di errore
+    */
+    errno_t SetLaserWeldingParam(int io_type, int num, int scanSpeed, int scanWidth, int peakPower, int dutyCycle, int freq);
+                        
+Impostare Avvio/Arresto Saldatura Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Imposta avvio/arresto saldatura laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] status Parola di controllo 0-laser spento 1-laser acceso
+    * @param[in] max_waittime Tempo massimo di attesa, unità millisecondi, default 10000
+    * @return Codice di errore
+    */
+    errno_t SetLaserWeldingStartEnd(int io_type, int status, int max_waittime = 10000);
+                        
+Abilitazione/Disabilitazione Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Abilita/disabilita la saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] status 0-disabilita 1-abilita
+    * @return Codice di errore
+    */
+    errno_t SetLaserWeldingEnable(int io_type, int status);
+
+Ripristino Guasto Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ripristina il guasto della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] status Parola di controllo 0-invalido 1-ripristino guasto
+    * @return Codice di errore
+    */
+    errno_t ResetLaserWeldingErr(int io_type, int status);
+
+Ottenere lo Stato di Funzionamento della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ottiene lo stato di funzionamento della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[out] status Parola di controllo 0-fermo 1-in funzione
+    * @return Codice di errore
+    */
+    errno_t GetLaserWeldingRunningState(int io_type, int& status);
+
+Ottenere lo Stato di Guasto della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ottiene lo stato di guasto della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[out] status 0-nessun guasto 1-guasto presente
+    * @return Codice di errore
+    */
+    errno_t GetLaserWeldingErrState(int io_type, int& status);
+    
+Ottenere i Parametri Configurati della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ottiene i parametri configurati della saldatrice laser
+    * @param[in] num Numero del gruppo da impostare (1~10)
+    * @param[out] scanSpeed Velocità di scansione
+    * @param[out] scanWidth Larghezza di scansione
+    * @param[out] peakPower Potenza di picco
+    * @param[out] dutyCycle Ciclo di lavoro
+    * @param[out] freq Frequenza
+    * @return Codice di errore
+    */
+    errno_t GetLaserWeldingParamTarget(int num, int& scanSpeed, int& scanWidth, int& peakPower, int& dutyCycle, int& freq);
+
+Ottenere i Parametri di Configurazione Attualmente Attivi della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ottiene i parametri di configurazione attualmente attivi della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[out] scanSpeed Velocità di scansione
+    * @param[out] scanWidth Larghezza di scansione
+    * @param[out] peakPower Potenza di picco
+    * @param[out] dutyCycle Ciclo di lavoro
+    * @param[out] freq Frequenza
+    * @return Codice di errore, 0 indica successo, non zero indica fallimento
+    */
+    errno_t GetLaserWeldingParamActual(int io_type, int& scanSpeed, int& scanWidth, int& peakPower, int& dutyCycle, int& freq);
+
+Configurare la Porta DO di Abilitazione IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Configura la porta DO di abilitazione IO esteso della saldatrice laser
+    * @param[in] ctrlModeDONum Numero della porta DO estesa per l'abilitazione della saldatrice laser
+    * @return Codice di errore, 0 indica successo, non zero indica fallimento
+    */
+    errno_t SetLaserWeldingEnableExtDoNum(int ctrlModeDONum);
+
+Configurare la Porta DO di Avvio IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Configura la porta DO di avvio IO esteso della saldatrice laser
+    * @param[in] ctrlModeDONum Numero della porta DO estesa per l'avvio (laser acceso/spento) della saldatrice laser
+    * @return Codice di errore, 0 indica successo, non zero indica fallimento
+    */
+    errno_t SetLaserWeldingStartExtDoNum(int ctrlModeDONum);
+
+Configurare la Porta DO di Ripristino Guasto IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Configura la porta DO di ripristino guasto IO esteso della saldatrice laser
+    * @param[in] ctrlModeDONum Numero della porta DO estesa per il ripristino del guasto della saldatrice laser
+    * @return Codice di errore, 0 indica successo, non zero indica fallimento
+    */
+    errno_t SetLaserWeldingErrResetExtDoNum(int ctrlModeDONum);
+    
+Configurare la Porta DI dello Stato di Funzionamento (Stato Laser Acceso) IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Configura la porta DI dello stato di funzionamento (stato laser acceso) IO esteso della saldatrice laser
+    * @param[in] diNum Porta DI estesa per lo stato di funzionamento (stato laser acceso) della saldatrice laser
+    * @return Codice di errore, 0 indica successo, non zero indica fallimento
+    */
+    errno_t SetLaserWeldingRunningStateExtDiNum(int diNum);
+    
+Configurare la Porta DI dello Stato di Guasto IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Configura la porta DI dello stato di guasto IO esteso della saldatrice laser
+    * @param[in] diNum Porta DI estesa per lo stato di guasto della saldatrice laser
+    * @return Codice di errore, 0 indica successo, non zero indica fallimento
+    */
+    errno_t SetLaserWeldingErrStateExtDiNum(int diNum);
+        
+Esempio di Codice per Saldatura Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    int TestLaserWeld()
+    {
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        robot.SetReConnectParam(true, 300000, 500);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return -1;
+        }
+        rtn = robot.ExtDevLoadUDPDriver();
+        if (rtn != 0) 
+        {
+            std::cout << "Failed to load UDP driver, error code: " << rtn << std::endl;
+        }
+        robot.Sleep(1000);
+        rtn = robot.SetLaserWeldingParam(1, 3, 2000, 3, 1500, 100, 1000);
+        if (rtn != 0) 
+        {
+            std::cout << "SetLaserWeldingParam failed, error code: " << rtn << std::endl;
+        }
+        else 
+        {
+            std::cout << "SetLaserWeldingParam success" << std::endl;
+        }
+        rtn = robot.SetLaserWeldingStartExtDoNum(1);
+        if (rtn != 0) 
+        {
+            std::cout << "SetLaserWeldingStartExtDoNum failed, error code: " << rtn << std::endl;
+        }
+        rtn = robot.Mode(0);
+        if (rtn != 0) 
+        {
+            std::cout << "Set mode 0 failed, error code: " << rtn << std::endl;
+        }
+        robot.Sleep(1000);
+        DescPose desc_pos1(-303.721, -206.960, 297.105, 152.209, 19.857, 109.166);
+        DescPose desc_pos2(-301.575, -254.888, 284.786, 155.919, 26.946, 111.629);
+        DescPose desc_safe(-344.386, -280.830, 435.073, 173.835, 15.333, 124.931);
+        JointPos jointPos1(9.827, -99.740, 120.088, -78.900, -77.241, -17.904);
+        JointPos jointPos2(15.251, -96.456, 120.138, -84.664, -68.542, -17.843);
+        JointPos jointSafe(19.142, -98.078, 101.493, -83.078, -77.070, -17.794);
+        ExaxisPos exaxis(0.0, 0.0, 0.0, 0.0);
+        DescPose offset(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+        int error = robot.MoveL(&desc_pos1,0, 0, 100, 100, 100, -1, 0, &exaxis, 0, 0, &offset, -1, 0);
+        std::cout << "MoveL to pos1 return: " << error << std::endl;
+        rtn = robot.SetLaserWeldingStartEnd(1, 1, 10000);
+        if (rtn != 0)
+        {
+            std::cout << "SetLaserWeldingStartEnd (start) failed, error code: " << rtn << std::endl;
+        }
+        else 
+        {
+            std::cout << "Laser started" << std::endl;
+        }
+        rtn = robot.MoveL(&desc_pos2,0, 0, 30, 100, 100, -1, 0, &exaxis, 0, 0, &offset, -1, 0);
+        std::cout << "MoveL to pos2 return: " << rtn << std::endl;
+        rtn = robot.SetLaserWeldingStartEnd(1, 0, 10000);
+        if (rtn != 0)
+        {
+            std::cout << "SetLaserWeldingStartEnd (stop) failed, error code: " << rtn << std::endl;
+        }
+        else 
+        {
+            std::cout << "Laser stopped" << std::endl;
+        }
+        robot.Sleep(500);
+        rtn = robot.MoveL(&desc_safe, 0, 0, 100, 100, 100, -1, 0, &exaxis, 0, 0, &offset, -1, 0);
+        std::cout << "MoveL to safe_pos return: " << rtn << std::endl;
+        rtn = robot.Mode(1);
+        if (rtn != 0) 
+        {
+            std::cout << "Set mode 1 failed, error code: " << rtn << std::endl;
+        }
+        robot.Sleep(1000);
+        robot.CloseRPC();
+        robot.Sleep(1000);
+        std::cout << "Test completed" << std::endl;
+        return 0;
+    }

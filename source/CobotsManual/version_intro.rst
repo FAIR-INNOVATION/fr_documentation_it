@@ -1,3 +1,28 @@
+Versione V3.9.6
+-----------------
+
+Data: 2026-05-26
+
+- **Funzione di Movimento Matrice Ottimizzata**: 
+    Percorso: Applicazioni Ausiliarie -> Pacchetto Processo -> Movimento Matrice.
+  
+    Descrizione: Ottimizzata la funzione del set di istruzioni di movimento matrice.
+
+- **Funzione di Decelerazione DI Ottimizzata**: 
+    Percorso: Impostazioni Iniziali -> Base -> Impostazioni I/O.
+  
+    Descrizione: 1. Quando il segnale DI viene attivato, il processo di regolazione della velocità è fluido senza scatti o balbettii; 2. Il percorso dell'estremità del robot rimane invariato prima e dopo la regolazione della velocità; 3. Nessun errore o pausa quando il DI attiva la regolazione della velocità; 4. Esecuzione immediata senza errori quando il DI attiva l'arresto.
+
+- **Aggiunta Funzione di Adattamento Comunicazione Saldatrice Laser del Robot**: 
+    Percorso: Impostazioni Iniziali -> Periferiche -> Saldatrice.
+  
+    Descrizione: 1. WebAPP aggiunge impostazioni relative alla saldatrice laser, debug e istruzioni di generazione programmi Lua; 2. Aggiunti parametri relativi alla saldatrice laser; 3. Il PLC sviluppa programmi di adattamento.
+    
+- **Aggiunto Adattamento Protocollo EIP/CClink-IE per Scheda FRJ-PCIeN-EIP/CC/PN-RJ-V10**: 
+    Percorso: Impostazioni Iniziali -> Periferiche -> Comunicazione Scheda.
+  
+    Descrizione: 1. Supporta ciclo di comunicazione configurabile; 2. Supporta ottenimento stato connessione bus; 3. Compatibile con protocolli EIP e CC.
+
 Versione V3.9.5
 -----------------
 

@@ -2166,6 +2166,185 @@ Prendendo come esempio il programma "testWeld", passare il robot in modalità au
 .. warning::
    La funzione di ripristino dopo interruzione della saldatura del robot collaborativo può essere utilizzata solo per saldature lineari o ad arco. Quando si utilizza il ciclo while (1) per la saldatura, non supporta cicli while annidati su più livelli e non può contenere istruzioni condizionali con variabili locali. Se si utilizza la funzione di saldatura a punti, prestare attenzione ad aggiungere l'interfaccia di feedback delle informazioni sulla saldatura a punti.
 
+Adattamento della Comunicazione del Robot con la Saldatrice Laser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Contesto
+++++++++++++++++++++++++++++++++++++++++++++
+
+Questo manuale utente spiega utilizzando come esempio la saldatrice laser attualmente adattata, la REDSABERE 1500. Il robot esegue il controllo della saldatura tramite il "Protocollo di Comunicazione Digitale". In sostanza, il robot comunica con il PLC tramite UDP. Il robot trasmette i dati di controllo al PLC attraverso la comunicazione UDP, e il PLC controlla ulteriormente la saldatrice laser tramite Modbus RTU. Allo stesso tempo, il PLC acquisisce i parametri effettivi del processo di saldatura laser e i segnali di controllo e li trasmette al robot. Il contenuto del protocollo di comunicazione UDP del robot è fornito nell'Appendice I.
+
+Configurazione PLC
+++++++++++++++++++++++++++++++++++++++++++++
+
+.. list-table:: 
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Marca
+     - Modello
+     - Software
+     - Indirizzo IP
+   * - Inovance
+     - EASY521-0808TN
+     - AutoShopV4.11.0.1
+     - 192.168.58.88
+			
+Download del Programma: Aprire il programma di test. L'indirizzo IP predefinito del PLC è "192.168.1.88". Modificare l'indirizzo IP del PLC in "192.168.58.88".
+
+Fare clic sul pulsante di test per stabilire la comunicazione con il PLC corrente, come mostrato nella figura sottostante;
+
+.. figure:: robot_peripherals/293.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-37 Connessione di Comunicazione PLC
+
+Dopo aver stabilito con successo la comunicazione con il PLC corrente, modificare l'IP come mostrato nella figura sottostante;
+
+.. figure:: robot_peripherals/294.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-38 Modifica dell'Indirizzo IP del PLC
+
+Modificare in 192.168.58.88 e modificare il gateway predefinito in 192.168.58.1, come mostrato nella figura sottostante;
+
+.. figure:: robot_peripherals/295.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-39 Modifica dell'Indirizzo del Gateway del PLC
+
+Modificare l'indirizzo IP locale del computer nel segmento di rete 58, quindi fare nuovamente clic sul pulsante di test per verificare se la comunicazione ha successo, come mostrato nella figura sottostante;
+
+.. figure:: robot_peripherals/296.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-40 Test di Connessione PLC
+
+Fare clic sul pulsante di download per scaricare il programma, come mostrato nella figura sottostante.
+
+.. figure:: robot_peripherals/297.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-41 Download del Programma PLC
+
+Configurazione dei Parametri della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Il robot collaborativo controlla il processo di saldatura tramite il "Protocollo di Comunicazione Digitale". Quando si utilizza il "Protocollo di Comunicazione Digitale", i parametri di comunicazione devono essere configurati prima.
+
+Configurazione del "Protocollo di Comunicazione Digitale"
+*************************************************************************************
+
+Come mostrato nella figura sottostante, aprire il WebApp e fare clic in sequenza su "Impostazioni Iniziali", "Periferiche", "Saldatrice", "Saldatura Laser", "Protocollo di Comunicazione Digitale (UDP)", "Configurazione Comunicazione UDP".
+
+.. figure:: robot_peripherals/298.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-42 Configurazione del Protocollo di Comunicazione
+
+I significati dei vari parametri sono i seguenti:
+
+- **Indirizzo IP**: Indirizzo IP del PLC per la comunicazione UDP;
+- **Numero di Porta**: Numero di porta UDP del PLC;
+- **Periodo di Comunicazione**: Il periodo di comunicazione UDP tra robot e PLC, predefinito a 2ms;
+- **Periodo di Rilevamento Perdita Pacchetti, Numero di Perdite**: Quando il numero di perdite di pacchetti all'interno del periodo di rilevamento supera il valore impostato, il robot segnala un errore "Anomalia perdita pacchetti comunicazione UDP" e interrompe automaticamente la comunicazione;
+- **Durata di Conferma Interruzione Comunicazione**: Se il robot non riceve un pacchetto dati di feedback completo dal PLC entro questo tempo, segnala un allarme di errore "Interruzione comunicazione UDP" e interrompe la comunicazione UDP;
+- **Riconnessione Automatica all'Interruzione della Comunicazione**: Se il robot tenta automaticamente di riconnettersi dopo aver rilevato un'interruzione della comunicazione UDP;
+- **Periodo di Riconnessione, Numero di Tentativi di Riconnessione**: Quando la riconnessione automatica all'interruzione della comunicazione è abilitata e viene rilevata un'interruzione della comunicazione UDP, il robot tenta di riconnettersi al periodo impostato. Se la connessione non riesce ancora dopo il numero massimo impostato di tentativi di riconnessione, il robot segnala un allarme di errore "Interruzione comunicazione UDP" e interrompe la comunicazione UDP.
+
+Dopo aver configurato i parametri sopra indicati, fare clic sui pulsanti "Configura" e "Carica" di conseguenza.
+
+Configurazione IO della Funzione di Saldatura
+*************************************************************************************
+
+Come mostrato nella figura sottostante, selezionare la porta di ingresso DI per il segnale di stato della saldatrice e la porta di uscita DO per il segnale di controllo della saldatrice. L'attuale saldatrice laser REDSABERE 1500 supporta solo il segnale di avvio saldatura (emissione laser); altri segnali non sono ancora stati adattati. Dopo aver selezionato le porte, fare clic sul pulsante "Configura".
+
+.. figure:: robot_peripherals/299.png
+   :align: center
+   :width: 4in 
+
+.. centered:: Figura 8.6-43 Configurazione della Funzione IO della Saldatrice
+
+I significati dei segnali AUX-DI sono i seguenti:
+
+- **Pronto Saldatrice**: Quando la saldatrice è pronta per le operazioni di saldatura, emette questo segnale al robot; quando la saldatrice è guasta o non è pronta per altri motivi, questo segnale non viene inviato al robot e l'angolo in alto a destra del WebApp del robot mostra "Saldatrice non pronta". La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+- **Stato Operativo Saldatrice**: Quando la saldatrice entra nello stato operativo, emette questo segnale al robot. La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+- **Stato Guasto Saldatrice**: Quando la saldatrice è in guasto, emette questo segnale al robot. La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+
+I significati dei segnali AUX-DO sono i seguenti:
+
+- **Abilitazione Saldatrice**: La porta di uscita DO per il robot per controllare l'abilitazione della saldatrice. Quando il programma robot esegue il comando di abilitazione della saldatrice, la corrispondente porta di uscita DO per l'abilitazione della saldatrice diventa automaticamente attiva. La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+- **Avvio Saldatura (Emissione Laser)**: La porta di uscita DO per il robot per controllare l'avvio della saldatura (emissione laser). Quando il programma robot esegue il comando di avvio saldatura (emissione laser), la corrispondente porta di uscita DO per l'avvio saldatura (emissione laser) diventa automaticamente attiva. Quando si modifica la porta di uscita DO, è necessario modificare anche la corrispondente porta di controllo nel programma PLC; l'attuale PLC utilizza DO1 per impostazione predefinita.
+- **Rilevamento Gas**: La porta di uscita DO per il robot per controllare l'erogazione del gas della saldatrice. Quando il robot esegue il comando di erogazione gas di saldatura, la corrispondente porta di uscita DO per l'erogazione gas diventa automaticamente attiva. La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+- **Reset Guasto Saldatrice**: La porta di uscita DO per il robot per controllare il reset del guasto della saldatrice. Quando il programma robot esegue il comando di reset del guasto della saldatrice, la corrispondente porta di uscita DO per il reset del guasto della saldatrice diventa automaticamente attiva. La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+- **Avanzamento Filo**: La porta di uscita DO per il robot per controllare l'avanzamento del filo in avanti della saldatrice. Quando il robot esegue il comando di avanzamento filo in avanti, la corrispondente porta di uscita DO per l'avanzamento filo in avanti diventa automaticamente attiva. La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+- **Retrazione Filo**: La porta di uscita DO per il robot per controllare la retrazione del filo all'indietro della saldatrice. Quando il robot esegue il comando di retrazione filo all'indietro, la corrispondente porta di uscita DO per la retrazione filo all'indietro diventa automaticamente attiva. La saldatrice laser REDSABERE 1500 non supporta questo segnale e non è ancora stata adattata.
+
+Configurazione dei Parametri del Processo di Saldatura
+*************************************************************************************
+
+Come mostrato nella figura sottostante, trovare la sezione "Parametri del Processo di Saldatura" sulla pagina di configurazione della saldatura. Il robot collaborativo fornisce 10 gruppi di parametri del processo di saldatura da 0 a 10. Il numero di processo 0 indica che non si utilizza la curva del processo di saldatura, mentre i numeri di processo 1-10 utilizzano la curva del processo di saldatura.
+
+.. figure:: robot_peripherals/300.png
+   :align: center
+   :width: 4in 
+
+.. centered:: Figura 8.6-44 Configurazione dei Parametri del Processo di Saldatura
+
+Quando si utilizza la curva del processo di saldatura, prendendo come esempio la selezione del numero di processo di saldatura 1, inserire in sequenza "Velocità di Scansione (mm/s)", "Larghezza di Scansione (mm)", "Potenza di Picco (W)", "Ciclo di Lavoro (%)" e "Frequenza (Hz)".
+
+La velocità di scansione della saldatrice laser REDSABERE 1500 è limitata dalla larghezza di scansione. La relazione di vincolo è: 10 ≤ Velocità di Scansione / (Larghezza di Scansione × 2) ≤ 500. I valori al di fuori di questo intervallo vengono automaticamente modificati ai valori limite. Quando la larghezza di scansione è impostata su 0, non viene eseguita alcuna scansione (cioè fonte di luce puntiforme). In caso contrario, verrà segnalato un errore e l'interfaccia web mostrerà "Anomalia di comunicazione della saldatrice". Una volta che la configurazione è corretta, l'errore scomparirà automaticamente. Come mostrato nella figura sottostante.
+
+.. figure:: robot_peripherals/301.png
+   :align: center
+   :width: 3in 
+
+.. centered:: Figura 8.6-45 Anomalia di Comunicazione della Saldatrice
+
+Debugging della Saldatrice
+*************************************************************************************
+
+Come mostrato nella figura sottostante, trovare la sezione "Debugging della Saldatrice" sulla pagina di configurazione della saldatrice. L'attuale saldatrice laser REDSABERE 1500 supporta solo il debug delle funzioni di arresto emissione laser e avvio emissione laser. Altri pulsanti come "Tempo di Timeout" e "Abilita" non sono ancora stati adattati.
+
+.. figure:: robot_peripherals/302.png
+   :align: center
+   :width: 4in 
+
+.. centered:: Figura 8.6-46 Debugging della Saldatrice
+
+Scrittura del Programma di Saldatura
+++++++++++++++++++++++++++++++++++++++++++++
+
+Le istruzioni della funzione di saldatura sono integrate nel programma di insegnamento. Come mostrato nella figura sottostante, fare clic su "Programma di Insegnamento", "Programmazione" per creare un nuovo programma utente "testWeld.lua".
+
+.. figure:: robot_peripherals/303.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-47 Creazione del Programma "testWeld.lua"
+
+Come mostrato nella figura sottostante, selezionare "Istruzioni di Saldatura" e fare clic su "Saldatura Laser".
+
+.. figure:: robot_peripherals/304.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-48 Istruzioni Relative alla Saldatura Laser
+
+Come mostrato nella figura sottostante, il tipo di controllo predefinito per le istruzioni di saldatura laser è "Protocollo di Comunicazione Digitale (UDP)". È possibile aggiungere in sequenza istruzioni per impostare i parametri del processo di saldatura (programma Lua), ottenere i parametri del processo di saldatura (programma Lua), avvio emissione laser e arresto emissione laser. Dopo aver aggiunto le istruzioni Lua, fare clic sul pulsante "Applica" per generare il programma Lua di saldatura laser. Fare clic sul pulsante "Salva", passare alla modalità automatica ed eseguire il programma.
+
+.. figure:: robot_peripherals/305.png
+   :align: center
+   :width: 6in 
+
+.. centered:: Figura 8.6-49 Generazione del Programma di Saldatura
+
 Appendice 1: Protocollo di comunicazione UDP del robot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -2454,79 +2633,79 @@ Controller robot->PLC
      - D242
      - INT
      - 
-     - Parola di controllo motore 4#
+     - Velocità di scansione (saldatrice laser)
   
    * - 45
      - D243
      - DINT
      - 
-     - Ingresso posizione target 4#
+     - Larghezza di scansione (saldatrice laser)
 
    * - 46
      - D244
      - DINT
      - 
-     - Ingresso posizione target 4#
+     - Potenza di picco (saldatrice laser)
 
    * - 47
      - D245
      - INT
      - 
-     - Parola di controllo homing 4#
+     - Ciclo di lavoro (saldatrice laser)
 
    * - 48
      - D246
      - DINT
      - 
-     - Ingresso alta velocità homing 4#
+     - Frequenza di scansione (saldatrice laser)
 
    * - 49
      - D247
      - DINT
      - 
-     - Ingresso alta velocità homing 4#
+     - Frequenza di scansione (saldatrice laser)
 
    * - 50
      - D248
      - DINT
      - 
-     - Ingresso bassa velocità homing 4#
+     - Saldatrice laser riservato
 
    * - 51
      - D249
      - DINT
      - 
-     - Ingresso bassa velocità homing 4#
+     - Saldatrice laser riservato
 
    * - 52
      - D250
      - DINT
      - 
-     - Offset posizione 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 53
      - D251
      - DINT
      - 
-     - Offset posizione 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 54
      - D252
      - DINT
      - 
-     - Offset velocità 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 55
      - D253
      - DINT
      - 
-     - Offset velocità 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 56
      - D254
      - INT
      - 
-     - Riservato
+     - Saldatrice laser riservato
 
    * - 57
      - D255
@@ -2757,13 +2936,13 @@ PLC -> Controller robot
      - D113
      - DINT
      - 
-     - Coppia in tempo reale 1# (riservato)
+     - 1# Coppia in tempo reale (riservata) Trasmettere la coppia del motore al computer host dopo aver moltiplicato il valore di uscita dopo il rapporto di riduzione per 100
 
    * - 16
      - D114
      - DINT
      - 
-     - Coppia in tempo reale 1# (riservato)
+     - 1# Coppia in tempo reale (riservata) Trasmettere la coppia del motore al computer host dopo aver moltiplicato il valore di uscita dopo il rapporto di riduzione per 100
 
    * - 17
      - D115
@@ -2949,91 +3128,91 @@ PLC -> Controller robot
      - D145
      - INT
      - 
-     - Parola di stato motore 4#
+     - Velocità di scansione (saldatrice laser)
 
    * - 48
      - D146
      - DINT
      - 
-     - Posizione corrente 4#
+     - Larghezza di scansione (saldatrice laser)
 
    * - 49
      - D147
      - DINT
      - 
-     - Posizione corrente 4#
+     - Potenza di picco (saldatrice laser)
 
    * - 50
      - D148
      - INT
      - 
-     - Parola di stato homing 4#
+     - Ciclo di lavoro (saldatrice laser)
 
    * - 51
      - D149
      - DINT
      - 
-     - Feedback alta velocità homing 4#
+     - Frequenza di scansione (saldatrice laser)
 
    * - 52
      - D150
      - DINT
      - 
-     - Feedback alta velocità homing 4#
+     - Frequenza di scansione (saldatrice laser)
 
    * - 53
      - D151
      - DINT
      - 
-     - Feedback bassa velocità homing 4#
+     - Saldatrice laser riservato
 
    * - 54
      - D152
      - DINT
      - 
-     - Feedback bassa velocità homing 4#
+     - Saldatrice laser riservato
 
    * - 55
      - D153
      - DINT
      - 
-     - Codice di errore 4#
+     - Saldatrice laser riservato
 
    * - 56
      - D154
      - DINT
      - 
-     - Deviazione inseguimento 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 57
      - D155
      - DINT
      - 
-     - Deviazione inseguimento 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 58
      - D156
      - DINT
      - 
-     - Feedback velocità 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 59
      - D157
      - DINT
      - 
-     - Feedback velocità 4# (riservato)
+     - Saldatrice laser riservato
 
    * - 60
      - D158
      - DINT
      - 
-     - Coppia in tempo reale (riservato)
+     - Saldatrice laser riservato
 
    * - 61
      - D159
      - DINT
      - 
-     - Coppia in tempo reale (riservato)
+     - Saldatrice laser riservato
 
    * - 62
      - D160
@@ -3163,7 +3342,7 @@ Nella configurazione del protocollo aperto, fare clic sul pulsante "Carica" per 
    :align: center
    :width: 4in
 
-.. centered:: Diagramma 8.6‑37 Caricamento e configurazione protocollo aperto periferiche controller
+.. centered:: Diagramma 8.6‑50 Caricamento e configurazione protocollo aperto periferiche controller
 
 Nel protocollo configurato, fare clic sul pulsante "Carica", la spia dello stato di esecuzione si illumina, indicando che il protocollo aperto è stato caricato correttamente.
 
@@ -3171,7 +3350,7 @@ Nel protocollo configurato, fare clic sul pulsante "Carica", la spia dello stato
    :align: center
    :width: 4in
 
-.. centered:: Diagramma 8.6-38 Caricamento e indicazione di esecuzione protocollo aperto periferiche controller
+.. centered:: Diagramma 8.6-51 Caricamento e indicazione di esecuzione protocollo aperto periferiche controller
 
 Protocollo aperto saldatrice
 +++++++++++++++++++++++++++++++++++++++

@@ -1973,3 +1973,171 @@ Esempio di Codice SDK per Oscillazione a Punto Fisso (con Laser e Asse di Estens
         robot.Sleep(1000);
         return 0;
     }
+
+Movimento in Modo Servo Velocità nello Spazio dei Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Movimento in modo servo velocità nello spazio dei giunti
+    * @param   joint_vel  6 velocità target dei giunti, unità deg/s
+    * @param   exis_vel  4 velocità degli assi esterni, unità deg/s
+    * @param   acc  Percentuale di accelerazione, intervallo [0~100], non ancora aperto, predefinito 0
+    * @param   vel  Percentuale di velocità, intervallo [0~100], non ancora aperto, predefinito 0
+    * @param   cmdT  Periodo del ciclo di comando, unità s, intervallo consigliato [0.001~0.0016]
+    * @param   filterT Tempo di filtro, unità s, non ancora aperto, predefinito 0
+    * @param   gain  Guadagno proporzionale per la posizione target, non ancora aperto, predefinito 0
+    * @param   id  ID comando servoJ, predefinito 0
+    * @param   comType Tipo di comando; 0-xmlrpc; 1-UDP (corrispondente alla porta 20007 del robot)
+    * @return  Codice di errore
+    */
+    public int ServoJV(double[] joint_vel, double[] exis_vel, double acc, double vel, double cmdT, double filterT, double gain, int id, int comType)
+
+Esempio di Codice Movimento in Modo Servo Velocità nello Spazio dei Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int ServoJVtest(Robot robot)
+    {
+        double[] joint_vel = new double[] { 10, 0, 0, 0, 0, 0 };
+        double[] exis_vel = new double[] { 0, 0, 0, 0 };
+        double acc = 0.0;
+        double vel = 0.0;
+        double cmdT = 0.008;
+        double filterT = 0.0;
+        double gain = 0.0;
+        int cnt = 0;
+        while (cnt < 200)
+        {
+            int error = robot.ServoJV(joint_vel, exis_vel, acc, vel, cmdT, filterT, gain);
+            System.out.println("MAIN ServoJV rtn is " + error);
+    //            robot.Sleep(10);
+            cnt++;
+        }
+
+        return 0;
+    }
+
+Avvio Controllo MIT Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Avvio controllo MIT giunti
+    * @param  comType Tipo di comando; 0-xmlrpc; 1-UDP (corrispondente alla porta 20007 del robot)
+    * @return Codice di errore
+    */
+    errno_t ServoMITStart(int comType = 0);
+
+Fine Controllo MIT Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Fine controllo MIT giunti
+    * @param  comType Tipo di comando; 0-xmlrpc; 1-UDP (corrispondente alla porta 20007 del robot)
+    * @return Codice di errore
+    */
+    public int ServoMITEnd(int comType);
+
+Controllo MIT Giunti
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Controllo MIT giunti
+    * @param  posGain Guadagni di posizione giunti j1~j6
+    * @param  desPos Posizioni desiderate giunti j1~j6, unità: deg
+    * @param  velGain Guadagni di velocità giunti j1~j6
+    * @param  desVel Velocità desiderate giunti j1~j6, unità: deg/s
+    * @param  torque_ff Coppie feedforward j1~j6, unità: Nm
+    * @param  interval Periodo del ciclo di comando, unità s, intervallo [0.001~0.008]
+    * @param  comType Tipo di comando; 0-xmlrpc; 1-UDP (corrispondente alla porta 20007 del robot)
+    * @return Codice di errore
+    */
+    public int ServoMIT(double[] posGain, double[] desPos, double[] velGain, double[] desVel, double[] torque_ff, double interval, int comType)
+
+Esempio di Codice Controllo MIT Giunti del Robot
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int ServoMITtest(Robot robot)
+    {
+            robot.udpCmdClient.SetUDPCmdRpyCallback((srcType, count, cmdID, dataLen, content) -> {
+            System.out.println("\n[Received UDP reply from robot]");
+            System.out.println("srcType: " + srcType);
+            System.out.println("count: " + count);
+            System.out.println("cmdID: " + cmdID);
+            System.out.println("dataLen: " + dataLen);
+            System.out.println("content: " + content);
+            return 0;
+        });
+        while (true)
+        {
+            robot.ResetAllError();
+            robot.Sleep(500);
+
+            double[] posGain = new double[] { 0, 0, 0, 0, 0, 0 };
+            double[] desPos = new double[] { 0, 0, 0, 0, 0, 0 };
+            double[] velGain = new double[] { 0, 0, 0, 0, 0, 0 };
+            double[] desVel = new double[] { 0, 0, 0, 0, 0, 0 };
+
+            List<Number> joint_toq=new ArrayList<>();
+            joint_toq=robot.GetJointTorques(1);
+            double[] torques=new double[]{(double)joint_toq.get(1),(double)joint_toq.get(2),(double)joint_toq.get(3),(double)joint_toq.get(4),(double)joint_toq.get(5),(double)joint_toq.get(6)};
+            System.out.println("111111");
+
+            robot.ServoMITStart(0);
+            System.out.println("ServoMITStart");
+
+            ROBOT_STATE_PKG pkg = robot.GetRobotRealTimeState();
+            robot.DragTeachSwitch(1);
+            System.out.println("DragTeachSwitch");
+
+            double intev = 0.008;
+            int error = 0;
+
+            while (true)
+            {
+                torques[5] = 0.03;
+                System.out.println("ServoMIT call");
+                error = robot.ServoMIT(posGain, desPos, velGain, desVel, torques, intev, 0);
+
+                System.out.println("ServoMIT111111 rtn is " + error);
+                robot.Sleep(1);
+
+                pkg = robot.GetRobotRealTimeState();
+                System.out.println("pkg.jt_cur_pos[5]:" + pkg.jt_cur_pos[5]);
+                if (pkg.jt_cur_pos[5] > 30)
+                {
+                    break;
+                }
+            }
+
+            while (true)
+            {
+                torques[5] = -0.03;
+                error = robot.ServoMIT(posGain, desPos, velGain, desVel, torques, intev, 0);
+
+                System.out.println("ServoJT222222 rtn is " + error);
+                robot.Sleep(1);
+
+                pkg = robot.GetRobotRealTimeState();
+                System.out.println("pkg.jt_cur_pos[5]:" + pkg.jt_cur_pos[5]);
+                if (pkg.jt_cur_pos[5] < 0)
+                {
+                    break;
+                }
+            }
+
+            robot.DragTeachSwitch(0);
+            error = robot.ServoMITEnd(0);
+        }
+        // return 0;
+    }

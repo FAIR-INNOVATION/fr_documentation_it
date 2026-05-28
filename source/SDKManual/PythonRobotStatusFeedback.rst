@@ -236,6 +236,7 @@ Tipo Struttura di Feedback di Stato del Robot
             ("socketConnTimeout", c_uint8),     # Timeout connessione socket
             ("socketReadTimeout", c_uint8),     # Timeout lettura socket
             ("tsWebStateComErr", c_uint8),      # Errore comunicazione stato TS_WEB
+            ("exaxisCoordID", c_uint8),         # ID dell'asse esteso esterno
             ("check_sum", c_uint16)          # Checksum
         ]
 
@@ -739,4 +740,5 @@ Tipo di Enumerazione dell'Elenco di Configurazione del Feedback di Stato del Rob
         SocketConnTimeout = 129
         SocketReadTimeout = 130
         TsWebStateComErr = 131
-        CheckSum = 132
+        exaxisCoordID = 132
+        CheckSum = 133

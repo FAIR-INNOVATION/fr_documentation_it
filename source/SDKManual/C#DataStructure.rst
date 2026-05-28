@@ -369,7 +369,7 @@ Tipo di struttura di feedback dello stato del robot
         public byte socketConnTimeout;     // Flag timeout connessione socket
         public byte socketReadTimeout;     // Flag timeout lettura socket
         public byte tsWebStateComErr;      // ts_web_state_com_err
-
+        public byte exaxisCoordID;         // Numero del sistema di coordinate degli assi di estensione
         public UInt16 check_sum;         /* Checksum */
 
         // Costruttore: inizializza tutti i campi array
@@ -420,17 +420,20 @@ Tipo di struttura di feedback dello stato del robot
         }
     }
 
-Enum stato configurabile robot
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Tipo di Enumerazione della Configurazione del Feedback di Stato del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief  Enum stato configurabile robot, intervallo 3~131
+    * @brief  Enumerazione degli stati configurabili del robot, intervallo 0~132
     */
     public enum RobotState
     {
+        FrameHead = 0,
+        FrameCnt = 1,
+        DataLen = 2,
         ProgramState = 3,
         RobotState = 4,
         MainCode = 5,
@@ -557,7 +560,8 @@ Enum stato configurabile robot
         DriverError = 126,
         OutSoftLimitError = 127,
         AxleGenComData = 128,
-        SocketConnTimeout = 129,     // timeout connessione socket, bit0-bit4: socketID 1-4
-        SocketReadTimeout = 130,     // timeout lettura socket, bit0-bit4: socketID 1-4
-        TsWebStateComErr = 131     // guasto comunicazione web-coppia; 0-normale; 1-guasto
+        SocketConnTimeout = 129,     // Timeout connessione socket, bit0-bit4: socketID 1-4
+        SocketReadTimeout = 130,     // Timeout lettura socket, bit0-bit4: socketID 1-4
+        TsWebStateComErr = 131,     // Guasto comunicazione web-coppia; 0-normale; 1-guasto
+        ExaxisCoordID = 132          // Numero del sistema di coordinate degli assi di estensione
     }

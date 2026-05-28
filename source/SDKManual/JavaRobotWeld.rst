@@ -1513,3 +1513,242 @@ Esempio codice parametri oscillazione personalizzati
 
         robot.CloseRPC();
     }
+
+Configurazione Parametri Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Configurazione parametri saldatrice laser
+    * @param  io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param  num Numero gruppo da impostare (1~10)
+    * @param  scanSpeed Velocità di scansione
+    * @param  scanWidth Larghezza di scansione
+    * @param  peakPower Potenza di picco
+    * @param  dutyCycle Ciclo di lavoro
+    * @param  freq Frequenza
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingParam(int io_type, int num, int scanSpeed, int scanWidth, int peakPower, int dutyCycle, int freq);
+
+Avvio/Arresto Saldatura Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Avvio/arresto saldatura laser
+    * @param io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param status Parola di controllo 0-laser spento 1-laser acceso
+    * @param max_waittime Tempo massimo di attesa in millisecondi, predefinito 10000
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingStartEnd(int io_type, int status, int max_waittime)
+
+Abilitazione/Disabilitazione Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Abilitazione/disabilitazione saldatrice laser
+    * @param io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param status 0-disabilita 1-abilita
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingEnable(int io_type, int status)
+
+Reset Guasto Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Reset guasto saldatrice laser
+    * @param io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param status Parola di controllo 0-invalido 1-reset guasto
+    * @return Codice di errore
+    */
+    public int ResetLaserWeldingErr(int io_type, int status)
+
+Ottenere Stato Operativo Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Ottenere stato operativo saldatrice laser
+    * @param io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param  status Parola di controllo 0-fermo 1-in funzione
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingRunningState(int io_type, int[] status)
+
+Ottenere Stato Guasto Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Ottenere stato guasto saldatrice laser
+    * @param io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param  status 0-nessun guasto 1-guasto presente
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingErrState(int io_type, int[] status)
+
+Ottenere Parametri di Configurazione Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Ottenere parametri di configurazione di uno dei 10 gruppi processo della saldatrice laser
+    * @param num Numero gruppo da impostare (1~10)
+    * @param params Array parametri in uscita: [scanSpeed, scanWidth, peakPower, dutyCycle, freq]
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingParamTarget(int num, int[] params)
+
+Ottenere Parametri di Configurazione Attivi della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Ottenere parametri di configurazione attivi della saldatrice laser
+    * @param io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param params Array parametri in uscita: [scanSpeed, scanWidth, peakPower, dutyCycle, freq]
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingParamActual(int io_type, int[] params)
+
+Configurare Porta DO Abilitazione IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Configurare porta DO abilitazione IO espanso per saldatrice laser
+    * @param ctrlModeDONum Numero porta DO espanso per abilitazione saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingEnableExtDoNum(int ctrlModeDONum)
+
+Configurare Porta DO Avvio IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Configurare porta DO avvio IO espanso per saldatrice laser
+    * @param ctrlModeDONum Numero porta DO espanso per avvio/arresto saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingStartExtDoNum(int ctrlModeDONum)
+
+Configurare Porta DO Reset Guasto IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Configurare porta DO reset guasto IO espanso per saldatrice laser
+    * @param ctrlModeDONum Numero porta DO espanso per reset guasto saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingErrResetExtDoNum(int ctrlModeDONum)
+
+Configurare Porta DI Stato Operativo (Laser Accesso) IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Configurare porta DI stato operativo (laser acceso) IO espanso per saldatrice laser
+    * @param diNum Numero porta DI espanso per stato operativo (laser acceso) saldatrice laser
+    * @return Codice di errore, 0 indica successo, diverso da zero indica fallimento
+    */
+    public int SetLaserWeldingRunningStateExtDiNum(int diNum);
+
+Configurare Porta DI Stato Guasto IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Configurare porta DI stato guasto IO espanso per saldatrice laser
+    * @param diNum Numero porta DI espanso per stato guasto saldatrice laser
+    * @return Codice di errore, 0 indica successo, diverso da zero indica fallimento
+    */
+    public int SetLaserWeldingErrStateExtDiNum(int diNum);
+
+Esempio di Codice Saldatura Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int testLsaerWeld(Robot robot) {
+        int rtn = -1;
+        rtn = robot.ExtDevLoadUDPDriver();
+        if (rtn != 0) {
+            System.out.println("Impossibile caricare il driver UDP, codice errore: " + rtn);
+        }
+        robot.Sleep(1000);
+        rtn = robot.SetLaserWeldingParam(1, 3, 2000, 3, 1500, 100, 1000);
+        if (rtn != 0) {
+            System.out.println("SetLaserWeldingParam fallito, codice errore: " + rtn);
+        } else {
+            System.out.println("SetLaserWeldingParam riuscito");
+        }
+        rtn = robot.SetLaserWeldingStartExtDoNum(1);
+        if (rtn != 0) {
+            System.out.println("SetLaserWeldingStartExtDoNum fallito, codice errore: " + rtn);
+        }
+        rtn = robot.Mode(0);
+        if (rtn != 0) {
+            System.out.println("Impostazione modalità 0 fallita, codice errore: " + rtn);
+        }
+        robot.Sleep(1000);
+        DescPose desc_pos1 = new DescPose(-303.721, -206.960, 297.105, 152.209, 19.857, 109.166);
+        DescPose desc_pos2 = new DescPose(-301.575, -254.888, 284.786, 155.919, 26.946, 111.629);
+        DescPose desc_safe = new DescPose(-344.386, -280.830, 435.073, 173.835, 15.333, 124.931);
+
+        JointPos jointPos1 = new JointPos(9.827, -99.740, 120.088, -78.900, -77.241, -17.904);
+        JointPos jointPos2 = new JointPos(15.251, -96.456, 120.138, -84.664, -68.542, -17.843);
+        JointPos jointSafe = new JointPos(19.142, -98.078, 101.493, -83.078, -77.070, -17.794);
+
+        ExaxisPos exaxis = new ExaxisPos(0.0, 0.0, 0.0, 0.0);
+        DescPose offset = new DescPose(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+        int error = robot.MoveL(desc_pos1, 0, 0, 100, 100, 100, -1, 0, exaxis, 0, 0, offset, -1, 0,0,0);
+        System.out.println("MoveL a pos1 ritorno: " + error);
+        rtn = robot.SetLaserWeldingStartEnd(1, 1, 10000);
+        if (rtn != 0) {
+            System.out.println("SetLaserWeldingStartEnd (avvio) fallito, codice errore: " + rtn);
+        } else {
+            System.out.println("Laser avviato");
+        }
+        rtn = robot.MoveL(desc_pos2, 0, 0, 30, 100, 100, -1, 0, exaxis, 0, 0, offset, -1, 0,0, 0);
+        System.out.println("MoveL a pos2 ritorno: " + rtn);
+        rtn = robot.SetLaserWeldingStartEnd(1, 0, 10000);
+        if (rtn != 0) {
+            System.out.println("SetLaserWeldingStartEnd (arresto) fallito, codice errore: " + rtn);
+        } else {
+            System.out.println("Laser arrestato");
+        }
+        robot.Sleep(500);
+        rtn = robot.MoveL(desc_safe, 0, 0, 100, 100, 100, -1, 0, exaxis, 0, 0, offset, -1, 0,0,0);
+        System.out.println("MoveL a pos_sicura ritorno: " + rtn);
+        rtn = robot.Mode(1);
+        if (rtn != 0) {
+            System.out.println("Impostazione modalità 1 fallita, codice errore: " + rtn);
+        }
+        robot.Sleep(1000);
+        robot.CloseRPC();
+        robot.Sleep(1000);
+
+        System.out.println("Test completato");
+
+        return 0;
+    }

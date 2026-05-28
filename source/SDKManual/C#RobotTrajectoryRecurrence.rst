@@ -207,7 +207,7 @@ Impostare la Velocità Durante l'Esecuzione della Traiettoria
     errno_t SetTrajectoryJSpeed(float ovl, int mode = 0);
 
 Esempio di Codice per Impostare la Velocità del Robot Durante l'Esecuzione della Traiettoria
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c++
     :linenos:
 

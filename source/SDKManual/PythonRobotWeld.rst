@@ -1619,3 +1619,271 @@ Esempio di codice per i parametri di oscillazione personalizzata
     robot.MoveL(desc_pos=desc_p2, tool=3, user=0, vel=100, ovl=10, speedPercent=100)
     robot.WeaveEnd(0)
     robot.CloseRPC()
+
+Configurazione Parametri Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingParam(self, num, scanSpeed, scanWidth, peakPower, dutyCycle, Freq, io_type=1)``"
+    "Descrizione", "Scrive i parametri di configurazione di uno dei 10 gruppi processo della saldatrice laser e li configura alla saldatrice"
+    "Parametri Obbligatori", "
+    - ``io_type``: Tipo di comunicazione 0-IO 1-UDP
+    - ``Num``: Numero gruppo da impostare (1~10)
+    - ``scanSpeed``: Velocità di scansione
+    - ``scanWidth``: Larghezza di scansione
+    - ``peakPower``: Potenza di picco
+    - ``dutyCycle``: Ciclo di lavoro
+    - ``Freq``: Frequenza
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Avvio/Arresto Saldatura Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingStartEnd(self, status, io_type=1, max_waittime=10000)``"
+    "Descrizione", "Avvia/arresta la saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``io_type``: Tipo di comunicazione 0-IO 1-UDP
+    - ``status``: Parola di controllo 0-laser spento 1-laser acceso
+    - ``max_waittime``: Tempo massimo di attesa
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Abilitazione/Disabilitazione Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingEnable(self, status, io_type=1)``"
+    "Descrizione", "Abilita/disabilita saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``io_type``: Tipo di comunicazione 0-IO 1-UDP
+    - ``status``: 0-disabilita 1-abilita
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Reset Guasto Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ResetLaserWeldingErr(self,status, io_type=1)``"
+    "Descrizione", "Reset guasto saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``io_type``: Tipo di comunicazione 0-IO 1-UDP
+    - ``status``: Parola di controllo 0-invalido 1-reset guasto
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Ottenere Stato Operativo Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetLaserWeldingRunningState(self, io_type=1)``"
+    "Descrizione", "Ottiene lo stato operativo della saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``io_type``: Tipo di comunicazione 0-IO 1-UDP
+    - ``status``: Parola di controllo 0-fermo 1-in funzione
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Ottenere Stato Guasto Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetLaserWeldingErrState(self, io_type=1)``"
+    "Descrizione", "Ottiene lo stato guasto della saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``io_type``: Tipo di comunicazione 0-IO 1-UDP
+    - ``status``: 0-nessun guasto 1-guasto presente
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Ottenere Parametri di Configurazione Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetLaserWeldingParamTarget(self, num)``"
+    "Descrizione", "Ottiene i parametri di configurazione di uno dei 10 gruppi processo della saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``Num``: Numero gruppo da impostare (1~10)
+    - ``scanSpeed``: Velocità di scansione
+    - ``scanWidth``: Larghezza di scansione
+    - ``peakPower``: Potenza di picco
+    - ``dutyCycle``: Ciclo di lavoro
+    - ``Freq``: Frequenza
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Ottenere Parametri di Configurazione Attivi della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetLaserWeldingParamActual(self, io_type=1)``"
+    "Descrizione", "Ottiene i parametri di configurazione attivi della saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``io_type``: Tipo di comunicazione 0-IO 1-UDP
+    - ``scanSpeed``: Velocità di scansione
+    - ``scanWidth``: Larghezza di scansione
+    - ``peakPower``: Potenza di picco
+    - ``dutyCycle``: Ciclo di lavoro
+    - ``Freq``: Frequenza
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Configurare Porta DO Abilitazione IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingEnableExtDoNum(self, ctrlModeDONum)``"
+    "Descrizione", "Configura la porta DO abilitazione IO espanso per saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``ctrlModeDONum``: Numero porta DO espanso per abilitazione saldatrice laser
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Configurare Porta DO Avvio IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingStartExtDoNum(self, ctrlModeDONum)``"
+    "Descrizione", "Configura la porta DO avvio IO espanso per saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``ctrlModeDONum``: Numero porta DO espanso per avvio/arresto saldatrice laser
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Configurare Porta DO Reset Guasto IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingErrResetExtDoNum(self, ctrlModeDONum)``"
+    "Descrizione", "Configura la porta DO reset guasto IO espanso per saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``ctrlModeDONum``: Numero porta DO espanso per reset guasto saldatrice laser
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Configurare Porta DI Stato Operativo (Laser Acceso) IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingRunningStateExtDiNum(self, diNum)``"
+    "Descrizione", "Configura la porta DI stato operativo (laser acceso) IO espanso per saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``diNum``: Numero porta DI espanso per stato operativo (laser acceso) saldatrice laser
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Configurare Porta DI Stato Guasto IO Espanso per Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetLaserWeldingErrStateExtDiNum(self, diNum)``"
+    "Descrizione", "Configura la porta DI stato guasto IO espanso per saldatrice laser"
+    "Parametri Obbligatori", "
+    - ``diNum``: Numero porta DI espanso per stato guasto saldatrice laser
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
+Esempio di Codice Saldatura Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: python
+    :linenos: 
+
+    from time import sleep
+    from fairino import Robot
+    import time
+
+    # Stabilire connessione con il controller del robot, restituisce un oggetto robot in caso di connessione riuscita
+    robot = Robot.RPC('192.168.58.2')
+
+    def testLsaerWeld():
+        robot.ExtDevLoadUDPDriver()
+        time.sleep(1)
+
+        robot.SetLaserWeldingParam(num = 3, scanSpeed = 2000, scanWidth = 3, peakPower = 1500, dutyCycle = 100, Freq = 1000, io_type=1)
+        robot.SetLaserWeldingStartExtDoNum(ctrlModeDONum=1)
+
+        robot.Mode(0)
+        time.sleep(1)
+
+        desc_pos1 = [-303.721, -206.960, 297.105, 152.209, 19.857, 109.166]
+        desc_pos2 = [-301.575, -254.888, 284.786, 155.919, 26.946, 111.629]
+        desc_safe = [-344.386, -280.830, 435.073, 173.835, 15.333, 124.931]
+        jointPos1 = [9.827, -99.740, 120.088, -78.900, -77.241, -17.904]
+        jointPos2 = [15.251, -96.456, 120.138, -84.664, -68.542, -17.843]
+        jointSafe = [19.142, -98.078, 101.493, -83.078, -77.070, -17.794]
+
+        error = robot.MoveL(desc_pos=desc_pos1,joint_pos=jointPos1, tool=1, user=0, vel=100, ovl= 2, acc=100)
+        print("MoveL return:", error)
+        robot.SetLaserWeldingStartEnd(1, io_type=1, max_waittime=10000)
+
+        error = robot.MoveL(desc_pos=desc_pos2, joint_pos=jointPos2, tool=1, user=0, vel=100, ovl= 2, acc=100)
+        print("MoveL return:", error)
+        robot.SetLaserWeldingStartEnd(0, io_type=1, max_waittime=10000)
+
+        error = robot.MoveL(desc_pos=desc_safe, joint_pos=jointSafe, tool=1, user=0, vel=100, ovl= 2, acc=100)
+        print("MoveL return:", error)
+
+        robot.Mode(1)
+        time.sleep(1)
+
+        # Chiudi connessione
+        robot.CloseRPC()
+        time.sleep(1)
+
+    # Chiamata funzione di test
+    testLsaerWeld()

@@ -461,6 +461,33 @@ Configurazione Parametri Asse di Espansione UDP
     "Parametri Predefiniti", "Nessuno"
     "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
+Acquisizione Parametri Asse Esteso UDP
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ExtAxisGetParamConfig(self, axisID)``"
+    "Descrizione", "Acquisizione parametri asse esteso UDP"
+    "Parametri Obbligatori", "
+    - ``axisID``：Numero asse esteso [1-4]
+    - ``axisType``：Tipo asse esteso 0-lineare; 1-rotante
+    - ``axisDirection``：Direzione asse esteso 0-positiva; 1-negativa
+    - ``axisMax``：Posizione massima asse esteso mm
+    - ``axisMin``：Posizione minima asse esteso mm
+    - ``axisVel``：Velocità mm/s
+    - ``axisAcc``：Accelerazione mm/s²
+    - ``axisLead``：Passo mm
+    - ``encResolution``：Risoluzione encoder
+    - ``axisOffect``：Offset asse esteso del punto di inizio saldatura
+    - ``axisCompany``：Produttore driver 1-Hechen; 2-Inovance; 3-Panasonic
+    - ``axisModel``：Modello driver 1-Hechen-SV-XD3EA040L-E, 2-Hechen-SV-X2EA150A-A, 1-Inovance-SV620PT5R4I, 1-Panasonic-MADLN15SG, 2-Panasonic-MSDLN25SG, 3-Panasonic-MCDLN35SG
+    - ``axisEncType``：Tipo encoder 0-incrementale; 1-assoluto
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
+
 Impostazione Posizione Robot Relativa all'Asse di Espansione
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.4
@@ -570,60 +597,103 @@ Esempio di Codice Configurazione e Jog Asse di Espansione UDP
     :linenos:
 
     from fairino import Robot
+    from fairino.Robot import RobotState
     import time
-    import threading
-    # Stabilisce connessione con il controller robot, restituisce un oggetto robot in caso di successo
-    robot = Robot.RPC('192.168.58.2')
-    rtn = robot.ExtDevSetUDPComParam("192.168.58.88", 2021, 2, 100, 3, 200, 1, 100, 5, 1)
-    print(f"ExtDevSetUDPComParam rtn is {rtn}")
-    ip = ""
-    port = 0
-    period = 0
-    lossPkgTime = 0
-    lossPkgNum = 0
-    disconnectTime = 0
-    reconnectEnable = 0
-    reconnectPeriod = 0
-    reconnectNum = 0
-    rtn,[ip, port, period, lossPkgTime, lossPkgNum,disconnectTime, reconnectEnable, reconnectPeriod, reconnectNum] = robot.ExtDevGetUDPComParam()
-    param_str = (f"\nip {ip}\nport {port}\nperiod {period}\nlossPkgTime {lossPkgTime}"
-                 f"\nlossPkgNum {lossPkgNum}\ndisConntime {disconnectTime}"
-                 f"\nreconnecable {reconnectEnable}\nreconnperiod {reconnectPeriod}"
-                 f"\nreconnnun {reconnectNum}")
-    print(f"ExtDevGetUDPComParam rtn is {rtn}{param_str}")
-    robot.ExtDevLoadUDPDriver()
-    rtn = robot.ExtAxisServoOn(1, 1)
-    print(f"ExtAxisServoOn axis id 1 rtn is {rtn}")
-    rtn = robot.ExtAxisServoOn(2, 1)
-    print(f"ExtAxisServoOn axis id 2 rtn is {rtn}")
-    time.sleep(2)
-    robot.ExtAxisSetHoming(1, 0, 10, 2)
-    time.sleep(2)
-    rtn = robot.ExtAxisSetHoming(2, 0, 10, 2)
-    print(f"ExtAxisSetHoming rtn is {rtn}")
-    time.sleep(4)
-    rtn = robot.SetRobotPosToAxis(1)
-    print(f"SetRobotPosToAxis rtn is {rtn}")
-    rtn = robot.SetAxisDHParaConfig(10, 20, 0, 0, 0, 0, 0, 0, 0)
-    print(f"SetAxisDHParaConfig rtn is {rtn}")
-    rtn = robot.ExtAxisParamConfig(1, 1, 1, 1000, -1000, 1000, 1000, 1.905, 262144, 200, 1, 0, 0)
-    print(f"ExtAxisParamConfig axis 1 rtn is {rtn}")
-    rtn = robot.ExtAxisParamConfig(2, 1, 1, 1000, -1000, 1000, 1000, 4.444, 262144, 200, 1, 0, 0)
-    print(f"ExtAxisParamConfig axis 2 rtn is {rtn}")
-    time.sleep(3)
-    robot.ExtAxisStartJog(1, 0, 10, 10, 30)
-    time.sleep(1)
-    robot.ExtAxisStopJog(1)
-    time.sleep(3)
-    robot.ExtAxisServoOn(1, 0)
-    time.sleep(3)
-    robot.ExtAxisStartJog(2, 0, 10, 10, 30)
-    time.sleep(1)
-    robot.ExtAxisStopJog(2)
-    time.sleep(3)
-    robot.ExtAxisServoOn(2, 0)
-    robot.ExtDevUnloadUDPDriver()
-    robot.CloseRPC()
+
+    def main():
+        # Aggiungere i dati di stato in tempo reale da ottenere (se necessario)
+        # rtn = AddRobotRealtimeState([RobotState.ExaxisCoordID])
+        # if rtn != 0:
+        #     print(f"✗ Aggiunta campo fallita, codice errore: {rtn}")
+        #     return None
+        # print("✓ Campo aggiunto con successo")
+
+        # Stabilire connessione con il controller del robot
+        robot = Robot.RPC('192.168.58.2')
+        time.sleep(0.5)  # Attendere connessione e ricezione dati
+
+        # Configurare parametri di comunicazione UDP
+        rtn = robot.ExtDevSetUDPComParam("192.168.58.88", 2021, 2, 100, 3, 200, 1, 100, 5, 1)
+        print(f"ExtDevSetUDPComParam rtn is {rtn}")
+
+        # Ottenere parametri di comunicazione UDP
+        error, param = robot.ExtDevGetUDPComParam()
+        print("ExtDevGetUDPComParam return ", error)
+        print("Parametri di comunicazione asse esteso UDP: ", param)
+
+        # Caricare driver UDP
+        robot.ExtDevLoadUDPDriver()
+
+        # Impostare tempo di completamento comando asse esteso
+        rtn = robot.SetExAxisCmdDoneTime(5000.0)
+        print(f"SetExAxisCmdDoneTime rtn is {rtn}")
+
+        # Abilitazione servo asse esteso
+        rtn = robot.ExtAxisServoOn(1, 1)
+        print(f"ExtAxisServoOn axis id 1 rtn is {rtn}")
+        rtn = robot.ExtAxisServoOn(2, 1)
+        print(f"ExtAxisServoOn axis id 2 rtn is {rtn}")
+        time.sleep(2)
+
+        # Homing asse esteso
+        robot.ExtAxisSetHoming(1, 0, 10, 2)
+        time.sleep(2)
+        rtn = robot.ExtAxisSetHoming(2, 0, 10, 2)
+        print(f"ExtAxisSetHoming rtn is {rtn}")
+
+        time.sleep(4)
+
+        # Impostare posizione relativa del robot rispetto all'asse esteso
+        rtn = robot.SetRobotPosToAxis(1)
+        print(f"SetRobotPosToAxis rtn is {rtn}")
+
+        # Impostare configurazione parametri DH asse esteso
+        rtn = robot.SetAxisDHParaConfig(10, 20, 0, 0, 0, 0, 0, 0, 0)
+        print(f"SetAxisDHParaConfig rtn is {rtn}")
+
+        # Configurare parametri asse esteso 1
+        rtn = robot.ExtAxisParamConfig(1, 1, 1, 1000, -1000, 1000, 1000, 1.905, 262144, 200, 1, 0, 0)
+        print(f"ExtAxisParamConfig axis 1 rtn is {rtn}")
+
+        # Ottenere configurazione parametri asse esteso 1
+        rtn, axisType, axisDirection, axisMax, axisMin, axisVel, axisAcc, axisLead, encResolution, axisOffect, axisCompany, axisModel, axisEncType = robot.ExtAxisGetParamConfig(1)
+        print(f"axis id 1 ExtAxisGetParamConfig : axisType {axisType}, axisDirection {axisDirection}, axisMax {axisMax}, axisMin {axisMin}, axisVel {axisVel}, axisAcc {axisAcc}, axisLead {axisLead}, encResolution {encResolution}, axisOffect {axisOffect}, axisCompany {axisCompany}, axisModel {axisModel}, axisEncType {axisEncType}")
+
+        # Configurare parametri asse esteso 2
+        rtn = robot.ExtAxisParamConfig(2, 1, 1, 1000, -1000, 1000, 1000, 4.444, 262144, 200, 1, 0, 0)
+        print(f"ExtAxisParamConfig axis 2 rtn is {rtn}")
+
+        # Ottenere configurazione parametri asse esteso 2
+        rtn, axisType, axisDirection, axisMax, axisMin, axisVel, axisAcc, axisLead, encResolution, axisOffect, axisCompany, axisModel, axisEncType = robot.ExtAxisGetParamConfig(2)
+        print(f"axis id 2 ExtAxisGetParamConfig : axisType {axisType}, axisDirection {axisDirection}, axisMax {axisMax}, axisMin {axisMin}, axisVel {axisVel}, axisAcc {axisAcc}, axisLead {axisLead}, encResolution {encResolution}, axisOffect {axisOffect}, axisCompany {axisCompany}, axisModel {axisModel}, axisEncType {axisEncType}")
+
+        time.sleep(3)
+
+        # Test jog asse esteso 1
+        robot.ExtAxisStartJog(1, 0, 10, 10, 30)
+        time.sleep(1)
+        robot.ExtAxisStopJog(1)
+        time.sleep(3)
+        robot.ExtAxisServoOn(1, 0)
+
+        time.sleep(3)
+
+        # Test jog asse esteso 2
+        robot.ExtAxisStartJog(2, 0, 10, 10, 30)
+        time.sleep(1)
+        robot.ExtAxisStopJog(2)
+        time.sleep(3)
+        robot.ExtAxisServoOn(2, 0)
+
+        # Scaricare driver UDP
+        robot.ExtDevUnloadUDPDriver()
+
+        # Chiudere connessione
+        robot.CloseRPC()
+
+
+    # Chiamata funzione di test
+    main()
 
 Impostazione Punto di Riferimento Sistema Coordinate Asse di Espansione - Metodo a Quattro Punti
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

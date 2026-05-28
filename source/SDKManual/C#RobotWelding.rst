@@ -1566,3 +1566,299 @@ Esempio di codice per i parametri di oscillazione personalizzati
        robot.MoveL(j2, desc_p2, 3, 0, 100, 100, 10, -1, epos, 0, 0, offset_pos, 0, 0, 10);
        robot.WeaveEnd(0);
    }
+
+Configurazione dei Parametri della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Scrive i parametri di configurazione per uno dei 10 gruppi di processo della saldatrice laser e configura la saldatrice
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] num Numero del gruppo da impostare (1~10)
+    * @param[in] scanSpeed Velocità di scansione
+    * @param[in] scanWidth Larghezza di scansione
+    * @param[in] peakPower Potenza di picco
+    * @param[in] dutyCycle Ciclo di lavoro
+    * @param[in] freq Frequenza
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingParam(int io_type, int num, int scanSpeed, int scanWidth, int peakPower, int dutyCycle, int freq)
+
+Impostare Avvio/Arresto Saldatura Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Imposta accensione/spegnimento della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] status Parola di controllo 0-laser spento 1-laser acceso
+    * @param[in] max_waittime Tempo massimo di attesa
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingStartEnd(int io_type, int status, int max_waittime)
+
+Abilitazione/Disabilitazione Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Abilita/disabilita la saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] status 0-disabilita 1-abilita
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingEnable(int io_type, int status)
+
+Ripristino Guasto Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ripristina il guasto della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[in] status Parola di controllo 0-invalido 1-ripristino guasto
+    * @return Codice di errore
+    */
+    public int ResetLaserWeldingErr(int io_type, int status)
+
+Ottenere lo Stato di Funzionamento della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ottiene lo stato di funzionamento della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[out] status Parola di controllo 0-fermo 1-in funzione
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingRunningState(int io_type, ref int status)
+
+Ottenere lo Stato di Guasto della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ottiene lo stato di guasto della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[out] status 0-nessun guasto 1-guasto presente
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingErrState(int io_type, ref int status)
+
+Ottenere i Parametri Configurati della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ottiene i parametri di configurazione per uno dei 10 gruppi di processo della saldatrice laser
+    * @param[in] num Numero del gruppo da impostare (1~10)
+    * @param[out] scanSpeed Velocità di scansione
+    * @param[out] scanWidth Larghezza di scansione
+    * @param[out] peakPower Potenza di picco
+    * @param[out] dutyCycle Ciclo di lavoro
+    * @param[out] freq Frequenza
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingParamTarget(int num, ref int scanSpeed, ref int scanWidth, ref int peakPower, ref int dutyCycle, ref int freq)
+
+Ottenere i Parametri di Configurazione Attualmente Attivi della Saldatrice Laser
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ottiene i parametri di configurazione attualmente attivi della saldatrice laser
+    * @param[in] io_type Tipo di comunicazione 0-IO 1-UDP
+    * @param[out] scanSpeed Velocità di scansione
+    * @param[out] scanWidth Larghezza di scansione
+    * @param[out] peakPower Potenza di picco
+    * @param[out] dutyCycle Ciclo di lavoro
+    * @param[out] freq Frequenza
+    * @return Codice di errore
+    */
+    public int GetLaserWeldingParamActual(int io_type, ref int scanSpeed, ref int scanWidth, ref int peakPower, ref int dutyCycle, ref int freq)
+    
+Configurare la Porta DO di Abilitazione IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Imposta l'IO esteso della saldatrice laser, porta DO di abilitazione
+    * @param[in] ctrlModeDONum Numero della porta DO estesa per l'abilitazione della saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingEnableExtDoNum(int ctrlModeDONum)
+
+Configurare la Porta DO di Avvio IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Imposta l'IO esteso della saldatrice laser, porta DO di avvio
+    * @param[in] ctrlModeDONum Numero della porta DO estesa per l'avvio (laser acceso/spento) della saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingStartExtDoNum(int ctrlModeDONum)
+
+Configurare la Porta DO di Ripristino Guasto IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Imposta l'IO esteso della saldatrice laser, porta DO di ripristino guasto
+    * @param[in] ctrlModeDONum Numero della porta DO estesa per il ripristino del guasto della saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingErrResetExtDoNum(int ctrlModeDONum)
+
+Configurare il DI Esteso per lo Stato di Funzionamento (Stato Laser Accesso) della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Configura il DI esteso per lo stato di funzionamento (stato laser acceso) della saldatrice laser
+    * @param[in] diNum Porta DI estesa per lo stato di funzionamento (stato laser acceso) della saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingRunningStateExtDiNum(int diNum)
+    
+Configurare la Porta DI di Stato Guasto IO Esteso della Saldatrice Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Configura il DI esteso per lo stato di guasto della saldatrice laser
+    * @param[in] diNum Porta DI estesa per lo stato di guasto della saldatrice laser
+    * @return Codice di errore
+    */
+    public int SetLaserWeldingErrStateExtDiNum(int diNum)
+        
+Esempio di Codice per Saldatura Laser
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    private void btnLaserWeld_Click(object sender, EventArgs e)
+    {
+
+        int rtn = -1;
+        // Carica driver UDP
+        rtn = robot.ExtDevLoadUDPDriver();
+        if (rtn != 0)
+        {
+            Console.WriteLine("Failed to load UDP driver, error code: " + rtn);
+        }
+        Thread.Sleep(1000);
+
+        // Imposta parametri saldatura laser: io_type=1, num=3, scanSpeed=2000, scanWidth=3, peakPower=1500, dutyCycle=100, freq=1000
+        rtn = robot.SetLaserWeldingParam(1, 3, 2000, 3, 1500, 100, 1000);
+        if (rtn != 0)
+        {
+            Console.WriteLine("SetLaserWeldingParam failed, error code: " + rtn);
+        }
+        else
+        {
+            Console.WriteLine("SetLaserWeldingParam success");
+        }
+
+        // Imposta il numero della porta DO di avvio
+        rtn = robot.SetLaserWeldingStartExtDoNum(1);
+        if (rtn != 0)
+        {
+            Console.WriteLine("SetLaserWeldingStartExtDoNum failed, error code: " + rtn);
+        }
+
+        // Imposta la modalità 0 (modalità insegnamento)
+        rtn = robot.Mode(0);
+        if (rtn != 0)
+        {
+            Console.WriteLine("Set mode 0 failed, error code: " + rtn);
+        }
+        Thread.Sleep(1000);
+
+
+        DescPose desc_pos1 = new DescPose(-303.721, -206.960, 297.105, 152.209, 19.857, 109.166);
+        DescPose desc_pos2 = new DescPose(-301.575, -254.888, 284.786, 155.919, 26.946, 111.629);
+        DescPose desc_safe = new DescPose(-344.386, -280.830, 435.073, 173.835, 15.333, 124.931);
+
+
+        ExaxisPos exaxis = new ExaxisPos(0.0, 0.0, 0.0, 0.0);
+        DescPose offset = new DescPose(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+
+        // Muovi al primo punto di saldatura
+        int error = robot.MoveL(desc_pos1, 0, 0, 100, 100, 100, -1, 0, exaxis, 0, 0, offset, -1, 0);
+        Console.WriteLine("MoveL to pos1 return: " + error);
+
+        // Avvia laser (laser acceso)
+        rtn = robot.SetLaserWeldingStartEnd(1, 1, 10000);
+        if (rtn != 0)
+        {
+            Console.WriteLine("SetLaserWeldingStartEnd (start) failed, error code: " + rtn);
+        }
+        else
+        {
+            Console.WriteLine("Laser started");
+        }
+
+        // Muovi al secondo punto di saldatura (durante la saldatura)
+        rtn = robot.MoveL(desc_pos2, 0, 0, 30, 100, 100, -1, 0, exaxis, 0, 0, offset, -1, 0);
+        Console.WriteLine("MoveL to pos2 return: " + rtn);
+
+        Thread.Sleep(500);
+        // Ferma laser (laser spento)
+        rtn = robot.SetLaserWeldingStartEnd(1, 0, 10000);
+        if (rtn != 0)
+        {
+            Console.WriteLine("SetLaserWeldingStartEnd (stop) failed, error code: " + rtn);
+        }
+        else
+        {
+            Console.WriteLine("Laser stopped");
+        }
+
+        // Muovi al punto di sicurezza
+        rtn = robot.MoveL(desc_safe, 0, 0, 100, 100, 100, -1, 0, exaxis, 0, 0, offset, -1, 0);
+        Console.WriteLine("MoveL to safe_pos return: " + rtn);
+
+        // Imposta la modalità 1 (modalità remota)
+        rtn = robot.Mode(1);
+        if (rtn != 0)
+        {
+            Console.WriteLine("Set mode 1 failed, error code: " + rtn);
+        }
+        Thread.Sleep(1000);
+
+        // Chiudi connessione
+        robot.CloseRPC();
+        Thread.Sleep(1000);
+
+        Console.WriteLine("Test completed");
+
+        return ;
+    }
