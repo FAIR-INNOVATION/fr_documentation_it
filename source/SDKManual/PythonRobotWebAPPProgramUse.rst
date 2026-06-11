@@ -13,8 +13,9 @@ Impostazione Caricamento Automatico Programma di Lavoro Predefinito all'Avvio
 
     "Prototipo", "``LoadDefaultProgConfig(flag,program_name)``"
     "Descrizione", "Imposta il caricamento automatico all'avvio del programma di lavoro predefinito"
-    "Parametri Richiesti", "- ``flag``：1-Carica automaticamente il programma predefinito all'avvio, 0-Non caricare automaticamente il programma predefinito
-    - ``program_name``：Nome e percorso del programma di lavoro, ad es. /fruser/movej.lua, dove /fruser/ è il percorso fisso per QX, /usr/local/etc/controller/lua/ è il percorso fisso per LA"
+    "Parametri Richiesti", "
+    - ``flag``：1-Carica automaticamente il programma predefinito all'avvio, 0-Non caricare automaticamente il programma predefinito
+    - ``program_name``：Nome e percorso del programma di lavoro, ad es. movej.lua"
     "Parametri Predefiniti", "Nessuno"
     "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
@@ -27,7 +28,7 @@ Caricare il Programma di Lavoro Specificato
 
     "Prototipo", "``ProgramLoad(program_name)``"
     "Descrizione", "Carica il programma di lavoro specificato"
-    "Parametri Richiesti", "- ``program_name``：Nome e percorso del programma di lavoro, ad es. /fruser/movej.lua, dove /fruser/ è il percorso fisso per QX, /usr/local/etc/controller/lua/ è il percorso fisso per LA"
+    "Parametri Richiesti", "- ``program_name``：Nome e percorso del programma di lavoro, ad es. movej.lua"
     "Parametri Predefiniti", "Nessuno"
     "Valore di Ritorno", "Codice di errore Successo-0 Fallimento- errcode"
 
@@ -135,7 +136,7 @@ Esempio di Codice per Operazioni sui Programmi LUA del Robot
     import time
     # Stabilisce una connessione con il controller del robot, restituisce un oggetto robot in caso di successo
     robot = Robot.RPC('192.168.58.2')
-    program_name = "/fruser/test0610.lua"
+    program_name = "test0610.lua"
     loaded_name = ""
     state = 0
     line = 0

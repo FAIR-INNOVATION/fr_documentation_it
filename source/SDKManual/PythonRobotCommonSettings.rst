@@ -1306,10 +1306,10 @@ Calibrazione TCP Sensore Foto-elettrico
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``PhotoelectricSensorTCPCalibration(luaPath, offsetX)``"
+    "Prototipo", "``PhotoelectricSensorTCPCalibration(self, luaFile, offsetX)``"
     "Descrizione", "Calibrazione TCP Sensore Foto-elettrico"
     "Parametri Richiesti", "
-    - ``luaPath``: Percorso programma Lua per calibrazione automatica: Per robot versione QX - '/fruser/FR_CalibrateTheToolTcp.lua'; Per robot versione LA - '/usr/local/etc/controller/lua/FR_CalibrateTheToolTcp.lua'
+    - ``luaFile``: Percorso programma Lua per calibrazione automatica: Per - 'FR_CalibrateTheToolTcp.lua';
     - ``offsetX``: Offset punto di insegnamento (x, y, z) in mm"
     "Parametri Predefiniti", "Nessuno"
     "Valore di Ritorno", "
@@ -1327,7 +1327,7 @@ Esempio Codice Calibrazione TCP Sensore Foto-elettrico
     robot = Robot.RPC('192.168.58.2')
     offset = [10.0, 10.0, 3.0]
     TCP = [0.0] * 6
-    rtn, TCP = robot.PhotoelectricSensorTCPCalibration("/fruser/FR_CalibrateTheToolTcp.lua", offset)
+    rtn, TCP = robot.PhotoelectricSensorTCPCalibration("FR_CalibrateTheToolTcp.lua", offset)
     print(f"PhotoelectricSensorTCPCalibration rtn is {rtn},{TCP[0]},{TCP[1]},{TCP[2]},{TCP[3]},{TCP[4]},{TCP[5]}")
     robot.CloseRPC()
     return 0
