@@ -240,7 +240,36 @@ Certificati dei Componenti:
    * - **Certificato Scheda Principale**
      - PETREL
      - :download:`download <_static/_doc/Parts-Core Board Certification.pdf>`
-  
+
+Certificati di Omologazione Pinza:
+
+.. list-table::
+   :widths: 35 35 30
+   :header-rows: 0
+   :class: sheet-center
+
+   * - **Certificato di Omologazione**
+     - **Tipo di Prodotto**
+     - **download**
+   * - **Certificato CE-EMC Pinza Elettrica a 2 Dita**
+     - FE-MG2-3-E
+     - :download:`download <_static/_doc/FE-MG2-3-E Electric 2-Finger Gripper CE-EMC Certificate-V1.0.pdf>`
+   * - **Certificato ROHS Pinza Elettrica a 2 Dita**
+     - FE-MG2-3-E
+     - :download:`download <_static/_doc/FE-MG2-3-E Electric 2-Finger Gripper ROHS Certificate-V1.0.pdf>`
+   * - **Certificato CE-EMC Attuatore Sottovuoto Elettrico**
+     - FE-MS1-1-E
+     - :download:`download <_static/_doc/FE-MS1-1-E Electric Vacuum Actuator CE-EMC Certificate-V1.0.pdf>`
+   * - **Certificato ROHS Attuatore Sottovuoto Elettrico**
+     - FE-MS1-1-E
+     - :download:`download <_static/_doc/FE-MS1-1-E Electric Vacuum Actuator ROHS Certificate-V1.0.pdf>`
+   * - **Certificato CE-EMC Ventosa Sottovuoto Pneumatica**
+     - FE-MS1-2-P
+     - :download:`download <_static/_doc/FE-MS1-2-P Pneumatic Vacuum Suction Cup CE-EMC Certificate-V1.0.pdf>`
+   * - **Certificato ROHS Ventosa Sottovuoto Pneumatica**
+     - FE-MS1-2-P
+     - :download:`download <_static/_doc/FE-MS1-2-P Pneumatic Vacuum Suction Cup ROHS Certificate-V1.0.pdf>`  
+
 Sviluppo Secondario
 ---------------------------------
     :download:`FAIRINO ROS1 <https://github.com/FAIR-INNOVATION/frcobot_ros/archive/refs/heads/master.zip>`
