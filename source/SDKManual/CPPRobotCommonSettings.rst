@@ -1491,7 +1491,7 @@ Calibrazione TCP Sensore Foto-elettrico
 
     /**
     * @brief Calibrazione TCP Sensore Foto-elettrico
-    * @param [in] luaPath Percorso programma Lua per calibrazione automatica: Per robot versione QX - "/fruser/FR_CalibrateTheToolTcp.lua"; Per robot versione LA - "/usr/local/etc/controller/lua/FR_CalibrateTheToolTcp.lua"
+    * @param [in] luaPath Percorso programma Lua per calibrazione automatica:  "/fruser/FR_CalibrateTheToolTcp.lua"
     * @param [in] offsetX Offset punto di insegnamento (x, y, z) in mm
     * @param [out] TCP Sistema di coordinate dello strumento calibrato (x, y, z, rx, ry, rz)
     * @return Codice di errore
@@ -1518,9 +1518,22 @@ Esempio di Codice Calibrazione TCP Sensore Foto-elettrico
         robot.SetReConnectParam(true, 30000, 500);
         DescTran offset = { 10.0, 10.0, 3.0 };
         DescPose TCP = {};
-        rtn = robot.PhotoelectricSensorTCPCalibration("/fruser/FR_CalibrateTheToolTcp.lua", offset, TCP);
+        rtn = robot.PhotoelectricSensorTCPCalibration("FR_CalibrateTheToolTcp.lua", offset, TCP);
         printf("PhotoelectricSensorTCPCalibration rtn is  %d %f %f %f %f %f %f \n", rtn, TCP.tran.x, TCP.tran.y, TCP.tran.z, TCP.rpy.rx, TCP.rpy.ry, TCP.rpy.rz);
         robot.CloseRPC();
         robot.Sleep(9999999);
         return 0;
     }
+
+Imposta la Velocità Globale in Tempo Reale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Imposta la velocità globale in tempo reale
+    * @param [in] vel Percentuale di velocità, intervallo [0~100]
+    * @return Codice errore
+    */
+    errno_t SetSpeedInstant(int vel);    

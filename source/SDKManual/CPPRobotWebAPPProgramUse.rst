@@ -12,7 +12,7 @@ Impostare Caricamento Automatico Programma Lavoro Predefinito all'Avvio
     /**
     * @brief  Imposta il caricamento automatico del programma lavoro predefinito all'avvio
     * @param  [in] flag  0-non carica automaticamente programma predefinito all'avvio, 1-carica automaticamente programma predefinito all'avvio
-    * @param  [in] program_name  Nome programma lavoro e percorso, es. "/fruser/movej.lua", dove "/fruser/" è percorso fisso QX, "/usr/local/etc/controller/lua/" è percorso fisso LA
+    * @param  [in] program_name  Nome programma lavoro e percorso, es. "movej.lua"
     * @return  Codice errore
     */
     errno_t  LoadDefaultProgConfig(uint8_t flag, char program_name[64]);
@@ -24,7 +24,7 @@ Caricare Programma Lavoro Specificato
 
     /**
     * @brief  Carica il programma lavoro specificato
-    * @param  [in] program_name  Nome programma lavoro e percorso, es. "/fruser/movej.lua", dove "/fruser/" è percorso fisso QX, "/usr/local/etc/controller/lua/" è percorso fisso LA
+    * @param  [in] program_name  Nome programma lavoro e percorso, es. "movej.lua"
     * @return  Codice errore
     */
     errno_t  ProgramLoad(char program_name[64]);
@@ -36,7 +36,7 @@ Ottenere Nome Programma Lavoro già Caricato
 
     /**
     * @brief  Ottiene il nome del programma lavoro già caricato
-    * @param  [out] program_name  Nome programma lavoro e percorso, es. "/fruser/movej.lua", dove "/fruser/" è percorso fisso QX, "/usr/local/etc/controller/lua/" è percorso fisso LA
+    * @param  [out] program_name  Nome programma lavoro e percorso, es. "movej.lua"
     * @return  Codice errore
     */
     errno_t  GetLoadedProgram(char program_name[64]);  
@@ -126,7 +126,7 @@ Esempio di Codice Operazioni su Programmi LUA Robot
         return -1;
       }
       robot.SetReConnectParam(true, 30000, 500);
-      char program_name[64] = "/fruser/test.lua";
+      char program_name[64] = "test.lua";
       char loaded_name[64] = "";
       uint8_t state;
       int line;

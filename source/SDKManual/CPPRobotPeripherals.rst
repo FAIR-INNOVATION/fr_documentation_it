@@ -831,83 +831,94 @@ Ripristino errori anomali file LUA terminale
     */
     errno_t GetAxleLuaEnableStatus(int status[]);
 
-Impostare tipo dispositivo terminale abilitato per LUA terminale
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta i tipi di dispositivo abilitati per l'end-effector LUA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Imposta tipo dispositivo terminale abilitato per LUA terminale
-    * @param forceSensorEnable Stato abilitazione sensore forza, 0-Non abilitato; 1-Abilitato
-    * @param gripperEnable Stato abilitazione pinza, 0-Non abilitato; 1-Abilitato
-    * @param IOEnable Stato abilitazione dispositivo IO, 0-Non abilitato; 1-Abilitato
-    * @return  Codice di errore
+    * @brief Imposta i tipi di dispositivo abilitati per l'end-effector LUA
+    * @param forceSensorEnable Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    * @param gripperEnable Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    * @param IOEnable Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    * @param dexhandEnable Stato abilitazione mano destra, 0-disabilitato; 1-abilitato
+    * @return  Codice errore
     */
-    errno_t SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable);
+    errno_t SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable, int dexhandEnable);
 
-Impostare tipo dispositivo terminale abilitato per LUA terminale
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i tipi di dispositivo abilitati per l'end-effector LUA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
         
     /**
-    * @brief Ottiene tipo dispositivo terminale abilitato per LUA terminale
-    * @param enable enable[0]:forceSensorEnable Stato abilitazione sensore forza, 0-Non abilitato; 1-Abilitato
-    * @param enable enable[1]:gripperEnable Stato abilitazione pinza, 0-Non abilitato; 1-Abilitato
-    * @param enable enable[2]:IOEnable Stato abilitazione dispositivo IO, 0-Non abilitato; 1-Abilitato
-    * @return  Codice di errore
+    * @brief Ottiene i tipi di dispositivo abilitati per l'end-effector LUA
+    * @param enable enable[0]:forceSensorEnable Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    * @param enable enable[1]:gripperEnable Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    * @param enable enable[2]:IOEnable Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    * @param enable enable[3]:dexhandEnable Stato abilitazione mano destra, 0-disabilitato; 1-abilitato
+    * @return Codice errore
     */
-    errno_t GetAxleLuaEnableDeviceType(int* forceSensorEnable, int* gripperEnable, int* IOEnable);
+    errno_t GetAxleLuaEnableDeviceType(int* forceSensorEnable, int* gripperEnable, int* IOEnable, int* dexhandEnable);
 
-Ottenere dispositivi terminali attualmente configurati
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i dispositivi dell'end-effector attualmente configurati
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Ottiene dispositivi terminali attualmente configurati
-    * @param forceSensorEnable Numero dispositivo sensore forza abilitato 0-Non abilitato; 1-Abilitato
-    * @param gripperEnable Numero dispositivo pinza abilitato, 0-Non abilitato; 1-Abilitato
-    * @param IODeviceEnable Numero dispositivo IO abilitato, 0-Non abilitato; 1-Abilitato
-    * @return  Codice di errore
+    * @brief Ottiene i dispositivi dell'end-effector attualmente configurati
+    * @param [out] forceSensorEnable Numero dispositivo sensore di forza abilitato, 0-disabilitato; 1-abilitato
+    * @param [out] gripperEnable Numero dispositivo pinza abilitato, 0-disabilitato; 1-abilitato
+    * @param [out] IODeviceEnable Numero dispositivo IO abilitato, 0-disabilitato; 1-abilitato
+    * @param [out] decHandEnable Numero dispositivo mano destra abilitato, 0-disabilitato; 1-abilitato
+    * @return Codice errore
     */
-    errno_t GetAxleLuaEnableDevice(int forceSensorEnable[], int gripperEnable[], int IODeviceEnable[]);
+    errno_t GetAxleLuaEnableDevice(int forceSensorEnable[], int gripperEnable[], int IODeviceEnable[], int decHandEnable[]);
 
-Impostare abilitazione funzione controllo azioni pinza
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta le funzioni di controllo azione pinza abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Imposta abilitazione funzione controllo azioni pinza
+    * @brief Imposta le funzioni di controllo azione pinza abilitate
     * @param id Numero dispositivo pinza
-    * @param func func[0]-Abilitazione pinza; func[1]-Inizializzazione pinza; 2-Impostazione posizione; 3-Impostazione velocità; 4-Impostazione coppia; 6-Lettura stato pinza; 7-Lettura stato inizializzazione; 8-Lettura codice errore; 9-Lettura posizione; 10-Lettura velocità; 11-Lettura coppia
-    * @return  Codice di errore
+    * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; func[2]-impostazione posizione; func[3]-impostazione velocità; func[4]-impostazione coppia; func[6]-lettura stato pinza;
+        func[7]-lettura stato inizializzazione; func[8]-lettura codice guasto; func[9]-lettura posizione; func[10]-lettura velocità; func[11]-lettura coppia; func[12]-impostazione giri per pinza rotante;
+        func[13]-impostazione velocità rotazione pinza rotante; func[14]-impostazione coppia rotazione pinza rotante; func[15]-lettura stato pinza rotante; func[16]-lettura stato inizializzazione pinza rotante;
+        func[17]-lettura giri pinza rotante; func[18]-lettura velocità pinza rotante; func[19]-lettura coppia pinza rotante; func[20]-impostazione movimento sincrono multiasse; func[21]-comando clear guasti;
+        func[22]-stato funzionamento singolo asse; func[23]-stato funzionamento tutti gli assi;
+    * @return  Codice errore
     */
-    errno_t SetAxleLuaGripperFunc(int id, int func[]);
+    errno_t SetAxleLuaGripperFunc(int id, int func[32]);
 
-Ottenere abilitazione funzione controllo azioni pinza
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene le funzioni di controllo azione pinza abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: C++SDK-v2.1.5.0
 
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Ottiene abilitazione funzione controllo azioni pinza
+    * @brief Ottiene le funzioni di controllo azione pinza abilitate
     * @param id Numero dispositivo pinza
-    * @param func func[0]-Abilitazione pinza; func[1]-Inizializzazione pinza; 2-Impostazione posizione; 3-Impostazione velocità; 4-Impostazione coppia; 6-Lettura stato pinza; 7-Lettura stato inizializzazione; 8-Lettura codice errore; 9-Lettura posizione; 10-Lettura velocità; 11-Lettura coppia
-    * @return  Codice di errore
+    * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; func[2]-impostazione posizione; func[3]-impostazione velocità; func[4]-impostazione coppia; func[6]-lettura stato pinza;
+        func[7]-lettura stato inizializzazione; func[8]-lettura codice guasto; func[9]-lettura posizione; func[10]-lettura velocità; func[11]-lettura coppia; func[12]-impostazione giri per pinza rotante;
+        func[13]-impostazione velocità rotazione pinza rotante; func[14]-impostazione coppia rotazione pinza rotante; func[15]-lettura stato pinza rotante; func[16]-lettura stato inizializzazione pinza rotante;
+        func[17]-lettura giri pinza rotante; func[18]-lettura velocità pinza rotante; func[19]-lettura coppia pinza rotante; func[20]-impostazione movimento sincrono multiasse; func[21]-comando clear guasti;
+        func[22]-stato funzionamento singolo asse; func[23]-stato funzionamento tutti gli assi;
+    * @return  Codice errore
     */
-    errno_t GetAxleLuaGripperFunc(int id, int func[]);
+    errno_t GetAxleLuaGripperFunc(int id, int func[32]);
 
 Scrittura file slave Ethercat robot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -960,69 +971,73 @@ Esempio codice operazioni file LUA terminale robot
 
     int TestAxleLua(void)
     {
-      ROBOT_STATE_PKG pkg = {};
-      FRRobot robot;
-      robot.LoggerInit();
-      robot.SetLoggerLevel(1);
-      int rtn = robot.RPC("192.168.58.2");
-      if (rtn != 0)
-      {
-        return -1;
-      }
-      robot.SetReConnectParam(true, 30000, 500);
-      robot.AxleLuaUpload("D://zUP/AXLE_LUA_End_DaHuan.lua");
-      AxleComParam param(7, 8, 1, 0, 5, 3, 1);
-      robot.SetAxleCommunicationParam(param);
-      AxleComParam getParam;
-      robot.GetAxleCommunicationParam(&getParam);
-      printf("GetAxleCommunicationParam param is %d %d %d %d %d %d %d\n", getParam.baudRate, getParam.dataBit, getParam.stopBit, getParam.verify, getParam.timeout, getParam.timeoutTimes, getParam.period);
-      robot.SetAxleLuaEnable(1);
-      int luaEnableStatus = 0;
-      robot.GetAxleLuaEnableStatus(&luaEnableStatus);
-      robot.SetAxleLuaEnableDeviceType(0, 1, 0);
-      int forceEnable = 0;
-      int gripperEnable = 0;
-      int ioEnable = 0;
-      robot.GetAxleLuaEnableDeviceType(&forceEnable, &gripperEnable, &ioEnable);
-      printf("GetAxleLuaEnableDeviceType param is %d %d %d\n", forceEnable, gripperEnable, ioEnable);
-      int func[16] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-      robot.SetAxleLuaGripperFunc(1, func);
-      int getFunc[16] = { 0 };
-      robot.GetAxleLuaGripperFunc(1, getFunc);
-      int getforceEnable[16] = { 0 };
-      int getgripperEnable[16] = { 0 };
-      int getioEnable[16] = { 0 };
-      robot.GetAxleLuaEnableDevice(getforceEnable, getgripperEnable, getioEnable);
-      printf("\ngetforceEnable status : ");
-      for (int i = 0; i < 16; i++)
-      {
-        printf("%d,", getforceEnable[i]);
-      }
-      printf("\ngetgripperEnable status : ");
-      for (int i = 0; i < 16; i++)
-      {
-        printf("%d,", getgripperEnable[i]);
-      }
-      printf("\ngetioEnable status : ");
-      for (int i = 0; i < 16; i++)
-      {
-        printf("%d,", getioEnable[i]);
-      }
-      printf("\n");
-      robot.ActGripper(1, 0);
-      robot.Sleep(2000);
-      robot.ActGripper(1, 1);
-      robot.Sleep(2000);
-      robot.MoveGripper(1, 90, 10, 100, 50000, 0, 0, 0, 0, 0);
-      int pos = 0;
-      while (true)
-      {
-        robot.GetRobotRealTimeState(&pkg);
-        printf("gripper pos is %u\n", pkg.gripper_position);
-        robot.Sleep(100);
-      }
-      robot.CloseRPC();
-      return 0;
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return -1;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+        robot.AxleLuaUpload("D://zUP/AXLE_LUA_End_DaHuan.lua");
+        AxleComParam param(7, 8, 1, 0, 5, 3, 1);
+        robot.SetAxleCommunicationParam(param);
+        AxleComParam getParam;
+        robot.GetAxleCommunicationParam(&getParam);
+        printf("GetAxleCommunicationParam param is %d %d %d %d %d %d %d\n", getParam.baudRate, getParam.dataBit, getParam.stopBit, getParam.verify, getParam.timeout, getParam.timeoutTimes, getParam.period);
+        robot.SetAxleLuaEnable(1);
+        int luaEnableStatus = 0;
+        robot.GetAxleLuaEnableStatus(&luaEnableStatus);
+        robot.SetAxleLuaEnableDeviceType(0, 1, 0, 0);
+        int forceEnable = 0;
+        int gripperEnable = 0;
+        int ioEnable = 0;
+        int dexhandEnable = 0;
+        robot.GetAxleLuaEnableDeviceType(&forceEnable, &gripperEnable, &ioEnable, &dexhandEnable);
+        printf("GetAxleLuaEnableDeviceType param is %d %d %d %d\n", forceEnable, gripperEnable, ioEnable, dexhandEnable);
+        int func[32] = { 0,1,1,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+        rtn = robot.SetAxleLuaGripperFunc(2, func);
+        printf("SetAxleLuaGripperFunc rtn is %d\n", rtn);
+        int getFunc[32] = { 0 };
+        rtn = robot.GetAxleLuaGripperFunc(2, getFunc);
+        printf("GetAxleLuaGripperFunc rtn is %d\n", rtn);
+        int getforceEnable[16] = { 0 };
+        int getgripperEnable[16] = { 0 };
+        int getioEnable[16] = { 0 };
+        int dexhandEnable1[16] = { 0 };
+        robot.GetAxleLuaEnableDevice(getforceEnable, getgripperEnable, getioEnable, dexhandEnable1);
+        printf("\ngetforceEnable status : ");
+        for (int i = 0; i < 16; i++)
+        {
+            printf("%d,", getforceEnable[i]);
+        }
+        printf("\ngetgripperEnable status : ");
+        for (int i = 0; i < 16; i++)
+        {
+            printf("%d,", getgripperEnable[i]);
+        }
+        printf("\ngetioEnable status : ");
+        for (int i = 0; i < 16; i++)
+        {
+            printf("%d,", getioEnable[i]);
+        }
+        printf("\n");
+        robot.ActGripper(2, 0);
+        robot.Sleep(2000);
+        robot.ActGripper(2, 1);
+        robot.Sleep(2000);
+        robot.MoveGripper(2, 1, 10, 100, 50000, 0, 0, 0, 0, 0);
+        int pos = 0;
+        while (true)
+        {
+            robot.GetRobotRealTimeState(&pkg);
+            printf("gripper pos is %u\n", pkg.gripper_position);
+            robot.Sleep(100);
+        }
+        robot.CloseRPC();
+        return 0;
     }
 
 Ottenere stato pulsanti SmartTool
@@ -2037,3 +2052,188 @@ Esempio di Codice per Caricamento, Download ed Eliminazione di Protocollo Aperto
         robot.Sleep(1000);
         return 0;
     }
+
+Controllo del Movimento della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Controllo del movimento della mano destra
+    * @param [in] idstart Numero stazione slave iniziale
+    * @param [in] slaveNum Numero di slave
+    * @param [in] pos Array di posizioni, lunghezza 16, intervallo (-360~360)
+    * @param [in] speed Array di percentuali di velocità, lunghezza 16, intervallo [0~100]
+    * @param [in] force Array di percentuali di coppia, lunghezza 16, intervallo [0~100]
+    * @param [in] max_time Tempo massimo di attesa, intervallo [0~30000], unità ms
+    * @return Codice errore, 0 in caso di successo
+    */
+    errno_t SetDexterousHandsMove(int idstart, int slaveNum, double pos[16], int speed[16], int force[16], int max_time);
+        
+Controllo del Reset e Attivazione della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Controllo del reset e attivazione della mano destra
+    * @param [in] id Numero stazione slave
+    * @param [in] act 0-reset 1-attivazione
+    * @return Codice errore, 0 in caso di successo
+    */
+    errno_t SetDexterousHandsAct(int id, int act);
+            
+Cancellazione dell'Errore della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Cancellazione dell'errore della mano destra
+    * @return Codice errore, 0 in caso di successo
+    */
+    errno_t ClearDexterousHandsError();
+                
+Impostazione delle Funzioni di Controllo Azione Mano Destra Abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Imposta le funzioni di controllo azione mano destra abilitate
+    * @param [in] id Numero dispositivo mano destra
+    * @param [in] func 0-attivazione presa, 1-inizializzazione pinza, 2-impostazione posizione, 3-impostazione velocità, 4-impostazione coppia, 6-lettura stato pinza, 7-lettura stato inizializzazione, 8-lettura codice guasto, 9-lettura posizione, 10-lettura velocità, 11-lettura coppia, 12-impostazione giri rotazione, 13-impostazione velocità rotazione, 14-impostazione coppia rotazione, 15-lettura stato pinza rotante, 16-lettura stato inizializzazione rotazione, 17-lettura giri rotazione, 18-lettura velocità rotazione, 19-lettura coppia rotazione, 20-impostazione movimento sincrono multiasse, 21-comando clear guasti, 22-stato funzionamento singolo asse, 23-stato funzionamento tutti gli assi
+    * @return Codice errore
+    */
+    errno_t SetDexterousHandsFunc(int id, int func[32]);
+                    
+Ottenimento delle Funzioni di Controllo Azione Mano Destra Abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ottiene le funzioni di controllo azione mano destra abilitate
+    * @param [in] id Numero dispositivo mano destra
+    * @param [out] func 0-attivazione presa, 1-inizializzazione pinza, 2-impostazione posizione, 3-impostazione velocità, 4-impostazione coppia, 6-lettura stato pinza, 7-lettura stato inizializzazione, 8-lettura codice guasto, 9-lettura posizione, 10-lettura velocità, 11-lettura coppia, 12-impostazione giri rotazione, 13-impostazione velocità rotazione, 14-impostazione coppia rotazione, 15-lettura stato pinza rotante, 16-lettura stato inizializzazione rotazione, 17-lettura giri rotazione, 18-lettura velocità rotazione, 19-lettura coppia rotazione, 20-impostazione movimento sincrono multiasse, 21-comando clear guasti, 22-stato funzionamento singolo asse, 23-stato funzionamento tutti gli assi
+    * @return Codice errore
+    */
+    errno_t GetDexterousHandsFunc(int id, int func[32]);
+                        
+Esempio di Codice per Configurazione e Movimento della Mano Destra sull'End-Effector
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c++
+    :linenos:
+
+    int TestDexterousHands()
+    {
+    ROBOT_STATE_PKG pkg = {};
+    FRRobot robot;
+    robot.LoggerInit();
+    robot.SetLoggerLevel(1);
+    int rtn = robot.RPC("192.168.58.2");
+    if (rtn != 0)
+    {
+        return -1;
+    }
+    robot.SetReConnectParam(true, 30000, 500);
+    int id = 1;        // Numero stazione slave
+    int slaveNum = 4;     // Controlla 4 dita
+    int max_time = 8000;   // Tempo massimo di attesa 8 secondi
+    int speed[16] = {0};   // Array velocità, tutti 0 significa usa velocità predefinita
+    int force[16] = {0};   // Array coppia
+    // Inizializza array coppia: prime 4 dita impostate al 50%, il resto 0 (valori inviati tramite comando Move)
+    for (int i = 0; i < 16; i++)
+    {
+        force[i] = (i < 4) ? 50 : 0;
+    }
+    // Funzione helper: imposta array posizione (solo prime 4 dita sono efficaci)
+    double pos[16] = {0.0};
+    JointPos j1(-91.876, -85.920, 109.279, -86.239, -96.664, -28.563);
+    JointPos j2(-40.954, -85.920, 109.279, -86.239, -96.664, -28.563);
+    ExaxisPos epos(0, 0, 0, 0);
+    DescPose offset_pos(0, 0, 0, 0, 0, 0);
+    printf("===== Test completo funzionalità mano destra avviato =====\n");
+    // 1. Cancella errore
+    int ret = robot.ClearDexterousHandsError();
+    printf("ClearDexterousHandsError rtn %d\n", ret);
+    // ========== 2. Imposta interruttori funzione ==========
+    int setFunc[32] = {0};
+    setFunc[2] = 1;  // Abilita funzione impostazione posizione
+    setFunc[4] = 1;  // Abilita funzione impostazione coppia
+    setFunc[9] = 1;  // Lettura posizione
+    setFunc[10] = 1;  // Lettura coppia
+    setFunc[11] = 1;  // Lettura stato
+    setFunc[22] = 1;  // Stato movimento singolo asse
+    ret = robot.SetDexterousHandsFunc(id, setFunc);
+    printf("SetDexterousHandsFunc(abilitazione init + funzioni posizione/coppia) rtn %d\n", ret);
+    // ========== 3. Legge stato funzione (verifica che le impostazioni siano state applicate) ==========
+    int getFunc[32] = {0}; // GetDexterousHandsFunc restituisce 32 interi
+    ret = robot.GetDexterousHandsFunc(id, getFunc);
+    printf("GetDexterousHandsFunc rtn %d\n", ret);
+    if (ret == 0)
+    {
+        // Stampa tutti i 32 valori
+        printf("Tutti i 32 valori restituiti da GetDexterousHandsFunc:");
+        for (int i = 0; i < 32; i++)
+        {
+        printf(" [%d]={%d}", i, getFunc[i]);
+        if ((i + 1) % 8 == 0)
+        {
+            printf("\n");
+        } 
+        else if (i < 31)
+        {
+            printf(", ");
+        }
+        }
+    }
+    // ========== 4. Attiva mano destra ==========
+    ret = robot.SetDexterousHandsAct(id, 1);
+    printf("SetDexterousHandsAct(attivazione) rtn %d\n", ret);
+    if (ret != 0)
+    {
+        printf("Attivazione fallita, test interrotto");
+        return -1;
+    }
+    // ========== 5. Movimento iniziale a 20° (invia valori di posizione e coppia tramite comando Move) ==========
+    memset(pos, 0, sizeof(pos));
+    pos[0] = 20;
+    pos[1] = 20;
+    pos[2] = 20;
+    pos[3] = 20;
+    ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+    printf("Movimento iniziale a 20° -> %d\n", ret);
+    robot.Sleep(5000);
+    // ========== 6. Movimento alternato 10 volte (10° ↔ 50°) ==========
+    printf("Avvio 10 movimenti alternati...");
+    for (int iteration = 1; iteration <= 10; iteration++)
+    {
+        robot.MoveJ(&j1, 0, 0, 100, 100, 100, &epos, -1, 0, &offset_pos);
+        memset(pos, 0, sizeof(pos));
+        pos[0] = 10;
+        pos[1] = 10;
+        pos[2] = 10;
+        pos[3] = 10;
+        ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+        printf("Movimento a 10° -> %d\n", ret);
+        robot.Sleep(1000);
+        robot.MoveJ(&j2, 0, 0, 100, 100, 100, &epos, -1, 0, &offset_pos);
+        memset(pos, 0, sizeof(pos));
+        pos[0] = 50;
+        pos[1] = 50;
+        pos[2] = 50;
+        pos[3] = 50;
+        ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+        printf("Movimento a 50° -> %d\n", ret);
+        robot.Sleep(1000);
+    }
+    printf("Test completato (impostazione/lettura interruttori funzione + attivazione + 10 movimenti alternati).");
+    return 0;
+    }    

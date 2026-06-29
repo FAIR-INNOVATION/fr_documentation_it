@@ -12,8 +12,7 @@ Impostazione Caricamento Automatico Programma Lavoro Predefinito all'Accensione
     /**
     * @brief  Imposta il caricamento automatico del programma lavoro predefinito all'accensione
     * @param  [in] flag  0-Non carica automaticamente il programma predefinito all'accensione, 1-Carica automaticamente il programma predefinito all'accensione
-    * @param  [in] program_name Nome e percorso del programma lavoro, es. "/fruser/movej.lua", dove "/fruser/" è il percorso fisso per QX, "/usr/local/etc/controller/lua/" è il percorso fisso per LA
-    * @return  Codice errore
+    * @param  [in] program_name Nome e percorso del programma lavoro, es. "movej.lua"
     */
     int LoadDefaultProgConfig(int flag, String program_name);
 
@@ -24,7 +23,7 @@ Caricamento Programma Lavoro Specificato
 
     /**
     * @brief  Carica il programma lavoro specificato
-    * @param  [in] program_name Nome e percorso del programma lavoro, es. "/fruser/movej.lua", dove "/fruser/" è il percorso fisso per QX, "/usr/local/etc/controller/lua/" è il percorso fisso per LA
+    * @param  [in] program_name Nome e percorso del programma lavoro, es. "movej.lua"
     * @return  Codice errore
     */
     int ProgramLoad(String program_name);
@@ -36,7 +35,7 @@ Ottenimento Nome Programma Lavoro Caricato
 
     /**
     * @brief  Ottiene il nome del programma lavoro caricato
-    * @param  [out] program_name program_name[0]: Nome e percorso del programma lavoro, es. "/fruser/movej.lua", dove "/fruser/" è il percorso fisso per QX, "/usr/local/etc/controller/lua/" è il percorso fisso per LA
+    * @param  [out] program_name program_name[0]: Nome e percorso del programma lavoro, es. "movej.lua"
     * @return  Codice errore
     */
     int GetLoadedProgram(String[] program_name);
@@ -116,7 +115,7 @@ Esempio di Codice per Operazioni Programmi LUA Robot
 
     public static int TestLuaOp(Robot robot)
     {
-        String program_name = "/fruser/Text1.lua";
+        String program_name = "Text1.lua";
         String[] loaded_name = new String[]{""};
         int[] state = new int[]{0};
         List<Integer> line = new ArrayList<>();

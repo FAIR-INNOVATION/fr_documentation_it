@@ -495,7 +495,7 @@ Rilevamento Input Comunicazione Nastro Trasportatore
     * @param [in] timeout Tempo attesa timeout ms
     * @return Codice errore
     */
-    int ConveyorComDetect(int timeout);
+    public int ConveyorComDetect(int timeout)
 
 Trigger Rilevamento Input Comunicazione Nastro Trasportatore
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -598,62 +598,48 @@ Esempio Programma Operazioni Nastro Trasportatore Robot
     :linenos:
 
     private void btnConvert_Click(object sender, EventArgs e)
-        {
-        Robot robot = new Robot();
-        robot.RPC("192.168.58.2");
-        DescPose pos1 = new DescPose(0, 0, 0, 0 ,0 ,0);
-        DescPose pos2 = new DescPose(0, 0, 0, 0, 0, 0);
+    {
+        // Conveyor belt tracking
+        DescPose pos1 = new DescPose(-354.549, 63.914, 270.176, -179.679, -0.134, 2.468);
+        DescPose pos2 = new DescPose(-351.203, -213.393, 351.054, -179.932, -0.508, 2.472);
 
-        pos1.tran.x = -351.175;
-        pos1.tran.y = 3.389;
-        pos1.tran.z = 431.172;
-        pos1.rpy.rx = -179.111;
-        pos1.rpy.ry = -0.241;
-        pos1.rpy.rz = 90.388;
-
-        pos2.tran.x = -333.654;
-        pos2.tran.y = -229.003;
-        pos2.tran.z = 404.335;
-        pos2.rpy.rx = -179.139;
-        pos2.rpy.ry = -0.779;
-        pos2.rpy.rz = 91.269;
-        int rtn = -1;
-
-        double[] cmp = new double[3] { 0, 9.99, 0};
-        rtn = robot.ConveyorCatchPointComp(cmp);
-        if(rtn != 0)
+        double[] cmp = { 0.0, 0.0, 0.0 };
+        int rtn = robot.ConveyorCatchPointComp(cmp); // Set conveyor pick-up point compensation
+        if (rtn != 0)
         {
             return;
         }
-        Console.WriteLine($"ConveyorCatchPointComp: rtn  {rtn}");
+        Console.WriteLine("ConveyorCatchPointComp: rtn  " + rtn);
 
-        rtn = robot.MoveCart(pos1, 0, 0, 100.0f, 180.0f, 100.0f, -1.0f, -1);
-        Console.WriteLine($"MoveCart: rtn  {rtn}");
+        rtn = robot.MoveCart(pos1, 1, 0, (float)30.0, (float)180.0, (float)100.0, (float)-1.0, -1);
+        Console.WriteLine("MoveCart: rtn  " + rtn);
 
-        rtn = robot.ConveyorIODetect(10000);
-        Console.WriteLine($"ConveyorIODetect: rtn  {rtn}");
+        rtn = robot.ConveyorIODetect(10000); // Conveyor workpiece I/O detection
+        Console.WriteLine("ConveyorIODetect: rtn   " + rtn);
 
-        robot.ConveyorGetTrackData(1);
-        rtn = robot.ConveyorTrackStart(1);
-        Console.WriteLine($"ConveyorTrackStart: rtn  {rtn}");
+        robot.ConveyorGetTrackData(1); // Configure conveyor tracking for picking
+        rtn = robot.ConveyorTrackStart(1); // Start tracking
+        Console.WriteLine("ConveyorTrackStart: rtn  " + rtn);
 
-        rtn = robot.ConveyorTrackMoveL("cvrCatchPoint", 0, 0, 100.0f, 0.0f, 100.0f, -1.0f, 0, 0);
-        Console.WriteLine($"ConveyorTrackMoveL: rtn  {rtn}");
+        rtn = robot.ConveyorTrackMoveL("cvrCatchPoint", 1, 0, (float)100.0, (float)0.0, (float)100.0, (float)-1.0, 0, 0);
+        Console.WriteLine("ConveyorTrackMoveL: rtn  " + rtn);
 
-        rtn = robot.MoveGripper(1, 59, 43, 21, 30000, 0);
-        Console.WriteLine($"MoveGripper: rtn  {rtn}");
+        rtn = robot.MoveGripper(2, 30, 60, 30, 30000, 0, 0, 0, 50, 50);
+        Console.WriteLine("ConveyorTrackMoveL: rtn  " + rtn);
+            
 
-        rtn = robot.ConveyorTrackMoveL("cvrRaisePoint", 0, 0, 100.0f, 0.0f, 100.0f, -1.0f, 0, 0);
-        Console.WriteLine($"ConveyorTrackMoveL: rtn  {rtn}");
+        rtn = robot.ConveyorTrackMoveL("cvrRaisePoint", 1, 0, (float)100.0, (float)0.0, (float)100.0, (float)-1.0, 0, 0);
+        Console.WriteLine("ConveyorTrackMoveL: rtn   " + rtn);
 
-        rtn = robot.ConveyorTrackEnd();
-        Console.WriteLine($"ConveyorTrackEnd: rtn  {rtn}");
+        rtn = robot.ConveyorTrackEnd(); // Stop conveyor tracking
+        Console.WriteLine("ConveyorTrackEnd: rtn  " + rtn);
 
-        rtn = robot.MoveCart(pos2, 0, 0, 100.0f, 180.0f, 100.0f, -1.0f, -1);
-        Console.WriteLine($"MoveCart: rtn  {rtn}");
+        rtn = robot.MoveCart(pos2, 1, 0, (float)30.0, (float)180.0, (float)100.0, (float)-1.0, -1);
+        Console.WriteLine("MoveCart: rtn  " + rtn);
 
-        rtn = robot.MoveGripper(1, 100, 43, 21, 30000, 0);
-        Console.WriteLine($"MoveGripper: rtn  {rtn}");
+        rtn = robot.MoveGripper(2, 100, 60, 30, 30000, 0,0,0,50,50);
+        Console.WriteLine("MoveGripper: rtn  " + rtn);
+
     }
 
 Configurazione Sensore Estremità
@@ -850,73 +836,84 @@ Ottenere Stato Abilitazione Esecuzione LUA Estremità
     */
     int GetAxleLuaEnableStatus(ref int status);
 
-Impostare Tipo Dispositivi Estremità Abilitati LUA Estremità
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta i tipi di dispositivo abilitati per l'end-effector LUA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Impostare Tipo Dispositivi Estremità Abilitati LUA Estremità
-    * @param [in] forceSensorEnable Stato abilitazione sensore forza, 0-non abilitato; 1-abilitato
-    * @param [in] gripperEnable Stato abilitazione pinza, 0-non abilitato; 1-abilitato
-    * @param [in] IOEnable Stato abilitazione dispositivo IO, 0-non abilitato; 1-abilitato
-    * @return   Codice errore
+    * @brief Imposta i tipi di dispositivo abilitati per l'end-effector LUA
+    * @param [in] forceSensorEnable Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    * @param [in] gripperEnable Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    * @param [in] IOEnable Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    * @param [in] dexhandEnable Stato abilitazione mano destra, 0-disabilitato; 1-abilitato
+    * @return  Codice errore
     */
-    int SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable);
+    public int SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable, int dexhandEnable)
 
-Ottenere Tipo Dispositivi Estremità Abilitati LUA Estremità
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i tipi di dispositivo abilitati per l'end-effector LUA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Ottenere Tipo Dispositivi Estremità Abilitati LUA Estremità
-    * @param [out] forceSensorEnable Stato abilitazione sensore forza, 0-non abilitato; 1-abilitato
-    * @param [out] gripperEnable Stato abilitazione pinza, 0-non abilitato; 1-abilitato
-    * @param [out] IOEnable Stato abilitazione dispositivo IO, 0-non abilitato; 1-abilitato
-    * @return   Codice errore
+    * @brief Ottiene i tipi di dispositivo abilitati per l'end-effector LUA
+    * @param [out] forceSensorEnable Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    * @param [out] gripperEnable Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    * @param [out] IOEnable Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    * @param [out] dexhandEnable Stato abilitazione mano destra, 0-disabilitato; 1-abilitato
+    * @return  Codice errore
     */
-    int GetAxleLuaEnableDeviceType(ref int forceSensorEnable, ref int gripperEnable, ref int IOEnable);
+    public int GetAxleLuaEnableDeviceType(ref int forceSensorEnable, ref int gripperEnable, ref int IOEnable, ref int dexhandEnable)
 
-Ottenere Dispositivi Estremità Configurati Correntemente
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i dispositivi dell'end-effector attualmente configurati
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Ottenere Dispositivi Estremità Configurati Correntemente
-    * @param [out] forceSensorEnable Numero dispositivo sensore forza abilitato 0-non abilitato; 1-abilitato
-    * @param [out] gripperEnable Numero dispositivo pinza abilitato, 0-non abilitato; 1-abilitato
-    * @param [out] IODeviceEnable Numero dispositivo IO abilitato, 0-non abilitato; 1-abilitato
-    * @return   Codice errore
+    * @brief Ottiene i dispositivi dell'end-effector attualmente configurati
+    * @param [out] forceSensorEnable Numero dispositivo sensore di forza abilitato, 0-disabilitato; 1-abilitato
+    * @param [out] gripperEnable Numero dispositivo pinza abilitato, 0-disabilitato; 1-abilitato
+    * @param [out] IODeviceEnable Numero dispositivo IO abilitato, 0-disabilitato; 1-abilitato
+    * @param [out] decHandEnable Numero dispositivo mano destra abilitato, 0-disabilitato; 1-abilitato
+    * @return  Codice errore
     */
-    int GetAxleLuaEnableDevice(ref int[] forceSensorEnable, ref int[] gripperEnable, ref int[] IODeviceEnable);
+    public int GetAxleLuaEnableDevice(ref int[] forceSensorEnable, ref int[] gripperEnable, ref int[] IODeviceEnable, ref int[] decHandEnable)
 
-Impostare Funzione Controllo Azione Pinza Abilitata
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta le funzioni di controllo azione pinza abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Impostare Funzione Controllo Azione Pinza Abilitata
+    * @brief Imposta le funzioni di controllo azione pinza abilitate
     * @param [in] id Numero dispositivo pinza
-    * @param [in] func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
-    * @return   Codice errore
+    * @param [in] func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; func[2]-impostazione posizione; func[3]-impostazione velocità; func[4]-impostazione coppia; func[6]-lettura stato pinza;
+        func[7]-lettura stato inizializzazione; func[8]-lettura codice guasto; func[9]-lettura posizione; func[10]-lettura velocità; func[11]-lettura coppia; func[12]-impostazione giri per pinza rotante;
+        func[13]-impostazione velocità rotazione pinza rotante; func[14]-impostazione coppia rotazione pinza rotante; func[15]-lettura stato pinza rotante; func[16]-lettura stato inizializzazione pinza rotante;
+        func[17]-lettura giri pinza rotante; func[18]-lettura velocità pinza rotante; func[19]-lettura coppia pinza rotante; func[20]-impostazione movimento sincrono multiasse; func[21]-comando clear guasti;
+        func[22]-stato funzionamento singolo asse; func[23]-stato funzionamento tutti gli assi;
+    * @return  Codice errore
     */
-    int SetAxleLuaGripperFunc(int id, int[] func);
+    public int SetAxleLuaGripperFunc(int id, int[] func)
 
-Ottenere Funzione Controllo Azione Pinza Abilitata
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene le funzioni di controllo azione pinza abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
     :linenos:
 
     /**
-    * @brief Ottenere Funzione Controllo Azione Pinza Abilitata
+    * @brief Ottiene le funzioni di controllo azione pinza abilitate
     * @param [in] id Numero dispositivo pinza
-    * @param [out] func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
-    * @return   Codice errore
+    * @param [out] func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; func[2]-impostazione posizione; func[3]-impostazione velocità; func[4]-impostazione coppia; func[6]-lettura stato pinza;
+        func[7]-lettura stato inizializzazione; func[8]-lettura codice guasto; func[9]-lettura posizione; func[10]-lettura velocità; func[11]-lettura coppia; func[12]-impostazione giri per pinza rotante;
+        func[13]-impostazione velocità rotazione pinza rotante; func[14]-impostazione coppia rotazione pinza rotante; func[15]-lettura stato pinza rotante; func[16]-lettura stato inizializzazione pinza rotante;
+        func[17]-lettura giri pinza rotante; func[18]-lettura velocità pinza rotante; func[19]-lettura coppia pinza rotante; func[20]-impostazione movimento sincrono multiasse; func[21]-comando clear guasti;
+        func[22]-stato funzionamento singolo asse; func[23]-stato funzionamento tutti gli assi;
+    * @return  Codice errore
     */
-    int GetAxleLuaGripperFunc(int id, ref int[] func);
+    public int GetAxleLuaGripperFunc(int id, ref int[] func)
 
 Scrittura File Slave Robot Ethercat
 +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -963,7 +960,7 @@ Esempio Codice Operazioni File LUA Estremità Robot
     private void button41_Click(object sender, EventArgs e)
     {
         ROBOT_STATE_PKG pkg = new ROBOT_STATE_PKG();
-        robot.AxleLuaUpload("D://zUP/AXLE_LUA_End_JunDuo_Xinjingcheng.lua");
+        robot.AxleLuaUpload("D://zUP/AXLE_LUA_End_JunDuo_V0.4_20260602.lua");
 
         AxleComParam param = new AxleComParam(7, 8, 1, 0, 5, 3, 1);
         robot.SetAxleCommunicationParam(param);
@@ -977,22 +974,25 @@ Esempio Codice Operazioni File LUA Estremità Robot
         robot.SetAxleLuaEnable(1);
         int luaEnableStatus = 0;
         robot.GetAxleLuaEnableStatus(ref luaEnableStatus);
-        robot.SetAxleLuaEnableDeviceType(0, 1, 0);
+        robot.SetAxleLuaEnableDeviceType(0, 1, 0, 0);
 
         int forceEnable = 0;
         int gripperEnable = 0;
         int ioEnable = 0;
-        robot.GetAxleLuaEnableDeviceType(ref forceEnable, ref gripperEnable, ref ioEnable);
+        int dexhandEnable = 0;
+        robot.GetAxleLuaEnableDeviceType(ref forceEnable, ref gripperEnable, ref ioEnable, ref dexhandEnable);
         Console.WriteLine("GetAxleLuaEnableDeviceType param is {0} {1} {2}", forceEnable, gripperEnable, ioEnable);
 
-        int[] func = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        int[] func = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         robot.SetAxleLuaGripperFunc(1, func);
-        int[] getFunc = new int[16];
+
+        int[] getFunc = new int[32];
         robot.GetAxleLuaGripperFunc(1, ref getFunc);
         int[] getforceEnable = new int[16];
         int[] getgripperEnable = new int[16];
         int[] getioEnable = new int[16];
-        robot.GetAxleLuaEnableDevice(ref getforceEnable, ref getgripperEnable, ref getioEnable);
+        int[] dexhandEnable1 = new int[16];
+        robot.GetAxleLuaEnableDevice(ref getforceEnable, ref getgripperEnable, ref getioEnable,ref dexhandEnable1);
         Console.WriteLine("\ngetforceEnable status : ");
         foreach (int i in getforceEnable)
         {
@@ -1010,10 +1010,10 @@ Esempio Codice Operazioni File LUA Estremità Robot
         }
         Console.WriteLine();
         robot.ActGripper(1, 0);
-        Thread.Sleep(2000);
+        Thread.Sleep(3000);
         robot.ActGripper(1, 1);
-        Thread.Sleep(2000);
-        robot.MoveGripper(1, 90, 10, 100, 50000, 0, 0, 0, 0, 0);
+        Thread.Sleep(4000);
+        robot.MoveGripper(1, 50, 10, 100, 50000, 0, 0, 0, 0, 0);
         int pos = 0;
         while (true)
         {
@@ -1021,7 +1021,7 @@ Esempio Codice Operazioni File LUA Estremità Robot
             Console.WriteLine("gripper pos is " + pkg.gripper_position);
             Thread.Sleep(100);
         }
-    }
+    } 
 
 Ottenere Stato Pulsante SmartTool
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1956,3 +1956,185 @@ Esempio di Codice SDK per Operazioni su File Lua di Protocollo Aperto
 
         return 0;
     }
+
+Controllo del movimento della mano destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:    
+
+    /**
+    * @brief  Controllo del movimento della mano destra
+    * @param  [in] idstart  Numero stazione slave iniziale
+    * @param  [in] slaveNum  Numero di slave
+    * @param  [in] pos[16]  Posizione (-360~360) 
+    * @param  [in] speed[16]  Percentuale velocità, intervallo [0~100]
+    * @param  [in] force[16]  Percentuale coppia, intervallo [0~100]
+    * @param  [in] max_time  Tempo massimo di attesa, intervallo [0~30000], unità ms
+    * @return  Codice errore
+    */
+    public int SetDexterousHandsMove(int idstart, int slaveNum, double[] pos, int[] speed, int[] force, int max_time)
+    
+Controllo del reset e attivazione della mano destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:   
+
+    /**
+    * @brief  Controllo del reset e attivazione della mano destra
+    * @param  [in] id  Numero stazione slave
+    * @param  [in] act  0-reset 1-attivazione
+    * @return  Codice errore
+    */
+    public int SetDexterousHandsAct(int id, int act)
+
+Cancellazione degli errori della mano destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:   
+
+    /**
+    * @brief  Cancellazione degli errori della mano destra
+    * @return  Codice errore
+    */
+    public int ClearDexterousHandsError()
+    
+Impostazione delle funzioni di controllo azione mano destra abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:   
+
+    /**
+    * @brief Imposta le funzioni di controllo azione mano destra abilitate
+    * @param [in] id Numero stazione slave della mano destra
+    * @param [in] func 0-attivazione presa, 1-inizializzazione pinza, 2-impostazione posizione, 3-impostazione velocità, 4-impostazione coppia, 6-lettura stato pinza, 7-lettura stato inizializzazione, 8-lettura codice guasto, 9-lettura posizione, 10-lettura velocità, 11-lettura coppia, 12-impostazione giri rotazione, 13-impostazione velocità rotazione, 14-impostazione coppia rotazione, 15-lettura stato pinza rotante, 16-lettura stato inizializzazione rotazione, 17-lettura giri rotazione, 18-lettura velocità rotazione, 19-lettura coppia rotazione, 20-impostazione movimento sincrono multiasse, 21-comando clear guasti, 22-stato funzionamento singolo asse, 23-stato funzionamento tutti gli assi
+    * @return  Codice errore
+    */
+    public int SetDexterousHandsFunc(int id, int[] func)
+    
+Ottenimento delle funzioni di controllo azione mano destra abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:   
+
+    /**
+    * @brief Ottiene le funzioni di controllo azione mano destra abilitate
+    * @param [in] id Numero dispositivo mano destra
+    * @param [out] func 0-attivazione presa, 1-inizializzazione pinza, 2-impostazione posizione, 3-impostazione velocità, 4-impostazione coppia, 6-lettura stato pinza, 7-lettura stato inizializzazione, 8-lettura codice guasto, 9-lettura posizione, 10-lettura velocità, 11-lettura coppia, 12-impostazione giri rotazione, 13-impostazione velocità rotazione, 14-impostazione coppia rotazione, 15-lettura stato pinza rotante, 16-lettura stato inizializzazione rotazione, 17-lettura giri rotazione, 18-lettura velocità rotazione, 19-lettura coppia rotazione, 20-impostazione movimento sincrono multiasse, 21-comando clear guasti, 22-stato funzionamento singolo asse, 23-stato funzionamento tutti gli assi
+    * @return  Codice errore
+    */
+    public int GetDexterousHandsFunc(int id, ref int[] func)
+
+Esempio di codice per configurazione e movimento della mano destra sull'end-effector
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:
+    
+    private void button105_Click(object sender, EventArgs e)
+    {
+        int id = 1;               // Numero stazione slave
+        int slaveNum = 4;         // Controlla 4 dita
+        int max_time = 8000;      // Tempo massimo di attesa 8 secondi
+        int[] speed = new int[16]; // Array velocità, tutti 0 significa usa velocità predefinita
+        int[] force = new int[16]; // Array coppia
+
+        // Inizializza array coppia: prime 4 dita impostate al 50%, il resto 0 (valori inviati tramite comando Move)
+        for (int i = 0; i < 16; i++)
+            force[i] = (i < 4) ? 50 : 0;
+
+        // Funzione helper: imposta array posizione (solo prime 4 dita sono efficaci)
+        double[] pos = new double[16];
+        void SetPositions(double v1, double v2, double v3, double v4)
+        {
+            for (int i = 0; i < 16; i++)
+                pos[i] = 0;
+            pos[0] = v1;
+            pos[1] = v2;
+            pos[2] = v3;
+            pos[3] = v4;
+        }
+
+        JointPos j1 = new JointPos(-91.876, -85.920, 109.279, -86.239, -96.664, -28.563);
+        JointPos j2 = new JointPos(-40.954, -85.920, 109.279, -86.239, -96.664, -28.563);
+        ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
+        DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+
+        Console.WriteLine("===== Test completo funzionalità mano destra avviato =====");
+
+        // 1. Cancella errore
+        int ret = robot.ClearDexterousHandsError();
+        Console.WriteLine($"ClearDexterousHandsError -> {ret}");
+
+        // ========== 2. Imposta interruttori funzione ==========
+        int[] setFunc = new int[32];
+        setFunc[2] = 1;   // Abilita funzione impostazione posizione
+        setFunc[4] = 1;   // Abilita funzione impostazione coppia
+        setFunc[9] = 1;   // Lettura posizione
+        setFunc[10] = 1;  // Lettura coppia
+        setFunc[11] = 1;  // Lettura stato
+        setFunc[22] = 1;  // Stato movimento singolo asse
+
+        ret = robot.SetDexterousHandsFunc(id, setFunc);
+        Console.WriteLine($"SetDexterousHandsFunc(abilitazione init + funzioni posizione/coppia) -> {ret}");
+
+        // ========== 3. Legge stato funzione (verifica che le impostazioni siano state applicate) ==========
+        int[] getFunc = new int[32];  // GetDexterousHandsFunc restituisce 32 interi
+        ret = robot.GetDexterousHandsFunc(id, ref getFunc);
+        Console.WriteLine($"GetDexterousHandsFunc -> {ret}");
+        if (ret == 0)
+        {
+            // Stampa tutti i 32 valori
+            Console.WriteLine("Tutti i 32 valori restituiti da GetDexterousHandsFunc:");
+            for (int i = 0; i < getFunc.Length; i++)
+            {
+                Console.Write($"  [{i}]={getFunc[i]}");
+                if ((i + 1) % 8 == 0)
+                    Console.WriteLine();          // Nuova riga ogni 8 elementi
+                else if (i < getFunc.Length - 1)
+                    Console.Write(", ");
+            }
+            if (getFunc.Length % 8 != 0)
+                Console.WriteLine();              // Aggiunge nuova riga se l'ultima riga ha meno di 8 elementi
+        }
+
+        // ========== 4. Attiva mano destra ==========
+        ret = robot.SetDexterousHandsAct(id, 1);
+        Console.WriteLine($"SetDexterousHandsAct(attivazione) -> {ret}");
+        if (ret != 0)
+        {
+            Console.WriteLine("Attivazione fallita, test interrotto");
+            return;
+        }
+
+        // ========== 5. Movimento iniziale a 20° (invia valori di posizione e coppia tramite comando Move) ==========
+        SetPositions(20, 20, 20, 20);
+        ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+        Console.WriteLine($"Movimento iniziale a 20° -> {ret}");
+        robot.Sleep(5000);
+
+        // ========== 6. Movimento alternato 10 volte (10° ↔ 50°) ==========
+        Console.WriteLine("Avvio 10 movimenti alternati...");
+        for (int iteration = 1; iteration <= 10; iteration++)
+        {
+            robot.MoveJ(j1, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+
+            SetPositions(10, 10, 10, 10);
+            ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+            Console.WriteLine($"[{iteration}] Movimento a 10° -> {ret}");
+            robot.Sleep(1000);
+
+            robot.MoveJ(j2, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+
+            SetPositions(50, 50, 50, 50);
+            ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+            Console.WriteLine($"[{iteration}] Movimento a 50° -> {ret}");
+            robot.Sleep(1000);
+        }
+
+        Console.WriteLine("Test completato (impostazione/lettura interruttori funzione + attivazione + 10 movimenti alternati).");
+    }    

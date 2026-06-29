@@ -923,4 +923,4 @@ Abilita Funzione di Compensazione Coppia e Coefficienti di Compensazione
     * @param  torqueCoeff Coefficienti di compensazione coppia J1-J6 [0-1]
     * @return Codice di errore
     */
-    public int SerCoderCompenParams(int status, double[] torqueCoeff)
+    public int SetCoderCompenParams(int status, double[] torqueCoeff)

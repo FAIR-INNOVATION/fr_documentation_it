@@ -513,7 +513,7 @@ Esempio di Codice per Impostare il Reset dell'Uscita del Programma LUA dopo Stop
     robot.SetOutputResetExtDO(resetFlag, resumeReloadFlag);
     robot.SetOutputResetExtAO(resetFlag, resumeReloadFlag);
     robot.SetOutputResetSmartToolDO(resetFlag, resumeReloadFlag);
-    robot.ProgramLoad("/fruser/test.lua");
+    robot.ProgramLoad("test.lua");
     robot.ProgramRun();
     robot.Sleep(2000);
     robot.PauseMotion();

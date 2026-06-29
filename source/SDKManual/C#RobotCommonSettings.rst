@@ -1216,9 +1216,8 @@ Ottieni il coefficiente di feedforward della velocità per ciascun asse
     */
     public int GetVelFeedForwardRatio(ref double radio[6]);
 
-Esempio di codice per ottenere il coefficiente di feedforward della velocità
+Esempio di codice per impostare il feedforward di velocità del robot
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C#SDK-V1.1.9  Web-3.8.7
     
 .. code-block:: c#
     :linenos:
@@ -1315,8 +1314,7 @@ Calibrazione TCP Sensore Foto-elettrico
 
     /**
     * @brief Calibrazione TCP Sensore Foto-elettrico
-    * @param [in] luaPath Percorso programma Lua per calibrazione automatica: Per robot versione QX - "/fruser/FR_CalibrateTheToolTcp.lua"; Per robot versione LA - "/usr/local/etc/controller/lua/FR_CalibrateTheToolTcp.lua"
-    * @param [in] offsetX Offset punto di insegnamento (x, y, z) in mm
+    * @param [in] luaPath Percorso programma Lua per calibrazione automatica: "FR_CalibrateTheToolTcp.lua"
     * @param [out] TCP Sistema di coordinate dello strumento calibrato (x, y, z, rx, ry, rz)
     * @return Codice di errore
     */
@@ -1333,8 +1331,21 @@ Esempio Codice Calibrazione TCP Sensore Foto-elettrico
         ROBOT_STATE_PKG pkg =new ROBOT_STATE_PKG();
         DescTran offset = new DescTran( 10.0, 10.0, 3.0 );
         DescPose TCP = new DescPose();
-        int rtn = robot.PhotoelectricSensorTCPCalibration("/fruser/FR_CalibrateTheToolTcp.lua", offset, out TCP);
+        int rtn = robot.PhotoelectricSensorTCPCalibration("FR_CalibrateTheToolTcp.lua", offset, out TCP);
         Console.WriteLine($"PhotoelectricSensorTCPCalibration : {rtn}");
         Console.WriteLine($"Coordinate TCP Strumento: X={TCP.tran.x:F3}, Y={TCP.tran.y:F3}, Z={TCP.tran.z:F3}");
         Console.WriteLine($"Orientazione RPY Strumento: RX={TCP.rpy.rx:F3}, RY={TCP.rpy.ry:F3}, RZ={TCP.rpy.rz:F3}");
     }
+
+Imposta la Velocità Globale in Tempo Reale
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Imposta la velocità globale in tempo reale
+    * @param [in] vel Percentuale di velocità, intervallo [0~100]
+    * @return Codice errore
+    */
+    public int SetWeaveOffsetRT(DescPose offset)

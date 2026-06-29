@@ -397,14 +397,14 @@ Tipo Struttura Feedback Stato Robot
         public int ft_sensor_active;                // Stato attivazione sensore di forza
         public int EmergencyStop;                   // Stato arresto di emergenza
         public int motion_done;                     // Movimento completato
-        public int gripper_motiondone;              // Movimento pinza completato
+        public int gripper_motiondone;              // Segnale di completamento movimento pinza, 0-non completato, 1-completato (nessun oggetto rilevato), 2-movimento completato (oggetto rilevato)
         public int mc_queue_len;                    // Lunghezza coda movimenti
         public int collisionState;                  // Stato collisione
         public int trajectory_pnum;                 // Numero sequenza punto traiettoria
         public int safety_stop0_state;              // Stato arresto di sicurezza 0
         public int safety_stop1_state;              // Stato arresto di sicurezza 1
         public int gripper_fault_id;                // ID guasto pinza
-        public int gripper_fault;                   // Guasto pinza
+        public int gripper_fault;                   // Guasto pinza 0-nessun guasto 1-timeout 485 2-errore comando 3-caduta pezzo Altro-codice guasto pinza
         public int gripper_active;                  // Attivazione pinza
         public int gripper_position;                // Posizione pinza
         public int gripper_speed;                   // Velocità pinza

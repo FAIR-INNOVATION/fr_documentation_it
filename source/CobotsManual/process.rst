@@ -286,6 +286,111 @@ Programma di Insegnamento Saldatura con Adattamento Postura, Asse Esteso e Tracc
      - LTTrackOff
      - #Disattivazione tracciamento laser
 
+Funzione di Oscillazione con Transizione Lineare ad Arco con Nuova Spline
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+La funzione di transizione lineare ad arco con nuova spline combinata con oscillazione è una combinazione della funzione di transizione lineare ad arco con nuova spline del robot e della funzione di oscillazione, consentendo al robot di eseguire movimenti oscillanti di tipo "oscillazione a onda triangolare", "oscillazione a onda triangolare a L verticale", "oscillazione triangolare per saldatura verticale", "oscillazione a onda sinusoidale" e "oscillazione a onda sinusoidale a L verticale" durante il processo di transizione lineare ad arco con nuova spline.
+
+Procedura Operativa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**Step1**: Calibrare il sistema di coordinate dell'utensile del robot tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento al capitolo corrispondente del manuale utente.
+
+**Step2**: Insegnare non meno di 4 punti tramite WebApp. Nota: la distanza tra i punti dovrebbe essere uniforme per ottenere i migliori risultati.
+
+**Step3**: Impostare i parametri di oscillazione. Nell'interfaccia principale di WebApp, fare clic su "Programma di Insegnamento" -> "Programmazione" per entrare nell'area "Istruzioni di Movimento".
+
+.. figure:: process/073.png
+   :align: center
+   :width: 4in
+   
+.. centered:: Figura 15.1‑23 Area "Istruzioni di Movimento"
+  
+Nell'area "Istruzioni di Movimento", fare clic sul pulsante "Oscillazione" per entrare nell'interfaccia di configurazione "Weave". Nell'area "Modifica Istruzioni", selezionare il numero del processo dal menu a discesa "Seleziona Numero", fare clic su "Modifica" per accedere alla configurazione dei parametri del processo di oscillazione. Dopo la configurazione, fare clic su "Configura" per salvare il numero del processo.
+
+.. figure:: process/074.png
+   :align: center
+   :width: 6in
+   
+.. centered:: Figura 15.1‑24 Impostazione dei Parametri del Processo di Oscillazione
+ 
+.. note:: La funzione di transizione lineare ad arco con nuova spline combinata con oscillazione è attualmente applicabile ai tipi "oscillazione a onda triangolare", "oscillazione a onda triangolare a L verticale", "oscillazione triangolare per saldatura verticale", "oscillazione a onda sinusoidale" e "oscillazione a onda sinusoidale a L verticale". Selezionare "Includi" nel menu a discesa "Tempo di attesa oscillazione" e "Continua movimento durante il tempo di attesa" nel menu a discesa "Attesa posizione oscillazione".
+
+**Step4**: Aggiungere istruzioni di movimento oscillante. Nell'area "Tipo di Istruzione" dell'interfaccia di configurazione "Weave", fare clic su "Avvia Oscillazione" -> "Aggiungi" -> "Ferma Oscillazione" -> "Aggiungi" -> "Applica" per completare le impostazioni del movimento oscillante.
+
+.. figure:: process/075.png
+   :align: center
+   :width: 6in
+   
+.. centered:: Figura 15.1‑25 Impostazioni del Movimento Oscillante
+  
+**Step5**: Aggiungere un'istruzione di transizione lineare ad arco con nuova spline. Nell'area "Istruzioni di Movimento", fare clic sul pulsante "N-Spline" per entrare nell'interfaccia di configurazione "N-Spline". Nell'area "Tipo di Istruzione", fare clic sul pulsante "Inizio traiettoria multi-punto", selezionare "Punto di transizione ad arco" dal menu a discesa "Modalità di Controllo", inserire i parametri nel campo "Tempo di connessione medio globale" e fare clic su "Aggiungi" per completare la configurazione della modalità di movimento con nuova spline.
+
+.. figure:: process/076.png
+   :align: center
+   :width: 6in
+   
+.. centered:: Figura 15.1‑26 Configurazione della Modalità di Movimento con Nuova Spline
+
+.. note:: Il "Tempo di connessione medio globale" si applica alla modalità di controllo "Punto di transizione ad arco". Per le altre modalità, è possibile mantenere le impostazioni predefinite e si consiglia di regolare il valore verso l'alto il più possibile.
+
+Metodi di regolazione:
+
+1. Dividere il tempo totale di movimento per (numero di punti - 1) per ottenere il parametro del tempo di connessione medio globale, con unità di tempo in millisecondi.
+2. Impostare in base al tempo di percorrenza dei due punti con la distanza maggiore durante il movimento completo. Se l'osservazione è scomoda o non è richiesta una transizione fluida della posizione, è possibile impostare il valore predefinito a 10000 millisecondi o regolare verso l'alto.
+
+**Step6**: Aggiungere punti di movimento. Nell'area "Tipo di Istruzione" dell'interfaccia di configurazione "N-Spline", fare clic sul pulsante "Imposta Punto" -> "SPL". Selezionare il punto di movimento dal menu a discesa "Nome Punto", inserire il rapporto di velocità del movimento dell'istruzione nel campo "Velocità di Debug", inserire il parametro del raggio di smussatura nel campo "Raggio di Transizione Smussata", selezionare lo stato del movimento del punto dal menu a discesa "È l'Ultimo Punto" e fare clic su "Aggiungi" per completare la configurazione di un singolo punto di movimento.
+
+.. figure:: process/077.png
+   :align: center
+   :width: 6in
+   
+.. centered:: Figura 15.1‑27 Configurazione dei Punti di Movimento
+ 
+.. note:: Ripetere il Passaggio 6 per completare la configurazione di tutti i punti di movimento e selezionare "Sì" dal menu a discesa "È l'Ultimo Punto" nella configurazione del punto finale.
+
+**Step7**: Completare l'istruzione di transizione lineare ad arco con nuova spline. Nell'area "Tipo di Istruzione" dell'interfaccia di configurazione "N-Spline", fare clic sul pulsante "Fine traiettoria multi-punto", quindi fare clic su "Aggiungi" -> "Applica" per completare la configurazione complessiva dell'istruzione di transizione lineare ad arco con nuova spline.
+
+.. figure:: process/078.png
+   :align: center
+   :width: 6in
+   
+.. centered:: Figura 15.1‑28 Configurazione della Fine del Movimento con Nuova Spline
+  
+**Step8**: Scrivere il programma LUA per la funzione di transizione lineare ad arco con nuova spline + oscillazione. Regolare l'ordine delle istruzioni generate dai Passaggi da 4 a 7. Eseguire il programma LUA per implementare la funzione di transizione lineare ad arco con nuova spline + oscillazione.
+
+.. figure:: process/079.png
+   :align: center
+   :width: 4in
+   
+.. centered:: Figura 15.1‑29 Programma LUA per Transizione Lineare ad Arco con Nuova Spline + Oscillazione
+ 
+.. note:: Prima del punto di movimento iniziale della transizione lineare ad arco con nuova spline, è possibile aggiungere un movimento PTP per garantire che il robot raggiunga il punto di movimento iniziale.
+
+Impostazione della Strategia di Ritorno al Centro per Transizione Lineare ad Arco con Nuova Spline + Oscillazione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Nell'interfaccia principale di WebApp, fare clic su "Applicazioni Ausiliarie" -> "Pacchetto Processo" -> "Database Esperto di Saldatura" per entrare nell'area "Database Esperto di Saldatura".
+
+.. figure:: process/080.png
+   :align: center
+   :width: 6in
+   
+.. centered:: Figura 15.1‑30 Istruzione di Saldatura con Oscillazione a Nuova Spline
+
+Nell'area "Database Esperto di Saldatura", fare clic sul pulsante "Saldatura con Oscillazione a Nuova Spline" per entrare nell'interfaccia di configurazione "Saldatura con Oscillazione a Nuova Spline". Nell'area "Parametri di Saldatura con Oscillazione", selezionare "Nessun ritorno al centro" o "Ritorno al centro con traiettoria estesa" dal menu a discesa "Tipo di Ritorno al Centro dell'Oscillazione", come mostrato nella Figura 3-2. Dopo la selezione, fare clic sul pulsante "Configura" per completare l'impostazione della strategia di ritorno al centro dell'oscillazione.
+
+.. figure:: process/081.png
+   :align: center
+   :width: 4in
+   
+.. centered:: Figura 15.1‑31 Tipo di Ritorno al Centro dell'Oscillazione per Transizione Lineare ad Arco con Nuova Spline
+
+.. note:: Nel menu a discesa "Tipo di Ritorno al Centro dell'Oscillazione", quando si seleziona "Nessun ritorno al centro", il movimento oscillante di transizione ad arco con nuova spline si ferma dopo aver raggiunto il punto finale; quando si seleziona "Ritorno al centro con traiettoria estesa", il movimento oscillante di transizione ad arco con nuova spline continua dopo aver raggiunto il punto finale per garantire che il movimento si fermi al completamento di un ciclo di oscillazione completo.
+
 Configurazione Sistema Pallettizzazione
 -------------------------------------------------------
 

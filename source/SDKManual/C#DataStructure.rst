@@ -217,14 +217,14 @@ Tipo di struttura di feedback dello stato del robot
 
         public byte EmergencyStop;          // Flag arresto emergenza, 0-non premuto, 1-premuto
         public int motion_done;             // Segnale movimento completato, 1-completato, 0-non completato
-        public byte gripper_motiondone;     // Segnale completamento movimento pinza, 1-completato, 0-non completato
+        public byte gripper_motiondone;     // Segnale di completamento movimento pinza, 0-non completato, 1-completato (nessun oggetto rilevato), 2-movimento completato (oggetto rilevato)
         public int mc_queue_len;            // Lunghezza coda comandi movimento
         public byte collisionState;         // Rilevamento collisione, 1-collisione, 0-nessuna collisione
         public int trajectory_pnum;         // Numero punto traiettoria
         public byte safety_stop0_state;     // Segnale stop sicurezza SI0
         public byte safety_stop1_state;     // Segnale stop sicurezza SI1
         public byte gripper_fault_id;       // ID pinza errata
-        public UInt16 gripper_fault;     /* Guasto pinza */
+        public UInt16 gripper_fault;     /* Guasto pinza 0-nessun guasto 1-timeout 485 2-errore comando 3-caduta pezzo Altro-codice guasto pinza */
         public UInt16 gripper_active;    /* Stato attivazione pinza */
         public byte gripper_position;       // Posizione pinza
         public byte gripper_speed;       /* Velocità pinza */

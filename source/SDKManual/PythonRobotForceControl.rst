@@ -1102,7 +1102,7 @@ Abilita Funzione di Compensazione Coppia e Coefficienti di Compensazione
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``SerCoderCompenParams(status, torqueCoeff)``"
+    "Prototipo", "``SetCoderCompenParams(status, torqueCoeff)``"
     "Descrizione", "Abilita Funzione di Compensazione Coppia e Coefficienti di Compensazione"
     "Parametri Obbligatori", "- ``status``：Interruttore, 0-Disabilita; 1-Abilitata
     - ``torqueCoeff``：Coefficienti di compensazione coppia J1-J6 [0-1]"

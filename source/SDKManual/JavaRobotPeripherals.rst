@@ -723,70 +723,82 @@ Ottenere stato abilitazione esecuzione LUA terminale
     */
     int GetAxleLuaEnableStatus(int[] status)
 
-Impostare tipo dispositivo terminale abilitato LUA terminale
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta i tipi di dispositivo abilitati per l'end-effector LUA
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Impostare tipo dispositivo terminale abilitato LUA terminale
-    * @param forceSensorEnable stato abilitazione sensore forza, 0-non abilitare; 1-abilitare
-    * @param gripperEnable stato abilitazione pinza, 0-non abilitare; 1-abilitare
-    * @param IOEnable stato abilitazione dispositivo IO, 0-non abilitare; 1-abilitare
+    * @brief Imposta i tipi di dispositivo abilitati per l'end-effector LUA
+    * @param forceSensorEnable Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    * @param gripperEnable Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    * @param IOEnable Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    * @param dexhandEnable Stato abilitazione mano destra, 0-disabilitato; 1-abilitato
     * @return  Codice errore
     */
-    public int SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable)
+    public int SetAxleLuaEnableDeviceType(int forceSensorEnable, int gripperEnable, int IOEnable, int dexhandEnable)
 
-Ottenere tipo dispositivo terminale abilitato LUA terminale
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i tipi di dispositivo abilitati per l'end-effector LUA
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Ottenere tipo dispositivo terminale abilitato LUA terminale
-     * @param enable enable[0]:forceSensorEnable stato abilitazione sensore forza, 0-non abilitare; 1-abilitare
-     * @param enable enable[1]:gripperEnable stato abilitazione pinza, 0-non abilitare; 1-abilitare
-     * @param enable enable[2]:IOEnable stato abilitazione dispositivo IO, 0-non abilitare; 1-abilitare
+     * @brief Ottiene i tipi di dispositivo abilitati per l'end-effector LUA
+     * @param enable enable[0]:forceSensorEnable Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+     * @param enable enable[1]:gripperEnable Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+     * @param enable enable[2]:IOEnable Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+     * @param enable enable[3]:dexhandEnable Stato abilitazione mano destra, 0-disabilitato; 1-abilitato
      * @return  Codice errore
      */
     public int GetAxleLuaEnableDeviceType(int[] enable)
 
-Ottenere dispositivo terminale configurato attualmente
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i dispositivi dell'end-effector attualmente configurati
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Ottenere dispositivo terminale configurato attualmente
-     * @param forceSensorEnable numero dispositivo abilitazione sensore forza 0-non abilitato; 1-abilitato
-     * @param gripperEnable numero dispositivo abilitazione pinza, 0-non abilitato; 1-abilitato
-     * @param IODeviceEnable numero dispositivo abilitazione IO, 0-non abilitato; 1-abilitato
+     * @brief Ottiene i dispositivi dell'end-effector attualmente configurati
+     * @param forceSensorEnable Numero dispositivo sensore di forza abilitato, 0-disabilitato; 1-abilitato
+     * @param gripperEnable Numero dispositivo pinza abilitato, 0-disabilitato; 1-abilitato
+     * @param IODeviceEnable Numero dispositivo IO abilitato, 0-disabilitato; 1-abilitato
+     * @param dexhandEnable Stato abilitazione mano destra, 0-disabilitato; 1-abilitato
      * @return  Codice errore
      */
-    public int GetAxleLuaEnableDevice(int[] forceSensorEnable, int[] gripperEnable, int[] IODeviceEnable)
+    public int GetAxleLuaEnableDevice(int[] forceSensorEnable, int[] gripperEnable, int[] IODeviceEnable, int[] dexhandEnable)
 
-Impostare abilitazione funzione controllo azione pinza
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Imposta le funzioni di controllo azione pinza abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Impostare abilitazione funzione controllo azione pinza
-     * @param id numero dispositivo pinza
-     * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
+     * @brief Imposta le funzioni di controllo azione pinza abilitate
+     * @param id Numero dispositivo pinza
+     * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; func[2]-impostazione posizione; func[3]-impostazione velocità; func[4]-impostazione coppia; func[6]-lettura stato pinza;
+        func[7]-lettura stato inizializzazione; func[8]-lettura codice guasto; func[9]-lettura posizione; func[10]-lettura velocità; func[11]-lettura coppia; func[12]-impostazione giri per pinza rotante;
+        func[13]-impostazione velocità rotazione pinza rotante; func[14]-impostazione coppia rotazione pinza rotante; func[15]-lettura stato pinza rotante; func[16]-lettura stato inizializzazione pinza rotante;
+        func[17]-lettura giri pinza rotante; func[18]-lettura velocità pinza rotante; func[19]-lettura coppia pinza rotante; func[20]-impostazione movimento sincrono multiasse; func[21]-comando clear guasti;
+        func[22]-stato funzionamento singolo asse; func[23]-stato funzionamento tutti gli assi;
      * @return  Codice errore
      */
     public int SetAxleLuaGripperFunc(int id, int[] func)
 
-Ottenere abilitazione funzione controllo azione pinza
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene le funzioni di controllo azione pinza abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: Java
     :linenos:
 
     /**
-     * @brief Ottenere abilitazione funzione controllo azione pinza
-     * @param id numero dispositivo pinza
-     * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice errore; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia
+     * @brief Ottiene le funzioni di controllo azione pinza abilitate
+     * @param id Numero dispositivo pinza
+     * @param func func[0]-abilitazione pinza; func[1]-inizializzazione pinza; func[2]-impostazione posizione; func[3]-impostazione velocità; func[4]-impostazione coppia; func[6]-lettura stato pinza;
+        func[7]-lettura stato inizializzazione; func[8]-lettura codice guasto; func[9]-lettura posizione; func[10]-lettura velocità; func[11]-lettura coppia; func[12]-impostazione giri per pinza rotante;
+        func[13]-impostazione velocità rotazione pinza rotante; func[14]-impostazione coppia rotazione pinza rotante; func[15]-lettura stato pinza rotante; func[16]-lettura stato inizializzazione pinza rotante;
+        func[17]-lettura giri pinza rotante; func[18]-lettura velocità pinza rotante; func[19]-lettura coppia pinza rotante; func[20]-impostazione movimento sincrono multiasse; func[21]-comando clear guasti;
+        func[22]-stato funzionamento singolo asse; func[23]-stato funzionamento tutti gli assi;
      * @return  Codice errore
      */
     public int GetAxleLuaGripperFunc(int id, int[] func)
@@ -1802,3 +1814,154 @@ Esempio di Codice per Caricamento, Download ed Eliminazione di Protocollo Aperto
         robot.Sleep(1000);
         return 0;
     }
+
+Controllo del Movimento della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Controllo del movimento della mano destra
+    * @param idstart Numero stazione slave iniziale
+    * @param slaveNum Numero di slave
+    * @param pos Array di posizioni, lunghezza 16, intervallo (-360~360)
+    * @param speed Array di percentuali di velocità, lunghezza 16, intervallo [0~100]
+    * @param force Array di percentuali di coppia, lunghezza 16, intervallo [0~100]
+    * @param max_time Tempo massimo di attesa, intervallo [0~30000], unità ms
+    * @return Codice errore
+    */
+    public int SetDexterousHandsMove(int idstart, int slaveNum, double[] pos, int[] speed, int[] force, int max_time) 
+        
+Controllo del Reset e Attivazione della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Controllo del reset e attivazione della mano destra
+    * @param id Numero stazione slave
+    * @param act 0-reset 1-attivazione
+    * @return Codice errore
+    */
+    public int SetDexterousHandsAct(int id, int act)
+            
+Cancellazione dell'Errore della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Cancellazione dell'errore della mano destra
+    * @return Codice errore
+    */
+    public int ClearDexterousHandsError()
+                
+Impostazione delle Funzioni di Controllo Azione Mano Destra Abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Imposta le funzioni di controllo azione mano destra abilitate
+    * @param id Numero stazione slave della mano destra
+    * @param func Array di funzioni, lunghezza 32, Bit0-attivazione presa, Bit1-inizializzazione pinza, Bit2-impostazione posizione, Bit3-impostazione velocità, Bit4-impostazione coppia, Bit6-lettura stato pinza, Bit7-lettura stato inizializzazione, Bit8-lettura codice guasto, Bit9-lettura posizione, Bit10-lettura velocità, Bit11-lettura coppia, Bit12-impostazione giri rotazione, Bit13-impostazione velocità rotazione, Bit14-impostazione coppia rotazione, Bit15-lettura stato pinza rotante, Bit16-lettura stato inizializzazione rotazione, Bit17-lettura giri rotazione, Bit18-lettura velocità rotazione, Bit19-lettura coppia rotazione, Bit20-impostazione movimento sincrono multiasse, Bit21-comando clear guasti, Bit22-stato funzionamento singolo asse, Bit23-stato funzionamento tutti gli assi
+    * @return Codice errore
+    */
+    public int SetDexterousHandsFunc(int id, int[] func)
+                    
+Ottenimento delle Funzioni di Controllo Azione Mano Destra Abilitate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief Ottiene le funzioni di controllo azione mano destra abilitate
+    * @param id Numero dispositivo mano destra
+    * @param func Array di parametri di output, lunghezza 32, Bit0-attivazione presa, Bit1-inizializzazione pinza, Bit2-impostazione posizione, Bit3-impostazione velocità, Bit4-impostazione coppia, Bit6-lettura stato pinza, Bit7-lettura stato inizializzazione, Bit8-lettura codice guasto, Bit9-lettura posizione, Bit10-lettura velocità, Bit11-lettura coppia, Bit12-impostazione giri rotazione, Bit13-impostazione velocità rotazione, Bit14-impostazione coppia rotazione, Bit15-lettura stato pinza rotante, Bit16-lettura stato inizializzazione rotazione, Bit17-lettura giri rotazione, Bit18-lettura velocità rotazione, Bit19-lettura coppia rotazione, Bit20-impostazione movimento sincrono multiasse, Bit21-comando clear guasti, Bit22-stato funzionamento singolo asse, Bit23-stato funzionamento tutti gli assi
+    * @return Codice errore
+    */
+    public int GetDexterousHandsFunc(int id, int[] func)
+                    
+Esempio di Codice per Configurazione e Movimento della Mano Destra sull'End-Effector
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: Java
+    :linenos:
+
+    public static int TestDexterousHands(Robot robot) {
+        int id = 1;
+        int slaveNum = 4;
+        int max_time = 8000;
+        int[] speed = new int[16]; 
+        int[] force = new int[16]; 
+
+        robot.LoggerInit(FrLogType.DIRECT, FrLogLevel.INFO, "D://log", 10, 10);
+        for (int i = 0; i < 16; i++) {
+            force[i] = (i < 4) ? 50 : 0;
+        }
+
+        final double[] pos = new double[16];
+
+        JointPos j1 = new JointPos(-91.876, -85.920, 109.279, -86.239, -96.664, -28.563);
+        JointPos j2 = new JointPos(-40.954, -85.920, 109.279, -86.239, -96.664, -28.563);
+        ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
+        DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+
+        int ret = robot.ClearDexterousHandsError();
+        System.out.println("ClearDexterousHandsError -> " + ret);
+
+        int[] setFunc = new int[32];
+        setFunc[2] = 1;
+        setFunc[4] = 1;
+        setFunc[9] = 1;
+        setFunc[10] = 1;
+        setFunc[11] = 1;
+        setFunc[22] = 1;
+
+        ret = robot.SetDexterousHandsFunc(id, setFunc);
+
+        int[] getFunc = new int[32];
+        ret = robot.GetDexterousHandsFunc(id, getFunc);
+        System.out.println("GetDexterousHandsFunc -> " + ret);
+        if (ret == 0) {
+            for (int i = 0; i < getFunc.length; i++) {
+                System.out.print("  [" + i + "]=" + getFunc[i]);
+                if ((i + 1) % 8 == 0) {
+                    System.out.println();
+                } else if (i < getFunc.length - 1) {
+                    System.out.print(", ");
+                }
+            }
+            if (getFunc.length % 8 != 0) {
+                System.out.println();
+            }
+        }
+
+        ret = robot.SetDexterousHandsAct(id, 1);
+        if (ret != 0) {
+            return ret;
+        }
+
+        setPositions(pos, 20, 20, 20, 20);
+        ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+        robot.Sleep(5000);
+        
+        for (int iteration = 1; iteration <= 10; iteration++) {
+            robot.MoveJ(j1, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+
+            setPositions(pos, 10, 10, 10, 10);
+            ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+            robot.Sleep(1000);
+
+            robot.MoveJ(j2, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
+            setPositions(pos, 50, 50, 50, 50);
+            ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time);
+            robot.Sleep(1000);
+        }
+        return 0;
+    }    

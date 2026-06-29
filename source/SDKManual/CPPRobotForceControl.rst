@@ -1268,4 +1268,4 @@ Abilita funzione compensazione coppia e coefficiente di compensazione
     * @param [in] torqueCoeff Coefficiente compensazione coppia J1-J6 [0-1]
     * @return Codice errore
     */
-    errno_t SerCoderCompenParams(int status, double torqueCoeff[6]);
+    errno_t SetCoderCompenParams(int status, double torqueCoeff[6]);

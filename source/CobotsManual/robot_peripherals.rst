@@ -464,6 +464,122 @@ Pinza rotante
 
 .. note:: Il numero di giri di rotazione è il numero di giri assoluto. Il numero massimo di giri in avanti è 90, il numero massimo di giri all'indietro è 90. Dopo la rotazione, è necessario eseguire un'operazione di reset.
 
+Funzione di Rilevamento Caduta del Pezzo della Pinza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Istruzioni di Configurazione
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Gli utenti possono modificare il protocollo aperto dell'estremità per leggere il valore del registro di allarme caduta della pinza e restituirlo al robot. Quando la pinza imposta questo guasto, il robot attiverà simultaneamente il guasto "Allarme Caduta Pezzo della Pinza".
+
+Prendendo come esempio la pinza Junduo, di seguito è riportato un esempio di aggiunta del rilevamento caduta della pinza al protocollo aperto dell'estremità. Questo codice legge il bit 1 del registro 0x07D0 della pinza. Quando questo bit è impostato a 1, viene attivato il flag di caduta del pezzo e GripState viene assegnato al valore 3 e trasmesso al robot, attivando il guasto "Allarme Caduta Pezzo della Pinza".
+
+Se si incontrano problemi durante la scrittura, contattare la nostra azienda per il supporto tecnico.
+
+.. centered:: Esempio di Aggiunta della Logica di Rilevamento Caduta Pinza Junduo al Protocollo Aperto dell'Estremità
+
+.. code-block:: console
+    :linenos:  
+
+    ……
+    local T5 = {0x01,0x03,0x07,0xD0,0x00,0x01,0x84,0x87}
+    ……
+    if (Rcmd3 == 7) then
+    T5[7], T5[8] = CrcValue(T5[1], T5[2], T5[3], T5[4], T5[5], T5[6])
+    EndTxGripData(T5[1], T5[2], T5[3], T5[4], T5[5], T5[6], T5[7], T5[8])
+    DelayMs(10)
+    a, Rxd1, Rxd2, Rxd3, Rxd4, Rxd5, Rxd6, Rxd7 = EndRxGripData()
+    RxdCrcH, RxdCrcL = CrcValue(Rxd1, Rxd2, Rxd3, Rxd4, Rxd5)
+    if ((a == 8) and (Rxd1 == Rcmd2) and (Rxd2 == 0x03) and (Rxd3 == 0x02) and (Rxd6 == RxdCrcH) and (Rxd7 == RxdCrcL)) then
+    local Fall = ((Rxd5 & 0x02) >> 1)
+    Rxd5 = ((Rxd5 & 0xC0) >> 6)
+    if(Fall == 0)then
+    if (Rxd5 == 0x00) then
+    GripState = 0x00
+    elseif (Rxd5 == 0x03) then
+    GripState = 0x01
+    elseif ((Rxd5 == 0x01) or (Rxd5 == 0x02)) then
+    GripState = 0x02
+    end
+    else
+    GripState = 0x03
+    end
+    GripStateBack(GripState)
+    end
+    end
+
+Basato sul protocollo dell'estremità con la logica di rilevamento caduta aggiunta, andare su "Impostazioni Iniziali" -> "Periferiche" -> "Pinza" per caricare, aggiornare e applicare il protocollo aperto LUA dell'estremità.
+
+.. figure:: robot_peripherals/316.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.2‑13 Caricamento del Protocollo dell'Estremità della Pinza
+
+Dopo il riavvio del robot, la pinza può essere utilizzata normalmente. Se si verifica una caduta del pezzo durante l'uso della pinza, il robot segnalerà "Pezzo della pinza caduto, reimpostare e riattivare la pinza" e il robot interromperà simultaneamente il movimento in corso e il programma LUA in esecuzione.
+
+I codici di guasto principali e secondari delle porte 8083 e 20004 diventeranno 8-3, con il codice di errore della pinza corrispondente pari a 3. Per gli altri codici di errore caricati dalla pinza, il controller aggiungerà 3 al codice di errore originale.
+
+.. figure:: robot_peripherals/317.png
+   :align: center
+   :width: 3in
+
+.. centered:: Figura 8.2‑14 Guasto "Pezzo della Pinza Caduto"
+ 
+È importante notare che dopo aver cancellato questo guasto, l'utente deve inviare manualmente i comandi "Reimposta Pinza" e "Attiva Pinza" per cancellare il flag di caduta nel registro della pinza. Questo può essere fatto tramite pulsanti sulla pagina o comandi LUA; altrimenti, il guasto verrà ancora segnalato all'esecuzione successiva.
+
+.. figure:: robot_peripherals/318.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.2‑15 Reimpostazione e Attivazione della Pinza tramite Pagina
+
+.. figure:: robot_peripherals/319.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.2‑16 Reimpostazione e Attivazione della Pinza tramite Comandi LUA
+
+Inoltre, la pinza Junduo fornisce un registro di soglia di rilevamento caduta all'indirizzo 0x1399, che deve essere modificato scrivendo con il comando 0x10. L'intervallo di modifica è 0~1000. Il protocollo dell'estremità fornito in questo documento può modificare il valore di questo registro. La prima scrittura dopo ogni esecuzione del protocollo scrive questo valore (0x14, modificabile secondo necessità). Un esempio è mostrato di seguito in 2-2. Per informazioni dettagliate sull'uso, consultare il produttore della pinza Junduo.
+
+.. centered:: Esempio di Aggiunta della Modifica della Soglia di Caduta Pinza Junduo al Protocollo Aperto dell'Estremità
+
+.. code-block:: console
+    :linenos:  
+
+    ……
+    local T10 = {0x01,0x10,0x13,0x99,0x00,0x01,0x02,0x00,0x14,0x00,0x00}
+    ……
+    if Set == 0 then
+    T10[10],T10[11]= CrcValue(T10[1],T10[2],T10[3],T10[4],T10[5],T10[6],T10[7],T10[8],T10[9])
+    EndTxGripData(T10[1],T10[2],T10[3],T10[4],T10[5],T10[6],T10[7],T10[8],T10[9],T10[10],T10[11])
+    DelayMs(35)
+    a,Rxd1, Rxd2, Rxd3, Rxd4, Rxd5,Rxd6,Rxd7,Rxd8 = EndRxGripData()
+    Set=1
+    end
+
+Appendice 1: Errori del Controller di Movimento e Metodi di Gestione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. centered:: Tabella dei Codici di Errore del Controller di Movimento
+
+.. list-table:: 
+   :widths: 15 40 100
+   :header-rows: 1
+
+   * - Codice Guasto Principale
+     - Codice Guasto Secondario
+     - Descrizione
+   * - 8-Errore Dispositivo dell'Estremità
+     - 1
+     - Errore timeout movimento pinza, reimpostabile
+   * - 8-Errore Dispositivo dell'Estremità
+     - 2
+     - Timeout comunicazione 485 dell'estremità, reimpostabile
+   * - 8-Errore Dispositivo dell'Estremità
+     - 3
+     - Allarme caduta pezzo della pinza, reimpostabile. Dopo aver cancellato il guasto, reimpostare e riattivare la pinza
+
 Sensore di Forza
 -------------------------
 
@@ -7063,3 +7179,117 @@ Script Lua Scritto per la Testa di Moxibustione DIO Health Care come Esempio
     --***
     LuaGc()
     end
+
+Funzione Mano Destra
+---------------------------------------------------------------------
+
+Panoramica
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Il protocollo aperto LUA dell'estremità aggiunge le seguenti funzioni:
+
+1. Il protocollo aperto LUA dell'estremità si adatta alla mano destra per realizzare il movimento sincrono delle articolazioni della mano destra.
+2. Aggiunta la funzione di invio di comandi sincroni multi-slave per la risposta sincrona di più motori slave.
+
+Configurazione Ambientale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Versione Firmware dell'Estremità: FR_END_FV201013_MAIN_U1_T01_20260407
+
+Versione Software del Robot: V3.9.7 e successive
+
+Istruzioni Operative Relative alla Mano Destra
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Configurazione della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1. Aprire WebApp, andare su Impostazioni Iniziali -> Periferiche -> Mano Destra -> Gestione Protocolli, caricare il file Lua della Mano Destra, selezionare il file caricato e fare clic sul pulsante "Applica". Dopo il messaggio di aggiornamento riuscito, riavviare la scatola di controllo.
+
+.. figure:: robot_peripherals/306.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.19‑1 Gestione Protocolli
+
+2. Aprire WebApp, andare su Impostazioni Iniziali -> Periferiche -> Mano Destra -> Parametri di Comunicazione, configurare i parametri di comunicazione, inclusi baud rate, bit di dati, bit di stop, ecc., e fare clic sul pulsante "Configura" dopo il completamento.
+
+.. figure:: robot_peripherals/307.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.19‑2 Configurazione Parametri di Comunicazione
+
+I parametri dettagliati di comunicazione dell'estremità sono i seguenti:
+
+- **Baud Rate**: Supporta 1-9600, 2-14400, 3-19200, 4-38400, 5-56000, 6-67600, 7-115200, 8-128000; il chip driver Rs485 dell'estremità è 485 a bassa velocità, il baud rate non può superare 200k;
+- **Bit di Dati**: Supporta (8, 9), attualmente 8 è comunemente usato;
+- **Bit di Stop**: 1-1, 2-0.5, 3-2, 4-1.5, attualmente 1 è comunemente usato;
+- **Parità**: 0-None, 1-Odd, 2-Even, attualmente 0 è comunemente usato;
+- **Tempo di Timeout**: 1~1000ms, questo valore deve essere impostato ragionevolmente in combinazione con le periferiche;
+- **Tentativi di Timeout**: 1~10, principalmente per la ritrasmissione in timeout per ridurre le anomalie occasionali e migliorare l'esperienza utente;
+- **Intervallo Comando Periodico**: 1~1000ms, principalmente per l'intervallo di tempo tra ogni invio di comando periodico;
+
+3. Aprire WebApp, andare su Impostazioni Iniziali -> Periferiche -> Mano Destra -> Abilitazione Protocollo Estremità, abilitare il protocollo dell'estremità, avviare il dispositivo della mano destra e configurare i codici funzione corrispondenti per la mano destra.
+
+.. figure:: robot_peripherals/308.png
+   :align: center
+   :width: 6in
+
+.. figure:: robot_peripherals/309.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.19‑3 Codici Funzione Corrispondenti della Mano Destra
+
+4. I codici funzione attualmente definiti del protocollo aperto LUA dell'estremità sono mostrati nelle figure seguenti.
+
+.. figure:: robot_peripherals/310.png
+   :align: center
+   :width: 6in
+
+.. figure:: robot_peripherals/311.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.19‑4 Codici Funzione del Protocollo Aperto
+
+.. note:: La mano destra deve supportare la lettura dei codici funzione relativi allo stato operativo per facilitare la consultazione dello stato del movimento.
+  
+Controllo del Movimento della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1. Aprire WebApp, andare su Programma di Insegnamento -> Interfaccia di Programmazione, e aprire le istruzioni periferiche della mano destra.
+
+.. figure:: robot_peripherals/312.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.19‑5 Istruzioni Periferiche della Mano Destra
+   
+2. Fare clic su Attiva, selezionare l'indirizzo di partenza corrispondente della mano destra e aggiungere l'istruzione di attivazione corrispondente.
+
+.. figure:: robot_peripherals/313.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.19‑6 Istruzione di Attivazione della Mano Destra
+
+3. Fare clic su Controllo, compilare i dati di posizione, velocità e coppia necessari per il movimento del singolo slave della mano destra, compilare il tempo massimo di timeout e aggiungere l'istruzione di controllo corrispondente.
+
+.. figure:: robot_peripherals/314.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.19‑7 Istruzione di Controllo della Mano Destra
+
+Monitoraggio dei Dati della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Aprire WebApp, andare su Impostazioni Iniziali -> Periferiche -> Mano Destra -> Abilitazione Protocollo Estremità, e abilitare il monitoraggio dello stato. Dopo l'invio delle istruzioni di controllo, nell'interfaccia Dexterous a destra è possibile ottenere i dati di feedback in tempo reale di posizione, velocità e coppia del singolo slave della mano destra.
+
+.. figure:: robot_peripherals/315.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.19‑8 Dati di Feedback in Tempo Reale della Mano Destra    

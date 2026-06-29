@@ -8623,3 +8623,134 @@ Di seguito è riportato un tipico programma LUA per la saldatura a linee interse
    :align: center
 
 .. centered:: Grafico 9.37‑18 Programma di esempio per la saldatura a linee intersecanti con posizionatore
+
+Funzione di Stampa PrintMsg() del Programma LUA del Robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Il programma LUA del robot dispone di istruzioni di stampa integrate che possono visualizzare informazioni specifiche nella finestra di stampa WebApp. Questa funzione supporta la stampa di valori numerici, stringhe, tabelle, booleani, ecc., ed è dotata di capacità ausiliarie come archiviazione dei log di stampa, ricerca dei contenuti e download dei log, facilitando il debug e il tracciamento dei dati.
+
+Modifica e Aggiunta di Istruzioni di Stampa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Fare clic sul pulsante "Stampa" nella pagina "Istruzioni Logiche" per aprire la pagina di modifica dell'istruzione di stampa PrintMsg(). Innanzitutto, impostare rispettivamente il testo di stampa e il tipo di dati.
+
+.. image:: coding/573.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑1 Pagina di Modifica dell'Istruzione di Stampa   
+
+- **Testo**: Inserire una stringa descrittiva personalizzata per indicare il significato del contenuto stampato, ad esempio "robot current pos :", "recv socket value :", ecc.
+- **Tipo**: Suddiviso in "Variabile" e "Funzione", selezionare in base alle esigenze.
+- **Variabile**: Stampare valori di variabili personalizzate, supportando variabili di tipo numerico, stringa, tabella, booleano, ecc.
+- **Funzione**: Stampare il valore restituito della funzione dell'istruzione specificata. Dopo aver selezionato questo tipo, è possibile scegliere la funzione target dall'elenco delle funzioni sottostante, come GetActualTCPPose() per ottenere la posizione TCP del robot, GetDI() per leggere lo stato di ingresso DI del controller, GetActualJointPosDegree() per ottenere gli angoli correnti delle articolazioni del robot, ecc.
+
+Prendendo come esempio la stampa della posizione corrente delle articolazioni del robot: inserire il testo di stampa "robot current joint pos :", selezionare Funzione come tipo di dati e scegliere la funzione GetActualJointPosDegree(), quindi fare clic su Aggiungi e Applica in sequenza. Il sistema genererà automaticamente l'istruzione di stampa corrispondente nel programma LUA:
+
+.. code-block:: console
+    :linenos:
+
+    PrintMsg("robot current joint pos :",GetActualJointPosDegree())
+
+.. image:: coding/574.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑2 Aggiunta di un'Istruzione di Stampa   
+
+È inoltre possibile passare il pannello del programma alla pagina modificabile, inserire il nome dell'istruzione PrintMsg() e inserire il contenuto da stampare nei parametri, separando più contenuti stampabili con virgole.
+
+.. image:: coding/575.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑3 Scrittura di Informazioni di Stampa Personalizzate  
+
+Visualizzazione delle Informazioni di Stampa e Operazioni di Base
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Fare clic sul pulsante di visualizzazione stampa per aprire la finestra pop-up delle informazioni di stampa. Passare il robot alla modalità automatica ed eseguire il programma. Il contenuto stampato verrà visualizzato in tempo reale nella finestra. Ogni messaggio contiene quattro informazioni: timestamp, nome del programma LUA, numero di riga del codice e contenuto stampato.
+
+.. image:: coding/576.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑4 Finestra di Visualizzazione del Contenuto Stampato  
+
+Cancellazione del Contenuto Stampato
+*******************************************************************
+
+Fare clic sul pulsante "Cancella" nella parte superiore della finestra di stampa per cancellare tutto il contenuto visualizzato nella finestra con un solo clic.
+
+.. image:: coding/577.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑5 Cancellazione del Contenuto Stampato  
+
+Ricerca del Contenuto Stampato
+*******************************************************************
+
+Inserire la parola chiave target nella casella di ricerca e fare clic su Trova. La finestra mostrerà solo i record di stampa che contengono la parola chiave, nascondendo il resto. Dopo aver svuotato la casella di ricerca e fare clic nuovamente su Trova, tutte le informazioni di stampa verranno ripristinate.
+
+.. image:: coding/578.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑6 Ricerca del Contenuto Stampato  
+
+Configurazione e Gestione dei Log di Stampa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Configurazione dei Parametri di Archiviazione dei Log di Stampa
+*******************************************************************
+
+Nel webapp, fare clic su "Impostazioni di Sistema" e "Modalità Manutenzione" in sequenza per entrare nella modalità di manutenzione. Trovare i moduli "Gestione Log" e "Log di Stampa" per configurare l'attivazione/disattivazione della funzione di archiviazione dei log di stampa, impostare il numero di file da salvare e il numero massimo di voci di stampa per singolo file di log. Dopo aver abilitato l'archiviazione dei log di stampa, tutti i dati di stampa verranno automaticamente scritti nei file di log.
+
+.. image:: coding/579.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑7 Configurazione dei Parametri di Archiviazione dei Log di Stampa 
+
+Quando il dispositivo robot riavvia il sistema o il numero di voci in un singolo file di log raggiunge il limite impostato, viene automaticamente creato un nuovo file di log e viene attivata la rotazione dei log. Quando il numero totale di file di log supera il limite massimo di archiviazione, il sistema eliminerà automaticamente i file di log più vecchi.
+
+Download dei Log di Stampa
+*******************************************************************
+
+Fare clic sul pulsante di download nella parte superiore della finestra di stampa per scaricare tutto il contenuto stampato nella finestra corrente sul computer locale.
+
+.. image:: coding/580.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑8 Download dei Log di Stampa 
+
+Oltre al download diretto dei log di stampa, i log di stampa sono inclusi anche durante il download dei log del controller e dei file sorgente dati completi.
+
+Esempi di Codice delle Istruzioni di Stampa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Stampa della Posizione Target Ricevuta dal Robot
+*******************************************************************
+
+Di seguito è riportato un programma in cui il robot legge le posizioni Cartesiane x, y, z target da un slave ModbusTCP e controlla il movimento del robot verso la posizione target. Nel programma, ogni volta che viene letta la posizione target, viene utilizzata l'istruzione PrintMsg() per stampare la posizione target.
+
+.. image:: coding/581.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑9 Esempio di Stampa della Posizione Target del Robot 
+
+Stampa della Posizione in Tempo Reale del Robot e dei Dati DI della Scatola di Controllo
+**************************************************************************************************
+
+Di seguito è riportato un programma di movimento non bloccante del robot che stampa la posizione del robot e i valori DI della scatola di controllo in tempo reale durante il movimento.
+
+.. note:: Nota: Quando si chiama l'istruzione di stampa PrintMsg() in un ciclo, è necessario utilizzare l'istruzione sleep_ms() per impostare l'intervallo di sospensione del ciclo per evitare un ciclo infinito.
+
+.. image:: coding/582.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.39‑10 Esempio di Stampa della Posizione Corrente e DI Durante il Movimento del Robot   

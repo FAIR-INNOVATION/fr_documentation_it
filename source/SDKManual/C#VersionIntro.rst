@@ -13,6 +13,36 @@ Note sulle Aggiornamenti di Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.7
+     - 2026-06-25
+     - | 1. Aggiunto errore di allarme caduta pezzo dalla pinza, codice guasto principale 8, codice guasto secondario 3.
+       | 2. Aggiornata la struttura di feedback dello stato del robot: aggiunto stato di rilevamento oggetto al segnale di completamento movimento pinza; aggiunti ai guasti pinza: 2-errore comando, 3-caduta pezzo, altri-codice guasto pinza +3;
+       | 3. Aggiornati esempi di codice per il reset dell'output dopo stop/pausa del programma LUA; ottimizzata l'interfaccia di caricamento file lua che ora richiede solo il nome del file lua, non più il percorso.
+       | 4. Aggiornati esempi di codice per la calibrazione TCP del sensore fotoelettrico; ottimizzata l'interfaccia di caricamento file che ora richiede solo il nome del file lua, non più il percorso.
+       | 5. Aggiornati esempi di codice per l'impostazione della velocità durante l'esecuzione della traiettoria; ottimizzata l'interfaccia di caricamento file traiettoria J che ora richiede solo il nome del file traiettoria J, non più il percorso.
+       | 6. Aggiornati esempi di codice per la riproduzione del file traiettoria J del robot; ottimizzata l'interfaccia di caricamento file traiettoria J che ora richiede solo il nome del file traiettoria J, non più il percorso.
+       | 7. Aggiornati esempi di codice per la riproduzione traiettoria (look-ahead); ottimizzata l'interfaccia di caricamento file traiettoria J che ora richiede solo il nome del file traiettoria J, non più il percorso.
+       | 8. Il parametro nome programma job nell'interfaccia LoadDefaultProgConfig() ora richiede solo il nome del file lua, non più il percorso.
+       | 9. Il parametro nome programma job nell'interfaccia ProgramLoad() ora richiede solo il nome del file lua, non più il percorso.
+       | 10. Il parametro nome programma job nell'interfaccia GetLoadedProgram() ora richiede solo il nome del file lua, non più il percorso.
+       | 11. Aggiornati esempi di codice per le operazioni sui programmi LUA del robot; ottimizzata l'interfaccia di caricamento file che ora richiede solo il nome del file lua, non più il percorso.
+       | 12. Aggiunto parametro stato abilitazione mano destra all'interfaccia SetAxleLuaEnableDeviceType();
+       | 13. Aggiunto parametro stato abilitazione mano destra all'interfaccia GetAxleLuaEnableDeviceType();
+       | 14. Aggiunto parametro stato numero dispositivo abilitato per mano destra all'interfaccia GetAxleLuaEnableDevice();
+       | 15. Espanso l'array dei codici funzione pinza a 32 in SetAxleLuaGripperFunc(), aggiunto controllo pinza rotante, ecc.;
+       | 16. Espanso l'array dei codici funzione pinza a 32 in GetAxleLuaGripperFunc(), aggiunto stato pinza rotante, ecc.;
+       | 17. Corretto errore nel nome dell'interfaccia SetCoderCompenParams();
+       | 18. Aggiunta interfaccia SetDexterousHandsMove() per il controllo del movimento della mano destra.
+       | 19. Aggiunta interfaccia SetDexterousHandsAct() per il controllo del reset e attivazione della mano destra.
+       | 20. Aggiunta interfaccia ClearDexterousHandsError() per la cancellazione degli errori della mano destra.
+       | 21. Aggiunta interfaccia SetDexterousHandsFunc() per impostare le funzioni di controllo azione mano destra abilitate.
+       | 22. Aggiunta interfaccia GetDexterousHandsFunc() per ottenere le funzioni di controllo azione mano destra abilitate.
+       | 23. Aggiunta interfaccia FT_LinInsertion() per inserimento lineare ed esempi di codice per inserimento rotazionale con sensore di forza.
+       | 24. Aggiunte interfacce FT_FindSurface(), FT_CalCenterStart(), FT_CalCenterEnd() per il posizionamento superficiale ed esempi di codice correlati.
+       | 25. Aggiunte SetWeaveBackCenterConfig(), GetWeaveBackCenterConfig() per impostare e ottenere i parametri del punto zero di ritorno al ciclo al termine della tessitura.
+       | 26. Aggiunta interfaccia SetWeaveOffsetRT() per impostare l'offset in tempo reale della tessitura;
+       | 27. Aggiunta interfaccia SetSpeedInstant() per impostazione velocità in tempo reale;
+
    * - V3.9.6
      - 2026-05-26
      - | 1.Aggiornata la struttura di feedback dello stato del robot, aggiunto lo stato del numero del sistema di coordinate degli assi di estensione;

@@ -1372,7 +1372,7 @@ Calibrazione TCP Sensore Fotoelettrico
 
     /**
     * @brief Calibrazione TCP sensore fotoelettrico
-    * @param luaPath Percorso programma Lua calibrazione automatica: robot versione QX - "/fruser/FR_CalibrateTheToolTcp.lua"; robot versione LA - "/usr/local/etc/controller/lua/FR_CalibrateTheToolTcp.lua"
+    * @param luaPath Percorso programma Lua calibrazione automatica: "FR_CalibrateTheToolTcp.lua"
     * @param offset Offset punto di insegnamento (x,y,z) mm
     * @param TCP Sistema coordinate utensile calibrato (x,y,z,rx,ry,rz)
     * @return Codice errore
@@ -1388,7 +1388,7 @@ Esempio Codice Calibrazione TCP Sensore Fotoelettrico
     {
         DescTran offset = new DescTran(10.0, 10.0, 3.0 );
         DescPose TCP = new DescPose();
-        int rtn = robot.PhotoelectricSensorTCPCalibration("/fruser/FR_CalibrateTheToolTcp.lua", offset, TCP);
+        int rtn = robot.PhotoelectricSensorTCPCalibration("FR_CalibrateTheToolTcp.lua", offset, TCP);
         System.out.printf("PhotoelectricSensorTCPCalibration rtn is %d %f %f %f %f %f %f \n", rtn, TCP.tran.x, TCP.tran.y, TCP.tran.z, TCP.rpy.rx, TCP.rpy.ry, TCP.rpy.rz);
         robot.CloseRPC();
         robot.Sleep(9999999);

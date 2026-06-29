@@ -478,7 +478,7 @@ Esempio Codice Impostazione Ripristino Output Dopo Stop/Pausa Programma Lua
         robot.SetOutputResetExtAO(resetFlag, resumeReloadFlag);
         robot.SetOutputResetSmartToolDO(resetFlag, resumeReloadFlag);
 
-        robot.ProgramLoad("/fruser/test.lua");
+        robot.ProgramLoad("test.lua");
         robot.ProgramRun();
 
         Thread.Sleep(2000);

@@ -205,14 +205,14 @@ Pacchetto di feedback dello stato del controller
       uint8_t ft_sensor_active;   // Stato di attivazione del sensore di forza, 0-reset, 1-attivo
       uint8_t EmergencyStop;    // Flag di arresto di emergenza, 0-arresto di emergenza non premuto, 1-arresto di emergenza premuto
       int   motion_done;     // Segnale di movimento completato, 1-completato, 0-non completato
-      uint8_t gripper_motiondone; // Segnale di completamento movimento pinza, 1-completato, 0-non completato
+      uint8_t gripper_motiondone; // Segnale di completamento movimento pinza, 0-non completato, 1-completato (nessun oggetto rilevato), 2-movimento completato (oggetto rilevato)
       int   mc_queue_len;     // Lunghezza della coda delle istruzioni di movimento
       uint8_t collisionState;    // Rilevamento collisione, 1-collisione, 0-nessuna collisione
       int   trajectory_pnum;   // Numero del punto di traiettoria
       uint8_t safety_stop0_state; // Segnale di stop di sicurezza SI0
       uint8_t safety_stop1_state; // Segnale di stop di sicurezza SI1
       uint8_t gripper_fault_id;   // ID pinza errata
-      uint16_t gripper_fault;    // Guasto pinza
+      uint16_t gripper_fault;    // Guasto pinza 0-nessun guasto 1-timeout 485 2-errore comando 3-caduta pezzo Altro-codice guasto pinza
       uint16_t gripper_active;    // Stato di attivazione pinza
       uint8_t gripper_position;   // Posizione pinza
       int8_t  gripper_speed;    // Velocità pinza

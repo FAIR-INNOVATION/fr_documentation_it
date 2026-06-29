@@ -1,3 +1,45 @@
+Versione V3.9.7
+-----------------
+
+Data: 2026-06-25
+
+- **Ottimizzato il pacchetto linguistico giapponese del software**:
+
+    Descrizione: Ottimizzato il contenuto della traduzione del pacchetto linguistico giapponese.
+
+- **Ottimizzati i parametri del percorso per i programmi LUA del robot**:
+
+    Descrizione: L'input del file richiede ora solo il nome; il percorso non è più necessario.
+
+- **Ottimizzata la funzione di weaving per le nuove transizioni spline linea-arco**:
+    Percorso: Applicazioni Ausiliarie -> Pacchetto Processo -> Libreria Esperta Saldatura -> Nuova Saldatura a Weaving su Spline.
+
+    Descrizione: Adattata la funzione di weaving per la nuova funzionalità di transizione spline linea-arco.
+
+- **Ottimizzata la funzione di protezione soft limit dei giunti**:
+    Percorso: Impostazioni Iniziali -> Base -> Giunti -> Soft Limit.
+
+    Descrizione: Ottimizzati i coefficienti di rigidità e smorzamento per i soft limit di ciascun giunto.
+
+- **Aggiunta la funzione di stampa (print) per i programmi LUA del robot**:
+    Percorso: Programma Teach Pendant -> Funzione di Stampa.
+
+    Descrizione: Consente la visualizzazione in tempo reale delle informazioni di stampa personalizzate dai programmi LUA.
+
+- **Aggiunto l'adattatore Lua per l'end-effector per mano destra a tre dita**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Ventosa.
+
+    Descrizione: 1. Aggiunto l'adattamento per ventosa e mano destra sull'end-effector; 2. Ottimizzato il protocollo aperto Lua esistente per l'end-effector.
+
+- **Aggiunta la funzione di segnalazione errore per caduta oggetto dalla pinza**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Pinza.
+
+    Descrizione: Aggiunta la segnalazione di errore per caduta del pezzo dalla pinza; il movimento si arresta dopo la segnalazione.
+
+- **Aggiunta la funzione di feedback per l'attivazione della protezione da cortocircuito 24V sul modulo DO del box di controllo a larga tensione**:
+
+    Descrizione: Aggiunta la protezione da cortocircuito e il messaggio di errore.
+
 Versione V3.9.6
 -----------------
 

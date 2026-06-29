@@ -809,24 +809,26 @@ Ottenimento Stato Abilitazione Esecuzione LUA Termine
     "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
     - ``enable``：0-Non abilitato；1-Abilitato"
 
-Impostazione Tipo Dispositivo Termine Abilitato LUA Termine
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta i tipi di dispositivo abilitati per l'end-effector LUA
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``SetAxleLuaEnableDeviceType(forceSensorEnable, gripperEnable, IOEnable)``"
-    "Descrizione", "Imposta il tipo di dispositivo termine abilitato LUA del termine"
-    "Parametri Obbligatori", "- ``forceSensorEnable``：Stato abilitazione sensore forza，0-Non abilitato；1-Abilitato
-    - ``gripperEnable``：Stato abilitazione pinza，0-Non abilitato；1-Abilitato
-    - ``IOEnable``：Stato abilitazione dispositivo IO，0-Non abilitato；1-Abilitato"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
+    "Prototipo", "``SetAxleLuaEnableDeviceType(self, forceSensorEnable, gripperEnable, IOEnable, dexhandEnable)``"
+    "Descrizione", "Imposta i tipi di dispositivo abilitati per l'end-effector LUA"
+    "Parametri obbligatori", "
+    - ``forceSensorEnable``: Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    - ``gripperEnable``: Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    - ``IOEnable``: Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    - ``dexhandEnable``: Stato abilitazione mano destra, 0-disabilitato; 1-abilitato"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice errore, 0-successo; diverso da zero-errore"
 
-Ottenimento Tipo Dispositivo Termine Abilitato LUA Termine
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i tipi di dispositivo abilitati per l'end-effector LUA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
@@ -834,16 +836,17 @@ Ottenimento Tipo Dispositivo Termine Abilitato LUA Termine
     :widths: 10 30
 
     "Prototipo", "``GetAxleLuaEnableDeviceType()``"
-    "Descrizione", "Ottiene il tipo di dispositivo termine abilitato LUA del termine"
-    "Parametri Obbligatori", "Nessuno"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
-    - ``forceSensorEnable``：Stato abilitazione sensore forza，0-Non abilitato；1-Abilitato
-    - ``gripperEnable``：Stato abilitazione pinza，0-Non abilitato；1-Abilitato
-    - ``IOEnable``：Stato abilitazione dispositivo IO，0-Non abilitato；1-Abilitato"
+    "Descrizione", "Ottiene i tipi di dispositivo abilitati per l'end-effector LUA"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice errore, 0-successo; diverso da zero-errore
+    - ``forceSensorEnable``: Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    - ``gripperEnable``: Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    - ``IOEnable``: Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    - ``dexhandEnable``: Stato abilitazione mano destra, 0-disabilitato; 1-abilitato"
 
-Ottenimento Dispositivi Termine Configurati Correntemente
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene i dispositivi dell'end-effector attualmente configurati
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
@@ -851,16 +854,17 @@ Ottenimento Dispositivi Termine Configurati Correntemente
     :widths: 10 30
 
     "Prototipo", "``GetAxleLuaEnableDevice()``"
-    "Descrizione", "Ottiene i dispositivi termine configurati correntemente"
-    "Parametri Obbligatori", "Nessuno"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
-    - ``forceSensorEnable[8]``：Stato abilitazione sensore forza，0-Non abilitato；1-Abilitato
-    - ``gripperEnable[8]``：Stato abilitazione pinza，0-Non abilitato；1-Abilitato
-    - ``IOEnable[8]``：Stato abilitazione dispositivo IO，0-Non abilitato；1-Abilitato"
+    "Descrizione", "Ottiene i dispositivi dell'end-effector attualmente configurati"
+    "Parametri obbligatori", "Nessuno"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice errore, 0-successo; diverso da zero-errore
+    - ``forceSensorEnable[8]``: Stato abilitazione sensore di forza, 0-disabilitato; 1-abilitato
+    - ``gripperEnable[8]``: Stato abilitazione pinza, 0-disabilitato; 1-abilitato
+    - ``IOEnable[8]``: Stato abilitazione dispositivo IO, 0-disabilitato; 1-abilitato
+    - ``dexhandEnable``: Stato abilitazione mano destra, 0-disabilitato; 1-abilitato"
 
-Impostazione Abilitazione Funzione Controllo Azione Pinza
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Imposta le funzioni di controllo azione pinza abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
@@ -868,14 +872,15 @@ Impostazione Abilitazione Funzione Controllo Azione Pinza
     :widths: 10 30
 
     "Prototipo", "``SetAxleLuaGripperFunc(id, func)``"
-    "Descrizione", "Imposta l'abilitazione della funzione di controllo azione pinza"
-    "Parametri Obbligatori", "- ``id``：Numero dispositivo pinza
-    - ``func``：0-Abilitazione pinza；1-Inizializzazione pinza；2-Impostazione posizione；3-Impostazione velocità；4-Impostazione coppia；6-Lettura stato pinza；7-Lettura stato inizializzazione；8-Lettura codice errore；9-Lettura posizione；10-Lettura velocità；11-Lettura coppia,12-15 Riservato"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode "
+    "Descrizione", "Imposta le funzioni di controllo azione pinza abilitate"
+    "Parametri obbligatori", "
+    - ``id``: Numero dispositivo pinza
+    - ``func``: 0-abilitazione pinza; 1-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice guasto; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia; 12-impostazione giri per pinza rotante; 13-impostazione velocità rotazione pinza rotante; 14-impostazione coppia rotazione pinza rotante; 15-lettura stato pinza rotante; 16-lettura stato inizializzazione pinza rotante; 17-lettura giri pinza rotante; 18-lettura velocità pinza rotante; 19-lettura coppia pinza rotante; 20-impostazione movimento sincrono multiasse; 21-comando clear guasti; 22-stato funzionamento singolo asse; 23-stato funzionamento tutti gli assi;"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "Codice errore, 0-successo; diverso da zero-errore"
 
-Ottenimento Abilitazione Funzione Controllo Azione Pinza
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ottiene le funzioni di controllo azione pinza abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionadded:: python SDK-v2.0.5
 
 .. csv-table:: 
@@ -883,11 +888,11 @@ Ottenimento Abilitazione Funzione Controllo Azione Pinza
     :widths: 10 30
 
     "Prototipo", "``GetAxleLuaGripperFunc(id)``"
-    "Descrizione", "Ottiene l'abilitazione della funzione di controllo azione pinza"
-    "Parametri Obbligatori", "- ``id``：Numero dispositivo pinza"
-    "Parametri Predefiniti", "Nessuno"
-    "Valore di Ritorno", "- Codice errore Successo-0  Fallimento- errcode 
-    - ``func``：0-Abilitazione pinza；1-Inizializzazione pinza；2-Impostazione posizione；3-Impostazione velocità；4-Impostazione coppia；6-Lettura stato pinza；7-Lettura stato inizializzazione；8-Lettura codice errore；9-Lettura posizione；10-Lettura velocità；11-Lettura coppia,12-15 Riservato"
+    "Descrizione", "Ottiene le funzioni di controllo azione pinza abilitate"
+    "Parametri obbligatori", "- ``id``: Numero dispositivo pinza"
+    "Parametri predefiniti", "Nessuno"
+    "Valore restituito", "- Codice errore, 0-successo; diverso da zero-errore
+    - ``func``: 0-abilitazione pinza; 1-inizializzazione pinza; 2-impostazione posizione; 3-impostazione velocità; 4-impostazione coppia; 6-lettura stato pinza; 7-lettura stato inizializzazione; 8-lettura codice guasto; 9-lettura posizione; 10-lettura velocità; 11-lettura coppia; 12-impostazione giri per pinza rotante; 13-impostazione velocità rotazione pinza rotante; 14-impostazione coppia rotazione pinza rotante; 15-lettura stato pinza rotante; 16-lettura stato inizializzazione pinza rotante; 17-lettura giri pinza rotante; 18-lettura velocità pinza rotante; 19-lettura coppia pinza rotante; 20-impostazione movimento sincrono multiasse; 21-comando clear guasti; 22-stato funzionamento singolo asse; 23-stato funzionamento tutti gli assi;"
 
 Scrittura File Slave Ethercat Robot
 +++++++++++++++++++++++++++++++++++++++++++++
@@ -1845,3 +1850,177 @@ Esempio di Codice SDK per Operazioni su File Lua di Protocollo Aperto
 
     # Chiama la funzione di test
     TestCtrlOpenLuaOperate(robot)
+
+Controllo del Movimento della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetDexterousHandsMove(self, idstart, slaveNum, pos, speed, force, max_time)``"
+    "Descrizione", "Controllo del movimento della mano destra"
+    "Parametri Obbligatori", "
+    - ``idstart``: Numero stazione slave iniziale;
+    - ``slaveNum``: Numero di slave;
+    - ``pos[16]``: Posizione (-360~360);
+    - ``speed[16]``: Percentuale di velocità, intervallo [0~100];
+    - ``force[16]``: Percentuale di coppia, intervallo [0~100];
+    - ``max_time``: Tempo massimo di attesa, intervallo [0~30000], unità ms;"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore, 0-successo; diverso da zero-errore"
+        
+Controllo del Reset e Attivazione della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetDexterousHandsAct(self, id, act)``"
+    "Descrizione", "Controllo del reset e attivazione della mano destra"
+    "Parametri Obbligatori", "
+    - ``id``: Numero stazione slave;
+    - ``act``: 0-reset 1-attivazione"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore, 0-successo; diverso da zero-errore"
+        
+Cancellazione dell'Errore della Mano Destra
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``ClearDexterousHandsError(self)``"
+    "Descrizione", "Cancellazione dell'errore della mano destra"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore, 0-successo; diverso da zero-errore"
+    
+Impostazione delle Funzioni di Controllo Azione Mano Destra Abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetDexterousHandsFunc(self, id, func)``"
+    "Descrizione", "Imposta le funzioni di controllo azione mano destra abilitate"
+    "Parametri Obbligatori", "
+    - ``id``: Numero stazione slave della mano destra;
+    - ``func``: Array di funzioni, 32 elementi
+        0-attivazione presa, 1-inizializzazione pinza, 2-impostazione posizione, 3-impostazione velocità, 4-impostazione coppia,
+        6-lettura stato pinza, 7-lettura stato inizializzazione, 8-lettura codice guasto, 9-lettura posizione, 10-lettura velocità,
+        11-lettura coppia, 12-impostazione giri rotazione, 13-impostazione velocità rotazione, 14-impostazione coppia rotazione,
+        15-lettura stato pinza rotante, 16-lettura stato inizializzazione rotazione, 17-lettura giri rotazione, 18-lettura velocità rotazione,
+        19-lettura coppia rotazione, 20-impostazione movimento sincrono multiasse, 21-comando clear guasti, 22-stato funzionamento singolo asse,
+        23-stato funzionamento tutti gli assi"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore, 0-successo; diverso da zero-errore"
+    
+Ottenimento delle Funzioni di Controllo Azione Mano Destra Abilitate
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``GetDexterousHandsFunc(self, id)``"
+    "Descrizione", "Ottiene le funzioni di controllo azione mano destra abilitate"
+    "Parametri Obbligatori", "
+    - ``id``: Numero stazione slave della mano destra;
+    - ``func``: Array di funzioni, 32 elementi
+        0-attivazione presa, 1-inizializzazione pinza, 2-impostazione posizione, 3-impostazione velocità, 4-impostazione coppia,
+        6-lettura stato pinza, 7-lettura stato inizializzazione, 8-lettura codice guasto, 9-lettura posizione, 10-lettura velocità,
+        11-lettura coppia, 12-impostazione giri rotazione, 13-impostazione velocità rotazione, 14-impostazione coppia rotazione,
+        15-lettura stato pinza rotante, 16-lettura stato inizializzazione rotazione, 17-lettura giri rotazione, 18-lettura velocità rotazione,
+        19-lettura coppia rotazione, 20-impostazione movimento sincrono multiasse, 21-comando clear guasti, 22-stato funzionamento singolo asse,
+        23-stato funzionamento tutti gli assi"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore, 0-successo; diverso da zero-errore"
+
+Esempio di Codice per Configurazione e Movimento della Mano Destra sull'End-Effector  
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: python
+    :linenos:  
+     
+    from fairino import Robot
+    import time
+    robot = Robot.RPC('192.168.58.2')
+
+    def main(self):
+
+        id = 1                 
+        slaveNum = 4         
+        max_time = 8000      
+        speed = [0] * 16     
+        force = [0] * 16     
+
+        for i in range(16):
+            force[i] = 50 if i < 4 else 0
+
+        def set_positions(v1, v2, v3, v4):
+            pos = [0.0] * 16
+            pos[0] = v1
+            pos[1] = v2
+            pos[2] = v3
+            pos[3] = v4
+            return pos
+
+        j1 = [-53.426,-85.916,109.280,-86.236,-96.663,-28.560]
+        j2 = [-91.877,-85.917,109.281,-86.236,-96.663,-28.560]
+        epos = [0, 0, 0, 0]
+        offset_pos = [0, 0, 0, 0, 0, 0]
+
+        ret = robot.ClearDexterousHandsError()
+        print(f"ClearDexterousHandsError -> {ret}")
+
+        setFunc = [0] * 32
+        setFunc[2] = 1   
+        setFunc[4] = 1   
+        setFunc[9] = 1   
+        setFunc[10] = 1  
+        setFunc[11] = 1  
+        setFunc[22] = 1  
+
+        ret = robot.SetDexterousHandsFunc(id, setFunc)
+        print(f"SetDexterousHandsFunc(abilitazione init + funzioni posizione/coppia) -> {ret}")
+
+        ret, getFunc = robot.GetDexterousHandsFunc(id)
+        print(f"GetDexterousHandsFunc -> {ret}")
+        if ret == 0:
+            print("GetDexterousHandsFunc :")
+            for i in range(len(getFunc)):
+                print(f"  [{i}]={getFunc[i]}", end="")
+                if (i + 1) % 8 == 0:
+                    print()  
+                elif i < len(getFunc) - 1:
+                    print(", ", end="")
+            if len(getFunc) % 8 != 0:
+
+        ret = robot.SetDexterousHandsAct(id, 1)
+        print(f"SetDexterousHandsAct() -> {ret}")
+        if ret != 0:
+            return
+            pos = set_positions(20, 20, 20, 20)
+        ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time)
+        print(f"ret: {ret}")
+        time.sleep(5)
+
+        for iteration in range(1, 11):
+            robot.MoveJ(joint_pos=j1, tool=1, user=0, vel=100, acc=100, ovl=100,
+                        exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+
+            pos = set_positions(10, 10, 10, 10)
+            ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time)
+            time.sleep(1)
+
+            robot.MoveJ(joint_pos=j2, tool=1, user=0, vel=100, acc=100, ovl=100,
+                        exaxis_pos=epos, blendT=-1, offset_flag=0, offset_pos=offset_pos)
+
+            pos = set_positions(50, 50, 50, 50)
+            ret = robot.SetDexterousHandsMove(id, slaveNum, pos, speed, force, max_time)
+            time.sleep(1)
+
+    main(robot)    

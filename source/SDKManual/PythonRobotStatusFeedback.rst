@@ -98,7 +98,7 @@ Tipo Struttura di Feedback di Stato del Robot
             # Segnali di stato
             ("EmergencyStop", c_uint8),         # Flag di arresto di emergenza, 0-non premuto, 1-premuto
             ("motion_done", c_int),             # Segnale di movimento completato, 1-completato, 0-non completato
-            ("gripper_motiondone", c_uint8),    # Segnale di movimento della pinza completato, 1-completato, 0-non completato
+            ("gripper_motiondone", c_uint8),    # Segnale di completamento movimento pinza, 0-non completato, 1-completato (nessun oggetto rilevato), 2-movimento completato (oggetto rilevato)
             ("mc_queue_len", c_int),            # Lunghezza della coda dei comandi di movimento
             ("collisionState", c_uint8),        # Rilevamento collisione, 1-collisione, 0-nessuna collisione
             ("trajectory_pnum", c_int),         # Numero del punto di traiettoria
@@ -107,7 +107,7 @@ Tipo Struttura di Feedback di Stato del Robot
 
             # Informazioni pinza
             ("gripper_fault_id", c_uint8),      # Numero pinza guasta
-            ("gripper_fault", c_uint16),        # Guasto pinza
+            ("gripper_fault", c_uint16),        # Guasto pinza 0-nessun guasto 1-timeout 485 2-errore comando 3-caduta pezzo Altro-codice guasto pinza
             ("gripper_active", c_uint16),      # Stato di attivazione della pinza
             ("gripper_position", c_uint8),      # Posizione della pinza
             ("gripper_speed", c_int8),          # Velocità della pinza
@@ -280,14 +280,14 @@ Pacchetto Dati Feedback Stato Controller
     "ft_sensor_active","Stato attivazione sensore forza/coppia，0-Ripristino，1-Attivato"
     "EmergencyStop","Segnale arresto emergenza,0-Arresto emergenza non premuto,1-Arresto emergenza premuto"
     "motion_done","Segnale movimento a posizione,1-A posizione，0-Non a posizione"
-    "gripper_motiondone","Segnale completamento movimento pinza,1-Completato，0-Non completato "
+    "gripper_motiondone","Segnale di completamento movimento pinza, 0-non completato, 1-completato (nessun oggetto rilevato), 2-movimento completato (oggetto rilevato)"
     "mc_queue_len","Lunghezza coda comandi movimento"
     "collisionState","Rilevamento collisione,1-Collisione，0-Nessuna collisione "
     "trajectory_pnum","Numero punto traiettoria"
     "safety_stop0_state","Segnale arresto sicurezza SI0"
     "safety_stop1_state","Segnale arresto sicurezza SI1"
     "gripper_fault_id","Numero pinza errore"
-    "gripper_fault","Guasto pinza"
+    "gripper_fault","Guasto pinza 0-nessun guasto 1-timeout 485 2-errore comando 3-caduta pezzo Altro-codice guasto pinza"
     "gripper_active","Stato attivazione pinza，0-Non attivato，1-Attivato"
     "gripper_position","Posizione pinza (percentuale)"
     "gripper_speed","Velocità pinza (percentuale)"

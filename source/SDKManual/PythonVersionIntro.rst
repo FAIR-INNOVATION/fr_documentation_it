@@ -13,6 +13,25 @@ Note Aggiornamento Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.7
+     - 2026-06-25
+     - | 1. I parametri di PhotoelectricSensorTCPCalibration() ora possono adattarsi a nomi di file senza percorso;
+       | 2. I parametri di LoadTrajectoryJ() ora possono adattarsi a nomi di file senza percorso;
+       | 3. I parametri di LoadTrajectoryLA() ora possono adattarsi a nomi di file senza percorso;
+       | 4. I parametri di LoadDefaultProgConfig() ora possono adattarsi a nomi di file senza percorso;
+       | 5. I parametri di ProgramLoad() ora possono adattarsi a nomi di file senza percorso;
+       | 6. Aggiunto parametro stato abilitazione mano destra all'interfaccia SetAxleLuaEnableDeviceType();
+       | 7. Aggiunto parametro stato abilitazione mano destra all'interfaccia GetAxleLuaEnableDeviceType();
+       | 8. Modificate le interfacce per ottenere i tipi di abilitazione dei dispositivi dell'end-effector attualmente configurati e il controllo azione pinza;
+       | 9. Aggiunti abilitazione e codici funzione per la mano destra;
+       | 10. Aggiunta interfaccia SetDexterousHandsMove() per il controllo del movimento della mano destra;
+       | 11. Aggiunta interfaccia SetDexterousHandsAct() per il controllo del reset e attivazione della mano destra;
+       | 12. Aggiunta interfaccia ClearDexterousHandsError() per la cancellazione degli errori della mano destra;
+       | 13. Aggiunta interfaccia SetDexterousHandsFunc() per impostare le funzioni di controllo azione mano destra abilitate;
+       | 14. Aggiunta interfaccia GetDexterousHandsFunc() per ottenere le funzioni di controllo azione mano destra abilitate;
+       | 15. Aggiunte interfacce per impostare e ottenere i parametri del punto zero di ritorno al ciclo al termine della tessitura;
+       | 16. Aggiunta interfaccia SetWeaveOffsetRT() per impostare l'offset in tempo reale della tessitura e interfaccia SetSpeedInstant() per impostazione velocità in tempo reale.
+
    * - V3.9.6
      - 2026-05-26
      - | 1.Aggiornata la struttura di feedback dello stato del robot, aggiunto lo stato del numero del sistema di coordinate degli assi di estensione;

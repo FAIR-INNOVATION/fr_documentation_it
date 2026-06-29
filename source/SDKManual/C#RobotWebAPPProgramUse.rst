@@ -116,7 +116,7 @@ Esempio Codice Operazioni Programma LUA Robot
 
     private void btnWebApp_Click(object sender, EventArgs e)
     {
-        string program_name = "/fruser/Text1.lua";
+        string program_name = "Text1.lua";
         string loaded_name = "";
         byte state=0;
         int line=0;
