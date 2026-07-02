@@ -22,6 +22,10 @@ Cambio di lingua
 
     \ `Deutsch <https://fairino-doc-de.readthedocs.io/latest/>`__\ 
     
+    \ `Protugues <https://fairino-doc-pt.readthedocs.io/latest/>`__\ 
+    
+    \ `Polski <https://fairino-doc-pl.readthedocs.io/latest/>`__\ 
+
 .. toctree::
    :maxdepth: 6
    :caption: User manual
