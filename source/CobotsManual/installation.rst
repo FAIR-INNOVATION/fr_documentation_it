@@ -116,12 +116,6 @@ Informazioni sulla Targhetta
 
 .. centered:: Figura 3.1-10 Robot Collaborativo Modello FR30
 
-.. figure:: installation/125.png
-   :align: center
-   :width: 6in
-
-.. centered:: Figura 3.1-11 Robot Collaborativo Modello FR30L
-
 Validità e Responsabilità
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -274,14 +268,6 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 0.31
      - 0.22
 
-   * - **FR30L**
-     - 0.69
-     - 0.75
-     - 0.80
-     - 0.48
-     - 0.31
-     - 0.22
-
 .. centered:: Tabella 3.1-2 Tempo di Arresto Classe 0 (ms)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
@@ -353,14 +339,6 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 130
 
    * - **FR20**
-     - 540
-     - 600
-     - 700
-     - 400
-     - 260
-     - 170
-
-   * - **FR30L**
      - 540
      - 600
      - 700
@@ -456,14 +434,6 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 0.33
      - 0.25
 
-   * - **FR30L**
-     - 0.71
-     - 0.78
-     - 0.82
-     - 0.51
-     - 0.33
-     - 0.25
-
 .. centered:: Tabella 3.1-4 Tempo di Arresto di Sicurezza (ms)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
@@ -535,14 +505,6 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 150
 
    * - **FR20**
-     - 560
-     - 630
-     - 720
-     - 430
-     - 280
-     - 200
-
-   * - **FR30L**
      - 560
      - 630
      - 720
@@ -628,14 +590,6 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 0.36
      - 0.27
 
-   * - **FR30L**
-     - 0.74
-     - 0.80
-     - 0.85
-     - 0.53
-     - 0.36
-     - 0.27
-
 .. centered:: Tabella 3.1-6 Tempo di Arresto per Limite Software (ms)
 .. list-table::
    :widths: 10 15 15 15 15 15 15
@@ -707,14 +661,6 @@ I giunti 1 e 6 testano il movimento orizzontale del robot, con l'asse di rotazio
      - 170
 
    * - **FR20**
-     - 580
-     - 640
-     - 740
-     - 440
-     - 300
-     - 210
-
-   * - **FR30L**
      - 580
      - 640
      - 740
@@ -1831,7 +1777,7 @@ Quando si installa il robot sulla piattaforma di montaggio, utilizzare 4 bulloni
 
    .. centered:: Figura 3.4-10 Base di Installazione ad Alta Richiesta per Robot Collaborativo Modelli FR10, FR16
 
-Requisiti di Installazione del Braccio Robotico per Modelli FR20, FR30, FR30L
+Requisiti di Installazione del Braccio Robotico per Modelli FR20, FR30
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Quando si installa il robot sulla piattaforma di montaggio, utilizzare 6 bulloni M10 di grado minimo 8.8 per fissare il robot alla piattaforma. I bulloni devono essere serrati con una coppia non inferiore a 45 Nm. Si consiglia di utilizzare due fori per perno di φ8 mm sulla piattaforma di montaggio, insieme a perni, per il posizionamento del robot, al fine di migliorare la precisione di installazione e prevenire lo spostamento del robot a causa di collisiones, ecc. Quando sono richieste elevate precisioni operative per il robot, è imperativo utilizzare perni per il posizionamento del robot.
@@ -1840,7 +1786,7 @@ Quando si installa il robot sulla piattaforma di montaggio, utilizzare 6 bulloni
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.4-11 Dimensioni di Installazione per Robot Collaborativo Modelli FR20, FR30, FR30L
+.. centered:: Figura 3.4-11 Dimensioni di Installazione per Robot Collaborativo Modelli FR20, FR30
 
 .. important::
 
@@ -1867,7 +1813,7 @@ La flangia dell'utensile del robot ha quattro fori filettati M6 che possono esse
    :align: center
    :width: 6in
 
-.. centered:: Figura 3.4-14 Disegno della Flangia Terminale per Robot Modelli FR20/FR30/FR30L
+.. centered:: Figura 3.4-14 Disegno della Flangia Terminale per Robot Modelli FR20/FR30
 
 .. important::
    - Assicurarsi che l'utensile sia installato correttamente e in sicurezza.

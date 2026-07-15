@@ -66,11 +66,6 @@ Quando il robot collaborativo è installato sulla base di montaggio, utilizzare 
      - ≥45Nm
      - φ8mm
 
-   * - FR30L
-     - 6 viti M10
-     - ≥45Nm
-     - φ8mm
-
 .. important:: 
    Si consiglia che la base di montaggio del robot soddisfi i seguenti requisiti per garantire una solida e stabile installazione:
 
