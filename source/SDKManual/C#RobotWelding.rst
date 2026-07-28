@@ -182,89 +182,94 @@ Impostare i parametri di oscillazione
 Esempio di codice per impostare i parametri di saldatura
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: C#SDK-V1.1.3  Web-3.8.2
-
+.. versionadded:: C#SDK-V3.9.8
+    
 .. code-block:: c#
-   :linenos:
+    :linenos:
 
-   private void button7_Click(object sender, EventArgs e)
-   {
-       robot.WeldingSetProcessParam(1, 177, 27, 1000, 178, 28, 176, 26, 1000);
-       robot.WeldingSetProcessParam(2, 188, 28, 555, 199, 29, 133, 23, 333);
+    private void button42_Click(object sender, EventArgs e)
+    {
+        robot.WeldingSetProcessParam(1, 177, 27, 1000, 178, 28, 176, 26, 1000);
+        robot.WeldingSetProcessParam(2, 188, 28, 555, 199, 29, 133, 23, 333);
 
-       double startCurrent = 0;
-       double startVoltage = 0;
-       double startTime = 0;
-       double weldCurrent = 0;
-       double weldVoltage = 0;
-       double endCurrent = 0;
-       double endVoltage = 0;
-       double endTime = 0;
+        double startCurrent = 0;
+        double startVoltage = 0;
+        double startTime = 0;
+        double weldCurrent = 0;
+        double weldVoltage = 0;
+        double endCurrent = 0;
+        double endVoltage = 0;
+        double endTime = 0;
 
-       robot.WeldingGetProcessParam(1, ref startCurrent, ref startVoltage, ref startTime, ref weldCurrent, ref weldVoltage, ref endCurrent, ref endVoltage, ref endTime);
-       Console.WriteLine("the Num 1 process param is " + startCurrent + " " + startVoltage + " " + startTime + " " + weldCurrent + " " + weldVoltage + " " + endCurrent + " " + endVoltage + " " + endTime);
-       robot.WeldingGetProcessParam(2, ref startCurrent, ref startVoltage, ref startTime, ref weldCurrent, ref weldVoltage, ref endCurrent, ref endVoltage, ref endTime);
-       Console.WriteLine("the Num 2 process param is " + startCurrent + " " + startVoltage + " " + startTime + " " + weldCurrent + " " + weldVoltage + " " + endCurrent + " " + endVoltage + " " + endTime);
+        robot.WeldingGetProcessParam(1, ref startCurrent, ref startVoltage, ref startTime, ref weldCurrent, ref weldVoltage, ref endCurrent, ref endVoltage, ref endTime);
+        Console.WriteLine("the Num 1 process param is " + startCurrent + " " + startVoltage + " " + startTime + " " + weldCurrent + " " + weldVoltage + " " + endCurrent + " " + endVoltage + " " + endTime);
+        robot.WeldingGetProcessParam(2, ref startCurrent, ref startVoltage, ref startTime, ref weldCurrent, ref weldVoltage, ref endCurrent, ref endVoltage, ref endTime);
+        Console.WriteLine("the Num 2 process param is " + startCurrent + " " + startVoltage + " " + startTime + " " + weldCurrent + " " + weldVoltage + " " + endCurrent + " " + endVoltage + " " + endTime);
 
-       int rtn = robot.WeldingSetCurrentRelation(0, 400, 0, 10, 0);
-       Console.WriteLine("WeldingSetCurrentRelation rtn is: " + rtn);
+        int rtn = robot.WeldingSetCurrentRelation(0, 400, 0, 10, 0);
+        Console.WriteLine("WeldingSetCurrentRelation rtn is: " + rtn);
 
-       rtn = robot.WeldingSetVoltageRelation(0, 40, 0, 10, 1);
-       Console.WriteLine("WeldingSetVoltageRelation rtn is: " + rtn);
+        rtn = robot.WeldingSetVoltageRelation(0, 40, 0, 10, 1);
+        Console.WriteLine("WeldingSetVoltageRelation rtn is: " + rtn);
 
-       double current_min = 0;
-       double current_max = 0;
-       double vol_min = 0;
-       double vol_max = 0;
-       double output_vmin = 0;
-       double output_vmax = 0;
-       int curIndex = 0;
-       int volIndex = 0;
-       rtn = robot.WeldingGetCurrentRelation(ref current_min, ref current_max, ref output_vmin, ref output_vmax, ref curIndex);
-       Console.WriteLine("WeldingGetCurrentRelation rtn is: " + rtn);
-       Console.WriteLine("current min " + current_min + " current max " + current_max + " output vol min " + output_vmin + " output vol max " + output_vmax);
+        double current_min = 0;
+        double current_max = 0;
+        double vol_min = 0;
+        double vol_max = 0;
+        double output_vmin = 0;
+        double output_vmax = 0;
+        int curIndex = 0;
+        int volIndex = 0;
+        rtn = robot.WeldingGetCurrentRelation(ref current_min, ref current_max, ref output_vmin, ref output_vmax, ref curIndex);
+        Console.WriteLine("WeldingGetCurrentRelation rtn is: " + rtn);
+        Console.WriteLine("current min " + current_min + " current max " + current_max + " output vol min " + output_vmin + " output vol max " + output_vmax);
 
-       rtn = robot.WeldingGetVoltageRelation(ref vol_min, ref vol_max, ref output_vmin, ref output_vmax, ref volIndex);
-       Console.WriteLine("WeldingGetVoltageRelation rtn is: " + rtn);
-       Console.WriteLine("vol min " + vol_min + " vol max " + vol_max + " output vol min " + output_vmin + " output vol max " + output_vmax);
+        rtn = robot.WeldingGetVoltageRelation(ref vol_min, ref vol_max, ref output_vmin, ref output_vmax, ref volIndex);
+        Console.WriteLine("WeldingGetVoltageRelation rtn is: " + rtn);
+        Console.WriteLine("vol min " + vol_min + " vol max " + vol_max + " output vol min " + output_vmin + " output vol max " + output_vmax);
 
-       rtn = robot.WeldingSetCurrent(1, 100, 0, 0);
-       Console.WriteLine("WeldingSetCurrent rtn is: " + rtn);
+        rtn = robot.WeldingSetCurrent(1, 100, 0, 0);
+        Console.WriteLine("WeldingSetCurrent rtn is: " + rtn);
 
-       System.Threading.Thread.Sleep(3000);
+        System.Threading.Thread.Sleep(3000);
 
-       rtn = robot.WeldingSetVoltage(1, 10, 0, 0);
-       Console.WriteLine("WeldingSetVoltage rtn is: " + rtn);
+        rtn = robot.WeldingSetVoltage(1, 10, 0, 0);
+        Console.WriteLine("WeldingSetVoltage rtn is: " + rtn);
 
-       rtn = robot.WeaveSetPara(0, 0, 2.000000, 0, 10.000000, 0.000000, 0.000000, 0, 0, 0, 0, 0, 60.000000);
-       Console.WriteLine("rtn is: " + rtn);
+        rtn = robot.WeaveSetPara(0, 0, 2.000000, 0, 10.000000, 0.000000, 0.000000, 0, 0, 0, 0, 0, 60.000000);
+        Console.WriteLine("rtn is: " + rtn);
 
-       robot.WeaveOnlineSetPara(0, 0, 1, 0, 20, 0, 0, 0, 0);
+        robot.WeaveOnlineSetPara(0, 0, 1, 0, 20, 0, 0, 0, 0);
 
-       rtn = robot.WeldingSetCheckArcInterruptionParam(1, 200);
-       Console.WriteLine("WeldingSetCheckArcInterruptionParam    " + rtn);
-       rtn = robot.WeldingSetReWeldAfterBreakOffParam(1, 5.7, 98.2, 0);
-       Console.WriteLine("WeldingSetReWeldAfterBreakOffParam    " + rtn);
-       int enable = 0;
-       double length = 0;
-       double velocity = 0;
-       int moveType = 0;
-       int checkEnable = 0;
-       int arcInterruptTimeLength = 0;
-       rtn = robot.WeldingGetCheckArcInterruptionParam(ref checkEnable, ref arcInterruptTimeLength);
-       Console.WriteLine("WeldingGetCheckArcInterruptionParam  checkEnable  " + checkEnable + "   arcInterruptTimeLength  " + arcInterruptTimeLength);
-       rtn = robot.WeldingGetReWeldAfterBreakOffParam(ref enable, ref length, ref velocity, ref moveType);
-       Console.WriteLine("WeldingGetReWeldAfterBreakOffParam  enable = " + enable + ", length = " + length + ", velocity = " + velocity + ", moveType = " + moveType);
+        rtn = robot.WeldingSetCheckArcInterruptionParam(1, 200);
+        Console.WriteLine("WeldingSetCheckArcInterruptionParam    " + rtn);
+        rtn = robot.WeldingSetReWeldAfterBreakOffParam(1, 5.7, 98.2, 0);
+        Console.WriteLine("WeldingSetReWeldAfterBreakOffParam    " + rtn);
+        int enable = 0;
+        double length = 0;
+        double velocity = 0;
+        int moveType = 0;
+        int checkEnable = 0;
+        int arcInterruptTimeLength = 0;
+        rtn = robot.WeldingGetCheckArcInterruptionParam(ref checkEnable, ref arcInterruptTimeLength);
+        Console.WriteLine("WeldingGetCheckArcInterruptionParam  checkEnable  " + checkEnable + "   arcInterruptTimeLength  " + arcInterruptTimeLength);
+        rtn = robot.WeldingGetReWeldAfterBreakOffParam(ref enable, ref length, ref velocity, ref moveType);
+        Console.WriteLine("WeldingGetReWeldAfterBreakOffParam  enable = " + enable + ", length = " + length + ", velocity = " + velocity + ", moveType = " + moveType);
 
-       robot.SetWeldMachineCtrlModeExtDoNum(17);
-       for (int i = 0; i < 5; i++)
-       {
-           robot.SetWeldMachineCtrlMode(0);
-           Thread.Sleep(1000);
-           robot.SetWeldMachineCtrlMode(1);
-           Thread.Sleep(1000);
-       }
-   }
+        robot.SetWeldMachineCtrlModeExtDoNum(17);
+        for (int i = 0; i < 5; i++)
+        {
+            int getCtrlMode = -1;
+            robot.SetWeldMachineCtrlMode(0);
+            robot.GetWeldMachineCtrlMode(ref getCtrlMode);
+            Console.WriteLine("GetWeldMachineCtrlMode {0}", getCtrlMode);
+            Thread.Sleep(1000);
+            robot.SetWeldMachineCtrlMode(1);
+            robot.GetWeldMachineCtrlMode(ref getCtrlMode);
+            Console.WriteLine("GetWeldMachineCtrlMode {0}", getCtrlMode);
+            Thread.Sleep(1000);
+        }
+    }
 
 Impostare i parametri di oscillazione in tempo reale
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -374,6 +379,18 @@ Imposta Modalità di Controllo della Saldatrice
     * @return Codice di errore
     */
     public int SetWeldMachineCtrlMode(int mode,int ioType = 1)
+
+Ottieni Modalità di Controllo della Saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ottiene la modalità di controllo della saldatrice
+    * @param [out] mode Modalità di controllo della saldatrice; 0-modalità unica CC; 1-modalità unica a impulsi; 2-modalità JOB; 3-modalità controllo locale; 4-modalità separata; 5-modalità CC/CV; 6-TIG; 7-CMT
+    * @return Codice errore
+    */
+    public int GetWeldMachineCtrlMode(ref int mode)
 
 Inizio della saldatura
 ++++++++++++++++++++++
@@ -816,24 +833,56 @@ IO esteso - Configurare i segnali di recupero dell'interruzione di saldatura
     */
    int SetExtDIWeldBreakOffRecover(int reWeldDINum, int abortWeldDINum);
 
-Esempio di codice per impostare i segnali di saldatura IO estesi
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Configurare e Ottenere Esempio di Codice IO Esteso
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
-   :linenos:
+    :linenos:
 
-   private void button51_Click(object sender, EventArgs e)
-   {
-       robot.SetArcStartExtDoNum(10);
-       robot.SetAirControlExtDoNum(20);
-       robot.SetWireForwardFeedExtDoNum(30);
-       robot.SetWireReverseFeedExtDoNum(40);
+    private void button51_Click(object sender, EventArgs e)
+    {
+        robot.SetArcStartExtDoNum(10);
+        robot.SetAirControlExtDoNum(20);
+        robot.SetWireForwardFeedExtDoNum(30);
+        robot.SetWireReverseFeedExtDoNum(40);
 
-       robot.SetWeldReadyExtDiNum(50);
-       robot.SetArcDoneExtDiNum(60);
-       robot.SetExtDIWeldBreakOffRecover(70, 80);
-       robot.SetWireSearchExtDIONum(0, 1);
-   }
+        robot.SetWeldReadyExtDiNum(50);
+        robot.SetArcDoneExtDiNum(60);
+        robot.SetExtDIWeldBreakOffRecover(70, 80);
+        robot.SetWireSearchExtDIONum(0, 1);
+
+        int[] DIConfig = new int[16];
+        int[] DOConfig = new int[16];
+        int rtn = robot.GetExtDIConfig(ref DIConfig);
+        Console.WriteLine("GetExtDIConfig rtn={0}, saldatrice pronta={1}, avvio arco riuscito={2}, ripresa interruzione={3}, uscita interruzione={4}, ricerca filo riuscita={5}, stato laser={6}, errore laser={7}",
+            rtn, DIConfig[0], DIConfig[1], DIConfig[2], DIConfig[3], DIConfig[4], DIConfig[5], DIConfig[6]);
+        rtn = robot.GetExtDOConfig(ref DOConfig);
+        Console.WriteLine("GetExtDOConfig rtn={0}, avvio arco saldatrice={1}, rilevamento gas={2}, avanzamento filo={3}, retrocessione filo={4}, ricerca filo={5}, modalità saldatrice={6}, abilitazione laser={7}, avvio laser={8}, reset laser={9}",
+            rtn, DOConfig[0], DOConfig[1], DOConfig[2], DOConfig[3], DOConfig[4], DOConfig[5], DOConfig[6], DOConfig[7], DOConfig[8]);
+    }
+
+Ottieni Configurazione Funzione DI Estesa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ottiene la configurazione della funzione DI estesa
+    * @param [out] DIConfig Configurazione input DI esteso; [0]-saldatrice pronta; [1]-avvio arco riuscito; [2]-ripresa interruzione saldatura; [3]-uscita interruzione saldatura; [4]-ricerca filo riuscita; [5]-stato funzionamento saldatrice laser; [6]-stato guasto saldatrice laser; [7-15]-riservati
+    * @return  Codice errore
+    */
+    public int GetExtDIConfig(ref int[] DIConfig)
+
+Ottieni Configurazione Funzione DO Estesa
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Ottiene la configurazione della funzione DO estesa
+    * @param [out] DOConfig Configurazione output DO esteso; [0]-avvio arco saldatrice; [1]-rilevamento gas; [2]-alimentazione filo in avanti; [3]-alimentazione filo all'indietro; [4]-ricerca filo; [5]-modalità controllo saldatrice; [6]-abilitazione saldatrice laser; [7]-avvio saldatrice laser; [8]-reset saldatrice laser; [9-15]-riservati
+    * @return  Codice errore
+    */
+    public int GetExtDOConfig(ref int[] DOConfig)
 
 Controllo del tracciamento dell'arco
 ++++++++++++++++++++++++++++++++++++

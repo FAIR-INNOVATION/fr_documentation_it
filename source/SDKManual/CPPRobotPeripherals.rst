@@ -459,9 +459,6 @@ Configurazione parametri nastro trasportatore
     * @param [in] para[3] Numero sistema coordinate pezzo Per funzione tracciamento movimento seleziona numero sistema coordinate pezzo, per tracciamento presa, tracciamento TPD imposta 0
     * @param [in] para[4] Configura visione 0 non configurato 1 configurato
     * @param [in] para[5] Rapporto velocità Per opzione tracciamento presa nastro trasportatore (1-100) Altre opzioni predefinite 1 
-    * @param [in] followType Tipo movimento tracciamento, 0-Movimento tracciamento; 1-Movimento inseguimento verifica
-    * @param [in] startDis Necessario per presa inseguimento verifica, distanza inizio tracciamento, -1: calcolo automatico (avvio automatico inseguimento verifica quando pezzo raggiunge sotto robot), unità mm, valore predefinito 0
-    * @param [in] endDis Necessario per presa inseguimento verifica, distanza fine tracciamento, unità mm, valore predefinito 100
     * @return Codice di errore
     */
     errno_t ConveyorSetParam(float para[6], int followType = 0, int startDis = 0, int endDis = 100);
@@ -591,6 +588,88 @@ Esempio programma operazioni nastro trasportatore robot
       printf("ConveyorComDetectTrigger rtn is: %d\n", rtn);
       robot.CloseRPC();
       return 0;
+    }
+
+Configurazione dei Parametri di Inseguimento in Posizione per Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C++SDK-v3.9.8
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Configura i parametri di inseguimento in posizione per nastro trasportatore
+    * @param [in] trackMode 0-tempo; 1-distanza; 2-tempo e distanza, una qualsiasi condizione soddisfatta
+    * @param [in] trackTime Tempo di inseguimento, unità s
+    * @param [in] trackDis Distanza di inseguimento, unità mm
+    * @return Codice errore
+    */
+    int SetStationaryTrackPara(int trackMode, double trackTime, int trackDis);
+    
+Esempio di Codice per Inseguimento in Posizione su Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C++SDK-v3.9.8
+    
+.. code-block:: c++
+    :linenos:
+
+    int TestStationaryTrack()
+    {
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return -1;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+        printf("\n========== Test Inseguimento Stazionario Nastro ==========");
+        JointPos j1(-35.146, -102.684, 120.805, -100.401, -90.295, 150.105);
+        DescPose d1(-121.814, -348.341, 209.978, -173.152, -3.585, -5.446);
+        ExaxisPos ex(0, 0, 0, 0);
+        DescPose zeroOff(0, 0, 0, 0, 0, 0);
+        int tool = 1;
+        int workpiece = 1;
+        float conveyorParam[6] = { 0, 10000, 200, 0, 0, 10 };
+        rtn = robot.ConveyorSetParam(conveyorParam);
+        robot.MoveJ(&j1, &d1, tool, workpiece, 100, 100, 100, &ex, -1, 0, &zeroOff);
+        // Step 1: Segnale di controllo SetDO
+        printf("--- Step 1: SetDO(6,1) ---\n");
+        rtn = robot.SetDO(6, 1, 0, 0);
+        printf("  SetDO(6,1) rtn={0}\n", rtn);
+        // Step 2: Avvio inseguimento nastro
+        printf("--- Step 2: ConveyorTrackStart(2) ---\n");
+        rtn = robot.ConveyorTrackStart(2);
+        printf("  ConveyorTrackStart(2) rtn={0}\n", rtn);
+        // Step 3: Rilevamento IO pezzo
+        printf("--- Step 3: ConveyorIODetect(10000) ---\n");
+        rtn = robot.ConveyorIODetect(10000);
+        printf("  ConveyorIODetect(10000) rtn={0}\n", rtn);
+        // Step 4: Ottieni dati di inseguimento
+        printf("--- Step 4: ConveyorGetTrackData(2) ---\n");
+        rtn = robot.ConveyorGetTrackData(2);
+        printf("  ConveyorGetTrackData(2) rtn={0}\n", rtn);
+        // Step 5: Configurazione parametri inseguimento stazionario (modo tempo, 200s, distanza 5)
+        printf("--- Step 5: SetStationaryTrackPara(0,200,5) ---\n");
+        rtn = robot.SetStationaryTrackPara(0, 5, 5);
+        printf("  SetStationaryTrackPara(0,200,5) rtn={0}\n", rtn);
+        // Step 6: Esegui movimento di inseguimento stazionario
+        printf("--- Step 6: MoveStationary() ---\n");
+        rtn = robot.MoveStationary();
+        rtn = robot.WaitStationaryMotionDone();
+        printf("  MoveStationary() rtn={0}\n", rtn);
+        // Step 7: Fine inseguimento nastro
+        printf("--- Step 7: ConveyorTrackEnd() ---\n");
+        rtn = robot.ConveyorTrackEnd();
+        printf("  ConveyorTrackEnd() rtn={0}\n", rtn);
+        // Step 8: Segnale di spegnimento SetDO
+        printf("--- Step 8: SetDO(6,0) ---\n");
+        rtn = robot.SetDO(6, 0, 0, 0);
+        printf("  SetDO(6,0) rtn={0}\n", rtn);
+        printf("\n========== Test Inseguimento Stazionario Completato ==========\n");
+        return 0;
     }
 
 Configurazione sensore terminale

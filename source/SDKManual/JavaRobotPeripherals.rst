@@ -411,9 +411,6 @@ Configurazione parametri nastro trasportatore
     * @param [in] wpAxis numero sistema coordinato pezzo per funzione tracciamento movimento, tracciamento presa/TPD impostare 0
     * @param [in] vision se dotato visione 0 no 1 si
     * @param [in] speedRadio rapporto velocità per opzione tracciamento presa (1-100) altre opzioni default 1
-    * @param [in] followType tipo movimento tracciamento, 0-tracciamento movimento; 1-movimento inseguimento ispezione
-    * @param [in] startDis necessario per presa inseguimento ispezione, distanza inizio tracciamento, -1: calcolo automatico (inseguimento automatico dopo arrivo pezzo sotto robot), unità mm, default 0
-    * @param [in] endDis necessario per presa inseguimento ispezione, distanza fine tracciamento, unità mm, default 100
     * @return Codice errore
     */
     int ConveyorSetParam(int encChannel, int resolution, double lead, int wpAxis, int vision, double speedRadio, int followType, int startDis, int endDis); 
@@ -531,6 +528,90 @@ Esempio programma operazione nastro trasportatore robot
 
         retval = robot.MoveGripper(index, 100, 40, 10, max_time, block, 0, 0, 0, 0);
 
+        return 0;
+    }
+
+Configurazione dei Parametri di Inseguimento in Posizione per Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    /**
+    * @brief  Configura i parametri di inseguimento in posizione per nastro trasportatore
+    * @param  [in] trackMode 0-tempo; 1-distanza; 2-tempo e distanza, una qualsiasi condizione soddisfatta
+    * @param  [in] trackTime Tempo di inseguimento, unità s
+    * @param  [in] trackDis Distanza di inseguimento
+    * @return  Codice errore
+    */
+    public int SetStationaryTrackPara(int trackMode, double trackTime, int trackDis)
+
+Esempio di Codice per Inseguimento in Posizione su Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: Java
+    :linenos:
+
+    public static int TestStationaryTrack(Robot robot)
+    {
+        System.out.println("\n========== Test Inseguimento Stazionario Nastro ==========");
+
+        int rtn;
+
+        JointPos j1 = new JointPos(-35.146, -102.684, 120.805, -100.401, -90.295, 150.105);
+        DescPose d1 = new DescPose(-121.814, -348.341, 209.978, -173.152, -3.585, -5.446);
+
+        ExaxisPos ex = new ExaxisPos(0, 0, 0, 0);
+        DescPose zeroOff = new DescPose(0, 0, 0, 0, 0, 0);
+
+        int tool = 1;
+        int workpiece = 1;
+
+        rtn = robot.ConveyorSetParam(0, 10000, 200, 0, 0, 10,0,0,0);
+
+
+        robot.MoveJ(j1, d1, tool, workpiece, 100, 100, 100, ex, -1, 0, zeroOff);
+
+        // Step 1: Segnale di controllo SetDO
+        System.out.println("--- Step 1: SetDO(6,1) ---");
+        rtn = robot.SetDO(6, 1, 0, 0);
+        System.out.println("  SetDO(6,1) rtn=" + rtn);
+
+        // Step 2: Avvio inseguimento nastro
+        System.out.println("--- Step 2: ConveyorTrackStart(2) ---");
+        rtn = robot.ConveyorTrackStart(2);
+        System.out.println("  ConveyorTrackStart(2) rtn=" + rtn);
+
+        // Step 3: Rilevamento IO pezzo
+        System.out.println("--- Step 3: ConveyorIODetect(10000) ---");
+        rtn = robot.ConveyorIODetect(10000);
+        System.out.println("  ConveyorIODetect(10000) rtn=" + rtn);
+
+        // Step 4: Ottieni dati di inseguimento
+        System.out.println("--- Step 4: ConveyorGetTrackData(2) ---");
+        rtn = robot.ConveyorGetTrackData(2);
+        System.out.println("  ConveyorGetTrackData(2) rtn=" + rtn);
+
+        // Step 5: Configurazione parametri inseguimento stazionario (modo tempo, 200s, distanza 5)
+        System.out.println("--- Step 5: SetStationaryTrackPara(0,200,5) ---");
+        rtn = robot.SetStationaryTrackPara(0, 5, 5);
+        System.out.println("  SetStationaryTrackPara(0,200,5) rtn=" + rtn);
+
+        // Step 6: Esegui movimento stazionario
+        System.out.println("--- Step 6: MoveStationary() ---");
+        rtn = robot.MoveStationary();
+        robot.WaitStationaryMotionDone();
+        System.out.println("  MoveStationary() rtn=" + rtn);
+
+        // Step 7: Fine inseguimento nastro
+        System.out.println("--- Step 7: ConveyorTrackEnd() ---");
+        rtn = robot.ConveyorTrackEnd();
+        System.out.println("  ConveyorTrackEnd() rtn=" + rtn);
+
+        // Step 8: Segnale di spegnimento SetDO
+        System.out.println("--- Step 8: SetDO(6,0) ---");
+        rtn = robot.SetDO(6, 0, 0, 0);
+        System.out.println("  SetDO(6,0) rtn=" + rtn);
+
+        System.out.println("\n========== Test Inseguimento Stazionario Completato ==========");
         return 0;
     }
 

@@ -370,6 +370,7 @@ Tipo di struttura di feedback dello stato del robot
         public byte socketReadTimeout;     // Flag timeout lettura socket
         public byte tsWebStateComErr;      // ts_web_state_com_err
         public byte exaxisCoordID;         // Numero del sistema di coordinate degli assi di estensione
+        public byte programRunState;       //Stato di esecuzione del programma LUA 0-programma non in esecuzione; 1-programma in esecuzione (incluso programma in pausa)
         public UInt16 check_sum;         /* Checksum */
 
         // Costruttore: inizializza tutti i campi array
@@ -564,4 +565,5 @@ Tipo di Enumerazione della Configurazione del Feedback di Stato del Robot
         SocketReadTimeout = 130,     // Timeout lettura socket, bit0-bit4: socketID 1-4
         TsWebStateComErr = 131,     // Guasto comunicazione web-coppia; 0-normale; 1-guasto
         ExaxisCoordID = 132          // Numero del sistema di coordinate degli assi di estensione
+        programRunState = 133       //Stato di esecuzione del programma LUA 0-programma non in esecuzione; 1-programma in esecuzione (incluso programma in pausa)
     }

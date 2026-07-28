@@ -207,7 +207,7 @@ Impostazione sistema di coordinate utensile esterno
 
     /**
     * @brief Imposta il sistema di coordinate utensile esterno 
-    * @param [in] id Numero sistema di coordinate, intervallo [0~14]
+    * @param [in] id Numero sistema di coordinate, 20-39 corrispondono ai sistemi di coordinate degli utensili esterni 0-19
     * @param [in] etcp  Posa del centro utensile rispetto al centro della flangia terminale
     * @param [in] etool  Da determinare
     * @return Codice di errore 
@@ -221,7 +221,7 @@ Impostazione lista sistemi di coordinate utensile esterno
 
     /**
     * @brief  Imposta la lista dei sistemi di coordinate utensile esterno
-    * @param  [in] id Numero sistema di coordinate, intervallo [0~14]
+    * @param  [in] id Numero sistema di coordinate, 20-39 corrispondono ai sistemi di coordinate degli utensili esterni 0-19
     * @param  [in] etcp  Posa del centro utensile rispetto al centro della flangia terminale
     * @param  [in] etool  Da determinare
     * @return  Codice di errore

@@ -13,6 +13,24 @@ Note sulle Aggiornamenti di Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.8
+     - 2026-07-27
+     - | 1. Aggiornata la struttura di feedback dello stato del robot per includere lo stato di esecuzione del programma LUA corrente del robot: 0 - programma non in esecuzione; 1 - programma in esecuzione (incluso programma in pausa);
+       | 2. Aggiornate le descrizioni dei parametri per le interfacce SetExToolCoord() e SetExToolList() per l'impostazione del sistema di coordinate dell'utensile esterno e dell'elenco dei sistemi di coordinate degli utensili. I numeri dei sistemi di coordinate degli utensili esterni sono stati aggiornati a 20-39. Aggiornati gli esempi di codice per le operazioni sui sistemi di coordinate degli utensili esterni.
+       | 3. Aggiunta la possibilità di recuperare i parametri del tipo di utensile, della posizione di installazione, dell'ID utensile e del numero di carico all'interfaccia GetToolCoordWithID() per il recupero dei parametri del sistema di coordinate dell'utensile.
+       | 4. Aggiunta la possibilità di recuperare i parametri del sistema di coordinate di riferimento all'interfaccia GetWObjCoordWithID() per il recupero dei parametri del sistema di coordinate del pezzo.
+       | 5. Aggiunta la possibilità di recuperare i parametri della posa del sistema di coordinate del pezzo montato all'estremità del robot all'interfaccia GetExToolCoordWithID() per il recupero dei parametri del sistema di coordinate dell'utensile esterno.
+       | 6. Aggiunta la possibilità di recuperare il numero dell'asse esteso e i parametri del flag di calibrazione all'interfaccia GetExAxisCoordWithID() per il recupero dei parametri del sistema di coordinate dell'asse esteso.
+       | 7. Aggiunte le impostazioni dei parametri di velocità di sicurezza dei giunti del robot all'interfaccia SetVelReducePara() per l'impostazione della velocità di sicurezza del robot.
+       | 8. Aggiunto un esempio di acquisizione della modalità di controllo della saldatrice all'esempio di codice di configurazione dei parametri di saldatura.
+       | 9. Aggiunti esempi di codice per il recupero delle configurazioni delle funzioni DI estese e DO estese all'esempio di codice di configurazione dei segnali di saldatura IO estesi.
+       | 10. Aggiunto un nuovo esempio di codice per l'impostazione della velocità di sicurezza dei giunti del robot;
+       | 11. Aggiunta una nuova interfaccia WaitStationaryMotionDone() per attendere il completamento del movimento a vuoto in posizione;
+       | 12. Aggiunta una nuova interfaccia SetStationaryTrackPara() per la configurazione dei parametri di tracciamento in posizione del nastro trasportatore, insieme a un esempio di codice per il tracciamento in posizione del nastro trasportatore;
+       | 13. Aggiunte nuove interfacce WorkPieceTrsfStart() e WorkPieceTrsfEnd() per l'avvio e la fine della trasformazione del sistema di coordinate del pezzo, insieme a un esempio di codice per la trasformazione del sistema di coordinate del pezzo.
+       | 14. Aggiunta l'interfaccia GetWeldMachineCtrlMode() per il recupero della modalità di controllo della saldatrice.
+       | 15. Aggiunte le interfacce GetExtDIConfig() e GetExtDOConfig() per il recupero delle configurazioni delle funzioni DI estese e DO estese.
+
    * - V3.9.7
      - 2026-06-25
      - | 1. Aggiunto errore di allarme caduta pezzo dalla pinza, codice guasto principale 8, codice guasto secondario 3.

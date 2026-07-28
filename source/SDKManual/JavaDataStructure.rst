@@ -498,6 +498,7 @@ Tipo Struttura Feedback Stato Robot
         public int socketReadTimeout;                // Timeout lettura socket
         public int tsWebStateComErr;                 // Errore comunicazione stato TS Web
         public int exaxisCoordID;                  // ID sistema coordinate asse esteso
+        public int programRunState;                  // Stato di esecuzione del programma LUA 0-programma non in esecuzione; 1-programma in esecuzione (incluso programma in pausa)
     }
 
 Classe Risultato Configurazione Feedback Stato Robot
@@ -654,4 +655,5 @@ Tipo Enumerato Configurazione Feedback Stato Robot
         SocketReadTimeout,      // Timeout lettura socket, bit0-bit4 corrispondono socketID 1-4
         TsWebStateComErr,       // Guasto comunicazione web-coppia: 0-normale, 1-guasto
         ExaxisCoordID           // ID sistema coordinate asse esteso
+        programRunState         //Stato di esecuzione del programma LUA 0-programma non in esecuzione; 1-programma in esecuzione (incluso programma in pausa)
     };

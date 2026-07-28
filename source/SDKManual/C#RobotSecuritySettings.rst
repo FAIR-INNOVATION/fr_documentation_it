@@ -250,9 +250,10 @@ Imposta i Parametri di Velocità di Sicurezza
     * @param [in] enable 0-disabilitato; 1-abilitato in modalità manuale; 2-abilitato in tutte le modalità (limitazione automatica della velocità non supportata)
     * @param [in] maxTCPVel Limite massimo velocità TCP; [0-1000] mm/s
     * @param [in] strategy Strategia dopo superamento velocità; 0-ferma con allarme; 1-limitazione automatica della velocità; 2-ferma con allarme e disabilita
+    * @param [in] maxJointVel Velocità massima per 6 giunti (°/s), default 45°/s
     * @return Codice di errore
     */
-    public int SetVelReducePara(int enable, double maxTCPVel, int strategy)
+    public int SetVelReducePara(int enable, double maxTCPVel, int strategy, double[] maxJointVel = null)
     
 Esempio di Codice SDK per Impostare i Parametri di Velocità di Sicurezza
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -262,46 +263,27 @@ Esempio di Codice SDK per Impostare i Parametri di Velocità di Sicurezza
     public int TestSetVelReducePara()
     {
         int rtn = 0;
-        JointPos j1 = new JointPos(0, -90, 90, 0, 0, 0);
-        JointPos j2 = new JointPos(90, -90, 90, 0, 0, 0);
+        JointPos j1 = new JointPos(10.220, -11.121, -118.086, -46.739, 82.036, 131.503);
+        JointPos j2 = new JointPos(89.782, -11.122, -118.086, -46.740, 82.036, 131.504);
         ExaxisPos epos = new ExaxisPos(0, 0, 0, 0);
         DescPose offset_pos = new DescPose(0, 0, 0, 0, 0, 0);
+        double[] maxJointVel = new double[] { 100.0, 100.0, 100.0, 100.0, 100.0, 100.0 };
 
-        robot.SetSpeed(80);
+        robot.SetSpeed(20);
+        rtn = robot.SetVelReducePara(0, 200, 0, maxJointVel);
+        robot.MoveJ(j2, 1, 2, 100, 100, 100, epos, -1, 0, offset_pos);
 
-        // Test errore parametro
-        rtn = robot.SetVelReducePara(2, 30, 1);
-        Console.WriteLine($"SetVelReducePara param error rtn is {rtn}");
+        // 1st
+        rtn = robot.SetVelReducePara(2, 200, 0, maxJointVel);
+        Console.WriteLine($"SetVelReduceParaA param error rtn is {rtn}");
+        robot.MoveJ(j1, 1, 2, 100, 100, 100, epos, -1, 0, offset_pos);
+        robot.MoveJ(j2, 1, 2, 100, 100, 100, epos, -1, 0, offset_pos);
 
-        // Disabilita riduzione velocità
-        rtn = robot.SetVelReducePara(0, 30, 1);
-        Console.WriteLine($"SetVelReducePara disable reduce vel rtn is {rtn}");
-        robot.MoveJ(j1, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-        robot.MoveJ(j2, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-
-        // Abilita riduzione velocità (modalità manuale)
-        rtn = robot.SetVelReducePara(1, 30, 1);
-        Console.WriteLine($"SetVelReducePara reduce vel rtn is {rtn}");
-        robot.MoveJ(j1, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-        robot.MoveJ(j2, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-
-        // Abilitato in tutte le modalità, strategia: ferma con allarme e disabilita
-        rtn = robot.SetVelReducePara(2, 30, 2);
-        Console.WriteLine($"SetVelReducePara disable robot rtn is {rtn}");
-        robot.MoveJ(j1, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-        robot.MoveJ(j2, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-
-        Thread.Sleep(2000);
-        robot.ResetAllError();
-        robot.RobotEnable(1);
-        Thread.Sleep(1000);
-
-        // Abilitato in tutte le modalità, strategia: ferma con allarme (parametri normali)
-        rtn = robot.SetVelReducePara(2, 30, 0);
-        Console.WriteLine($"SetVelReducePara report error rtn is {rtn}");
-        robot.MoveJ(j1, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-        robot.MoveJ(j2, 0, 0, 100, 100, 100, epos, -1, 0, offset_pos);
-
-        Thread.Sleep(1000);
-        return 0;
+        // 2rd
+        maxJointVel = new double[] { 20.0, 20.0, 20.0, 20.0, 20.0, 20.0 };
+        rtn = robot.SetVelReducePara(2, 200, 0, maxJointVel);
+        Console.WriteLine($"SetVelReduceParaB reduce vel rtn is {rtn}");
+        robot.MoveJ(j1, 1, 2, 100, 100, 100, epos, -1, 0, offset_pos);
+        robot.MoveJ(j2, 1, 2, 100, 100, 100, epos, -1, 0, offset_pos);
+        return 0; 
     }

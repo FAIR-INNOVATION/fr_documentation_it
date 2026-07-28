@@ -435,6 +435,104 @@ Fine Tracciamento Nastro Trasportatore
     */
     int ConveyorTrackEnd();
 
+Configurazione dei Parametri di Inseguimento in Posizione per Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Configura i parametri di inseguimento in posizione per nastro trasportatore
+    * @param  [in] trackMode 0-tempo; 1-distanza; 2-tempo e distanza, una qualsiasi condizione soddisfatta
+    * @param  [in] trackTime Tempo di inseguimento, unità s
+    * @param  [in] trackDis Distanza di inseguimento
+    * @return  Codice errore
+    */
+    public int SetStationaryTrackPara(int trackMode, double trackTime, int trackDis)
+    
+Attendi il Completamento del Movimento a Vuoto in Posizione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Attendi il completamento del movimento a vuoto in posizione
+    * @return Codice errore
+    */
+    public int WaitStationaryMotionDone()
+        
+Esempio di Codice per il Movimento di Inseguimento in Posizione su Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    public int TestStationaryTrack()
+    {
+        Console.WriteLine("\n========== Stationary Track Test ==========");
+
+        int rtn;
+
+        JointPos j1 = new JointPos(-35.146, -102.684, 120.805, -100.401, -90.295, 150.105);
+        DescPose d1 = new DescPose(-121.814, -348.341, 209.978, -173.152, -3.585, -5.446);
+
+        ExaxisPos ex = new ExaxisPos(0, 0, 0, 0);
+        DescPose zeroOff = new DescPose(0, 0, 0, 0, 0, 0);
+
+        int tool = 1;
+        int workpiece = 1;
+
+        rtn = robot.ConveyorSetParam(0, 10000, 200, 0, 0, 10);
+
+        robot.MoveJ(j1, d1, tool, workpiece, 100, 100, 100, ex, -1, 0, zeroOff);
+
+        // Step 1: Segnale di controllo SetDO ON
+        Console.WriteLine("--- Step 1: SetDO(6,1) ---");
+        rtn = robot.SetDO(6, 1, 0, 0);
+        Console.WriteLine("  SetDO(6,1) rtn={0}", rtn);
+
+        // Step 2: Avvio inseguimento nastro
+        Console.WriteLine("--- Step 2: ConveyorTrackStart(2) ---");
+        rtn = robot.ConveyorTrackStart(2);
+        Console.WriteLine("  ConveyorTrackStart(2) rtn={0}", rtn);
+
+        // Step 3: Rilevamento IO pezzo
+        Console.WriteLine("--- Step 3: ConveyorIODetect(10000) ---");
+        rtn = robot.ConveyorIODetect(10000);
+        Console.WriteLine("  ConveyorIODetect(10000) rtn={0}", rtn);
+
+        // Step 4: Ottieni dati di inseguimento
+        Console.WriteLine("--- Step 4: ConveyorGetTrackData(2) ---");
+        rtn = robot.ConveyorGetTrackData(2);
+        Console.WriteLine("  ConveyorGetTrackData(2) rtn={0}", rtn);
+
+        // Step 5: Configurazione parametri inseguimento stazionario (modo tempo, 200s, distanza 5)
+        Console.WriteLine("--- Step 5: SetStationaryTrackPara(0,200,5) ---");
+        rtn = robot.SetStationaryTrackPara(0, 5, 5);
+        Console.WriteLine("  SetStationaryTrackPara(0,200,5) rtn={0}", rtn);
+
+        // Step 6: Esegui movimento stazionario
+        Console.WriteLine("--- Step 6: MoveStationary() ---");
+        rtn = robot.MoveStationary();
+        Console.WriteLine("  MoveStationary() rtn={0}", rtn);
+
+        // Step 7: Attendi completamento movimento stazionario
+        Console.WriteLine("--- Step 7: WaitStationaryMotionDone() ---");
+        rtn = robot.WaitStationaryMotionDone();
+        Console.WriteLine("  WaitStationaryMotionDone() rtn={0}", rtn);
+
+        // Step 8: Fine inseguimento nastro
+        Console.WriteLine("--- Step 8: ConveyorTrackEnd() ---");
+        rtn = robot.ConveyorTrackEnd();
+        Console.WriteLine("  ConveyorTrackEnd() rtn={0}", rtn);
+
+        // Step 9: Segnale di controllo SetDO OFF
+        Console.WriteLine("--- Step 9: SetDO(6,0) ---");
+        rtn = robot.SetDO(6, 0, 0, 0);
+        Console.WriteLine("  SetDO(6,0) rtn={0}", rtn);
+
+        Console.WriteLine("\n========== Stationary Track Test Complete ==========");
+        return 0;
+    }    
+
 Configurazione Parametri Nastro Trasportatore
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. code-block:: c#
@@ -448,9 +546,6 @@ Configurazione Parametri Nastro Trasportatore
     * @param [in] para[3] Numero sistema coordinate pezzo Per funzione tracciamento movimento selezionare numero sistema coordinate pezzo, per tracciamento presa, TPD impostare 0
     * @param [in] para[4] Se dotato di visione  0 no  1 sì
     * @param [in] para[5] Rapporto velocità  Opzione tracciamento presa nastro (1-100)  Altre opzioni default 1 
-    * @param [in] followType Tipo movimento tracciamento, 0-tracciamento movimento; 1-movimento inseguimento ispezione
-    * @param [in] startDis Necessario per presa inseguimento ispezione, distanza inizio tracciamento, -1: calcolo automatico (inseguimento ispezione automatico dopo arrivo pezzo sotto robot), unità mm, valore default 0
-    * @param [in] endDis Necessario per presa inseguimento ispezione, distanza fine tracciamento, unità mm, valore default 100
     * @return Codice errore
     */
     int ConveyorSetParam(int encChannel, int resolution, double lead, int wpAxis, int vision, double speedRadio, int followType, int startDis=0, int endDis=100);

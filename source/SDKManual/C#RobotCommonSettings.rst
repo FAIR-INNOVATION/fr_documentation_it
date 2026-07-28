@@ -210,7 +210,7 @@ Impostazione del sistema di coordinate dell'utensile esterno
 
     /**
     * @brief Impostazione del sistema di coordinate dell'utensile esterno 
-    * @param [in] id Numero del sistema di coordinate, intervallo [0~14] 
+    * @param [in] id Numero del sistema di coordinate, 20-39 corrispondono ai sistemi di coordinate degli utensili esterni 0-19 
     * @param [in] etcp Posa del centro utensile rispetto al centro della flangia finale 
     * @param [in] etool Da definire 
     * @return Codice di errore 
@@ -224,7 +224,7 @@ Impostazione della lista dei sistemi di coordinate dell'utensile esterno
 
     /**
     * @brief  Impostazione della lista dei sistemi di coordinate dell'utensile esterno
-    * @param  [in] id Numero del sistema di coordinate, intervallo [0~14] 
+    * @param  [in] id Numero del sistema di coordinate, 20-39 corrispondono ai sistemi di coordinate degli utensili esterni 0-19 
     * @param  [in] etcp  Posa del centro utensile rispetto al centro della flangia finale
     * @param  [in] etool  Da definire
     * @return  Codice di errore

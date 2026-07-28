@@ -305,6 +305,8 @@ Pacchetto di feedback dello stato del controller
       uint8_t socketReadTimeout;   // Timeout lettura socket, bit0-bit4: socketID 1-4
       uint8_t tsWebStateComErr;   // Guasto comunicazione web-coppia; 0-normale; 1-guasto
       uint8_t exaxisCoordID;     //ID del sistema di coordinate dell'asse esteso
+      uint8_t programRunState;     //Stato di esecuzione del programma LUA 0-programma non in esecuzione; 1-programma in esecuzione (incluso programma in pausa)
+
       uint16_t check_sum;     // Checksum
     }ROBOT_STATE_PKG;
 
@@ -446,4 +448,5 @@ Tipo Enumerato per la Configurazione del Feedback di Stato del Robott
         SocketReadTimeout = 130,    // Timeout lettura socket, bit0-bit4 corrispondono a socketID 1-4
         TsWebStateComErr = 131,      // Guasto comunicazione web-coppia: 0-normale, 1-guasto
         ExaxisCoordID = 132          //ID del sistema di coordinate dell'asse esteso
+        programRunState = 133       //Stato di esecuzione del programma LUA 0-programma non in esecuzione; 1-programma in esecuzione (incluso programma in pausa)
     };

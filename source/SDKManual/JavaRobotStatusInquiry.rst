@@ -533,65 +533,73 @@ Esempio Codice Interrogazione Dati Punti Insegnamento Robot
         return 0;
     }
 
-Ottenere Sistema Coordinate Utensile per Numero
+Ottieni il Sistema di Coordinate dell'Utensile per ID
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+.. versionchanged:: Java SDK-V3.9.8
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Ottiene sistema coordinate utensile per numero
-    * @param [in] id Numero sistema coordinate utensile
-    * @param [out] coord Valori sistema coordinate
+    * @brief Ottiene il sistema di coordinate dell'utensile per ID
+    * @param [in] id Numero del sistema di coordinate dell'utensile
+    * @param [out] coord Valori del sistema di coordinate
+    * @param [out] type Tipo di utensile: 0-utensile; 1-sensore
+    * @param [out] install Posizione di installazione: 0-estremità del robot; 1-esterna al robot
+    * @param [out] toolID ID dell'utensile
+    * @param [out] loadNo Numero di carico
     * @return Codice errore
     */
-    int GetToolCoordWithID(int id, DescPose coord)
+    int GetToolCoordWithID(int id, DescPose coord, int[] type, int[] install, int[] toolID, int[] loadNo)
 
-Ottenere Sistema Coordinate Pezzo per Numero
+Ottieni il Sistema di Coordinate del Pezzo per ID
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+.. versionchanged:: Java SDK-V3.9.8
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Ottiene sistema coordinate pezzo per numero
-    * @param [in]  id Numero sistema coordinate pezzo
-    * @param [out] coord Valori sistema coordinate
+    * @brief Ottiene il sistema di coordinate del pezzo per ID
+    * @param [in] id Numero del sistema di coordinate del pezzo
+    * @param [out] coord Valori del sistema di coordinate
+    * @param [out] refFrame Sistema di coordinate di riferimento
     * @return Codice errore
     */
-    public int GetWObjCoordWithID(int id, DescPose coord)
+    public int GetWObjCoordWithID(int id, DescPose coord, int[] refFrame)
 
-Ottenere Sistema Coordinate Utensile Esterno per Numero
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+Ottieni il Sistema di Coordinate dell'Utensile Esterno per ID
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionchanged:: Java SDK-V3.9.8
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Ottiene sistema coordinate utensile esterno per numero
-    * @param [in]  id Numero sistema coordinate utensile esterno
-    * @param [out] coord Valori sistema coordinate
+    * @brief Ottiene il sistema di coordinate dell'utensile esterno per ID
+    * @param [in] id Numero del sistema di coordinate dell'utensile esterno, 20-39 corrispondono ai sistemi di coordinate degli utensili esterni 0-19
+    * @param [out] coord Posizione TCP dell'utensile esterno fisso sul robot
+    * @param [out] tcoord Posizione del sistema di coordinate del pezzo montato sull'estremità del robot
     * @return Codice errore
     */
-    public int GetExToolCoordWithID(int id, DescPose coord)
+    public int GetExToolCoordWithID(int id, DescPose coord, DescPose tcoord)
 
-Ottenere Sistema Coordinate Assi Estesi per Numero
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: Java SDK-v1.0.9-3.8.6
+Ottieni il Sistema di Coordinate dell'Asse Esteso per ID
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionchanged:: Java SDK-V3.9.8
 
 .. code-block:: Java
     :linenos:
 
     /**
-    * @brief Ottiene sistema coordinate assi estesi per numero
-    * @param [in]  id Numero sistema coordinate utensile esterno
-    * @param [out] coord Valori sistema coordinate
+    * @brief Ottiene il sistema di coordinate dell'asse esteso per ID
+    * @param [in] id Numero del sistema di coordinate dell'utensile esterno
+    * @param [out] coord Valori del sistema di coordinate
+    * @param [out] axisCoordNum Numero dell'asse esteso; bit0-bit3 corrispondono agli assi estesi 1-4; ad esempio, un valore axisCoordNum pari a 3 corrisponde agli assi estesi [1, 2]
+    * @param [out] calibFlag Flag di calibrazione; 0-non calibrato; 1-calibrato
     * @return Codice errore
     */
-    public int GetExAxisCoordWithID(int id, DescPose coord)
+    public int GetExAxisCoordWithID (int id, DescPose coord, int[] axisCoordNum, int[] calibFlag)
 
 Ottenere Sistema Coordinate Utensile Corrente
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -654,91 +662,80 @@ Esempio Codice Sistemi Coordinate e Carico Robot
 .. code-block:: Java
     :linenos:
 
-    public static void TestCoord(Robot robot)
+    public static int TestCoord(Robot robot)
     {
         int id = 1;
-        int rtn = 0;
         DescPose toolCoord = new DescPose();
         DescPose extoolCoord = new DescPose();
+        DescPose exworkpieceCoord = new DescPose();
         DescPose wobjCoord = new DescPose();
         DescPose exAxisCoord = new DescPose();
+        int[] type = new int[1];
+        int[] install = new int[1];
+        int[] toolID = new int[1];
+        int[] loadNo = new int[1];
+        robot.GetToolCoordWithID(id, toolCoord, type, install, toolID, loadNo);
+        System.out.printf("GetToolCoordWithID %d, %f %f %f %f %f %f,  type = %d, install = %d, toolID = %d, loadNo = %d\n", id,
+            toolCoord.tran.x, toolCoord.tran.y, toolCoord.tran.z,
+            toolCoord.rpy.rx, toolCoord.rpy.ry, toolCoord.rpy.rz, type[0], install[0], toolID[0], loadNo[0]);
+        int[] refFrame = new int[1];
+        robot.GetWObjCoordWithID(id, wobjCoord, refFrame);
+        System.out.printf("GetWObjCoordWithID %d, %f %f %f %f %f %f, refFrame = %d\n", id,
+            wobjCoord.tran.x, wobjCoord.tran.y, wobjCoord.tran.z,
+            wobjCoord.rpy.rx, wobjCoord.rpy.ry, wobjCoord.rpy.rz, refFrame[0]);
 
 
-        robot.GetCurToolCoord(toolCoord);//utensile
-        System.out.println("GetToolCoord:"+id+","+
-                toolCoord.tran.x+","+ toolCoord.tran.y+","+ toolCoord.tran.z+","+
-                toolCoord.rpy.rx+","+ toolCoord.rpy.ry+","+ toolCoord.rpy.rz);
+        robot.GetExToolCoordWithID(21, extoolCoord, exworkpieceCoord);
+        System.out.printf("GetExToolCoordWithID %d, %f %f %f %f %f %f\n", id,
+            extoolCoord.tran.x, extoolCoord.tran.y, extoolCoord.tran.z,
+            extoolCoord.rpy.rx, extoolCoord.rpy.ry, extoolCoord.rpy.rz,
+            exworkpieceCoord.tran.x, exworkpieceCoord.tran.y, exworkpieceCoord.tran.z,
+            exworkpieceCoord.rpy.rx, exworkpieceCoord.rpy.ry, exworkpieceCoord.rpy.rz);
 
+        int[] axisCoordNum = new int[1];
+        int[] calibFlag = new int[1];
+        robot.GetExAxisCoordWithID(id, exAxisCoord, axisCoordNum, calibFlag);
+        System.out.printf("GetExAxisCoordWithID %d, %f %f %f %f %f %f, axisCoordNum = %d, calibFlag = %d\n", id,
+            exAxisCoord.tran.x, exAxisCoord.tran.y, exAxisCoord.tran.z,
+            exAxisCoord.rpy.rx, exAxisCoord.rpy.ry, exAxisCoord.rpy.rz, axisCoordNum[0], calibFlag[0]);
 
-        robot.GetCurWObjCoord(toolCoord);//pezzo
-        System.out.println("GetCurWObjCoord:"+id+","+
-                toolCoord.tran.x+","+ toolCoord.tran.y+","+ toolCoord.tran.z+","+
-                toolCoord.rpy.rx+","+ toolCoord.rpy.ry+","+ toolCoord.rpy.rz);
-
-        robot.GetCurExToolCoord(toolCoord);//utensile esterno
-        System.out.println("GetCurExToolCoord:"+id+","+
-                toolCoord.tran.x+","+ toolCoord.tran.y+","+ toolCoord.tran.z+","+
-                toolCoord.rpy.rx+","+ toolCoord.rpy.ry+","+ toolCoord.rpy.rz);
-
-
-        robot.GetCurExAxisCoord(toolCoord);//assi estesi
-        System.out.println("GetCurExToolCoord:"+id+","+
-                toolCoord.tran.x+","+ toolCoord.tran.y+","+ toolCoord.tran.z+","+
-                toolCoord.rpy.rx+","+ toolCoord.rpy.ry+","+ toolCoord.rpy.rz);
-
-
-        List<Number> weightT = new ArrayList<>();//baricentro
-        DescTran cogT=new DescTran();
-        weightT=robot.GetTargetPayload(0);
-        robot.GetTargetPayloadCog(0,cogT);
-        System.out.println("GetTargetPayload :"+weightT.get(1).doubleValue()+", "+
-                cogT.x+", "+cogT.y+", "+cogT.z);
-
-
-        robot.GetToolCoordWithID(id, toolCoord);
-        System.out.println("GetToolCoordWithID:"+id+","+
-                toolCoord.tran.x+","+ toolCoord.tran.y+","+ toolCoord.tran.z+","+
-                toolCoord.rpy.rx+","+ toolCoord.rpy.ry+","+ toolCoord.rpy.rz);
-
-        robot.GetWObjCoordWithID(id, wobjCoord);
-        System.out.println("GetWObjCoordWithID "+id+", "+
-                wobjCoord.tran.x+","+ wobjCoord.tran.y+","+ wobjCoord.tran.z+","+
-                wobjCoord.rpy.rx+","+ wobjCoord.rpy.ry+","+ wobjCoord.rpy.rz);
-
-
-        robot.GetExToolCoordWithID(id, extoolCoord);//utensile esterno
-        System.out.println("GetExToolCoordWithID :"+ id+","+
-                extoolCoord.tran.x+","+ extoolCoord.tran.y+","+ extoolCoord.tran.z+","+
-                extoolCoord.rpy.rx+","+ extoolCoord.rpy.ry+","+ extoolCoord.rpy.rz);
-
-        robot.GetExAxisCoordWithID(id, exAxisCoord);//assi estesi
-        System.out.println("GetExAxisCoordWithID "+id+","+
-                exAxisCoord.tran.x+","+ exAxisCoord.tran.y+","+ exAxisCoord.tran.z+","+
-                exAxisCoord.rpy.rx+","+ exAxisCoord.rpy.ry+","+ exAxisCoord.rpy.rz);
-
-
-        double[] weight = new double[1];//carico baricentro
-        DescTran getCog = new DescTran();
-        robot.GetTargetPayloadWithID(id, weight, getCog);
-        System.out.println("GetTargetPayloadWithID :"+ id+","+ weight[0]+","+
-                getCog.x+","+ getCog.y+","+ getCog.z);
-
-        DescPose coordSet0 = new DescPose(0, 0, 0, 0, 0, 0);
-        DescPose coordSet = new DescPose(1, 2, 3, 4, 5, 6);
-        DescPose etcp = new DescPose(10, 20, 30, 40, 50, 60);
-        DescPose etool = new DescPose(0.1, 0.2, 0.3, 0.4, 0.5, 0.6);
-        DescTran cog = new DescTran(1, 2, 3);
-
-        robot.SetToolCoord(id, coordSet, 0, 0, 1, 0);
-        robot.Sleep(100);
-        robot.SetWObjCoord(id, coordSet, 0);
-        robot.Sleep(100);
-        robot.ExtAxisActiveECoordSys(id, 1, coordSet, 1); //applica risultato calibrazione a sistema coordinate assi estesi
-        robot.Sleep(100);
-        rtn = robot.SetExToolCoord(id, etcp, etool);
-        robot.Sleep(100);
-        rtn = robot.SetLoadWeight(id, 1.5);
-        robot.Sleep(500);
-        rtn = robot.SetLoadCoord(id, cog);
-        robot.Sleep(100);
+        double[] weight = new double[1];
+        DescTran cog = new DescTran();
+        robot.GetTargetPayloadWithID(id, weight, cog);
+        System.out.println("GetTargetPayload is " + weightT.get(0) + " cogT is  " + cogT.x + "  " + cogT.y + "  " + cogT.z);
+        robot.GetCurToolCoord(toolCoord);
+        System.out.printf("GetCurToolCoord %f %f %f %f %f %f\n",
+            toolCoord.tran.x, toolCoord.tran.y, toolCoord.tran.z,
+            toolCoord.rpy.rx, toolCoord.rpy.ry, toolCoord.rpy.rz);
+        robot.GetCurWObjCoord(wobjCoord);
+        System.out.printf("GetCurWObjCoord %f %f %f %f %f %f\n",
+            wobjCoord.tran.x, wobjCoord.tran.y, wobjCoord.tran.z,
+            wobjCoord.rpy.rx, wobjCoord.rpy.ry, wobjCoord.rpy.rz);
+        robot.GetCurExToolCoord(extoolCoord);
+        System.out.printf("GetExToolCoordWithID %f %f %f %f %f %f\n",
+            extoolCoord.tran.x, extoolCoord.tran.y, extoolCoord.tran.z,
+            extoolCoord.rpy.rx, extoolCoord.rpy.ry, extoolCoord.rpy.rz);
+        robot.GetCurExAxisCoord(exAxisCoord);
+        System.out.printf("GetCurExAxisCoord %f %f %f %f %f %f\n",
+            exAxisCoord.tran.x, exAxisCoord.tran.y, exAxisCoord.tran.z,
+            exAxisCoord.rpy.rx, exAxisCoord.rpy.ry, exAxisCoord.rpy.rz);
+        DescTran cogT = new DescTran();
+        List<Number> weightT = robot.GetTargetPayload(0);
+        robot.GetTargetPayloadCog(0, cogT);
+        System.out.printf("GetTargetPayload %f %f %f %f\n", weightT.get(0),
+            cogT.x, cogT.y, cogT.z);
+        DescPose coordSet = new DescPose(0, 1, 2, 3, 4, 5);
+        robot.SetToolCoord(1, coordSet, 0, 0, 1, 0);
+        robot.SetWObjCoord(1, coordSet, 0);
+        robot.SetLoadWeight(1, 1.3);
+        cog.x = 10;
+        cog.y = 20;
+        cog.z = 30;
+        robot.SetLoadCoord(1, cog);
+        DescPose etcp = new DescPose(0, 0, 100, 0, 0, 0);
+        DescPose etool = new DescPose(0, 0, 50, 0, 0, 0);
+        int rtn = robot.SetExToolCoord(21, etcp, etool);
+        System.out.printf("SetExToolCoord rtn is %d\n", rtn);
+        robot.ExtAxisActiveECoordSys(1, 1, coordSet, 1);
+        return 0;
     }

@@ -237,6 +237,7 @@ Tipo Struttura di Feedback di Stato del Robot
             ("socketReadTimeout", c_uint8),     # Timeout lettura socket
             ("tsWebStateComErr", c_uint8),      # Errore comunicazione stato TS_WEB
             ("exaxisCoordID", c_uint8),         # ID dell'asse esteso esterno
+            ("programRunState", c_uint8),         # Stato di esecuzione del programma LUA 0-programma non in esecuzione; 1-programma in esecuzione (incluso programma in pausa)
             ("check_sum", c_uint16)          # Checksum
         ]
 
@@ -742,3 +743,4 @@ Tipo di Enumerazione dell'Elenco di Configurazione del Feedback di Stato del Rob
         TsWebStateComErr = 131
         exaxisCoordID = 132
         CheckSum = 133
+        programRunState = 133

@@ -176,25 +176,25 @@ Utilizzare la barra degli strumenti nella parte superiore dell'albero del progra
    
    Funzione: Passa dalla modalità albero del programma alla modalità modifica Lua e viceversa.
 
-Le icone in alto a destra sono spiegate di seguito:
+Le icone in alto a destra sono descritte come segue:
 
 .. note:: 
    .. image:: coding/240.png
       :height: 0.75in
       :align: left
 
-   Nome: **Aggiungi/Modifica Comando Programma**
+   Nome: **Aggiunta/Modifica Programmazione Programmi**
    
-   Funzione: Aggiunge/Modifica il contenuto del comando del programma corrente
+   Funzione: Aggiungere/modificare il contenuto del comando del programma corrente
 
 .. note:: 
-   .. image:: coding/241.png
+   .. image:: coding/245.png
       :height: 0.75in
       :align: left
 
-   Nome: **Modello Robot**
+   Nome: **Punto di Insegnamento Locale**
    
-   Funzione: Ritorna all'interfaccia del modello 3D del robot
+   Funzione: Punti di insegnamento applicabili solo al programma corrente
 
 .. note:: 
    .. image:: coding/242.png
@@ -203,34 +203,97 @@ Le icone in alto a destra sono spiegate di seguito:
 
    Nome: **Interfaccia Sottoprogramma NewDofile**
    
-   Funzione: Quando esiste un'istruzione NewDofile nel comando del programma corrente, fare clic per selezionare il nome del sottoprogramma e visualizzarne il contenuto.
-
-.. note:: 
-   .. image:: coding/243.png
-      :height: 0.75in
-      :align: left
-
-   Nome: **Configurazione Modbus TCP**
-   
-   Funzione: Configura i parametri della comunicazione Modbus TCP
+   Funzione: Quando il comando del programma corrente contiene un'istruzione NewDofile, fare clic per entrare e selezionare il nome del sottoprogramma per visualizzarne il contenuto.
 
 .. note:: 
    .. image:: coding/244.png
       :height: 0.75in
       :align: left
 
-   Nome: **Backup Programma di Insegnamento Corrente**
+   Nome: **Backup del Programma di Insegnamento Corrente**
    
-   Funzione: Registra le modifiche al programma corrente
+   Funzione: Registra le modifiche apportate al programma corrente
 
 .. note:: 
-   .. image:: coding/245.png
+   .. image:: coding/602.png
       :height: 0.75in
       :align: left
 
-   Nome: **Punti di Insegnamento Locali**
+   Nome: **Log di Stampa**
    
-   Funzione: Punti di insegnamento applicabili solo al programma corrente
+   Funzione: Emette informazioni specificate nella finestra di stampa WebApp per un facile debug e tracciamento dei dati
+
+.. note:: 
+   .. image:: coding/241.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Modello Robot**
+   
+   Funzione: Tornare all'interfaccia del modello 3D del robot
+
+.. note:: 
+   .. image:: coding/596.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Debug di Rete Socket**
+   
+   Funzione: Interfaccia di debug delle comunicazioni di rete
+
+.. note:: 
+   .. image:: coding/243.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Impostazioni Modbus TCP**
+   
+   Funzione: Configurare i parametri di comunicazione Modbus TCP
+
+.. note:: 
+   .. image:: coding/597.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Impostazioni Modbus RTU**
+   
+   Funzione: Configurare i parametri di comunicazione Modbus RTU
+
+.. note:: 
+   .. image:: coding/598.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Gestione Programmi in Background**
+   
+   Funzione: Configurare l'interfaccia dei programmi in background
+
+.. note:: 
+   .. image:: coding/599.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Gestione Variabili Utente**
+   
+   Funzione: Configurare l'interfaccia delle variabili utente
+
+.. note:: 
+   .. image:: coding/600.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Punti di Insegnamento**
+   
+   Funzione: Configurare l'interfaccia dei punti di insegnamento
+
+.. note:: 
+   .. image:: coding/601.png
+      :height: 0.75in
+      :align: left
+
+   Nome: **Configurazione Programma Principale**
+   
+   Funzione: Configurare il programma principale
 
 Comandi del Programma
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1283,6 +1346,98 @@ Seleziona il sistema di coordinate del pezzo da trasformare automaticamente, cli
 
 .. centered:: Grafico 9.5-33 Interfaccia istruzione WPTrsf
 
+Funzione di Trasformazione del Pezzo e Velocità di Sicurezza
+**************************************************************
+
+Panoramica
+""""""""""""""""""""""""""""""""""""
+
+La funzione di trasformazione del pezzo si riferisce alla migrazione delle traiettorie di movimento PTP\LIN\ARC\CIR sotto l'attuale sistema di coordinate del pezzo per funzionare sotto il sistema di coordinate del pezzo target.
+
+La funzione di velocità di sicurezza si riferisce alla configurazione aperta dei limiti di velocità nello spazio cartesiano\articolare del robot, consentendo la protezione della velocità sia nello spazio di lavoro che nello spazio articolare.
+
+Procedura Operativa della Funzione di Trasformazione del Pezzo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Step1**: Calibrare il sistema di coordinate del pezzo del robot tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Step2**: Insegnamento dei punti. Insegnare i punti di movimento PTP\LIN\ARC\CIR e scrivere programmi LUA tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Step3**: Configurare la trasformazione del sistema di coordinate del pezzo. Nell'interfaccia principale di WebApp, fare clic su "Teach Program" - "Program Programming" per accedere all'area "Istruzioni di Movimento".
+
+.. image:: coding/583.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.5-33-1 Area "Istruzioni di Movimento"
+
+Nell'area "Istruzioni di Movimento", fare clic sul pulsante "Trasformazione Pezzo" per accedere all'interfaccia di configurazione dell'istruzione "WPTrsf".
+
+.. image:: coding/584.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-33-2 Configurazione Istruzione WPTrsf
+
+Nell'interfaccia di configurazione dell'istruzione "WPTrsf" -> area di configurazione "Modifica Istruzione", selezionare il numero del sistema di coordinate del pezzo target dal menu a tendina "Seleziona Sistema di Coordinate Pezzo", quindi fare clic sui pulsanti "Aggiungi" - "Applica" per completare la configurazione della funzione di trasformazione del pezzo.
+
+**Step4**: Scrivere il programma LUA per la funzione di trasformazione del pezzo. Regolare l'ordine delle istruzioni generate dal Passo 2 al Passo 3 ed eseguire il programma LUA per implementare la funzione di trasformazione del pezzo.
+
+.. image:: coding/585.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.5-33-3 Programma LUA per la Funzione di Trasformazione del Pezzo
+
+Procedura Operativa della Funzione di Velocità di Sicurezza
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Nell'interfaccia principale di WebApp, fare clic su "Impostazioni Iniziali" - "Sicurezza" - "Velocità di Sicurezza" per accedere all'area di configurazione "Velocità di Sicurezza".
+
+.. image:: coding/586.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.5-33-4 Configurazione Istruzione Velocità di Sicurezza
+
+Nell'area di configurazione "Velocità di Sicurezza" -> menu a tendina "Abilitazione Funzione", è possibile selezionare le opzioni "Disabilita", "Abilita in Modalità Manuale" e "Abilita in Tutte le Modalità".
+
+"Abilita in Modalità Manuale" significa che la funzione viene abilitata quando si passa alla modalità manuale in WebApp; "Abilita in Tutte le Modalità" significa che la funzione viene abilitata quando si passa alla modalità manuale, modalità automatica e modalità drag in WebApp.
+
+Nell'area di configurazione "Velocità di Sicurezza" mostrata di seguito, è possibile impostare la protezione della velocità negli spazi cartesiano e articolare del robot rispettivamente nei campi di input "Velocità Limite TCP", "Velocità Limite J1", "Velocità Limite J2", "Velocità Limite J3", "Velocità Limite J4", "Velocità Limite J5" e "Velocità Limite J6".
+
+È importante notare che durante il movimento del robot, le suddette protezioni di velocità vengono attivate in base al valore minimo tra di esse.
+
+Nell'area di configurazione "Velocità di Sicurezza" -> menu a tendina "Modalità Post-Superamento Velocità", è possibile selezionare le opzioni "Stop e Allarme", "Limitazione Automatica Velocità" e "Disabilita Dopo Stop e Allarme", come mostrato nella tabella seguente.
+
+.. centered:: Tabella 9.5-4 Selezione "Modalità Post-Superamento Velocità" con Diverse Opzioni "Abilitazione Funzione"
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 0
+   :align: center
+
+   * - \
+     - **Stop e Allarme**
+     - **Limitazione Automatica Velocità**
+     - **Disabilita Dopo Stop e Allarme**
+
+   * - **Abilita in Modalità Manuale**
+     - Supportato
+     - Supportato
+     - Supportato
+
+   * - **Abilita in Tutte le Modalità**
+     - Supportato
+     - Non Supportato
+     - Supportato
+			
+"Stop e Allarme": Quando sia la velocità di comando che quella di feedback degli giunti superano la velocità di sicurezza, WebApp visualizza un avviso di superamento velocità;
+
+"Limitazione Automatica Velocità": Quando sia la velocità di comando che quella di feedback degli giunti superano la velocità di sicurezza, la velocità viene automaticamente ridotta entro il limite di sicurezza;
+
+"Disabilita Dopo Stop e Allarme": Quando sia la velocità di comando che quella di feedback degli giunti superano la velocità di sicurezza, WebApp visualizza un avviso di superamento velocità e tutti gli giunti del robot vengono disabilitati.
+
 Comando trasformazione utensile
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -1579,6 +1734,71 @@ Questa istruzione include quattro comandi: rilevamento posizione in tempo reale,
    :align: center
 
 .. centered:: Grafico 9.7-5 Interfaccia istruzione Conveyor
+
+Funzione di Movimento di Inseguimento in Posizione su Nastro Trasportatore
+***********************************************************************
+
+Panoramica
+"""""""""""""""""""""""""""""""""""
+
+Questa funzione consente al robot di identificare e tracciare in modo sincrono gli oggetti in movimento su un nastro trasportatore, e quindi realizzare un movimento "relativamente statico" tra il robot e l'oggetto senza fermare il nastro trasportatore.
+
+Procedura Operativa
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Passo 1**: Fare clic su "Applicazioni Ausiliarie" - "Pacchetto Processo" - "Inseguimento Nastro" per configurare i parametri di inseguimento del nastro, tra cui "Configurazione I/O", "Configurazione Parametri", "Compensazione Punto di Presa" (richiesta solo per la funzione "Inseguimento e Presa") e "Configurazione Punti di Riferimento". Nella "Configurazione Punti di Riferimento", la posizione del "Punto di Partenza a" è la posizione dell'oggetto all'inizio del movimento del nastro; la posizione del "Punto Finale b" è la posizione dell'oggetto al termine del movimento del nastro. Per i dettagli operativi, fare riferimento ai capitoli corrispondenti.
+
+**Passo 2**: Il movimento di inseguimento utilizza il sistema di coordinate del pezzo come sistema di coordinate del nastro, quindi è necessario impostare il sistema di coordinate del pezzo. Fare clic su "Impostazioni Iniziali" - "Base", selezionare "Sistema di Coordinate del Pezzo", fare clic per selezionare un sistema di coordinate del pezzo diverso da "wobjcoord0" per la calibrazione. Fare riferimento ai capitoli corrispondenti per il metodo di calibrazione.
+
+**Passo 3**: Fare clic su "Teach Program" - "Programmazione Programmi" - "Nastro" per accedere alla pagina di configurazione della funzione nastro.
+
+**Passo 4**: Fare clic sul pulsante "Abilitazione Inseguimento", selezionare "Inseguimento Movimento" come modalità di lavoro e fare clic sul pulsante "Aggiungi".
+
+.. image:: coding/590.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.7-5-1 Impostazioni Abilitazione Inseguimento
+
+**Passo 5**: Fare clic sul pulsante "Rilevamento I/O in Tempo Reale", impostare il tempo massimo di attesa e fare clic sul pulsante "Aggiungi".
+
+.. image:: coding/591.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.7-5-2 Impostazioni Rilevamento I/O in Tempo Reale
+
+**Passo 6**: Fare clic sul pulsante "Rilevamento Posizione in Tempo Reale", selezionare "Inseguimento Movimento" come modalità di lavoro e fare clic sul pulsante "Aggiungi".
+
+.. image:: coding/592.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.7-5-3 Impostazioni Rilevamento Posizione in Tempo Reale
+
+**Passo 7**: Fare clic sul pulsante "Inseguimento in Posizione". Le modalità di lavoro sono "Tempo", "Distanza" e "Tempo + Distanza". Nella modalità "Tempo", è necessario impostare il tempo di movimento. Il tempo viene calcolato dall'inizio dell'inseguimento del nastro e l'inseguimento si interrompe dopo il tempo impostato. Nella modalità "Distanza", è necessario impostare la distanza di movimento. La distanza viene calcolata dall'inizio dell'inseguimento del nastro e l'inseguimento si interrompe dopo la distanza impostata. Nella modalità "Tempo + Distanza", è necessario impostare sia il tempo che la distanza di movimento. Il calcolo inizia dall'attivazione dell'inseguimento del nastro e l'inseguimento si interrompe quando viene soddisfatta una delle condizioni impostate (tempo o distanza). Nota: Per la sicurezza dell'ambiente di movimento, la posizione massima di inseguimento di queste tre modalità non supererà la posizione del "Punto Finale b" durante la calibrazione del nastro. Fare clic sul pulsante "Aggiungi".
+
+.. image:: coding/593.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.7-5-4 Impostazioni Parametri Inseguimento in Posizione
+
+**Passo 8**: Fare clic sul pulsante "Disabilitazione Inseguimento" e fare clic sul pulsante "Aggiungi".
+
+.. image:: coding/594.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.7-5-5 Impostazioni Disabilitazione Inseguimento
+
+**Passo 9**: Il programma LUA generato per l'inseguimento in posizione su nastro è mostrato in figura. Eseguire il programma per realizzare l'inseguimento in posizione su nastro.
+
+.. image:: coding/595.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.7-5-6 Programma LUA per Inseguimento in Posizione su Nastro
 
 Comando apparecchiatura levigatura
 ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -8754,3 +8974,75 @@ Di seguito è riportato un programma di movimento non bloccante del robot che st
    :align: center
 
 .. centered:: Figura 9.39‑10 Esempio di Stampa della Posizione Corrente e DI Durante il Movimento del Robot   
+
+Ottimizzazione della Funzione di Caricamento Web per Grandi Programmi LUA e Sottoprogrammi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Contesto
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Attualmente il robot non è in grado di gestire grandi programmi LUA (200k+ righe). Quando si carica un grande programma LUA, la pagina web non riesce a caricarlo e utilizzarlo.
+
+Allo stesso tempo, durante l'importazione dei programmi, la logica di importazione corrente non esegue l'analisi e la validazione del programma. Dopo l'importazione, il programma deve essere aperto manualmente e salvato per la validazione. Quando si utilizzano contemporaneamente un gran numero di chiamate a sottoprogrammi, è necessario aprirli manualmente uno per uno, con notevole dispendio di tempo e una drastica riduzione dell'efficienza lavorativa.
+
+Panoramica
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Questa ottimizzazione riguarda i programmi importati. Il backend li analizza e li salva automaticamente. Dopo il caricamento dei sottoprogrammi successivi, possono essere chiamati direttamente senza bisogno di apertura e salvataggio manuali.
+
+Per i grandi programmi LUA, quando il frontend web importa un grande programma LUA (un programma LUA nativo che non richiede una seconda analisi), viene nominato con il prefisso RAW, come RAW_test.lua. Questo tipo di programma indica che il programma è composto interamente da istruzioni LUA native e non contiene informazioni applicative di business. Può essere inserito direttamente nell'interprete LUA per l'esecuzione. Il controller deve solo eseguire la validazione sintattica, senza analizzare riga per riga. Questo riduce significativamente il tempo di analisi dell'importazione del file. Allo stesso tempo, il frontend non esegue più il rendering animato per i grandi programmi LUA; i programmi vengono visualizzati in formato testo semplice e non vengono più mostrati l'evidenziazione dinamica e i numeri di riga in esecuzione, migliorando l'efficienza del rendering dei dati del frontend. Per le istruzioni specifiche che necessitano di analisi, fare riferimento al Capitolo 1.4.
+
+Dopo l'importazione di un programma, il Web deve visualizzare un indicatore di avanzamento e un messaggio di conferma al termine dell'importazione.
+
+Per i grandi programmi LUA, si consiglia di utilizzare i sottoprogrammi insieme al metodo `RAW_` per migliorare l'efficienza operativa.
+
+Procedura Operativa per Grandi Programmi LUA
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**Passo 1**: Assegnare al grande programma LUA il prefisso `RAW_`, ad esempio RAW_test200000.lua.
+
+**Passo 2**: Aprire la pagina web, fare clic su "Teach Program" -> "Program Programming" in sequenza, selezionare il comando "Importa" e scegliere RAW_test200000.lua nella selezione dei file "Importa".
+
+.. image:: coding/587.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.40‑1 Importazione File `RAW_`    
+
+**Passo 3**: Attendere il completamento dell'importazione. Al termine dell'importazione, le operazioni di importazione, analisi, salvataggio e rendering sono già state completate e il file può essere eseguito direttamente.
+
+.. image:: coding/588.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.40‑2 Attesa Importazione   
+
+Procedura Operativa per Sottoprogrammi
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**Passo 1**: Aprire la pagina web, fare clic su "Teach Program" -> "Program Programming" in sequenza, selezionare il comando "Importa" e selezionare in batch il programma principale e i sottoprogrammi nella selezione dei file "Importa".
+
+**Passo 2**: Attendere che tutti i programmi vengano importati con successo, passare il robot alla modalità automatica e il programma principale può essere eseguito direttamente.
+
+Precauzioni
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+I file `RAW_` eseguono solo la validazione sintattica e non analizzano e generano il contenuto del file riga per riga. Contengono informazioni sui punti, operazioni IO e altre funzioni LUA integrate personalizzate per la comodità del cliente. Tali funzioni devono essere combinate con i dati personalizzati dell'utente per la generazione secondaria in funzioni LUA direttamente eseguibili e non possono essere utilizzate nei file `RAW_`.
+
+.. image:: coding/589.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.40‑3 Diagramma di Flusso dell'Importazione del Programma LUA 
+
+Per la scrittura di file `RAW_`, fare riferimento al Manuale Utente dello Script di Programmazione FRLua. Le seguenti funzioni LUA richiedono l'analisi e non sono applicabili ai file `RAW_`.
+
+laserPTP(), EXT_AXIS_PTP(), SPTP(), NewSP(), SplinePTP(), laserLin(), SLIN(), Lin(), laserARC(), ARC() 
+laserCircle(), Circle(), TCPComputeCircleCenter(), unifCircle(), NewSpiral(), Spiral(), SCIRC() 
+ModbusSlaveWriteDO(), ModbusSlaveWriteDI(), ModbusSlaveWriteAO(), ModbusSlaveWriteAI(), ModbusSlaveReadDO(), ModbusSlaveReadDI(), ModbusSlaveReadAO(), ModbusSlaveReadAI(), ModbusSlaveWaitDI(), ModbusSlaveWaitAI()
+ModbusMasterWriteDO(), ModbusMasterWriteAO(), ModbusMasterReadDO(), ModbusMasterReadDI(), ModbusMasterReadAO(), ModbusMasterReadAI(), ModbusMasterWaitDI(), ModbusMasterWaitAI()
+ModbusSlaveWriteDO_RTU(), ModbusSlaveWriteDI_RTU(), ModbusSlaveWriteAO_RTU(), ModbusSlaveWriteAI_RTU(), ModbusSlaveReadDO_RTU(), ModbusSlaveReadDI_RTU(), ModbusSlaveReadAO_RTU(), ModbusSlaveReadAI_RTU(), ModbusSlaveWaitDI_RTU(), ModbusSlaveWaitAI_RTU()
+ModbusMasterWriteDO_RTU(), ModbusMasterWriteAO_RTU(), ModbusMasterReadDO_RTU(), ModbusMasterReadDI_RTU(), ModbusMasterReadAO_RTU(), ModbusMasterReadAI_RTU(), ModbusMasterWaitDI_RTU(), ModbusMasterWaitAI_RTU(), SetAO(), SetAuxAO(), SetToolAO(), WaitAI()
+FieldBusSlaveWaitAI(), WaitToolAI(), WaitAuxAI(), SPLCSetAO(), SPLCSetToolAO(), SetToolList(), SetWObjList(), SetExToolList(), PostureAdjustOn(), RegisterVar(), SetSysVarValue(), GetSysVarValue(), MultilayerOffsetTrsfToBase(), GetSegWeldDisDir(), DMP()
+LTSearchStart(), PointTableSwitch(), GetSegmentWeldPoint(), LaserRecordPoint(), GetIntersectionThrough3Point(), GetIntersectionThrough4Point(), GetUserVal(), SetUserVal(), MoveToIntersectLineStart(), MoveIntersectLine(), OriginPointWeaveStart()
+MatrixMoveStart(), MatrixMoveEnd(), MatrixSetCountPlus(), MatrixGetCount(), MatrixSetStartCount().   

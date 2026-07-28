@@ -583,65 +583,73 @@ Esempio di Codice Interrogazione Dati Punti Gestione Insegnamento
       return 0;
     }
 
-Ottenere Sistema di Coordinate Utensile in Base al Numero
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v3.8.6
+Ottieni il Sistema di Coordinate dell'Utensile per ID
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionchanged:: C++SDK-v3.9.8
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Ottiene il sistema di coordinate utensile in base al numero
-    * @param [in] id Numero sistema di coordinate utensile
+    * @brief Ottiene il sistema di coordinate dell'utensile per ID
+    * @param [in] id Numero del sistema di coordinate dell'utensile
     * @param [out] coord Valori del sistema di coordinate
+    * @param [out] type Tipo di utensile: 0-utensile; 1-sensore
+    * @param [out] install Posizione di installazione: 0-estremità del robot; 1-esterna al robot
+    * @param [out] toolID ID dell'utensile
+    * @param [out] loadNo Numero di carico
     * @return Codice errore
     */
-    errno_t GetToolCoordWithID(int id, DescPose& coord);
+    errno_t GetToolCoordWithID(int id, DescPose& coord, int& type, int& install, int& toolID, int& loadNo);
 
-Ottenere Sistema di Coordinate Pezzo in Base al Numero
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v3.8.6
+Ottieni il Sistema di Coordinate del Pezzo per ID
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionchanged:: C++SDK-v3.9.8
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Ottiene il sistema di coordinate pezzo in base al numero
-    * @param [in] id Numero sistema di coordinate pezzo
+    * @brief Ottiene il sistema di coordinate del pezzo per ID
+    * @param [in] id Numero del sistema di coordinate del pezzo
     * @param [out] coord Valori del sistema di coordinate
+    * @param [out] refFrame Sistema di coordinate di riferimento
     * @return Codice errore
     */
-    errno_t GetWObjCoordWithID(int id, DescPose& coord);
+    errno_t GetWObjCoordWithID(int id, DescPose& coord, int& refFrame);
     
-Ottenere Sistema di Coordinate Utensile Esterno in Base al Numero
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v3.8.6
+Ottieni il Sistema di Coordinate dell'Utensile Esterno per ID
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionchanged:: C++SDK-v3.9.8
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Ottiene il sistema di coordinate utensile esterno in base al numero
-    * @param [in] id Numero sistema di coordinate utensile esterno
-    * @param [out] coord Valori del sistema di coordinate
+    * @brief Ottiene il sistema di coordinate dell'utensile esterno per ID
+    * @param [in] id Numero del sistema di coordinate dell'utensile esterno, 20-39 corrispondono ai sistemi di coordinate degli utensili esterni 0-19
+    * @param [out] coord Posizione TCP dell'utensile esterno fisso sul robot
+    * @param [out] tcoord Posizione del sistema di coordinate del pezzo montato sull'estremità del robot
     * @return Codice errore
     */
-    errno_t GetExToolCoordWithID(int id, DescPose& coord);
+    errno_t GetExToolCoordWithID(int id, DescPose& coord, DescPose& tcoord);
     
-Ottenere Sistema di Coordinate Assi Estesi in Base al Numero
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. versionadded:: C++SDK-v3.8.6
+Ottieni il Sistema di Coordinate dell'Asse Esteso per ID
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionchanged:: C++SDK-v3.9.8
     
 .. code-block:: c++
     :linenos:
 
     /**
-    * @brief Ottiene il sistema di coordinate assi estesi in base al numero
-    * @param [in] id Numero sistema di coordinate utensile esterno (Nota: parametro probabilmente da verificare, il nome suggerisce per assi estesi)
+    * @brief Ottiene il sistema di coordinate dell'asse esteso per ID
+    * @param [in] id Numero del sistema di coordinate dell'utensile esterno
     * @param [out] coord Valori del sistema di coordinate
+    * @param [out] axisCoordNum Numero dell'asse esteso; bit0-bit3 corrispondono agli assi estesi 1-4; ad esempio, un valore axisCoordNum pari a 3 corrisponde agli assi estesi [1, 2]
+    * @param [out] calibFlag Flag di calibrazione; 0-non calibrato; 1-calibrato
     * @return Codice errore
     */
-    errno_t GetExAxisCoordWithID(int id, DescPose& coord);
+    errno_t GetExAxisCoordWithID(int id, DescPose& coord, int& axisCoordNum, int& calibFlag);
 
 Ottenere Massa e Centro di Gravità del Carico in Base al Numero
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -724,80 +732,85 @@ Esempio di Codice Ottenimento Sistemi di Coordinate e Carico Robot
 
     int TestCoord()
     {
-      ROBOT_STATE_PKG pkg = {};
-      FRRobot robot;
-      robot.LoggerInit();
-      robot.SetLoggerLevel(1);
-      int rtn = robot.RPC("192.168.58.2");
-      if (rtn != 0)
-      {
+        ROBOT_STATE_PKG pkg = {};
+        FRRobot robot;
+        robot.LoggerInit();
+        robot.SetLoggerLevel(1);
+        int rtn = robot.RPC("192.168.58.2");
+        if (rtn != 0)
+        {
+            return 0;
+        }
+        robot.SetReConnectParam(true, 30000, 500);
+        robot.Sleep(2000);
+        int id = 1;
+        DescPose toolCoord = {};
+        DescPose extoolCoord = {};
+        DescPose exworkpieceCoord = {};
+        DescPose wobjCoord = {};
+        DescPose exAxisCoord = {};
+        int type = 0, install = 0, toolID = 0, loadNo = 0;
+        robot.GetToolCoordWithID(id, toolCoord, type, install, toolID, loadNo);
+        printf("GetToolCoordWithID %d, %f %f %f %f %f %f,  type = %d, install = %d, toolID = %d, loadNo = %d\n", id,
+            toolCoord.tran.x, toolCoord.tran.y, toolCoord.tran.z,
+            toolCoord.rpy.rx, toolCoord.rpy.ry, toolCoord.rpy.rz, type, install, toolID, loadNo);
+        int refFrame = 0;
+        robot.GetWObjCoordWithID(id, wobjCoord, refFrame);
+        printf("GetWObjCoordWithID %d, %f %f %f %f %f %f, refFrame = %d\n", id,
+            wobjCoord.tran.x, wobjCoord.tran.y, wobjCoord.tran.z,
+            wobjCoord.rpy.rx, wobjCoord.rpy.ry, wobjCoord.rpy.rz, refFrame);
+        robot.GetExToolCoordWithID(21, extoolCoord, exworkpieceCoord);
+        printf("GetExToolCoordWithID %d, %f %f %f %f %f %f\n", id,
+            extoolCoord.tran.x, extoolCoord.tran.y, extoolCoord.tran.z,
+            extoolCoord.rpy.rx, extoolCoord.rpy.ry, extoolCoord.rpy.rz,
+            exworkpieceCoord.tran.x, exworkpieceCoord.tran.y, exworkpieceCoord.tran.z,
+            exworkpieceCoord.rpy.rx, exworkpieceCoord.rpy.ry, exworkpieceCoord.rpy.rz);
+        int axisCoordNum = 0, calibFlag = 0;
+        robot.GetExAxisCoordWithID(id, exAxisCoord, axisCoordNum, calibFlag);
+        printf("GetExAxisCoordWithID %d, %f %f %f %f %f %f, axisCoordNum = %d, calibFlag = %d\n", id,
+            exAxisCoord.tran.x, exAxisCoord.tran.y, exAxisCoord.tran.z,
+            exAxisCoord.rpy.rx, exAxisCoord.rpy.ry, exAxisCoord.rpy.rz, axisCoordNum, calibFlag);
+        double weight = 0.0;
+        DescTran cog = {};
+        robot.GetTargetPayloadWithID(id, weight, cog);
+        printf("GetTargetPayloadWithID %d, %f %f %f %f\n", id, weight,
+            cog.x, cog.y, cog.z);
+        robot.GetCurToolCoord(toolCoord);
+        printf("GetCurToolCoord %f %f %f %f %f %f\n",
+            toolCoord.tran.x, toolCoord.tran.y, toolCoord.tran.z,
+            toolCoord.rpy.rx, toolCoord.rpy.ry, toolCoord.rpy.rz);
+        robot.GetCurWObjCoord(wobjCoord);
+        printf("GetCurWObjCoord %f %f %f %f %f %f\n",
+            wobjCoord.tran.x, wobjCoord.tran.y, wobjCoord.tran.z,
+            wobjCoord.rpy.rx, wobjCoord.rpy.ry, wobjCoord.rpy.rz);
+        robot.GetCurExToolCoord(extoolCoord);
+        printf("GetExToolCoordWithID %f %f %f %f %f %f\n",
+            extoolCoord.tran.x, extoolCoord.tran.y, extoolCoord.tran.z,
+            extoolCoord.rpy.rx, extoolCoord.rpy.ry, extoolCoord.rpy.rz);
+        robot.GetCurExAxisCoord(exAxisCoord);
+        printf("GetCurExAxisCoord %f %f %f %f %f %f\n",
+            exAxisCoord.tran.x, exAxisCoord.tran.y, exAxisCoord.tran.z,
+            exAxisCoord.rpy.rx, exAxisCoord.rpy.ry, exAxisCoord.rpy.rz);
+        float weightT = 0.0;
+        DescTran cogT = {};
+        robot.GetTargetPayload(0, &weightT);
+        robot.GetTargetPayloadCog(0, &cogT);
+        printf("GetTargetPayload %f %f %f %f\n", weightT,
+            cogT.x, cogT.y, cogT.z);
+        DescPose coordSet(0, 1, 2, 3, 4, 5);
+        robot.SetToolCoord(1, &coordSet, 0, 0, 1, 0);
+        robot.SetWObjCoord(1, &coordSet, 0);
+        robot.SetLoadWeight(1, 1.3);
+        //DescTran cog = {};
+        cog.x = 10;
+        cog.y = 20;
+        cog.z = 30;
+        robot.SetLoadCoord(1, &cog);
+        DescPose etcp(0, 0, 100, 0, 0, 0);
+        DescPose etool(0, 0, 50, 0, 0, 0);
+        rtn = robot.SetExToolCoord(21, &etcp, &etool);
+        printf("SetExToolCoord rtn is %d\n", rtn);
+        robot.ExtAxisActiveECoordSys(1, 1, coordSet, 1);
+        robot.CloseRPC();
         return 0;
-      }
-      robot.SetReConnectParam(true, 30000, 500);
-      int id = 1;
-      DescPose toolCoord = {};
-      DescPose extoolCoord = {};
-      DescPose wobjCoord = {};
-      DescPose exAxisCoord = {};
-      robot.GetToolCoordWithID(id, toolCoord);
-      printf("GetToolCoordWithID %d, %f %f %f %f %f %f\n", id, 
-        toolCoord.tran.x, toolCoord.tran.y, toolCoord.tran.z,
-        toolCoord.rpy.rx, toolCoord.rpy.ry, toolCoord.rpy.rz);
-      robot.GetWObjCoordWithID(id, wobjCoord);
-      printf("GetWObjCoordWithID %d, %f %f %f %f %f %f\n", id,
-        wobjCoord.tran.x, wobjCoord.tran.y, wobjCoord.tran.z,
-        wobjCoord.rpy.rx, wobjCoord.rpy.ry, wobjCoord.rpy.rz);
-      
-      robot.GetExToolCoordWithID(id, extoolCoord);
-      printf("GetExToolCoordWithID %d, %f %f %f %f %f %f\n", id,
-        extoolCoord.tran.x, extoolCoord.tran.y, extoolCoord.tran.z,
-        extoolCoord.rpy.rx, extoolCoord.rpy.ry, extoolCoord.rpy.rz);
-      
-      robot.GetExAxisCoordWithID(id, exAxisCoord);
-      printf("GetExAxisCoordWithID %d, %f %f %f %f %f %f\n", id,
-        exAxisCoord.tran.x, exAxisCoord.tran.y, exAxisCoord.tran.z,
-        exAxisCoord.rpy.rx, exAxisCoord.rpy.ry, exAxisCoord.rpy.rz);
-      double weight = 0.0;
-      DescTran cog = {};
-      robot.GetTargetPayloadWithID(id, weight, cog);
-      printf("GetTargetPayloadWithID %d, %f %f %f %f\n", id, weight,
-        cog.x, cog.y, cog.z);
-      robot.GetCurToolCoord(toolCoord);
-      printf("GetCurToolCoord %f %f %f %f %f %f\n",
-        toolCoord.tran.x, toolCoord.tran.y, toolCoord.tran.z,
-        toolCoord.rpy.rx, toolCoord.rpy.ry, toolCoord.rpy.rz);
-      robot.GetCurWObjCoord(wobjCoord);
-      printf("GetCurWObjCoord %f %f %f %f %f %f\n",
-        wobjCoord.tran.x, wobjCoord.tran.y, wobjCoord.tran.z,
-        wobjCoord.rpy.rx, wobjCoord.rpy.ry, wobjCoord.rpy.rz);
-      robot.GetCurExToolCoord(extoolCoord);
-      printf("GetExToolCoordWithID %f %f %f %f %f %f\n",
-        extoolCoord.tran.x, extoolCoord.tran.y, extoolCoord.tran.z,
-        extoolCoord.rpy.rx, extoolCoord.rpy.ry, extoolCoord.rpy.rz);
-      robot.GetCurExAxisCoord(exAxisCoord);
-      printf("GetCurExAxisCoord %f %f %f %f %f %f\n",
-        exAxisCoord.tran.x, exAxisCoord.tran.y, exAxisCoord.tran.z,
-        exAxisCoord.rpy.rx, exAxisCoord.rpy.ry, exAxisCoord.rpy.rz);
-      float weightT = 0.0;
-      DescTran cogT = {};
-      robot.GetTargetPayload(0, &weightT);
-      robot.GetTargetPayloadCog(0, &cogT);
-      printf("GetTargetPayload %f %f %f %f\n", weightT,
-        cogT.x, cogT.y, cogT.z);
-      DescPose coordSet(0,1,2,3,4,5);
-      robot.SetToolCoord(1, &coordSet, 0, 0, 1, 0);
-      robot.SetWObjCoord(1, &coordSet, 0);
-      robot.SetLoadWeight(1, 1.3);
-      DescTran cog = {};
-      cog.x = 10;
-      cog.y = 20;
-      cog.z = 30;
-      robot.SetLoadCoord(1, &cog);
-      DescPose etcp(0, 0, 100, 0, 0, 0);
-      DescPose etool(0, 0, 50, 0, 0, 0);
-      rtn = robot.SetExToolCoord(1, &etcp, &etool);
-      printf("SetExToolCoord rtn is %d\n", rtn);
-      robot.ExtAxisActiveECoordSys(1, 1, coordSet, 1);
-      robot.CloseRPC();
-      return 0;
     }

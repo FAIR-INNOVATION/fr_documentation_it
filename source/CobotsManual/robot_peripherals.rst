@@ -640,6 +640,8 @@ Generazione Automatica del Protocollo End Lua
 
 Questa nuova funzionalità aggiunta consente la generazione automatica del protocollo Lua end tramite la configurazione della pagina web per i protocolli relativi alle periferiche SmartTool incorporate per la saldatrice (attualmente solo quattro protocolli supportano la generazione automatica: End_SmartTool_V1.3.lua, End_SM_JD_V1.3.lua, End_SM_GZCX_V1.3.lua, End_SM_XJC_V1.3.lua). Il protocollo generato viene caricato e applicato all'end senza richiedere la scrittura da parte dell'utente. Gli utenti configurano i tasti A, B, C, D, E e IO della saldatrice SmartTool secondo le proprie esigenze. Dopo il completamento della configurazione, il robot deve essere disabilitato, quindi fare clic su "Applica". A questo punto, la pagina richiederà "Entrare in boot e applicare il protocollo aperto?" Facendo clic su Conferma, il robot entrerà nello stato boot e caricherà automaticamente il protocollo Lua end generato automaticamente. Dopo il riavvio del robot, SmartTool può essere utilizzato secondo i tasti configurati.
 
+A partire dalla versione V3.9.8, lo SmartTool basato sul protocollo dell'end-effector supporta la configurazione di pulsanti diversi con la stessa funzione. Inoltre, è stata aggiunta la selezione del numero di tessitura e del numero del processo di saldatura. Il numero di tessitura è impostato su 0 di default. Se è configurato "Avvio Tessitura", è possibile selezionare il numero di tessitura. Le impostazioni del pulsante IO sono coerenti con le impostazioni di Avvio Tessitura. Il tempo massimo per l'avvio e l'arco di chiusura può essere configurato fino a 10000ms.
+
 .. figure:: robot_peripherals/284.png
    :align: center
    :width: 6in
@@ -684,6 +686,22 @@ Lo SmartTool basato sul protocollo aperto aggiunge una modalità anti-tocco acci
    :width: 6in
 
 .. centered:: Figura 8.3‑2-8 Funzione "Modalità Anti-Tocco Accidentale" SmartTool
+
+Funzione di Cancellazione della Memoria del Pulsante IO SmartTool
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Lo SmartTool basato sul protocollo aperto ha aggiunto una funzione di cancellazione della memoria del pulsante IO. Quando l'utente preme un pulsante IO una volta, viene memorizzato per generare istruzioni abbinate. Se viene premuta la funzione "Cancella Programma" o "Nuovo Programma", la memoria del pulsante IO viene cancellata e la successiva pressione del pulsante IO rigenererà l'istruzione.
+
+Funzione di Cancellazione Globale dei Punti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+È stata aggiunta una funzione di cancellazione globale dei punti. Aprire WebApp, fare clic su "Teach Program" e "Teach Points" in sequenza, selezionare "System Mode" e fare clic su "Clear All" per cancellare tutti i punti salvati dall'utente. A questo punto, i numeri di sequenza dei punti di istruzione generati e salvati da SmartTool verranno reimpostati, partendo da 1.
+
+.. figure:: robot_peripherals/320.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑2-9 Funzione di Cancellazione Globale dei Punti
 
 Esempio di Protocollo Periferico End Lua per Saldatrice
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1127,7 +1145,9 @@ Funzioni tasti A-E:
 
 .. centered:: Figura 8.4‑2-2 Inserimento della Velocità Fisica Effettiva
 
-Dopo una configurazione riuscita, viene aggiunto un comando di movimento correlato al programma di insegnamento. Quando si configura il comando di movimento ARC, è necessario prima configurare un comando PTP o LIN.
+Dopo una configurazione riuscita, viene aggiunto un comando di movimento correlato al programma di insegnamento.
+
+.. note:: Nota: quando si configura l'istruzione di movimento ARC, è necessario configurare prima l'istruzione PTP/LIN per garantire che i passaggi per l'aggiunta delle istruzioni siano eseguiti correttamente.
 
 - **Uscita DO:** Quando si seleziona "Uscita DO", viene visualizzato un menu a discesa che consente di selezionare le opzioni DO0⁓DO7.
 
@@ -1141,7 +1161,7 @@ Funzioni tasti IO:
 
 -  **Configurazione segnale IO**: La casella a discesa consente di selezionare le opzioni DO0⁓DO7, CO0⁓CO7, End-DO0, End-DO1 e IO estesi (Aux-DO0⁓Aux-DO127);
 
--  **Comando combinato**: Dopo aver selezionato "Segnale IO", in condizioni specifiche vengono visualizzati gli elementi di configurazione "Selezione saldatrice" e "Velocità punto", generando diversi comandi di programma.
+-  **Comando combinato**: Dopo aver selezionato "Segnale IO", in condizioni specifiche vengono visualizzati gli elementi di configurazione "Selezione saldatrice" e "Velocità punto", generando diversi comandi di programma.Inoltre, è stata aggiunta la selezione del numero del processo di saldatura. Inoltre, il tempo massimo per l'avvio e l'arco di chiusura può essere configurato fino a 10000ms. Il numero di tessitura è impostato su 0 di default. Se è configurato "Avvio Tessitura", è possibile selezionare il numero di tessitura. Le impostazioni del pulsante IO sono coerenti con le impostazioni di Avvio Tessitura.
 
 .. important::
    -  Quando la configurazione del segnale IO è DO0~DO7 o CO0~CO7 (non configurato "accensione arco"), il programma aggiunge SetDO; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
@@ -1152,6 +1172,7 @@ Funzioni tasti IO:
    -  Quando la configurazione del segnale IO è CO0~CO7 (configurato "accensione arco") o IO estesi (configurato "accensione arco saldatrice"), se "Selezione saldatrice" è "Saldatura", alla prima pressione il programma aggiunge ARCStart, alla seconda ARCEnd, alla terza ARCStart, alla quarta ARCStart, alternando ripetutamente le operazioni sopra; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
    -  Quando la configurazione del segnale IO è CO0~CO7 (configurato "accensione arco") o IO estesi (configurato "accensione arco saldatrice"), se "Selezione saldatrice" è "LIN+saldatura", alla prima pressione il programma aggiunge LIN e ARCStart, alla seconda LIN e ARCEnd, alla terza LIN e ARCStart, alla quarta LIN e ARCEnd, alternando ripetutamente le operazioni sopra; in questo caso vengono visualizzati "Selezione saldatrice" e "Velocità punto".
    -  Quando la configurazione del segnale IO è CO0~CO7 (configurato "accensione arco") o IO estesi (configurato "accensione arco saldatrice"), se "Selezione saldatrice" è "LIN+saldatura+oscillazione", alla prima pressione il programma aggiunge LIN, ARCStart e WeaveStart, alla seconda LIN, ARCEnd e WeaveEnd, alla terza LIN, ARCStart e WeaveStart, alla quarta LIN, ARCEnd e WeaveEnd, alternando ripetutamente le operazioni sopra; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
+   -  Quando viene premuta la funzione "Cancella Programma" o "Nuovo Programma", la memoria del pulsante IO viene cancellata e la successiva pressione del pulsante IO rigenererà l'istruzione.
 
   
 .. image:: robot_peripherals/031.png
@@ -6433,50 +6454,55 @@ Tramite il pulsante di trascinamento, regolare l'estremità del robot in orizzon
 
 .. centered:: Grafico 8.14‑13 Azzeramento automatico sensore forza/coppia
 
-Trascinamento Ibrido a Sei Assi di Forza e Impedenza Articolare
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Trascinamento Ibrido a Sei Assi con Forza e Impedenza Articolare
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1. Assistenza al trascinamento
+Trascinamento Assistito
+********************************************************
 
-**Step1**: Nel menu "Applicazione Ausiliaria" -> "Applicazione Strumento", cliccare "Blocco Trascinamento" per accedere all'interfaccia della funzione di blocco trascinamento.
+**Passo 1**: Sotto il menu di "Applicazioni Ausiliarie" -> "Applicazioni Utensile", fare clic su "Blocco Trascinamento" per accedere all'interfaccia della funzione di blocco trascinamento.
 
-**Step2**: Nella barra "Trascinamento Ibrido a Sei Assi di Forza e Impedenza Articolare", impostare lo stato di controllo su "Attiva", stato di attivazione impedenza su "Disattiva", impostare il guadagno di trascinamento, velocità lineare terminale su 1000 mm/s, limite velocità angolare su 100°/s, poi cliccare il pulsante "Applica", la funzione viene attivata. La configurazione specifica è mostrata in Figura 4.
-
-**Step3**: Passare il robot in modalità trascinamento per trascinare il robot. L'effetto specifico è: trascinando l'estremità del robot, il trascinamento è leggero, esperienza buona; trascinando l'articolazione del robot, il trascinamento è pesante.
+**Passo 2**: Nella sezione "Trascinamento Ibrido a Sei Assi con Forza e Impedenza Articolare", impostare lo stato di controllo su "Attivo", lo stato di abilitazione dell'impedenza su "Disattivato", impostare il guadagno di trascinamento, la velocità lineare dell'estremità a 1000mm/s, il limite di velocità angolare a 100°/s, quindi fare clic sul pulsante "Applica" per abilitare la funzione. La configurazione specifica è mostrata nella figura sottostante.
 
 .. figure:: robot_peripherals/241.png
    :align: center
    :width: 4in
 
-.. centered:: Grafico 8.14‑14 Parametri di configurazione assistenza al trascinamento a sei assi di forza
+.. centered:: Figura 8.14‑14 Parametri di Configurazione per il Trascinamento Assistito con Forza a Sei Assi
 
-2. Controllo impedenza articolare
+Controllo dell'Impedenza Articolare
+********************************************************
 
-La funzione del controllo impedenza è limitare la forza e la posizione di trascinamento. Il suo stato predefinito è "Disattiva".
+La funzione del controllo dell'impedenza è quella di limitare la forza e la posizione di trascinamento. Il suo stato predefinito è "Disattivato".
 
-Le operazioni specifiche sono mostrate in Figura 5. Impostare lo stato di attivazione impedenza su "Attiva", quindi impostare i coefficienti di smorzamento e rigidità come mostrato in Figura 5. Tra questi, la funzione del coefficiente di rigidità non è ancora disponibile.
+Per le operazioni specifiche, vedere la figura sottostante. Impostare lo stato di abilitazione dell'impedenza su "Attivo", quindi impostare il coefficiente di smorzamento e il coefficiente di rigidezza come mostrato. La funzione del coefficiente di rigidezza non è ancora disponibile.
 
 .. figure:: robot_peripherals/242.png
    :align: center
    :width: 4in
 
-.. centered:: Grafico 8.14‑15 Parametri di configurazione impedenza articolare
+.. centered:: Figura 8.14‑15 Parametri di Configurazione per l'Impedenza Articolare
 
-Funzione specifica dei parametri:
+Funzioni specifiche dei parametri:
 
-- **Stato Controllo**: Dopo l'attivazione, in modalità trascinamento è possibile utilizzare questa funzione.
+- **Stato di Controllo**: Dopo l'attivazione, questa funzione può essere utilizzata in modalità trascinamento.
   
-- **Attivazione Impedenza**: Dopo l'attivazione, è necessario configurare i parametri di rigidità e smorzamento. La funzione è limitare la forza e la posizione di trascinamento.
+- **Abilitazione Impedenza**: Dopo l'attivazione, è necessario configurare i parametri di rigidezza e smorzamento. La sua funzione è limitare la forza e la posizione di trascinamento.
   
-- **Guadagno Trascinamento**: Si consiglia di impostare il parametro tra [0-5]. Impostato a 0, il robot non può essere trascinato. Impostato a 1, l'effetto di trascinamento non migliora. Maggiore di 1, il trascinamento è leggero, esperienza di trascinamento buona. Più alto è il parametro, più facile è il trascinamento.
+- **Guadagno di Trascinamento**: Si consiglia di impostare i parametri tra [0-5]. Quando impostato a 0, il robot non può essere trascinato. Quando impostato a 1, l'effetto di trascinamento non migliora. Quando maggiore di 1, il trascinamento è leggero e l'esperienza di trascinamento è buona. Maggiore è il parametro, più facile è il trascinamento.
   
-- **Guadagno Rigidità**: Impostato a 0, la funzione è tornare alla posizione iniziale prima del trascinamento dopo il trascinamento.
+- **Guadagno di Rigidezza**: Quando impostato a 0, ripristina il robot alla posizione iniziale prima del trascinamento dopo il trascinamento.
   
-- **Guadagno Smorzamento**: La funzione è limitare la forza di trascinamento. Parametri per gli assi 1-3 nell'intervallo [0-0.5], assi 4-5 nell'intervallo [0-0.1]; asse 6 nell'intervallo [0-0.05].
+- **Guadagno di Smorzamento**: La sua funzione è limitare la forza di trascinamento. L'intervallo dei parametri per gli assi 1-3 è [0-0.5], per gli assi 4-5 è [0-0.1]; per l'asse 6 è [0-0.05].
   
-- **Velocità Lineare Terminale**: 1000 mm/s, quando si supera il limite di velocità lineare terminale, il robot passa in modalità manuale e segnala sovraccarico TCP.
+- **Velocità Lineare dell'Estremità**: 1000mm/s. Quando viene superato il limite di velocità lineare dell'estremità, il robot passa alla modalità manuale e segnala il superamento della velocità TCP.
   
-- **Limite Velocità Angolare**: 100°/s, quando si supera il limite di velocità angolare, il robot passa in modalità manuale e segnala sovraccarico TCP.
+- **Limite di Velocità Angolare**: 100°/s. Quando viene superato il limite di velocità angolare, il robot passa alla modalità manuale e segnala il superamento della velocità TCP.
+
+.. note::
+  1. Per il robot FR3WML, le impostazioni dei parametri consigliate sono le seguenti: guadagno di trascinamento [0.15, 0.15, 0.15, 0.15, 0.15, 0.2], guadagno di smorzamento dopo l'attivazione dell'impedenza [0.1, 0.1, 0.1, 0.05, 0.05, 0.05].
+
+  2. Quando tutti i parametri di guadagno di trascinamento sono impostati a 0, la resistenza al trascinamento è forte ed è difficile trascinare; quando tutti i parametri di guadagno di trascinamento sono impostati a 5, la sensazione di trascinamento è leggera; maggiore è il parametro, più facile è il trascinamento.
 
 Funzione di Tracciamento Laser a Punto Fisso con Asse Esteso
 -------------------------------------------------------------
@@ -7253,6 +7279,20 @@ I parametri dettagliati di comunicazione dell'estremità sono i seguenti:
    :width: 6in
 
 .. centered:: Figura 8.19‑4 Codici Funzione del Protocollo Aperto
+
+I comandi di controllo del movimento della mano destra sono 0x31-0x36, descritti come segue:
+
+- ① 0x31 è il codice funzione di inizializzazione della mano destra. L'implementazione specifica è determinata dalle condizioni effettive della mano destra.
+- ② 0x32-0x34 sono codici funzione per l'invio dei parametri di controllo della mano destra, corrispondenti rispettivamente ai parametri di controllo della posizione, ai parametri di controllo della velocità e ai parametri di controllo della coppia, utilizzati per impostare i valori target di movimento per ciascun giunto.
+- ③ 0x35 è il codice funzione di attivazione del movimento di presa. Il controllo del movimento della mano destra generalmente ha due modalità: una in cui il movimento viene eseguito immediatamente dopo la scrittura nel registro di posizione; l'altra in cui il movimento inizia solo dopo aver scritto un valore specifico nel registro di attivazione dell'azione dopo la scrittura nel registro di posizione. Se abilitare questa funzione di attivazione è determinato dalle condizioni effettive della mano destra.
+- ④ 0x36 è il codice funzione di movimento sincrono multiasse. Se il movimento sincrono multiasse è supportato è determinato dalle condizioni effettive della mano destra. Se supportato, viene utilizzato per realizzare una pianificazione coordinata nel tempo di più giunti delle dita, avviandosi simultaneamente e raggiungendo le rispettive posizioni/velocità target nello stesso momento. Se non supportato, ciascun asse viene controllato in sequenza tramite comandi di controllo a singolo asse per ottenere un effetto coordinato simile.
+
+I comandi di query dello stato della mano destra sono 0xA0-0xA6, descritti come segue:
+
+- ⑤ 0xA0 è il codice funzione per la lettura dello stato di funzionamento a singolo asse, utilizzato per interrogare lo stato di movimento corrente e le informazioni sullo stato di presa di un giunto specificato.
+- ⑥ 0xA2 è il codice funzione per la lettura dello stato di inizializzazione, utilizzato per interrogare lo stato di completamento dell'inizializzazione e la prontezza del sistema della mano destra. L'implementazione specifica è determinata dalle condizioni effettive della mano destra.
+- ⑦ 0xA3-0xA5 sono codici funzione per la lettura dei parametri di stato in tempo reale della mano destra, corrispondenti rispettivamente alla posizione effettiva corrente, alla velocità effettiva corrente e alla coppia effettiva corrente, utilizzati per il controllo a circuito chiuso e il monitoraggio dello stato.
+- ⑧ 0xA6 è il codice funzione per la lettura delle informazioni di allarme della mano destra, utilizzato per ottenere i codici di guasto sottostanti e lo stato di allarme della mano destra, facilitando la diagnosi delle anomalie e la gestione della protezione.
 
 .. note:: La mano destra deve supportare la lettura dei codici funzione relativi allo stato operativo per facilitare la consultazione dello stato del movimento.
   

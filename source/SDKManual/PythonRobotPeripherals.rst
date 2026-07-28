@@ -457,10 +457,7 @@ Configurazione Parametri Nastro Trasportatore
                     - ``lead``: Rapporto trasmissione meccanico Distanza movimento nastro per rotazione encoder
                     - ``wpAxis``: Numero sistema coordinate pezzo Seleziona numero sistema coordinate pezzo per funzionalità inseguimento movimento，impostare a 0 per inseguimento presa, inseguimento TPD
                     - ``vision``: Con visione?  0-Senza 1-Con,
-                    - ``speedRadio``: Rapporto velocità  Intervallo velocità per inseguimento presa nastro (1-100)  Impostare a 1 per inseguimento movimento, inseguimento TPD
-    - ``followType``：Tipo movimento inseguimento，0-Inseguimento movimento；1-Movimento inseguimento controllo"
-    "Parametri Predefiniti", "- ``startDis``：Da impostare per inseguimento presa controllo， Distanza inizio inseguimento， -1：Calcolo automatico (inseguimento automatico dopo arrivo pezzo sotto robot)，unità mm， valore predefinito 0
-    - ``endDis``：Da impostare per inseguimento presa controllo，Distanza fine inseguimento， unità mm， valore predefinito 100"
+                    - ``speedRadio``: Rapporto velocità  Intervallo velocità per inseguimento presa nastro (1-100)  Impostare a 1 per inseguimento movimento, inseguimento TPD"
     "Valore di Ritorno", "Codice errore Successo-0  Fallimento- errcode"
 
 Compensazione Punto Presa Nastro Trasportatore
@@ -576,6 +573,111 @@ Esempio di Codice Operazioni Nastro Trasportatore Robot
     retval = robot.MoveGripper(index, 100, 40, 10, max_time, block, 0, 0, 0, 0)
     print(f"MoveGripper retval is:{retval}")
     robot.CloseRPC()
+
+Configurazione dei Parametri di Inseguimento in Posizione per Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-V3.9.8
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``SetStationaryTrackPara(self, trackMode, trackTime, trackDis)``"
+    "Descrizione", "Configura i parametri di inseguimento in posizione per nastro trasportatore"
+    "Parametri Obbligatori", "
+    - ``trackMode``: 0-tempo; 1-distanza; 2-tempo e distanza, una qualsiasi condizione soddisfatta
+    - ``trackTime``: Tempo di inseguimento, unità s
+    - ``trackDis``: Distanza di inseguimento
+    "
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore, 0-successo; diverso da zero-errore"
+
+Attendi il Completamento del Movimento a Vuoto in Posizione
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-V3.9.8
+
+.. csv-table:: 
+    :stub-columns: 1
+    :widths: 10 30
+
+    "Prototipo", "``WaitStationaryMotionDone(self)``"
+    "Descrizione", "Attendi il completamento del movimento a vuoto in posizione"
+    "Parametri Obbligatori", "Nessuno"
+    "Parametri Predefiniti", "Nessuno"
+    "Valore di Ritorno", "Codice errore, 0-successo; diverso da zero-errore"
+
+Esempio di Codice per il Movimento di Inseguimento in Posizione su Nastro Trasportatore
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: python SDK-V3.9.8
+
+.. code-block:: python
+    :linenos: 
+
+    from fairino import Robot
+    import time
+
+
+    def main():
+        robot = Robot.RPC('192.168.58.2')
+        time.sleep(0.5) 
+        j1 = [-35.146, -102.684, 120.805, -100.401, -90.295, 150.105]
+        d1 = [-121.814, -348.341, 209.978, -173.152, -3.585, -5.446]
+
+        ex = [0.0, 0.0, 0.0, 0.0]
+        zeroOff = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+        tool = 1
+        workpiece = 1
+
+        para = [0, 10000, 200, 0, 0, 10]
+    
+        rtn = robot.ConveyorSetParam(para= para)
+        print(f"ConveyorSetParam rtn is {rtn}")
+
+        robot.MoveJ(joint_pos=j1, desc_pos=d1, tool=tool, user=workpiece,
+                    vel=100, acc=100, ovl=100, exaxis_pos=ex,
+                    blendT=-1, offset_flag=0, offset_pos=zeroOff)
+
+        print("--- Step 1: SetDO(6,1) ---")
+        rtn = robot.SetDO(6, 1, 0, 0)
+        print(f"  SetDO(6,1) rtn={rtn}")
+
+        print("--- Step 2: ConveyorTrackStart(2) ---")
+        rtn = robot.ConveyorTrackStart(2)
+        print(f"  ConveyorTrackStart(2) rtn={rtn}")
+
+        print("--- Step 3: ConveyorIODetect(10000) ---")
+        rtn = robot.ConveyorIODetect(10000)
+        print(f"  ConveyorIODetect(10000) rtn={rtn}")
+
+        print("--- Step 4: ConveyorGetTrackData(2) ---")
+        rtn = robot.ConveyorGetTrackData(2)
+        print(f"  ConveyorGetTrackData(2) rtn={rtn}")
+
+        print("--- Step 5: SetStationaryTrackPara(0,5,5) ---")
+        rtn = robot.SetStationaryTrackPara(0, 5, 5)
+        print(f"  SetStationaryTrackPara(0,5,5) rtn={rtn}")
+
+        print("--- Step 6: MoveStationary() ---")
+        rtn = robot.MoveStationary()
+        print(f"  MoveStationary() rtn={rtn}")
+
+        rtn = robot.WaitStationaryMotionDone()
+        print(f"  WaitStationaryMotionDone() rtn={rtn}")
+
+        print("--- Step 7: ConveyorTrackEnd() ---")
+        rtn = robot.ConveyorTrackEnd()
+        print(f"  ConveyorTrackEnd() rtn={rtn}")
+
+        print("--- Step 8: SetDO(6,0) ---")
+        rtn = robot.SetDO(6, 0, 0, 0)
+        print(f"  SetDO(6,0) rtn={rtn}")
+
+        robot.CloseRPC()
+
+
+    if __name__ == "__main__":
+        main()
 
 Configurazione Sensore Termine
 +++++++++++++++++++++++++++++++++

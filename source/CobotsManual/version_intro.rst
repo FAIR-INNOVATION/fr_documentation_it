@@ -1,3 +1,38 @@
+Versione V3.9.8
+-----------------
+
+Data: 2026-07-27
+
+- **Ottimizzato il movimento di inseguimento del nastro trasportatore**:
+    Percorso: Teach Program -> Comandi Nastro.
+
+    Descrizione: 1. Ottimizzate le impostazioni del punto di attivazione IO e del punto iniziale del programma; 2. Ottimizzato il trigger multiplo dei segnali IO durante il movimento.
+
+- **Ottimizzato il caricamento web per grandi programmi LUA e sottoprogrammi**:
+    Percorso: Teach Program -> Importa Programma.
+
+    Descrizione: Caricare file di programmi LUA di grandi dimensioni (oltre 50 MB) per il caricamento e l'esecuzione.
+
+- **Ottimizzate le istruzioni di impostazione/recupero degli utensili del robot, dei sistemi di coordinate del pezzo e del carico**:
+    Percorso: Impostazioni Iniziali -> Utensili, Sistemi di Coordinate del Pezzo, Carico.
+
+    Descrizione: I parametri dei sistemi di coordinate e del carico possono essere normalmente impostati e recuperati tramite l'interfaccia comandi sulla porta 8080, SDK e WebApp.
+
+- **Aggiunte funzionalità relative a SmartTool**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Impugnatura Saldatura.
+
+    Descrizione: 1. Reset della memoria dei pulsanti IO dopo la cancellazione o la creazione di un nuovo programma; 2. Aggiunta la selezione del numero di processo per le 3 istruzioni relative all'avvio dell'arco e rimossa la limitazione del timeout per l'avvio dell'arco; 3. Aggiunta la funzione di cancellazione globale dei punti con reset del numero di sequenza dopo la cancellazione; 4. Rimossa la restrizione sulla configurazione ripetuta di PTP, LIN e ARC.
+
+- **Aggiunto supporto per la mano destra a cinque dita**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Mano Destra.
+
+    Descrizione: Aggiunto adattatore Lua per l'end-effector per la mano destra a cinque dita.
+
+- **Aggiunto adattamento dell'impedenza articolare per FR3-WML**:
+    Percorso: Applicazioni Ausiliarie -> Applicazioni Utensile -> Blocco Trascinamento.
+
+    Descrizione: Regolati i parametri di trascinamento ibrido a sei assi con forza e impedenza articolare per FR3-WML per abilitare la funzionalità di trascinamento.
+
 Versione V3.9.7
 -----------------
 

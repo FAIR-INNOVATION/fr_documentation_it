@@ -190,8 +190,8 @@ Esempio di codice per impostare i parametri di saldatura
 .. code-block:: c++
    :linenos:
 
-    int TestSetWeldParam(void)
-    {
+   int TestSetWeldParam(void)
+   {
       ROBOT_STATE_PKG pkg = {};
       FRRobot robot;
       robot.LoggerInit();
@@ -199,7 +199,7 @@ Esempio di codice per impostare i parametri di saldatura
       int rtn = robot.RPC("192.168.58.2");
       if (rtn != 0)
       {
-        return -1;
+         return -1;
       }
       robot.SetReConnectParam(true, 30000, 500);
       robot.WeldingSetProcessParam(1, 177, 27, 1000, 178, 28, 176, 26, 1000);
@@ -234,10 +234,10 @@ Esempio di codice per impostare i parametri di saldatura
       rtn = robot.WeldingGetVoltageRelation(&vol_min, &vol_max, &output_vmin, &output_vmax, &volIndex);
       cout << "WeldingGetVoltageRelation rtn is: " << rtn << endl;
       cout << "vol min " << vol_min << " vol max " << vol_max << " output vol min " << output_vmin << " output vol max " << output_vmax << endl;
-      rtn = robot.WeldingSetCurrent(1, 100, 0, 0);
+      rtn = robot.WeldingSetCurrent(0, 100, 0, 0);
       cout << "WeldingSetCurrent rtn is: " << rtn << endl;
       this_thread::sleep_for(chrono::seconds(3));
-      rtn = robot.WeldingSetVoltage(1, 10, 0, 0);
+      rtn = robot.WeldingSetVoltage(0, 10, 0, 0);
       cout << "WeldingSetVoltage rtn is: " << rtn << endl;
       rtn = robot.WeaveSetPara(0, 0, 2.000000, 0, 10.000000, 0.000000, 0.000000, 0, 0, 0, 0, 0, 60.000000);
       cout << "rtn is: " << rtn << endl;
@@ -259,14 +259,19 @@ Esempio di codice per impostare i parametri di saldatura
       robot.SetWeldMachineCtrlModeExtDoNum(17);
       for (int i = 0; i < 5; i++)
       {
-        robot.SetWeldMachineCtrlMode(0);
-        robot.Sleep(1000);
-        robot.SetWeldMachineCtrlMode(1);
-        robot.Sleep(1000);
+         int getCtrlMode = -1;
+         robot.SetWeldMachineCtrlMode(0);
+         robot.GetWeldMachineCtrlMode(getCtrlMode);
+         printf("GetWeldMachineCtrlMode %d\n", getCtrlMode);
+         robot.Sleep(1000);
+         robot.SetWeldMachineCtrlMode(1);
+         robot.GetWeldMachineCtrlMode(getCtrlMode);
+         printf("GetWeldMachineCtrlMode %d\n", getCtrlMode);
+         robot.Sleep(1000);
       }
       robot.CloseRPC();
       return 0;
-    }
+   }
 
 Impostare i parametri di oscillazione in tempo reale
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -389,6 +394,20 @@ Impostare la modalità di controllo della saldatrice
     * @return Codice di errore
    */
    errno_t SetWeldMachineCtrlMode(int mode, int ioType = 1);
+
+Ottieni Modalità di Controllo della Saldatrice
+++++++++++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C++SDK-V3.9.8
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+    * @brief Ottiene la modalità di controllo della saldatrice
+    * @param [out] mode Modalità di controllo della saldatrice; 0-modalità unica CC; 1-modalità unica a impulsi; 2-modalità JOB; 3-modalità controllo locale; 4-modalità separata; 5-modalità CC/CV; 6-TIG; 7-CMT
+    * @return Codice errore
+    */
+    errno_t GetWeldMachineCtrlMode(int& mode);
 
 Inizio della saldatura
 ++++++++++++++++++++++
@@ -889,6 +908,50 @@ IO esteso - Configurare i segnali di recupero dell'interruzione di saldatura
     * @return Codice di errore
     */
    errno_t SetExtDIWeldBreakOffRecover(int reWeldDINum, int abortWeldDINum);
+    
+Ottieni Configurazione Funzione DI Estesa
+++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C++SDK-V3.9.8
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief Ottiene la configurazione della funzione DI estesa
+     * @param [out] DIConfig Configurazione input DI esteso; DIConfig[0]-porta DI estesa pronta saldatrice;
+                                         DIConfig[1]-porta DI estesa avvio arco riuscito;
+                                            DIConfig[2]-porta DI estesa ripresa interruzione saldatura;
+                                            DIConfig[3]-porta DI estesa uscita interruzione saldatura;
+                                            DIConfig[4]-porta DI estesa ricerca filo riuscita;
+                                            DIConfig[5]-porta DI estesa stato funzionamento saldatrice laser;
+                                            DIConfig[6]-porta DI estesa stato guasto saldatrice laser;
+                                            DIConfig[7-15]-riservati
+    * @return  Codice errore
+    */
+    errno_t GetExtDIConfig(int DIConfig[16]);
+    
+Ottieni Configurazione Funzione DO Estesa
+++++++++++++++++++++++++++++++++++++++++++
+.. versionadded:: C++SDK-V3.9.8
+    
+.. code-block:: c++
+    :linenos:
+
+    /**
+     * @brief Ottiene la configurazione della funzione DO estesa
+     * @param [out] DOConfig Configurazione output DO esteso; DOConfig[0]-porta DO estesa avvio arco saldatrice;
+                                            DOConfig[1]-porta DO estesa rilevamento gas;
+                                            DOConfig[2]-porta DO estesa alimentazione filo in avanti;
+                                            DOConfig[3]-porta DO estesa alimentazione filo all'indietro;
+                                            DOConfig[4]-porta DO estesa ricerca filo;
+                                            DOConfig[5]-porta DO estesa modalità controllo saldatrice;
+                                            DOConfig[6]-porta DO estesa abilitazione saldatrice laser;
+                                            DOConfig[7]-porta DO estesa avvio saldatrice laser (emissione laser);
+                                            DOConfig[8]-porta DO estesa reset saldatrice laser;
+                                            DOConfig[9-15]-riservati
+    * @return  Codice errore
+    */
+    errno_t GetExtDOConfig(int DOConfig[16]);   
 
 Esempio di codice per impostare i segnali di saldatura IO estesi
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -896,8 +959,8 @@ Esempio di codice per impostare i segnali di saldatura IO estesi
 .. code-block:: c++
    :linenos:
 
-    int TestExtDIConfig(void)
-    {
+   int TestExtDIConfig(void)
+   {
       ROBOT_STATE_PKG pkg = {};
       FRRobot robot;
       robot.LoggerInit();
@@ -905,7 +968,7 @@ Esempio di codice per impostare i segnali di saldatura IO estesi
       int rtn = robot.RPC("192.168.58.2");
       if (rtn != 0)
       {
-        return -1;
+         return -1;
       }
       robot.SetReConnectParam(true, 30000, 500);
       robot.SetArcStartExtDoNum(10);
@@ -916,9 +979,17 @@ Esempio di codice per impostare i segnali di saldatura IO estesi
       robot.SetArcDoneExtDiNum(60);
       robot.SetExtDIWeldBreakOffRecover(70, 80);
       robot.SetWireSearchExtDIONum(0, 1);
+      int DIConfig[16] = { 0 };
+      int DOConfig[16] = { 0 };
+      rtn = robot.GetExtDIConfig(DIConfig);
+      printf("GetExtDIConfig rtn is %d\n welder ready %d\narc done %d\nreweld start %d\nabort reweld %d\nwiresearch done %d\nLaser welding State %d\nlaser welding error state %d\n",
+         rtn, DIConfig[0], DIConfig[1], DIConfig[2], DIConfig[3], DIConfig[4], DIConfig[5], DIConfig[6]);
+      rtn = robot.GetExtDOConfig(DOConfig);
+      printf("GetExtDOConfig rtn is %d\n Arc Start %d\nAir Test %d\nWire forward %d\nWire Inverse %d\nwiresearch %d\nWeld Mode %d\nlaser Enable %d\nLaser On %d\nLaser Reset Error %d\n",
+         rtn, DOConfig[0], DOConfig[1], DOConfig[2], DOConfig[3], DOConfig[4], DOConfig[5], DOConfig[6], DOConfig[7], DOConfig[8]);
       robot.CloseRPC();
       return 0;
-    }
+   }
 
 Controllo del tracciamento dell'arco
 ++++++++++++++++++++++++++++++++++++
