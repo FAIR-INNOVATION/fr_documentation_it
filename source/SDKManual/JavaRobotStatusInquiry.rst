@@ -534,7 +534,7 @@ Esempio Codice Interrogazione Dati Punti Insegnamento Robot
     }
 
 Ottieni il Sistema di Coordinate dell'Utensile per ID
-++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: Java SDK-V3.9.8
 
 .. code-block:: Java

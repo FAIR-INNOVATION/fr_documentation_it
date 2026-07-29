@@ -578,7 +578,7 @@ Esempio Codice Verifica Dati Punti Gestione Insegnamento Robot
     }
 
 Ottieni il Sistema di Coordinate dell'Utensile per ID
-++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: C#SDK-V3.9.8
 
 .. code-block:: c#
@@ -613,7 +613,7 @@ Ottieni il Sistema di Coordinate del Pezzo per ID
     public int GetWObjCoordWithID(int id, ref DescPose coord, ref int refFrame)
 
 Ottieni il Sistema di Coordinate dell'Utensile Esterno per ID
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: C#SDK-V3.9.8
 
 .. code-block:: c#
@@ -629,7 +629,7 @@ Ottieni il Sistema di Coordinate dell'Utensile Esterno per ID
     public int GetExToolCoordWithID(int id, ref DescPose coord, ref DescPose tcoord)
 
 Ottieni il Sistema di Coordinate dell'Asse Esteso per ID
-++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. versionchanged:: C#SDK-V3.9.8
 
 .. code-block:: c#
