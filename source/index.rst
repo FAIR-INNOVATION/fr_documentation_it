@@ -39,6 +39,12 @@ Cambio di lingua
 
 .. toctree:: 
    :maxdepth: 6
+   :caption: Negozio Plugin
+
+   CapSoftware
+
+.. toctree:: 
+   :maxdepth: 6
    :caption: Open platform
 
    ROSGuide/index
