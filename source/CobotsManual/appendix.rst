@@ -163,7 +163,79 @@ Appendice 1: Codici di errore del controllore di movimento e relative procedure
    "13 - Errore parametro impostato", "16", "Canale encoder nastro trasportatore errato, ripristinabile"
    "13 - Errore parametro impostato", "17", "Numero asse pezzo nastro trasportatore errato, ripristinabile"
 
-Appendice 2: Tabella codici guasto azionamenti servo
+Appendice 2: Tabella dei Guasti del Box di Controllo a Larga Tensione
+---------------------------------------------------------------------------------
+
+.. list-table::
+   :widths: 20 40 80
+   :header-rows: 0
+   :align: center
+
+   * - **Codice Guasto**
+     - **Nome Guasto**
+     - **Metodo di Risoluzione**
+
+   * - 3
+     - MCU Ausiliario Offline
+     - | 1. Riscrivere il firmware dell'MCU ausiliario
+       | 2. Riparare l'MCU ausiliario o sostituire il box di controllo  
+
+   * - 4
+     - Ingresso Emergenza Main e Aux MCU Non Coerente
+     - | 1. Controllare il cablaggio dell'arresto di emergenza della pulsantiera o sostituire il gruppo pulsantiera
+       | 2. Controllare i due cablaggi di cortocircuito dell'arresto di emergenza sui terminali del box di controllo  
+       | 3. Se il guasto persiste, riparare o sostituire il box di controllo 
+
+   * - 5
+     - Ingresso Sicurezza Main e Aux MCU Non Coerente
+     - | 1. Controllare i due cablaggi di cortocircuito della sicurezza sui terminali del box di controllo
+       | 2. Se il guasto persiste, riparare o sostituire il box di controllo
+
+   * - 6
+     - Ingresso Emergenza e Abilitazione a 3 Posizioni Main e Aux MCU Non Coerente
+     - | 1. Controllare l'interruttore di abilitazione a 3 posizioni del teach pendant e il relativo cablaggio
+       | 2. Sostituire il gruppo teach pendant
+       | 3. Verificare che il Web sia in modalità teach pendant e che il teach pendant sia collegato
+       | 4. Se il guasto persiste, riparare o sostituire il box di controllo
+
+   * - 7
+     - Ingresso/Uscita STO Main Non Coerente
+     - | 1. Verificare che il connettore del cavo pesante del box di controllo e il cablaggio STO siano saldamente inseriti
+       | 2. Verificare che il drive supporti la funzione STO
+       | 3. Per configurazione box di controllo certificato a larga tensione + robot non certificato, verificare se la modalità di sicurezza funzionale è attivata
+       | 4. Il box di controllo certificato a larga tensione in modalità certificazione attiva il rilevamento guasti STO; il robot non certificato non supporta la modalità di sicurezza funzionale
+       | 5. Se il guasto persiste, riparare o sostituire il box di controllo
+
+   * - 8
+     - Ingresso/Uscita STO Aux Non Coerente
+     - | 1. Verificare che il connettore del cavo pesante del box di controllo e il cablaggio STO siano saldamente inseriti
+       | 2. Verificare che il drive supporti la funzione STO
+       | 3. Per configurazione box di controllo certificato a larga tensione + robot non certificato, verificare se la modalità di sicurezza funzionale è attivata
+       | 4. Il box di controllo certificato a larga tensione in modalità certificazione attiva il rilevamento guasti STO; il robot non certificato non supporta la modalità di sicurezza funzionale
+       | 5. Se il guasto persiste, riparare o sostituire il box di controllo
+
+   * - 9
+     - MCU Main Rileva Ingresso/Uscita Relè 48V Non Coerente
+     - | 1. Controllare l'ingresso e il feedback del relè a guida forzata nel box di controllo
+       | 2. Verificare che il relè 48V nel box di controllo non sia bloccato
+       | 3. Verificare che il circuito di feedback del relè 48V nel box di controllo funzioni correttamente
+       | 4. Se il guasto persiste, riparare o sostituire il box di controllo
+
+   * - 10
+     - MCU Aux Rileva Ingresso/Uscita Relè 48V Non Coerente
+     - | 1. Controllare l'ingresso e il feedback del relè a guida forzata nel box di controllo
+       | 2. Verificare che il relè 48V nel box di controllo non sia bloccato
+       | 3. Verificare che il circuito di feedback del relè 48V nel box di controllo funzioni correttamente
+       | 4. Se il guasto persiste, riparare o sostituire il box di controllo
+
+   * - \
+     - Box di Controllo Spento, Nessuna Uscita 48V
+     - | 1. Controllare il circuito relativo al chip di protezione da cortocircuito 24V e verificare la presenza di cortocircuiti sul 24V
+       | 2. Controllare i cablaggi di cortocircuito dei terminali di ingresso emergenza e ingresso sicurezza
+       | 3. Verificare che la scheda secondaria di alimentazione 24V del box di controllo eroghi 24V
+       | 4. Se il guasto persiste, riparare o sostituire il box di controllo
+
+Appendice 3: Tabella codici guasto azionamenti servo
 -----------------------------------------------------------
 
 .. list-table::
@@ -377,7 +449,27 @@ Appendice 2: Tabella codici guasto azionamenti servo
      - | 1. Verificare se il disco dell’encoder ottico è sporco o non incollato correttamente
        | 2. Se il guasto persiste, riparare o sostituire il gruppo encoder magnetico
 
-Appendice 3: Aggiornamento scheda terminale tramite RS485
+   * - 46
+     - Errore Configurazione Tipo Robot
+     - | 1. Senza scollegare l'alimentazione, verificare il numero di versione del firmware del drive in guasto
+       | 2. Riconfigurare il tipo di robot
+       | 3. Se il guasto persiste, sostituire o riparare la scheda drive
+
+   * - 47
+     - Guasto Rilevamento Tensione Freno
+     - | 1. Verificare che il cablaggio del freno non sia anomalo
+       | 2. Verificare che il circuito del freno non sia anomalo
+
+   * - 50
+     - Guasto Comando Posizione
+     - | 1. Verificare che il comando di posizione inviato dal computer host (controller) non sia anomalo (o mutazione del comando di posizione)
+
+   * - 51
+     - Guasto Modulo Encoder Magnetico - Guasto Encoder Ottico
+     - | 1. Verificare che il cablaggio del sensore di coppia non sia anomalo
+       | 2. Se il guasto persiste, riparare o sostituire il sensore di coppia
+
+Appendice 4: Aggiornamento scheda terminale tramite RS485
 -----------------------------------------------------------------------------
 
 Durante l’uso sul campo, potrebbe rendersi necessario aggiornare il firmware per soddisfare nuovi requisiti. In tal caso verrà fornito un nuovo file di aggiornamento (XX_XX_MAIN.bin). L’aggiornamento della scheda terminale avviene tramite interfaccia RS485 (richiede un adattatore USB-RS485). Procedura:
@@ -438,7 +530,7 @@ Dopo il riavvio del sistema, andare nella sezione “Informazioni manutenzione�
 
 .. centered:: Figura 18.3-6 Interrogazione versione firmware
 
-Appendice 4: Aggiornamento armadio di controllo tramite RS485
+Appendice 5: Aggiornamento armadio di controllo tramite RS485
 --------------------------------------------------------------------
 
 Sull’armadio di controllo del robot è presente un’interfaccia “Alimentazione & Comunicazione”. Collegare i pin A e B dell’adattatore USB-RS485 rispettivamente ai terminali “RS485-A” e “RS485-B” di tale interfaccia.
@@ -451,7 +543,7 @@ La procedura di aggiornamento è identica a quella della scheda terminale; baste
 
 .. centered:: Figura 18.4-1 Interfaccia alimentazione & comunicazione
 
-Appendice 5: Elenco ricambi e componenti soggetti a usura
+Appendice 6: Elenco ricambi e componenti soggetti a usura
 ----------------------------------------------------------------
 
 .. list-table::
