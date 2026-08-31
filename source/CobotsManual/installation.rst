@@ -1341,6 +1341,139 @@ Per le uscite digitali, ci sono due elementi di configurazione software: "Uscita
      - Inattivo
      - Attivo
 
+Manuale di Sicurezza per il Collegamento dell'Alimentazione del Box di Controllo DC
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Definizione e Identificazione dei Terminali
+************************************************************************************
+Il pannello frontale del box di controllo DC è dotato di un morsetto di ingresso alimentazione a 3 PIN, corrispondente rispettivamente al positivo dell'alimentazione (+V), al negativo dell'alimentazione (-V) e alla messa a terra di protezione (PE). Per evitare danni alle apparecchiature dovuti a collegamenti errati, fare riferimento rigorosamente alla tabella seguente:
+
+.. list-table::
+   :widths: 15 10 35 35
+   :header-rows: 0
+   :align: center
+
+   * - **Marcatura Morsetto** 
+     - **Codice Colore**
+     - **Definizione Funzione**
+     - **Operazione Vietata**
+
+   * - 	.. figure:: installation/144.png
+          :align: center
+          :width: 2in
+     - Rosso
+     - Ingresso positivo dell'alimentazione CC, solo per cavo positivo 30-60VDC
+     - Cortocircuito con PE o -V severamente vietato
+
+   * - 	.. figure:: installation/145.png
+          :align: center
+          :width: 2in
+     - Nero
+     - Ingresso negativo dell'alimentazione CC, solo per cavo negativo 30-60VDC, costituisce il circuito di alimentazione
+     - Collegamento al telaio o a PE severamente vietato
+
+   * - 	.. figure:: installation/146.png
+          :align: center
+          :width: 2in
+     - Giallo (Giallo-Verde)
+     - Morsetto di terra di protezione (massa di sicurezza del telaio)
+     - Utilizzo come negativo o positivo dell'alimentazione severamente vietato
+
+.. warning::
+  Avviso di Rischio Critico: Questo dispositivo non dispone di circuiti di protezione contro inversione di polarità, collegamenti errati o sovratensione. Qualsiasi delle seguenti operazioni non conformi danneggerà istantaneamente la scheda madre interna e i componenti di potenza, causando un bruciatura permanente e irreversibile del dispositivo:
+  
+  1. Inversione di polarità (cavi +V e -V invertiti);
+  2. +V o -V collegati erroneamente al foro PE;
+  3. Morsetto negativo collegato erroneamente a terra (-V in corto con PE);
+  4. Collegamento a corrente alternata (110V/220V/380V) o a tensioni CC al di fuori dell'intervallo 30~60Vdc.
+
+Preparativi per la Sicurezza Prima del Collegamento
+*************************************************************************
+
+Prima del collegamento, gli operatori devono completare le seguenti preparazioni:
+
+Conferma dell'Interruzione dell'Alimentazione
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Interrompere completamente l'alimentazione a monte e appendere un cartello di avviso di sicurezza. Utilizzare un multimetro per verificare i terminali di ingresso dell'alimentazione, confermando l'assenza di tensione e di carica residua, e non eseguire mai operazioni di cablaggio con l'alimentazione inserita.
+
+Ispezione dell'Apparecchiatura
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Verificare che i terminali dell'apparecchiatura non siano danneggiati, ossidati o allentati, che il corpo non sia umido, infiltrato d'acqua o danneggiato da urti, garantendo che l'apparecchiatura sia in perfette condizioni.
+
+Conferma dell'Alimentazione
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Confermare che il tipo di uscita dell'alimentazione a monte sia un alimentatore CC stabilizzato da 30-60VDC. È severamente vietato collegare alimentazione CA 110V/220V/380V, alimentazione CC inferiore a 30VDC o superiore a 60VDC.
+
+Scelta del Cavo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Si consiglia di utilizzare cavi flessibili in rame di sezione 4mm² (AWG11) o superiore. La lunghezza di un singolo cavo di alimentazione non deve superare i 2 metri. Non utilizzare cavi con sezione insufficiente, isolamento danneggiato o invecchiato.
+
+Scelta dei Terminali per i Cavi
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Le estremità dei cavi devono essere crimpate con terminali a pressione preisolati (modello consigliato: DBV5.5-10 terminale a forcella). Inserire direttamente cavi in rame nudo nei fori dei terminali è severamente vietato.
+
+Calibrazione degli Strumenti
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Preparare un multimetro qualificato, un cacciavite isolato e una pinza crimpatrice. Calibrare in anticipo il multimetro per garantire il corretto funzionamento della rilevazione della tensione, consentendo una misurazione precisa della tensione e la distinzione della polarità.
+
+Procedura di Cablaggio Standard
+************************************************************************************
+
+Crimpatura dei Terminali dei Cavi
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Utilizzare la pinza crimpatrice per crimpare i terminali a pressione (consigliati DBV5.5-10) su un'estremità di ciascuno dei tre cavi colorati: rosso (+V), nero (-V) e giallo-verde (PE). Assicurarsi che la crimpatura sia salda e che l'anima in rame non sia esposta. È severamente vietato utilizzare cavi dello stesso colore o con identificazione del colore non chiara.
+
+Inserimento e Serraggio del Connettore Terminale
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Inserire i terminali crimpati nei fori corrispondenti del connettore a spina estraibile fornito con l'apparecchiatura (prestare attenzione alla direzione di inserimento, con il lato piatto del terminale rivolto verso la molla a contatto):
+Cavo rosso → inserire nel foro +V;
+Cavo nero → inserire nel foro -V;
+Cavo giallo-verde → inserire nel foro PE.
+Utilizzare un cacciavite isolato a taglio per serrare in senso orario la vite di bloccaggio del cavo sopra ciascun foro.
+
+.. figure:: installation/147.png
+  :align: center
+  :width: 4in
+
+.. centered:: Connettore verde con cavi e terminali a pressione inseriti
+
+Verifica della Trazione
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Dopo aver serrato ciascun cavo, tirare con forza il cavo per confermare che il terminale non sia allentato e che l'anima non sia scivolata fuori. Se allentato, ricrimpare il terminale e serrare nuovamente.
+
+Inserimento nel Box di Controllo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Inserire il connettore cablato nell'ingresso di alimentazione del box di controllo DC, seguendo la direzione della guida anti-errore. Assicurarsi che il connettore sia completamente inserito.
+
+.. figure:: installation/148.png
+  :align: center
+  :width: 3in
+
+.. centered:: Connettore con cavi inserito nell'ingresso di alimentazione del box di controllo DC
+
+Verifica Finale dell'Isolamento Prima dell'Accensione
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Prima di collegare l'alimentazione, utilizzare un multimetro per misurare l'impedenza tra +V e -V all'estremità del connettore, confermando l'assenza di cortocircuiti; misurare l'impedenza tra +V/-V e PE, confermando che siano in uno stato di isolamento aperto.
+
+Avvio e Gestione delle Anomalie
+************************************************************************************
+
+- Avvio Normale: Chiudere l'interruttore di alimentazione a monte e osservare l'indicatore luminoso sul pannello del box di controllo. La condizione normale è che l'indicatore rimanga acceso, senza rumori anomali o odori.
+- Condizione Anomala (Spegnere immediatamente!): In caso di forte stridio, fumo, scintille, odori, o se l'amperometro dell'alimentazione a monte indica istantaneamente un sovraccarico a fondo scala, scollegare immediatamente l'alimentazione principale e non riaccendere. Contattare il supporto tecnico dopo che il dispositivo si è completamente raffreddato. Non tentare di smontare il dispositivo per l'ispezione.
+
+.. warning:: Avviso Finale: L'accensione indica che hai compreso e rispettato pienamente le specifiche di cablaggio sopra descritte. Se qualsiasi identificazione non è chiara, contattare immediatamente il supporto tecnico. Non fare affidamento sull'esperienza per il cablaggio!
+
 Piano di Manutenzione e Controllo
 ++++++++++++++++++++++++++++++++++++++++++++++++
 

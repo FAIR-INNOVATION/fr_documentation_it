@@ -31,7 +31,11 @@ Palletizzatore frcap
       .. raw:: html
 
          <div style="font-size:16px;color:#888;margin-bottom:10px;">Aggiornato il 2026-01-15</div>
+      
+      .. raw:: html
 
+         <div style="font-size:16px;color:#888;margin-bottom:10px;">Supporto Versione >= 3.9.0</div>
+         
       .. raw:: html
 
          <div style="font-size:16px;color:#666;line-height:1.5;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">Fornisce un pacchetto completo per la pallettizzazione, supportando configurazioni di tipi di scatole, modalità, stazioni di lavoro, pallet e altro.</div>
@@ -76,6 +80,10 @@ Cap Carico e Scarico
       .. raw:: html
 
          <div style="font-size:16px;color:#888;margin-bottom:10px;">Aggiornato il 2026-07-31</div>
+      
+      .. raw:: html
+
+         <div style="font-size:16px;color:#888;margin-bottom:10px;">Supporto Versione >= 3.9.8</div>
 
       .. raw:: html
 

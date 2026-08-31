@@ -105,6 +105,30 @@ Il pannello di collegamento del robot collaborativo è mostrato nel diagramma so
 
 L'interfaccia della scatola dei tasti è predefinita come porta di controllo del teach pendant. L'indirizzo IP è 192.168.58.2. Collega l'interfaccia della scatola dei tasti al computer utilizzando un cavo di rete, con l'indirizzo IP del computer impostato su 192.168.58.10 o in un segmento di rete simile. Apri Google Chrome e inserisci 192.168.58.2 per accedere alla pagina del teach pendant.
 
+Informazioni sui Fori di Montaggio del Box di Controllo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: installation/149.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 1.2-2 Dimensioni Esterne del Box di Controllo - Dimensioni Fori di Montaggio 1
+
+.. image:: installation/150.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 1.2-3 Dimensioni Esterne del Box di Controllo - Dimensioni Fori di Montaggio 2
+
+.. note:: 
+  1. I fori quotati sono fori di montaggio utilizzabili;
+  2. Ci sono 16 fori di montaggio in totale, distribuiti sui lati sinistro e destro del box di controllo, 8 per lato;
+  3. La specifica della vite per i fori di montaggio è M3, con passo 0,5mm;
+  4. La profondità di inserimento delle viti nell'involucro in lamiera del box di controllo è ≤5mm;
+  5. La coppia di serraggio consigliata è 0,6Nm, la coppia di serraggio massima è 0,84Nm.
+
+:download:`Dimensioni Esterne del Box di Controllo - Dimensioni Fori di Montaggio <../_static/_doc/Control box outer dimensions - mounting hole dimensions.zip>`
+
 Conoscere la scatola dei tasti e il LED finale
 ------------------------------------------------
 
