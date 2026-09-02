@@ -481,6 +481,24 @@ Inserzione Rotazionale
     */
     public int FT_RotInsertion(int rcs, double angVelRot, double ft, double max_angle, int orn, double max_angAcc, int rotorn, int strategy)
 
+Ricerca a Spirale
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief  Ricerca a spirale
+    * @param  [in] rcs Sistema di coordinate di riferimento, 0-sistema utensile, 1-sistema base
+    * @param  [in] dr Avanzamento del raggio per giro
+    * @param  [in] ft Soglia forza/coppia, fx,fy,fz,tx,ty,tz, intervallo [0~100]
+    * @param  [in] max_t_ms Tempo massimo di ricerca, unità ms
+    * @param  [in] max_vel Velocità lineare massima, unità mm/s
+    * @param  [in] strategy Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento
+    * @return  Codice errore
+    */
+    public int FT_SpiralSearch(int rcs, float dr, float ft, float max_t_ms, float max_vel, int strategy = 0)
+
 Inserimento Lineare
 +++++++++++++++++++++++++++++++++++++++++++++
     
@@ -495,9 +513,10 @@ Inserimento Lineare
     * @param  [in] lin_a Accelerazione lineare, unità mm/s^2, non utilizzata temporaneamente
     * @param  [in] max_dis Distanza massima di inserimento, unità mm
     * @param  [in] linorn  Direzione di inserimento, 0-direzione negativa, 1-direzione positiva
+    * @param  [in] strategy Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento
     * @return  Codice errore
     */
-    public int FT_LinInsertion(int rcs, float ft, float lin_v, float lin_a, float max_dis, byte linorn)
+    public int FT_LinInsertion(int rcs, float ft, float lin_v, float lin_a, float max_dis, byte linorn, int strategy=0)
 
 Esempio di Codice per Inserimento Rotazionale con Sensore di Forza
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1027,9 +1046,10 @@ Posizionamento Superficiale
     * @param  [in] lin_a Accelerazione lineare di ricerca, unità mm/s^2, non utilizzata temporaneamente, default 0
     * @param  [in] max_dis Distanza massima di ricerca, unità mm
     * @param  [in] ft  Soglia forza/coppia di terminazione movimento, fx,fy,fz,tx,ty,tz
+    * @param  [in] strategy Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento
     * @return  Codice errore
     */
-    public int FT_FindSurface(int rcs, byte dir, byte axis, float lin_v, float lin_a, float max_dis, float ft)
+    public int FT_FindSurface(int rcs, byte dir, byte axis, float lin_v, float lin_a, float max_dis, float ft, int stragety = 0)
 
 Inizio Calcolo Posizione Piano Mediano
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

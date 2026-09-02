@@ -380,13 +380,14 @@ Soluzione Cinematica Inversa, Spazio Cartesiano Include Posizione Asse Esteso
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``GetInverseKinExaxis(type, desc_pos, exaxis, tool, workPiece)``"
+    "Prototipo", "``GetInverseKinExaxis(type, desc_pos, exaxis, tool, workPiece, config = -1)``"
     "Descrizione", "Soluzione cinematica inversa, spazio cartesiano include posizione asse esteso"
     "Parametri Obbligatori", "- ``type``: 0-Posa assoluta (sistema coordinate base), 1-Posa incrementale (sistema coordinate base), 2-Posa incrementale (sistema coordinate utensile)
     - ``desc_pos``: Posa cartesiana
     - ``exaxis``: Posizione asse esteso
     - ``tool``: Numero utensile
-    - ``workPiece``: Numero pezzo"
+    - ``workPiece``: Numero pezzo
+    - ``config -1``: soluzione automatica, 0-7 corrispondono a otto serie di soluzioni"
     "Parametri Predefiniti", "Nessuno"
     "Valore di Ritorno", "- Codice errore Successo-0 Fallimento- errcode
     - ``joint_pos``: Posizione giunto"

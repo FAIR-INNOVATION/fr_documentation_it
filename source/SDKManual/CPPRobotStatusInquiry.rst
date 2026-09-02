@@ -403,9 +403,10 @@ Soluzione di Cinematica Inversa, Spazio Cartesiano Inclusa Posizione dell'Asse E
     * @param [in] tool Numero utensile
     * @param [in] workPiece Numero pezzo
     * @param [out] joint_pos Posizione giunti
+    * @param [in] config Configurazione dello spazio dei giunti, [-1] - risoluzione basata sulla posizione corrente dei giunti come riferimento, [0~7] - risoluzione in base a una configurazione specifica dello spazio dei giunti
     * @return Codice di errore
     */
-    errno_t GetInverseKinExaxis(int type, DescPose desc_pos, ExaxisPos exaxis, int tool, int workPiece, JointPos& joint_pos);
+    errno_t GetInverseKinExaxis(int type, DescPose desc_pos, ExaxisPos exaxis, int tool, int workPiece, JointPos& joint_pos, int config = -1);
 
 Esempio di Codice per Soluzione di Cinematica Inversa Inclusa Posizione dell'Asse Esteso
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

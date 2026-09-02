@@ -510,9 +510,10 @@ Esplorazione Spirale
     * @param  [in] ft Soglia forza/coppia, fx,fy,fz,tx,ty,tz, intervallo [0~100]
     * @param  [in] max_t_ms Tempo massimo esplorazione, unità ms
     * @param  [in] max_vel Velocità lineare massima, unità mm/s
+    * @param  [in] strategy Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento
     * @return  Codice errore
     */   
-    errno_t  FT_SpiralSearch(int rcs, float dr, float ft, float max_t_ms, float max_vel);  
+    errno_t  FT_SpiralSearch(int rcs, float dr, float ft, float max_t_ms, float max_vel, int strategy = 0);  
 
 Inserimento Rotazionale
 +++++++++++++++++++++++
@@ -612,9 +613,10 @@ Inserimento Lineare
     * @param  [in] lin_a Accelerazione lineare, unità mm/s^2, attualmente non utilizzata
     * @param  [in] max_dis Distanza massima inserimento, unità mm
     * @param  [in] linorn  Direzione inserimento, 0-direz. negativa, 1-direz. positiva
+    * @param  [in] strategy Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento
     * @return  Codice errore
     */   
-    errno_t  FT_LinInsertion(int rcs, float ft, float lin_v, float lin_a, float max_dis, uint8_t linorn);    
+    errno_t  FT_LinInsertion(int rcs, float ft, float lin_v, float lin_a, float max_dis, uint8_t linorn, int strategy=0);    
 
 Esempio di Codice Istruzioni Esplorazione Spirale, Inserimento Lineare, ecc.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -726,9 +728,10 @@ Individuazione Superficie
     * @param  [in] lin_a Accelerazione lineare esplorazione, unità mm/s^2, attualmente non utilizzata, default 0
     * @param  [in] max_dis Distanza massima esplorazione, unità mm
     * @param  [in] ft  Soglia forza/coppia per terminazione azione, fx,fy,fz,tx,ty,tz  
+    * @param  [in] strategy Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento
     * @return  Codice errore
     */   
-    errno_t  FT_FindSurface(int rcs, uint8_t dir, uint8_t axis, float lin_v, float lin_a, float max_dis, float ft);   
+    errno_t  FT_FindSurface(int rcs, uint8_t dir, uint8_t axis, float lin_v, float lin_a, float max_dis, float ft, int stragety = 0);   
 
 Inizio Calcolo Posizione Piano Centrale
 ++++++++++++++++++++++++++++++++++++++++

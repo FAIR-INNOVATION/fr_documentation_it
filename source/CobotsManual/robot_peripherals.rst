@@ -654,6 +654,16 @@ A partire dalla versione V3.9.8, lo SmartTool basato sul protocollo dell'end-eff
 
 .. centered:: Figura 8.3‑2-5 Prompt della Pagina "Entrare in boot e applicare il protocollo aperto?"
 
+Inoltre, quando si utilizzano i pulsanti IO, l'utente deve selezionare il tipo di comunicazione della saldatrice corrente, tra cui: I/O del controller, Protocollo di comunicazione digitale (UDP), Protocollo di comunicazione digitale (Modbus TCP). Per I/O del controller e Protocollo di comunicazione digitale (UDP), il DO corrispondente deve essere configurato con la funzione di avvio arco affinché possano essere generate istruzioni relative alla saldatura. Per il Protocollo di comunicazione digitale (Modbus TCP), l'istruzione deve essere configurata come saldatura affinché possano essere generate istruzioni relative alla saldatura; in caso contrario, verranno generate solo istruzioni per l'impostazione dell'uscita DO.
+
+.. note:: È importante notare che quando si selezionano i protocolli di comunicazione digitale (UDP) o (Modbus TCP) per la comunicazione con la saldatrice, la configurazione delle istruzioni di saldatura richiede che la connessione di comunicazione sia stabilita correttamente.
+
+.. figure:: robot_peripherals/321.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.3‑2-6 Selezione del Tipo di Controllo della Saldatrice e del Tipo di Istruzione
+
 Importazione Modello per Generazione Programmi SmartTool
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -663,7 +673,7 @@ Se il tasto SmartTool è configurato con la funzione di generazione programmi, i
    :align: center
    :width: 4in
 
-.. centered:: Figura 8.3‑2-6 Importazione Modello per Generazione Programmi SmartTool
+.. centered:: Figura 8.3‑2-7 Importazione Modello per Generazione Programmi SmartTool
 
 Configurazione Punti Istruzione Movimento SmartTool
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -674,7 +684,7 @@ Quando si configurano le istruzioni "PTP," "LIN," e "ARC" in SmartTool, è possi
    :align: center
    :width: 4in
 
-.. centered:: Figura 8.3‑2-7 Configurazione Punti Istruzione Movimento SmartTool "Punti Insegnamento Globali" e "Punti Insegnamento Locali"
+.. centered:: Figura 8.3‑2-8 Configurazione Punti Istruzione Movimento SmartTool "Punti Insegnamento Globali" e "Punti Insegnamento Locali"
 
 Modalità Anti-Tocco Accidentale SmartTool
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -685,7 +695,7 @@ Lo SmartTool basato sul protocollo aperto aggiunge una modalità anti-tocco acci
    :align: center
    :width: 6in
 
-.. centered:: Figura 8.3‑2-8 Funzione "Modalità Anti-Tocco Accidentale" SmartTool
+.. centered:: Figura 8.3‑2-9 Funzione "Modalità Anti-Tocco Accidentale" SmartTool
 
 Funzione di Cancellazione della Memoria del Pulsante IO SmartTool
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -701,7 +711,7 @@ Funzione di Cancellazione Globale dei Punti
    :align: center
    :width: 6in
 
-.. centered:: Figura 8.3‑2-9 Funzione di Cancellazione Globale dei Punti
+.. centered:: Figura 8.3‑2-10 Funzione di Cancellazione Globale dei Punti
 
 Esempio di Protocollo Periferico End Lua per Saldatrice
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1102,6 +1112,51 @@ Fare clic sulla scheda "Protocollo personalizzato" per accedere all'interfaccia,
 
 .. centered:: Diagramma 8.3‑12 Abilitazione sensore di forza
 
+Adattamento del Sensore di Forza Kaiwei
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
++++++++++++++++++++++++++++++++++++++++++++++
+È stato aggiunto un nuovo sensore di forza Kaiwei all'elenco dei dispositivi adattati, con il modello KWL-SFTE75B.
+
+Adattamento del Sensore di Forza Kaiwei
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(1) Andare a Impostazioni Iniziali -> Periferiche -> Sensore di Forza e selezionare il dispositivo adattato.
+
+.. figure:: robot_peripherals/322.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑13 Dispositivi Adattati
+
+(2) Nell'elenco dei dispositivi adattati, selezionare il produttore KWL, selezionare il tipo KWL-SFTE75B, scegliere la posizione di montaggio e fare clic su Configura.
+
+.. figure:: robot_peripherals/323.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑13 Configura Produttore
+
+(3) Selezionare il numero della posizione di montaggio corrispondente, fare clic su Reset, quindi su Attiva. Quando Act_State nella barra degli strumenti FT mostra 1, il sensore è pronto per l'uso normale.
+
+.. figure:: robot_peripherals/324.png
+   :align: center
+   :width: 6in
+
+.. centered:: Figura 8.3‑14 Operazioni di Attivazione e Reset
+
+Istruzioni per l'Uso del Dispositivo
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(1) Nella barra degli strumenti FT, Fx, Fy, Fz, Tx, Ty, Tz rappresentano i dati di forza a sei assi, con unità in N e N·m.
+
+.. figure:: robot_peripherals/325.png
+   :align: center
+   :width: 4in
+
+.. centered:: Figura 8.3‑15 Dati di Forza a Sei Assi nella Barra degli Strumenti FT  
+
 Maniglia di Saldatura
 -------------------------------------------------------------
 
@@ -1161,7 +1216,10 @@ Funzioni tasti IO:
 
 -  **Configurazione segnale IO**: La casella a discesa consente di selezionare le opzioni DO0⁓DO7, CO0⁓CO7, End-DO0, End-DO1 e IO estesi (Aux-DO0⁓Aux-DO127);
 
--  **Comando combinato**: Dopo aver selezionato "Segnale IO", in condizioni specifiche vengono visualizzati gli elementi di configurazione "Selezione saldatrice" e "Velocità punto", generando diversi comandi di programma.Inoltre, è stata aggiunta la selezione del numero del processo di saldatura. Inoltre, il tempo massimo per l'avvio e l'arco di chiusura può essere configurato fino a 10000ms. Il numero di tessitura è impostato su 0 di default. Se è configurato "Avvio Tessitura", è possibile selezionare il numero di tessitura. Le impostazioni del pulsante IO sono coerenti con le impostazioni di Avvio Tessitura.
+-  **Istruzioni Combinate**: Dopo aver selezionato "Segnale IO", in determinate condizioni vengono visualizzati gli elementi di configurazione "Selezione Saldatrice" e "Velocità Punto" per generare diverse istruzioni di programma.
+
+  - L'utente deve selezionare il tipo di comunicazione della saldatrice corrente, tra cui: I/O del controller, Protocollo di comunicazione digitale (UDP), Protocollo di comunicazione digitale (Modbus TCP). Per I/O del controller e Protocollo di comunicazione digitale (UDP), il DO corrispondente deve essere configurato con la funzione di avvio arco affinché possano essere generate istruzioni relative alla saldatura. Per il Protocollo di comunicazione digitale (Modbus TCP), l'istruzione deve essere configurata come saldatura affinché possano essere generate istruzioni relative alla saldatura; in caso contrario, verranno generate solo istruzioni per l'impostazione dell'uscita DO. È importante notare che quando si selezionano i protocolli di comunicazione digitale (UDP) o (Modbus TCP) per la comunicazione con la saldatrice, la configurazione delle istruzioni di saldatura richiede che la connessione di comunicazione sia stabilita correttamente.
+  - È stata inoltre aggiunta la selezione del numero del processo di saldatura. Inoltre, il tempo massimo per l'avvio e la chiusura dell'arco può essere configurato fino a 10000ms. Il numero di tessitura è impostato su 0 di default. Se è configurato "Avvio Tessitura", è possibile selezionare il numero di tessitura. Le impostazioni del pulsante IO sono coerenti con le impostazioni di Avvio Tessitura.
 
 .. important::
    -  Quando la configurazione del segnale IO è DO0~DO7 o CO0~CO7 (non configurato "accensione arco"), il programma aggiunge SetDO; in questo caso vengono nascosti "Selezione saldatrice" e "Velocità punto".
@@ -6500,7 +6558,15 @@ Funzioni specifiche dei parametri:
 - **Limite di Velocità Angolare**: 100°/s. Quando viene superato il limite di velocità angolare, il robot passa alla modalità manuale e segnala il superamento della velocità TCP.
 
 .. note::
-  1. Per il robot FR3WML, le impostazioni dei parametri consigliate sono le seguenti: guadagno di trascinamento [0.15, 0.15, 0.15, 0.15, 0.15, 0.2], guadagno di smorzamento dopo l'attivazione dell'impedenza [0.1, 0.1, 0.1, 0.05, 0.05, 0.05].
+  1. Impostazioni dei parametri di trascinamento
+
+  (1) Per il robot FR3WML, le impostazioni dei parametri consigliate sono le seguenti: guadagno di trascinamento [1.5, 1.5, 1.5, 1.5, 1.5, 2], guadagno di smorzamento dopo l'attivazione dell'impedenza [0.1, 0.1, 0.1, 0.05, 0.05, 0.05];
+
+  (2) Per il robot FR3WMS, le impostazioni dei parametri consigliate sono le seguenti: guadagno di trascinamento [2, 2, 2, 2, 2, 2], guadagno di smorzamento dopo l'attivazione dell'impedenza [0.1, 0.1, 0.1, 0.05, 0.05, 0.05];
+
+  (3) Per il robot FR3C, le impostazioni dei parametri consigliate sono le seguenti: guadagno di trascinamento [2, 2, 2, 2, 2, 2], guadagno di smorzamento dopo l'attivazione dell'impedenza [0.1, 0.1, 0.1, 0.05, 0.05, 0.05].
+
+  (4) Per il robot FR5C, le impostazioni dei parametri consigliate sono le seguenti: guadagno di trascinamento [2, 2, 2, 2, 2, 2], guadagno di smorzamento dopo l'attivazione dell'impedenza [0.1, 0.1, 0.1, 0.05, 0.05, 0.05].
 
   2. Quando tutti i parametri di guadagno di trascinamento sono impostati a 0, la resistenza al trascinamento è forte ed è difficile trascinare; quando tutti i parametri di guadagno di trascinamento sono impostati a 5, la sensazione di trascinamento è leggera; maggiore è il parametro, più facile è il trascinamento.
 

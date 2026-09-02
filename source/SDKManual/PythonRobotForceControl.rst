@@ -452,13 +452,14 @@ Ricerca spirale
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``FT_SpiralSearch(rcs, ft, dr=0.7, max_t_ms=60000, max_vel=5)``"
+    "Prototipo", "``FT_SpiralSearch(rcs, ft, dr=0.7, max_t_ms=60000, max_vel=5, strategy=0)``"
     "Descrizione", "Ricerca spirale"
     "Parametri obbligatori", "- ``rcs``：sistema di riferimento, 0-sistema coordinato utensile, 1-sistema coordinato base
     - ``ft``：soglia forza o coppia (0~100), unità N o Nm;"
     "Parametri predefiniti", "- ``dr``：avanzamento raggio per giro, unità mm default 0.7;
     - ``max_t_ms``：tempo ricerca massimo, unità ms default 60000;
-    - ``max_vel``：velocità lineare massima, unità mm/s default 5"
+    - ``max_vel``：velocità lineare massima, unità mm/s default 5;
+    - ``strategy``：* @param  [in] strategy Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento;"
     "Valore restituito", "Codice errore Successo-0  Fallimento- errcode "
 
 Inserzione Rotazionale
@@ -541,14 +542,15 @@ Inserimento lineare
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``FT_LinInsertion(rcs, ft, disMax, linorn, lin_v=1.0, lin_a=1.0)``"
+    "Prototipo", "``FT_LinInsertion(rcs, ft, disMax, linorn, lin_v=1.0, lin_a=1.0, strategy=0)``"
     "Descrizione", "Inserimento lineare"
     "Parametri obbligatori", "- ``rcs``：sistema di riferimento, 0-sistema coordinato utensile, 1-sistema coordinato base；
     - ``ft``：soglia forza o coppia (0~100), unità N o Nm;
     - ``disMax``：distanza inserimento massima, unità mm;
     - ``linorn``：direzione inserimento:0-direzione negativa, 1-direzione positiva"
     "Parametri predefiniti", "- ``lin_v``：velocità lineare, unità mm/s default 1;
-    - ``lin_a``：accelerazione lineare, unità mm/s^2, non utilizzato attualmente default 1"
+    - ``lin_a``：accelerazione lineare, unità mm/s^2, non utilizzato attualmente default 1;
+    - ``strategy``：Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento;"
     "Valore restituito", "Codice errore Successo-0  Fallimento- errcode "
 
 Esempio codice comandi ricerca spirale, inserimento lineare ecc.
@@ -632,7 +634,7 @@ Localizzazione superficie
     :stub-columns: 1
     :widths: 10 30
 
-    "Prototipo", "``FT_FindSurface (rcs, dir, axis, disMax, ft, lin_v=3.0, lin_a=0.0)``"
+    "Prototipo", "``FT_FindSurface (rcs, dir, axis, disMax, ft, lin_v=3.0, lin_a=0.0, stragety = 0)``"
     "Descrizione", "Localizzazione superficie"
     "Parametri obbligatori", "- ``rcs``： sistema di riferimento, 0-sistema coordinato utensile, 1-sistema coordinato base；
     - ``dir``：direzione movimento, 1-direzione positiva, 2-direzione negativa；
@@ -640,7 +642,8 @@ Localizzazione superficie
     - ``disMax``：distanza ricerca massima, unità mm;
     - ``ft``：soglia forza terminazione azione, unitàN；"
     "Parametri predefiniti", "- ``lin_v``：velocità linea ricerca, unitàmm/s default 3;
-    - ``lin_a``：accelerazione linea ricerca, unitàmm/s^2 default 0;"
+    - ``lin_a``：accelerazione linea ricerca, unitàmm/s^2 default 0;
+    - ``strategy``：Strategia di gestione quando non viene rilevata forza/coppia, 0-errore; 1-avviso, continuare il movimento;"
     "Valore restituito", "Codice errore Successo-0  Fallimento- errcode"
 
 Inizio calcolo posizione piano intermedio

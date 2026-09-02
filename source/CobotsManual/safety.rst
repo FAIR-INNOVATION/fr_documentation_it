@@ -1,716 +1,437 @@
 Sicurezza
 ===============
 
-.. toctree::
+.. toctree:: 
    :maxdepth: 6
 
-Arresto di Sicurezza
------------------------------
+Contesto
+------------------------------------------------
+In quanto unità esecutiva chiave nello sviluppo della produzione intelligente industriale, le prestazioni di sicurezza dei robot industriali sono diventate un elemento centrale nella gestione dell'intero ciclo di vita delle apparecchiature. Attualmente, il settore richiede generalmente che i parametri relativi alle funzioni di sicurezza siano fissi e non modificabili, e che venga stabilito un meccanismo di verifica completo e tracciabile per soddisfare i rigorosi requisiti di audit di conformità della sicurezza.
+Gli integratori di sistema e gli utenti finali in Europa hanno ulteriormente richiesto trasparenza e verificabilità della configurazione di sicurezza durante l'accettazione effettiva dei progetti. Nello specifico, dopo il completamento del debug delle funzioni di sicurezza, il sistema dovrebbe essere in grado di generare automaticamente un rapporto di configurazione di sicurezza contenente un checksum di integrità, e questo checksum deve essere visualizzato in tempo reale nell'interfaccia di gestione Web del dispositivo. Questo meccanismo mira a garantire che qualsiasi modifica ai parametri di sicurezza possa essere efficacemente identificata e registrata, fornendo così una base affidabile per la valutazione dello stato di sicurezza del dispositivo, l'accettazione in loco e la successiva manutenzione.
+In considerazione di ciò, il progetto dell'architettura di sicurezza di questo dispositivo non solo è conforme agli standard di sicurezza internazionali pertinenti, ma include anche funzioni integrate di esportazione della configurazione di sicurezza e visualizzazione in tempo reale del checksum, per assistere gli operatori e i responsabili della sicurezza nel completare in modo conveniente e affidabile la conferma della configurazione e la certificazione di conformità.
 
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Arresto di sicurezza" per accedere all'interfaccia di configurazione. Impostare la modalità di arresto di sicurezza e i parametri della strategia di arresto di sicurezza.
+Checksum della Configurazione di Sicurezza
+------------------------------------------------
+
+Aprire la pagina web. Il checksum di sicurezza si trova nell'angolo in alto a destra della pagina, rappresentato da un numero esadecimale a 8 cifre. Il checksum di sicurezza è unico; quando i parametri di configurazione di sicurezza cambiano, il checksum di sicurezza cambia di conseguenza.
 
 .. image:: safety/001.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.1-1 Configurazione Arresto di Sicurezza
+.. centered:: Figura 7.1-1 Visualizzazione del Checksum della Configurazione di Sicurezza
 
-Arresto di Sicurezza a Doppio Canale + Modalità Ridotta Configurabile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Fare clic sul checksum di sicurezza per visualizzare l'insieme dei parametri di configurazione di sicurezza rappresentati dal checksum corrente.
 
-Panoramica
-++++++++++++++++++++++++++++++++++++
-
-Quando la modalità di attivazione dell'arresto di sicurezza è impostata su "Doppio Canale", entrambi i canali devono essere garantiti puliti e l'avviso deve essere cancellato manualmente nell'interfaccia operativa prima che il robot possa essere resettato. Inoltre, nella configurazione della strategia viene aggiunta un'opzione di modalità ridotta. Quando questa strategia viene selezionata dall'utente, il robot entrerà in movimento in modalità ridotta.
-
-Procedura Operativa
-++++++++++++++++++++++++++++++++++++
-
-**Step1**: Fare clic sul pulsante "Impostazioni Iniziali" -> "Sicurezza" -> "Arresto Sicurezza". La modalità di attivazione può essere selezionata come "Predefinita" o "Doppio Canale". La differenza tra le due è la seguente: nella modalità "Predefinita", dopo l'attivazione e il ripristino, l'errore dell'interfaccia viene cancellato automaticamente. Nella modalità "Doppio Canale", dopo l'attivazione e il ripristino, l'errore dell'interfaccia deve essere cancellato manualmente. La "Strategia di Arresto Sicurezza" può essere selezionata come "Arresto", "Pausa", "Modalità Ridotta Livello 1" o "Modalità Ridotta Livello 2". Spiegazioni dettagliate sono le seguenti: Quando si seleziona "Arresto", il robot si ferma. Quando si seleziona "Pausa", il robot mette in pausa il movimento corrente e riprenderà dopo il ripristino e la cancellazione dell'errore. Quando si seleziona "Modalità Ridotta Livello 1", il robot entra in movimento in modalità ridotta di livello 1. Quando si seleziona "Modalità Ridotta Livello 2", il robot entra in movimento in modalità ridotta di livello 2.
-
-.. image:: safety/048.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.1-2 Impostazioni Strategia Arresto Sicurezza
-
-**Step2**: Poiché quando la modalità di attivazione è selezionata come "Predefinita", dopo l'attivazione e il ripristino, l'errore dell'interfaccia può essere cancellato automaticamente, non richiede molta introduzione. Pertanto, ci concentriamo principalmente sull'operazione quando la modalità di attivazione è selezionata come "Doppio Canale": Dopo l'attivazione e il ripristino, è necessario fare clic manualmente sull'operazione "Cancella" in alto a destra prima che il robot possa essere resettato.
-
-.. image:: safety/049.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.1-3 Cancellazione Manuale di un'Operazione di Attivazione Arresto Sicurezza
-
-Movimento a Velocità di Sicurezza
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Dopo che il robot ha attivato un arresto di sicurezza, l'utente può fare clic su un pulsante nella webapp, configurare un ingresso CI del box di controllo o configurare un ingresso End DI dell'utensile end-effector per controllare il robot e farlo entrare nello stato di movimento a velocità di sicurezza. Nello stato di movimento a velocità di sicurezza, il robot può essere mosso a passo d'uomo a velocità sicura o può entrare in modalità trascinamento per essere trascinato, aiutando l'utente a risolvere i problemi.
-
-Nella webapp del robot, fare clic in sequenza su "Impostazioni iniziali", "Sicurezza", "Arresto di sicurezza", trovare "Movimento a velocità di sicurezza" in questa pagina e impostarlo su abilitato.
-
-.. image:: safety/057.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.1-4 Abilitare il Movimento a Velocità di Sicurezza
-
-Quando a questo punto viene attivato un arresto di sicurezza, l'angolo in alto a destra della webapp del robot mostrerà un avviso "Arresto di sicurezza attivato" e mostrerà il pulsante "Entra in movimento a velocità di sicurezza".
-
-.. image:: safety/058.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.1-5 Popup per entrare in movimento a velocità di sicurezza
-
-Fare clic sul pulsante "Entra", il robot interromperà automaticamente il programma Lua e passerà alla modalità manuale. Allo stesso tempo, il pulsante "Entra in movimento a velocità di sicurezza" verrà aggiornato a "Entrato". A questo punto, il robot può essere controllato tramite il pulsante dell'end-effector, il box pulsanti, la webapp, ecc. per entrare in modalità trascinamento e trascinare il robot, oppure può essere mosso a passo d'uomo tramite la webapp o il teach pendant.
-
-.. image:: safety/059.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.1-6 Entrare in movimento a velocità di sicurezza
-
-Quando il robot è in movimento a velocità di sicurezza e viene mosso a passo d'uomo nello spazio cartesiano, la velocità massima di movimento del robot è la velocità di sicurezza impostata. Se l'impostazione della velocità globale corrente del robot è superiore alla velocità di sicurezza, la velocità di passo d'uomo del robot verrà automaticamente ridotta alla velocità di sicurezza. La velocità di sicurezza viene impostata in "Impostazioni iniziali", "Sicurezza", "Velocità di sicurezza".
-
-Dopo che il robot si è arrestato in sicurezza, oltre a poter controllare l'ingresso del robot nella modalità di sicurezza dall'angolo in alto a destra della webapp, è possibile entrare anche tramite l'ingresso CI del box di controllo o l'ingresso CI dell'end-effector. Nella webapp, fare clic in sequenza su "Impostazioni iniziali", "Base", "Impostazioni I/O", "DI". Configurare una determinata porta CI del box di controllo o l'End DI dell'utensile end-effector come "Entra in movimento a velocità di sicurezza". Dopo che l'arresto di sicurezza è stato attivato, è sufficiente attivare il segnale di ingresso della porta configurata per entrare nel movimento a velocità di sicurezza.
-
-.. image:: safety/060.png
+.. image:: safety/002.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 7.1-7 Entrare in movimento a velocità di sicurezza tramite pulsante
+.. centered:: Figura 7.1-2 Parametri di Configurazione di Sicurezza
 
-Arresto di Sicurezza Solo in Modalità Automatica
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Quando il robot abilita la modalità di arresto di sicurezza (certificazione CR, sicurezza funzionale) e viene utilizzato con un teach pendant dotato di abilitatore a tre posizioni, è possibile attivare "Arresto di sicurezza solo in modalità automatica". Quando il segnale di arresto di sicurezza del robot viene attivato, è possibile commutare il robot in modalità manuale sul teach pendant, quindi muoverlo a passo d'uomo in modalità manuale o passare alla modalità trascinamento per trascinare il robot, aiutando l'utente a risolvere i problemi.
-
-Nella webapp del robot, fare clic in sequenza su "Impostazioni iniziali", "Sicurezza", "Arresto di sicurezza", trovare "Arresto di sicurezza solo in modalità automatica" in questa pagina e impostarlo su abilitato.
-
-.. image:: safety/061.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.1-8 Attivare l'Arresto di Sicurezza Solo in Modalità Automatica
-
-Se il robot non ha abilitato la modalità di arresto di sicurezza (certificazione CR, sicurezza funzionale) o non utilizza un teach pendant, la funzione "Arresto di sicurezza solo in modalità automatica" non può essere attivata. In questo caso, la webapp mostrerà un messaggio di errore: "Arresto di sicurezza solo in modalità automatica richiede l'attivazione dell'abilitatore a tre posizioni sul teach pendant". Inoltre, quando la modalità di arresto di sicurezza o il teach pendant vengono disabilitati, la funzione "Arresto di sicurezza solo in modalità automatica" verrà automaticamente disattivata.
-
-.. image:: safety/062.png
-   :width: 3in
-   :align: center
-
-.. centered:: Figura 7.1-9 Errore durante l'attivazione dell'Arresto di Sicurezza Solo in Modalità Automatica
-
-Velocità di Sicurezza
------------------------------
-
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Velocità di sicurezza" per accedere all'interfaccia di configurazione. Impostare la velocità di sicurezza.
-
-.. note:: La velocità manuale TCP è inferiore a 250 mm/s.
-
-.. image:: safety/002.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.2-1 Configurazione Velocità Manuale Sicura
-
-Funzione di Velocità di Sicurezza
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Panoramica
-+++++++++++++++++++++++++++++
-
-La funzione di velocità di sicurezza del robot è progettata per la collaborazione uomo-robot o per ambienti dinamici. Limita attivamente la velocità operativa del robot per mantenere l'energia cinetica e la forza d'impatto entro soglie di sicurezza, prevenendo così lesioni al personale in caso di contatto accidentale e proteggendo efficacemente le apparecchiature e i pezzi in lavorazione da danni da collisione.
-
-Procedura Operativa
-+++++++++++++++++++++++++++++
-
-**Step1**: Fare clic sul pulsante "Impostazioni iniziali" - "Sicurezza" - "Velocità di sicurezza" per impostare i parametri di velocità di sicurezza. La configurazione comprende principalmente tre parti: "Abilitazione funzione", "Limite di velocità" e "Modalità dopo superamento".
-
-Tra queste, "Abilitazione funzione" offre tre opzioni: "Disabilitata", "Abilitata in modalità manuale" e "Abilitata in tutte le modalità";
-
-Impostare il limite di velocità in "Limite di velocità". Quando la velocità lineare del robot raggiunge questo limite, verrà gestita secondo i parametri impostati in "Modalità dopo superamento". "Modalità dopo superamento" offre tre modalità: "Ferma con allarme", "Limitazione automatica della velocità" e "Disabilita dopo fermo con allarme". La limitazione automatica della velocità è disponibile solo quando è selezionata "Abilitata in modalità manuale".
-
-Dopo aver impostato i parametri richiesti, non sono necessarie ulteriori operazioni. Il movimento del robot verrà gestito secondo i parametri impostati. Le impostazioni dei parametri sono mostrate nella figura.
-
-.. image:: safety/056.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.2-2 Impostazione dei parametri di velocità di sicurezza
-
-Sicurezza I/O
-----------------
-
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Sicurezza I/O" per accedere all'interfaccia di configurazione.
-
-L'HMI consente di impostare lo stato di sicurezza per 16 ingressi digitali e 16 uscite digitali, che possono essere configurati come validi o non validi. Quando il controller rileva che il sistema è in uno stato sicuro, i 16 ingressi digitali e le 16 uscite digitali vengono impostati nello stato di sicurezza.
+I parametri di configurazione di sicurezza supportano l'esportazione di report PDF. Fare clic su Download per visualizzare l'anteprima del report PDF, e supporta anche l'esportazione. Fare clic sul pulsante Salva per scaricare il report PDF.
 
 .. image:: safety/003.png
-   :width: 4in
+   :width: 6in
    :align: center
 
-.. centered:: Diagramma 7.3-1 Configurazione Stato Sicurezza I/O
+.. centered:: Figura 7.1-3 Anteprima PDF del Report di Configurazione di Sicurezza
 
-Nel sistema LA:
-    "Sicurezza I/O" fornisce la funzione di sicurezza DIO, che è un DI a doppio canale o DO. Quando viene rilevato un segnale DI di sicurezza o viene attivato un flag di stato di sicurezza, viene emesso il DO.
+Gestione dei Parametri di Configurazione di Sicurezza
+------------------------------------------------
+
+Tutti i parametri di configurazione di sicurezza relativi al robot sono gestiti uniformemente nella pagina web "Impostazioni Iniziali" -> "Sicurezza". La modifica dei parametri di configurazione di sicurezza richiede prima l'inserimento della "Password di Configurazione di Sicurezza" per la verifica. Solo dopo una verifica riuscita è possibile procedere con le modifiche alla configurazione dei parametri di sicurezza.
 
 .. image:: safety/004.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.3-2 Configurazione Funzione Sicurezza I/O
+.. centered:: Figura 7.2-1 Verifica della Password di Configurazione di Sicurezza
 
-Arresto di Emergenza
--------------------------
-
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Arresto di emergenza" per accedere all'interfaccia di configurazione.
-
-È possibile configurare i tipi di arresto di emergenza 0, 1a, 1b, 2, impostare i limiti di tempo di arresto e i limiti di distanza di arresto.
-
-- Attraverso il controller inviato alla scheda del quadro di controllo, il tipo di arresto di emergenza 0 interrompe immediatamente l'alimentazione alla scheda del quadro di controllo;
-  
-- Il tipo di arresto di emergenza 1a interrompe l'alimentazione al corpo del robot dopo l'arresto in decelerazione;
-  
-- Il tipo di arresto di emergenza 1b disabilita il corpo del robot dopo l'arresto in decelerazione, senza interrompere l'alimentazione al corpo;
-
-- Il tipo di arresto di emergenza 2 significa che quando viene premuto l'emergenza, il robot si arresta in decelerazione e mantiene l'abilitazione. Dopo aver rilasciato l'emergenza, il robot dovrebbe funzionare normalmente.
+Dopo aver modificato i parametri di configurazione di sicurezza, fare clic su "Applica". È richiesta una seconda conferma dei parametri di configurazione di sicurezza modificati. Fare clic su "Conferma" per applicare i parametri. Dopo l'applicazione riuscita dei parametri, il checksum di configurazione di sicurezza verrà aggiornato di conseguenza.
 
 .. image:: safety/005.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.4-1 Configurazione Arresto di Emergenza
-
-Funzione opzionale di abilitazione automatica al ripristino dell'arresto di sicurezza
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Panoramica
-+++++++++++++++++++++
-
-Dopo aver subito un arresto di emergenza di tipo 1b, il robot offre due modalità: abilitazione manuale e abilitazione automatica, per consentire agli utenti di scegliere autonomamente. Quando si seleziona l'abilitazione manuale, l'utente deve, dopo aver rilasciato il pulsante di emergenza, cambiare la modalità di funzionamento del robot in automatica e fare clic manualmente sul pulsante di abilitazione per abilitare il robot; quando si seleziona l'abilitazione automatica, dopo che l'utente ha rilasciato il pulsante di emergenza, il robot si abilita automaticamente.
-
-Procedura operativa
-+++++++++++++++++++++++++++
-
-**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Arresto di emergenza", selezionare "Tipo 1b" come "Tipo di arresto" e, in base alle esigenze effettive, impostare i parametri "Limite tempo arresto" e "Limite distanza arresto". "Strategia abilitazione dopo reset emergenza" può essere selezionata come "Abilitazione manuale" o "Abilitazione automatica", come mostrato nella Figura 2-1.
-
-.. image:: safety/046.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.4-2 Impostazioni Strategia Abilitazione
-
-**Step2**: Quando si seleziona "Abilitazione automatica", dopo che l'utente ha rilasciato il pulsante di emergenza, il robot si abilita automaticamente; quando si seleziona "Abilitazione manuale", l'utente deve, dopo aver rilasciato il pulsante di emergenza, in modalità automatica, fare clic manualmente sul pulsante di abilitazione per abilitare il robot, come mostrato nella Figura 2-2.
-
-.. image:: safety/047.png
    :width: 6in
    :align: center
 
-.. centered:: Diagramma 7.4-3 Operazione Abilitazione Manuale
+.. centered:: Figura 7.2-2 Seconda Conferma dei Parametri di Configurazione di Sicurezza
 
-Arresto Protettivo
--------------------------
+Gestione della Password di Configurazione di Sicurezza
+------------------------------------------------
 
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Arresto protettivo" per accedere all'interfaccia di configurazione.
-
-Tipi di arresto protettivo 0, 1, 2. Il tipo di arresto protettivo 0 interrompe immediatamente l'alimentazione alla scheda del quadro di controllo; il tipo di arresto protettivo 1 fa sì che la scheda del quadro di controllo notifichi prima al controller di fermare il robot, quindi il controller segnala alla scheda del quadro di controllo di interrompere l'alimentazione; il tipo di arresto protettivo 2 fa sì che la scheda del quadro di controllo notifichi al controller di fermare il robot.
+La password di configurazione di sicurezza può essere modificata in "Impostazioni di Sistema" -> "Modalità Manutenzione" -> "Configurazione Parametri di Sicurezza". La password predefinita è 12345678. La modifica della password richiede la verifica della vecchia password. La nuova e la vecchia password non possono essere uguali. La lunghezza della password è minima 1 carattere e massima 8 caratteri, e distingue tra lettere maiuscole e minuscole e simboli.
 
 .. image:: safety/006.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.5-1 Configurazione Arresto Protettivo
+.. centered:: Figura 7.3-1 Gestione della Password di Configurazione di Sicurezza
 
-.. important::
-    I flag di stato dei dati di sicurezza e il feedback dei guasti della scheda del quadro di controllo vengono acquisiti tramite l'interfaccia Web e il feedback dello stato del controller. Quando il flag è impostato a 1, lo stato anomalo dei dati di sicurezza viene segnalato nello stato di allarme WebAPP. Dopo l'acquisizione del guasto della scheda del quadro di controllo, il codice di errore specifico viene visualizzato nello stato di allarme WebAPP in base al codice di errore.
+Se si dimentica la vecchia password, contattare il personale tecnico competente di FAIRINO.
+
+Parametri di Configurazione di Sicurezza
+--------------------------------------------------------------------------------------------------
+
+Parametri di Sicurezza del Robot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Velocità del Robot
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Velocità del Robot" per accedere all'interfaccia di configurazione.
+
+La velocità del robot viene utilizzata per limitare la velocità lineare massima, l'accelerazione lineare e l'accelerazione angolare dei giunti del robot.
 
 .. image:: safety/007.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.5-2 Stato Allarme WebAPP
+.. centered:: Figura 7.4-1 Velocità del Robot
+ 
+Pianificazione della Decelerazione di Arresto
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Configurazione Zona di Interferenza
---------------------------------------------------
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Pianificazione della Decelerazione di Arresto" per accedere all'interfaccia di configurazione.
 
-Sotto la barra dei menu "Impostazioni iniziali" -> "Sicurezza" -> "Zona di interferenza", fare clic sulla sottovoce "Singola" per accedere all'interfaccia di configurazione della funzione di zona di interferenza.
+- Arresto Libero: quando si entra in arresto, la velocità angolare di ciascun asse decelera e si arresta secondo la percentuale di decelerazione di arresto impostata moltiplicata per l'accelerazione massima del giunto;
+- Arresto Sincronizzato: quando si entra in arresto, la velocità di posa TCP decelera e si arresta secondo la percentuale di decelerazione di arresto impostata moltiplicata per l'accelerazione massima di posa;
 
-Innanzitutto, è necessario configurare la modalità di interferenza e l'operazione di ingresso nella zona di interferenza. Le modalità di interferenza sono suddivise in "Interferenza asse" e "Interferenza cubo".
-
-.. image:: safety/025.png
-   :width: 3in
-   :align: center
-
-.. centered:: Diagramma 7.6‑1 Modalità Zona di Interferenza
-
-Controllare l'attivazione tramite l'interruttore a cursore. Innanzitutto, configurare il movimento nella zona di interferenza come "Continua movimento" o "Arresta". Successivamente, configurare l'operazione di trascinamento all'ingresso nella zona di interferenza. Gli utenti possono impostare la strategia dopo l'ingresso nella zona di interferenza in modalità trascinamento in base alle proprie esigenze: nessuna limitazione al trascinamento, callback di impedenza o ritorno alla modalità manuale.
-
-.. image:: safety/026.png
-   :width: 3in
-   :align: center
-
-.. centered:: Diagramma 7.6‑2 Configurazione Zona di Interferenza
-
-Selezionare l'interferenza asse, è necessario configurare i parametri dell'interferenza asse. Il metodo di rilevamento è suddiviso in "Posizione comando" e "Posizione feedback" due tipi. La modalità zona di interferenza è suddivisa in "Interferenza all'interno del range" e "Interferenza all'esterno del range" due tipi. Successivamente, impostare il range per ogni giunto e se abilitare il range di ciascun giunto. È possibile inserire valori numerici o utilizzare l'"icona di aggiornamento" dopo "Valore minimo" e "Valore massimo" per registrare la posizione corrente del robot. Infine, fare clic su Configura.
-
-.. image:: safety/027.png
-   :width: 3in
-   :align: center
-
-.. centered:: Diagramma 7.6‑3 Configurazione Interferenza Asse
-
-Selezionare l'interferenza cubo, è necessario configurare i parametri dell'interferenza cubo. Il metodo di rilevamento è suddiviso in "Posizione comando" e "Posizione feedback" due tipi. La modalità zona di interferenza è suddivisa in "Interferenza all'interno del range" e "Interferenza all'esterno del range" due tipi. Il sistema di coordinate di riferimento è suddiviso in "Coordinate base" e "Coordinate utensile", selezionare in base all'uso effettivo. Successivamente, procedere con l'impostazione del range. L'impostazione del range è suddivisa in due metodi. Per prima cosa, vedere il primo metodo "Metodo a due punti", ovvero i due vertici diagonali del cubo. Possiamo registrare la posizione tramite inserimento o insegnamento del robot. Infine, fare clic su Applica.
-
-.. image:: safety/028.png
-   :width: 3in
-   :align: center
-
-.. centered:: Diagramma 7.6‑4 Configurazione Interferenza Cubo
-
-Successivamente, vedere il secondo metodo "Punto centrale + lunghezza lato", ovvero il punto centrale della posizione del cubo e la lunghezza del lato del cubo costituiscono la zona di interferenza. Possiamo registrare la posizione tramite inserimento o insegnamento del robot. Infine, fare clic su Applica.
-
-.. image:: safety/029.png
-   :width: 3in
-   :align: center
-
-.. centered:: Diagramma 7.6‑5 Configurazione Interferenza Cubo
-
-Funzione di callback di sicurezza per l'ingresso in interferenza asse con trascinamento assistito da sensore di forza
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Panoramica
-+++++++++++++++++++++++++
-
-La funzione di callback di sicurezza per l'ingresso in interferenza asse con trascinamento assistito da sensore di forza è quando il trascinamento assistito da sensore di forza e la zona di interferenza coesistono. Quando il robot entra nella zona di interferenza, il robot passa automaticamente alla modalità di trascinamento, con effetto di callback di impedenza; quando il robot esce dalla zona di interferenza, il robot ritorna automaticamente al trascinamento assistito da sensore di forza. Ciò consente di soddisfare molteplici scenari d'uso per gli utenti che utilizzano il trascinamento assistito da sensore di forza.
-
-Procedura operativa
-++++++++++++++++++++++++
-
-Anello di limitazione articolare
-********************************
-**Step1**: Accedere all'interfaccia web, fare clic sull'interruttore "Anello di limitazione articolare". Un anello di limitazione articolare apparirà sulle articolazioni del robot, come mostrato nella figura sottostante.
-
-.. image:: safety/030.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑6 Anello di limitazione articolare interfaccia web
-
-**Step2**: Il puntatore bianco sull'anello di limitazione articolare rappresenta l'angolo effettivo dell'articolazione; l'intaglio rappresenta la posizione del limite morbido dell'articolazione corrispondente, la dimensione dell'intaglio dell'anello di limitazione articolare cambia con la dimensione del limite morbido; quando l'articolazione si muove, l'anello di limitazione articolare rimane relativamente stazionario rispetto all'articolazione.
-
-Configurazione interferenza asse
-********************************
-**Step1**: Configurare e attivare l'interferenza asse. Fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Zona di interferenza" -> "Singola", accedere alla pagina di configurazione della zona di interferenza, fare clic sulla scheda "Interferenza asse" per accedere all'interfaccia, attivare l'interruttore "Funzione attiva".
-
-**Step2**: È possibile impostare la "Strategia di movimento" su "Continua movimento", selezionare "Strategia di trascinamento" come "Callback di impedenza" e impostare i parametri di callback di impedenza, come mostrato nella figura sottostante. I parametri di callback di impedenza rappresentano la forza di rimbalzo durante la callback di impedenza, valori più alti indicano una forza di rimbalzo maggiore. Si consiglia di configurare il parametro a "5".
-
-.. image:: safety/031.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑7 Interfaccia di configurazione interferenza asse
-
-**Step3**: Impostare il range della zona di interferenza asse. È possibile impostare la "Modalità di rilevamento" su "Posizione feedback", la "Modalità zona di interferenza" può essere selezionata tra le due modalità "Interferenza all'interno del range" e "Interferenza all'esterno del range"; impostare il range di interferenza per ciascuna articolazione, selezionare "Abilita" per attivare il range di interferenza dell'asse corrispondente, come mostrato nella figura sottostante.
-
-.. image:: safety/032.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑8 Interfaccia configurazione range zona di interferenza
-
-**Step4**: Impostare la "Modalità zona di interferenza" su "Interferenza all'interno del range". Nell'interfaccia web, l'anello di limitazione articolare mostra in verde l'area di movimento libero, in giallo l'area di interferenza, e l'area in cui si trova il puntatore bianco è evidenziata, come mostrato nella figura sottostante.
-
-.. image:: safety/033.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑9 Visualizzazione anello di limitazione articolare in modalità "Interferenza all'interno del range"
-
-**Step5**: Impostare la "Modalità zona di interferenza" su "Interferenza all'esterno del range". Nell'interfaccia web, l'anello di limitazione articolare mostra in verde l'area di movimento libero, in giallo l'area di interferenza, e l'area in cui si trova il puntatore bianco è evidenziata, come mostrato nella figura sottostante.
-
-.. image:: safety/034.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑10 Visualizzazione anello di limitazione articolare in modalità "Interferenza all'esterno del range"
-
-Ingresso in zona di interferenza asse con trascinamento assistito da sensore di forza
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-**Step1**: Fare clic in sequenza su "Applicazioni ausiliarie" -> "Applicazioni utensile" -> "Blocco trascinamento", cambiare l'interruttore "Stato" della funzione di blocco assistito da sensore di forza su "Attivo", selezionare "Attiva" per l'opzione zona di interferenza, impostare i coefficienti correlati e applicare, come mostrato nella figura sottostante.
-
-.. image:: safety/035.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑11 Interfaccia di configurazione trascinamento assistito da sensore di forza
-
-**Step2**: Trascinare il robot con trascinamento assistito da sensore di forza. Quando l'angolo dell'articolazione del robot raggiunge il range della zona di interferenza, la modalità del robot passa al trascinamento a loop di corrente, con effetto di callback di impedenza, consentendo di allontanarsi dalla zona di interferenza asse; dopo l'uscita dal range della zona di interferenza asse, la modalità del robot ritorna al trascinamento assistito da sensore di forza.
-
-Configurazione interferenza cubo
-++++++++++++++++++++++++++++++++++++++++++
-
-**Step1**: Impostare la zona di interferenza cubo. Fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Zona di interferenza" -> "Singola", accedere alla pagina di configurazione della zona di interferenza, fare clic sulla scheda "Interferenza cubo" per accedere all'interfaccia, attivare l'interruttore "Funzione attiva".
-
-**Step2**: È possibile impostare la "Strategia di movimento" su "Continua movimento", selezionare "Strategia di trascinamento" come "Nessuna limitazione al trascinamento", come mostrato nella figura sottostante.
-
-.. image:: safety/036.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑12 Configurazione zona di interferenza cubo
-
-**Step3**: Configurare i parametri della zona di interferenza cubo. È possibile impostare la "Modalità di rilevamento" su "Posizione feedback", la "Modalità zona di interferenza" può essere selezionata tra le due modalità "Interferenza all'interno del range" e "Interferenza all'esterno del range", impostare "Coordinate di riferimento" su "Coordinate base".
-
-**Step4**: Selezionare il metodo di insegnamento del range della zona di interferenza cubo come "Metodo a due punti". Insegnare al robot due punti, rispettivamente il punto minimo e il punto massimo nello spazio cartesiano, fare clic su "Applica". Successivamente, un cubo virtuale apparirà nell'interfaccia web, come mostrato nella figura sottostante.
-
-.. image:: safety/037.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑13 Impostazione zona di interferenza cubo con "Metodo a due punti"
-
-.. image:: safety/038.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑14 Visualizzazione cubo virtuale nell'interfaccia web
-
-**Step5**: Selezionare il metodo di insegnamento del range della zona di interferenza cubo come "Punto centrale + lunghezza lato". Insegnare al robot un punto, impostare la lunghezza dei tre assi X, Y, Z centrata sul punto insegnato, come mostrato nella figura sottostante, fare clic su "Applica". Successivamente, un cubo virtuale apparirà nell'interfaccia web.
-
-.. image:: safety/039.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑15 Impostazione zona di interferenza cubo con "Punto centrale + lunghezza lato"
-
-**Step6**: Impostare la "Modalità zona di interferenza" su "Interferenza all'interno del range". Quando l'estremità del robot è all'esterno del range del cubo, il cubo virtuale nell'interfaccia web viene visualizzato in giallo con trasparenza del 40%; quando l'estremità del robot è all'interno del range del cubo, il cubo appare in giallo con trasparenza del 90% e viene visualizzato l'avviso "Ingresso zona di interferenza", come mostrato nella figura sottostante.
-
-.. image:: safety/040.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑16 Ingresso nella zona di interferenza cubo in modalità "Interferenza all'interno del range"
-
-**Step7**: Impostare la "Modalità zona di interferenza" su "Interferenza all'esterno del range". Quando l'estremità del robot è all'interno del range del cubo, il cubo virtuale nell'interfaccia web viene visualizzato in verde con trasparenza del 40%; quando l'estremità del robot è all'esterno del range del cubo, il cubo appare in verde con trasparenza del 90% e viene visualizzato l'avviso "Ingresso zona di interferenza", come mostrato nella figura sottostante.
-
-.. image:: safety/041.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑17 Visualizzazione zona di interferenza cubo in modalità "Interferenza all'esterno del range"
-
-Configurazione parete di sicurezza
-++++++++++++++++++++++++++++++++++++++++++++++++++
-**Step1**: Impostare la parete di sicurezza. Fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Parete di sicurezza" per accedere all'interfaccia di configurazione della parete di sicurezza. L'interfaccia web supporta l'impostazione simultanea di massimo 8 pareti di sicurezza. Selezionare la parete di sicurezza e configurarla. Dopo aver completato la configurazione, attivare la parete di sicurezza corrispondente. Un muro virtuale arancione con trasparenza del 40% apparirà nell'interfaccia web, come mostrato nella figura sottostante.
-
-.. image:: safety/042.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑18 Configurazione parete di sicurezza
-
-.. image:: safety/043.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑19 Visualizzazione muro virtuale nell'interfaccia web
-
-**Step2**: Quando l'estremità del robot entra nella parete di sicurezza, il muro virtuale diventa arancione con trasparenza del 90% e viene visualizzato l'avviso "Ingresso parete di sicurezza", come mostrato nella figura sottostante.
-
-.. image:: safety/044.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.6‑20 Visualizzazione muro virtuale nell'interfaccia web quando l'estremità del robot entra nella parete di sicurezza
-
-Funzione Interferenza Cubo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Panoramica
-+++++++++++++++++++++++++++++++
-
-La funzione di interferenza cubo supporta la definizione e l'attivazione simultanea di più zone di interferenza cubo indipendenti. La posizione e le dimensioni di ciascuna zona di interferenza nello spazio tridimensionale possono essere configurate indipendentemente. Inoltre, ogni zona di interferenza è dotata di un'uscita di segnale di trigger CO (Controller Output) individuale, in grado di emettere i corrispondenti segnali di trigger in base alla posizione in tempo reale del robot.
-
-Procedura Operativa
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-**Step1**: Abilitare la funzione di interferenza cubo ed eseguire la configurazione di base. Fare clic in sequenza sui comandi "Impostazioni Iniziali" -> "Sicurezza" -> "Zona Interferenza" -> "Interferenza Cubo". Utilizzare gli interruttori a cursore per controllare se ciascuna zona di interferenza cubo è abilitata ed eseguire la configurazione di base.
-
-Tra queste impostazioni, la strategia di movimento all'ingresso della zona di interferenza può essere selezionata come "Continua Movimento" o "Stop". Quando si seleziona "Continua Movimento", il robot visualizzerà un avviso ma continuerà a muoversi all'ingresso della zona di interferenza. Quando si seleziona "Stop", il robot visualizzerà un avviso e si fermerà all'ingresso della zona di interferenza. La strategia di trascinamento all'ingresso della zona di interferenza può essere selezionata come "Trascinamento Illimitato," "Callback Impedenza," o "Ripassa a Modalità Manuale".
-
-.. image:: safety/050.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.6‑21 Controllo Abilitazione Cubo e Configurazione di Base
-
-**Step2**: Configurare le zone di interferenza cubo. È possibile impostare diversi parametri di configurazione per ciascun ID zona di interferenza. È importante notare:
-
-(1) Il metodo di rilevamento deve essere selezionato in base alle effettive esigenze funzionali come "Posizione Comando" o "Posizione Feedback".
-
-(2) Quando la modalità della zona di interferenza è selezionata come "Interferenza Fuori Intervallo", è efficace solo per una singola zona di interferenza.
-
-.. image:: safety/051.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.6‑22 Configurazione Zona Interferenza Cubo
-
-**Step3**: Impostare l'intervallo della zona di interferenza. L'intervallo può essere impostato scegliendo il metodo "Metodo a Due Punti" o "Punto Centrale + Lunghezze Lati" per generare la zona di interferenza cubo. Il "Metodo a Due Punti" genera la zona specificando due vertici opposti del cubo. Il metodo "Punto Centrale + Lunghezze Lati" genera la zona specificando il punto centrale e le lunghezze dei tre lati del cubo.
-
-.. image:: safety/052.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.6‑23 Generazione Zona Interferenza tramite "Metodo a Due Punti"
-
-.. image:: safety/053.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.6‑24 Generazione Zona Interferenza tramite "Punto Centrale + Lunghezze Lati"
-
-**Step4**: Configurare i segnali CO. Fare clic in sequenza sui comandi "Impostazioni Iniziali" -> "Base" -> "Impostazioni I/O" -> "DO" per configurare l'uscita CO corrispondente per ciascun cubo.
-
-.. image:: safety/054.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.6‑25 Configurazione Uscita CO
-
-**Step5**: Ciascuna zona di interferenza cubo verrà visualizzata sull'interfaccia del robot in base al proprio numero ID impostato. Quando il punto centrale dell'end-effector del robot entra in una zona di interferenza, l'interfaccia visualizzerà un avviso "Zona Interferenza Entrata" e l'interfaccia CO corrispondente emetterà un segnale.
-
-.. image:: safety/055.png
-   :width: 4in
-   :align: center
-
-.. centered:: Figura 7.6‑26 Visualizzazione Interfaccia Zone Interferenza Multi-Cubo
-
-Modalità Ridotta
------------------------------
-
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Modalità ridotta" per accedere all'interfaccia di configurazione. Selezionare "Modalità livello 1/livello 2" per configurare la velocità dell'articolazione e la velocità TCP dell'estremità.
-
-.. image:: safety/045.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.7-1 Modalità Ridotta
-
-Parete di Sicurezza
------------------------------
-
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Configurazione parete di sicurezza" per accedere all'interfaccia di configurazione.
-
--  **Configurazione parete di sicurezza**: Fare clic sul pulsante Attiva per attivare la parete di sicurezza corrispondente. Se la parete di sicurezza non è configurata con un range di sicurezza, verrà visualizzato un messaggio di errore. Fare clic sulla casella a discesa, selezionare la parete di sicurezza che si desidera impostare, la distanza di sicurezza verrà automaticamente visualizzata (può essere lasciata non impostata, predefinita 0), quindi fare clic sul pulsante "Imposta" per completare l'impostazione.
+La decelerazione di arresto è una percentuale dell'accelerazione.
 
 .. image:: safety/008.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.8-1 Configurazione Parete di Sicurezza
-
--  **Configurazione punti di riferimento parete di sicurezza**: Dopo aver selezionato la parete di sicurezza, è possibile impostare quattro punti di riferimento. I primi tre punti sono punti di riferimento planari, utilizzati per confermare il piano della parete di sicurezza impostata. Il quarto punto è il punto di riferimento del range di sicurezza, utilizzato per confermare il range di sicurezza della parete di sicurezza impostata.
-
-.. important::
-   Se il punto di riferimento è impostato correttamente, la spia è verde. In caso contrario, è gialla. Fino a quando il punto di riferimento non viene impostato correttamente, diventa verde. Quando tutti e quattro i punti di riferimento sono impostati correttamente, è possibile calcolare il range di sicurezza. Dopo il calcolo riuscito, lo stato del parametro del range di sicurezza ritorna predefinito.
-
-.. image:: safety/009.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.8-2 Impostazione punti di riferimento range di sicurezza
-
--  Effetto applicazione: Attivare la parete di sicurezza configurata con successo. Trascinare il robot. Se l'estremità TCP del robot si trova all'interno del range di sicurezza impostato, il sistema è normale. Se si trova al di fuori del range di sicurezza impostato, viene segnalato un errore.
-
-.. image:: safety/010.png
    :width: 6in
    :align: center
 
-.. centered:: Diagramma 7.8-3 Effetto dopo l'impostazione riuscita del range di sicurezza
+.. centered:: Figura 7.4-2 Pianificazione della Decelerazione di Arresto del Robot
 
-Programma in Background di Sicurezza
----------------------------------------------------------
+Arresto di Sicurezza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Programma in background di sicurezza" per accedere all'interfaccia di configurazione.
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic su "Arresto di Sicurezza" per accedere all'interfaccia di configurazione per impostare la modalità di arresto di sicurezza e i parametri della strategia di arresto di sicurezza.
 
-L'utente fa clic sul pulsante "Attiva funzione" per attivare o disattivare le impostazioni del programma in background di sicurezza. Selezionare "Situazione imprevista" e "Programma in background", fare clic sul pulsante "Imposta" per configurare i parametri della logica di gestione delle situazioni impreviste.
+Quando la modalità di attivazione dell'arresto di sicurezza è impostata su "Doppio Canale", entrambi i canali devono essere puliti e l'avviso deve essere cancellato manualmente sull'interfaccia operativa prima che il robot possa essere resettato. Inoltre, è stata aggiunta un'opzione di modalità ridotta nella configurazione della strategia. Quando l'utente seleziona questa strategia, il robot entrerà in movimento in modalità ridotta.
 
-Attivare il programma in background di sicurezza e impostare lo scenario di situazione imprevista e il programma in background. Quando l'utente inizia a eseguire il programma, se si verifica uno scenario di situazione imprevista che corrisponde alla situazione imprevista impostata, il robot eseguirà il programma in background corrispondente, svolgendo un ruolo di protezione della sicurezza.
+**Passo 1**: Fare clic su "Impostazioni Iniziali" -> "Sicurezza" -> "Arresto di Sicurezza". La modalità di attivazione può essere selezionata come "Predefinita" o "Doppio Canale". La differenza tra le due è: in modalità "Predefinita", l'errore dell'interfaccia viene automaticamente cancellato dopo l'attivazione e il ripristino; in modalità "Doppio Canale", l'errore dell'interfaccia deve essere cancellato manualmente dopo l'attivazione e il ripristino. "Strategia di Arresto di Sicurezza" può essere selezionata come "Arresto", "Pausa", "Modalità Ridotta di Livello 1" e "Modalità Ridotta di Livello 2". Le descrizioni dettagliate sono le seguenti: quando è selezionato "Arresto", il robot interromperà il movimento corrente; quando è selezionato "Pausa", il robot metterà in pausa il movimento corrente e, dopo il ripristino e la cancellazione dell'errore, riprenderà la pausa; quando è selezionato "Modalità Ridotta di Livello 1", il robot entrerà in movimento in modalità ridotta di livello 1; quando è selezionato "Modalità Ridotta di Livello 2", il robot entrerà in movimento in modalità ridotta di livello 2.
+
+.. image:: safety/009.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-3 Pianificazione della Decelerazione di Arresto del Robot
+
+**Passo 2**: Quando la modalità di attivazione è impostata su "Predefinita", l'errore dell'interfaccia può essere automaticamente cancellato dopo il ripristino dell'attivazione. Quando la modalità di attivazione è impostata su "Doppio Canale", l'operazione è: dopo il ripristino dell'attivazione, fare clic manualmente sull'operazione "Cancella" nell'angolo in alto a destra per resettare il robot.
+
+Velocità di Sicurezza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic su "Velocità di Sicurezza" per accedere all'interfaccia di configurazione per impostare la velocità di sicurezza. L'intervallo di velocità manuale TCP è 1-1500mm/s.
+
+La funzione di velocità di sicurezza del robot viene utilizzata in ambienti collaborativi uomo-robot o dinamici per limitare attivamente la velocità operativa del robot, controllando l'energia cinetica e la forza d'impatto entro soglie di sicurezza, prevenendo così lesioni al personale in caso di contatto accidentale e proteggendo efficacemente le apparecchiature e i pezzi da danni da collisione.
+
+**Passo 1**: Fare clic su "Impostazioni Iniziali" -> "Sicurezza" -> "Velocità di Sicurezza" per impostare i parametri di velocità di sicurezza, principalmente tre parti: "Abilitazione Funzione", "Limite di Velocità" e "Modalità Post-Superamento Velocità".
+
+Tra questi, Abilitazione Funzione può essere selezionata come "Disabilita", "Abilita in Modalità Manuale" e "Abilita in Tutte le Modalità";
+
+In Limite di Velocità, impostare il limite di velocità. Quando la velocità lineare del robot raggiunge questo limite, verrà elaborata secondo i parametri impostati in "Modalità Post-Superamento Velocità". "Modalità Post-Superamento Velocità" può essere selezionata come "Stop e Allarme", "Limitazione Automatica Velocità" e "Disabilita Dopo Stop e Allarme". La limitazione automatica della velocità è disponibile solo in "Abilita in Modalità Manuale".
+
+Dopo aver impostato i parametri richiesti, non sono necessarie ulteriori operazioni. Il movimento del robot verrà elaborato secondo i parametri impostati. Le impostazioni dei parametri sono mostrate in figura.
+
+.. image:: safety/010.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-4 Impostazioni dei Parametri di Velocità di Sicurezza
+
+Arresto di Emergenza
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic su "Arresto di Emergenza" per accedere all'interfaccia di configurazione.
+
+I tipi di arresto di emergenza 0, 1a, 1b, 2 possono essere impostati, il limite di tempo di arresto può essere impostato e il limite di distanza di arresto può essere impostato.
+
+Attraverso il controller che invia alla scheda del box di controllo, l'arresto di emergenza di tipo 0 interrompe direttamente l'alimentazione della scheda del box di controllo;
+
+- Arresto di emergenza di tipo 1a: dopo l'arresto con decelerazione, interrompe l'alimentazione del corpo del robot;
+- Arresto di emergenza di tipo 1b: dopo l'arresto con decelerazione, non interrompe l'alimentazione del corpo del robot, ma disabilita il corpo del robot;
+- Arresto di emergenza di tipo 2: quando viene premuto l'arresto di emergenza, il robot decelera fino all'arresto e rimane abilitato. Dopo il rilascio dell'arresto di emergenza, il robot dovrebbe essere in grado di funzionare normalmente.
 
 .. image:: safety/011.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.9-1 Programma in Background di Sicurezza
+.. centered:: Figura 7.4-5 Impostazioni dell'Arresto di Emergenza
 
-Limitazione Direzione Utensile (utilizzabile solo nel sistema LA)
--------------------------------------------------------------------------------
+Arresto Protettivo
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Limitazione direzione utensile" per accedere all'interfaccia di configurazione.
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Arresto Protettivo" per accedere all'interfaccia di configurazione.
 
-La limitazione della direzione dell'utensile è una funzione protettiva che agisce sullo spazio cartesiano dell'estremità dell'utensile del robot, utilizzata per limitare il range di movimento dell'orientamento dell'estremità del robot. Include l'impostazione dell'attivazione della funzione, l'impostazione della direzione di riferimento dell'utensile e l'impostazione dell'angolo di deviazione massimo. L'angolo di deviazione massimo definisce il valore limite dell'angolo massimo tra l'asse Z del sistema di coordinate cartesiane dell'estremità dell'utensile e la direzione di riferimento dell'utensile, generalmente comprensibile come uno spazio conico.
+Tipi di arresto protettivo 0, 1, 2. L'arresto protettivo di tipo 0 interrompe direttamente l'alimentazione della scheda del box di controllo. L'arresto protettivo di tipo 1: la scheda del box di controllo prima notifica al controller di controllare l'arresto del robot, quindi il controller fornisce un feedback alla scheda del box di controllo per interrompere l'alimentazione. L'arresto protettivo di tipo 2: la scheda del box di controllo notifica al controller di controllare l'arresto del robot.
 
 .. image:: safety/012.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.10-1 Limitazione Direzione Utensile
+.. centered:: Figura 7.4-6 Configurazione dell'Arresto Protettivo
 
-Limiti del Robot (utilizzabile solo nel sistema LA)
--------------------------------------------------------------------------------
+Abilitazione Automatica all'Accensione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Limiti del robot" per accedere all'interfaccia di configurazione.
-
-I limiti del robot includono la quantità di moto e la potenza, dove il limite di quantità di moto è utilizzato per limitare la quantità di moto massima del robot, e il limite di potenza è utilizzato per limitare il lavoro meccanico svolto dal robot.
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Abilitazione Robot" per accedere all'interfaccia di configurazione. È possibile scegliere se il robot si abilita automaticamente all'accensione o meno.
 
 .. image:: safety/013.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.11-1 Limiti del Robot
+.. centered:: Figura 7.4-7 Abilitazione Automatica all'Accensione
 
-Rilevamento Potenza (utilizzabile solo nel sistema QX)
--------------------------------------------------------------------------------
+Limite di Orientamento dell'Utensile (Utilizzato solo nel sistema LA)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Fare clic sulla barra dei menu "Impostazioni iniziali" -> "Sicurezza", quindi fare clic sulla sottovoce "Rilevamento potenza" per accedere all'interfaccia di configurazione.
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Limite di Orientamento dell'Utensile" per accedere all'interfaccia di configurazione.
 
-Quando agisce direttamente sul loop di corrente del robot (solo il comando servoJT), viene utilizzato per limitare il lavoro svolto dal robot. Rilevando che l'integrale di velocità e coppia del robot supera il limite, viene attivata la protezione di potenza.
+Il limite di orientamento dell'utensile è una funzione protettiva che agisce sullo spazio cartesiano dell'estremità utensile del robot per limitare l'intervallo di movimento della postura dell'estremità del robot, includendo l'impostazione di abilitazione della funzione, l'impostazione della direzione di riferimento dell'utensile e l'impostazione dell'angolo di deviazione massimo. L'angolo di deviazione massimo definisce il valore limite angolare massimo tra l'asse Z del sistema di coordinate cartesiano dell'estremità utensile e la direzione di riferimento dell'utensile, che di solito può essere inteso come uno spazio conico.
 
 .. image:: safety/014.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.12-1 Rilevamento Potenza
+.. centered:: Figura 7.4-8 Limite di Orientamento dell'Utensile
 
-Configurazione Movimento
----------------------------------------------
+Limiti del Robot (Utilizzato solo nel sistema LA)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Ottimizzazione caratteristica velocità a T + funzione blending di levigatura
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Limiti del Robot" per accedere all'interfaccia di configurazione.
 
-Panoramica
-++++++++++++++++++++++
-
-Il blending tra due segmenti di traiettoria può evitare i frequenti avvii e arresti causati dall'arresto completo, migliorando così l'efficienza del movimento del robot.
-
-Questa funzione si applica principalmente al blending tra istruzioni PTP-PTP, LIN-LIN, ARC-ARC, LIN-ARC, ARC-LIN. Il blending tra altre istruzioni non è efficace.
-
-Procedura operativa
-++++++++++++++++++++++
-
-Poiché le modalità operative delle varie istruzioni sono simili, questo manuale prende come esempio il blending PTP-PTP per illustrare il metodo operativo di questa funzione. Questa funzione può essere implementata in due modi: utilizzando l'istruzione Lua e utilizzando l'interruttore di configurazione del movimento.
-
-Metodo utilizzando l'istruzione Lua
-*********************************************************
-
-**Step1**: Selezionare i punti di insegnamento per eseguire la funzione PTP. Questo manuale utilizza "A0"~"A5" come nomi dei punti di insegnamento.
-
-**Step2**: Fare clic sul pulsante "Programmazione insegnamento" -> "Programmazione programma", selezionare l'istruzione "Punto a punto" nelle "Istruzioni di movimento", nell'"Editor istruzioni" selezionare il punto di insegnamento e impostare la velocità di debug, selezionare "Modalità levigatura accelerazione" per la protezione del movimento, impostare il parametro "Transizione levigata" nei punti in cui è necessaria la levigatura.
-
-.. image:: safety/020.png
-   :width: 6in
-   :align: center
-
-.. centered:: Diagramma 7.13-1 Impostazione istruzione blending PTP con levigatura accelerazione
-
-**Step3**: Generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-PTP. Questo metodo utilizza la velocità a T ottimizzata solo per le istruzioni tra AccSmoothStart() e AccSmoothEnd(), e utilizza la velocità a T originale per le altre istruzioni.
-
-.. image:: safety/021.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.13-2 Programma tipico per blending PTP-PTP con istruzioni Lua
-
-Metodo utilizzando l'interruttore di configurazione del movimento
-*****************************************************************************
-
-**Step1**: Fare clic sul pulsante "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento", attivare l'interruttore "Modalità levigatura accelerazione".
-
-.. image:: safety/022.png
-   :width: 6in
-   :align: center
-
-.. centered:: Diagramma 7.13-3 Impostazione interruttore configurazione modalità levigatura accelerazione
-
-**Step2**: Selezionare i punti di insegnamento per eseguire la funzione PTP-PTP. Questo manuale utilizza "A0"~"A5" come nomi dei punti di insegnamento.
-
-**Step3**: Fare clic sul pulsante "Programmazione insegnamento" -> "Programmazione programma", selezionare l'istruzione "Punto a punto" nelle "Istruzioni di movimento", nell'"Editor istruzioni" selezionare il punto di insegnamento e impostare la velocità di debug, selezionare "Nessuna" per la protezione del movimento, impostare il parametro "Transizione levigata" nei punti in cui è necessaria la levigatura.
-
-.. image:: safety/023.png
-   :width: 6in
-   :align: center
-
-.. centered:: Diagramma 7.13-4 Impostazione istruzione blending PTP convenzionale
-
-**Step4**: Generare il programma Lua ed eseguirlo per realizzare la funzione di blending PTP-PTP. Il programma tipico è lo stesso del programma PTP convenzionale. Questo metodo utilizza la velocità a T ottimizzata per tutte le istruzioni.
-
-.. image:: safety/024.png
-   :width: 4in
-   :align: center
-
-.. centered:: Diagramma 7.13-5 Programma tipico per blending PTP-PTP con interruttore di configurazione
-
-Funzione parametri adattativi FIR + Funzione pausa/ripresa FIR
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Panoramica
-++++++++++++++++++++++
-
-La funzione di configurazione adattativa dei parametri della modalità tempo ottimale del robot realizza la configurazione automatica dei suoi vari parametri senza necessità di debug. Questa funzione adatta automaticamente i parametri della modalità tempo ottimale in base allo stato operativo corrente del robot, migliorando l'efficienza del debug.
-
-Procedura operativa
-++++++++++++++++++++++
-
-Le istruzioni di movimento di base del robot PTP, LIN e ARC hanno modalità d'uso simili. Questo esempio utilizza principalmente l'istruzione di movimento PTP in modalità tempo ottimale.
-
-**Step1**: Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Impostazioni iniziali" -> "Sicurezza" -> "Configurazione movimento" per accedere all'interfaccia "Configurazione movimento".
+I limiti del robot includono quantità di moto e potenza, dove il limite di quantità di moto viene utilizzato per limitare la quantità di moto massima del robot, e il limite di potenza viene utilizzato per limitare il lavoro meccanico svolto dal robot.
 
 .. image:: safety/015.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-9 Limiti del Robot
+
+Giunti
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Limiti Morbidi dei Giunti
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Sotto la barra del menu "Impostazioni Iniziali" -> "Sicurezza" -> "Giunti", fare clic su "Limiti Morbidi dei Giunti" per accedere all'interfaccia dei limiti morbidi.
+
+Potrebbero esserci altre apparecchiature all'interno dell'intervallo di movimento del robot. Gli angoli di limite possono eseguire una limitazione morbida sul robot, impedendo al robot di muoversi oltre determinati valori di coordinate ed evitando collisioni. L'attivazione di un limite morbido fa sì che il robot si arresti automaticamente, senza distanza di arresto.
+
+Gli amministratori possono utilizzare valori predefiniti o inserire valori angolari. Inserendo valori angolari, gli angoli positivi e negativi dei giunti del robot possono essere limitati separatamente. Quando il valore inserito supera i valori angolari limite morbidi dei giunti del robot elencati nella tabella dei parametri di base del robot nella Sezione 2.1-Parametri di Base, l'angolo limite verrà regolato al valore massimo impostabile. Quando il robot segnala un errore di superamento del limite del comando del giunto, è necessario entrare in modalità di trascinamento e trascinare il giunto del robot entro l'angolo limite.
+
+La funzione di protezione dei limiti morbidi dei giunti è un meccanismo di protezione attiva che monitora in tempo reale lo stato di movimento dei giunti del braccio robotico e limita dinamicamente l'operatore dal superare l'intervallo di limiti morbidi impostato durante l'insegnamento per trascinamento. Questa funzione rende i limiti morbidi significativi anche nell'insegnamento per trascinamento, migliorando così la sicurezza della collaborazione uomo-robot.
+
+- **Passo 1**: Accedere all'interfaccia web e fare clic su "Impostazioni Iniziali" -> "Sicurezza" -> "Giunti" -> "Limiti Morbidi dei Giunti" in sequenza per accedere al modulo di impostazione dei limiti morbidi del robot.
+- **Passo 2**: In base all'effettivo intervallo di lavoro del robot, impostare ragionevolmente i limiti morbidi per ciascun giunto. A questo punto, verificare se la posizione angolare corrente di ciascun giunto del robot è all'interno dell'intervallo di limiti morbidi preimpostato. Se sì, fare clic su "Applica" per inviare i limiti morbidi preimpostati. In caso contrario, spostare ciascun giunto all'interno dell'intervallo preimpostato; altrimenti, quando si fa clic su "Applica", verrà visualizzato un prompt di superamento limite, come mostrato nella figura sottostante. A questo punto, è possibile jog o trascinare il giunto in eccesso nella direzione verso l'intervallo di limiti morbidi per cancellare l'errore.
+- **Passo 3**: Dopo che l'intervallo di limiti morbidi è stato impostato con successo, selezionare "Abilita" per "Protezione Limiti Morbidi dei Giunti" per attivare questa funzione, come mostrato nella figura sottostante. In modalità di trascinamento, i limiti morbidi impostati avranno effetto e si sentirà resistenza quando si trascina vicino ai limiti morbidi.
+- **Passo 4**: Per disabilitare la funzione di protezione dei limiti morbidi dei giunti, fare clic su "Protezione Limiti Morbidi dei Giunti" per disattivarla.
+
+.. image:: safety/016.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-10 Limiti Morbidi dei Giunti
+
+Livello di Collisione
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Sotto la barra del menu "Impostazioni Iniziali" -> "Sicurezza" -> "Giunti", fare clic su "Livello di Collisione" per accedere all'interfaccia del livello di collisione.
+I livelli di collisione sono suddivisi da 1 a 10. I livelli da 1 a 3 sono più sensibili e il robot deve funzionare alla velocità consigliata. È anche possibile scegliere impostazioni percentuali personalizzate, con il 100% corrispondente al livello 10. Come mostrato nella figura sottostante:
+
+.. image:: safety/017.png
    :width: 6in
    :align: center
 
-.. centered:: Diagramma 7.13-6 Interfaccia Configurazione Movimento
+.. centered:: Figura 7.4-11 Diagramma del Livello di Collisione
 
-**Step2**: Nell'interfaccia "Configurazione movimento", fare clic sull'interruttore "Modalità tempo ottimale" per accedere all'interfaccia "Modalità tempo ottimale".
+Le strategie di collisione sono "Arresto in Collisione", "Pausa in Collisione" e "Continua Movimento". Per evitare forze di schiacciamento tra il robot e gli oggetti dopo la collisione, sono state aggiunte le strategie "Modalità Coppia di Gravità", "Modalità Risposta Oscillante" e "Modalità Rimbalzo da Collisione". Quando vengono attivate, tutte e tre le strategie passeranno dalla modalità automatica o manuale alla modalità di trascinamento, e poi torneranno alla modalità manuale. La modalità coppia di gravità si allontanerà dal punto di collisione in base all'entità e alla direzione della forza di collisione; la modalità risposta oscillante tornerà alla posizione di collisione dopo essersi allontanata; la modalità rimbalzo da collisione accelererà lontano dal punto di collisione secondo i parametri impostati.
 
-.. image:: safety/016.png
-   :width: 3in
-   :align: center
-
-.. centered:: Diagramma 7.13-7 Interfaccia Modalità Tempo Ottimale
-
-.. note:: Nella barra "Configurazione parametri" dell'interfaccia "Modalità tempo ottimale", il "Coefficiente di regolazione" può essere impostato da -100 a 100, che rappresenta il fattore di scala utilizzato per controllare il grado di ottimizzazione temporale dell'istruzione di movimento. Il valore predefinito è 1.
-
-**Step3**: Determinare i punti di insegnamento per eseguire il movimento PTP. Questo esempio utilizza "A0"~"A5" come nomi dei punti di insegnamento.
-
-**Step4**: Nell'interfaccia di controllo Web del robot, fare clic in sequenza su "Programmazione insegnamento" -> "Programmazione programma" per accedere all'interfaccia "Istruzioni di movimento".
-
-.. image:: safety/017.png
-   :width: 2in
-   :align: center
-
-.. centered:: Diagramma 7.13-8 Interfaccia Istruzioni di Movimento
-
-**Step5**: Nell'interfaccia "Istruzioni di movimento", fare clic su "Punto a punto" per accedere all'interfaccia di modifica istruzioni "PTP". Selezionare rispettivamente il punto di insegnamento nella casella a discesa "Nome punto", impostare la proporzione della velocità desiderata nella barra "Velocità debug", selezionare "Arresta" nella barra "In questo punto", selezionare "No" nella casella a discesa "Spostamento" e selezionare "Nessuna" nella barra "Protezione movimento", quindi fare clic su "Aggiungi".
+Nella sezione "Strategia di Collisione", fare clic sul menu a tendina per selezionare "Modalità Rimbalzo da Collisione" e impostare il tempo di sicurezza a 1000ms, la distanza di sicurezza a 150mm, la velocità di sicurezza a 150mm/s e il fattore di sicurezza per ciascun giunto a 5. L'interfaccia specifica è mostrata nella figura sottostante.
 
 .. image:: safety/018.png
    :width: 6in
    :align: center
 
-.. centered:: Diagramma 7.13-9 Interfaccia modifica istruzione movimento PTP
+.. centered:: Figura 7.4-12 Strategia di Collisione: Modalità Rimbalzo da Collisione
 
-**Step6**: Nell'interfaccia di modifica istruzioni "PTP", fare clic su "Applica" per generare automaticamente il programma LUA corrispondente.
+Significato di ciascun parametro:
+
+- Tempo di Sicurezza: Indica la durata in modalità di trascinamento dopo il passaggio dalla modalità automatica alla modalità di trascinamento, intervallo [1000-2000]ms;
+- Distanza di Sicurezza: Indica la posizione in cui il robot si allontana dal punto di collisione dopo la collisione, intervallo [150-200]mm;
+- Velocità di Sicurezza: Indica la velocità TCP massima con cui il robot si allontana dal punto di collisione dopo la collisione. Il superamento di questo limite di velocità limiterà la forza di rimbalzo, intervallo [50-250]mm/s;
+- Fattore di Sicurezza: Indica il tasso di decadimento della forza di rimbalzo. Minore è il coefficiente, più veloce è il decadimento e più veloce è la velocità di rimbalzo; maggiore è il coefficiente, più lento è il decadimento. Intervallo [1-10], adimensionale.
+- Prima che il robot entri in modalità di trascinamento, è richiesto il rilevamento della coppia. Questa funzione è progettata per prevenire fenomeni anomali come il sollevamento o l'abbassamento dopo che il robot entra in modalità di trascinamento a causa di parametri di carico errati o impostazioni di modalità di installazione errate da parte dell'operatore. Se la coppia del giunto viene rilevata al di fuori dell'intervallo consentito, il controller segnalerà immediatamente un errore e proibirà al robot di entrare in modalità di trascinamento.
+
+Passaggi per abilitare la funzione di rilevamento collisione per la guida a cremagliera lineare:
+
+- Passo 1: Assicurarsi che sia la guida che il robot siano installati frontalmente. Prima di abilitare la funzione di rilevamento collisione per la guida a cremagliera lineare, verificare che il metodo di installazione sia frontale. Nello specifico, assicurarsi prima che la guida e il robot siano installati frontalmente. Quindi, fare clic su "Impostazioni Iniziali" -> "Base" -> "Installazione" in sequenza per accedere alla pagina di installazione libera. Se sia "Rotazione Base" che "Inclinazione Base" sono 0, il software è impostato su frontale; altrimenti, devono essere modificati a 0. Se non sono 0, l'interfaccia segnalerà un errore.
+- Passo 2: Abilitare la funzione di rilevamento collisione per la guida a cremagliera lineare e impostare i parametri. Fare clic su "Impostazioni Iniziali" -> "Sicurezza" -> "Giunti" -> "Livello di Collisione" in sequenza per accedere alla pagina di impostazione del livello di collisione. Dopo aver fatto clic sul cursore della funzione "Rilevamento Collisione Guida a Cremagliera Lineare", impostare il raggio dell'ingranaggio e la massa del cursore. Il raggio dell'ingranaggio può essere calcolato dalla guida e dal rapporto di riduzione. La massa del cursore non include il robot e il suo carico all'estremità. Ci sono 11 opzioni di livello della guida, dove il Livello 1 è il più facile da attivare la collisione e il Livello 10 è il più difficile. Quando il controller viene acceso per la prima volta e prima che venga eseguito il programma di adattamento, il livello di collisione deve prima essere impostato su "Disabilitato".
 
 .. image:: safety/019.png
    :width: 4in
    :align: center
 
-.. centered:: Diagramma 7.13-10 Programma LUA tipico per movimento PTP in modalità tempo ottimale
+.. centered:: Figura 7.4-13 Funzione di Rilevamento Collisione per Guida a Cremagliera Lineare
+
+- Passo 3: Eseguire il programma "Rail_Adaptation_Program.lua" per adattarsi alla guida corrente. Dopo ogni riavvio del controller, il programma "Rail_Adaptation_Program.lua" deve essere eseguito (per evitare che cambiamenti nel tipo di robot e altri fattori influenzino le caratteristiche dinamiche della guida). Prima di eseguire il programma, assicurarsi che il livello di collisione della guida sia impostato su "Disabilitato". In modalità automatica, eseguire il programma LUA al 100% della velocità dell'interfaccia. Dopo un ciclo del programma, l'adattamento è completo e l'esecuzione può essere interrotta.
+
+.. image:: safety/020.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-14 Eseguire "Rail_Adaptation_Program.lua" per Adattarsi alla Guida Corrente
+
+- Passo 4: Impostare ragionevolmente il livello di collisione della guida ed eseguire le attività. Gli utenti possono impostare ragionevolmente il livello di collisione della guida in base alle prestazioni del driver del motore e alla velocità di esecuzione dell'attività. Se la guida e il robot operano in modo asincrono, la collisione con il robot o la guida può attivare un "guasto di collisione a 8 assi, ripristinabile". In questo caso, la guida smette di funzionare, come mostrato nella Figura 2-9. Se la guida e il robot operano in modo sincrono, la collisione con il robot può attivare un allarme, causando l'arresto della guida, mentre il robot reagisce secondo la strategia di collisione impostata.
+
+Modalità Ridotta
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Modalità Ridotta" per accedere all'interfaccia di configurazione. Selezionare "Modalità di Livello 1/Livello 2" per configurare la velocità dei giunti e la velocità TCP dell'estremità.
+
+.. image:: safety/021.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-15 Modalità Ridotta
+
+I/O
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "I/O" per accedere all'interfaccia di configurazione.
+
+HMI fornisce la possibilità di impostare lo stato di sicurezza per 16 ingressi digitali e 16 uscite digitali, che possono essere impostati su stati validi o non validi. Quando il controller determina di trovarsi in uno stato di sicurezza, i 16 ingressi digitali e le 16 uscite digitali vengono impostati sullo stato di sicurezza.
+
+.. image:: safety/022.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-16 Configurazione dello Stato di Sicurezza I/O
+
+Sotto il sistema LA:
+
+"I/O Sicurezza" fornisce funzioni di sicurezza DIO. La funzione di sicurezza è DI o DO a doppio canale. Quando viene attivato un segnale DI di sicurezza o un flag di stato di sicurezza, viene emesso il DO.
+
+.. image:: safety/023.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-17 Configurazione delle Funzioni di Sicurezza I/O
+
+Hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Rilevamento Potenza ServoJT (Utilizzato solo nel sistema QX)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Rilevamento Potenza" per accedere all'interfaccia di configurazione.
+
+Quando si agisce direttamente sul circuito di corrente del robot (solo servoJT), viene utilizzato per limitare il lavoro svolto dal robot. Quando viene rilevato che l'integrale della velocità e della coppia del robot supera il limite, viene attivata la protezione di potenza.
+
+.. image:: safety/024.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-18 Rilevamento Potenza ServoJT
+
+Piani
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Muro di Sicurezza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Fare clic sulla barra del menu "Impostazioni Iniziali" -> "Sicurezza", e fare clic sul sottomenu "Configurazione Muro di Sicurezza" per accedere all'interfaccia di configurazione.
+
+- Configurazione Muro di Sicurezza: Fare clic sul pulsante Abilita per abilitare il corrispondente muro di sicurezza. Quando un muro di sicurezza non è stato configurato con un intervallo di sicurezza, verrà visualizzato un errore. Fare clic sul pulsante di configurazione nell'angolo in alto a destra, selezionare il muro di sicurezza che si desidera impostare, visualizzare automaticamente la distanza di sicurezza (opzionale, default 0), e quindi fare clic sul pulsante "Imposta" per impostare con successo.
+- Configurazione dei Punti di Riferimento del Muro di Sicurezza: Dopo aver selezionato un muro di sicurezza, è possibile impostare quattro punti di riferimento. I primi tre punti sono punti di riferimento del piano, utilizzati per confermare il piano del muro di sicurezza impostato. Il quarto punto è il punto di riferimento dell'intervallo di sicurezza, utilizzato per confermare l'intervallo di sicurezza del muro di sicurezza impostato.
+
+Se i punti di riferimento vengono impostati con successo, verrà visualizzata una luce verde. In caso contrario, verrà visualizzata una luce gialla fino a quando i punti di riferimento non vengono impostati con successo e diventano verdi. Quando tutti e quattro i punti di riferimento sono stati impostati con successo, l'intervallo di sicurezza può essere calcolato. Dopo il calcolo riuscito, lo stato del punto del parametro dell'intervallo di sicurezza torna al valore predefinito.
+
+.. image:: safety/025.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-19 Impostazioni dei Punti di Riferimento dell'Intervallo di Sicurezza
+
+- Effetto Applicativo: Abilitare il muro di sicurezza configurato con successo. Trascinare il robot. Se il TCP dell'estremità del robot è all'interno dell'intervallo di sicurezza impostato, il sistema è normale. Se è al di fuori dell'intervallo di sicurezza impostato, verrà visualizzato un errore.
+
+.. image:: safety/026.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-20 Effetto dopo l'Impostazione Riuscita dell'Intervallo di Sicurezza
+
+Zona di Interferenza
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Sotto la barra del menu "Impostazioni Iniziali" -> "Sicurezza" -> "Zona di Interferenza", fare clic sulla voce del sottomenu "Singolo" per accedere all'interfaccia di configurazione della zona di interferenza.
+
+È necessario configurare il metodo di interferenza e l'operazione all'ingresso della zona di interferenza. I metodi di interferenza sono divisi in "Interferenza di Asse" e "Interferenza di Cuboide".
+
+.. image:: safety/027.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-21 Metodi della Zona di Interferenza
+
+Fare clic sull'icona della zona di interferenza, utilizzare l'interruttore per controllare se è abilitata e fare clic sul pulsante di configurazione nell'angolo in alto a destra per la configurazione dei parametri.
+
+.. image:: safety/028.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-22 Configurazione della Zona di Interferenza
+
+Innanzitutto, configurare il movimento della zona di interferenza come "Continua Movimento" o "Arresto". Successivamente, impostare la configurazione di trascinamento all'ingresso della zona di interferenza. Gli utenti possono impostare la strategia dopo l'ingresso nella zona di interferenza in modalità di trascinamento in base alle proprie esigenze: nessuna restrizione di trascinamento, ritorno di impedenza o passaggio alla modalità manuale.
+
+Quando si seleziona Interferenza di Asse, è necessario configurare i parametri di interferenza dell'asse. Il metodo di rilevamento può essere "Posizione di Comando" o "Posizione di Feedback". La modalità della zona di interferenza può essere "Interferenza Entro Intervallo" o "Interferenza Fuori Intervallo". Successivamente, impostare l'intervallo per ciascun giunto e se l'intervallo per ciascun giunto è abilitato. È possibile inserire valori o utilizzare l'icona "Aggiorna" dopo "Min" e "Max" per registrare la posizione corrente del robot, e infine fare clic su Configura.
+
+.. image:: safety/029.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-23 Configurazione dell'Interferenza di Asse
+
+Quando si seleziona Interferenza di Cuboide, è necessario configurare i parametri di interferenza del cuboide. Il metodo di rilevamento può essere "Posizione di Comando" o "Posizione di Feedback". La modalità della zona di interferenza può essere "Interferenza Entro Intervallo" o "Interferenza Fuori Intervallo". Il sistema di coordinate di riferimento può essere "Coordinata Base" o "Coordinata Pezzo", selezionato in base all'uso effettivo. Successivamente, impostare l'intervallo. Esistono due metodi per l'impostazione dell'intervallo. Il primo metodo è il "Metodo dei Due Punti", che utilizza due vertici diagonali del cuboide. Le posizioni possono essere inserite o registrate tramite l'insegnamento del robot. Infine, fare clic su Applica.
+
+.. image:: safety/030.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-24 Configurazione dell'Interferenza di Cuboide
+
+Il secondo metodo è il "Metodo Centro + Lunghezza Lato", dove il punto centrale del cuboide e la lunghezza del lato del cuboide formano la zona di interferenza. Le posizioni possono essere inserite o registrate tramite l'insegnamento del robot. Infine, fare clic su Applica.
+
+.. image:: safety/031.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-25 Configurazione dell'Interferenza di Cuboide
+
+Appendice: Istruzione di Attesa Bloccante per Pinza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fare clic su "Teach Program" -> "Istruzioni Periferiche" -> "Pinza" per aggiungere un'istruzione di attesa per il completamento del movimento della pinza, che può bloccare fino al completamento dell'azione di serraggio per ottenere la posizione fisica effettiva della pinza.
+
+.. image:: safety/032.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.4-26 Istruzione di Attesa per il Completamento del Movimento della Pinza
+ 
+- Stato Pinza: Movimento non completato, movimento completato senza rilevamento oggetto, movimento completato con rilevamento oggetto;
+- Tempo di Timeout: Unit ms, -1 significa attesa eterna.
+- Strategia di Timeout: È possibile scegliere di interrompere con errore o continuare l'esecuzione.
+- Tipo Pinza: È possibile scegliere pinza parallela o pinza rotante.
 
 .. note:: 
-   Il programma LUA tipico per movimento PTP in modalità tempo ottimale non è diverso dal programma LUA per movimento PTP generale. La differenza è che nel passaggio Step2 è già stata attivata la funzione "Modalità tempo ottimale".
+   Nota: L'istruzione di attesa per il completamento del movimento della pinza è applicabile solo ai protocolli personalizzati; i dispositivi già adattati attualmente non la supportano.
 
-   Attivando l'interruttore della funzione "Modalità tempo ottimale", le attuali istruzioni di movimento di base del robot PTP, LIN e ARC sono tutte in modalità tempo ottimale. Disattivando l'interruttore della funzione "Modalità tempo ottimale" in questa interfaccia, si ripristina lo stato delle istruzioni di movimento di base PTP, LIN e ARC.
-   In questa interfaccia non è possibile attivare contemporaneamente l'interruttore della funzione "Modalità levigatura accelerazione".
+   È anche possibile utilizzare direttamente GetGripperMotionDone() per la valutazione. Il parametro di input è il tipo di pinza: 0 per pinza parallela, 1 per pinza rotante. I valori di ritorno sono errore della pinza e stato della pinza. Errore della pinza 0 significa nessun errore, altri valori significano che c'è un errore. Stato della pinza 0 significa movimento non completato, 1 significa movimento completato senza rilevamento oggetto, 2 significa movimento completato con rilevamento oggetto. I programmi di esempio per l'attesa del completamento del movimento della pinza e l'acquisizione della posizione della pinza sono i seguenti:
+
+.. image:: safety/033.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.4-27 Programma di Esempio del Movimento della Pinza

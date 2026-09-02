@@ -540,6 +540,7 @@ Impostare le Funzioni delle Porte CI Configurabili del Box di Controllo
     22-Modalità riduzione livello 1;23-Modalità riduzione livello 2;24-Modalità riduzione livello 3 (Arresto);25-Riprendi saldatura;26-Termina saldatura;
     27-Abilita trascinamento assistito;28-Disabilita trascinamento assistito;29-Abilita/Disabilita trascinamento assistito;30-Cancella tutti gli errori;
     31-Commutazione manuale/automatica (livello alto/basso);32-Abilita;33-Disabilita;34-Abilita/Disabilita (fronte di salita/discesa);35-Avvio/ fine inseguimento punto fisso
+    36-Entra in movimento a velocità di sicurezza;37-Blocco trascinamento ad anello di corrente;38-Blocco assistito da sensore di forza
     * @return Codice di errore
     */
     errno_t SetDIConfig(int config[8]);
@@ -560,6 +561,11 @@ Ottenere le Funzioni delle Porte CI Configurabili del Box di Controllo
     22-Modalità riduzione livello 1;23-Modalità riduzione livello 2;24-Modalità riduzione livello 3 (Arresto);25-Riprendi saldatura;26-Termina saldatura;
     27-Abilita trascinamento assistito;28-Disabilita trascinamento assistito;29-Abilita/Disabilita trascinamento assistito;30-Cancella tutti gli errori;
     31-Commutazione manuale/automatica (livello alto/basso);32-Abilita;33-Disabilita;34-Abilita/Disabilita (fronte di salita/discesa);35-Avvio/ fine inseguimento punto fisso
+    36-Entra in movimento a velocità di sicurezza;37-Blocco trascinamento ad anello di corrente;38-Blocco assistito da sensore di forza
+    201-Segnale di ingresso arresto di emergenza esterno 1-doppio canale; 202-Segnale di ingresso arresto di emergenza esterno 2-doppio canale; 203-Modalità ridotta di livello 1-doppio canale;
+    204-Modalità ridotta di livello 2-doppio canale; 205-Modalità ridotta di livello 3-doppio canale; 206-Arresto normale-doppio canale; 207-Muro di sicurezza 1-doppio canale; 208-Muro di sicurezza 2-doppio canale;
+    209-Muro di sicurezza 3-doppio canale; 210-Muro di sicurezza 4-doppio canale; 211-Muro di sicurezza 5-doppio canale; 212-Muro di sicurezza 6-doppio canale; 213-Muro di sicurezza 7-doppio canale;
+    214-Muro di sicurezza 8-doppio canale; 215-Ripristino arresto di sicurezza-doppio canale;
     * @return Codice di errore
     */
     errno_t GetDIConfig(int config[8]);
@@ -606,6 +612,8 @@ Ottenere le Funzioni delle Porte CO Configurabili del Box di Controllo
     39-Errore robot-Errore comunicazione driver;40-Errore robot-Errore parametro;41-Errore robot-Asse esterno limite software superato;42-Avviso robot-Avviso;
     43-Avviso robot-Avviso porta sicurezza;44-Avviso robot-Avviso movimento;45-Avviso robot-Avviso area interferenza;46-Avviso robot-Avviso parete sicurezza;
     47-Stato abilitazione;48-Sollevamento automatico durante disconnessione;49-Avviso interferenza cubo 1;50-Avviso interferenza cubo 2;51-Avviso interferenza cubo 3;52-Avviso interferenza cubo 4;
+    201-Segnale di uscita arresto di emergenza 1-doppio canale; 202-Segnale di uscita arresto di emergenza 2-doppio canale; 203-Uscita stato sicurezza-doppio canale; 204-Uscita stato arresto protettivo-doppio canale; 205-Robot in movimento-doppio canale;
+	206-Robot in modalità ridotta-doppio canale; 207-Robot in modalità non ridotta-doppio canale;
     * @return Codice di errore
     */
     errno_t GetDOConfig(int config[8]);

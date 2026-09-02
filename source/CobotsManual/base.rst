@@ -1465,3 +1465,134 @@ Parametri di Ammettenza per Adattamento Posizionale Aperto
 .. centered:: Figura 6.11‑5 Impostazione Sistema Coordinate di Riferimento Sensore di Forza
 
 **Passo 4**: Eseguire lo script e osservare l'effetto dell'adattamento posizionale. Il parametro di inerzia regola la risposta all'accelerazione e la capacità di resistenza alle perturbazioni: maggiore è l'inerzia, più evidente è l'isteresi del robot. Il coefficiente di smorzamento influenza la fluidità durante l'adattamento posizionale: maggiore è lo smorzamento, più difficile è l'adattamento posizionale.
+
+Configurazione del Movimento
+---------------------------------------------
+
+Ottimizzazione della Curva di Velocità a T + Funzione di Smussamento Blending
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
+++++++++++++++++++++++
+
+Il blending tra due segmenti di traiettoria evita i frequenti problemi di avvio/arresto causati da fermate complete, migliorando così l'efficienza del movimento del robot.
+
+Questa funzione si applica principalmente al blending tra i comandi PTP-PTP, LIN-LIN, ARC-ARC, LIN-ARC e ARC-LIN. Il blending tra altri tipi di comando non è efficace.
+
+Procedura Operativa
+++++++++++++++++++++++
+
+Poiché i metodi operativi per ciascun comando sono simili, questo manuale utilizza il blending tra PTP-PTP come esempio per illustrare il funzionamento di questa funzione. Questa funzione può essere implementata in due modi: utilizzando istruzioni Lua o utilizzando l'interruttore di configurazione del movimento.
+
+Metodo con Istruzioni Lua
+*****************************
+
+**Passo 1**: Selezionare i punti di insegnamento per eseguire la funzione PTP. Questo manuale utilizza "A0" ~ "A5" come nomi dei punti di insegnamento.
+
+**Passo 2**: Fare clic su "Teach Program" -> "Programmazione Programmi", selezionare il comando "Punto a Punto" da "Istruzioni di Movimento". Nell'area "Modifica Istruzione", selezionare il punto di insegnamento e impostare la velocità di debug. Selezionare "Modalità Smussamento Accelerazione" per la protezione del movimento e impostare il parametro "Transizione Smussata" nei punti in cui è richiesto lo smussamento.
+
+.. image:: base/103.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.13-1 Impostazioni Istruzione Blending per PTP con Smussamento Accelerazione
+
+**Passo 3**: Generare ed eseguire il programma Lua per ottenere la funzione di blending PTP-PTP. In questa modalità, solo le istruzioni tra AccSmoothStart() e AccSmoothEnd() utilizzano la curva di velocità a T ottimizzata per il movimento, mentre le altre istruzioni utilizzano la curva di velocità a T originale.
+
+.. image:: base/104.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.13-2 Programma Tipico per Blending PTP-PTP con Metodo Istruzioni Lua
+
+Metodo con Interruttore di Configurazione del Movimento
+***********************************
+
+**Passo 1**: Fare clic su "Impostazioni Iniziali" -> "Sicurezza" -> "Configurazione Movimento" e attivare l'interruttore "Modalità Smussamento Accelerazione".
+
+.. image:: base/105.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.13-3 Impostazioni Interruttore Configurazione Modalità Smussamento Accelerazione
+
+**Passo 2**: Selezionare i punti di insegnamento per eseguire la funzione PTP-PTP. Questo manuale utilizza "A0" ~ "A5" come nomi dei punti di insegnamento.
+
+**Passo 3**: Fare clic su "Teach Program" -> "Programmazione Programmi", selezionare il comando "Punto a Punto" da "Istruzioni di Movimento". Nell'area "Modifica Istruzione", selezionare il punto di insegnamento e impostare la velocità di debug. Selezionare "Nessuno" per la protezione del movimento e impostare il parametro "Transizione Smussata" nei punti in cui è richiesto lo smussamento.
+
+.. image:: base/106.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.13-4 Impostazioni Istruzione Blending per PTP Regolare
+
+**Passo 4**: Generare ed eseguire il programma Lua per ottenere la funzione di blending PTP-PTP. Il programma tipico è lo stesso del programma PTP regolare. In questa modalità, tutte le istruzioni utilizzano la curva di velocità a T ottimizzata per il movimento.
+
+.. image:: base/107.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.13-5 Programma Tipico per Blending PTP-PTP con Interruttore di Configurazione
+
+Funzione Parametri Adattivi FIR + Funzione Pausa/Ripresa FIR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Panoramica
+++++++++++++++++++++++
+
+La funzione di configurazione adattiva dei parametri della modalità tempo-ottimale del robot elimina la necessità di eseguire il debug e la configurazione dei vari parametri. Questa funzione completa adattivamente la configurazione dei parametri per la modalità tempo-ottimale in base allo stato operativo corrente del robot, migliorando l'efficienza del debug.
+
+Procedura Operativa
+++++++++++++++++++++++
+
+L'utilizzo dei comandi di movimento di base PTP, LIN e ARC del robot è simile. Questo esempio utilizza il comando di movimento PTP in modalità tempo-ottimale come esempio principale.
+
+**Passo 1**: Nell'interfaccia di controllo Web del robot, fare clic su "Impostazioni Iniziali" -> "Sicurezza" -> "Configurazione Movimento" in sequenza per accedere all'interfaccia "Configurazione Movimento".
+
+.. image:: base/098.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.13-6 Interfaccia Configurazione Movimento
+
+**Passo 2**: Nell'interfaccia "Configurazione Movimento", fare clic sull'interruttore "Modalità Tempo-Ottimale" per accedere all'interfaccia "Modalità Tempo-Ottimale".
+
+.. image:: base/099.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 7.13-7 Interfaccia Modalità Tempo-Ottimale
+
+.. note:: Nella sezione "Configurazione Parametri" dell'interfaccia "Modalità Tempo-Ottimale", il "Coefficiente di Regolazione" può essere impostato da -100 a 100, rappresentando un fattore di scala utilizzato per controllare il grado di ottimizzazione temporale dei comandi di movimento. Il valore predefinito è 1.
+
+**Passo 3**: Determinare i punti di insegnamento per eseguire il movimento PTP. Questo esempio utilizza "A0" ~ "A5" come nomi dei punti di insegnamento.
+
+**Passo 4**: Nell'interfaccia di controllo Web del robot, fare clic su "Teach Program" -> "Programmazione Programmi" in sequenza per accedere all'interfaccia "Istruzioni di Movimento".
+
+.. image:: base/100.png
+   :width: 2in
+   :align: center
+
+.. centered:: Figura 7.13-8 Interfaccia Istruzioni di Movimento
+
+**Passo 5**: Nell'interfaccia "Istruzioni di Movimento", fare clic su "Punto a Punto" per accedere all'interfaccia di modifica dell'istruzione "PTP". Selezionare il punto di insegnamento dal menu a tendina "Nome Punto", impostare il rapporto di velocità desiderato nel campo "Velocità di Debug", selezionare "Ferma" dal campo "In Questo Punto", selezionare "No" dal menu a tendina "Offset" e selezionare "Nessuno" dal campo "Protezione Movimento". Quindi fare clic su "Aggiungi".
+
+.. image:: base/101.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 7.13-9 Interfaccia di Modifica Istruzione di Movimento PTP
+
+**Passo 6**: Nell'interfaccia di modifica dell'istruzione di movimento "PTP", fare clic su "Applica" per generare automaticamente il programma LUA corrispondente.
+
+.. image:: base/102.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 7.13-10 Programma LUA Tipico per Movimento PTP in Modalità Tempo-Ottimale
+
+.. note:: 
+   Il programma LUA tipico per il movimento PTP in modalità tempo-ottimale non è diverso da un programma LUA per movimento PTP regolare. La differenza è che la funzione "Modalità Tempo-Ottimale" è stata attivata nel Passo 2.
+
+   Quando l'interruttore della funzione "Modalità Tempo-Ottimale" è attivato, i comandi di movimento di base del robot PTP, LIN e ARC sono tutti in modalità tempo-ottimale. Disattivando l'interruttore della funzione "Modalità Tempo-Ottimale" in questa interfaccia, i comandi di movimento di base PTP, LIN e ARC torneranno al loro stato normale.
+   L'interruttore della funzione "Modalità Smussamento Accelerazione" non può essere attivato contemporaneamente alla modalità tempo-ottimale in questa interfaccia.

@@ -2127,6 +2127,218 @@ Realizza la funzione di velocità regolabile per la riproduzione del tracciament
 
 .. centered:: Grafico 9.8-4 Interfaccia istruzione LT-Rec
 
+Riproduzione della Traiettoria di Scansione Laser con Tessitura Sovrapposta
+****************************************************************************************************************
+
+Panoramica
+""""""""""""""""""""""""""""""""""""""""""""""""
+La funzione di riproduzione della traiettoria di scansione laser con tessitura sovrapposta si riferisce alla sovrapposizione di onde triangolari / onde triangolari a L verticale / onde circolari in senso orario / onde circolari in senso antiorario / onde sinusoidali / onde sinusoidali a L verticale / onde triangolari per saldatura verticale durante la riproduzione della traiettoria di scansione laser. Supporta sia la tessitura regolare che la tessitura a punti fissi, e può essere adattata al movimento degli assi estesi, come mostrato nella Tabella 1-1.
+
+.. centered:: Tabella 9.8-1 Modalità di Riproduzione della Traiettoria di Scansione Laser con Tessitura Sovrapposta
+
+.. list-table::
+   :widths: 40 30 30
+   :header-rows: 0
+   :align: center
+
+   * - **Riproduzione Traiettoria**
+     - **Tessitura Regolare**
+     - **Tessitura a Punti Fissi**
+
+   * - Robot
+     - Sì
+     - Sì
+
+   * - Asse Esteso
+     - No
+     - Sì
+
+Riproduzione della Traiettoria di Scansione Laser con Tessitura Regolare Sovrapposta
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Passo 1**: Configurare il sensore laser lineare tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 2**: Calibrare il sistema di coordinate dell'utensile tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 3**: Calibrare il sistema di coordinate del sensore tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 4**: Insegnare i punti di movimento tramite WebApp. Insegnare i punti di movimento per la riproduzione della traiettoria di scansione laser del pezzo target e scrivere il programma LUA di base per i corrispondenti comandi di movimento LIN del robot. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 5**: Configurare il numero dei parametri di tessitura tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 6**: Comando di registrazione laser. Nell'interfaccia principale di WebApp, fare clic su "Teach Program" -> "Programmazione Programmi" per accedere all'area "Comandi Saldatura".
+
+.. image:: coding/609.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-4-1 Area "Comandi Saldatura"
+ 
+**Passo 7**: Avviare la registrazione laser. Nell'area "Comandi Saldatura", fare clic sul pulsante "Registrazione Laser" per accedere all'area di configurazione del comando "LT-Rec".
+
+Nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Registrazione Dati Saldatura", selezionare l'opzione "Avvia Registrazione" dal menu a tendina "Selezione Funzione"; impostare il tempo di registrazione con ritardo nel campo di input "Tempo di Ritardo".
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di avvio registrazione laser.
+
+.. image:: coding/610.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-2 Avvio Registrazione Laser
+
+**Passo 8**: Arrestare la registrazione laser. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Registrazione Dati Saldatura", selezionare l'opzione "Arresta Registrazione" dal menu a tendina "Selezione Funzione"; impostare il tempo di registrazione con ritardo nel campo di input "Tempo di Ritardo".
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di arresto registrazione laser.
+
+.. image:: coding/611.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-3 Arresto Registrazione Laser
+
+**Passo 9**: Muovere al punto di saldatura. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Muovi a Punto Saldatura", selezionare la modalità di movimento "PTP" o "LIN" dal menu a tendina "Modalità Movimento"; impostare la velocità del comando nel campo di input "Velocità"; fare clic sul pulsante "Inizio" o "Fine" per selezionare il punto di movimento target.
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione.
+
+.. image:: coding/612.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-4 Muovi a Punto Saldatura
+
+**Passo 10**: Riproduzione traiettoria laser. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Registrazione Dati Saldatura", selezionare l'opzione "Riproduzione Traiettoria" dal menu a tendina "Selezione Funzione"; impostare il tempo di registrazione con ritardo nel campo di input "Tempo di Ritardo"; impostare la velocità del comando nel campo di input "Velocità".
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di riproduzione traiettoria laser.
+
+.. image:: coding/613.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-5 Riproduzione Traiettoria Laser
+
+**Passo 11**: Sovrapporre tessitura regolare. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Riproduzione Tracciamento Laser", selezionare l'opzione "Tessitura Regolare" dal menu a tendina "Sovrapponi Tessitura"; selezionare il numero dei parametri di tessitura configurato dal menu a tendina "Seleziona Numero" dal Passo 5.
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di sovrapposizione tessitura regolare.
+
+.. image:: coding/614.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-6 Sovrapponi Tessitura Regolare
+
+**Passo 12**: Scrivere il programma LUA per la riproduzione della traiettoria di scansione laser + tessitura regolare. Regolare l'ordine dei comandi LUA generati dal Passo 4 al Passo 11 ed eseguire il programma LUA per implementare la funzione di riproduzione della traiettoria di scansione laser con tessitura regolare sovrapposta.
+
+.. image:: coding/615.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-7 Programma LUA per Riproduzione Traiettoria di Scansione Laser con Tessitura Regolare Sovrapposta
+
+Riproduzione della Traiettoria di Scansione Laser con Tessitura a Punti Fissi Sovrapposta
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Passo 1**: Configurare il sensore laser lineare tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 2**: Configurare l'asse esteso tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 3**: Calibrare il sistema di coordinate dell'utensile tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 4**: Calibrare il sistema di coordinate del sensore tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 5**: Insegnare i punti di movimento tramite WebApp. Insegnare i punti di movimento per la riproduzione della traiettoria di scansione laser del pezzo target e scrivere il programma LUA di base per i corrispondenti comandi di movimento LIN del robot e movimento asincrono dell'asse esteso. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 6**: Configurare il numero dei parametri di tessitura tramite WebApp. Per i dettagli operativi di questa funzione, fare riferimento ai capitoli corrispondenti del manuale utente.
+
+**Passo 7**: Comando di registrazione laser. Nell'interfaccia principale di WebApp, fare clic su "Teach Program" -> "Programmazione Programmi" per accedere all'area "Comandi Saldatura".
+
+.. image:: coding/616.png
+   :width: 4in
+   :align: center
+
+.. centered:: Figura 9.8-4-8 Area "Comandi Saldatura"
+
+**Passo 8**: Avviare la registrazione laser. Nell'area "Comandi Saldatura", fare clic sul pulsante "Registrazione Laser" per accedere all'area di configurazione del comando "LT-Rec".
+
+Nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Registrazione Dati Saldatura", selezionare l'opzione "Avvia Registrazione" dal menu a tendina "Selezione Funzione"; impostare il tempo di registrazione con ritardo nel campo di input "Tempo di Ritardo".
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di avvio registrazione laser.
+
+.. image:: coding/617.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-9 Avvio Registrazione Laser
+ 
+**Passo 9**: Arrestare la registrazione laser. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Registrazione Dati Saldatura", selezionare l'opzione "Arresta Registrazione" dal menu a tendina "Selezione Funzione"; impostare il tempo di registrazione con ritardo nel campo di input "Tempo di Ritardo".
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di arresto registrazione laser.
+
+.. image:: coding/618.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-10 Arresto Registrazione Laser
+  
+**Passo 10**: Muovere al punto di saldatura. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Muovi a Punto Saldatura", selezionare la modalità di movimento "PTP" o "LIN" dal menu a tendina "Modalità Movimento"; impostare la velocità del comando nel campo di input "Velocità"; fare clic sul pulsante "Inizio" o "Fine" per selezionare il punto di movimento target.
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione.
+
+.. image:: coding/619.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-11 Muovi a Punto Saldatura
+  
+**Passo 11**: Riproduzione traiettoria laser. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Registrazione Dati Saldatura", selezionare l'opzione "Riproduzione Traiettoria" dal menu a tendina "Selezione Funzione"; impostare il tempo di registrazione con ritardo nel campo di input "Tempo di Ritardo"; impostare la velocità del comando nel campo di input "Velocità".
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di riproduzione traiettoria laser.
+
+.. image:: coding/620.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-12 Riproduzione Traiettoria Laser
+  
+**Passo 12**: Sovrapporre tessitura a punti fissi. Nell'area di configurazione del comando "LT-Rec", nell'area di configurazione "Tipo Comando", fare clic sul pulsante "Riproduzione Tracciamento Laser", selezionare l'opzione "Tessitura a Punti Fissi" dal menu a tendina "Sovrapponi Tessitura"; selezionare il numero dei parametri di tessitura configurato dal menu a tendina "Seleziona Numero" dal Passo 6.
+
+Selezionare l'opzione "Punto di Riferimento" dal menu a tendina "Riferimento Tessitura"; selezionare il punto di riferimento dal menu a tendina "Punto di Riferimento".
+
+Nell'area di configurazione del comando "LT-Rec", fare clic sul pulsante "Aggiungi". Il riquadro "Anteprima Programma" mostrerà il programma LUA pre-generato. Fare clic su "Applica" per completare l'operazione di sovrapposizione tessitura regolare.
+
+.. image:: coding/621.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-13 Riferimento Tessitura come Punto di Riferimento con Tessitura a Punti Fissi Sovrapposta
+
+.. note:: Nota: Quando l'opzione "Punto di Riferimento" è selezionata nel menu a tendina "Riferimento Tessitura", la direzione di avanzamento del robot è la direzione della linea che collega il punto corrente e il punto di riferimento, e il punto corrente e il punto di riferimento devono trovarsi negli stessi sistemi di coordinate utensile e pezzo.
+
+Quando l'opzione "Sistema di Coordinate Utensile" è selezionata nel menu a tendina "Riferimento Tessitura", la direzione di avanzamento del robot è la direzione dell'asse X del sistema di coordinate utensile corrente.
+
+.. image:: coding/622.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.8-4-14 Riferimento Tessitura come Sistema di Coordinate Utensile con Tessitura a Punti Fissi Sovrapposta
+ 
+**Passo 13**: Scrivere il programma LUA per la riproduzione della traiettoria di scansione laser + tessitura a punti fissi. Regolare l'ordine dei comandi LUA generati dal Passo 5 al Passo 13 ed eseguire il programma LUA per implementare la funzione di riproduzione della traiettoria di scansione laser con tessitura a punti fissi sovrapposta.
+
+.. note:: Nota: Rispetto al programma LUA, il programma LUA per la riproduzione della traiettoria di scansione laser con tessitura a punti fissi sovrapposta non include il comando MoveLTR(), e l'ultimo parametro (tempo di tessitura) del comando OriginPointWeaveStartt() generato di default deve essere modificato in qualsiasi valore intero non negativo maggiore di 0. Durante il funzionamento del robot, il controller convertirà automaticamente questo parametro nel tempo di esecuzione effettivo della traiettoria riprodotta.
+
+.. image:: coding/623.png
+   :width: 6in
+   :align: center
+
+.. centered:: (a) Riferimento Tessitura come Punto di Riferimento
+
+.. image:: coding/624.png
+   :width: 6in
+   :align: center
+
+.. centered:: (b) Riferimento Tessitura come Sistema di Coordinate Utensile
+
+.. centered:: Figura 9.8-4-15 Programma LUA per Riproduzione Traiettoria di Scansione Laser con Tessitura a Punti Fissi Sovrapposta
+
 Comando ricerca posizione filo saldatura
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -2796,36 +3008,86 @@ Questa istruzione include otto comandi: FT_Guard (rilevamento collisione), FT_Co
 
 .. centered:: Grafico 9.9-1 Interfaccia istruzione F/T
 
-Funzione di Ottimizzazione dell'Inserimento Rotazionale a Controllo di Forza
-****************************************************************************************
+Ottimizzazione del Pacchetto Processo di Assemblaggio con Controllo di Forza
+*************************************************
 
 Panoramica
-""""""""""""""""""""""""""""""""""
-La funzione di inserimento rotazionale a controllo di forza è generalmente utilizzata per eseguire azioni di inserimento rotazionale. Prima di eseguire l'azione, è necessario spostare l'estremità del robot nella posizione del foro insegnato completamente allineata. In base allo scenario applicativo, impostare i parametri di movimento corrispondenti e la strategia di gestione per la mancata rilevazione della forza esterna. Al termine, se la forza esterna rilevata non raggiunge la soglia impostata, l'utente può scegliere autonomamente di interrompere l'intero programma (funzione configurata come "Errore", l'interfaccia visualizza un errore rosso) o di continuare il movimento (funzione configurata come "Avviso", l'interfaccia visualizza un avviso giallo).
+""""""""""""""""""""""""""""""""""""
+Le funzioni di inserimento elicoidale e di inserimento lineare con controllo di forza sono generalmente utilizzate per operazioni di ricerca foro e inserimento in assemblaggio, mentre la funzione di posizionamento superficiale è generalmente utilizzata per localizzare superfici nello spazio cartesiano. In base allo scenario applicativo, impostare i parametri di movimento corrispondenti e la strategia di gestione per quando non viene rilevata alcuna forza esterna. Quando la forza esterna rilevata al termine non raggiunge la soglia impostata, l'utente può scegliere di arrestare l'intero programma (configurato come "Errore", con un errore rosso visualizzato sull'interfaccia), o scegliere di continuare il movimento (configurato come "Avviso", con un avviso giallo visualizzato sull'interfaccia).
 
-Processo Operativo
-""""""""""""""""""""""""""""""""""""""""
-**Step1**: Fare clic in sequenza su "Programma di insegnamento" -> "Programmazione programma" -> "Set controllo di forza" -> istruzione "Rot". Impostare i parametri di movimento corrispondenti in base allo scenario applicativo effettivo. La strategia di gestione per la mancata rilevazione della forza esterna può essere impostata su "Errore" o "Avviso". Quando configurato come "Errore", se il robot rileva che la forza esterna è sempre inferiore alla soglia impostata e l'angolo di rotazione impostato è stato raggiunto, verrà segnalato un errore sull'interfaccia e l'esecuzione del programma successivo verrà interrotta. Quando configurato come "Avviso", se il robot rileva che la forza esterna è sempre inferiore alla soglia impostata e l'angolo di rotazione impostato è stato raggiunto, verrà visualizzato un avviso sull'interfaccia e l'esecuzione del programma successivo continuerà.
+Procedura Operativa per l'Ottimizzazione dell'Inserimento Elicoidale con Controllo di Forza
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+**Passo 1**: Fare clic su "Teach Program" -> "Programmazione Programmi" -> "Insieme Controllo Forza" -> comando "Rot" in sequenza. Impostare i parametri di movimento corrispondenti in base allo scenario applicativo effettivo. La strategia di gestione per quando non viene rilevata alcuna forza esterna può essere impostata su "Errore" o "Avviso". Quando configurato come "Errore", se il robot rileva che la forza esterna è sempre stata al di sotto della soglia impostata e l'angolo di rotazione impostato è stato raggiunto, verrà visualizzato un errore sull'interfaccia e l'esecuzione dei programmi successivi si fermerà. Quando configurato come "Avviso", se il robot rileva che la forza esterna è sempre stata al di sotto della soglia impostata e l'angolo di rotazione impostato è stato raggiunto, verrà visualizzato un avviso sull'interfaccia e l'esecuzione dei programmi successivi continuerà.
 
 .. image:: coding/531.png
    :width: 3in
    :align: center
 
-.. centered:: Figura 9.9-2 Configurazione parametri inserimento rotazionale a controllo di forza
+.. centered:: Figura 9.9-2 Configurazione Parametri Inserimento Rotazionale con Controllo di Forza
 
-**Step2**: La funzione di inserimento rotazionale a controllo di forza deve essere combinata con la funzione "FT_Control" per il movimento, con gli stessi parametri di movimento impostati. I tipici programmi Lua con la strategia di gestione per la mancata rilevazione della forza esterna impostata su "Errore" e "Avviso" sono mostrati nelle figure seguenti rispettivamente.
+**Passo 2**: La funzione di inserimento rotazionale con controllo di forza deve essere utilizzata insieme alla funzione "FT_Control" per il movimento. Impostare gli stessi parametri di movimento. I programmi LUA tipici con la strategia di gestione per assenza di forza esterna impostata su "Errore" o "Avviso" sono mostrati rispettivamente nelle figure.
 
 .. image:: coding/532.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 9.9-3 Programma Lua tipico configurato come "Errore"
+.. centered:: Figura 9.9-3 Programma LUA Tipico Configurato come "Errore"
 
 .. image:: coding/533.png
    :width: 6in
    :align: center
 
-.. centered:: Figura 9.9-4 Programma Lua tipico configurato come "Avviso"
+.. centered:: Figura 9.9-4 Programma LUA Tipico Configurato come "Avviso"
+
+Procedura Operativa per l'Ottimizzazione dell'Inserimento Lineare con Controllo di Forza
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Passo 1**: Fare clic su "Teach Program" -> "Programmazione Programmi" -> "Insieme Controllo Forza" -> comando "Lin" in sequenza. Impostare i parametri di movimento corrispondenti in base allo scenario applicativo effettivo. La strategia di gestione per quando non viene rilevata alcuna forza esterna può essere impostata su "Errore" o "Avviso". Quando configurato come "Errore", se il robot rileva che la forza esterna è sempre stata al di sotto della soglia impostata e la distanza di inserimento impostata è stata raggiunta, verrà visualizzato un errore sull'interfaccia e l'esecuzione dei programmi successivi si fermerà. Quando configurato come "Avviso", se il robot rileva che la forza esterna è sempre stata al di sotto della soglia impostata e la distanza di inserimento impostata è stata raggiunta, verrà visualizzato un avviso sull'interfaccia e l'esecuzione dei programmi successivi continuerà. Come mostrato in Figura 3-1.
+
+.. image:: coding/603.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.9-5 Configurazione Parametri Inserimento Lineare con Controllo di Forza
+
+**Passo 2**: La funzione di inserimento lineare con controllo di forza deve essere utilizzata insieme alla funzione "FT_Control" per il movimento. Impostare gli stessi parametri di movimento. I programmi LUA tipici con la strategia di gestione per assenza di forza esterna impostata su "Errore" o "Avviso" sono mostrati rispettivamente in Figura 3-2 e Figura 3-3.
+
+.. image:: coding/604.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.9-6 Programma LUA Tipico Configurato come "Errore"
+
+.. image:: coding/605.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.9-6 Programma LUA Tipico Configurato come "Avviso"
+
+Procedura Operativa per l'Ottimizzazione del Posizionamento Superficiale con Controllo di Forza
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Passo 1**: Fare clic su "Teach Program" -> "Programmazione Programmi" -> "Insieme Controllo Forza" -> comando "FindSurface" in sequenza. Impostare i parametri di movimento corrispondenti in base allo scenario applicativo effettivo. La strategia di gestione per quando non viene rilevata alcuna forza esterna può essere impostata su "Errore" o "Avviso". Quando configurato come "Errore", se il robot rileva che la forza esterna è sempre stata al di sotto della soglia impostata e la distanza di ricerca impostata è stata raggiunta, verrà visualizzato un errore sull'interfaccia e l'esecuzione dei programmi successivi si fermerà. Quando configurato come "Avviso", se il robot rileva che la forza esterna è sempre stata al di sotto della soglia impostata e la distanza di ricerca impostata è stata raggiunta, verrà visualizzato un avviso sull'interfaccia e l'esecuzione dei programmi successivi continuerà. Come mostrato in Figura 4-1.
+
+.. image:: coding/606.png
+   :width: 3in
+   :align: center
+
+.. centered:: Figura 9.9-7 Configurazione Parametri Posizionamento Superficiale con Controllo di Forza
+
+**Passo 2**: La funzione di posizionamento superficiale con controllo di forza deve essere utilizzata insieme alla funzione "FT_Control" per il movimento. Impostare gli stessi parametri di movimento. I programmi LUA tipici con la strategia di gestione per assenza di forza esterna impostata su "Errore" o "Avviso" sono mostrati rispettivamente in Figura 4-2 e Figura 4-3.
+
+.. image:: coding/607.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.9-8 Programma LUA Tipico Configurato come "Errore"
+
+.. image:: coding/608.png
+   :width: 6in
+   :align: center
+
+.. centered:: Figura 9.9-9 Programma LUA Tipico Configurato come "Avviso"
 
 Comando registrazione coppia
 ++++++++++++++++++++++++++++++++++

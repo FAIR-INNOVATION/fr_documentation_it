@@ -1,3 +1,41 @@
+Versione V3.9.9
+-----------------
+
+Data: 2026-09-01
+
+- **Ottimizzato il pacchetto processo di assemblaggio con controllo di forza**:
+    Percorso: Teach Program -> Comandi Controllo Forza.
+
+    Descrizione: Migliorata l'usabilità e l'affidabilità del processo.
+
+- **Ottimizzata la configurazione degli slave dinamici della stazione master IGH**:
+
+    Descrizione: Migliorata la compatibilità multi-modello e la comodità di manutenzione.
+
+- **Aggiunta l'estensione della funzione di trascinamento con impedenza articolare per più modelli**:
+    Percorso: Applicazioni Ausiliarie -> Blocco Trascinamento.
+
+    Descrizione: Aggiunto il supporto alla funzione di trascinamento per i modelli FR3-WML, FR3-WMS, FR3-C e FR5-C.
+
+- **Aggiunta la funzione di verifica della configurazione di sicurezza**:
+    Percorso: Impostazioni Iniziali -> Sicurezza.
+
+    Descrizione: Rifacimento della pagina di sicurezza, verifica della password di configurazione di sicurezza, verifica della legalità della configurazione e generazione di report PDF di sicurezza.
+
+- **Aggiunto l'adattamento completo del sensore di forza a sei assi Kaiwei**:
+    Percorso: Impostazioni Iniziali -> Periferiche -> Sensore di Forza.
+
+    Descrizione: Aggiunto l'adattamento del sensore di forza KWL.
+
+- **Aggiunto il supporto alla funzione di tessitura per la riproduzione della scansione laser**:
+    Percorso: Programmazione Programmi -> Registrazione Laser -> Comando Riproduzione Tracciamento Laser.
+
+    Descrizione: Migliorata l'adattabilità del processo di saldatura laser e la qualità della saldatura.
+
+- **Aggiunta la diagnosi di salute del link fisico dello stack protocollo IGH**:
+
+    Descrizione: Aggiunta la funzione di lettura e la visualizzazione nell'interfaccia per una rapida localizzazione dei problemi del bus.
+
 Versione V3.9.8
 -----------------
 

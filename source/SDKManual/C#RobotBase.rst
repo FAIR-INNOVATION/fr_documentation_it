@@ -182,6 +182,14 @@ Esempio di codice
         robot.Mode(0);
         Thread.Sleep(1000);
         robot.Mode(1);
+        
+        rtn = robot.HiSpeedManualSwitch(1);
+        Console.WriteLine($"change high speed mode {rtn}");
+        Thread.Sleep(10000);
+
+        rtn = robot.HiSpeedManualSwitch(0);
+        Console.WriteLine($"change low speed mode {rtn}");
+        Thread.Sleep(1000);
     }
 
 Inizializzare i parametri del log
@@ -296,3 +304,15 @@ Esempio di codice
         Console.WriteLine($"Firm driver6 Version  is: {ver[17]}");
         Console.WriteLine($"Firm end Version  is: {ver[18]}");
     }
+
+Passaggio alla Modalità Manuale ad Alta Velocità
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: c#
+    :linenos:
+
+    /**
+    * @brief Passaggio alla modalità manuale ad alta velocità
+    * @param [in] state 0-uscire dalla modalità manuale ad alta velocità; 1-entrare nella modalità manuale ad alta velocità
+    * @return Codice errore
+    */
+    public int HiSpeedManualSwitch(int state)    

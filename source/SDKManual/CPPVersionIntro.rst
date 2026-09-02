@@ -13,6 +13,21 @@ Note di Aggiornamento Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.9
+     - 2026-09-01
+     - | 1. Modificata la descrizione dei parametri dell'interfaccia GetGripperMotionDone() per ottenere lo stato della pinza, aggiornata la definizione dello stato della pinza;
+       | 2. Modificata GetInverseKinExaxis(), l'interfaccia di soluzione cinematica inversa che include le posizioni degli assi estesi, aggiunti parametri di configurazione dei giunti con valore predefinito -1 che fa riferimento alla configurazione corrente dei giunti;
+       | 3. Modificate le interfacce di controllo di forza FT_SpiralSearch(), FT_LinInsertion() e FT_FindSurface() per aggiungere parametri di strategia di gestione per quando non viene rilevata forza/coppia;
+       | 4. Modificate le descrizioni dei parametri dell'interfaccia di configurazione della funzione CIO del box di controllo del robot SetDIConfig(), GetDIConfig(), SetDOConfig(), GetDOConfig(), aggiornati i nomi delle funzioni e i codici funzione appena aggiunti;
+       | 5. Modificati gli esempi di codice di controllo di base del robot, aggiunti esempi di codice per il passaggio alla modalità manuale ad alta velocità;
+       | 6. Aggiunto il comando ServoJ() per il movimento in modalità servo nello spazio dei giunti (ingresso multipunto) ed esempi di codice;
+       | 7. Aggiunto il comando GetSafetyParamsCheckSum() per ottenere il checksum dei parametri di configurazione di sicurezza, il comando SafetyOPPasswordCheck() per la verifica della password dell'operazione di sicurezza ed esempi di codice;
+       | 8. Aggiunto il comando GripperWaitMotionDone() per attendere il completamento del movimento della pinza ed esempi di codice;
+       | 9. Aggiunto il comando SetRobotTime() per sincronizzare l'ora di sistema con il robot ed esempi di codice;
+       | 10. Aggiunte le configurazioni SetSafetyDIConfig() per la funzione CI a doppio canale di sicurezza, SetSafetyDOConfig() per la funzione CO a doppio canale di sicurezza ed esempi di codice;
+       | 11. Aggiunto il comando HiSpeedManualSwitch() per il passaggio alla modalità manuale ad alta velocità;
+       | 12. Aggiunti esempi di codice per la sovrapposizione della tessitura durante la riproduzione della traiettoria del sensore laser;
+
    * - V3.9.8
      - 2026-07-27
      - | 1. Aggiornata la struttura di feedback dello stato del robot per includere lo stato di esecuzione del programma LUA corrente del robot: 0 - programma non in esecuzione; 1 - programma in esecuzione (incluso programma in pausa);

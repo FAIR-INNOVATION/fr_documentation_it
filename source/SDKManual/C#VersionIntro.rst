@@ -13,6 +13,26 @@ Note sulle Aggiornamenti di Versione
      - **Data**
      - **Descrizione Aggiornamento**
 
+   * - V3.9.9
+     - 2026-09-01
+     - | 1. Aggiornata l'interfaccia GetGripperMotionDone() per ottenere lo stato di movimento della pinza, aggiornata la definizione e l'ambito di utilizzo dei parametri di output dello stato della pinza;
+       | 2. Modificata GetInverseKinExaxis(), l'interfaccia di soluzione cinematica inversa che include le posizioni degli assi estesi, aggiunti parametri di configurazione dei giunti con valore predefinito -1 che fa riferimento alla configurazione corrente dei giunti;
+       | 3. Modificate le interfacce di controllo di forza FT_SpiralSearch(), FT_LinInsertion() e FT_FindSurface() per aggiungere parametri di strategia di gestione per quando non viene rilevata forza/coppia;
+       | 4. Modificate SetDIConfig(), GetDIConfig(), SetDOConfig(), GetDOConfig() CIO del box di controllo del robot;
+       | 5. Descrizioni dei parametri dell'interfaccia di configurazione delle funzioni aggiornate, aggiornati i nomi delle funzioni e i codici funzione appena aggiunti; aggiunta l'interfaccia GetSafetyParamsCheckSum() per ottenere il checksum dei parametri di configurazione di sicurezza;
+       | 6. Modificati gli esempi di codice di controllo di base del robot, aggiunti esempi di codice per il passaggio alla modalità manuale ad alta velocità;
+       | 7. Aggiunta l'interfaccia di verifica della password dell'operazione di sicurezza SafetyOPPasswordCheck();
+       | 8. Aggiunta l'interfaccia GripperWaitMotionDone() per attendere lo stato di movimento della pinza, supporta impostazioni di timeout e strategia (applicabile solo al protocollo aperto dell'end-effector);
+       | 9. Aggiunta l'interfaccia SetRobottime() per sincronizzare l'ora di sistema con il robot;
+       | 10. Aggiunta l'interfaccia ServoJ() per il movimento in modalità servo nello spazio dei giunti, supporta l'inserimento di più punti in una volta;
+       | 11. Aggiunti esempi di codice per la riproduzione della registrazione laser + tessitura regolare;
+       | 12. Aggiunti esempi di codice per la riproduzione della registrazione laser + movimento asincrono degli assi estesi + tessitura a punti fissi;
+       | 13. Aggiunta l'interfaccia di ricerca a spirale FT_SpiralSearch();
+       | 14. Aggiunta l'interfaccia HiSpeedManualSwitch() per il passaggio alla modalità manuale ad alta velocità;
+       | 15. Aggiunta l'interfaccia SetSafetyDIConfig() per la configurazione della funzione CI a doppio canale di sicurezza;
+       | 16. Aggiunta l'interfaccia SetSafetyDOConfig() per la configurazione della funzione CO a doppio canale di sicurezza;
+       | 17. Aggiunti esempi di verifica di impostazione-lettura-cancellazione della configurazione delle funzioni CI/CO a doppio canale di sicurezza.
+
    * - V3.9.8
      - 2026-07-27
      - | 1. Aggiornata la struttura di feedback dello stato del robot per includere lo stato di esecuzione del programma LUA corrente del robot: 0 - programma non in esecuzione; 1 - programma in esecuzione (incluso programma in pausa);
